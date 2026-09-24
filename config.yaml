@@ -1,0 +1,25 @@
+# Urth server configuration. Every field is optional; omitted fields use the
+# defaults in internal/config/config.go.
+
+server:
+  name: Urth
+  # Line-oriented TCP listener. Any MUD client (Mudlet, TinTin++, telnet) can connect.
+  telnet_addr: 127.0.0.1:4000
+  # WebSocket listener. Leave empty to disable. Arrives in milestone 3.
+  websocket_addr: ""
+
+timing:
+  # World loop period. Input is processed once per tick.
+  tick_ms: 100
+  # Length of a combat/regen round.
+  round_seconds: 3
+
+paths:
+  # Root directory for world, player, and script files.
+  data: data
+
+log:
+  # debug, info, warn, error
+  level: info
+  # text or json
+  format: text

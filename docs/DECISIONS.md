@@ -1,0 +1,64 @@
+# Decisions
+
+Short records of choices that shape the codebase. Add a new entry rather than
+editing an old one when a decision changes.
+
+## D1. Language: Go
+
+Connection count is not a MUD's bottleneck; the shared world tick is. Go gives
+a goroutine per socket, a small static binary, sub-10 MB idle memory, and
+second-long builds. Erlang's hot code loading is attractive but the actor model
+fights a shared mutable world. Rust slows the iteration this project depends on.
+
+## D2. One world goroutine
+
+All game state is owned by a single goroutine driven by a fixed tick
+(`timing.tick_ms`). Session goroutines only do I/O and hand lines to the world
+over a channel. The world never blocks on I/O and never iterates every player
+for a per-room event. This is the ROM/GoMud shape and avoids a class of
+concurrency bugs.
+
+## D3. Transport is thin and dictated by the world loop
+
+The world needs three things from a transport: inbound lines tagged with a
+session ID, an outbound byte queue per session, and connect/disconnect events.
+The TCP listener accepts raw text lines and strips telnet IAC sequences; it
+does not negotiate options. Nearly every MUD client works with this. WebSocket
+is a second transport behind the same interface (milestone 3).
+
+## D4. Structured events, rendered at the edge
+
+Game code emits structured events. Rendering to text (ANSI, prompts,
+perspective wording) happens in the transport layer. This keeps Telnet and a
+future web client thin and keeps game logic free of formatting.
+
+## D5. Data format: YAML, one file per entity
+
+Rooms, items, mobs, players, and config are YAML. Directory layout borrows from
+GoMud (`data/world/<area>/rooms/*.yaml`). Human-diffable, no database.
+
+## D6. Script engine: goja (JavaScript)
+
+Rules live in scripts, not Go, so balance changes never require a rebuild.
+goja chosen over gopher-lua for editor tooling and familiarity; GoMud's script
+API is a usable reference. Rule hook points are defined in milestone 6 with
+placeholder implementations before any real rules exist.
+
+## D7. Command vocabulary: ROM 2.4
+
+Command names and abbreviation behavior follow ROM 2.4 (`kill`, `wear`,
+`wield`, `recall`, prefix matching, `'` for say). Only the vocabulary is
+copied; no ROM code is used, because the Diku/Merc/ROM license is
+non-commercial and requires credits.
+
+## D8. Copyover is designed in early (milestone 4)
+
+Live iteration on engine code needs restart-without-disconnect. Sockets must
+be inheritable across exec and session state must be serializable. Retrofitting
+this is painful, so it lands before objects, mobs, or rules.
+
+## D9. Rules are deferred to milestone 8
+
+Everything through milestone 7 is rules-agnostic. Combat orchestration is built
+against a stub that returns damage 1. Balance work starts only once a
+simulator and hot-reloading scripts exist.
