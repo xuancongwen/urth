@@ -19,12 +19,20 @@ http://127.0.0.1:4001/ in a browser.
 - `internal/config/`  YAML configuration with defaults and validation
 - `internal/session/` the contract between transports and the world
 - `internal/output/`  structured messages, color tokens, ANSI/plain/HTML renderers
+- `internal/store/`   player records as YAML with bcrypt password hashes
+- `internal/copyover/` restart-in-place state and descriptor handoff
 - `internal/telnet/`  line-oriented TCP transport, tolerant of telnet negotiation
 - `internal/web/`     WebSocket transport and the embedded browser client
 - `internal/room/`    the static map, loaded from `data/world/<area>/rooms/*.yaml`
 - `internal/world/`   the single-goroutine game loop, players, and command table
 - `internal/version/` build metadata (set by the Makefile)
-- `data/`            world, players, scripts
+- `data/`            world, players (gitignored), scripts
+
+## Playing
+
+Create a character by typing a new name. The first character created on a
+server is an admin. Commands so far: look, exits, north/south/east/west/up/
+down, say (or '), who, color, save, password, quit. Admin: copyover, shutdown.
 - `docs/`            `MILESTONES.md` and `DECISIONS.md`
 
 ## License

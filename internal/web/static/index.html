@@ -52,25 +52,44 @@
   function system(text) { append(text + '\n', 'system'); }
 
   var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-  var ws = new WebSocket(proto + location.host + '/ws');
-  ws.onopen = function () { system('[connected]'); };
-  ws.onclose = function (e) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); prompt.textContent = ''; };
-  ws.onerror = function () { system('[connection error]'); };
-  ws.onmessage = function (e) {
-    var msgs = JSON.parse(e.data);
-    msgs.forEach(function (m) {
-      if (m.type === 'prompt') { prompt.textContent = m.text; return; }
-      if (m.type === 'room' && m.data) { document.title = m.data.name + ' - Urth'; }
-      append(m.html, m.type);
-    });
-  };
+  var ws = null;
+  var reconnectToken = null;   // set by a copyover notice; used once
+
+  function connect() {
+    var url = proto + location.host + '/ws' + (reconnectToken ? '?token=' + encodeURIComponent(reconnectToken) : '');
+    var resuming = !!reconnectToken;
+    reconnectToken = null;
+    ws = new WebSocket(url);
+    ws.onopen = function () { system(resuming ? '[reconnected]' : '[connected]'); };
+    ws.onclose = function (e) {
+      prompt.textContent = '';
+      if (reconnectToken) { system('[server restarting, reconnecting...]'); setTimeout(connect, 600); return; }
+      system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']');
+    };
+    ws.onerror = function () { if (reconnectToken) { setTimeout(connect, 1000); } };
+    ws.onmessage = function (e) {
+      var msgs = JSON.parse(e.data);
+      msgs.forEach(function (m) {
+        switch (m.type) {
+          case 'prompt': prompt.textContent = m.text; return;
+          case 'echo-off': input.type = 'password'; return;
+          case 'echo-on': input.type = 'text'; return;
+          case 'reconnect': reconnectToken = m.data && m.data.token; return;
+          case 'room': if (m.data) { document.title = m.data.name + ' - Urth'; } break;
+        }
+        append(m.html, m.type);
+      });
+    };
+  }
+  connect();
 
   input.addEventListener('keydown', function (ev) {
     if (ev.key === 'Enter') {
       var line = input.value;
-      if (ws.readyState !== WebSocket.OPEN) return;
+      if (!ws || ws.readyState !== WebSocket.OPEN) return;
       ws.send(line);
-      append('<span class="c-D">' + (prompt.textContent || '') + line.replace(/[&<>]/g, function (c) {
+      var shown = input.type === 'password' ? '' : line;
+      append('<span class="c-D">' + (prompt.textContent || '') + shown.replace(/[&<>]/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</span>\n');
       if (line) { history.push(line); if (history.length > 100) history.shift(); }
       hIndex = history.length;

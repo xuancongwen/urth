@@ -35,6 +35,8 @@ type Timing struct {
 	TickMs int `yaml:"tick_ms"`
 	// RoundSeconds is the combat/regen round length. Everything paced by rounds keys off this.
 	RoundSeconds int `yaml:"round_seconds"`
+	// AutosaveSeconds is how often every online player is written to disk.
+	AutosaveSeconds int `yaml:"autosave_seconds"`
 }
 
 // Paths locates on-disk data.
@@ -47,6 +49,9 @@ type Paths struct {
 type World struct {
 	// StartRoom is the vnum new characters enter the world in.
 	StartRoom int `yaml:"start_room"`
+	// FirstPlayerIsAdmin grants admin to the first character ever created,
+	// so a fresh server has someone who can copyover and shutdown.
+	FirstPlayerIsAdmin bool `yaml:"first_player_is_admin"`
 }
 
 // Log controls logging output.
@@ -66,14 +71,16 @@ func Default() Config {
 			WebSocketAddr: "",
 		},
 		Timing: Timing{
-			TickMs:       100,
-			RoundSeconds: 3,
+			TickMs:          100,
+			RoundSeconds:    3,
+			AutosaveSeconds: 300,
 		},
 		Paths: Paths{
 			Data: "data",
 		},
 		World: World{
-			StartRoom: 1,
+			StartRoom:          1,
+			FirstPlayerIsAdmin: true,
 		},
 		Log: Log{
 			Level:  "info",
@@ -112,6 +119,9 @@ func (c Config) Validate() error {
 	}
 	if c.Timing.RoundSeconds < 1 {
 		return fmt.Errorf("timing.round_seconds must be at least 1, got %d", c.Timing.RoundSeconds)
+	}
+	if c.Timing.AutosaveSeconds < 10 {
+		return fmt.Errorf("timing.autosave_seconds must be at least 10, got %d", c.Timing.AutosaveSeconds)
 	}
 	if c.Paths.Data == "" {
 		return errors.New("paths.data must be set")

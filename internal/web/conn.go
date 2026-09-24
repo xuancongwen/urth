@@ -90,9 +90,9 @@ func (c *conn) closeWith(reason string) {
 
 // readLoop turns each text frame into one input line. It emits Connected
 // first and Disconnected exactly once at the end.
-func (s *Server) readLoop(c *conn) {
+func (s *Server) readLoop(c *conn, token string) {
 	defer s.wg.Done()
-	s.events <- session.Connected{Conn: c}
+	s.events <- session.Connected{Conn: c, Token: token}
 
 	ctx := context.Background()
 	for {

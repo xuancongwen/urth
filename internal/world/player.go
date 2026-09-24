@@ -1,20 +1,28 @@
 package world
 
 import (
-	"strings"
-	"unicode"
-
 	"urth/internal/output"
 	"urth/internal/room"
 	"urth/internal/session"
+	"urth/internal/store"
 )
 
 // State is where a session is in its life.
 type State int
 
 const (
-	// StateLogin: connected, choosing a name.
-	StateLogin State = iota
+	// StateGetName: connected, choosing a name.
+	StateGetName State = iota
+	// StateGetOldPassword: existing character, awaiting password.
+	StateGetOldPassword
+	// StateConfirmNewName: new name typed, awaiting yes/no.
+	StateConfirmNewName
+	// StateGetNewPassword: new character, choosing a password.
+	StateGetNewPassword
+	// StateConfirmNewPassword: retyping the new password.
+	StateConfirmNewPassword
+	// StateBusy: waiting on off-goroutine work; input is ignored.
+	StateBusy
 	// StatePlaying: in the world.
 	StatePlaying
 )
@@ -23,15 +31,22 @@ const (
 // dropped rather than letting a client fill memory.
 const maxQueuedInput = 32
 
-// Player is a connected session and, once past login, a character. Accounts
-// and persistence arrive in milestone 4; for now a player is just a name.
+// Player is a connected session and, once past login, a character.
 type Player struct {
 	conn  session.Conn
 	State State
 	Name  string
+	Admin bool
 	Room  *room.Room
 	// Color is the player's color preference, honored by text transports.
 	Color bool
+
+	rec *store.Record
+
+	// Login scratch.
+	pendingName     string
+	pendingPassword string
+	passwordTries   int
 
 	input   []string
 	pending []output.Message
@@ -41,7 +56,7 @@ type Player struct {
 }
 
 func newPlayer(c session.Conn) *Player {
-	return &Player{conn: c, State: StateLogin, Color: true}
+	return &Player{conn: c, State: StateGetName, Color: true}
 }
 
 // Send queues a text message for delivery at the end of the tick. Text may
@@ -93,47 +108,4 @@ func (p *Player) dequeue() string {
 	line := p.input[0]
 	p.input = p.input[1:]
 	return line
-}
-
-// handleLogin is the milestone-2 stand-in for character creation: pick a
-// name, enter the world.
-func (w *World) handleLogin(p *Player, line string) {
-	name, ok := cleanName(line)
-	if !ok {
-		p.SendPrompt("Names are 3 to 12 letters. Try again: ")
-		return
-	}
-	for _, other := range w.players {
-		if other != p && other.Name == name {
-			p.SendPrompt(name + " is already playing. Choose another name: ")
-			return
-		}
-	}
-	start, ok := w.rooms.Get(w.cfg.World.StartRoom)
-	if !ok {
-		p.SendMsg(output.Message{Type: output.System, Text: "The world has no start room. Try again later.\n"})
-		p.disconnect()
-		return
-	}
-	p.Name = name
-	p.State = StatePlaying
-	p.Room = start
-	w.log.Info("logged in", "session", p.conn.ID(), "name", name)
-	p.Send("\nWelcome, " + name + ".\n\n")
-	w.act("$n has entered the game.", p, nil, "", toRoom)
-	w.look(p)
-}
-
-// cleanName validates and capitalises a chosen name.
-func cleanName(raw string) (string, bool) {
-	s := strings.TrimSpace(raw)
-	if len(s) < 3 || len(s) > 12 {
-		return "", false
-	}
-	for _, r := range s {
-		if r > unicode.MaxASCII || !unicode.IsLetter(r) {
-			return "", false
-		}
-	}
-	return strings.ToUpper(s[:1]) + strings.ToLower(s[1:]), true
 }

@@ -15,7 +15,19 @@ const (
 	Prompt Type = "prompt"
 	// System is server notices: shutdown, connection issues.
 	System Type = "system"
+	// EchoOff asks the client to stop echoing input (password entry).
+	EchoOff Type = "echo-off"
+	// EchoOn restores input echo.
+	EchoOn Type = "echo-on"
+	// Reconnect tells a client that cannot survive a copyover to reconnect
+	// with the token in Data (ReconnectData). Text clients ignore it.
+	Reconnect Type = "reconnect"
 )
+
+// ReconnectData accompanies a Reconnect message.
+type ReconnectData struct {
+	Token string `json:"token"`
+}
 
 // Message is one unit of output. Text uses brace color tokens (see color.go)
 // and "\n" line endings; transports translate both.

@@ -8,6 +8,7 @@ import (
 	"errors"
 	"log/slog"
 	"net"
+	"os"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -59,6 +60,33 @@ func (l *Listener) Listen() error {
 // Addr is the bound address, valid after Listen.
 func (l *Listener) Addr() net.Addr { return l.ln.Addr() }
 
+// SetListener adopts an already-bound socket, used after a copyover.
+func (l *Listener) SetListener(ln net.Listener) {
+	l.ln = ln
+	l.log.Info("telnet listening (inherited)", "addr", ln.Addr().String())
+}
+
+// File duplicates the listening socket for handoff to a new process.
+func (l *Listener) File() (*os.File, error) {
+	tl, ok := l.ln.(*net.TCPListener)
+	if !ok {
+		return nil, errors.New("listener is not TCP")
+	}
+	return tl.File()
+}
+
+// Adopt takes over an inherited client socket after a copyover and reports
+// it to the world as Connected with restore information.
+func (l *Listener) Adopt(nc net.Conn, restore *session.Restore) {
+	c := newConn(session.NextID(), nc)
+	l.mu.Lock()
+	l.conns[c.id] = c
+	l.mu.Unlock()
+	l.wg.Add(2)
+	go l.writeLoop(c)
+	go l.readLoop(c, restore)
+}
+
 // Serve accepts connections until ctx is cancelled. It returns after all
 // connection goroutines have exited.
 func (l *Listener) Serve(ctx context.Context) error {
@@ -103,7 +131,7 @@ func (l *Listener) Serve(ctx context.Context) error {
 		l.mu.Unlock()
 		l.wg.Add(2)
 		go l.writeLoop(c)
-		go l.readLoop(ctx, c)
+		go l.readLoop(c, nil)
 	}
 
 	l.wg.Wait()
@@ -133,6 +161,15 @@ func newConn(id session.ID, nc net.Conn) *conn {
 func (c *conn) ID() session.ID     { return c.id }
 func (c *conn) RemoteAddr() string { return c.nc.RemoteAddr().String() }
 
+// File duplicates the socket for copyover. Implements session.Filer.
+func (c *conn) File() (*os.File, error) {
+	tc, ok := c.nc.(*net.TCPConn)
+	if !ok {
+		return nil, errors.New("connection is not TCP")
+	}
+	return tc.File()
+}
+
 // Send renders a batch for a terminal and queues it without blocking. A
 // client that has fallen outboundBuffer batches behind is dropped.
 func (c *conn) Send(b output.Batch) {
@@ -161,9 +198,9 @@ func (c *conn) closeWith(reason string) {
 	})
 }
 
-func (l *Listener) readLoop(ctx context.Context, c *conn) {
+func (l *Listener) readLoop(c *conn, restore *session.Restore) {
 	defer l.wg.Done()
-	l.events <- session.Connected{Conn: c}
+	l.events <- session.Connected{Conn: c, Restore: restore}
 
 	lr := NewLineReader(c.nc)
 	for {

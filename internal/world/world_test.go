@@ -7,11 +7,18 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
+
+	"errors"
+
+	"golang.org/x/crypto/bcrypt"
 
 	"urth/internal/config"
+	"urth/internal/copyover"
 	"urth/internal/output"
 	"urth/internal/room"
 	"urth/internal/session"
+	"urth/internal/store"
 )
 
 // fakeConn is an in-memory session.Conn that records output rendered as
@@ -41,7 +48,18 @@ func (f *fakeConn) take() string {
 
 func testWorld(t *testing.T) *World {
 	t.Helper()
+	w, _ := testWorldWithStore(t, "")
+	return w
+}
+
+// testWorldWithStore builds a world; playerDir lets tests share a store
+// across two worlds to check persistence.
+func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
+	t.Helper()
 	dir := t.TempDir()
+	if playerDir == "" {
+		playerDir = filepath.Join(dir, "players")
+	}
 	rooms := map[string]string{
 		"1.yaml": "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
 		"2.yaml": "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n",
@@ -62,11 +80,34 @@ func testWorld(t *testing.T) *World {
 	cfg := config.Default()
 	cfg.Timing.TickMs = 100
 	cfg.Timing.RoundSeconds = 1
-	return New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)))
+	cfg.Timing.AutosaveSeconds = 10
+	st, err := store.New(playerDir, bcrypt.MinCost)
+	if err != nil {
+		t.Fatal(err)
+	}
+	w := New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Store: st})
+	return w, st
 }
 
-// login connects a fake client and names it, ticking as needed.
-func login(t *testing.T, w *World, id session.ID, name string) *fakeConn {
+// tickUntil ticks the world until the connection's output contains want or
+// the deadline passes. Login involves off-goroutine hashing, so tests must
+// wait for the posted result.
+func tickUntil(t *testing.T, w *World, c *fakeConn, want string) string {
+	t.Helper()
+	deadline := time.Now().Add(3 * time.Second)
+	for time.Now().Before(deadline) {
+		w.Tick()
+		if strings.Contains(c.out.String(), want) {
+			return c.take()
+		}
+		time.Sleep(5 * time.Millisecond)
+	}
+	t.Fatalf("never saw %q; output so far: %q", want, c.out.String())
+	return ""
+}
+
+// connect attaches a fake client and returns it after the greeting.
+func connect(t *testing.T, w *World, id session.ID) *fakeConn {
 	t.Helper()
 	c := &fakeConn{id: id}
 	w.Events() <- session.Connected{Conn: c}
@@ -74,12 +115,49 @@ func login(t *testing.T, w *World, id session.ID, name string) *fakeConn {
 	if !strings.Contains(c.take(), "By what name") {
 		t.Fatal("no greeting")
 	}
-	w.Events() <- session.Input{ID: id, Line: name}
-	w.Tick()
-	if out := c.take(); !strings.Contains(out, "Welcome, "+name) || !strings.Contains(out, "Hub") {
-		t.Fatalf("login output wrong: %q", out)
+	return c
+}
+
+// create walks a new character through the creation prompts.
+func create(t *testing.T, w *World, id session.ID, name, password string) *fakeConn {
+	t.Helper()
+	c := connect(t, w, id)
+	send(w, id, name)
+	if out := c.take(); !strings.Contains(out, "Did I get that right, "+name) {
+		t.Fatalf("no confirm prompt: %q", out)
+	}
+	send(w, id, "y")
+	if out := c.take(); !strings.Contains(out, "Give me a password") {
+		t.Fatalf("no password prompt: %q", out)
+	}
+	send(w, id, password)
+	if out := c.take(); !strings.Contains(out, "retype") {
+		t.Fatalf("no retype prompt: %q", out)
+	}
+	w.Events() <- session.Input{ID: id, Line: password}
+	if out := tickUntil(t, w, c, "Welcome, "+name); !strings.Contains(out, "Hub") {
+		t.Fatalf("creation output wrong: %q", out)
 	}
 	return c
+}
+
+// signin logs an existing character in.
+func signin(t *testing.T, w *World, id session.ID, name, password string) *fakeConn {
+	t.Helper()
+	c := connect(t, w, id)
+	send(w, id, name)
+	if out := c.take(); !strings.Contains(out, "Password: ") {
+		t.Fatalf("no password prompt: %q", out)
+	}
+	w.Events() <- session.Input{ID: id, Line: password}
+	tickUntil(t, w, c, "\n> ") // the in-game prompt: covers both login and reconnect
+	return c
+}
+
+// login creates a fresh character named name with a fixed password.
+func login(t *testing.T, w *World, id session.ID, name string) *fakeConn {
+	t.Helper()
+	return create(t, w, id, name, "secret5")
 }
 
 func send(w *World, id session.ID, line string) {
@@ -89,10 +167,7 @@ func send(w *World, id session.ID, line string) {
 
 func TestLoginRejectsBadNames(t *testing.T) {
 	w := testWorld(t)
-	c := &fakeConn{id: 1}
-	w.Events() <- session.Connected{Conn: c}
-	w.Tick()
-	c.take()
+	c := connect(t, w, 1)
 	for _, bad := range []string{"ab", "toolongofaname", "b0b", "bob smith"} {
 		send(w, 1, bad)
 		if out := c.take(); !strings.Contains(out, "3 to 12 letters") {
@@ -100,21 +175,270 @@ func TestLoginRejectsBadNames(t *testing.T) {
 		}
 	}
 	send(w, 1, "bob")
-	if out := c.take(); !strings.Contains(out, "Welcome, Bob") {
-		t.Fatalf("capitalised name not welcomed: %q", out)
+	if out := c.take(); !strings.Contains(out, "Did I get that right, Bob") {
+		t.Fatalf("capitalised name not offered: %q", out)
 	}
 }
 
-func TestDuplicateNameRefused(t *testing.T) {
+func TestCreationPromptsAndEcho(t *testing.T) {
+	w := testWorld(t)
+	c := connect(t, w, 1)
+	send(w, 1, "Bob")
+	send(w, 1, "maybe")
+	if out := c.take(); !strings.Contains(out, "Yes or No") {
+		t.Fatalf("bad confirm answer accepted: %q", out)
+	}
+	send(w, 1, "n")
+	if out := c.take(); !strings.Contains(out, "what IS it") {
+		t.Fatalf("no re-ask: %q", out)
+	}
+	send(w, 1, "Bob")
+	send(w, 1, "y")
+	c.take()
+	if last := c.batches[len(c.batches)-1]; last.Messages[0].Type != output.EchoOff {
+		t.Fatalf("echo not turned off for password: %+v", last.Messages)
+	}
+	send(w, 1, "abc")
+	if out := c.take(); !strings.Contains(out, "5 to 64") {
+		t.Fatalf("short password accepted: %q", out)
+	}
+	send(w, 1, "secret5")
+	send(w, 1, "different")
+	if out := c.take(); !strings.Contains(out, "don't match") {
+		t.Fatalf("mismatch accepted: %q", out)
+	}
+	send(w, 1, "secret5")
+	w.Events() <- session.Input{ID: 1, Line: "secret5"}
+	out := tickUntil(t, w, c, "Welcome, Bob")
+	if !strings.Contains(out, "made an admin") {
+		t.Fatalf("first player should be admin: %q", out)
+	}
+	echoOn := false
+	for _, b := range c.batches {
+		for _, m := range b.Messages {
+			if m.Type == output.EchoOn {
+				echoOn = true
+			}
+		}
+	}
+	if !echoOn {
+		t.Fatal("echo never restored")
+	}
+	if !w.players[1].Admin {
+		t.Fatal("player not flagged admin")
+	}
+}
+
+func TestPasswordCheckAndLockout(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	send(w, 1, "quit")
+	bob.take()
+
+	c := connect(t, w, 2)
+	send(w, 2, "bob")
+	c.take()
+	for i := 1; i <= 2; i++ {
+		w.Events() <- session.Input{ID: 2, Line: "wrong"}
+		if out := tickUntil(t, w, c, "Wrong password."); !strings.Contains(out, "Password: ") {
+			t.Fatalf("try %d: no re-prompt: %q", i, out)
+		}
+	}
+	w.Events() <- session.Input{ID: 2, Line: "wrong"}
+	tickUntil(t, w, c, "Goodbye")
+	if !c.closed {
+		t.Fatal("not disconnected after three failures")
+	}
+
+	d := signin(t, w, 3, "bob", "secret5")
+	if d.closed || w.players[3].State != StatePlaying {
+		t.Fatal("correct password did not log in")
+	}
+	if w.players[3].Admin != true {
+		t.Fatal("admin flag not loaded from record")
+	}
+	// The second character created is not an admin.
+	e := login(t, w, 4, "Alice")
+	if w.players[4].Admin {
+		t.Fatal("second player should not be admin")
+	}
+	_ = e
+}
+
+func TestPersistenceAcrossWorlds(t *testing.T) {
+	playerDir := filepath.Join(t.TempDir(), "players")
+	w1, _ := testWorldWithStore(t, playerDir)
+	bob := login(t, w1, 1, "Bob")
+	send(w1, 1, "north")
+	send(w1, 1, "color")
+	send(w1, 1, "quit")
+	bob.take()
+
+	w2, st := testWorldWithStore(t, playerDir)
+	rec, err := st.Load("Bob")
+	if err != nil || rec.Room != 2 || rec.Color {
+		t.Fatalf("saved record wrong: %+v err=%v", rec, err)
+	}
+	c := signin(t, w2, 1, "Bob", "secret5")
+	if p := w2.players[1]; p.Room.Vnum != 2 || p.Color {
+		t.Fatalf("restored state wrong: room=%d color=%v", p.Room.Vnum, p.Color)
+	}
+	_ = c
+}
+
+func TestReconnectTakesOverSession(t *testing.T) {
+	w := testWorld(t)
+	first := login(t, w, 1, "Bob")
+	send(w, 1, "north")
+	first.take()
+
+	second := signin(t, w, 2, "Bob", "secret5")
+	if !first.closed {
+		t.Fatal("old session not closed")
+	}
+	if out := first.out.String(); !strings.Contains(out, "reconnected from elsewhere") {
+		t.Fatalf("old session not told: %q", out)
+	}
+	if _, still := w.players[1]; still {
+		t.Fatal("old player not removed")
+	}
+	p := w.players[2]
+	if p.Room.Vnum != 2 || p.Name != "Bob" {
+		t.Fatalf("takeover lost state: room=%d name=%s", p.Room.Vnum, p.Name)
+	}
+	var all strings.Builder
+	for _, b := range second.batches {
+		b.Color = false
+		all.WriteString(output.RenderText(b))
+	}
+	if out := all.String(); !strings.Contains(out, "Reconnecting") || strings.Contains(out, "has left the game") {
+		t.Fatalf("new session output wrong: %q", out)
+	}
+}
+
+func TestChangePassword(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	send(w, 1, "password")
+	if out := bob.take(); !strings.Contains(out, "Syntax") {
+		t.Fatalf("no syntax help: %q", out)
+	}
+	w.Events() <- session.Input{ID: 1, Line: "password wrong newpass1"}
+	tickUntil(t, w, bob, "Nothing changed")
+	w.Events() <- session.Input{ID: 1, Line: "password secret5 newpass1"}
+	tickUntil(t, w, bob, "Password changed")
+	send(w, 1, "quit")
+	signin(t, w, 2, "Bob", "newpass1")
+}
+
+func TestAdminCommandsHiddenFromPlayers(t *testing.T) {
 	w := testWorld(t)
 	login(t, w, 1, "Bob")
-	c := &fakeConn{id: 2}
-	w.Events() <- session.Connected{Conn: c}
-	w.Tick()
-	c.take()
-	send(w, 2, "Bob")
-	if out := c.take(); !strings.Contains(out, "already playing") {
-		t.Fatalf("duplicate accepted: %q", out)
+	alice := login(t, w, 2, "Alice")
+	alice.take()
+	send(w, 2, "copyover")
+	if out := alice.take(); !strings.Contains(out, "Huh?") {
+		t.Fatalf("non-admin ran copyover: %q", out)
+	}
+	if c := lookup("shutdown", false); c != nil {
+		t.Fatal("shutdown visible to non-admin")
+	}
+	if c := lookup("shutdown", true); c == nil {
+		t.Fatal("shutdown hidden from admin")
+	}
+}
+
+func TestCopyoverStateAndTokenRestore(t *testing.T) {
+	playerDir := filepath.Join(t.TempDir(), "players")
+	w, _ := testWorldWithStore(t, playerDir)
+	var captured copyover.State
+	w.deps.Copyover = func(st copyover.State) error {
+		captured = st
+		return errors.New("exec refused in test")
+	}
+	w.deps.Listeners = func() []copyover.Listener { return []copyover.Listener{{Kind: "telnet", FD: 3}} }
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	send(w, 2, "north")
+	pending := connect(t, w, 3) // still at the name prompt
+	bob.take()
+	alice.take()
+
+	send(w, 1, "copyover")
+	if len(captured.Players) != 2 || captured.Listeners[0].FD != 3 {
+		t.Fatalf("state wrong: %+v", captured)
+	}
+	var aliceTok string
+	for _, cp := range captured.Players {
+		if cp.Kind != "web" || cp.Token == "" {
+			t.Fatalf("fake conns cannot hand over sockets; expected web token entries: %+v", cp)
+		}
+		if cp.Name == "Alice" {
+			aliceTok = cp.Token
+			if cp.Room != 2 {
+				t.Fatalf("alice room not captured: %+v", cp)
+			}
+		}
+	}
+	if !pending.closed {
+		t.Fatal("logging-in session should be closed on copyover")
+	}
+	if out := bob.take(); !strings.Contains(out, "Copyover failed") {
+		t.Fatalf("failure not reported: %q", out)
+	}
+	tokenSeen := false
+	for _, b := range alice.batches {
+		for _, m := range b.Messages {
+			if m.Type == output.Reconnect {
+				if d, ok := m.Data.(output.ReconnectData); ok && d.Token == aliceTok {
+					tokenSeen = true
+				}
+			}
+		}
+	}
+	if !tokenSeen {
+		t.Fatal("alice never received her reconnect token")
+	}
+
+	// Simulate the new process: tokens registered, alice reconnects with hers.
+	w2, _ := testWorldWithStore(t, playerDir)
+	w2.RegisterTokens(captured.Players)
+	c := &fakeConn{id: 9}
+	w2.Events() <- session.Connected{Conn: c, Token: aliceTok}
+	w2.Tick()
+	if out := c.take(); !strings.Contains(out, "Copyover complete") {
+		t.Fatalf("token restore failed: %q", out)
+	}
+	if p := w2.players[9]; p.State != StatePlaying || p.Name != "Alice" || p.Room.Vnum != 2 {
+		t.Fatalf("restored player wrong: %+v", p)
+	}
+	// A token is single use; a bad token gets the login prompt.
+	d := &fakeConn{id: 10}
+	w2.Events() <- session.Connected{Conn: d, Token: aliceTok}
+	w2.Tick()
+	if out := d.take(); !strings.Contains(out, "By what name") {
+		t.Fatalf("reused token accepted: %q", out)
+	}
+	// Inherited-socket restore path.
+	e := &fakeConn{id: 11}
+	w2.Events() <- session.Connected{Conn: e, Restore: &Restore{Name: "Bob", Room: 1}}
+	w2.Tick()
+	if out := e.take(); !strings.Contains(out, "Copyover complete") || w2.players[11].Name != "Bob" {
+		t.Fatalf("restore event failed: %q", out)
+	}
+}
+
+func TestAutosave(t *testing.T) {
+	w, st := testWorldWithStore(t, "")
+	login(t, w, 1, "Bob")
+	send(w, 1, "north")
+	// autosave every 10 rounds of 1s at 100ms ticks = 100 ticks
+	for i := 0; i < 100; i++ {
+		w.Tick()
+	}
+	rec, err := st.Load("Bob")
+	if err != nil || rec.Room != 2 {
+		t.Fatalf("autosave did not persist room: %+v %v", rec, err)
 	}
 }
 
@@ -278,16 +602,16 @@ func TestLookupPrefixOrder(t *testing.T) {
 	cases := map[string]string{
 		"n": "north", "s": "south", "e": "east", "w": "west", "u": "up", "d": "down",
 		"l": "look", "lo": "look", "ex": "exits", "sa": "say", "wh": "who", "qui": "quit",
-		"NORTH": "north",
+		"NORTH": "north", "sav": "save", "pass": "password",
 	}
 	for in, want := range cases {
-		c := lookup(in)
+		c := lookup(in, false)
 		if c == nil || c.name != want {
 			t.Errorf("lookup(%q) = %v, want %s", in, c, want)
 		}
 	}
-	for _, in := range []string{"q", "x", "", "e x"} {
-		if c := lookup(in); c != nil {
+	for _, in := range []string{"q", "x", "", "e x", "pas", "copyove"} {
+		if c := lookup(in, true); c != nil {
 			t.Errorf("lookup(%q) = %s, want nil", in, c.name)
 		}
 	}

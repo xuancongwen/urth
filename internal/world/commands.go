@@ -5,6 +5,7 @@ import (
 
 	"urth/internal/output"
 	"urth/internal/room"
+	"urth/internal/store"
 )
 
 // command is one entry in the dispatch table.
@@ -14,38 +15,45 @@ type command struct {
 	// ROM makes dangerous commands like quit require more than one letter.
 	minAbbrev int
 	fn        func(w *World, p *Player, args string)
+	// admin restricts the command to admin characters; non-admins get Huh?
+	admin bool
 }
 
 // commands is searched in order. Earlier entries win ties on prefix, which is
 // how "n" means north and not anything else starting with n. Keep movement
 // first, as ROM does.
 var commands = []command{
-	{"north", 1, cmdMove("north")},
-	{"east", 1, cmdMove("east")},
-	{"south", 1, cmdMove("south")},
-	{"west", 1, cmdMove("west")},
-	{"up", 1, cmdMove("up")},
-	{"down", 1, cmdMove("down")},
-	{"look", 1, cmdLook},
-	{"exits", 2, cmdExits},
-	{"say", 1, cmdSay},
-	{"who", 2, cmdWho},
-	{"color", 3, cmdColor},
-	{"quit", 3, cmdQuit},
+	{"north", 1, cmdMove("north"), false},
+	{"east", 1, cmdMove("east"), false},
+	{"south", 1, cmdMove("south"), false},
+	{"west", 1, cmdMove("west"), false},
+	{"up", 1, cmdMove("up"), false},
+	{"down", 1, cmdMove("down"), false},
+	{"look", 1, cmdLook, false},
+	{"exits", 2, cmdExits, false},
+	{"say", 1, cmdSay, false},
+	{"who", 2, cmdWho, false},
+	{"color", 3, cmdColor, false},
+	{"save", 2, cmdSave, false},
+	{"password", 4, cmdPassword, false},
+	{"quit", 3, cmdQuit, false},
+	{"copyover", 8, cmdCopyover, true},
+	{"shutdown", 8, cmdShutdown, true},
 }
 
-// lookup finds the command a typed word selects, or nil.
-func lookup(word string) *command {
+// lookup finds the command a typed word selects for a player, or nil.
+// Admin commands are invisible to non-admins.
+func lookup(word string, admin bool) *command {
 	word = strings.ToLower(word)
 	for i := range commands {
 		c := &commands[i]
-		if c.name == word {
+		if c.name == word && (admin || !c.admin) {
 			return c
 		}
 	}
 	for i := range commands {
 		c := &commands[i]
-		if len(word) >= c.minAbbrev && strings.HasPrefix(c.name, word) {
+		if len(word) >= c.minAbbrev && strings.HasPrefix(c.name, word) && (admin || !c.admin) {
 			return c
 		}
 	}
@@ -67,7 +75,7 @@ func (w *World) dispatch(p *Player, line string) {
 		word, args, _ = strings.Cut(line, " ")
 		args = strings.TrimSpace(args)
 	}
-	c := lookup(word)
+	c := lookup(word, p.Admin)
 	if c == nil {
 		p.Send("Huh?\n")
 		return
@@ -171,6 +179,50 @@ func cmdColor(_ *World, p *Player, _ string) {
 	} else {
 		p.Send("Color is now off.\n")
 	}
+}
+
+func cmdSave(w *World, p *Player, _ string) {
+	w.save(p)
+	p.Send("Saved.\n")
+}
+
+// cmdPassword changes the password: password <old> <new>. Both checks run
+// off the world goroutine.
+func cmdPassword(w *World, p *Player, args string) {
+	oldPw, newPw, _ := strings.Cut(args, " ")
+	newPw = strings.TrimSpace(newPw)
+	if oldPw == "" || newPw == "" {
+		p.Send("Syntax: password <old> <new>\n")
+		return
+	}
+	if len(newPw) < minPasswordLen || len(newPw) > maxPasswordLen {
+		p.Send("New password must be 5 to 64 characters.\n")
+		return
+	}
+	rec := p.rec
+	go func() {
+		if !store.CheckPassword(rec.PasswordHash, oldPw) {
+			w.post(func() {
+				if w.stillConnected(p) {
+					p.Send("Wrong password. Nothing changed.\n")
+				}
+			})
+			return
+		}
+		hash, err := w.store.HashPassword(newPw)
+		w.post(func() {
+			if !w.stillConnected(p) {
+				return
+			}
+			if err != nil {
+				p.Send("Something went wrong. Nothing changed.\n")
+				return
+			}
+			rec.PasswordHash = hash
+			w.save(p)
+			p.Send("Password changed.\n")
+		})
+	}()
 }
 
 func cmdQuit(_ *World, p *Player, _ string) {

@@ -14,6 +14,8 @@ timing:
   tick_ms: 100
   # Length of a combat/regen round.
   round_seconds: 3
+  # How often every online player is saved to disk.
+  autosave_seconds: 300
 
 paths:
   # Root directory for world, player, and script files.
@@ -22,6 +24,8 @@ paths:
 world:
   # Vnum of the room new characters start in.
   start_room: 1
+  # The first character ever created becomes an admin (copyover, shutdown).
+  first_player_is_admin: true
 
 log:
   # debug, info, warn, error

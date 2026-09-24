@@ -29,7 +29,7 @@ tokens. A minimal WebSocket transport to prove the core is transport-agnostic.
 
 **Done:** the same session works over Telnet and a bare web page.
 
-## 4. Persistence, accounts, and copyover `[ ]`
+## 4. Persistence, accounts, and copyover `[x]`
 
 Accounts with bcrypt passwords. Character creation as an explicit state
 machine. Player save/load as YAML. Autosave. Clean shutdown. Copyover: re-exec

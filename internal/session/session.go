@@ -4,6 +4,7 @@
 package session
 
 import (
+	"os"
 	"sync/atomic"
 
 	"urth/internal/output"
@@ -36,8 +37,27 @@ type Conn interface {
 // Event is something a transport tells the world about.
 type Event interface{ isEvent() }
 
-// Connected is emitted once when a client connects.
-type Connected struct{ Conn Conn }
+// Connected is emitted once when a client connects. After a copyover, a
+// transport that adopted an inherited socket sets Restore so the world can
+// re-attach the player without a login; a client reconnecting with a
+// copyover token sets Token instead and the world resolves it.
+type Connected struct {
+	Conn    Conn
+	Restore *Restore
+	Token   string
+}
+
+// Restore identifies a player to re-attach after a copyover.
+type Restore struct {
+	Name string
+	Room int
+}
+
+// Filer is implemented by connections whose socket can be handed to a new
+// process. The returned file is a duplicate descriptor; the caller owns it.
+type Filer interface {
+	File() (*os.File, error)
+}
 
 // Disconnected is emitted exactly once when a client goes away, whether it
 // hung up, errored, or was closed by the world.

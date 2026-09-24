@@ -84,3 +84,22 @@ color or markup.
 A player's messages accumulate during a tick and are delivered as one
 `output.Batch`, with the prompt appended last if there was output. One write
 per player per tick, and the prompt can never land mid-output.
+
+## D13. The character is the account
+
+As in ROM, a player file (`data/players/<name>.yaml`) holds the name, the
+bcrypt password hash, and the character's state together. There is no
+separate account object. If multi-character accounts are ever wanted, the
+record splits along an obvious seam. Password hashing and checking run on a
+helper goroutine and post their result back to the world loop, so a login
+never stalls the tick.
+
+## D14. Copyover inherits telnet sockets; web clients reconnect with a token
+
+Telnet sockets and both listening sockets are handed to the exec'd binary by
+clearing close-on-exec and passing descriptor numbers in a state file. A
+WebSocket connection carries framing state inside the library that cannot be
+reconstructed after exec, so those clients receive a single-use token and the
+browser page reconnects with it; the world re-attaches them without a login.
+Sessions still at the login prompts are closed. The first character created
+on a server is an admin so copyover and shutdown are reachable from day one.

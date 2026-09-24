@@ -12,6 +12,7 @@ import (
 	"log/slog"
 	"net"
 	"net/http"
+	"os"
 	"sync"
 	"time"
 
@@ -56,6 +57,21 @@ func (s *Server) Listen() error {
 
 // Addr is the bound address, valid after Listen.
 func (s *Server) Addr() net.Addr { return s.ln.Addr() }
+
+// SetListener adopts an already-bound socket, used after a copyover.
+func (s *Server) SetListener(ln net.Listener) {
+	s.ln = ln
+	s.log.Info("web listening (inherited)", "addr", ln.Addr().String())
+}
+
+// File duplicates the listening socket for handoff to a new process.
+func (s *Server) File() (*os.File, error) {
+	tl, ok := s.ln.(*net.TCPListener)
+	if !ok {
+		return nil, errors.New("listener is not TCP")
+	}
+	return tl.File()
+}
 
 // Serve runs until ctx is cancelled, then closes every socket and returns
 // once all connection goroutines have exited.
@@ -113,5 +129,5 @@ func (s *Server) handleWS(w http.ResponseWriter, r *http.Request) {
 	s.mu.Unlock()
 	s.wg.Add(2)
 	go s.writeLoop(c)
-	s.readLoop(c) // runs on the HTTP handler goroutine
+	s.readLoop(c, r.URL.Query().Get("token")) // runs on the HTTP handler goroutine
 }

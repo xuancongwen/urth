@@ -7,6 +7,7 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
+	"net"
 	"os"
 	"os/signal"
 	"path/filepath"
@@ -14,8 +15,13 @@ import (
 	"syscall"
 	"time"
 
+	"golang.org/x/crypto/bcrypt"
+
 	"urth/internal/config"
+	"urth/internal/copyover"
 	"urth/internal/room"
+	"urth/internal/session"
+	"urth/internal/store"
 	"urth/internal/telnet"
 	"urth/internal/version"
 	"urth/internal/web"
@@ -31,6 +37,7 @@ func main() {
 
 func run() error {
 	configPath := flag.String("config", "config.yaml", "path to the server configuration file")
+	copyoverPath := flag.String("copyover", "", "internal: copyover state file written by the previous process")
 	showVersion := flag.Bool("version", false, "print the version and exit")
 	flag.Parse()
 
@@ -57,6 +64,7 @@ func run() error {
 		"name", cfg.Server.Name,
 		"version", version.Version,
 		"commit", version.Commit,
+		"pid", os.Getpid(),
 		"telnet", cfg.Server.TelnetAddr,
 		"websocket", cfg.Server.WebSocketAddr,
 		"tick_ms", cfg.Timing.TickMs,
@@ -64,8 +72,7 @@ func run() error {
 		"data", cfg.Paths.Data,
 	)
 
-	worldDir := filepath.Join(cfg.Paths.Data, "world")
-	rooms, err := room.Load(worldDir)
+	rooms, err := room.Load(filepath.Join(cfg.Paths.Data, "world"))
 	if err != nil {
 		return fmt.Errorf("load world: %w", err)
 	}
@@ -74,30 +81,129 @@ func run() error {
 	}
 	logger.Info("world loaded", "areas", len(rooms.Areas), "rooms", len(rooms.Rooms))
 
+	players, err := store.New(filepath.Join(cfg.Paths.Data, "players"), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+
+	// A copyover state file means we were exec'd by a previous instance and
+	// should adopt its sockets instead of binding fresh ones.
+	var state copyover.State
+	if *copyoverPath != "" {
+		state, err = copyover.Read(*copyoverPath)
+		if err != nil {
+			return fmt.Errorf("copyover: %w", err)
+		}
+		logger.Info("copyover: resuming", "listeners", len(state.Listeners), "players", len(state.Players))
+	}
+
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	w := world.New(cfg, rooms, logger.With("component", "world"))
+	var (
+		tl *telnet.Listener
+		ws *web.Server
+	)
+	deps := world.Deps{
+		Store:    players,
+		Shutdown: stop,
+	}
+	statePath := filepath.Join(cfg.Paths.Data, "copyover.json")
+	deps.Copyover = func(st copyover.State) error {
+		if err := copyover.Write(statePath, st); err != nil {
+			return err
+		}
+		// Let the transports drain the "please hold" message before the
+		// process image is replaced.
+		time.Sleep(300 * time.Millisecond)
+		logger.Warn("copyover: exec", "players", len(st.Players), "listeners", len(st.Listeners))
+		return copyover.Exec(*configPath, statePath)
+	}
+	deps.Listeners = func() []copyover.Listener {
+		var out []copyover.Listener
+		add := func(kind string, f session.Filer) {
+			if f == nil {
+				return
+			}
+			file, err := f.File()
+			if err == nil {
+				err = copyover.Inherit(int(file.Fd()))
+			}
+			if err != nil {
+				logger.Error("copyover: cannot hand over listener", "kind", kind, "err", err)
+				return
+			}
+			out = append(out, copyover.Listener{Kind: kind, FD: int(file.Fd())})
+		}
+		if tl != nil {
+			add("telnet", tl)
+		}
+		if ws != nil {
+			add("web", ws)
+		}
+		return out
+	}
 
-	var wg sync.WaitGroup
+	w := world.New(cfg, rooms, logger.With("component", "world"), deps)
+	w.RegisterTokens(state.Players)
+
 	if cfg.Server.TelnetAddr != "" {
-		ln := telnet.NewListener(cfg.Server.TelnetAddr, w.Events(), logger.With("component", "telnet"))
+		tl = telnet.NewListener(cfg.Server.TelnetAddr, w.Events(), logger.With("component", "telnet"))
+	}
+	if cfg.Server.WebSocketAddr != "" {
+		ws = web.NewServer(cfg.Server.WebSocketAddr, w.Events(), logger.With("component", "web"))
+	}
+
+	// Adopt inherited sockets before serving so restored players are known
+	// to the world from its first tick.
+	for _, l := range state.Listeners {
+		ln, err := net.FileListener(os.NewFile(uintptr(l.FD), "listener"))
+		if err != nil {
+			logger.Error("copyover: adopt listener failed", "kind", l.Kind, "err", err)
+			continue
+		}
+		switch {
+		case l.Kind == "telnet" && tl != nil:
+			tl.SetListener(ln)
+		case l.Kind == "web" && ws != nil:
+			ws.SetListener(ln)
+		default:
+			ln.Close()
+		}
+	}
+	for _, cp := range state.Players {
+		if cp.Kind != "telnet" || tl == nil {
+			continue
+		}
+		nc, err := net.FileConn(os.NewFile(uintptr(cp.FD), cp.Name))
+		if err != nil {
+			logger.Error("copyover: adopt player failed", "name", cp.Name, "err", err)
+			continue
+		}
+		tl.Adopt(nc, &session.Restore{Name: cp.Name, Room: cp.Room})
+	}
+
+	// Transports outlive the world's context: the world says goodbye and
+	// closes its players first, then the transports stop and close any
+	// straggler that never reached the world.
+	tctx, tcancel := context.WithCancel(context.Background())
+	defer tcancel()
+	var wg sync.WaitGroup
+	if tl != nil {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			if err := ln.Serve(ctx); err != nil {
+			if err := tl.Serve(tctx); err != nil {
 				logger.Error("telnet listener failed", "err", err)
 				stop()
 			}
 		}()
 	}
-
-	if cfg.Server.WebSocketAddr != "" {
-		ws := web.NewServer(cfg.Server.WebSocketAddr, w.Events(), logger.With("component", "web"))
+	if ws != nil {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			if err := ws.Serve(ctx); err != nil {
+			if err := ws.Serve(tctx); err != nil {
 				logger.Error("web server failed", "err", err)
 				stop()
 			}
@@ -106,6 +212,7 @@ func run() error {
 
 	started := time.Now()
 	w.Run(ctx)
+	tcancel()
 	wg.Wait()
 
 	logger.Info("shut down", "uptime", time.Since(started).Round(time.Millisecond))
