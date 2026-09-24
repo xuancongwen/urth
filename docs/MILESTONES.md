@@ -54,9 +54,12 @@ bot harness that drives the server. A `simulate` command that runs N fights.
 **Done:** a script returning damage of 1 drives a placeholder combat round,
 and editing that file changes the outcome without a restart.
 
-## 7. Builder tooling `[ ]`
+## 7. Builder tooling `[x]`
 
-`goto`, `at`, `stat`, `load`, `purge`, `force`, and reload an area from disk.
+`goto`, `at`, `stat`, `load`, `purge`, `force`, `restore`, `transfer`,
+`peace`, and `reload area <name>` / `reload world`, which re-read every
+area from disk, validate the whole set, and re-point live players, mobs,
+and items at the new rooms and prototypes.
 
 **Done:** content can be built while playing.
 

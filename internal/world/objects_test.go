@@ -170,17 +170,20 @@ func TestTargetingAndLookAt(t *testing.T) {
 	}
 	send(w, 1, "n")
 	bob.take()
-	// Second dog spawns on the next reset; force one now.
+	// The first dog may have wandered off during login; make sure at
+	// least two are here (Bob is admin, so load works).
 	for _, a := range w.areas {
 		w.resetArea(a)
 	}
+	send(w, 1, "load mob 21")
+	bob.take()
 	send(w, 1, "look 2.dog")
 	if out := bob.take(); !strings.Contains(out, "nothing special about a stray dog") {
 		t.Fatalf("2.dog: %q", out)
 	}
 	send(w, 1, "look")
-	if out := bob.take(); strings.Count(out, "A stray dog sniffs about.") != 2 {
-		t.Fatalf("expected two dogs listed: %q", out)
+	if out := bob.take(); strings.Count(out, "A stray dog sniffs about.") < 2 {
+		t.Fatalf("expected at least two dogs listed: %q", out)
 	}
 	login(t, w, 2, "Alice")
 	send(w, 1, "s")

@@ -115,6 +115,9 @@ func run() error {
 		Store:    players,
 		Scripts:  scripts,
 		Shutdown: stop,
+		LoadContent: func() (*content.World, error) {
+			return content.Load(filepath.Join(cfg.Paths.Data, "world"))
+		},
 	}
 	statePath := filepath.Join(cfg.Paths.Data, "copyover.json")
 	deps.Copyover = func(st copyover.State) error {

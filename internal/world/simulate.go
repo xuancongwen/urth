@@ -4,7 +4,6 @@ import (
 	"math/rand/v2"
 	"strconv"
 	"strings"
-	"time"
 
 	"urth/internal/item"
 	"urth/internal/mob"
@@ -212,17 +211,3 @@ func pct(n, total int) string {
 }
 
 func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', 1, 64) }
-
-// cmdReload recompiles the scripts on demand.
-func cmdReload(w *World, p *Player, _ string) {
-	if w.scripts == nil {
-		p.Send("Scripting is not enabled.\n")
-		return
-	}
-	if err := w.scripts.Load(); err != nil {
-		p.Send("{R}Reload failed, keeping the old scripts: " + output.Escape(err.Error()) + "{x}\n")
-		return
-	}
-	w.hookErrors = map[string]time.Time{}
-	p.Send("{G}Scripts reloaded.{x}\n")
-}

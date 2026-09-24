@@ -12,6 +12,16 @@ in Go.
 
 Status of each decision: **decided**, **leaning**, or **open**.
 
+### Method
+
+Open questions are worked dialectically. Each gets a **thesis** (the
+obvious or traditional answer), an **antithesis** (the strongest case
+against it), and a **synthesis** that keeps what survives from both. The
+synthesis becomes the section's *leaning* position until it is argued
+down or confirmed as *decided*. Keep the thesis and antithesis in the
+document after deciding; they are the reasoning a future change has to
+beat.
+
 ---
 
 ## 1. Constraints from the engine
@@ -77,16 +87,139 @@ placeholder implementations live in `data/scripts/rules.js`.
 
 ## 2. Design goals
 
-**Status: open.** Fill in before choosing numbers. Everything in sections
-3 to 8 should trace back to a line here.
+Everything in sections 3 to 8 should trace back to a line here. Each goal
+below was worked dialectically on 2026-09-23; the syntheses are
+**leaning** until confirmed.
 
-- What should a player be thinking about during a fight? (Which target,
-  which ability, when to flee, or nothing because it is automatic.)
-- How much should gear matter relative to level and to stat allocation?
-- How lethal is the world? Is death routine, rare, or catastrophic?
-- Is the game solo-first, group-first, or both?
-- What is the intended session length for one "outing" (leave town, fight,
-  return)?
+### 2.1 What the player is thinking about during a fight
+
+**Thesis.** Combat is automatic, as in ROM: type `kill`, watch the rounds
+scroll, intervene only to `flee`, `quaff`, or `cast`. This is what the
+command vocabulary (D7) implies, it works over a bare telnet line, and it
+lets a fight run while the player talks.
+
+**Antithesis.** If nothing happens between `kill` and the corpse, the
+fight was decided before it started by stats and gear. Every fight is a
+spreadsheet lookup the player already knows the answer to. There is
+nothing to learn and nothing to get better at, so the only progression is
+numbers going up.
+
+**Synthesis (leaning).** Auto-attack is the floor, not the ceiling. An
+even fight at level is winnable with no input at all, so a player who is
+chatting or lagging is not punished. Above that floor, one action per
+round is available (an ability, `flee`, an item), and abilities are
+paced by cooldowns counted in rounds so that a fight of typical length
+offers two or three real decisions, not a decision every round. Fights
+above the player's level are where those decisions matter; fights at
+level are where they are optional.
+
+Consequences: 4.4 must allow one player action per round on top of the
+auto-attack. Abilities need a cooldown field. The simulator must be able
+to run a fight with no ability use, since that is the floor being
+balanced.
+
+### 2.2 Gear versus level versus stats
+
+**Thesis.** Gear dominates. Items are visible, comparable at a glance
+(4.1 fixed damage exists for this), tradeable, and give a reason to
+explore. A better sword is the most satisfying thing a MUD can hand out.
+
+**Antithesis.** If gear dominates, a level 5 character in level 20 gear is
+a level 20 character. Level stops meaning anything, twinking becomes the
+meta, and every mob has to be balanced against the best gear a player
+could possibly have been handed. Stats (3.1) become noise on top of the
+sword.
+
+**Synthesis (leaning).** Three axes with distinct jobs. Level *gates*:
+items carry a level requirement, and experience from mobs far below the
+player's level falls to nothing. Gear *sets the base numbers*: the weapon
+is the damage, the armor is the defense, and the item level table (5.2)
+is the progression curve made visible. Stats *multiply* and are the
+build: two characters of the same level in the same gear differ by their
+stat allocation, and that difference is felt but never larger than the
+gear difference.
+
+Working ratios to test in the simulator: at a fixed level, best
+available gear versus starting gear is about 2x; best stat allocation
+versus worst is about 1.5x; five levels of item table is about 2x. The
+ordering matters more than the numbers: level > gear > stats over a
+career, gear > stats > level within a session.
+
+Consequences: 5.1 adds a `level` field to items and the engine enforces
+it on `wear` and `wield` (a small contract widening for milestone 6).
+3.3's multiplier ceiling is bounded by the 1.5x figure. 7.1's `xpForKill`
+must decay with level gap.
+
+### 2.3 Lethality
+
+**Thesis.** Death should be rare and expensive. If dying costs little,
+fights carry no tension and `flee` is never typed.
+
+**Antithesis.** This is a small server. Every character lost to a harsh
+death is a player who may not come back, and every balance mistake that
+slips past the simulator becomes a player-losing bug instead of an
+annoyance. ROM's routine death (lose some experience, corpse in the
+room, walk back) has kept players for thirty years precisely because it
+is survivable.
+
+**Synthesis (leaning).** Death is routine in frequency and bounded in
+cost. It never destroys the character, never de-levels, and never
+permanently destroys gear. What it costs is time and a slice of
+experience: respawn in town at low health, lose a capped fraction of the
+experience toward the next level, and leave a corpse holding the
+inventory that persists long enough to walk back for it.
+
+The tension comes from *attrition*, not from variance. An even fight at
+full health should almost never kill; a chain of fights without resting
+should. A careful player at level dies about once every several outings,
+and a reckless one dies every outing. `flee` is typed because the player
+sees health dropping across a chain, not because one swing went badly.
+
+Consequences: 4.2 must choose low variance (one fight cannot swing from
+comfortable to fatal). 4.6 is mostly written by this section. 4.5's
+recovery time is what makes resting a real choice.
+
+### 2.4 Solo or group
+
+**Thesis.** Group-first. MUDs are social; grouping is the reason to run a
+multiplayer text game rather than a roguelike.
+
+**Antithesis.** A new server has a handful of players in a handful of
+time zones. Content that requires a group is content that is unplayable
+most hours of the day, and a player who logs in alone and finds nothing
+to do logs out for good.
+
+**Synthesis (leaning).** Solo-complete, group-accelerated. Every fight in
+the world is soloable by a character of the intended level with the
+intended gear. Groups get speed, safety, and the ability to take fights
+above level; they never get access. Social play is encouraged by making
+grouping efficient, not by making solo play impossible.
+
+Consequences: 8 cannot define a mob role that requires a party (no
+mandatory healer, no tank-and-spank). 7.3 cannot include a class that
+cannot solo; a healer must also do damage. Experience sharing in a group
+must not penalise the group below solo rate.
+
+### 2.5 Session length
+
+**Thesis.** Long outings reward planning: pack supplies, delve, come back
+laden. An hour in the dungeon is the classic shape.
+
+**Antithesis.** Players of a small hobby server play in fifteen to
+thirty minute windows. An hour-long outing means most sessions end in
+the middle of one, with the player logging out somewhere unsafe or
+abandoning the run.
+
+**Synthesis (leaning).** An outing is ten to twenty minutes. That is
+roughly ten fights with rests between them, each fight lasting six to
+eight rounds at three seconds a round. A longer delve is several outings
+chained by a player who chooses not to return to town, which is exactly
+the attrition risk 2.3 wants. Session-scale goals (a level, a piece of
+gear) span a few outings; career-scale goals span many sessions.
+
+Consequences: 4.5's table is filled from these numbers. Regeneration
+(`onTick`) is tuned so resting to full between fights takes about thirty
+seconds, long enough to be a choice and short enough not to be a chore.
 
 ---
 
@@ -167,15 +300,19 @@ Also decide whether randomness is symmetric for mobs and players.
 
 ### 4.5 Pacing targets
 
-**Status: open.** Numbers exist only to hit these. Set them first, then let
-the simulator tell you whether a formula does.
+**Status: leaning (2026-09-23).** Numbers exist only to hit these. Set
+them first, then let the simulator tell you whether a formula does. The
+values below follow from 2.3 and 2.5 and are the first thing `simulate`
+should be checked against.
 
 | Target | Value |
 |---|---|
-| Rounds for an even fight (equal level, standard gear) | |
-| Win rate at +1 level, +3 levels, +5 levels | |
-| Rounds to recover from a fight to full | |
-| Fights per outing before returning to town | |
+| Rounds for an even fight (equal level, standard gear) | 6 to 8 |
+| Health remaining after an even fight at full health | 40 to 60 percent |
+| Win rate at +1 level, +3 levels, +5 levels | 80, 40, under 10 percent |
+| Rounds to recover from a fight to full | about 10 (30 seconds) |
+| Fights per outing before returning to town | about 10 |
+| Even fights chained with no rest before death is likely | 2 to 3 |
 
 ### 4.6 Death
 

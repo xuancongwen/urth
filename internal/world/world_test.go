@@ -125,8 +125,10 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	w := New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Store: st, Scripts: engine})
+	w := New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Store: st, Scripts: engine,
+		LoadContent: func() (*content.World, error) { return content.Load(dir) }})
 	w.scriptDir = scriptDir
+	w.contentDir = dir
 	return w, st
 }
 

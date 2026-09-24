@@ -38,6 +38,8 @@ type Deps struct {
 	Store *store.Store
 	// Scripts is the rule engine. nil disables every hook (safe defaults).
 	Scripts *script.Engine
+	// LoadContent re-reads the world from disk for "reload area/world".
+	LoadContent func() (*content.World, error)
 	// Shutdown asks the process to stop. Used by the shutdown command.
 	Shutdown func()
 	// Copyover writes the state and execs the binary. It returns only on
@@ -67,9 +69,10 @@ type World struct {
 	// a broken formula is reported once per reload.
 	hookErrors map[string]time.Time
 
-	lastMobID uint64
-	rounds    uint64 // attack rounds resolved, for stats
-	scriptDir string // set by tests that edit scripts
+	lastMobID  uint64
+	rounds     uint64 // attack rounds resolved, for stats
+	scriptDir  string // set by tests that edit scripts
+	contentDir string // set by tests that edit content
 
 	tick           time.Duration
 	roundTicks     int

@@ -123,3 +123,13 @@ reloaded when their modification time changes, checked once per round, and
 a failing set is reported once and left alone until it changes again. The
 simulator runs the same hooks on detached characters with a seeded random
 source, so balance work is a loop of edit, simulate, read.
+
+## D17. Building is edit-file-then-reload, not in-game OLC
+
+There is no online creation editor. Content is YAML edited outside the
+game and pulled in with `reload area <name>`, which re-reads and validates
+every area and re-points live state by vnum. This keeps one source of
+truth on disk (and in git), avoids a second schema for OLC forms, and
+makes a bad edit cheap: validation fails and the old world stays up. If
+in-game editing is ever wanted, it can write the same files and call the
+same reload.

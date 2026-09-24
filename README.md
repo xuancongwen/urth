@@ -42,8 +42,10 @@ server is an admin.
 Commands so far: look [thing | in container], exits, north/south/east/west/
 up/down, say (or '), who, inventory, equipment, get [item [container] | all],
 drop, put, give, wear, wield, hold, remove, kill, flee, score, color, save,
-password, quit. Admin: copyover, shutdown, reload, simulate. Targets take
-ROM forms: `sword`, `2.sword`, `all`, `all.sword`.
+password, quit. Admin: goto, at, stat, load, purge, force, restore,
+transfer, peace, reload [scripts | area <name> | world], simulate,
+copyover, shutdown. Targets take ROM forms: `sword`, `2.sword`, `all`,
+`all.sword`.
 
 ## Rules
 
@@ -58,6 +60,12 @@ An area is a directory under `data/world/` with `area.yaml`, `rooms/`,
 unique across all areas. Resets run at boot and every `interval_seconds`;
 limits make them idempotent. Item and mob numbers such as damage, defense,
 and stats are stored but never interpreted by the engine; rules do that.
+
+Edit files in your editor, then `reload area <name>` in game. Players
+standing in the area see the changes at once; anyone in a deleted room is
+moved to the start room; a file that fails validation leaves the old world
+running. `stat` shows vnums; `load`, `purge`, `goto`, and `at` place and
+inspect things without leaving the game.
 - `docs/`            `MILESTONES.md` and `DECISIONS.md`
 
 ## License
