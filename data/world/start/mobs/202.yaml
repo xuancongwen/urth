@@ -1,0 +1,8 @@
+vnum: 202
+name: a blacksmith
+keywords: [blacksmith, smith]
+description: A blacksmith hammers at something on the anvil.
+look: |
+  Forearms like hams and a burn scar across one cheek.
+level: 8
+flags: [sentinel]

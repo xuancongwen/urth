@@ -2,8 +2,6 @@ package world
 
 import (
 	"strings"
-
-	"urth/internal/output"
 )
 
 // actTarget selects who receives an act message, following ROM's convention
@@ -24,12 +22,18 @@ const (
 // act formats and delivers a perspective message.
 //
 //	$n  actor's name       $N  victim's name
-//	$t  the text argument  $$  a literal dollar sign
+//	$p  item name          $t  the text argument
+//	$$  a literal dollar sign
 //
 // Names and text are already escaped by the caller where they come from
-// player input. Every message ends with a newline.
-func (w *World) act(format string, actor *Player, victim *Player, text string, to actTarget) {
-	msg := expandAct(format, actor, victim, text)
+// player input. Every message ends with a newline and starts with a
+// capital letter, so mob names like "a city guard" read correctly.
+func (w *World) act(format string, actor *Character, victim *Character, text string, to actTarget) {
+	w.actItem(format, actor, victim, "", text, to)
+}
+
+func (w *World) actItem(format string, actor *Character, victim *Character, itemName string, text string, to actTarget) {
+	msg := capitalize(expandAct(format, actor, victim, itemName, text))
 	if !strings.HasSuffix(msg, "\n") {
 		msg += "\n"
 	}
@@ -45,7 +49,7 @@ func (w *World) act(format string, actor *Player, victim *Player, text string, t
 			return
 		}
 		for _, p := range w.playersIn(actor.Room) {
-			if p == actor || (to == toNotVict && p == victim) {
+			if p.Character == actor || (to == toNotVict && p.Character == victim) {
 				continue
 			}
 			p.Send(msg)
@@ -53,7 +57,7 @@ func (w *World) act(format string, actor *Player, victim *Player, text string, t
 	}
 }
 
-func expandAct(format string, actor, victim *Player, text string) string {
+func expandAct(format string, actor, victim *Character, itemName, text string) string {
 	var b strings.Builder
 	for i := 0; i < len(format); i++ {
 		c := format[i]
@@ -67,6 +71,8 @@ func expandAct(format string, actor, victim *Player, text string) string {
 			b.WriteString(actorName(actor))
 		case 'N':
 			b.WriteString(actorName(victim))
+		case 'p':
+			b.WriteString(itemName)
 		case 't':
 			b.WriteString(text)
 		case '$':
@@ -79,9 +85,13 @@ func expandAct(format string, actor, victim *Player, text string) string {
 	return b.String()
 }
 
-func actorName(p *Player) string {
-	if p == nil {
+func actorName(c *Character) string {
+	if c == nil {
 		return "someone"
 	}
-	return output.Escape(p.Name)
+	return escapeName(c.Name)
+}
+
+func escapeName(s string) string {
+	return strings.ReplaceAll(s, "{", "{{")
 }

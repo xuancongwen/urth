@@ -1,8 +1,9 @@
 package world
 
 import (
+	"strings"
+
 	"urth/internal/output"
-	"urth/internal/room"
 	"urth/internal/session"
 	"urth/internal/store"
 )
@@ -33,11 +34,10 @@ const maxQueuedInput = 32
 
 // Player is a connected session and, once past login, a character.
 type Player struct {
+	*Character
 	conn  session.Conn
 	State State
-	Name  string
 	Admin bool
-	Room  *room.Room
 	// Color is the player's color preference, honored by text transports.
 	Color bool
 
@@ -56,7 +56,15 @@ type Player struct {
 }
 
 func newPlayer(c session.Conn) *Player {
-	return &Player{conn: c, State: StateGetName, Color: true}
+	p := &Player{Character: newCharacter("", nil), conn: c, State: StateGetName, Color: true}
+	p.Character.player = p
+	return p
+}
+
+// setName sets the character's name and the keyword players use for it.
+func (p *Player) setName(name string) {
+	p.Name = name
+	p.Keywords = []string{strings.ToLower(name)}
 }
 
 // Send queues a text message for delivery at the end of the tick. Text may

@@ -1,0 +1,7 @@
+vnum: 18
+name: The Hill Path
+description: |
+  The path climbs steeply. Loose stones skitter downhill with each step.
+exits:
+  south: 17
+  north: 20

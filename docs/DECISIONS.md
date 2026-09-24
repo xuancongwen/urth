@@ -103,3 +103,23 @@ reconstructed after exec, so those clients receive a single-use token and the
 browser page reconnects with it; the world re-attaches them without a login.
 Sessions still at the login prompts are closed. The first character created
 on a server is an admin so copyover and shutdown are reachable from day one.
+
+## D15. Items and mobs are prototypes plus instances; the engine stores rule inputs blindly
+
+Prototypes are YAML per vnum. Instances are created by resets or restored
+from player files. Fields like weapon damage, armor defense, and mob stats
+are kept on the prototype as plain numbers and maps that rule scripts read;
+the engine never does arithmetic on them. Players and mobs share one
+Character type for names, rooms, inventory, and equipment so that every
+command and message works the same on both.
+
+## D16. Rules are JavaScript functions with fixed signatures; the engine applies, never decides
+
+Combat, regeneration, experience, and derived maxima are global functions
+in `data/scripts/*.js` run by goja. The engine builds read-only snapshots,
+calls a hook, and applies the returned numbers. Hooks have a 50 ms budget
+and a safe default so a broken edit degrades rather than crashes. Files are
+reloaded when their modification time changes, checked once per round, and
+a failing set is reported once and left alone until it changes again. The
+simulator runs the same hooks on detached characters with a seeded random
+source, so balance work is a loop of edit, simulate, read.

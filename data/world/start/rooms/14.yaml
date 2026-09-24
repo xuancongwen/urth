@@ -1,0 +1,7 @@
+vnum: 14
+name: The Edge of the Village
+description: |
+  The last cottage gives way to a rutted track running east into scrub.
+exits:
+  west: 12
+  east: 16

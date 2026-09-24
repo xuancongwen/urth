@@ -1,0 +1,10 @@
+vnum: 102
+name: a leather cap
+keywords: [leather, cap]
+description: A leather cap lies here.
+look: |
+  Boiled leather, cracked at the brim.
+type: armor
+slot: head
+armor:
+  defense: 1

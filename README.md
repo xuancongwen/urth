@@ -19,6 +19,12 @@ http://127.0.0.1:4001/ in a browser.
 - `internal/config/`  YAML configuration with defaults and validation
 - `internal/session/` the contract between transports and the world
 - `internal/output/`  structured messages, color tokens, ANSI/plain/HTML renderers
+- `internal/item/`    item prototypes and instances, ROM-style targeting
+- `internal/mob/`     mob prototypes
+- `internal/reset/`   area repopulation schedules
+- `internal/content/` loads rooms, items, mobs, and resets and checks references
+- `internal/script/`  goja engine: loads `data/scripts/*.js`, hot reload, time budget
+- `cmd/urthbot/`      headless client for driving a running server
 - `internal/store/`   player records as YAML with bcrypt password hashes
 - `internal/copyover/` restart-in-place state and descriptor handoff
 - `internal/telnet/`  line-oriented TCP transport, tolerant of telnet negotiation
@@ -31,8 +37,27 @@ http://127.0.0.1:4001/ in a browser.
 ## Playing
 
 Create a character by typing a new name. The first character created on a
-server is an admin. Commands so far: look, exits, north/south/east/west/up/
-down, say (or '), who, color, save, password, quit. Admin: copyover, shutdown.
+server is an admin.
+
+Commands so far: look [thing | in container], exits, north/south/east/west/
+up/down, say (or '), who, inventory, equipment, get [item [container] | all],
+drop, put, give, wear, wield, hold, remove, kill, flee, score, color, save,
+password, quit. Admin: copyover, shutdown, reload, simulate. Targets take
+ROM forms: `sword`, `2.sword`, `all`, `all.sword`.
+
+## Rules
+
+Every game number comes from `data/scripts/rules.js` through the hooks
+listed in `docs/RULES.md` section 1. Edit the file while the server runs;
+it reloads on the next round. The shipped file is a placeholder.
+
+## Building
+
+An area is a directory under `data/world/` with `area.yaml`, `rooms/`,
+`items/`, `mobs/`, and `resets.yaml`. One entity per YAML file, vnums
+unique across all areas. Resets run at boot and every `interval_seconds`;
+limits make them idempotent. Item and mob numbers such as damage, defense,
+and stats are stored but never interpreted by the engine; rules do that.
 - `docs/`            `MILESTONES.md` and `DECISIONS.md`
 
 ## License

@@ -3,6 +3,7 @@ package world
 import (
 	"strings"
 
+	"urth/internal/item"
 	"urth/internal/output"
 	"urth/internal/room"
 	"urth/internal/store"
@@ -30,8 +31,21 @@ var commands = []command{
 	{"up", 1, cmdMove("up"), false},
 	{"down", 1, cmdMove("down"), false},
 	{"look", 1, cmdLook, false},
+	{"get", 1, cmdGet, false},
+	{"inventory", 1, cmdInventory, false},
 	{"exits", 2, cmdExits, false},
 	{"say", 1, cmdSay, false},
+	{"drop", 2, cmdDrop, false},
+	{"put", 1, cmdPut, false},
+	{"give", 2, cmdGive, false},
+	{"wear", 3, cmdWear, false},
+	{"wield", 2, cmdWield, false},
+	{"hold", 2, cmdHold, false},
+	{"remove", 3, cmdRemove, false},
+	{"equipment", 2, cmdEquipment, false},
+	{"kill", 1, cmdKill, false},
+	{"flee", 2, cmdFlee, false},
+	{"score", 2, cmdScore, false},
 	{"who", 2, cmdWho, false},
 	{"color", 3, cmdColor, false},
 	{"save", 2, cmdSave, false},
@@ -39,6 +53,8 @@ var commands = []command{
 	{"quit", 3, cmdQuit, false},
 	{"copyover", 8, cmdCopyover, true},
 	{"shutdown", 8, cmdShutdown, true},
+	{"reload", 3, cmdReload, true},
+	{"simulate", 3, cmdSimulate, true},
 }
 
 // lookup finds the command a typed word selects for a player, or nil.
@@ -85,24 +101,34 @@ func (w *World) dispatch(p *Player, line string) {
 
 func cmdMove(dir string) func(w *World, p *Player, args string) {
 	return func(w *World, p *Player, _ string) {
+		if p.Fighting != nil {
+			p.Send("No way! You are fighting.\n")
+			return
+		}
 		to, ok := p.Room.Exits[dir]
 		if !ok {
 			p.Send("Alas, you cannot go that way.\n")
 			return
 		}
-		dest, ok := w.rooms.Get(to)
+		dest, ok := w.content.Rooms.Get(to)
 		if !ok {
 			p.Send("That way leads nowhere.\n")
 			return
 		}
-		w.act("$n leaves $t.", p, nil, dir, toRoom)
+		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
 		p.Room = dest
-		w.act("$n arrives from the $t.", p, nil, room.Opposite[dir], toRoom)
+		w.act("$n arrives from the $t.", p.Character, nil, room.Opposite[dir], toRoom)
 		w.look(p)
 	}
 }
 
-func cmdLook(w *World, p *Player, _ string) { w.look(p) }
+func cmdLook(w *World, p *Player, args string) {
+	if args == "" {
+		w.look(p)
+		return
+	}
+	w.lookAt(p, args)
+}
 
 // look renders the player's room in ROM's layout, with structured data for
 // clients that want it.
@@ -119,6 +145,15 @@ func (w *World) look(p *Player) {
 		b.WriteString("{c}[Exits: none]{x}\n")
 	} else {
 		b.WriteString("{c}[Exits: " + strings.Join(data.Exits, " ") + "]{x}\n")
+	}
+	for _, g := range item.Group(w.contents(r).items) {
+		if g.Count > 1 {
+			b.WriteString("(" + itoa(g.Count) + ") ")
+		}
+		b.WriteString(output.Escape(g.Item.Proto.Description) + "\n")
+	}
+	for _, m := range w.contents(r).mobs {
+		b.WriteString(output.Escape(m.Proto.Description) + "\n")
 	}
 	for _, other := range w.playersIn(r) {
 		if other != p {
@@ -138,7 +173,7 @@ func cmdExits(w *World, p *Player, _ string) {
 	var b strings.Builder
 	b.WriteString("Obvious exits:\n")
 	for _, d := range exits {
-		dest, _ := w.rooms.Get(p.Room.Exits[d])
+		dest, _ := w.content.Rooms.Get(p.Room.Exits[d])
 		b.WriteString(padRight(strings.ToUpper(d[:1])+d[1:], 6) + "- " + output.Escape(dest.Name) + "\n")
 	}
 	p.Send(b.String())
@@ -150,8 +185,8 @@ func cmdSay(w *World, p *Player, args string) {
 		return
 	}
 	said := output.Escape(args)
-	w.act("You say '{G}$t{x}'", p, nil, said, toChar)
-	w.act("$n says '{G}$t{x}'", p, nil, said, toRoom)
+	w.act("You say '{G}$t{x}'", p.Character, nil, said, toChar)
+	w.act("$n says '{G}$t{x}'", p.Character, nil, said, toRoom)
 }
 
 func cmdWho(w *World, p *Player, _ string) {

@@ -14,12 +14,26 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 	"urth/internal/config"
+	"urth/internal/content"
 	"urth/internal/copyover"
 	"urth/internal/output"
-	"urth/internal/room"
+	"urth/internal/script"
 	"urth/internal/session"
 	"urth/internal/store"
 )
+
+// testRules is the placeholder rule set used by world tests. Damage is
+// weapon damage or 1; every swing hits; pools are small so fights end fast.
+const testRules = `
+function resolveAttack(a, d, w, round) {
+  return { hit: true, damage: w && w.weapon ? w.weapon.damage : 1, crit: false, verb: "hit" };
+}
+function derivedStats(c) { return { healthMax: 10 + c.level * 2, manaMax: 5, attacksPerRound: 1 }; }
+function onTick(c) { return { healthDelta: c.fighting ? 0 : 1, manaDelta: 0 }; }
+function xpForKill(k, v) { return 60; }
+function xpToLevel(level) { return (level - 1) * 100; }
+function onLevel(c, l) { return { statDeltas: { might: 1 }, message: "Level up." }; }
+`
 
 // fakeConn is an in-memory session.Conn that records output rendered as
 // plain text, plus the raw batches for structural assertions.
@@ -60,12 +74,27 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	if playerDir == "" {
 		playerDir = filepath.Join(dir, "players")
 	}
-	rooms := map[string]string{
-		"1.yaml": "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
-		"2.yaml": "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n",
+	files := map[string]string{
+		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
+		"a/rooms/2.yaml":  "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n  east: 3\n",
+		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n",
+		"a/items/10.yaml": "vnum: 10\nname: a rusty sword\nkeywords: [rusty, sword]\ndescription: A rusty sword lies here.\nlook: Pitted and dull.\ntype: weapon\nweapon:\n  damage: 4\n  hands: 1\n",
+		"a/items/11.yaml": "vnum: 11\nname: a leather cap\nkeywords: [leather, cap]\ntype: armor\nslot: head\narmor:\n  defense: 1\n",
+		"a/items/12.yaml": "vnum: 12\nname: a small sack\nkeywords: [small, sack]\ntype: container\n",
+		"a/items/13.yaml": "vnum: 13\nname: a loaf of bread\nkeywords: [loaf, bread]\n",
+		"a/items/14.yaml": "vnum: 14\nname: a stone altar\nkeywords: [altar]\ndescription: A stone altar stands here.\nflags: [nopickup]\n",
+		"a/mobs/20.yaml":  "vnum: 20\nname: a city guard\nkeywords: [city, guard]\ndescription: A city guard stands here.\nlook: Tall and bored.\nflags: [sentinel]\n",
+		"a/mobs/21.yaml":  "vnum: 21\nname: a stray dog\nkeywords: [stray, dog]\ndescription: A stray dog sniffs about.\n",
+		"a/resets.yaml": "interval_seconds: 5\nresets:\n" +
+			"  - mob: 20\n    room: 1\n    equip:\n      - item: 10\n        slot: wield\n      - item: 13\n" +
+			"  - mob: 21\n    room: 2\n    max: 2\n" +
+			"  - item: 12\n    room: 1\n" +
+			"  - item: 13\n    into: 12\n    room: 1\n" +
+			"  - item: 11\n    room: 1\n" +
+			"  - item: 14\n    room: 1\n",
 	}
-	for name, body := range rooms {
-		p := filepath.Join(dir, "a", "rooms", name)
+	for name, body := range files {
+		p := filepath.Join(dir, name)
 		if err := os.MkdirAll(filepath.Dir(p), 0o755); err != nil {
 			t.Fatal(err)
 		}
@@ -73,8 +102,19 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 			t.Fatal(err)
 		}
 	}
-	rw, err := room.Load(dir)
+	rw, err := content.Load(dir)
 	if err != nil {
+		t.Fatal(err)
+	}
+	scriptDir := filepath.Join(dir, "scripts")
+	if err := os.MkdirAll(scriptDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(scriptDir, "rules.js"), []byte(testRules), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	engine := script.New(scriptDir, slog.New(slog.NewTextHandler(io.Discard, nil)), 0)
+	if err := engine.Load(); err != nil {
 		t.Fatal(err)
 	}
 	cfg := config.Default()
@@ -85,7 +125,8 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	w := New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Store: st})
+	w := New(cfg, rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Store: st, Scripts: engine})
+	w.scriptDir = scriptDir
 	return w, st
 }
 
@@ -150,7 +191,7 @@ func signin(t *testing.T, w *World, id session.ID, name, password string) *fakeC
 		t.Fatalf("no password prompt: %q", out)
 	}
 	w.Events() <- session.Input{ID: id, Line: password}
-	tickUntil(t, w, c, "\n> ") // the in-game prompt: covers both login and reconnect
+	tickUntil(t, w, c, "m> ") // the in-game prompt: covers both login and reconnect
 	return c
 }
 
@@ -456,7 +497,7 @@ func TestWalkAndSee(t *testing.T) {
 	}
 
 	send(w, 1, "n")
-	if out := bob.take(); !strings.Contains(out, "North\nUp north.\n[Exits: south]") {
+	if out := bob.take(); !strings.Contains(out, "North\nUp north.\n[Exits: east south]") {
 		t.Fatalf("bob move output wrong: %q", out)
 	}
 	if out := alice.take(); !strings.Contains(out, "Bob leaves north") {

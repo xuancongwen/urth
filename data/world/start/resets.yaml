@@ -1,0 +1,40 @@
+# Repopulation for The Crossroads. Runs at boot and every interval.
+interval_seconds: 300
+resets:
+  - mob: 200          # village guard at the gate
+    room: 5
+    equip:
+      - item: 100
+        slot: wield
+      - item: 102
+        slot: head
+  - mob: 202          # blacksmith in the smithy
+    room: 10
+    equip:
+      - item: 101
+        slot: wield
+  - mob: 201          # stray dogs, up to two
+    room: 9
+    max: 2
+  - mob: 203          # beggar on the green
+    room: 9
+  - mob: 204          # crows on the south road
+    room: 4
+    max: 3
+  - item: 107         # the notice board
+    room: 9
+  - item: 106         # bucket by the well
+    room: 3
+  - item: 104         # backpack in the tavern loft
+    room: 15
+  - item: 105         # bread in the backpack
+    into: 104
+    room: 15
+  - item: 108         # candle stub in the loft
+    room: 15
+  - item: 109         # purse at the market
+    room: 12
+  - item: 103         # jerkin in the smithy
+    room: 10
+  - item: 101         # spare club in the smithy
+    room: 10

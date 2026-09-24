@@ -26,6 +26,22 @@ type Record struct {
 	LastLogin    time.Time `yaml:"last_login"`
 	Room         int       `yaml:"room"`
 	Color        bool      `yaml:"color"`
+	// Sheet. Stats is free-form because the stat set is a rules decision.
+	Level      int            `yaml:"level"`
+	Experience int            `yaml:"experience"`
+	Stats      map[string]int `yaml:"stats,omitempty"`
+	Health     int            `yaml:"health"`
+	Mana       int            `yaml:"mana"`
+	// Inventory and Equipment are recreated from prototypes at login.
+	Inventory []SavedItem          `yaml:"inventory,omitempty"`
+	Equipment map[string]SavedItem `yaml:"equipment,omitempty"`
+}
+
+// SavedItem is an item instance on disk: its prototype and, for
+// containers, what was inside.
+type SavedItem struct {
+	Vnum     int         `yaml:"vnum"`
+	Contents []SavedItem `yaml:"contents,omitempty"`
 }
 
 // ErrNotFound is returned by Load for an unknown name.

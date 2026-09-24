@@ -1,0 +1,8 @@
+vnum: 106
+name: a wooden bucket
+keywords: [wooden, bucket]
+description: A wooden bucket sits here.
+look: |
+  The rope handle has rotted through.
+type: other
+slot: hold

@@ -1,0 +1,6 @@
+vnum: 15
+name: The Tavern Loft
+description: |
+  Straw pallets under a low roof. A small window looks over the green.
+exits:
+  down: 13

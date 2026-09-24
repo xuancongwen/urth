@@ -1,0 +1,9 @@
+vnum: 200
+name: a village guard
+keywords: [village, guard]
+description: A village guard leans on a spear, watching the road.
+look: |
+  Middle-aged, unhurried, and not interested in you unless you make him
+  be.
+level: 5
+flags: [sentinel]

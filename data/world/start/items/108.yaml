@@ -1,0 +1,8 @@
+vnum: 108
+name: a stub of candle
+keywords: [stub, candle]
+description: A stub of candle lies here.
+look: |
+  An inch of tallow with a blackened wick.
+type: other
+slot: light

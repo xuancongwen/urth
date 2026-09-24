@@ -135,7 +135,7 @@ func (w *World) loginConfirmPassword(p *Player, line string) {
 				return
 			}
 			// The name may have been taken while we were hashing.
-			if w.store.Exists(name) || w.playingByName(name) != nil {
+			if w.store.Exists(name) || w.playingByName(name, p) != nil {
 				p.State = StateGetName
 				p.SendPrompt("That name was just taken. By what name do you wish to be known? ")
 				return
@@ -169,30 +169,46 @@ func (w *World) loginConfirmPassword(p *Player, line string) {
 // world. If the character is already playing, that session is taken over.
 func (w *World) enterGame(p *Player, rec *store.Record) {
 	p.rec = rec
-	p.Name = rec.Name
+	p.setName(rec.Name)
 	p.Admin = rec.Admin
 	p.Color = rec.Color
 	p.State = StatePlaying
 	p.pendingName = ""
 	rec.LastLogin = time.Now().UTC()
 
-	if old := w.playingByName(rec.Name); old != nil && old != p {
-		// Reconnect: take over the existing character in place.
+	if old := w.playingByName(rec.Name, p); old != nil {
+		// Reconnect: take over the existing character in place, including
+		// whatever it is carrying right now.
 		p.Room = old.Room
+		p.Inventory = old.Inventory
+		p.Equipment = old.Equipment
+		p.Level, p.Experience, p.Stats = old.Level, old.Experience, old.Stats
+		p.Health, p.Mana = old.Health, old.Mana
+		w.recalc(p.Character)
+		for _, o := range w.allCharacters() {
+			if o.Fighting == old.Character {
+				o.Fighting = p.Character
+			}
+		}
+		p.Fighting = old.Fighting
 		old.Room = nil // suppress "has left the game"
+		old.Inventory = nil
+		old.Equipment = nil
 		old.SendMsg(output.Message{Type: output.System, Text: "{R}This character has been reconnected from elsewhere.{x}\n"})
 		old.disconnect()
 		w.log.Info("reconnected", "session", p.conn.ID(), "name", p.Name, "old_session", old.conn.ID())
 		p.Send("\nReconnecting.\n")
-		w.act("$n has reconnected.", p, nil, "", toRoom)
+		w.act("$n has reconnected.", p.Character, nil, "", toRoom)
 		w.look(p)
 		w.save(p)
 		return
 	}
+	w.loadCharacterItems(p)
+	w.loadSheet(p)
 
-	room, ok := w.rooms.Get(rec.Room)
+	room, ok := w.content.Rooms.Get(rec.Room)
 	if !ok {
-		room, ok = w.rooms.Get(w.cfg.World.StartRoom)
+		room, ok = w.content.Rooms.Get(w.cfg.World.StartRoom)
 		if !ok {
 			p.SendMsg(output.Message{Type: output.System, Text: "The world has no start room. Try again later.\n"})
 			p.disconnect()
@@ -202,7 +218,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	p.Room = room
 	w.log.Info("logged in", "session", p.conn.ID(), "name", p.Name, "addr", p.conn.RemoteAddr())
 	p.Send("\nWelcome, " + p.Name + ".\n\n")
-	w.act("$n has entered the game.", p, nil, "", toRoom)
+	w.act("$n has entered the game.", p.Character, nil, "", toRoom)
 	w.look(p)
 	w.save(p)
 }
@@ -216,15 +232,17 @@ func (w *World) restore(p *Player, r Restore) {
 		return
 	}
 	p.rec = rec
-	p.Name = rec.Name
+	p.setName(rec.Name)
 	p.Admin = rec.Admin
 	p.Color = rec.Color
 	p.State = StatePlaying
-	room, ok := w.rooms.Get(r.Room)
+	w.loadCharacterItems(p)
+	w.loadSheet(p)
+	room, ok := w.content.Rooms.Get(r.Room)
 	if !ok {
-		room, ok = w.rooms.Get(rec.Room)
+		room, ok = w.content.Rooms.Get(rec.Room)
 		if !ok {
-			room, _ = w.rooms.Get(w.cfg.World.StartRoom)
+			room, _ = w.content.Rooms.Get(w.cfg.World.StartRoom)
 		}
 	}
 	p.Room = room
@@ -245,9 +263,10 @@ func (w *World) stillConnected(p *Player) bool {
 	return ok && cur == p
 }
 
-func (w *World) playingByName(name string) *Player {
+// playingByName finds an in-game character by name, ignoring except.
+func (w *World) playingByName(name string, except *Player) *Player {
 	for _, o := range w.players {
-		if o.State == StatePlaying && o.Name == name {
+		if o != except && o.State == StatePlaying && o.Name == name {
 			return o
 		}
 	}
@@ -264,6 +283,8 @@ func (w *World) save(p *Player) {
 	if p.Room != nil {
 		p.rec.Room = p.Room.Vnum
 	}
+	w.saveCharacterItems(p)
+	w.saveSheet(p)
 	if err := w.store.Save(p.rec); err != nil {
 		w.log.Error("save player", "name", p.Name, "err", err)
 	}

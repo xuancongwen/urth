@@ -1,0 +1,8 @@
+vnum: 201
+name: a stray dog
+keywords: [stray, dog]
+description: A stray dog sniffs at the ground.
+look: |
+  Ribs showing, one ear torn. It keeps its distance.
+level: 1
+flags: []

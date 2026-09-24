@@ -1,0 +1,8 @@
+vnum: 16
+name: The Scrub Track
+description: |
+  Thorny scrub presses close on both sides. Something small rustles away
+  as you approach.
+exits:
+  west: 14
+  east: 17

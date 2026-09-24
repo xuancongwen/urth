@@ -1,0 +1,8 @@
+vnum: 11
+name: The Tavern Door
+description: |
+  A heavy oak door stands propped open with a barrel. Inside it is dim and
+  smells of ale and woodsmoke.
+exits:
+  north: 9
+  south: 13

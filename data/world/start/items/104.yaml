@@ -1,0 +1,8 @@
+vnum: 104
+name: a canvas backpack
+keywords: [canvas, backpack, pack]
+description: A canvas backpack lies here.
+look: |
+  Patched at the corners. It has a lot of room inside.
+type: container
+capacity: 50

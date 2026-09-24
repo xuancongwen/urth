@@ -1,0 +1,9 @@
+vnum: 17
+name: The Old Milestone
+description: |
+  A waist-high stone with a worn number stands where the track forks.
+  One branch climbs north, the other bends south.
+exits:
+  west: 16
+  north: 18
+  south: 19

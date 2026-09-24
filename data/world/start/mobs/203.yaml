@@ -1,0 +1,8 @@
+vnum: 203
+name: a beggar
+keywords: [beggar]
+description: A beggar shuffles along, hand out.
+look: |
+  Wrapped in rags that were once several different garments.
+level: 1
+flags: []

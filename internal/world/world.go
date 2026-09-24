@@ -6,13 +6,16 @@ package world
 import (
 	"context"
 	"log/slog"
+	"math/rand/v2"
 	"sort"
 	"time"
 
 	"urth/internal/config"
+	"urth/internal/content"
 	"urth/internal/copyover"
 	"urth/internal/output"
 	"urth/internal/room"
+	"urth/internal/script"
 	"urth/internal/session"
 	"urth/internal/store"
 )
@@ -33,6 +36,8 @@ type Restore = session.Restore
 // Deps are the process-level hooks the world needs but must not own.
 type Deps struct {
 	Store *store.Store
+	// Scripts is the rule engine. nil disables every hook (safe defaults).
+	Scripts *script.Engine
 	// Shutdown asks the process to stop. Used by the shutdown command.
 	Shutdown func()
 	// Copyover writes the state and execs the binary. It returns only on
@@ -47,13 +52,24 @@ type Deps struct {
 type World struct {
 	cfg     config.Config
 	log     *slog.Logger
-	rooms   *room.World
+	content *content.World
 	store   *store.Store
 	deps    Deps
 	players map[session.ID]*Player
+	rooms   map[int]*roomContents // dynamic contents by vnum
+	areas   map[string]*areaState
+	rng     *rand.Rand
 	events  chan session.Event
 	posts   chan func()
 	tokens  map[string]pendingToken
+	scripts *script.Engine
+	// hookErrors records the script load each hook last failed under, so
+	// a broken formula is reported once per reload.
+	hookErrors map[string]time.Time
+
+	lastMobID uint64
+	rounds    uint64 // attack rounds resolved, for stats
+	scriptDir string // set by tests that edit scripts
 
 	tick           time.Duration
 	roundTicks     int
@@ -68,8 +84,8 @@ type pendingToken struct {
 	expires time.Time
 }
 
-// New creates a world over an already-loaded map.
-func New(cfg config.Config, rooms *room.World, log *slog.Logger, deps Deps) *World {
+// New creates a world over loaded content and populates every area.
+func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *World {
 	tick := time.Duration(cfg.Timing.TickMs) * time.Millisecond
 	roundTicks := int(time.Duration(cfg.Timing.RoundSeconds) * time.Second / tick)
 	if roundTicks < 1 {
@@ -79,13 +95,18 @@ func New(cfg config.Config, rooms *room.World, log *slog.Logger, deps Deps) *Wor
 	if autosaveRounds < 1 {
 		autosaveRounds = 1
 	}
-	return &World{
+	w := &World{
 		cfg:            cfg,
 		log:            log,
-		rooms:          rooms,
+		content:        c,
 		store:          deps.Store,
 		deps:           deps,
 		players:        map[session.ID]*Player{},
+		rooms:          map[int]*roomContents{},
+		areas:          map[string]*areaState{},
+		rng:            newRNG(),
+		scripts:        deps.Scripts,
+		hookErrors:     map[string]time.Time{},
 		events:         make(chan session.Event, eventBuffer),
 		posts:          make(chan func(), eventBuffer),
 		tokens:         map[string]pendingToken{},
@@ -93,6 +114,8 @@ func New(cfg config.Config, rooms *room.World, log *slog.Logger, deps Deps) *Wor
 		roundTicks:     roundTicks,
 		autosaveRounds: autosaveRounds,
 	}
+	w.initAreas()
+	return w
 }
 
 // Events is the channel transports send to.
@@ -119,7 +142,8 @@ func (w *World) RegisterTokens(players []copyover.Player) {
 // everyone, says goodbye, and returns.
 func (w *World) Run(ctx context.Context) {
 	w.started = time.Now()
-	w.log.Info("world running", "tick", w.tick, "round_ticks", w.roundTicks, "autosave_rounds", w.autosaveRounds, "rooms", len(w.rooms.Rooms))
+	w.log.Info("world running", "tick", w.tick, "round_ticks", w.roundTicks, "autosave_rounds", w.autosaveRounds,
+		"rooms", len(w.content.Rooms.Rooms), "items", len(w.content.Items), "mobs", len(w.content.Mobs), "areas", len(w.areas))
 	ticker := time.NewTicker(w.tick)
 	defer ticker.Stop()
 	for {
@@ -227,9 +251,25 @@ func (w *World) runCommands() {
 	}
 }
 
-// round runs once every Timing.RoundSeconds.
+// round runs once every Timing.RoundSeconds: fights, regeneration, mob
+// movement, area resets, script reload, autosave.
 func (w *World) round() {
 	w.roundCount++
+	w.violence()
+	w.regen()
+	w.wanderMobs()
+	w.tickAreas()
+	if w.scripts != nil {
+		if changed, err := w.scripts.Reload(); changed {
+			if err != nil {
+				w.log.Error("script reload failed, keeping old scripts", "err", err)
+				w.broadcastAdmins("{R}Script reload failed: " + output.Escape(err.Error()) + "{x}\n")
+			} else {
+				w.hookErrors = map[string]time.Time{}
+				w.broadcastAdmins("{G}Scripts reloaded.{x}\n")
+			}
+		}
+	}
 	if w.roundCount%uint64(w.autosaveRounds) == 0 {
 		if n := w.saveAll(); n > 0 {
 			w.log.Debug("autosave", "players", n)
@@ -258,9 +298,12 @@ func (w *World) flush() {
 	}
 }
 
-// prompt builds the in-game prompt. Vitals plug in here once they exist.
-func (w *World) prompt(_ *Player) output.Message {
-	return output.Message{Type: output.Prompt, Text: "> "}
+// prompt builds the in-game prompt: <health/max hp mana/max m>.
+func (w *World) prompt(p *Player) output.Message {
+	text := "<" + itoa(p.Health) + "/" + itoa(p.HealthMax) + "hp " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "m> "
+	return output.Message{Type: output.Prompt, Text: text, Data: map[string]int{
+		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax,
+	}}
 }
 
 func (w *World) shutdown() {
@@ -274,10 +317,11 @@ func (w *World) shutdown() {
 
 // leave removes a player from the map, telling the room.
 func (w *World) leave(p *Player) {
+	w.stopFighting(p.Character, true)
 	if p.Room == nil {
 		return
 	}
-	w.act("$n has left the game.", p, nil, "", toRoom)
+	w.act("$n has left the game.", p.Character, nil, "", toRoom)
 	p.Room = nil
 }
 
@@ -291,6 +335,15 @@ func (w *World) playersIn(r *room.Room) []*Player {
 	}
 	sort.Slice(out, func(i, j int) bool { return out[i].conn.ID() < out[j].conn.ID() })
 	return out
+}
+
+// broadcastAdmins sends a system message to every playing admin.
+func (w *World) broadcastAdmins(text string) {
+	for _, p := range w.players {
+		if p.State == StatePlaying && p.Admin {
+			p.SendMsg(output.Message{Type: output.System, Text: text})
+		}
+	}
 }
 
 // broadcast sends a system message to every playing character.

@@ -1,0 +1,8 @@
+vnum: 109
+name: a small purse
+keywords: [small, purse]
+description: A small purse lies here.
+look: |
+  Drawstring leather, big enough for a few coins.
+type: container
+capacity: 5

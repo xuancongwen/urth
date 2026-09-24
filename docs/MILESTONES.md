@@ -37,7 +37,7 @@ the binary while handing off live sockets.
 
 **Done:** a `copyover` command restarts the binary with nobody disconnected.
 
-## 5. Objects and mobs, no rules `[ ]`
+## 5. Objects and mobs, no rules `[x]`
 
 Items in rooms, inventory, and equipment slots. `get`, `drop`, `put`, `give`,
 `wear`, `wield`, `remove`, `inventory`, `equipment`. Mobs that stand and
@@ -45,7 +45,7 @@ wander. Area files with resets and respawn timers.
 
 **Done:** a 20-room area repopulates on schedule. No `kill` command exists yet.
 
-## 6. Scripting layer and the rules seam `[ ]`
+## 6. Scripting layer and the rules seam `[x]`
 
 Embed goja. Expose actors, rooms, and items to scripts. Define hook points:
 damage, hit resolution, cast, tick, level. Hot reload of scripts. A headless

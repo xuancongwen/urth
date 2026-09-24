@@ -5,3 +5,4 @@ description: |
   side. Whatever they once guarded is gone.
 exits:
   east: 1
+  west: 9

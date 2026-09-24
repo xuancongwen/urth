@@ -1,0 +1,7 @@
+vnum: 105
+name: a loaf of bread
+keywords: [loaf, bread]
+description: A loaf of bread lies here.
+look: |
+  Dense and dark. It would keep for days.
+type: other

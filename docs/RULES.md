@@ -19,34 +19,42 @@ Status of each decision: **decided**, **leaning**, or **open**.
 What a rule script will and will not be able to touch once milestone 6
 lands. This section is owned by the engine, not the designer.
 
-### Hook points (planned)
+### Hook points (implemented in milestone 6)
 
-Each hook is a script function. Inputs are read-only views; outputs are
-plain values the engine applies.
+Each hook is a global function in `data/scripts/*.js`. Inputs are
+read-only snapshots; outputs are plain objects the engine applies. The
+placeholder implementations live in `data/scripts/rules.js`.
 
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
-| `resolveAttack` | each attack in a combat round | attacker, defender, weapon (or unarmed), round number | `{hit, damage, crit, messageKey}` |
-| `resolveCast` | a spell finishes casting | caster, target(s), spell definition | `{success, effects[], messageKey}` |
-| `onTick` | once per round for each character | character | `{healthDelta, manaDelta, effectsToExpire[]}` |
-| `onLevel` | a character gains a level | character, new level | `{statDeltas, healthMax, manaMax}` |
-| `xpForKill` | a character kills a mob | killer, victim | integer |
-| `derivedStats` | any base stat or equipment changes | character, equipment | `{attackMultiplier, defense, speed, ...}` |
+| `resolveAttack` | each swing in a combat round, and once on `kill` | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb}` |
+| `derivedStats` | login, spawn, equipment change, level | character | `{healthMax, manaMax, attacksPerRound}` |
+| `onTick` | once per round for every character | character | `{healthDelta, manaDelta}` |
+| `xpForKill` | a player kills a mob | killer, victim | integer |
+| `xpToLevel` | after any experience gain | level | integer (total xp needed) |
+| `onLevel` | a character gains a level | character, new level | `{statDeltas:{}, message}` |
+| `resolveCast` | not yet; arrives with magic in milestone 8 | | |
 
 ### What scripts see
 
-- Character: name, level, base stats, derived stats, current and max
-  vitals, equipment by slot, active effects, room.
-- Item: definition fields (see section 5) plus instance state.
-- Spell: definition fields (see section 6).
-- A seeded random source, so simulations are reproducible.
+- Character: `{name, level, xp, stats:{}, health, healthMax, mana, manaMax,
+  equipment:{slot: item}, isPlayer, fighting, room:{vnum,name,area}, vnum
+  and flags for mobs}`. `stats` is whatever the rules put there; the engine
+  does not define the stat set.
+- Item: `{vnum, name, type, slot, weight, value, flags, weapon:{damage,
+  hands, kind}, armor:{defense}, mods:{}}`.
+- `random.int(n)`, `random.float()`, `random.roll(count, sides)`: seeded
+  per simulation so runs are reproducible. `log(...)` writes to the server
+  log.
 
 ### What scripts cannot do
 
 - Move characters, create or destroy items, send arbitrary text. Scripts
   return values; the engine applies them and renders messages.
-- Block. A hook that takes more than a tick's budget is killed and logged.
-- Keep state between calls except through effects on characters.
+- Block. A hook that runs longer than 50 ms is interrupted; the engine
+  uses a safe default (a miss, no regen, 1 max health) and warns admins
+  once per load.
+- Keep state between calls. Effects on characters arrive with magic.
 
 ### Time
 
@@ -54,11 +62,16 @@ plain values the engine applies.
 - A round is `timing.round_seconds` (3 s). Combat, regeneration, and effect
   durations are counted in rounds.
 
-### Balance tooling (milestone 6)
+### Balance tooling (implemented)
 
-- A `simulate` admin command runs N fights between two definitions and
-  reports win rate, mean rounds, and damage distribution.
-- Scripts hot-reload. A formula change is visible on the next round.
+- `simulate <mob|me> <mob> [fights] [seed]` runs detached fights through
+  the same hooks and reports win rates, rounds, and damage per fight. Mobs
+  are equipped as their reset entry spawns them; `me` uses your sheet and
+  gear. A seed makes the run reproducible.
+- Scripts reload when a file changes, checked once per round. A syntax
+  error keeps the previous rules and warns admins once. `reload` forces it.
+- `bin/urthbot` drives a running server from the command line for
+  scripted checks.
 
 ---
 

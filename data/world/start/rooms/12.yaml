@@ -1,0 +1,8 @@
+vnum: 12
+name: The Market Stalls
+description: |
+  Three empty stalls under faded awnings. Whatever was sold here, the
+  sellers have not been back in some time.
+exits:
+  west: 9
+  east: 14

@@ -1,0 +1,7 @@
+vnum: 10
+name: The Smithy
+description: |
+  Heat rolls out of an open forge. Tongs and hammers hang from pegs in no
+  particular order, and the floor is gritty with scale.
+exits:
+  south: 9

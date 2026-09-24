@@ -1,0 +1,10 @@
+vnum: 103
+name: a leather jerkin
+keywords: [leather, jerkin]
+description: A leather jerkin lies here.
+look: |
+  Sleeveless, stiff, and smelling faintly of horse.
+type: armor
+slot: body
+armor:
+  defense: 2

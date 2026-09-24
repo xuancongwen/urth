@@ -1,0 +1,12 @@
+vnum: 100
+name: a rusty sword
+keywords: [rusty, sword]
+description: A rusty sword lies here.
+look: |
+  Pitted along the edge and dull at the point. It has been dropped and
+  picked up many times.
+type: weapon
+weapon:
+  damage: 5
+  hands: 1
+  kind: slash

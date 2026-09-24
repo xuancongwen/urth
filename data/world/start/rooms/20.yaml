@@ -1,0 +1,7 @@
+vnum: 20
+name: The Hilltop Cairn
+description: |
+  A heap of stones marks the summit. From here the village is a cluster
+  of roofs, and beyond it the crossroads.
+exits:
+  south: 18

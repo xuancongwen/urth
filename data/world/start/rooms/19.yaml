@@ -1,0 +1,7 @@
+vnum: 19
+name: The Bog Edge
+description: |
+  The track sinks into black mud and reeds. Nothing beyond here looks
+  like it would hold your weight.
+exits:
+  north: 17

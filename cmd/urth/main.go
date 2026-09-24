@@ -18,8 +18,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 	"urth/internal/config"
+	"urth/internal/content"
 	"urth/internal/copyover"
-	"urth/internal/room"
+	"urth/internal/script"
 	"urth/internal/session"
 	"urth/internal/store"
 	"urth/internal/telnet"
@@ -72,18 +73,24 @@ func run() error {
 		"data", cfg.Paths.Data,
 	)
 
-	rooms, err := room.Load(filepath.Join(cfg.Paths.Data, "world"))
+	world_, err := content.Load(filepath.Join(cfg.Paths.Data, "world"))
 	if err != nil {
 		return fmt.Errorf("load world: %w", err)
 	}
-	if _, ok := rooms.Get(cfg.World.StartRoom); !ok {
+	if _, ok := world_.Rooms.Get(cfg.World.StartRoom); !ok {
 		return fmt.Errorf("world.start_room %d does not exist", cfg.World.StartRoom)
 	}
-	logger.Info("world loaded", "areas", len(rooms.Areas), "rooms", len(rooms.Rooms))
+	logger.Info("world loaded", "areas", len(world_.Rooms.Areas), "rooms", len(world_.Rooms.Rooms),
+		"items", len(world_.Items), "mobs", len(world_.Mobs))
 
 	players, err := store.New(filepath.Join(cfg.Paths.Data, "players"), bcrypt.DefaultCost)
 	if err != nil {
 		return err
+	}
+
+	scripts := script.New(filepath.Join(cfg.Paths.Data, "scripts"), logger.With("component", "script"), script.DefaultBudget)
+	if err := scripts.Load(); err != nil {
+		return fmt.Errorf("load scripts: %w", err)
 	}
 
 	// A copyover state file means we were exec'd by a previous instance and
@@ -106,6 +113,7 @@ func run() error {
 	)
 	deps := world.Deps{
 		Store:    players,
+		Scripts:  scripts,
 		Shutdown: stop,
 	}
 	statePath := filepath.Join(cfg.Paths.Data, "copyover.json")
@@ -144,7 +152,7 @@ func run() error {
 		return out
 	}
 
-	w := world.New(cfg, rooms, logger.With("component", "world"), deps)
+	w := world.New(cfg, world_, logger.With("component", "world"), deps)
 	w.RegisterTokens(state.Players)
 
 	if cfg.Server.TelnetAddr != "" {
