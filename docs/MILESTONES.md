@@ -12,7 +12,7 @@ target. Decisions recorded in `DECISIONS.md`.
 **Done:** `make build && bin/urth` starts, logs its configuration, and exits
 cleanly on SIGINT/SIGTERM.
 
-## 2. Walking skeleton `[ ]`
+## 2. Walking skeleton `[x]`
 
 Thin TCP line listener that tolerates telnet negotiation bytes, one goroutine
 per session, a single world goroutine with a fixed tick, ROM-style command
@@ -21,7 +21,7 @@ Commands: `look`, `exits`, `north/south/east/west/up/down`, `say`, `who`, `quit`
 
 **Done:** two clients walk around and see each other's speech.
 
-## 3. Output and messaging model `[ ]`
+## 3. Output and messaging model `[x]`
 
 Structured events rendered to text at the transport edge. Perspective
 messages ("You hit" / "Bob hits"). Per-tick output buffering. Prompts. Color

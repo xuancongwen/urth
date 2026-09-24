@@ -15,6 +15,7 @@ type Config struct {
 	Server Server `yaml:"server"`
 	Timing Timing `yaml:"timing"`
 	Paths  Paths  `yaml:"paths"`
+	World  World  `yaml:"world"`
 	Log    Log    `yaml:"log"`
 }
 
@@ -42,6 +43,12 @@ type Paths struct {
 	Data string `yaml:"data"`
 }
 
+// World holds game-level settings that are not rules.
+type World struct {
+	// StartRoom is the vnum new characters enter the world in.
+	StartRoom int `yaml:"start_room"`
+}
+
 // Log controls logging output.
 type Log struct {
 	// Level is one of debug, info, warn, error.
@@ -64,6 +71,9 @@ func Default() Config {
 		},
 		Paths: Paths{
 			Data: "data",
+		},
+		World: World{
+			StartRoom: 1,
 		},
 		Log: Log{
 			Level:  "info",
@@ -105,6 +115,9 @@ func (c Config) Validate() error {
 	}
 	if c.Paths.Data == "" {
 		return errors.New("paths.data must be set")
+	}
+	if c.World.StartRoom <= 0 {
+		return fmt.Errorf("world.start_room must be a positive vnum, got %d", c.World.StartRoom)
 	}
 	switch c.Log.Level {
 	case "debug", "info", "warn", "error":

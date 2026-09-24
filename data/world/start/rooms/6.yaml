@@ -1,0 +1,8 @@
+vnum: 6
+name: The Bell Tower
+description: |
+  A squat stone tower with a single bronze bell hanging in its open top. The
+  rope sways though there is no wind.
+exits:
+  south: 2
+  up: 8

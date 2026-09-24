@@ -1,0 +1,7 @@
+vnum: 4
+name: The South Road
+description: |
+  The road runs straight and flat toward a line of dark trees. Crows watch
+  from a fence post.
+exits:
+  north: 1

@@ -1,0 +1,8 @@
+vnum: 2
+name: The North Road
+description: |
+  The road climbs gently between low stone walls. Somewhere ahead a bell is
+  ringing, slow and far away.
+exits:
+  south: 1
+  north: 6

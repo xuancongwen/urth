@@ -1,0 +1,7 @@
+vnum: 7
+name: The Bottom of the Well
+description: |
+  Cold water reaches your knees. The circle of sky above is very small. A
+  narrow crack in the wall leads nowhere you can fit.
+exits:
+  up: 3

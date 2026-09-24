@@ -1,0 +1,7 @@
+vnum: 8
+name: The Top of the Bell Tower
+description: |
+  From here the crossroads is a tiny cross scratched in the earth. The bell
+  beside you is taller than a man and covered in green verdigris.
+exits:
+  down: 6

@@ -5,8 +5,9 @@ server:
   name: Urth
   # Line-oriented TCP listener. Any MUD client (Mudlet, TinTin++, telnet) can connect.
   telnet_addr: 127.0.0.1:4000
-  # WebSocket listener. Leave empty to disable. Arrives in milestone 3.
-  websocket_addr: ""
+  # WebSocket listener and bare browser client. Leave empty to disable.
+  # Open http://<addr>/ in a browser.
+  websocket_addr: 127.0.0.1:4001
 
 timing:
   # World loop period. Input is processed once per tick.
@@ -17,6 +18,10 @@ timing:
 paths:
   # Root directory for world, player, and script files.
   data: data
+
+world:
+  # Vnum of the room new characters start in.
+  start_room: 1
 
 log:
   # debug, info, warn, error

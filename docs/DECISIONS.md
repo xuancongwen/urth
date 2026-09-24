@@ -62,3 +62,25 @@ this is painful, so it lands before objects, mobs, or rules.
 Everything through milestone 7 is rules-agnostic. Combat orchestration is built
 against a stub that returns damage 1. Balance work starts only once a
 simulator and hot-reloading scripts exist.
+
+## D10. Perspective messages use ROM's act() convention
+
+A message that differs by viewer is written as separate format strings, one
+per perspective (`toChar`, `toVict`, `toNotVict`, `toRoom`), with `$n` and
+`$N` substituted for the actor and victim. No verb conjugation engine. This
+is simple, matches ROM builders' expectations, and leaves room for `$e`/`$s`
+pronouns once characters have them.
+
+## D11. Color is brace-token markup, escaped at the input boundary
+
+Game text carries `{r}`-style tokens (see `internal/output/color.go`). Each
+transport renders them: ANSI for terminals, `<span>` classes for the browser,
+stripped when a player turns color off. Anything a player typed passes
+through `output.Escape` before it is embedded, so players cannot inject
+color or markup.
+
+## D12. Output is batched per tick
+
+A player's messages accumulate during a tick and are delivered as one
+`output.Batch`, with the prompt appended last if there was output. One write
+per player per tick, and the prompt can never land mid-output.

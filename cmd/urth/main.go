@@ -1,6 +1,5 @@
-// Command urth is the game server. Milestone 1: it loads configuration,
-// sets up logging, and runs until asked to stop. The world loop and
-// listeners arrive in milestone 2.
+// Command urth is the game server: one world goroutine driven by a fixed
+// tick, fed by transport goroutines that own the sockets.
 package main
 
 import (
@@ -10,11 +9,17 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
+	"path/filepath"
+	"sync"
 	"syscall"
 	"time"
 
 	"urth/internal/config"
+	"urth/internal/room"
+	"urth/internal/telnet"
 	"urth/internal/version"
+	"urth/internal/web"
+	"urth/internal/world"
 )
 
 func main() {
@@ -47,9 +52,6 @@ func run() error {
 	} else {
 		logger.Warn("config file not found, using defaults", "path", *configPath)
 	}
-	if err := os.MkdirAll(cfg.Paths.Data, 0o755); err != nil {
-		return fmt.Errorf("create data dir: %w", err)
-	}
 
 	logger.Info("starting",
 		"name", cfg.Server.Name,
@@ -62,14 +64,51 @@ func run() error {
 		"data", cfg.Paths.Data,
 	)
 
+	worldDir := filepath.Join(cfg.Paths.Data, "world")
+	rooms, err := room.Load(worldDir)
+	if err != nil {
+		return fmt.Errorf("load world: %w", err)
+	}
+	if _, ok := rooms.Get(cfg.World.StartRoom); !ok {
+		return fmt.Errorf("world.start_room %d does not exist", cfg.World.StartRoom)
+	}
+	logger.Info("world loaded", "areas", len(rooms.Areas), "rooms", len(rooms.Rooms))
+
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	started := time.Now()
-	<-ctx.Done()
-	stop()
+	w := world.New(cfg, rooms, logger.With("component", "world"))
 
-	logger.Info("shutting down", "uptime", time.Since(started).Round(time.Millisecond))
+	var wg sync.WaitGroup
+	if cfg.Server.TelnetAddr != "" {
+		ln := telnet.NewListener(cfg.Server.TelnetAddr, w.Events(), logger.With("component", "telnet"))
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			if err := ln.Serve(ctx); err != nil {
+				logger.Error("telnet listener failed", "err", err)
+				stop()
+			}
+		}()
+	}
+
+	if cfg.Server.WebSocketAddr != "" {
+		ws := web.NewServer(cfg.Server.WebSocketAddr, w.Events(), logger.With("component", "web"))
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			if err := ws.Serve(ctx); err != nil {
+				logger.Error("web server failed", "err", err)
+				stop()
+			}
+		}()
+	}
+
+	started := time.Now()
+	w.Run(ctx)
+	wg.Wait()
+
+	logger.Info("shut down", "uptime", time.Since(started).Round(time.Millisecond))
 	return nil
 }
 

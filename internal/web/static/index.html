@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Urth</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0b0b0b; color: #d0d0d0;
+    font: 15px/1.35 ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace; }
+  #screen { position: fixed; inset: 0 0 3.2em 0; overflow-y: auto; padding: 1em 1.2em;
+    white-space: pre-wrap; word-break: break-word; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 3.2em; display: flex;
+    align-items: center; gap: .6em; padding: 0 1.2em; background: #151515;
+    border-top: 1px solid #2a2a2a; }
+  #prompt { color: #8f8; white-space: pre; }
+  #input { flex: 1; background: #0b0b0b; color: #fff; border: 1px solid #333;
+    padding: .4em .6em; font: inherit; outline: none; }
+  #input:focus { border-color: #5a5; }
+  .room { display: block; }
+  .system { color: #f88; }
+  .c-d { color: #000 } .c-D { color: #777 }
+  .c-r { color: #b22 } .c-R { color: #f55 }
+  .c-g { color: #2a2 } .c-G { color: #5f5 }
+  .c-y { color: #aa2 } .c-Y { color: #ff5 }
+  .c-b { color: #33c } .c-B { color: #77f }
+  .c-m { color: #a2a } .c-M { color: #f5f }
+  .c-c { color: #2aa } .c-C { color: #5ff }
+  .c-w { color: #ccc } .c-W { color: #fff }
+</style>
+</head>
+<body>
+<div id="screen"></div>
+<div id="bar">
+  <span id="prompt"></span>
+  <input id="input" autocomplete="off" autofocus placeholder="type a command">
+</div>
+<script>
+(function () {
+  var screen = document.getElementById('screen');
+  var prompt = document.getElementById('prompt');
+  var input = document.getElementById('input');
+  var history = [], hIndex = 0;
+
+  function append(html, cls) {
+    var span = document.createElement('span');
+    if (cls) span.className = cls;
+    span.innerHTML = html;
+    screen.appendChild(span);
+    screen.scrollTop = screen.scrollHeight;
+  }
+  function system(text) { append(text + '\n', 'system'); }
+
+  var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
+  var ws = new WebSocket(proto + location.host + '/ws');
+  ws.onopen = function () { system('[connected]'); };
+  ws.onclose = function (e) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); prompt.textContent = ''; };
+  ws.onerror = function () { system('[connection error]'); };
+  ws.onmessage = function (e) {
+    var msgs = JSON.parse(e.data);
+    msgs.forEach(function (m) {
+      if (m.type === 'prompt') { prompt.textContent = m.text; return; }
+      if (m.type === 'room' && m.data) { document.title = m.data.name + ' - Urth'; }
+      append(m.html, m.type);
+    });
+  };
+
+  input.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter') {
+      var line = input.value;
+      if (ws.readyState !== WebSocket.OPEN) return;
+      ws.send(line);
+      append('<span class="c-D">' + (prompt.textContent || '') + line.replace(/[&<>]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</span>\n');
+      if (line) { history.push(line); if (history.length > 100) history.shift(); }
+      hIndex = history.length;
+      input.value = '';
+    } else if (ev.key === 'ArrowUp') {
+      if (hIndex > 0) { hIndex--; input.value = history[hIndex]; }
+      ev.preventDefault();
+    } else if (ev.key === 'ArrowDown') {
+      if (hIndex < history.length) { hIndex++; input.value = history[hIndex] || ''; }
+      ev.preventDefault();
+    }
+  });
+  document.addEventListener('click', function () { input.focus(); });
+})();
+</script>
+</body>
+</html>

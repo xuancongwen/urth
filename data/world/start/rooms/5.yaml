@@ -1,0 +1,7 @@
+vnum: 5
+name: The Weathered Gate
+description: |
+  Two gateposts stand here with no gate between them and no wall on either
+  side. Whatever they once guarded is gone.
+exits:
+  east: 1
