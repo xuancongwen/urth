@@ -737,6 +737,45 @@ duration live in the rules scripts as named constants, read by the
 engine through a small `deathRules()` hook, so they can be tuned
 without a rebuild.
 
+### 4.7 Groups, and combat between anyone
+
+**Status: decided 2026-09-24.** Combat is not a mob-to-player
+relationship. Any character, player or mob, can attack any other.
+Several attackers can fight one target; one attacker can fight several
+targets over a fight; players can form groups, and groups can attack
+others, players included.
+
+- **Groups.** A player can join a group (ROM's `follow` and `group`
+  vocabulary, D7). A group shares experience from kills, split so that
+  the group is never worse off per member than a soloist would be on
+  the same kill (2.4: group-accelerated, never group-penalised).
+  Members can `assist` and can be set to assist automatically. Group
+  talk exists.
+- **Many on one.** Any number of attackers can fight one target; the
+  target auto-attacks one of them and may switch. Mobs can gang up, and
+  a mob may assist another of its kind or its group (a builder flag).
+- **One on many.** An attacker's auto-attack has one target at a time,
+  but `kill <other>` switches it mid-fight, and skills and spells may
+  affect several or all enemies in the room. Everything hostile to a
+  character in a fight is that character's *enemies*; area effects are
+  defined over that set, not over the room.
+- **Players versus players.** Allowed by the rules; the world decides
+  where (a safe-room flag) and the consequences are the same as any
+  death (4.6). Whether the starting area is safe is content.
+
+Why: the fight model has to be general before magic, because area
+spells, wards on allies, and a healer in a group all need "my group",
+"my enemies", and "everyone fighting me" to be real sets, not
+inferences from a single pointer.
+
+Consequences for the engine: each character keeps its current target
+and the set of characters fighting it; `kill` while fighting switches
+target; a `Group` with a leader and members, persisted only for the
+session; experience split on kill; `follow`, `group`, `assist`, `gtell`.
+Views gain `group: [...]` and `enemies: [...]` so that hooks can see
+both sets. `resolveCast` takes a target *set*, not a single target.
+Logged in section 9.
+
 ---
 
 ## 5. Items
@@ -1372,6 +1411,12 @@ its equipment. Section 9 lists the hook.
 
 Anything not yet placed in a section above.
 
+- **Groups and many-to-many combat** (4.7): target switching, the set of
+  attackers per character, `Group`, experience split, `follow`,
+  `group`, `assist`, `gtell`, mob assist flag, safe-room flag, and
+  `group` and `enemies` in the views. Engine work, no rules decision
+  outstanding; should land before `resolveCast` because spells target
+  sets.
 - **Baseline shape.** Linear baselines cannot hit the 4.5 gap row at
   every level (measured 2026-09-24; see the finding there). Decide
   between geometric baselines and a per-band target row.
