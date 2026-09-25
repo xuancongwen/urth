@@ -1,0 +1,8 @@
+vnum: 909
+name: a level 9 dummy
+keywords: [dummy, d9]
+description: A wooden dummy painted with the number 9 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 9 is painted on its chest.
+level: 9
+flags: [sentinel]

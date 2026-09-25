@@ -1,0 +1,8 @@
+vnum: 901
+name: a level 1 dummy
+keywords: [dummy, d1]
+description: A wooden dummy painted with the number 1 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 1 is painted on its chest.
+level: 1
+flags: [sentinel]

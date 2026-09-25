@@ -1,0 +1,8 @@
+vnum: 915
+name: a level 15 dummy
+keywords: [dummy, d15]
+description: A wooden dummy painted with the number 15 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 15 is painted on its chest.
+level: 15
+flags: [sentinel]

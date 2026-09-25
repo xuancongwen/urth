@@ -1,0 +1,8 @@
+vnum: 907
+name: a level 7 dummy
+keywords: [dummy, d7]
+description: A wooden dummy painted with the number 7 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 7 is painted on its chest.
+level: 7
+flags: [sentinel]

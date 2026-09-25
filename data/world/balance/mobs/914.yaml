@@ -1,0 +1,8 @@
+vnum: 914
+name: a level 14 dummy
+keywords: [dummy, d14]
+description: A wooden dummy painted with the number 14 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 14 is painted on its chest.
+level: 14
+flags: [sentinel]

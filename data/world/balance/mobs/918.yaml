@@ -1,0 +1,8 @@
+vnum: 918
+name: a level 18 dummy
+keywords: [dummy, d18]
+description: A wooden dummy painted with the number 18 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 18 is painted on its chest.
+level: 18
+flags: [sentinel]

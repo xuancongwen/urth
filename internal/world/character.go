@@ -22,8 +22,10 @@ type Character struct {
 	Level      int
 	Experience int
 	Stats      map[string]int
-	// StatPoints are banked, unspent points from levels (train spends them).
+	// StatPoints and FeatPoints are banked, unspent grants from levels;
+	// train and feat spend them.
 	StatPoints int
+	FeatPoints int
 	Health     int
 	HealthMax  int
 	Mana       int

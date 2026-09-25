@@ -1,0 +1,8 @@
+vnum: 906
+name: a level 6 dummy
+keywords: [dummy, d6]
+description: A wooden dummy painted with the number 6 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 6 is painted on its chest.
+level: 6
+flags: [sentinel]

@@ -1,0 +1,8 @@
+vnum: 917
+name: a level 17 dummy
+keywords: [dummy, d17]
+description: A wooden dummy painted with the number 17 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 17 is painted on its chest.
+level: 17
+flags: [sentinel]

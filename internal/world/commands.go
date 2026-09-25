@@ -52,6 +52,7 @@ func init() {
 		{"flee", 2, cmdFlee, false},
 		{"score", 2, cmdScore, false},
 		{"train", 2, cmdTrain, false},
+		{"feat", 3, cmdFeat, false},
 		{"who", 2, cmdWho, false},
 		{"color", 3, cmdColor, false},
 		{"save", 2, cmdSave, false},

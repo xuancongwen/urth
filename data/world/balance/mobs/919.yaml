@@ -1,0 +1,8 @@
+vnum: 919
+name: a level 19 dummy
+keywords: [dummy, d19]
+description: A wooden dummy painted with the number 19 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 19 is painted on its chest.
+level: 19
+flags: [sentinel]

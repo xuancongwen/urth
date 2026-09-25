@@ -2,6 +2,7 @@ package world
 
 import (
 	"errors"
+	"strings"
 
 	"urth/internal/effect"
 	"urth/internal/item"
@@ -34,6 +35,7 @@ type TickResult struct {
 // LevelResult is what onLevel returns.
 type LevelResult struct {
 	StatPoints int            `json:"statPoints"`
+	FeatPicks  int            `json:"featPicks"`
 	StatDeltas map[string]int `json:"statDeltas"`
 	Message    string         `json:"message"`
 }
@@ -42,7 +44,29 @@ type LevelResult struct {
 type CreateResult struct {
 	Stats      map[string]int `json:"stats"`
 	StatPoints int            `json:"statPoints"`
+	FeatPicks  int            `json:"featPicks"`
 	Message    string         `json:"message"`
+}
+
+// Feat is one entry of featList (docs/RULES.md 7.2): a permanent effect
+// with a minimum level and optional prerequisites.
+type Feat struct {
+	ID          string      `json:"id"`
+	Name        string      `json:"name"`
+	Level       int         `json:"level"`
+	Description string      `json:"description"`
+	Requires    []string    `json:"requires"`
+	Effect      effect.Spec `json:"effect"`
+}
+
+// kitEntry is one item of standardKit: enough to build a prototype.
+type kitEntry struct {
+	Name     string           `json:"name"`
+	Type     string           `json:"type"`
+	Slot     string           `json:"slot"`
+	Baseline string           `json:"baseline"`
+	Weapon   *item.WeaponSpec `json:"weapon"`
+	Armor    *item.ArmorSpec  `json:"armor"`
 }
 
 // Derived is what derivedStats returns. Speed is swings per round and may
@@ -131,6 +155,7 @@ func (w *World) view(c *Character) map[string]any {
 		"xp":         c.Experience,
 		"stats":      stats,
 		"statPoints": c.StatPoints,
+		"featPoints": c.FeatPoints,
 		"health":     c.Health,
 		"healthMax":  c.HealthMax,
 		"mana":       c.Mana,
@@ -230,14 +255,7 @@ func mobProtoView(p *mob.Proto) map[string]any {
 // so a curve edit re-derives every prototype without a restart.
 func (w *World) resolveBaselines() {
 	for _, p := range w.content.Items {
-		p.ResolveStated()
-		var r itemBaselineResult
-		if w.callOptional("itemBaseline", &r, protoView(p)) {
-			p.Resolved = item.Resolved{Weapon: r.Weapon, Armor: r.Armor, Source: "baseline"}
-			if p.Resolved.Weapon.Speed <= 0 {
-				p.Resolved.Weapon.Speed = 1
-			}
-		}
+		w.resolveItem(p)
 	}
 	for _, p := range w.content.Mobs {
 		p.ResolveStated()
@@ -257,6 +275,58 @@ func (w *World) resolveBaselines() {
 	for _, c := range w.allCharacters() {
 		w.recalc(c)
 	}
+}
+
+// resolveItem fills one prototype's Resolved numbers.
+func (w *World) resolveItem(p *item.Proto) {
+	p.ResolveStated()
+	var r itemBaselineResult
+	if w.callOptional("itemBaseline", &r, protoView(p)) {
+		p.Resolved = item.Resolved{Weapon: r.Weapon, Armor: r.Armor, Source: "baseline"}
+		if p.Resolved.Weapon.Speed <= 0 {
+			p.Resolved.Weapon.Speed = 1
+		}
+	}
+}
+
+// featList asks the rules which feats exist. Optional; default none.
+func (w *World) featList() []Feat {
+	var list []Feat
+	w.callOptional("featList", &list)
+	return list
+}
+
+// standardKit asks the rules what a level-N character wears for balance
+// runs, and builds resolved prototypes for it. Optional; default nothing.
+func (w *World) standardKit(level int) []*item.Proto {
+	var entries []kitEntry
+	if !w.callOptional("standardKit", &entries, level) {
+		return nil
+	}
+	var out []*item.Proto
+	for _, e := range entries {
+		p := &item.Proto{Name: e.Name, Keywords: keywordsOf(e.Name), Type: item.Type(e.Type), Slot: item.Slot(e.Slot),
+			Level: level, Baseline: e.Baseline, Weapon: e.Weapon, Armor: e.Armor}
+		if p.Type == item.Weapon && p.Slot == "" {
+			p.Slot = "wield"
+		}
+		w.resolveItem(p)
+		out = append(out, p)
+	}
+	return out
+}
+
+// keywordsOf makes keywords from a short description, dropping articles.
+func keywordsOf(name string) []string {
+	var out []string
+	for _, word := range strings.Fields(strings.ToLower(name)) {
+		switch word {
+		case "a", "an", "the", "of":
+			continue
+		}
+		out = append(out, word)
+	}
+	return out
 }
 
 // resolveAttack asks the script how one swing goes. Default: a miss.

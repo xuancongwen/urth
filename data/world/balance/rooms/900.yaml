@@ -1,0 +1,7 @@
+vnum: 900
+name: The Balance Range
+description: |
+  A bare stone hall with no doors. Wooden dummies stand in a row, each
+  painted with a number. Nothing here is meant to be reached on foot;
+  builders arrive by goto, and the simulator never needs to.
+exits: {}

@@ -43,11 +43,13 @@ left out; the engine then uses a quiet default.
 | `onTick` | once per round for every character | character | `{healthDelta, manaDelta}` |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
-| `onLevel` | a character gains a level | character, new level | `{statPoints, statDeltas:{}, message}` |
-| `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, message}` |
+| `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |
+| `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, featPicks, message}` |
 | `deathRules` (optional) | every death | | `{xpFraction, xpLevelCap, corpseRounds, respawnHealth}` |
 | `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}}` |
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
+| `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
+| `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
 | `resolveCast` | not yet; arrives with magic | caster, target, school, spell | `{ok, damage, effects, consume:[item ids], message}` |
 
 ### What scripts see
@@ -98,6 +100,11 @@ left out; the engine then uses a quiet default.
   and floor, respawn at the start room at `respawnHealth`.
 - Stat points and `train`: banked from `onLevel` and `onCreate`, spent
   one at a time on any stat the character has.
+- Feat picks and `feat`: banked the same way; `feat` lists every feat
+  with its status (learned, available, needs level N, needs another
+  feat) and `feat <name>` spends a pick. A learned feat is a permanent
+  effect whose params carry `feat: <id>`, so the rules see it like any
+  other effect and stacking follows the kind.
 - Baseline resolution: `itemBaseline` and `mobBaseline` run for every
   prototype at load and after every successful script reload; a live
   mob keeps the base stats it spawned with but its derived values move.
@@ -112,13 +119,19 @@ left out; the engine then uses a quiet default.
 
 ### Balance tooling (implemented)
 
-- `simulate <mob|me> <mob> [fights] [seed]` runs detached fights through
+- `simulate <mob | me | fighter[:N]> <mob> [fights] [seed]` runs detached fights through
   the same hooks and reports win rates, rounds (mean and standard
   deviation), damage and swings per fight, and the winner's health left
   as mean and standard deviation, which is the 4.5 variance row. Mobs
   are equipped as their reset entry spawns them; `me` uses your sheet and
-  gear. A seed makes the run reproducible. The run blocks the world
-  loop, so keep batches to a few thousand on a live server.
+  gear; `fighter:N` is a level-N character with a fresh sheet, no points
+  spent, in the rules' `standardKit` at level N, which is the "player at
+  level in standard gear" the 4.5 targets are written for. A seed makes
+  the run reproducible. The run blocks the world loop, so keep batches
+  to a few thousand on a live server.
+- `data/world/balance/` holds one plain mob per level, vnum 900 + level,
+  so any gap can be measured: `simulate fighter:5 908 1000 1` is a
+  level-5 fighter against a level-8 dummy.
 - Scripts reload when a file changes, checked once per round. A syntax
   error keeps the previous rules and warns admins once. `reload` forces it.
 - `bin/urthbot` drives a running server from the command line for
@@ -655,21 +668,46 @@ should be checked against.
 | Materials consumed per outing when magic is used freely | to be set with 6.2 |
 | Standard deviation of health remaining after an even fight (this row sizes avoidance, 4.3) | under 8 points |
 
-First measurement, 2026-09-24, with the 3.3 starting values and the
-starter area (a level-1 character in a rusty sword, leather jerkin, and
-leather cap, six creation points unspent, against a level-1 dog, 1000
-seeded fights):
+Measured 2026-09-24 with the 3.3 starting values, using
+`simulate fighter:N` against the balance dummies, 500 seeded fights
+per cell. Even fights first:
 
-| Measured | Value | Against target |
-|---|---|---|
-| Rounds | 10.3, sd 0.7 | in band |
-| Wins | 100 percent | expected at level |
-| Health left | 48.6 percent, sd 5.7 | just under the band; spending the six points will lift it |
-| Same character against a level-5 guard wielding a sword | 0 percent, 8.8 rounds | armed mob, see 8; not a baseline comparison |
+| Fighter level | Rounds | Health left | sd |
+|---|---|---|---|
+| 1 | 10.3 | 50.8 percent | 5.8 |
+| 5 | 9.6 | 59.5 | 5.1 |
+| 10 | 10.7 | 56.5 | 4.7 |
+| 15 | 12.5 | 59.0 | 4.3 |
 
-Win rates at +1, +3, and +5 need unarmed mobs at those levels, which the
-starter area does not have. A balance area with one plain mob per level
-is the next content task (section 9).
+All in band (rounds drift slightly long at 15). Win rates by level gap:
+
+| Fighter level | +1 | +3 | +5 |
+|---|---|---|---|
+| target | 80 | 40 | under 10 |
+| 1 | 91 | 0 | 0 |
+| 5 | 100 | 26 | 0 |
+| 10 | 100 | 96 | 1 |
+| 15 | 100 | 100 | 54 |
+
+**Finding.** The gap is far steeper than the target at low level and
+far flatter at high level, and the cause is the shape of the baselines,
+not their numbers. Damage `4 + 2L`, health `40 + 10L`, and defense
+`L + 2` are all linear, so three levels is a 2x jump at level 1 and a
+1.2x jump at level 15. A player feels the same "+3" very differently
+depending on where they are. The target row assumes a gap feels the
+same at every level, and no linear curve can deliver that.
+
+**Recommendation (open, for the designer).** Make the baselines
+geometric in level, the way the experience curve already is: damage,
+health, and defense each grow by a fixed factor per level, on the order
+of 1.10. Then a three-level gap is the same ratio everywhere and the
++1/+3/+5 row can be hit at every level with one set of numbers. The
+per-level multiplier in 7.2 would fold into the same factor. The cost
+is that a level-20 number is no longer readable off a level-1 one by
+addition, and that high-level numbers grow large (a factor of 1.10 over
+twenty levels is 6x). The alternative is to accept that early levels are
+lethal and late ones forgiving, and write the row per level band. The
+linear curve stays until this is decided.
 
 ### 4.6 Death
 
@@ -1166,7 +1204,9 @@ starting quantities in 3.3:
    ROM's second and third attack (4.4), a stronger block, a wider
    dodge, a proc. Every feat carries a minimum level, so the list a character
    can choose from grows as it levels, and the limit of one or two per
-   level is the pace at which a build assembles. Feats are the answer
+   level is the pace at which a build assembles. A feat that is an
+   action or a proc may carry an effectiveness rating that improves
+   with use (7.4); a flat grant does not. Feats are the answer
    to the "skills" question in section 9 and need no new system: items
    give intrinsic effects, discovery gives magic, levels give feats.
    This is what makes a level-up a decision the player remembers.
@@ -1223,6 +1263,47 @@ converge and discovery stops meaning anything. Three options:
 
 Leaning: no limit for now, per 2.2. This is the decision most likely to
 be revisited once there are enough schools to matter.
+
+### 7.4 Effectiveness: skills and some feats improve with use
+
+**Thesis.** ROM's skill percentage: a skill starts low, rises with
+practice and use, and the number is the chance the attempt works. A
+kick at 40 percent fails six times in ten.
+
+**Antithesis.** A failure chance makes a low skill feel like a coin
+that mostly comes up wrong. It is binary randomness of the kind 4.2
+rules out, it punishes trying a new thing, and it says nothing about
+*how well* the thing worked when it did.
+
+**Synthesis (decided 2026-09-24).** Skills and some feats carry an
+*effectiveness* from their starting value up to 100 percent. It is not
+a chance of failure. It is how much of the ability's full potential the
+attempt delivers, and what that means is the ability's own business:
+for one it scales damage, for another it scales the chance to land or
+the duration of an effect, for a third it scales a resource cost. An
+ability can be used the moment it is gained, at its starting
+effectiveness, and every use has a chance to raise it, until it reaches
+100 and stops. A feat that is a flat grant (+2 Constitution) has no
+rating; one that is an action or a proc may.
+
+What improves it: use, as in ROM. The rate and the starting value are
+per ability, set in the rules. Whether a trainer can raise it, and
+whether it decays, are open.
+
+"Skills" here are the *actions* of 2.1: the one thing a player may do
+each round beyond the auto-attack. They are distinct from feats (which
+are passive and permanent) and from spells (which are magic). The skill
+list, how skills are gained, and their cooldowns are not yet designed;
+this section fixes only that they carry effectiveness.
+
+Consequences: an effect instance's `state` map holds the rating
+(`effectiveness`, 0 to 100), so the engine's storage is already right.
+What is missing is the write-back: hooks must be able to return updated
+`state` for an effect they used, which is the return channel listed in
+section 9. Skill *use* also needs an engine event (a command that
+invokes a skill and calls a hook with it), which arrives with the skill
+system. The simulator should be able to pin effectiveness for a run, so
+"at 60 percent" and "at 100 percent" can both be measured.
 
 ---
 
@@ -1291,9 +1372,9 @@ its equipment. Section 9 lists the hook.
 
 Anything not yet placed in a section above.
 
-- **Balance area.** One unarmed baseline mob per level, 1 to 20, in a
-  builder-only area, so `simulate` can fill the 4.5 win-rate row without
-  hand-editing prototypes. Small content task.
+- **Baseline shape.** Linear baselines cannot hit the 4.5 gap row at
+  every level (measured 2026-09-24; see the finding there). Decide
+  between geometric baselines and a per-band target row.
 - **Hint authoring.** 6.1 relies on the world carrying hints toward
   each totem. That is content, but it needs a builder-side view of which
   totems exist and which rooms and NPCs mention them, or hints will rot
@@ -1305,9 +1386,11 @@ Anything not yet placed in a section above.
   and `train`; `deathRules`; fractional speed. Still owed: `resolveCast`
   with the caster's unlocked schools and deities in the view, the
   `consume` return, a return channel for attaching effects and updating
-  effect `state`, feat picks from `onLevel` with a pick command, and the
-  hooks effects will eventually want, each a separate widening:
-  `onMove`, `onDamaged`, `onDeath`.
+  effect `state` (now also needed by 7.4's effectiveness ratings, which
+  live in `state`), a skill-use command and hook (7.4), and the hooks
+  effects will eventually want, each a separate widening: `onMove`,
+  `onDamaged`, `onDeath`. Feat picks from `onLevel` and the `feat`
+  command landed 2026-09-24.
 - **Feats** (the designer's word, replacing "skills") are permanent
   effects with a minimum level, gained one or two per level by choice or
   from a trainer (7.2, leaning). No new system; the engine's share is a

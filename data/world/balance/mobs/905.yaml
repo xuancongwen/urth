@@ -1,0 +1,8 @@
+vnum: 905
+name: a level 5 dummy
+keywords: [dummy, d5]
+description: A wooden dummy painted with the number 5 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 5 is painted on its chest.
+level: 5
+flags: [sentinel]

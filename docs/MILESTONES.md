@@ -79,9 +79,12 @@ runnable.
    reduction, level multiplier, regeneration, the hybrid experience
    curve, death cost, and the first effect kinds (stat, crit, block,
    dodge, attacks). First simulator run recorded in `RULES.md` 4.5.
-3. **Progression** `[ ]` Feat list and a pick command; `onLevel` offering
-   picks; a balance area with one plain mob per level to fill the 4.5
-   win-rate row.
+3. **Progression** `[x]` Feat list in the rules with a `feat` command,
+   picks granted by `onLevel`, a balance area with one plain mob per
+   level, and `simulate fighter:N` for a level-N character in the
+   rules' standard kit. The 4.5 gap row is measured; its finding on
+   baseline shape is open in `RULES.md`. Skills and effectiveness
+   ratings (`RULES.md` 7.4) are designed, not built.
 4. **Magic** `[ ]` Work `RULES.md` 6.4, then `cast`, `consume`, schools and
    deities, materials, totems, and the effect return channel.
 

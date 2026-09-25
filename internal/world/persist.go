@@ -70,6 +70,7 @@ func (w *World) loadSheet(p *Player) {
 	p.Experience = p.rec.Experience
 	p.Stats = copyStats(p.rec.Stats)
 	p.StatPoints = p.rec.StatPoints
+	p.FeatPoints = p.rec.FeatPoints
 	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
 	if len(p.Stats) == 0 {
 		r := w.onCreate(p.Character)
@@ -77,6 +78,7 @@ func (w *World) loadSheet(p *Player) {
 			p.Stats[k] = v
 		}
 		p.StatPoints += max(r.StatPoints, 0)
+		p.FeatPoints += max(r.FeatPicks, 0)
 		if r.Message != "" {
 			p.Send(output.Escape(r.Message) + "\n")
 		}
@@ -95,6 +97,7 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Experience = p.Experience
 	p.rec.Stats = copyStats(p.Stats)
 	p.rec.StatPoints = p.StatPoints
+	p.rec.FeatPoints = p.FeatPoints
 	p.rec.Effects = append([]effect.Active(nil), p.Effects...)
 	p.rec.Health = p.Health
 	p.rec.Mana = p.Mana

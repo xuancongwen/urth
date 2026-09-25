@@ -1,0 +1,8 @@
+vnum: 913
+name: a level 13 dummy
+keywords: [dummy, d13]
+description: A wooden dummy painted with the number 13 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 13 is painted on its chest.
+level: 13
+flags: [sentinel]

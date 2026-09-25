@@ -1,0 +1,8 @@
+vnum: 911
+name: a level 11 dummy
+keywords: [dummy, d11]
+description: A wooden dummy painted with the number 11 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 11 is painted on its chest.
+level: 11
+flags: [sentinel]

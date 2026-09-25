@@ -530,3 +530,92 @@ func TestTimedEffectsExpire(t *testing.T) {
 		t.Fatalf("effect did not expire: %+v hp=%d", p.Effects, p.HealthMax)
 	}
 }
+
+const featRules = testRules + `
+function onLevel(c, l) { return { statPoints: 1, featPicks: 1, statDeltas: {}, message: "Level up." }; }
+function featList() {
+  return [
+    { id: "tough", name: "Toughness", level: 1, description: "More health.", effect: { kind: "tough", params: { amount: 5 } } },
+    { id: "keen", name: "Keen Edge", level: 3, description: "Crits.", effect: { kind: "crit", params: { chance: 0.5 } } },
+    { id: "deadly", name: "Deadly Edge", level: 1, requires: ["keen"], description: "More crits.", effect: { kind: "crit", params: { chance: 1 } } }
+  ];
+}
+function standardKit(level) {
+  return [ { name: "a standard sword", type: "weapon", slot: "wield", baseline: "standard", weapon: { hands: 1, verb: "slash" } },
+           { name: "a standard helm", type: "armor", slot: "head", baseline: "medium" } ];
+}
+function itemBaseline(p) {
+  if (p.type === "weapon") return { weapon: { damage: 4 + 2 * p.level, speed: 1, verb: p.weapon.verb } };
+  if (p.type === "armor") return { armor: { defense: p.level + 2 } };
+  return {};
+}
+`
+
+func TestFeatsPickAndGate(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, featRules)
+	send(w, 1, "feat")
+	if o := bob.take(); !strings.Contains(o, "You may choose 0 feats.") || !strings.Contains(o, "Toughness") || !strings.Contains(o, "(level 3)") || !strings.Contains(o, "needs Keen Edge") {
+		t.Fatalf("feat list: %q", o)
+	}
+	send(w, 1, "feat tough")
+	if o := bob.take(); !strings.Contains(o, "no feat picks") {
+		t.Fatalf("pick without points: %q", o)
+	}
+	p := w.players[1]
+	p.FeatPoints = 2
+	send(w, 1, "feat keen")
+	if o := bob.take(); !strings.Contains(o, "Keen Edge needs level 3.") {
+		t.Fatalf("level gate: %q", o)
+	}
+	send(w, 1, "feat deadly")
+	if o := bob.take(); !strings.Contains(o, "Deadly Edge needs Keen Edge.") {
+		t.Fatalf("requirement gate: %q", o)
+	}
+	send(w, 1, "feat tough")
+	if o := bob.take(); !strings.Contains(o, "You learn Toughness.") {
+		t.Fatalf("pick: %q", o)
+	}
+	// The feat is a permanent effect tagged with its id, and derived stats
+	// see it (the test rules add 5 health per effect).
+	if len(p.Effects) != 1 || p.Effects[0].Params["feat"] != "tough" || p.Effects[0].Rounds != 0 || p.HealthMax != 17 || p.FeatPoints != 1 {
+		t.Fatalf("feat state: effects=%+v hp=%d points=%d", p.Effects, p.HealthMax, p.FeatPoints)
+	}
+	send(w, 1, "feat tough")
+	if o := bob.take(); !strings.Contains(o, "already have Toughness") {
+		t.Fatalf("double pick: %q", o)
+	}
+	send(w, 1, "score")
+	if o := bob.take(); !strings.Contains(o, "Feats: Toughness") || !strings.Contains(o, "You may choose 1 feat.") {
+		t.Fatalf("score: %q", o)
+	}
+	// Levelling grants a pick.
+	w.grantXP(p.Character, 100)
+	w.flush()
+	if o := bob.take(); !strings.Contains(o, "You may choose 2 feats.") || p.FeatPoints != 2 {
+		t.Fatalf("level pick: %q points=%d", o, p.FeatPoints)
+	}
+}
+
+func TestSimulateFighterUsesStandardKit(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, featRules)
+	f := w.simFighter(5)
+	if f.Level != 5 || f.Stats["might"] != 0 || f.Experience != 400 {
+		t.Fatalf("fighter sheet: level=%d stats=%v xp=%d", f.Level, f.Stats, f.Experience)
+	}
+	sword, helm := f.Equipment["wield"], f.Equipment["head"]
+	if sword == nil || helm == nil || sword.Proto.Resolved.Weapon.Damage != 14 || helm.Proto.Resolved.Armor.Defense != 7 || sword.Proto.Level != 5 {
+		t.Fatalf("kit wrong: %+v %+v", sword, helm)
+	}
+	send(w, 1, "simulate fighter:5 21 20 3")
+	if o := bob.take(); !strings.Contains(o, "a level 5 fighter vs a stray dog") || !strings.Contains(o, "A wins 100.0%") {
+		t.Fatalf("simulate fighter: %q", o)
+	}
+	send(w, 1, "simulate fighter:x 21")
+	if o := bob.take(); !strings.Contains(o, "Fighter level must be") {
+		t.Fatalf("bad level: %q", o)
+	}
+}

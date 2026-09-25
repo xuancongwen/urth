@@ -1,0 +1,8 @@
+vnum: 904
+name: a level 4 dummy
+keywords: [dummy, d4]
+description: A wooden dummy painted with the number 4 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 4 is painted on its chest.
+level: 4
+flags: [sentinel]

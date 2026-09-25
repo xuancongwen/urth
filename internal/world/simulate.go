@@ -38,8 +38,9 @@ type SimResult struct {
 
 const simMaxRounds = 200
 
-// simulate runs n fights. seed 0 uses the world's random source.
-func (w *World) simulate(protoA, protoB *mob.Proto, playerA *Player, n int, seed uint64) SimResult {
+// simulate runs n fights between fresh copies made by makeA and B's
+// prototype. seed 0 uses the world's random source.
+func (w *World) simulate(makeA func() *Character, protoB *mob.Proto, n int, seed uint64) SimResult {
 	res := SimResult{Fights: n, MinRound: simMaxRounds}
 	rng := w.rng
 	if seed != 0 {
@@ -52,12 +53,7 @@ func (w *World) simulate(protoA, protoB *mob.Proto, playerA *Player, n int, seed
 	var rounds, left []float64
 	var totalA, totalB, swingsA, swingsB int
 	for i := 0; i < n; i++ {
-		var a *Character
-		if playerA != nil {
-			a = w.cloneForSim(playerA.Character)
-		} else {
-			a = w.simCharacter(protoA)
-		}
+		a := makeA()
 		b := w.simCharacter(protoB)
 		f := w.simFight(a, b)
 		rounds = append(rounds, float64(f.rounds))
@@ -144,6 +140,27 @@ func (w *World) cloneForSim(src *Character) *Character {
 	return c
 }
 
+// simFighter builds a level-N character in the rules' standard kit with
+// a fresh sheet and no points spent: the "player at level in standard
+// gear" that docs/RULES.md 4.5 measures against.
+func (w *World) simFighter(level int) *Character {
+	c := newCharacter("a level "+itoa(level)+" fighter", []string{"fighter"})
+	c.Level = level
+	r := w.onCreate(c)
+	for k, v := range r.Stats {
+		c.Stats[k] = v
+	}
+	c.Experience = w.xpToLevel(level)
+	for _, proto := range w.standardKit(level) {
+		if slot := proto.WearSlot(); slot != "" {
+			c.Equipment[slot] = item.New(proto)
+		}
+	}
+	w.recalc(c)
+	c.Health, c.Mana = c.HealthMax, c.ManaMax
+	return c
+}
+
 type simFightResult struct {
 	rounds, dmgA, dmgB, swingsA, swingsB int
 }
@@ -192,24 +209,40 @@ func copyStats(m map[string]int) map[string]int {
 	return out
 }
 
-// cmdSimulate: simulate <mobvnum|me> <mobvnum> [fights] [seed]
+// cmdSimulate: simulate <mobvnum | me | fighter[:level]> <mobvnum> [fights] [seed]
 func cmdSimulate(w *World, p *Player, args string) {
 	fields := strings.Fields(args)
 	if len(fields) < 2 {
-		p.Send("Syntax: simulate <mob vnum | me> <mob vnum> [fights] [seed]\n")
+		p.Send("Syntax: simulate <mob vnum | me | fighter[:level]> <mob vnum> [fights] [seed]\n")
 		return
 	}
-	var protoA *mob.Proto
-	var playerA *Player
-	if fields[0] == "me" {
-		playerA = p
-	} else {
+	var makeA func() *Character
+	nameA := ""
+	switch {
+	case fields[0] == "me":
+		makeA = func() *Character { return w.cloneForSim(p.Character) }
+		nameA = "you"
+	case strings.HasPrefix(fields[0], "fighter"):
+		level := 1
+		if _, lv, ok := strings.Cut(fields[0], ":"); ok {
+			n, err := strconv.Atoi(lv)
+			if err != nil || n < 1 {
+				p.Send("Fighter level must be a positive number.\n")
+				return
+			}
+			level = n
+		}
+		makeA = func() *Character { return w.simFighter(level) }
+		nameA = "a level " + itoa(level) + " fighter"
+	default:
 		v, err := strconv.Atoi(fields[0])
-		protoA = w.content.Mobs[v]
+		protoA := w.content.Mobs[v]
 		if err != nil || protoA == nil {
 			p.Send("No such mob: " + output.Escape(fields[0]) + "\n")
 			return
 		}
+		makeA = func() *Character { return w.simCharacter(protoA) }
+		nameA = protoA.Name
 	}
 	v, err := strconv.Atoi(fields[1])
 	protoB := w.content.Mobs[v]
@@ -231,11 +264,7 @@ func cmdSimulate(w *World, p *Player, args string) {
 			return
 		}
 	}
-	res := w.simulate(protoA, protoB, playerA, n, seed)
-	nameA := "you"
-	if protoA != nil {
-		nameA = protoA.Name
-	}
+	res := w.simulate(makeA, protoB, n, seed)
 	var b strings.Builder
 	b.WriteString("Simulated " + itoa(res.Fights) + " fights: " + output.Escape(nameA) + " vs " + output.Escape(protoB.Name) + "\n")
 	b.WriteString("  A wins " + pct(res.AWins, res.Fights) + "  B wins " + pct(res.BWins, res.Fights) + "  draws " + pct(res.Draws, res.Fights) + "\n")

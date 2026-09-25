@@ -290,6 +290,7 @@ func (w *World) grantXP(c *Character, xp int) {
 			c.Stats[k] += d
 		}
 		c.StatPoints += max(r.StatPoints, 0)
+		c.FeatPoints += max(r.FeatPicks, 0)
 		w.recalc(c)
 		c.Health = c.HealthMax
 		c.Mana = c.ManaMax
@@ -300,6 +301,9 @@ func (w *World) grantXP(c *Character, xp int) {
 		c.Send("{Y}" + output.Escape(msg) + "{x} You are now level " + itoa(c.Level) + ".\n")
 		if r.StatPoints > 0 {
 			c.Send("You have " + itoa(c.StatPoints) + " stat points to train.\n")
+		}
+		if r.FeatPicks > 0 {
+			c.Send("You may choose " + plural(c.FeatPoints, "feat") + ". Type 'feat' to see them.\n")
 		}
 		w.act("$n has gained a level.", c, nil, "", toRoom)
 	}
@@ -397,7 +401,7 @@ func clamp(v, lo, hi int) int {
 }
 
 // cmdScore shows the character sheet.
-func cmdScore(_ *World, p *Player, _ string) {
+func cmdScore(w *World, p *Player, _ string) {
 	var b strings.Builder
 	b.WriteString("You are " + output.Escape(p.Name) + ", level " + itoa(p.Level) + ".\n")
 	b.WriteString("Health " + itoa(p.Health) + "/" + itoa(p.HealthMax))
@@ -415,15 +419,20 @@ func cmdScore(_ *World, p *Player, _ string) {
 	if p.StatPoints > 0 {
 		b.WriteString("You have " + itoa(p.StatPoints) + " stat points to train.\n")
 	}
-	if len(p.Effects) > 0 {
-		b.WriteString("Effects:")
-		for _, e := range p.Effects {
-			b.WriteString(" " + output.Escape(e.Kind))
-			if e.Rounds > 0 {
-				b.WriteString("(" + itoa(e.Rounds) + ")")
-			}
+	if p.FeatPoints > 0 {
+		b.WriteString("You may choose " + plural(p.FeatPoints, "feat") + ".\n")
+	}
+	if names := w.featNames(p.Character); len(names) > 0 {
+		b.WriteString("Feats: " + strings.Join(names, ", ") + "\n")
+	}
+	var timed []string
+	for _, e := range p.Effects {
+		if e.Rounds > 0 {
+			timed = append(timed, output.Escape(e.Kind)+"("+itoa(e.Rounds)+")")
 		}
-		b.WriteString("\n")
+	}
+	if len(timed) > 0 {
+		b.WriteString("Effects: " + strings.Join(timed, " ") + "\n")
 	}
 	if p.Fighting != nil {
 		b.WriteString("You are fighting " + output.Escape(p.Fighting.Name) + ".\n")
@@ -441,3 +450,129 @@ func sortedKeys(m map[string]int) []string {
 }
 
 func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', 1, 64) }
+
+// takenFeats returns the ids of the feats a character holds. A feat is
+// an effect whose params carry its id under "feat".
+func takenFeats(c *Character) map[string]bool {
+	out := map[string]bool{}
+	for _, e := range c.Effects {
+		if id, ok := e.Params["feat"].(string); ok {
+			out[id] = true
+		}
+	}
+	return out
+}
+
+// featNames lists a character's feats by display name.
+func (w *World) featNames(c *Character) []string {
+	taken := takenFeats(c)
+	var names []string
+	for _, f := range w.featList() {
+		if taken[f.ID] {
+			names = append(names, output.Escape(f.Name))
+		}
+	}
+	return names
+}
+
+// cmdFeat: feat | feat <name>. Lists feats with their status, or spends a
+// banked pick on one (docs/RULES.md 7.2).
+func cmdFeat(w *World, p *Player, args string) {
+	feats := w.featList()
+	if len(feats) == 0 {
+		p.Send("There are no feats to learn.\n")
+		return
+	}
+	taken := takenFeats(p.Character)
+	available := func(f Feat) (bool, string) {
+		if taken[f.ID] {
+			return false, "learned"
+		}
+		if p.Level < f.Level {
+			return false, "level " + itoa(f.Level)
+		}
+		for _, req := range f.Requires {
+			if !taken[req] {
+				return false, "needs " + featName(feats, req)
+			}
+		}
+		return true, "available"
+	}
+	if args == "" {
+		var b strings.Builder
+		b.WriteString("You may choose " + plural(p.FeatPoints, "feat") + ".\n")
+		for _, f := range feats {
+			ok, why := available(f)
+			mark := "  "
+			switch {
+			case taken[f.ID]:
+				mark = "{G}*{x} "
+			case ok:
+				mark = "{Y}+{x} "
+			}
+			b.WriteString(mark + padRight(output.Escape(f.Name), 16) + " (" + why + ") " + output.Escape(f.Description) + "\n")
+		}
+		b.WriteString("{G}*{x} learned  {Y}+{x} available. Type 'feat <name>' to choose one.\n")
+		p.Send(b.String())
+		return
+	}
+	want := strings.ToLower(args)
+	var match *Feat
+	for i := range feats {
+		f := &feats[i]
+		if strings.ToLower(f.ID) == want || strings.ToLower(f.Name) == want {
+			match = f
+			break
+		}
+		if strings.HasPrefix(strings.ToLower(f.Name), want) || strings.HasPrefix(strings.ToLower(f.ID), want) {
+			if match != nil {
+				p.Send("Which feat: " + output.Escape(match.Name) + " or " + output.Escape(f.Name) + "?\n")
+				return
+			}
+			match = f
+		}
+	}
+	if match == nil {
+		p.Send("There is no feat called that.\n")
+		return
+	}
+	if ok, why := available(*match); !ok {
+		switch {
+		case taken[match.ID]:
+			p.Send("You already have " + output.Escape(match.Name) + ".\n")
+		case strings.HasPrefix(why, "level"):
+			p.Send(output.Escape(match.Name) + " needs " + why + ".\n")
+		default:
+			p.Send(output.Escape(match.Name) + " " + why + ".\n")
+		}
+		return
+	}
+	if p.FeatPoints <= 0 {
+		p.Send("You have no feat picks to spend.\n")
+		return
+	}
+	w.grantFeat(p.Character, *match)
+	p.FeatPoints--
+	p.Send("You learn {Y}" + output.Escape(match.Name) + "{x}. " + output.Escape(match.Description) + "\n")
+	w.save(p)
+}
+
+// grantFeat attaches a feat's effect permanently, tagged with the feat id.
+// Trainers and admin commands use the same path as the pick command.
+func (w *World) grantFeat(c *Character, f Feat) {
+	params := map[string]any{"feat": f.ID}
+	for k, v := range f.Effect.Params {
+		params[k] = v
+	}
+	c.Effects = append(c.Effects, effect.Active{Spec: effect.Spec{Kind: f.Effect.Kind, Params: params}})
+	w.recalc(c)
+}
+
+func featName(feats []Feat, id string) string {
+	for _, f := range feats {
+		if f.ID == id {
+			return output.Escape(f.Name)
+		}
+	}
+	return id
+}

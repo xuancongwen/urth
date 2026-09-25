@@ -34,6 +34,7 @@ var P = {
   corpseRounds: 600,    // 20 minutes at 2 s rounds
   respawnHealth: 0.25,
   pointsAtCreation: 6, pointsPerLevel: 2,
+  featsPerLevel: 1,     // feat picks per level (7.2: one or two)
   manaEnabled: false    // D18: mana stays in the engine, off in the rules
 };
 
@@ -271,7 +272,51 @@ function xpForKill(killer, victim) {
 }
 
 function onLevel(c, newLevel) {
-  return { statPoints: P.pointsPerLevel, statDeltas: {}, message: "You raise a level!" };
+  return { statPoints: P.pointsPerLevel, featPicks: P.featsPerLevel, statDeltas: {}, message: "You raise a level!" };
+}
+
+// ---------------------------------------------------------------------
+// Feats (RULES 7.2): permanent effects with a minimum level, chosen at
+// level-up with the feat command. Stacking follows the kind: stat adds,
+// crit takes the larger (so Deadly Edge supersedes Keen Edge), attacks
+// add.
+// ---------------------------------------------------------------------
+var FEATS = [
+  { id: "toughness", name: "Toughness", level: 1, description: "+2 Constitution.",
+    effect: { kind: "stat", params: { stat: "constitution", amount: 2 } } },
+  { id: "brawn", name: "Brawn", level: 1, description: "+2 Strength.",
+    effect: { kind: "stat", params: { stat: "strength", amount: 2 } } },
+  { id: "nimble", name: "Nimble", level: 1, description: "+2 Dexterity.",
+    effect: { kind: "stat", params: { stat: "dexterity", amount: 2 } } },
+  { id: "keen", name: "Keen Edge", level: 3, description: "A 5 percent chance to critically hit for double damage.",
+    effect: { kind: "crit", params: { chance: 0.05, mult: 2 } } },
+  { id: "parry", name: "Parry", level: 3, description: "Block one swing in ten with your weapon.",
+    effect: { kind: "block", params: { chance: 0.10 } } },
+  { id: "evasion", name: "Evasion", level: 5, description: "Dodge 5 percent more often.",
+    effect: { kind: "dodge", params: { amount: 0.05 } } },
+  { id: "second_attack", name: "Second Attack", level: 5, description: "One extra swing every round.",
+    effect: { kind: "attacks", params: { amount: 1 } } },
+  { id: "deadly", name: "Deadly Edge", level: 8, requires: ["keen"], description: "A 10 percent chance to critically hit for double damage.",
+    effect: { kind: "crit", params: { chance: 0.10, mult: 2 } } },
+  { id: "iron_skin", name: "Iron Skin", level: 10, requires: ["toughness"], description: "+4 Constitution.",
+    effect: { kind: "stat", params: { stat: "constitution", amount: 4 } } },
+  { id: "third_attack", name: "Third Attack", level: 12, requires: ["second_attack"], description: "Another extra swing every round.",
+    effect: { kind: "attacks", params: { amount: 1 } } }
+];
+
+function featList() { return FEATS; }
+
+// standardKit is what "a level N fighter" wears in the simulator (RULES
+// 4.5): a standard weapon and a medium armor set, all at level N.
+function standardKit(level) {
+  return [
+    { name: "a standard sword", type: "weapon", slot: "wield", baseline: "standard", weapon: { hands: 1, verb: "slash" } },
+    { name: "a standard breastplate", type: "armor", slot: "body", baseline: "medium" },
+    { name: "standard greaves", type: "armor", slot: "legs", baseline: "medium" },
+    { name: "a standard helm", type: "armor", slot: "head", baseline: "medium" },
+    { name: "standard bracers", type: "armor", slot: "arms", baseline: "medium" },
+    { name: "standard boots", type: "armor", slot: "feet", baseline: "medium" }
+  ];
 }
 
 function onCreate(c) {

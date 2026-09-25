@@ -1,0 +1,8 @@
+vnum: 908
+name: a level 8 dummy
+keywords: [dummy, d8]
+description: A wooden dummy painted with the number 8 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 8 is painted on its chest.
+level: 8
+flags: [sentinel]

@@ -1,0 +1,8 @@
+vnum: 910
+name: a level 10 dummy
+keywords: [dummy, d10]
+description: A wooden dummy painted with the number 10 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 10 is painted on its chest.
+level: 10
+flags: [sentinel]
