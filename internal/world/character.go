@@ -250,14 +250,16 @@ func capitalize(s string) string {
 // slotLabel renders a slot for the equipment listing, ROM style.
 func slotLabel(s item.Slot) string {
 	labels := map[item.Slot]string{
-		"light": "<used as light>", "head": "<worn on head>", "neck": "<worn around neck>",
-		"body": "<worn on body>", "arms": "<worn on arms>", "hands": "<worn on hands>",
-		"wrist": "<worn around wrist>", "finger": "<worn on finger>", "waist": "<worn about waist>",
-		"legs": "<worn on legs>", "feet": "<worn on feet>", "shield": "<worn as shield>",
-		"wield": "<wielded>", "hold": "<held>",
+		"light": "<used as light>", "head": "<worn on head>", "face": "<worn on face>",
+		"neck": "<worn around neck>", "shoulders": "<worn on shoulders>", "body": "<worn on body>",
+		"arms": "<worn on arms>", "hands": "<worn on hands>",
+		"wrist1": "<worn on left wrist>", "wrist2": "<worn on right wrist>", "belt": "<worn as belt>",
+		"legs": "<worn on legs>", "feet": "<worn on feet>",
+		"finger1": "<worn on left finger>", "finger2": "<worn on right finger>",
+		"shield": "<worn as shield>", "wield": "<wielded>", "hold": "<held>",
 	}
 	if l, ok := labels[s]; ok {
-		return padRight(l, 20)
+		return padRight(l, 22)
 	}
-	return padRight("<"+string(s)+">", 20)
+	return padRight("<"+string(s)+">", 22)
 }

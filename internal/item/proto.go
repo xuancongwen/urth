@@ -28,17 +28,46 @@ const (
 	Other     Type = "other"
 )
 
-// Slot is an equipment position.
+// Slot is an equipment position, or on an item the family of positions
+// it can go in ("wrist" fits either wrist).
 type Slot string
 
-// Slots in display order. Wield and Hold take weapons and held items; the
-// rest take armor. Which slots matter for balance is a rules question.
+// Slots are the positions on a character, in display order. Wield and
+// Hold take weapons and held items; the rest take armor. Which slots
+// carry defense is a rules question (docs/RULES.md 5.2).
 var Slots = []Slot{
-	"light", "head", "neck", "body", "arms", "hands", "wrist", "finger",
-	"waist", "legs", "feet", "shield", "wield", "hold",
+	"light", "head", "face", "neck", "shoulders", "body", "arms", "hands",
+	"wrist1", "wrist2", "belt", "legs", "feet", "finger1", "finger2",
+	"shield", "wield", "hold",
 }
 
-// ValidSlot reports whether s is a known slot.
+// families maps an item's slot to the positions it may occupy.
+var families = map[Slot][]Slot{
+	"wrist":  {"wrist1", "wrist2"},
+	"finger": {"finger1", "finger2"},
+}
+
+// Positions returns the positions an item slot may occupy.
+func Positions(s Slot) []Slot {
+	if f, ok := families[s]; ok {
+		return f
+	}
+	return []Slot{s}
+}
+
+// Family returns the item slot a position belongs to.
+func Family(pos Slot) Slot {
+	for fam, positions := range families {
+		for _, p := range positions {
+			if p == pos {
+				return fam
+			}
+		}
+	}
+	return pos
+}
+
+// ValidSlot reports whether s is a known position.
 func ValidSlot(s Slot) bool {
 	for _, k := range Slots {
 		if k == s {
@@ -46,6 +75,15 @@ func ValidSlot(s Slot) bool {
 		}
 	}
 	return false
+}
+
+// ValidItemSlot reports whether s is a slot an item may name: a position
+// or a family.
+func ValidItemSlot(s Slot) bool {
+	if _, ok := families[s]; ok {
+		return true
+	}
+	return ValidSlot(s)
 }
 
 // Proto is an item definition.
@@ -222,10 +260,10 @@ func (p *Proto) validate() error {
 	default:
 		return fmt.Errorf("item %d: unknown type %q", p.Vnum, p.Type)
 	}
-	if p.Type == Armor && !ValidSlot(p.Slot) {
+	if p.Type == Armor && !ValidItemSlot(p.Slot) {
 		return fmt.Errorf("item %d: armor needs a valid slot, got %q", p.Vnum, p.Slot)
 	}
-	if p.Slot != "" && !ValidSlot(p.Slot) {
+	if p.Slot != "" && !ValidItemSlot(p.Slot) {
 		return fmt.Errorf("item %d: unknown slot %q", p.Vnum, p.Slot)
 	}
 	if p.Type == Weapon && p.Slot == "" {

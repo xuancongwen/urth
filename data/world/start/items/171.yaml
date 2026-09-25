@@ -1,0 +1,10 @@
+vnum: 171
+name: a wide leather belt
+keywords: [wide, leather, belt]
+description: A wide leather belt lies here.
+look: |
+  Thick hide with a plain iron buckle.
+type: armor
+slot: belt
+level: 2
+baseline: medium

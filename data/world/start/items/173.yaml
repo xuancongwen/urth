@@ -1,0 +1,10 @@
+vnum: 173
+name: a leather wristguard
+keywords: [leather, wristguard]
+description: A leather wristguard lies here.
+look: |
+  Stiff leather laced over the forearm. There is only one.
+type: armor
+slot: wrist
+level: 2
+baseline: medium

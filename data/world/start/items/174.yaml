@@ -1,0 +1,10 @@
+vnum: 174
+name: a leather half-mask
+keywords: [leather, half-mask, mask]
+description: A leather half-mask lies here.
+look: |
+  It covers the nose and cheeks. Somebody wanted to be harder to hit in the face.
+type: armor
+slot: face
+level: 2
+baseline: medium

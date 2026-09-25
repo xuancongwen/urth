@@ -111,7 +111,7 @@ func (w *World) simCharacter(p *mob.Proto) *Character {
 			}
 			for _, eq := range r.Equip {
 				if eq.Slot != "" {
-					m.Equipment[item.Slot(eq.Slot)] = item.New(w.content.Items[eq.Item])
+					m.Equipment[freePosition(m.Character, item.Slot(eq.Slot))] = item.New(w.content.Items[eq.Item])
 				}
 			}
 			goto equipped
@@ -153,7 +153,7 @@ func (w *World) simFighter(level int) *Character {
 	c.Experience = w.xpToLevel(level)
 	for _, proto := range w.standardKit(level) {
 		if slot := proto.WearSlot(); slot != "" {
-			c.Equipment[slot] = item.New(proto)
+			c.Equipment[freePosition(c, slot)] = item.New(proto)
 		}
 	}
 	w.recalc(c)

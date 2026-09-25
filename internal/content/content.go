@@ -73,7 +73,7 @@ func (w *World) validate() error {
 						if !item.ValidSlot(item.Slot(eq.Slot)) {
 							return fmt.Errorf("%s: unknown slot %q", where, eq.Slot)
 						}
-						if p.WearSlot() != item.Slot(eq.Slot) {
+						if p.WearSlot() != item.Family(item.Slot(eq.Slot)) {
 							return fmt.Errorf("%s: item %d (%s) cannot go in slot %s", where, eq.Item, p.Name, eq.Slot)
 						}
 					}

@@ -252,3 +252,45 @@ func TestInventoryPersists(t *testing.T) {
 		t.Fatalf("container contents not restored: %q", out)
 	}
 }
+
+func TestPairedSlotsAndNewPositions(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	ring := &item.Proto{Vnum: 90, Name: "a plain ring", Keywords: []string{"plain", "ring"}, Type: item.Armor, Slot: "finger"}
+	ring.ResolveStated()
+	belt := &item.Proto{Vnum: 91, Name: "a wide belt", Keywords: []string{"wide", "belt"}, Type: item.Armor, Slot: "belt"}
+	belt.ResolveStated()
+	for i := 0; i < 3; i++ {
+		p.Inventory = append(p.Inventory, item.New(ring))
+	}
+	p.Inventory = append(p.Inventory, item.New(belt))
+	send(w, 1, "wear ring")
+	bob.take()
+	send(w, 1, "wear ring")
+	bob.take()
+	if p.Equipment["finger1"] == nil || p.Equipment["finger2"] == nil {
+		t.Fatalf("two rings should fill both fingers: %v", p.Equipment)
+	}
+	send(w, 1, "wear ring")
+	if o := bob.take(); !strings.Contains(o, "You stop using a plain ring.") || !strings.Contains(o, "You wear a plain ring.") {
+		t.Fatalf("third ring should swap: %q", o)
+	}
+	send(w, 1, "wear belt")
+	bob.take()
+	send(w, 1, "equipment")
+	o := bob.take()
+	for _, want := range []string{"<worn on left finger>", "<worn on right finger>", "<worn as belt>"} {
+		if !strings.Contains(o, want) {
+			t.Fatalf("equipment missing %q: %q", want, o)
+		}
+	}
+	if !item.ValidItemSlot("wrist") || item.ValidSlot("wrist") || !item.ValidSlot("wrist2") || item.Family("wrist2") != "wrist" || item.Family("head") != "head" {
+		t.Fatal("slot families wrong")
+	}
+	send(w, 1, "remove ring")
+	bob.take()
+	if _, ok := p.Equipment["finger1"]; ok {
+		t.Fatal("remove did not free the finger")
+	}
+}

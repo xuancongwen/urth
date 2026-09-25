@@ -886,11 +886,16 @@ the engine so that rounding does not distort low levels.
 | `light` | 0.7 of medium | 0.1 | carries an intrinsic effect raising dodge |
 | `heavy` | 1.3 of medium | 0.3 | carries an intrinsic effect lowering dodge |
 
-A set's total `D` is split across slots by fixed weights (body 40
-percent, legs 20, head 15, arms 15, feet 10), so a single piece's
-number follows from its slot. Few slots matter, on purpose: body,
-head, arms, legs, feet, plus a wielded weapon, an off-hand, and two
-accessory slots that carry only effects. Nine in all.
+A set's total `D` is split across slots by fixed weights that sum to
+one (revised 2026-09-25): body 30 percent, legs 15, head 10, arms 10,
+feet 8, shoulders 8, hands 7, face 4, belt 4, each wrist 2. A single
+piece's number follows from its slot, and a full set at level N is the
+baseline `D` at level N. The positions on a character: light, head,
+face, neck, shoulders, body, arms, hands, two wrists, belt, legs, feet,
+two fingers, shield, wielded, held. Neck, fingers, shield, light, and
+held carry no baseline defense; they are for effects, or for stated
+numbers. An item names a family (`wrist`, `finger`) and goes on the
+first free one.
 
 Stat effects on gear stack with base stats *before* the multiplier is
 computed (follows from 3.1 and 5.4): an effect that gives +2 Strength

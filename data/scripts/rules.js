@@ -64,10 +64,12 @@ var ARMOR_BASELINES = {
   heavy:  function (L) { return { defense: 1.3 * 3 * growth(L), spread: 0.3 }; }
 };
 
-// A set's total D is split across slots by these weights (5.2). Slots not
-// listed (shield, hands, wrist, finger, neck, waist, light, hold) carry no
-// baseline defense; they are for effects, or for stated numbers.
-var SLOT_WEIGHT = { body: 0.40, legs: 0.20, head: 0.15, arms: 0.15, feet: 0.10 };
+// A set's total D is split across slots by these weights (5.2), which sum
+// to one, so a full set at level N is the baseline D at level N. Slots
+// not listed (shield, neck, finger, light, hold) carry no baseline
+// defense; they are for effects, or for stated numbers.
+var SLOT_WEIGHT = { body: 0.30, legs: 0.15, head: 0.10, arms: 0.10, feet: 0.08, hands: 0.07,
+                    shoulders: 0.08, face: 0.04, belt: 0.04, wrist: 0.02 };
 
 function itemBaseline(p) {
   var L = p.level || 1;
@@ -345,7 +347,13 @@ function standardKit(level) {
     { name: "standard greaves", type: "armor", slot: "legs", baseline: "medium" },
     { name: "a standard helm", type: "armor", slot: "head", baseline: "medium" },
     { name: "standard bracers", type: "armor", slot: "arms", baseline: "medium" },
-    { name: "standard boots", type: "armor", slot: "feet", baseline: "medium" }
+    { name: "standard boots", type: "armor", slot: "feet", baseline: "medium" },
+    { name: "standard gauntlets", type: "armor", slot: "hands", baseline: "medium" },
+    { name: "a standard mantle", type: "armor", slot: "shoulders", baseline: "medium" },
+    { name: "a standard visor", type: "armor", slot: "face", baseline: "medium" },
+    { name: "a standard belt", type: "armor", slot: "belt", baseline: "medium" },
+    { name: "a standard wristguard", type: "armor", slot: "wrist", baseline: "medium" },
+    { name: "a standard wristguard", type: "armor", slot: "wrist", baseline: "medium" }
   ];
 }
 

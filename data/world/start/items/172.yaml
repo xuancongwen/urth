@@ -1,0 +1,10 @@
+vnum: 172
+name: a pair of iron shoulder guards
+keywords: [iron, shoulder, guards, pauldrons]
+description: A pair of iron shoulder guards lies here.
+look: |
+  Curved plates that strap across the chest.
+type: armor
+slot: shoulders
+level: 2
+baseline: medium

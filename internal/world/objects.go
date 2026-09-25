@@ -258,15 +258,25 @@ func cmdHold(w *World, p *Player, args string) {
 	w.wearItem(p, it, "hold", "You hold $p.", "$n holds $p.")
 }
 
-// wearItem moves an item to a slot, swapping out what was there.
+// wearItem moves an item to the first free position its slot allows (a
+// ring goes on either finger), swapping out the first one when all are
+// taken.
 func (w *World) wearItem(p *Player, it *item.Item, slot item.Slot, toSelf, toOthers string) {
 	name := output.Escape(it.Name())
-	if old, taken := p.Equipment[slot]; taken {
-		p.unequip(slot)
+	positions := item.Positions(slot)
+	pos := positions[0]
+	for _, candidate := range positions {
+		if _, taken := p.Equipment[candidate]; !taken {
+			pos = candidate
+			break
+		}
+	}
+	if old, taken := p.Equipment[pos]; taken {
+		p.unequip(pos)
 		w.actItem("You stop using $p.", p.Character, nil, output.Escape(old.Name()), "", toChar)
 		w.actItem("$n stops using $p.", p.Character, nil, output.Escape(old.Name()), "", toRoom)
 	}
-	p.equip(it, slot)
+	p.equip(it, pos)
 	w.actItem(toSelf, p.Character, nil, name, "", toChar)
 	w.actItem(toOthers, p.Character, nil, name, "", toRoom)
 	w.recalc(p.Character)

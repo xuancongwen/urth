@@ -101,3 +101,13 @@ resets:
     room: 15
   - mob: 209          # the old soldier in the tavern teaches skills
     room: 13
+  - item: 170         # level-2 pieces for the new slots, at the smithy
+    room: 10
+  - item: 171         # level-2 pieces for the new slots, at the smithy
+    room: 10
+  - item: 172         # level-2 pieces for the new slots, at the smithy
+    room: 10
+  - item: 173         # level-2 pieces for the new slots, at the smithy
+    room: 10
+  - item: 174         # level-2 pieces for the new slots, at the smithy
+    room: 10

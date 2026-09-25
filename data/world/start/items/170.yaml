@@ -1,0 +1,10 @@
+vnum: 170
+name: a pair of leather gloves
+keywords: [leather, gloves]
+description: A pair of leather gloves lies here.
+look: |
+  Soft, well worn, and a little too large.
+type: armor
+slot: hands
+level: 2
+baseline: medium

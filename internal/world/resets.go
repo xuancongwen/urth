@@ -69,7 +69,7 @@ func (w *World) resetArea(a *areaState) {
 			for _, eq := range r.Equip {
 				it := item.New(w.content.Items[eq.Item])
 				if eq.Slot != "" {
-					m.Equipment[item.Slot(eq.Slot)] = it
+					m.Equipment[freePosition(m.Character, item.Slot(eq.Slot))] = it
 				} else {
 					m.Inventory = append(m.Inventory, it)
 				}
@@ -155,4 +155,16 @@ func (w *World) moveMob(m *Mob, dest *room.Room, dir string) {
 // newRNG seeds the world's random source. Tests replace it for determinism.
 func newRNG() *rand.Rand {
 	return rand.New(rand.NewPCG(rand.Uint64(), rand.Uint64()))
+}
+
+// freePosition picks the first free position for a slot, or its first
+// position when all are taken.
+func freePosition(c *Character, slot item.Slot) item.Slot {
+	positions := item.Positions(slot)
+	for _, pos := range positions {
+		if _, taken := c.Equipment[pos]; !taken {
+			return pos
+		}
+	}
+	return positions[0]
 }
