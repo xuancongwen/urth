@@ -328,7 +328,7 @@ func (w *World) lookAt(p *Player, args string) {
 		if c.mob != nil && c.mob.Proto.Look != "" {
 			desc = output.Escape(strings.TrimRight(c.mob.Proto.Look, "\n"))
 		}
-		b.WriteString(desc + "\n")
+		b.WriteString(desc + "\n" + conditionLine(c))
 		if slots := c.equippedList(); len(slots) > 0 {
 			b.WriteString(c.DisplayName() + " is using:\n")
 			for _, s := range slots {

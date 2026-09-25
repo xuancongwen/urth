@@ -617,3 +617,84 @@ func featName(feats []Feat, id string) string {
 	}
 	return id
 }
+
+// condition describes how hurt a character looks, in 20 percent bands.
+func condition(c *Character) string {
+	if c.HealthMax <= 0 || c.Health <= 0 {
+		return "is near death"
+	}
+	pct := 100 * c.Health / c.HealthMax
+	switch {
+	case pct >= 100:
+		return "looks perfectly healthy"
+	case pct >= 80:
+		return "looks slightly wounded"
+	case pct >= 60:
+		return "looks wounded"
+	case pct >= 40:
+		return "looks badly wounded"
+	case pct >= 20:
+		return "looks gravely wounded"
+	default:
+		return "is near death"
+	}
+}
+
+// conditionLine is the sentence shown after each round and on look.
+func conditionLine(c *Character) string {
+	return c.DisplayName() + " " + condition(c) + ".\n"
+}
+
+// showConditions tells every fighting player how their target looks,
+// once per round.
+func (w *World) showConditions() {
+	for _, p := range w.players {
+		if p.State == StatePlaying && p.Fighting != nil && p.Fighting.Health > 0 && p.Fighting.Room == p.Room {
+			p.Send(conditionLine(p.Fighting))
+		}
+	}
+}
+
+// cmdConsider: consider <target>. The verdict comes from the rules'
+// consider hook when present, else from the level gap alone.
+func cmdConsider(w *World, p *Player, args string) {
+	if args == "" {
+		p.Send("Consider whom?\n")
+		return
+	}
+	target := w.findCharacter(p.Room, p.Character, args)
+	if target == nil {
+		p.Send("They aren't here.\n")
+		return
+	}
+	if target.mob != nil && target.mob.Proto.HasFlag("peaceful") {
+		p.Send("You couldn't bring yourself to attack " + output.Escape(target.Name) + ".\n")
+		return
+	}
+	verdict := w.consider(p.Character, target)
+	p.Send(output.Escape(verdict) + "\n" + conditionLine(target))
+}
+
+// consider asks the rules for a verdict on a fight. Default: by level gap.
+func (w *World) consider(me, target *Character) string {
+	var verdict string
+	if w.callOptional("consider", &verdict, w.view(me), w.view(target)) && verdict != "" {
+		return verdict
+	}
+	switch gap := target.Level - me.Level; {
+	case gap <= -5:
+		return "You could do it with a needle."
+	case gap <= -3:
+		return "Easy."
+	case gap <= 0:
+		return "A fair fight."
+	case gap == 1:
+		return "You could win, with a little luck."
+	case gap <= 3:
+		return "Best of luck."
+	case gap <= 4:
+		return "Death will thank you for your gift."
+	default:
+		return "You ARE mad!"
+	}
+}

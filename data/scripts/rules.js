@@ -478,3 +478,20 @@ function resolveCast(caster, targets, spell) {
   return out;
 }
 
+// ---------------------------------------------------------------------
+// consider: a verdict on a fight, by level gap, worded from the measured
+// win rates in RULES 4.5 (+1 a sure win, +3 favourable, +5 hopeless with
+// geometric baselines at 1.10).
+// ---------------------------------------------------------------------
+function consider(me, target) {
+  var gap = (target.level || 1) - (me.level || 1);
+  if (gap <= -5) return "You could do it with a needle.";
+  if (gap <= -3) return "Easy.";
+  if (gap <= -1) return "You should win comfortably.";
+  if (gap === 0) return "A fair fight, and you should walk away from it.";
+  if (gap === 1) return "You should win, but it will cost you.";
+  if (gap <= 3) return "Risky. Bring something more than steel.";
+  if (gap === 4) return "Death will thank you for your gift.";
+  return "You ARE mad!";
+}
+

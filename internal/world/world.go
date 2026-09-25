@@ -262,6 +262,7 @@ func (w *World) round() {
 	w.tickCooldowns()
 	w.violence()
 	w.tickCasting()
+	w.showConditions()
 	w.regen()
 	w.tickEffects()
 	w.decayItems()

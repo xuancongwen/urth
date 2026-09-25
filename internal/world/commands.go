@@ -49,6 +49,7 @@ func init() {
 		{"remove", 3, cmdRemove, false},
 		{"equipment", 2, cmdEquipment, false},
 		{"kill", 1, cmdKill, false},
+		{"consider", 3, cmdConsider, false},
 		{"flee", 2, cmdFlee, false},
 		{"score", 2, cmdScore, false},
 		{"train", 2, cmdTrain, false},

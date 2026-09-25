@@ -892,3 +892,49 @@ func TestKillSwitchesTargetAndManyOnOne(t *testing.T) {
 		t.Fatal("did not retarget the remaining attacker")
 	}
 }
+
+func TestConsiderAndConditionLines(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	send(w, 1, "consider guard")
+	if o := bob.take(); !strings.Contains(o, "A fair fight.") || !strings.Contains(o, "A city guard looks perfectly healthy.") {
+		t.Fatalf("consider even: %q", o)
+	}
+	guard := w.contents(p.Room).mobs[0]
+	guard.Level = 6
+	send(w, 1, "consider guard")
+	if o := bob.take(); !strings.Contains(o, "You ARE mad!") {
+		t.Fatalf("consider +5: %q", o)
+	}
+	guard.Level = 1
+	// A rules hook overrides the wording.
+	setRules(t, w, testRules+`function consider(me, t) { return "Verdict from the rules."; }`)
+	send(w, 1, "consider guard")
+	if o := bob.take(); !strings.Contains(o, "Verdict from the rules.") {
+		t.Fatalf("consider hook: %q", o)
+	}
+	// Bands.
+	guard.HealthMax = 100
+	for hp, want := range map[int]string{100: "looks perfectly healthy", 85: "looks slightly wounded", 70: "looks wounded", 45: "looks badly wounded", 25: "looks gravely wounded", 5: "is near death"} {
+		guard.Health = hp
+		if got := condition(guard.Character); got != want {
+			t.Fatalf("condition at %d: got %q want %q", hp, got, want)
+		}
+	}
+	// Each round, a fighting player sees the target's condition.
+	guard.Health = 100
+	p.HealthMax, p.Health = 1000, 1000
+	send(w, 1, "kill guard")
+	bob.take()
+	for i := 0; i < 10; i++ {
+		w.Tick()
+	}
+	if o := bob.take(); !strings.Contains(o, "A city guard looks perfectly healthy.") && !strings.Contains(o, "A city guard looks slightly wounded.") {
+		t.Fatalf("round condition: %q", o)
+	}
+	send(w, 1, "look guard")
+	if o := bob.take(); !strings.Contains(o, "A city guard looks") {
+		t.Fatalf("look condition: %q", o)
+	}
+}
