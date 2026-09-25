@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Urth builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
+    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --warn: #d9a84a; --link: #5a8fd6;
+    --font: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 13.5px/1.45 var(--font); }
+  body { display: grid; height: 100dvh; overflow: hidden;
+    grid-template-columns: 230px 1fr 400px; grid-template-rows: auto 1fr;
+    grid-template-areas: "head head head" "areas main detail"; }
+  #head { grid-area: head; display: flex; align-items: center; gap: 1em; padding: .5em 1em; background: var(--panel); border-bottom: 1px solid var(--line); }
+  #head .title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
+  #status { color: var(--dim); font-size: .85em; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #status.ok { color: var(--ok); } #status.bad { color: var(--bad); }
+  button { font: inherit; font-size: .85em; color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 3px; padding: .25em .7em; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button.small { font-size: .75em; padding: .1em .5em; }
+
+  #areas { grid-area: areas; overflow-y: auto; background: var(--panel); border-right: 1px solid var(--line); }
+  #main { grid-area: main; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  #detail { grid-area: detail; overflow-y: auto; background: var(--panel); border-left: 1px solid var(--line); padding-bottom: 2em; }
+  h3 { margin: 0; padding: .45em .9em; font-size: .72em; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim);
+    background: var(--panel-2); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); position: sticky; top: 0; z-index: 1; }
+  h3:first-child { border-top: 0; }
+  h3 .count { float: right; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+  .row { display: flex; gap: .6em; padding: .3em .9em; cursor: pointer; border-bottom: 1px solid var(--line); }
+  .row:hover { background: var(--panel-2); }
+  .row.on { background: var(--panel-2); box-shadow: inset 3px 0 var(--accent); }
+  .row .n { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .k { color: var(--dim); font-size: .85em; white-space: nowrap; }
+  .row .v { color: var(--dim); font-size: .85em; min-width: 3.2em; text-align: right; }
+  .badge { font-size: .75em; padding: 0 .4em; border-radius: 2px; }
+  .badge.err { background: #4a2323; color: #f0a0a0; } .badge.warn { background: #4a3d1e; color: #f0d090; }
+
+  #maphead { display: flex; align-items: baseline; gap: 1em; padding: .5em 1em; border-bottom: 1px solid var(--line); background: var(--panel); }
+  #maphead .name { color: var(--accent); }
+  #maphead .k { color: var(--dim); font-size: .85em; }
+  #levels { margin-left: auto; display: flex; gap: .3em; }
+  #levels button.on { border-color: var(--accent); color: var(--accent); }
+  #mapwrap { flex: 1; min-height: 160px; overflow: auto; background: #0b0c0f; position: relative; }
+  #map { display: block; cursor: crosshair; }
+  #hover { position: absolute; left: .8em; bottom: .5em; color: var(--dim); font-size: .85em; pointer-events: none; }
+  #lists { flex: 0 0 38%; overflow-y: auto; border-top: 1px solid var(--line); background: var(--panel); }
+  #tabs { display: flex; background: var(--panel-2); border-bottom: 1px solid var(--line); }
+  #tabs button { border: 0; border-radius: 0; background: transparent; padding: .4em 1em; color: var(--dim); font-size: .8em; letter-spacing: .08em; text-transform: uppercase; }
+  #tabs button.on { color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
+  .problem { padding: .3em .9em; border-bottom: 1px solid var(--line); cursor: pointer; font-size: .9em; }
+  .problem:hover { background: var(--panel-2); }
+  .problem.error { color: #f0a0a0; } .problem.warn { color: #f0d090; }
+  .problem .k { color: var(--dim); font-size: .85em; margin-right: .5em; }
+
+  #detail .body { padding: .6em .9em; }
+  #detail .kv { display: grid; grid-template-columns: 6.5em 1fr; gap: .15em .8em; font-size: .9em; }
+  #detail .kv .k { color: var(--dim); }
+  #detail .desc { white-space: normal; color: var(--fg); margin: .6em 0; font-size: .9em; }
+  #detail pre { margin: 0; padding: .7em .9em; font-size: .82em; white-space: pre-wrap; word-break: break-word; color: #b8bcc8; background: #0b0c0f; }
+  #detail a, .lnk { color: var(--link); cursor: pointer; text-decoration: none; }
+  #detail a:hover, .lnk:hover { text-decoration: underline; }
+  .file { color: var(--dim); font-size: .8em; word-break: break-all; }
+  .empty { color: var(--dim); padding: .6em .9em; font-size: .9em; }
+  #toast { position: fixed; right: 1em; bottom: 1em; max-width: 40em; padding: .6em .9em; background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--ok); font-size: .9em; display: none; white-space: pre-wrap; }
+  #toast.bad { border-left-color: var(--bad); }
+  @media (max-width: 1000px) { body { grid-template-columns: 180px 1fr 300px; } }
+</style>
+</head>
+<body>
+<div id="head">
+  <span class="title">Urth builder</span>
+  <span id="status">connecting</span>
+  <button id="reloadArea" title="reload area">reload area</button>
+  <button id="reloadWorld" title="reload world">reload world</button>
+</div>
+<div id="areas"><h3>Areas</h3><div id="arealist"></div><h3>World problems <span class="count" id="wpcount"></span></h3><div id="wproblems"></div></div>
+<div id="main">
+  <div id="maphead"><span class="name" id="areaname">pick an area</span><span class="k" id="areainfo"></span><div id="levels"></div></div>
+  <div id="mapwrap"><canvas id="map"></canvas><div id="hover"></div></div>
+  <div id="lists">
+    <div id="tabs">
+      <button data-tab="problems" class="on">problems</button>
+      <button data-tab="rooms">rooms</button>
+      <button data-tab="resets">resets</button>
+      <button data-tab="items">items</button>
+      <button data-tab="mobs">mobs</button>
+    </div>
+    <div id="tabbody"></div>
+  </div>
+</div>
+<div id="detail"><h3>Detail</h3><div class="empty">Click a room, item, mob, or problem.</div></div>
+<div id="toast"></div>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var world = null, area = null, areaName = null, level = 0, hover = 0, selected = 0, tab = 'problems';
+  var generation = -1, lastReloadAt = null;
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function get(url) { return fetch(url, { cache: 'no-store' }).then(function (r) { if (!r.ok) return r.text().then(function (t) { throw new Error(t || r.statusText); }); return r.json(); }); }
+  function toast(text, bad) {
+    var t = $('toast'); t.textContent = text; t.className = bad ? 'bad' : ''; t.style.display = 'block';
+    clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.style.display = 'none'; }, bad ? 12000 : 5000);
+  }
+  function fmtReload(lr) {
+    if (!lr) return 'no reload yet';
+    var d = new Date(lr.at);
+    return (lr.ok ? '' : 'FAILED: ') + lr.report + '  (' + lr.source + ', ' + d.toLocaleTimeString() + ')';
+  }
+
+  // ---- World overview ------------------------------------------------
+  function loadWorld() {
+    return get('/api/world').then(function (w) {
+      world = w; generation = w.generation;
+      var html = '';
+      w.areas.forEach(function (a) {
+        html += '<div class="row' + (a.name === areaName ? ' on' : '') + '" data-area="' + esc(a.name) + '">' +
+          '<span class="n">' + esc(a.name) + (a.detached ? ' <span class="k">(detached)</span>' : '') + '</span>' +
+          (a.errors ? '<span class="badge err">' + a.errors + '</span>' : '') +
+          (a.warnings ? '<span class="badge warn">' + a.warnings + '</span>' : '') +
+          '<span class="v">' + a.rooms + '</span></div>';
+      });
+      $('arealist').innerHTML = html;
+      var global = w.problems.filter(function (p) { return !p.area; });
+      $('wpcount').textContent = global.length ? global.length : '';
+      $('wproblems').innerHTML = global.length ? global.map(problemRow).join('') : '<div class="empty">none</div>';
+      var st = $('status');
+      st.textContent = w.areas.length + ' areas · ' + fmtReload(w.lastReload);
+      st.className = w.lastReload ? (w.lastReload.ok ? 'ok' : 'bad') : '';
+    });
+  }
+  $('arealist').addEventListener('click', function (ev) {
+    var row = ev.target.closest('.row'); if (row) selectArea(row.getAttribute('data-area'));
+  });
+
+  // ---- Area --------------------------------------------------------
+  function selectArea(name, keep) {
+    areaName = name; if (!keep) { selected = 0; level = null; $('detail').innerHTML = '<h3>Detail</h3><div class="empty">Click a room, item, mob, or problem.</div>'; }
+    location.hash = name;
+    return get('/api/area?name=' + encodeURIComponent(name)).then(function (a) {
+      area = a; a.byVnum = {}; a.rooms.forEach(function (r) { a.byVnum[r.vnum] = r; });
+      var zs = {}; a.rooms.forEach(function (r) { if (r.placed) zs[r.z] = (zs[r.z] || 0) + 1; });
+      var levels = Object.keys(zs).map(Number).sort(function (x, y) { return y - x; });
+      if (level === null || !zs[level]) { level = 0; if (!zs[0] && levels.length) { level = levels.reduce(function (best, z) { return zs[z] > zs[best] ? z : best; }, levels[0]); } }
+      $('levels').innerHTML = levels.length > 1 ? levels.map(function (z) { return '<button class="small' + (z === level ? ' on' : '') + '" data-z="' + z + '">z ' + z + '</button>'; }).join('') : '';
+      $('areaname').textContent = a.title + ' (' + a.name + ')';
+      var unplaced = a.rooms.filter(function (r) { return !r.placed; }).length;
+      $('areainfo').textContent = a.rooms.length + ' rooms, ' + a.items.length + ' items, ' + a.mobs.length + ' mobs' + (unplaced ? ', ' + unplaced + ' unplaced' : '');
+      Array.prototype.forEach.call(document.querySelectorAll('#arealist .row'), function (el) { el.classList.toggle('on', el.getAttribute('data-area') === name); });
+      drawMap(); renderTab();
+      if (selected && a.byVnum[selected]) showRoom(selected);
+    }).catch(function (e) { toast('area: ' + e.message, true); });
+  }
+  $('levels').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b) return;
+    level = Number(b.getAttribute('data-z')); selectArea(areaName, true);
+  });
+
+  // ---- Map ---------------------------------------------------------
+  var canvas = $('map'), ctx = canvas.getContext('2d');
+  var DIRS = { north: [0, -1], south: [0, 1], east: [1, 0], west: [-1, 0] };
+  var geom = null;
+  function problemsFor(vnum) { return area ? area.problems.filter(function (p) { return p.vnum === vnum; }) : []; }
+  function layout() {
+    var rooms = area.rooms.filter(function (r) { return r.placed && r.z === level; });
+    if (!rooms.length) return null;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    rooms.forEach(function (r) { minX = Math.min(minX, r.x); maxX = Math.max(maxX, r.x); minY = Math.min(minY, r.y); maxY = Math.max(maxY, r.y); });
+    var wrap = $('mapwrap'), availW = wrap.clientWidth, availH = wrap.clientHeight;
+    var cols = maxX - minX + 2, rows = maxY - minY + 2;
+    var cell = Math.floor(Math.min(availW / cols, availH / rows));
+    cell = Math.max(26, Math.min(56, cell));
+    var w = Math.max(availW, cols * cell), h = Math.max(availH, rows * cell);
+    var ox = (w - (cols - 1) * cell) / 2 - minX * cell, oy = (h - (rows - 1) * cell) / 2 - minY * cell;
+    return { rooms: rooms, cell: cell, box: Math.round(cell * 0.62), w: w, h: h, pos: function (r) { return [ox + r.x * cell, oy + r.y * cell]; } };
+  }
+  function drawMap() {
+    if (!area) return;
+    geom = layout();
+    var dpr = window.devicePixelRatio || 1;
+    var w = geom ? geom.w : $('mapwrap').clientWidth, h = geom ? geom.h : $('mapwrap').clientHeight;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    var font = getComputedStyle(document.body).fontFamily;
+    if (!geom) { ctx.fillStyle = '#4a4e5a'; ctx.font = '12px ' + font; ctx.textAlign = 'center'; ctx.fillText('no rooms placed on this level', w / 2, h / 2); return; }
+    var g = geom, BOX = g.box;
+    // Exits first.
+    ctx.lineWidth = 2;
+    g.rooms.forEach(function (r) {
+      var p = g.pos(r);
+      Object.keys(r.exits).forEach(function (dir) {
+        var d = DIRS[dir]; if (!d) return;
+        var to = area.byVnum[r.exits[dir]], link = r.links && r.links[dir];
+        ctx.beginPath(); ctx.moveTo(p[0], p[1]);
+        if (to && to.placed && to.z === level) {
+          var q = g.pos(to);
+          var back = to.exits[{ north: 'south', south: 'north', east: 'west', west: 'east' }[dir]] === r.vnum;
+          ctx.strokeStyle = back ? '#4d5261' : '#a04a4a';
+          ctx.lineTo(q[0], q[1]);
+        } else {
+          ctx.strokeStyle = link ? '#5a8fd6' : '#3a3e4a';
+          ctx.setLineDash(link ? [3, 3] : []);
+          ctx.lineTo(p[0] + d[0] * g.cell * 0.45, p[1] + d[1] * g.cell * 0.45);
+        }
+        ctx.stroke(); ctx.setLineDash([]);
+      });
+    });
+    g.rooms.forEach(function (r) {
+      var p = g.pos(r), x = p[0] - BOX / 2, y = p[1] - BOX / 2;
+      var probs = problemsFor(r.vnum), err = probs.some(function (q) { return q.level === 'error'; });
+      var safe = (r.flags || []).indexOf('safe') >= 0, dark = (r.flags || []).indexOf('dark') >= 0;
+      ctx.fillStyle = r.temple ? '#4a3b6a' : safe ? '#2f5a4a' : dark ? '#16181d' : '#2c3039';
+      ctx.fillRect(x, y, BOX, BOX);
+      ctx.lineWidth = 1; ctx.strokeStyle = err ? '#d95f5f' : probs.length ? '#d9a84a' : '#6a7080';
+      ctx.strokeRect(x + .5, y + .5, BOX - 1, BOX - 1);
+      ctx.fillStyle = r.vnum === selected ? '#e0b04a' : '#c8ccd8'; ctx.font = Math.max(8, Math.round(BOX * 0.36)) + 'px ' + font; ctx.textAlign = 'center';
+      ctx.fillText(r.vnum, p[0], p[1] + BOX * 0.14);
+      if (r.exits.up || r.exits.down) { ctx.fillStyle = '#a9aebd'; ctx.font = Math.round(BOX * 0.3) + 'px sans-serif'; ctx.fillText(r.exits.up && r.exits.down ? '↕' : (r.exits.up ? '↑' : '↓'), p[0], y + BOX * 0.32); }
+      if (r.mobs && r.mobs.length) { ctx.fillStyle = '#d95f5f'; ctx.beginPath(); ctx.arc(x + BOX - 4, y + 4, 2.5, 0, Math.PI * 2); ctx.fill(); }
+      if (r.players && r.players.length) { ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 2; ctx.strokeRect(x - 2, y - 2, BOX + 4, BOX + 4); }
+      if (r.vnum === selected) { ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 2; ctx.strokeRect(x - 2.5, y - 2.5, BOX + 5, BOX + 5); }
+      else if (r.vnum === hover) { ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 1; ctx.strokeRect(x - 1.5, y - 1.5, BOX + 3, BOX + 3); }
+    });
+    if (world && area.byVnum[world.startRoom] && area.byVnum[world.startRoom].z === level) {
+      var s = g.pos(area.byVnum[world.startRoom]); ctx.fillStyle = '#7cc47c'; ctx.beginPath(); ctx.arc(s[0] - BOX / 2 + 4, s[1] + BOX / 2 - 4, 2.5, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  function roomAt(px, py) {
+    if (!geom) return null;
+    var found = null;
+    geom.rooms.forEach(function (r) { var p = geom.pos(r); if (Math.abs(px - p[0]) <= geom.box / 2 + 3 && Math.abs(py - p[1]) <= geom.box / 2 + 3) found = r; });
+    return found;
+  }
+  canvas.addEventListener('mousemove', function (ev) {
+    var b = canvas.getBoundingClientRect(), r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    var v = r ? r.vnum : 0;
+    $('hover').textContent = r ? (r.vnum + ' ' + r.name + (r.mobs && r.mobs.length ? ' · ' + r.mobs.join(', ') : '')) : '';
+    if (v !== hover) { hover = v; drawMap(); }
+  });
+  canvas.addEventListener('mouseleave', function () { hover = 0; $('hover').textContent = ''; drawMap(); });
+  canvas.addEventListener('click', function (ev) {
+    var b = canvas.getBoundingClientRect(), r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    if (r) showRoom(r.vnum);
+  });
+  window.addEventListener('resize', drawMap);
+
+  // ---- Lists below the map ----------------------------------------
+  function problemRow(p) {
+    return '<div class="problem ' + p.level + '" data-vnum="' + (p.vnum || 0) + '" data-file="' + esc(p.file || '') + '">' +
+      '<span class="k">' + esc(p.kind) + '</span>' + esc(p.text) + '</div>';
+  }
+  function renderTab() {
+    Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) { b.classList.toggle('on', b.getAttribute('data-tab') === tab); });
+    var body = $('tabbody'), html = '';
+    if (!area) { body.innerHTML = ''; return; }
+    if (tab === 'problems') {
+      html = area.problems.length ? area.problems.map(problemRow).join('') : '<div class="empty">no problems in this area</div>';
+    } else if (tab === 'rooms') {
+      html = area.rooms.map(function (r) {
+        return '<div class="row' + (r.vnum === selected ? ' on' : '') + '" data-room="' + r.vnum + '"><span class="v">' + r.vnum + '</span><span class="n">' + esc(r.name) + '</span>' +
+          '<span class="k">' + (r.placed ? 'z' + r.z : 'unplaced') + (r.flags && r.flags.length ? ' ' + esc(r.flags.join(',')) : '') + '</span></div>';
+      }).join('');
+    } else if (tab === 'resets') {
+      html = area.resets.length ? area.resets.map(function (rs) {
+        var what = rs.mob ? 'mob ' + rs.mob : 'item ' + rs.item + (rs.into ? ' into ' + rs.into : '');
+        var eq = (rs.equip || []).map(function (e) { return e.name + (e.slot ? ' (' + e.slot + ')' : ''); }).join(', ');
+        return '<div class="row" data-room="' + rs.room + '"><span class="k">' + esc(what) + '</span><span class="n">' + esc(rs.name) + (eq ? ' <span class="k">with ' + esc(eq) + '</span>' : '') + '</span>' +
+          '<span class="k">' + (rs.max > 1 ? 'max ' + rs.max + ' · ' : '') + 'room ' + rs.room + ' ' + esc(rs.roomName) + '</span></div>';
+      }).join('') : '<div class="empty">no resets</div>';
+    } else {
+      var list = tab === 'items' ? area.items : area.mobs;
+      html = list.length ? list.map(function (p) {
+        return '<div class="row" data-proto="' + tab + '" data-vnum="' + p.vnum + '"><span class="v">' + p.vnum + '</span><span class="n">' + esc(p.name) + '</span>' +
+          '<span class="k">L' + p.level + (p.type ? ' ' + esc(p.type) : '') + (p.slot ? ' ' + esc(p.slot) : '') + '</span><span class="v" title="live instances">' + p.live + '</span></div>';
+      }).join('') : '<div class="empty">none</div>';
+    }
+    body.innerHTML = html;
+  }
+  $('tabs').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) { tab = b.getAttribute('data-tab'); renderTab(); } });
+  function onListClick(ev) {
+    var el = ev.target.closest('.row, .problem'); if (!el) return;
+    if (el.hasAttribute('data-room')) { showRoom(Number(el.getAttribute('data-room'))); return; }
+    if (el.hasAttribute('data-proto')) { showProto(el.getAttribute('data-proto'), Number(el.getAttribute('data-vnum'))); return; }
+    var v = Number(el.getAttribute('data-vnum')), f = el.getAttribute('data-file');
+    if (v && area && area.byVnum[v]) { showRoom(v); return; }
+    if (f && /\/items\//.test(f)) { showProto('items', v); return; }
+    if (f && /\/mobs\//.test(f)) { showProto('mobs', v); return; }
+  }
+  $('tabbody').addEventListener('click', onListClick);
+  $('wproblems').addEventListener('click', onListClick);
+
+  // ---- Detail ------------------------------------------------------
+  function showYAML(container, file) {
+    if (!file) return;
+    fetch('/api/file?path=' + encodeURIComponent(file), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
+      container.innerHTML = '<h3>' + esc(file.replace(/^.*\/world\//, '')) + '</h3><pre>' + esc(t) + '</pre>';
+    });
+  }
+  function showRoom(vnum) {
+    var r = area && area.byVnum[vnum]; if (!r) return;
+    selected = vnum; drawMap(); if (tab === 'rooms') renderTab();
+    var d = $('detail'), opp = { north: 'south', south: 'north', east: 'west', west: 'east', up: 'down', down: 'up' };
+    var exits = ['north', 'east', 'south', 'west', 'up', 'down'].filter(function (dir) { return r.exits[dir]; }).map(function (dir) {
+      var to = r.exits[dir], link = r.links && r.links[dir], local = area.byVnum[to];
+      var name = link ? link.name + ' <span class="k">[' + esc(link.area) + ']</span>' : (local ? esc(local.name) : '?');
+      var back = local ? (local.exits[opp[dir]] === r.vnum ? '' : (local.exits[opp[dir]] ? ' <span class="badge warn">' + opp[dir] + ' goes to ' + local.exits[opp[dir]] + '</span>' : ' <span class="badge warn">one way</span>')) : '';
+      return '<span class="k">' + dir + '</span><span>' + (link ? '<span class="lnk" data-area="' + esc(link.area) + '" data-room="' + to + '">' + to + '</span>' : '<span class="lnk" data-room="' + to + '">' + to + '</span>') + ' ' + name + back + '</span>';
+    }).join('');
+    var here = [];
+    (r.players || []).forEach(function (n) { here.push('<span style="color:var(--accent)">' + esc(n) + '</span>'); });
+    (r.mobs || []).forEach(function (n) { here.push(esc(n)); });
+    (r.items || []).forEach(function (n) { here.push('<span class="k">' + esc(n) + '</span>'); });
+    var resets = area.resets.filter(function (rs) { return rs.room === vnum; }).map(function (rs) {
+      return '<div>' + (rs.mob ? 'mob ' : 'item ') + esc(rs.name) + (rs.max > 1 ? ' ×' + rs.max : '') + (rs.into ? ' <span class="k">into ' + rs.into + '</span>' : '') +
+        ((rs.equip || []).length ? ' <span class="k">with ' + esc(rs.equip.map(function (e) { return e.name; }).join(', ')) + '</span>' : '') + '</div>';
+    }).join('');
+    var probs = problemsFor(vnum).map(problemRow).join('');
+    d.innerHTML = '<h3>Room ' + r.vnum + '</h3><div class="body">' +
+      '<div style="color:var(--accent);font-weight:600">' + esc(r.name) + '</div>' +
+      '<div class="file">' + esc(r.file) + '</div>' +
+      '<div class="desc">' + esc(r.description || '(no description)') + '</div>' +
+      '<div class="kv">' +
+      (r.flags && r.flags.length ? '<span class="k">flags</span><span>' + esc(r.flags.join(', ')) + '</span>' : '') +
+      (r.temple ? '<span class="k">temple</span><span>' + esc(r.temple) + '</span>' : '') +
+      '<span class="k">position</span><span>' + (r.placed ? r.x + ', ' + r.y + ', ' + r.z : 'unplaced') + '</span>' +
+      exits + '</div>' +
+      '<h3 style="margin:.8em -0.9em 0">Here now</h3><div style="padding:.4em 0">' + (here.length ? here.join('<br>') : '<span class="k">nothing</span>') + '</div>' +
+      '<h3 style="margin:.4em -0.9em 0">Resets here</h3><div style="padding:.4em 0">' + (resets || '<span class="k">none</span>') + '</div>' +
+      (probs ? '<h3 style="margin:.4em -0.9em 0">Problems</h3><div style="margin:0 -0.9em">' + probs + '</div>' : '') +
+      '</div><div id="yaml"></div>';
+    showYAML($('yaml'), r.file);
+  }
+  function showProto(kind, vnum) {
+    var list = kind === 'items' ? area.items : area.mobs;
+    var p = null; list.forEach(function (q) { if (q.vnum === vnum) p = q; });
+    if (!p) return;
+    var users = area.resets.filter(function (rs) { return rs.mob === vnum || rs.item === vnum || rs.into === vnum || (rs.equip || []).some(function (e) { return e.item === vnum; }); });
+    var d = $('detail');
+    d.innerHTML = '<h3>' + (kind === 'items' ? 'Item ' : 'Mob ') + p.vnum + '</h3><div class="body">' +
+      '<div style="color:var(--accent);font-weight:600">' + esc(p.name) + '</div><div class="file">' + esc(p.file) + '</div>' +
+      '<div class="kv" style="margin-top:.5em"><span class="k">level</span><span>' + p.level + '</span>' +
+      (p.type ? '<span class="k">type</span><span>' + esc(p.type) + (p.slot ? ' / ' + esc(p.slot) : '') + '</span>' : '') +
+      '<span class="k">live now</span><span>' + p.live + '</span></div>' +
+      '<h3 style="margin:.8em -0.9em 0">Placed by</h3><div style="padding:.4em 0">' + (users.length ? users.map(function (rs) {
+        return '<div><span class="lnk" data-room="' + rs.room + '">' + rs.room + '</span> ' + esc(rs.roomName) + (rs.mob && rs.mob !== vnum ? ' <span class="k">on ' + esc(rs.name) + '</span>' : '') + '</div>';
+      }).join('') : '<span class="k">no reset places it</span>') + '</div></div><div id="yaml"></div>';
+    showYAML($('yaml'), p.file);
+  }
+  $('detail').addEventListener('click', function (ev) {
+    var el = ev.target.closest('.lnk, .problem'); if (!el) return;
+    var room = Number(el.getAttribute('data-room') || el.getAttribute('data-vnum')), other = el.getAttribute('data-area');
+    if (other && other !== areaName) { selected = room; selectArea(other, true).then(function () { showRoom(room); }); }
+    else if (room) showRoom(room);
+  });
+
+  // ---- Reload and the watcher ----------------------------------------
+  function reload(areaOnly) {
+    var url = '/api/reload' + (areaOnly && areaName ? '?area=' + encodeURIComponent(areaName) : '');
+    fetch(url, { method: 'POST' }).then(function (r) { return r.json(); }).then(function (res) { announce(res); refresh(); });
+  }
+  function announce(res) {
+    if (!res) return;
+    lastReloadAt = res.at;
+    toast(fmtReload(res), !res.ok);
+  }
+  function refresh() { return loadWorld().then(function () { if (areaName) return selectArea(areaName, true); }); }
+  $('reloadArea').addEventListener('click', function () { reload(true); });
+  $('reloadWorld').addEventListener('click', function () { reload(false); });
+  setInterval(function () {
+    get('/api/version').then(function (v) {
+      var changed = v.generation !== generation;
+      if (v.lastReload && v.lastReload.at !== lastReloadAt) { announce(v.lastReload); changed = true; }
+      if (changed) refresh();
+    }).catch(function () { $('status').textContent = 'server unreachable'; $('status').className = 'bad'; });
+  }, 1000);
+
+  loadWorld().then(function () {
+    var want = location.hash.replace(/^#/, '');
+    if (want && world.areas.some(function (a) { return a.name === want; })) selectArea(want);
+    else if (world.areas.length) selectArea(world.areas[0].name);
+    if (world.lastReload) lastReloadAt = world.lastReload.at;
+  }).catch(function (e) { toast(e.message, true); });
+})();
+</script>
+</body>
+</html>

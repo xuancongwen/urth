@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schema/item.schema.json
+vnum: 197
+name: a battered strongbox key
+keywords: [battered, strongbox, key]
+description: A battered iron key lies here.
+look: |
+  Iron, bent a little, the bow stamped with a mark you don't know. It
+  opens something somebody cares about. The herald in the Long Hall
+  pays for lost things.
+weight: 1
+flags: [quest]

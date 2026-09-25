@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/mob.schema.json",
+  "title": "Urth mob prototype",
+  "description": "One mob prototype: data/world/<area>/mobs/<vnum>.yaml. Anything left out is filled from the level baseline by the rules' mobBaseline hook.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vnum", "name", "keywords"],
+  "properties": {
+    "vnum": { "$ref": "common.schema.json#/$defs/vnum" },
+    "name": { "type": "string", "minLength": 1, "description": "Short description used in sentences: a city guard." },
+    "keywords": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "description": { "type": "string", "description": "Room listing line: A city guard stands here. Defaults to '<Name> is here.'" },
+    "look": { "type": "string", "description": "Shown by look <mob>." },
+    "level": { "type": "integer", "minimum": 1, "default": 1 },
+    "flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "examples": ["sentinel", "roam", "peaceful", "questmaster"] },
+      "description": "sentinel never moves; roam may wander out of its area; peaceful cannot be attacked; questmaster hands out quests (docs/RULES.md 7.6). Others are free for rules."
+    },
+    "stats": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Stat overrides by name." },
+    "health": { "type": "integer", "minimum": 0, "description": "Overrides the derived maximum when positive." },
+    "attack": { "$ref": "common.schema.json#/$defs/weapon", "description": "Natural attack used when nothing is wielded." },
+    "armor": { "$ref": "common.schema.json#/$defs/armor", "description": "Natural defense used when nothing is worn." },
+    "xp": { "type": "integer", "minimum": 0, "description": "Overrides the kill reward when positive." },
+    "silver": { "type": "integer", "minimum": 0, "description": "Coins carried, when positive." },
+    "teaches": { "type": "array", "items": { "type": "string" }, "description": "Skill ids this trainer sells (docs/RULES.md 7.4)." },
+    "sells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "points"],
+        "properties": {
+          "item": { "$ref": "common.schema.json#/$defs/vnum", "description": "The item prototype offered." },
+          "points": { "type": "integer", "minimum": 1, "description": "Its price in quest points." }
+        }
+      },
+      "description": "What this quest vendor exchanges for quest points (docs/RULES.md 7.6). A mob flagged questmaster gives quests out."
+    },
+    "effects": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/effect" } }
+  }
+}

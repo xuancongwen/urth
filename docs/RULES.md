@@ -52,6 +52,8 @@ left out; the engine then uses a quiet default.
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
 | `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, start, innate, price, requires:[{material, count}], description}]` |
 | `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |
+| `questRules` (optional) | `quest request`, and when a quest ends | player | `{levelBand, rounds, cooldown, quitCooldown}`, the band in levels and the timers in rounds (7.6) |
+| `questReward` (optional) | a quest is drawn | player, quest `{kind, target, name, level, area, room, rounds}` | `{points, silver, xp, message}`, shown on offer and paid on completion |
 | `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}}` |
 | `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
 | `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
@@ -1192,9 +1194,10 @@ Discovery is the point, and it is done with content, not a quest
 system. The world carries hints: room descriptions, what NPCs say, books,
 the look of the totem itself. A player who reads and explores finds
 schools; one who does not, does not. There is no quest log, no
-objective marker, and no NPC that says "bring me five pelts". If a
-later milestone adds quests, they are one more way to place a hint,
-not the mechanism.
+objective marker, and no NPC that says "bring me five pelts" *for
+magic*. The questmaster of 7.6 (added 2026-09-25) draws its tasks
+from the live world at random and never points at a totem; quests are
+one more way to place a hint, not the mechanism.
 
 This makes magic a fourth pillar of power beside level, gear, and stats
 (2.2): earned by content rather than by numbers, and uncapped like the
@@ -1683,6 +1686,41 @@ Sources: mobs carry coin, about five silver per level with a wide
 spread from the rules' `moneyFor` hook, or a stated amount on the
 prototype. Sinks: trainers (7.4). Open: shops, which are deferred past
 milestone 8 in `MILESTONES.md`, and whether anything else costs coin.
+
+### 7.6 Quests
+
+**Status: decided 2026-09-25.** After ROM's questmaster. A mob flagged
+`questmaster` hands out one task at a time, drawn at random from the
+whole live world and scaled to the player: the engine picks a fightable
+mob within a band of the player's level (widening the band when nothing
+is near), which fixes the area and the difficulty, and then either asks
+for that kill or, half the time, plants a quest item somewhere in that
+mob's area and asks for it back. The task has a clock. Finishing and
+returning with `quest complete` pays quest points, a second currency
+beside coin, that a mob with a `sells` list exchanges for items at the
+prices the builder stated.
+
+What the engine owns: the draw (live mobs only, never the peaceful, the
+service mobs, safe rooms, or detached areas), the clock, the item stamp
+(a planted item belongs to one player, crumbles when the clock runs out,
+and is swept up when the quest ends), the credit (any mob of the
+target's kind counts, for every grouped player in the room, so a target
+that died to someone else is not a dead end), the cooldown before the
+next request, and a longer one after `quit` so quitting is not a
+reroll. A quest survives logout; a planted item that was lying about is
+planted again at login, since rooms are not saved.
+
+What the rules decide, in `rules.js`: `questRules(player)` returns the
+level band and the timers in rounds; `questReward(player, quest)` is
+asked once, when the quest is given, and returns the points, silver,
+and experience on offer and an optional message. The engine shows those
+numbers and pays them on completion. Defaults without the hooks: three
+levels either way, fifteen minutes at a two-second round, five points
+plus the target's level.
+
+Sinks are content: the herald in the Long Hall sells starter and
+mid-level gear. Open: whether quest points should also buy services
+(a resurrection, a rename), and whether a vendor's stock should rotate.
 
 ---
 

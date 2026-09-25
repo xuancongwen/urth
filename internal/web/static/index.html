@@ -22,7 +22,7 @@
     grid-template-areas: "main side" "bar bar"; }
 
   /* Log */
-  #main { grid-area: main; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  #main { grid-area: main; display: flex; flex-direction: column; min-height: 0; min-width: 0; position: relative; }
   #head { display: flex; align-items: baseline; gap: .8em; padding: .55em 1.1em; background: var(--panel);
     border-bottom: 1px solid var(--line); }
   #title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
@@ -36,6 +36,13 @@
   #screen .system { color: var(--dim); font-style: italic; }
   #screen .echo { color: var(--dim); }
   #screen .prompt { display: none; }
+  #connectbox { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center;
+    gap: .8em; background: #0e0f12d9; z-index: 3; text-align: center; padding: 1em; }
+  #main.offline #connectbox { display: flex; }
+  #connectbox p { margin: 0; color: var(--dim); }
+  #connect { font: inherit; font-size: 1.05em; padding: .5em 1.6em; background: var(--panel-2); color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 4px; cursor: pointer; }
+  #connect:hover { background: var(--accent); color: var(--bg); }
 
   /* Side panel */
   #side { grid-area: side; display: flex; flex-direction: column; min-height: 0; background: var(--panel);
@@ -108,6 +115,7 @@
 <div id="main">
   <div id="head"><span id="title">Urth</span><span id="area"></span><span id="conn">connecting</span></div>
   <div id="screen"></div>
+  <div id="connectbox"><p id="connectmsg">Not connected.</p><button id="connect" type="button">Connect</button></div>
 </div>
 <div id="side">
   <h3>Map</h3>
@@ -138,13 +146,23 @@
   var history = [], hIndex = 0, commandNames = [];
 
   function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+  // Scrollback is bounded by characters, not messages: a single message can
+  // be a page of help text, so counting nodes alone lets memory grow without
+  // limit over a long session.
+  var maxScrollChars = 400000, maxScrollNodes = 3000, screenChars = 0;
   function append(html, cls) {
     var atBottom = screen.scrollTop + screen.clientHeight >= screen.scrollHeight - 40;
     var span = document.createElement('span');
     if (cls) span.className = cls;
     span.innerHTML = html;
+    span.dataset.n = span.textContent.length;
     screen.appendChild(span);
-    if (screen.childNodes.length > 3000) screen.removeChild(screen.firstChild);
+    screenChars += span.textContent.length;
+    while (screen.childNodes.length > 1 && (screenChars > maxScrollChars || screen.childNodes.length > maxScrollNodes)) {
+      var first = screen.firstChild;
+      screenChars -= Number(first.dataset && first.dataset.n) || 0;
+      screen.removeChild(first);
+    }
     if (atBottom) screen.scrollTop = screen.scrollHeight;
   }
   function system(text) { append(esc(text) + '\n', 'system'); }
@@ -342,8 +360,14 @@
 
   // ---- Connection ---------------------------------------------------
   var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-  var ws = null, reconnectToken = null, expectRestart = false, retryDelay = 0, retryTimer = null, everConnected = false;
-  var conn = $('conn');
+  // wanted is true from the moment the player asks to connect until the
+  // session ends on purpose: a quit, or the idle timer. Only a wanted
+  // connection is retried on its own; the page never connects unasked.
+  var ws = null, reconnectToken = null, expectRestart = false, retryDelay = 0, retryTimer = null, wanted = false;
+  var conn = $('conn'), main = $('main');
+  // The client hangs up after this long without a command, with a warning
+  // a minute before. Output does not count as activity.
+  var idleLimit = 15 * 60 * 1000, idleWarn = 60 * 1000, lastActive = 0, idleWarned = false, idleTimer = null;
 
   function setConnected(on) {
     input.classList.toggle('offline', !on);
@@ -351,9 +375,34 @@
     conn.textContent = on ? 'connected' : 'offline';
     conn.className = on ? 'on' : 'off';
     if (!on) { input.type = 'text'; prompt.textContent = ''; }
+    if (on) { stopIdle(); lastActive = Date.now(); idleWarned = false; idleTimer = setInterval(checkIdle, 15000); }
+    else { stopIdle(); }
+    showConnectBox(!on && !wanted);
+  }
+  function showConnectBox(show, msg) {
+    if (msg) $('connectmsg').textContent = msg;
+    main.classList.toggle('offline', show);
+  }
+  function stopIdle() { if (idleTimer) { clearInterval(idleTimer); idleTimer = null; } }
+  function touch() { lastActive = Date.now(); idleWarned = false; }
+  // Polling rather than one long timeout: a laptop that slept through the
+  // limit still hangs up as soon as it wakes.
+  function checkIdle() {
+    if (!ws || ws.readyState !== WebSocket.OPEN) return;
+    var idle = Date.now() - lastActive;
+    if (idle >= idleLimit) {
+      wanted = false;
+      system('[idle for ' + Math.round(idleLimit / 60000) + ' minutes: disconnected]');
+      showConnectBox(true, 'Disconnected after ' + Math.round(idleLimit / 60000) + ' minutes idle.');
+      ws.close(1000, 'idle');
+    } else if (!idleWarned && idle >= idleLimit - idleWarn) {
+      idleWarned = true;
+      system('[idle: disconnecting in a minute unless you do something]');
+    }
   }
   function scheduleRetry() {
     if (retryTimer) return;
+    if (!wanted) return;
     retryDelay = retryDelay < 0 ? -retryDelay : (retryDelay ? Math.min(retryDelay * 2, 30000) : 1000);
     system('[reconnecting in ' + Math.round(retryDelay / 1000) + 's]');
     conn.textContent = 'retrying';
@@ -362,13 +411,15 @@
   function connect() {
     if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
     if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) return;
+    wanted = true;
+    showConnectBox(false);
     var url = proto + location.host + '/ws' + (reconnectToken ? '?token=' + encodeURIComponent(reconnectToken) : '');
     var resuming = !!reconnectToken;
     reconnectToken = null;
     conn.textContent = 'connecting'; conn.className = '';
     ws = new WebSocket(url);
     ws.onopen = function () {
-      retryDelay = 0; everConnected = true;
+      retryDelay = 0;
       setConnected(true); input.type = 'text';
       system(resuming ? '[reconnected]' : '[connected]');
       input.focus();
@@ -376,7 +427,12 @@
     ws.onclose = function (e) {
       setConnected(false);
       if (expectRestart) { expectRestart = false; system('[server restarting]'); retryDelay = -(reconnectToken ? 300 : 1000); scheduleRetry(); return; }
-      if (e.code === 1000) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); return; }
+      if (e.code === 1000 || !wanted) {
+        if (wanted) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); }
+        wanted = false;
+        showConnectBox(true, e.reason && e.reason !== 'idle' ? 'Disconnected: ' + e.reason + '.' : undefined);
+        return;
+      }
       if (retryDelay === 0) system('[connection lost]');
       scheduleRetry();
     };
@@ -409,6 +465,7 @@
 
   function sendLine(line, quiet) {
     if (!ws || ws.readyState !== WebSocket.OPEN) return false;
+    touch();
     ws.send(line);
     if (!quiet) {
       var shown = input.type === 'password' ? '' : line;
@@ -429,6 +486,7 @@
   }
   input.addEventListener('input', updateHint);
   input.addEventListener('keydown', function (ev) {
+    touch();
     if (ev.key === 'Enter') {
       ev.preventDefault();
       if (!ws || ws.readyState !== WebSocket.OPEN) { retryDelay = 0; connect(); return; }
@@ -455,15 +513,14 @@
   });
   $('toggle').addEventListener('click', function (ev) { ev.stopPropagation(); side.classList.toggle('open'); drawMap(); });
   document.addEventListener('visibilitychange', function () {
-    if (!document.hidden && everConnected && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); }
+    if (!document.hidden && wanted && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); }
   });
-  window.addEventListener('online', function () { if (!ws || ws.readyState === WebSocket.CLOSED) { retryDelay = 0; connect(); } });
+  window.addEventListener('online', function () { if (wanted && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); } });
+  $('connect').addEventListener('click', function (ev) { ev.stopPropagation(); retryDelay = 0; connect(); input.focus(); });
 
   setConnected(false);
-  input.placeholder = 'connecting';
-  input.focus();
+  input.placeholder = 'not connected. press Enter to connect';
   drawMap();
-  connect();
 })();
 </script>
 </body>

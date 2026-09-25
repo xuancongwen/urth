@@ -186,6 +186,9 @@ func (w *World) view(c *Character) map[string]any {
 	if c.Room != nil {
 		v["room"] = map[string]any{"vnum": c.Room.Vnum, "name": c.Room.Name, "area": c.Room.Area}
 	}
+	if c.player != nil {
+		v["questPoints"] = c.player.questPoints
+	}
 	if c.mob != nil {
 		p := c.mob.Proto
 		v["vnum"] = p.Vnum

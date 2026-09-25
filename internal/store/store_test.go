@@ -71,3 +71,32 @@ func TestNamesAreValidated(t *testing.T) {
 		t.Fatal("Canonical wrong")
 	}
 }
+
+func TestListAndDelete(t *testing.T) {
+	s, err := New(t.TempDir(), bcrypt.MinCost)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, n := range []string{"Zed", "Amy"} {
+		if err := s.Save(&Record{Name: n, PasswordHash: "x"}); err != nil {
+			t.Fatal(err)
+		}
+	}
+	names, err := s.List()
+	if err != nil || len(names) != 2 || names[0] != "Amy" || names[1] != "Zed" {
+		t.Fatalf("list: %v %v", names, err)
+	}
+	if err := s.Delete("Amy"); err != nil {
+		t.Fatal(err)
+	}
+	if s.Exists("Amy") || s.Count() != 1 {
+		t.Fatal("delete left the record in place")
+	}
+	if err := s.Delete("Amy"); err != ErrNotFound {
+		t.Fatalf("second delete: %v", err)
+	}
+	moved, _ := filepath.Glob(filepath.Join(s.dir, "deleted", "amy-*.yaml"))
+	if len(moved) != 1 {
+		t.Fatalf("deleted record not kept: %v", moved)
+	}
+}

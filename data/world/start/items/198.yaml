@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schema/item.schema.json
+vnum: 198
+name: a tattered regimental banner
+keywords: [tattered, regimental, banner]
+description: A tattered banner lies trampled here.
+look: |
+  Torn, muddy, and still recognisable to anyone who served under it.
+  The herald in the Long Hall pays for lost things.
+weight: 2
+flags: [quest]

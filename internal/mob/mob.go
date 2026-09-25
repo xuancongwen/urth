@@ -46,6 +46,9 @@ type Proto struct {
 	Silver int `yaml:"silver,omitempty"`
 	// Teaches lists the skill ids this mob trains (docs/RULES.md 7.4).
 	Teaches []string `yaml:"teaches,omitempty"`
+	// Sells lists what this mob exchanges for quest points (docs/RULES.md
+	// 7.6). A mob flagged "questmaster" gives quests out.
+	Sells []Sale `yaml:"sells,omitempty"`
 	// Effects every instance carries (a poisonous bite, thick hide).
 	Effects []effect.Spec `yaml:"effects,omitempty"`
 	// Resolved is what the game uses: stated values with the baseline
@@ -53,6 +56,14 @@ type Proto struct {
 	Resolved Resolved `yaml:"-"`
 
 	Area string `yaml:"-"`
+	// File is the path the prototype was read from, for tooling.
+	File string `yaml:"-"`
+}
+
+// Sale is one item a quest vendor offers, and its price in quest points.
+type Sale struct {
+	Item   int `yaml:"item"`
+	Points int `yaml:"points"`
 }
 
 // Resolved is a mob's numbers after the baseline has been applied.
@@ -140,6 +151,7 @@ func LoadArea(dir, area string, protos map[int]*Proto) error {
 			return fmt.Errorf("%s: mob vnum %d already used by %s in area %s", f, p.Vnum, prev.Name, prev.Area)
 		}
 		p.Area = area
+		p.File = f
 		protos[p.Vnum] = &p
 	}
 	return nil

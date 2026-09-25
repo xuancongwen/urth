@@ -131,6 +131,13 @@ func (w *World) statRoom(r *room.Room) string {
 	b.WriteString("Exits:")
 	for _, d := range r.ExitList() {
 		b.WriteString(" " + d + "->" + itoa(r.Exits[d]))
+		if door := r.Door(d); door != nil {
+			state := "open"
+			if w.doorClosed(r, d) {
+				state = "closed"
+			}
+			b.WriteString(" (" + output.Escape(door.Name) + ", " + state + ")")
+		}
 	}
 	b.WriteString("\n")
 	c := w.contents(r)
@@ -171,6 +178,18 @@ func (w *World) statCharacter(c *Character) string {
 	}
 	if len(c.Effects) > 0 {
 		b.WriteString("Effects: " + effectList(c.Effects) + "\n")
+	}
+	if p := c.player; p != nil {
+		line := "Quest points: " + itoa(p.questPoints)
+		if q := p.quest; q != nil {
+			line += "  Quest: " + q.Kind + " " + itoa(q.Target) + " (" + w.questTargetName(q) + ") in " + itoa(q.Room) + ", " + itoa(q.Rounds) + " rounds left"
+			if q.Done {
+				line += ", done"
+			}
+		} else if p.questWait > 0 {
+			line += "  Next quest in " + itoa(p.questWait) + " rounds"
+		}
+		b.WriteString(line + "\n")
 	}
 	if c.mob != nil {
 		pr := c.mob.Proto.Resolved
@@ -579,6 +598,7 @@ func (w *World) reloadContent(area string) (string, error) {
 
 	w.content = nc
 	w.resolveBaselines()
+	w.generation.Add(1)
 
 	// Areas: keep countdowns for areas that still exist, add new ones.
 	fresh := map[string]*areaState{}

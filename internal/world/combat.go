@@ -196,6 +196,7 @@ func (w *World) die(victim, killer *Character) {
 			for _, member := range groupOf(killer) {
 				if member.Room == room && member.player != nil {
 					w.grantXP(member, w.xpForKill(member, victim))
+					w.questKill(member.player, victim)
 				}
 			}
 		}
@@ -412,11 +413,11 @@ func cmdFlee(w *World, p *Player, _ string) {
 		p.Send("You aren't fighting anyone.\n")
 		return
 	}
-	exits := p.Room.ExitList()
+	exits := w.openExits(p.Room)
 	for i := 0; i < maxFleeTries && len(exits) > 0; i++ {
 		dir := exits[w.rng.IntN(len(exits))]
-		dest, ok := w.content.Rooms.Get(p.Room.Exits[dir])
-		if !ok {
+		dest := w.passable(p.Room, dir)
+		if dest == nil {
 			continue
 		}
 		w.stopFighting(p.Character, true)

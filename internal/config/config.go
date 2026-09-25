@@ -28,6 +28,11 @@ type Server struct {
 	TelnetAddr string `yaml:"telnet_addr"`
 	// WebSocketAddr is the host:port for the WebSocket listener. Empty disables it.
 	WebSocketAddr string `yaml:"websocket_addr"`
+	// BuilderAddr is the host:port for the builder page (internal/builder):
+	// area maps, content problems, and reload, over plain HTTP with no
+	// login. Empty disables it, which is the default and what production
+	// should keep; on a dev machine bind it to loopback.
+	BuilderAddr string `yaml:"builder_addr"`
 	// Limits protect both listeners from floods (internal/limit).
 	Limits Limits `yaml:"limits"`
 }

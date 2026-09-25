@@ -10,7 +10,7 @@
 #                   `reload world` in game for areas.
 #   --no-restart    push everything but do not restart. Type `copyover` in
 #                   game to switch to the new binary with nobody dropped.
-#   --skip-check    do not run vet and tests before building.
+#   --skip-check    do not run the content check, vet, and tests first.
 #
 # Connection settings come from deploy/deploy.env (see deploy.env.example)
 # or the environment: URTH_HOST (required), URTH_SSH_PORT, URTH_ARCH,
@@ -60,6 +60,11 @@ echo "==> target $TARGET:$APP_DIR ($ARCH)"
 if ! remote test -d "$APP_DIR/data"; then
   echo "$APP_DIR/data is missing on $HOST; run deploy/setup.sh there first" >&2
   exit 1
+fi
+
+if [ "$CHECK" -eq 1 ]; then
+  echo "==> content check"
+  go run ./cmd/urth check -config config.yaml -quiet
 fi
 
 if [ "$CONTENT_ONLY" -eq 0 ]; then

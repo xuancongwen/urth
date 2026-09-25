@@ -45,6 +45,11 @@ type Player struct {
 	// visited is the set of room vnums this character has seen, for the
 	// map; saved with the record.
 	visited map[int]bool
+	// Quests (quest.go): points banked, the quest under way, and rounds
+	// left before the questmaster will give another.
+	questPoints int
+	quest       *store.SavedQuest
+	questWait   int
 
 	// Login scratch.
 	pendingName     string

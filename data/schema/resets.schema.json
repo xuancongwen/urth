@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/resets.schema.json",
+  "title": "Urth area resets",
+  "description": "Repopulation schedule: data/world/<area>/resets.yaml. Runs at boot and every interval.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "interval_seconds": { "type": "integer", "minimum": 1, "default": 600 },
+    "resets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "One placement: exactly one of mob or item.",
+        "additionalProperties": false,
+        "required": ["room"],
+        "properties": {
+          "mob": { "$ref": "common.schema.json#/$defs/vnum", "description": "Mob prototype to place." },
+          "item": { "$ref": "common.schema.json#/$defs/vnum", "description": "Item prototype to place, skipped if one is already there." },
+          "into": { "$ref": "common.schema.json#/$defs/vnum", "description": "Container prototype the item goes inside; it must already be in the room." },
+          "room": { "$ref": "common.schema.json#/$defs/vnum" },
+          "max": { "type": "integer", "minimum": 1, "default": 1, "description": "For mobs: cap on live instances in the whole world." },
+          "equip": {
+            "type": "array",
+            "description": "Items a spawned mob carries or wears.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["item"],
+              "properties": {
+                "item": { "$ref": "common.schema.json#/$defs/vnum" },
+                "slot": { "$ref": "common.schema.json#/$defs/position", "description": "Worn here; omit for inventory." }
+              }
+            }
+          }
+        },
+        "oneOf": [{ "required": ["mob"] }, { "required": ["item"] }]
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@ resets:
   - { item: 107, room: 1 }   # the notice board
   # --- the hall: the trainer ---
   - { mob: 209, room: 2 }
+  - { mob: 212, room: 2 }    # the herald: questmaster and quest-point vendor
   # --- south row (10-13): levels 1 to 3 ---
   - { mob: 201, room: 10, max: 2 }   # dogs
   - { mob: 204, room: 11, max: 2 }   # crows

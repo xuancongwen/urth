@@ -16,20 +16,24 @@ type helpSection struct {
 }
 
 var helpSections = []helpSection{
-	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits"}},
+	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits", "scan", "open", "close"}},
 	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
 	{"Combat", []string{"kill", "flee", "consider", "assist", "skills"}},
 	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
 	{"Groups", []string{"follow", "group", "gtell"}},
 	{"Talking", []string{"say", "chat", "yell"}},
-	{"Character", []string{"score", "train", "feat", "practice", "who", "color", "save", "password", "quit"}},
+	{"Character", []string{"score", "train", "feat", "practice", "quest", "who", "color", "save", "password", "quit"}},
 	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "copyover", "shutdown"}},
+	{"Admin", []string{"promote", "demote", "passwd", "deny", "allow", "users"}},
 }
 
 var helpText = map[string]string{
 	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
-	"look":  "look | look <thing> | look in <container>: the room, a character, an item and its numbers, or what a container holds. Only an unidentified item hides its numbers.",
-	"exits": "exits: list the ways out of this room.",
+	"look":  "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. Only an unidentified item hides its numbers.",
+	"exits": "exits: list the obvious ways out of this room and where they lead. A closed door is not obvious.",
+	"scan":  "scan: who stands in each adjacent room. Nothing shows beyond a closed door or in the dark.",
+	"open":  "open <direction|door>: open a door.",
+	"close": "close <direction|door>: shut a door. A closed door blocks the way and hides the exit from both sides.",
 
 	"get":       "get <item> | get all | get <item> <container> | get all <container>: pick things up, here or from a container (a corpse is a container).",
 	"drop":      "drop <item> | drop all | drop <amount> silver|gold: put things or coins down.",
@@ -48,6 +52,7 @@ var helpText = map[string]string{
 	"assist":   "assist [member]: attack whatever a group member here is fighting.",
 	"skills":   "skills: the skills your level allows and how good you are at each. Use one by name: kick, bash. One skill per round; they improve with use. Most are taught by trainers for coin; a few everyone knows.",
 	"practice": "practice | practice <skill>: at a trainer, see what they teach and for how much, or pay to learn one. 100 silver is a gold.",
+	"quest":    "quest request | info | complete | quit | points | list | buy <item>: a questmaster gives you a task, to slay a mob or recover a lost item somewhere in the world, with a time limit. Finish, come back, and 'quest complete' pays quest points. 'quest quit' abandons it and costs a longer wait. 'quest list' and 'quest buy' trade points for items with whoever sells them.",
 
 	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
 	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",
@@ -85,6 +90,13 @@ var helpText = map[string]string{
 	"simulate": "simulate <mob | me | fighter[:level]> <mob> [fights] [seed]: run fights through the rules and report the numbers.",
 	"copyover": "copyover: restart the server without disconnecting anyone.",
 	"shutdown": "shutdown: stop the server.",
+
+	"promote": "promote <player>: make a character an admin. Works on someone offline too.",
+	"demote":  "demote <player>: take admin away. Not from yourself.",
+	"passwd":  "passwd <player> <new password>: set someone else's password.",
+	"deny":    "deny <player>: lock the account; they are dropped now and cannot log in until allowed.",
+	"allow":   "allow <player>: undo deny.",
+	"users":   "users: every connection, including those still logging in, with its address.",
 }
 
 // cmdHelp: help | help <command>

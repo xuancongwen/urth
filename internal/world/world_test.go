@@ -80,7 +80,7 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	files := map[string]string{
 		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
 		"a/rooms/2.yaml":  "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n  east: 3\n",
-		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n  east: 30\nflags: [safe]\ntemple: good\n",
+		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n  east: 30\nflags: [safe]\ntemple: good\ndoors:\n  west: {name: the iron gate}\n",
 		"b/rooms/30.yaml": "vnum: 30\nname: Three Out\ndescription: Three rooms out.\nexits:\n  west: 3\n  east: 31\n",
 		"b/rooms/31.yaml": "vnum: 31\nname: Four Out\ndescription: Four rooms out.\nexits:\n  west: 30\n  east: 32\n",
 		"b/rooms/32.yaml": "vnum: 32\nname: Five Out\ndescription: Five rooms out.\nexits:\n  west: 31\n",
@@ -528,6 +528,116 @@ func TestWalkAndSee(t *testing.T) {
 	send(w, 1, "n")
 	if out := bob.take(); !strings.Contains(out, "cannot go that way") {
 		t.Fatalf("bad exit not refused: %q", out)
+	}
+}
+
+func TestDoorsHideExitsAndScan(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	carol := login(t, w, 3, "Carol")
+	send(w, 3, "n")
+	send(w, 3, "e")
+	send(w, 2, "n")
+	bob.take()
+	alice.take()
+	carol.take()
+
+	// Bob in the hub sees Alice and the dogs to the north.
+	send(w, 1, "scan")
+	if out := bob.take(); !strings.Contains(out, "North - North:\n    Alice\n    a stray dog\n") {
+		t.Fatalf("scan wrong: %q", out)
+	}
+	// Alice, up north, sees Carol through the open gate and the gate itself.
+	send(w, 2, "sca")
+	if out := alice.take(); !strings.Contains(out, "East - Elsewhere:\n    Carol\n") || !strings.Contains(out, "South - Hub:\n    Bob\n") {
+		t.Fatalf("scan through open door wrong: %q", out)
+	}
+	send(w, 2, "exits")
+	if out := alice.take(); !strings.Contains(out, "East  - Elsewhere") {
+		t.Fatalf("open door hidden from exits: %q", out)
+	}
+	send(w, 2, "look gate")
+	if out := alice.take(); !strings.Contains(out, "The iron gate is open.") {
+		t.Fatalf("look at open door: %q", out)
+	}
+
+	// Closing the gate hides the exit, and Carol, from both sides.
+	send(w, 2, "close gate")
+	if out := alice.take(); !strings.Contains(out, "You close the iron gate.") {
+		t.Fatalf("close: %q", out)
+	}
+	if out := carol.take(); !strings.Contains(out, "The iron gate closes.") {
+		t.Fatalf("far side not told: %q", out)
+	}
+	if out := bob.take(); out != "" {
+		t.Fatalf("bob heard a door two rooms off: %q", out)
+	}
+	send(w, 2, "scan")
+	if out := alice.take(); strings.Contains(out, "Carol") || !strings.Contains(out, "South - Hub:") {
+		t.Fatalf("scan through closed door: %q", out)
+	}
+	send(w, 2, "exits")
+	if out := alice.take(); strings.Contains(out, "East") || !strings.Contains(out, "South - Hub") {
+		t.Fatalf("closed door listed: %q", out)
+	}
+	send(w, 2, "look")
+	if out := alice.take(); !strings.Contains(out, "[Exits: south]") {
+		t.Fatalf("closed door in look: %q", out)
+	}
+	send(w, 2, "east")
+	if out := alice.take(); !strings.Contains(out, "The iron gate is closed.") || alice != w.players[2].conn {
+		t.Fatalf("walked through a closed door: %q", out)
+	}
+	if w.players[2].Room.Vnum != 2 {
+		t.Fatal("alice moved through a closed door")
+	}
+	send(w, 3, "exits")
+	if out := carol.take(); !strings.Contains(out, "Obvious exits:\nEast  - Three Out\n") || strings.Contains(out, "West") {
+		t.Fatalf("far side exits: %q", out)
+	}
+	send(w, 3, "scan")
+	if out := carol.take(); strings.Contains(out, "Alice") || !strings.Contains(out, "You see no one nearby.") {
+		t.Fatalf("far side scan: %q", out)
+	}
+	send(w, 3, "look west")
+	if out := carol.take(); !strings.Contains(out, "The iron gate is closed.") {
+		t.Fatalf("look at closed door: %q", out)
+	}
+	send(w, 3, "close w")
+	if out := carol.take(); !strings.Contains(out, "It's already closed.") {
+		t.Fatalf("double close: %q", out)
+	}
+	send(w, 3, "open north")
+	if out := carol.take(); !strings.Contains(out, "There is no door there.") {
+		t.Fatalf("open nothing: %q", out)
+	}
+
+	// Carol opens it from her side and Alice sees her again.
+	send(w, 3, "open w")
+	if out := carol.take(); !strings.Contains(out, "You open the iron gate.") {
+		t.Fatalf("open: %q", out)
+	}
+	if out := alice.take(); !strings.Contains(out, "The iron gate opens.") {
+		t.Fatalf("near side not told of opening: %q", out)
+	}
+	send(w, 2, "scan")
+	if out := alice.take(); !strings.Contains(out, "East - Elsewhere:\n    Carol\n") {
+		t.Fatalf("scan after reopening: %q", out)
+	}
+	send(w, 2, "e")
+	if w.players[2].Room.Vnum != 3 {
+		t.Fatal("alice could not walk through the open gate")
+	}
+	alice.take()
+
+	// An area reset puts the gate back the way the file has it: open.
+	send(w, 2, "close gate")
+	alice.take()
+	w.resetArea(w.areas["a"])
+	send(w, 2, "exits")
+	if out := alice.take(); !strings.Contains(out, "West  - North") {
+		t.Fatalf("reset did not reopen the gate: %q", out)
 	}
 }
 

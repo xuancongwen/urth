@@ -30,6 +30,10 @@ type Room struct {
 	Name        string         `yaml:"name"`
 	Description string         `yaml:"description"`
 	Exits       map[string]int `yaml:"exits"`
+	// Doors are exits that can be shut. A closed door hides the exit
+	// and whoever is beyond it. Declare a door on one side; the loader
+	// mirrors it to the room on the far side.
+	Doors map[string]*Door `yaml:"doors,omitempty"`
 	// Flags: "safe" forbids fighting here (docs/RULES.md 4.7). Others are
 	// free for rules and builders.
 	Flags []string `yaml:"flags,omitempty"`
@@ -42,10 +46,25 @@ type Room struct {
 
 	// Area is the directory name the room was loaded from.
 	Area string `yaml:"-"`
+	// File is the path the room was read from, for tooling.
+	File string `yaml:"-"`
 	// X, Y, Z are the map position Layout assigned; Placed is false for a
 	// room it could not fit, which the map leaves out.
 	X, Y, Z int  `yaml:"-"`
 	Placed  bool `yaml:"-"`
+}
+
+// Door is a shuttable exit. Closed is the state a reset restores.
+type Door struct {
+	// Name is how messages call it: "the oak door", "the iron gate".
+	Name string `yaml:"name"`
+	// Closed is the initial state; open doors are the default.
+	Closed bool `yaml:"closed,omitempty"`
+}
+
+// Door returns the door on the exit in direction dir, or nil.
+func (r *Room) Door(dir string) *Door {
+	return r.Doors[dir]
 }
 
 // HasFlag reports whether the room carries flag.
@@ -68,6 +87,10 @@ func (r *Room) Dark() bool { return r.HasFlag("dark") }
 type Area struct {
 	Name   string `yaml:"name"`
 	Author string `yaml:"author"`
+	// Detached marks an area that is not meant to be reachable on foot
+	// from the start room, nor to place its prototypes by reset (the
+	// balance range), so the content check does not report either.
+	Detached bool `yaml:"detached,omitempty"`
 }
 
 // World is the loaded map.
@@ -150,6 +173,7 @@ func (w *World) loadArea(dir, name string) error {
 			return fmt.Errorf("%s: vnum %d already used by %s in area %s", f, r.Vnum, prev.Name, prev.Area)
 		}
 		r.Area = name
+		r.File = f
 		r.Description = strings.TrimRight(r.Description, "\n")
 		if r.Exits == nil {
 			r.Exits = map[string]int{}
@@ -169,8 +193,45 @@ func (w *World) validate() error {
 				return fmt.Errorf("room %d (%s): exit %s leads to missing room %d", r.Vnum, r.Name, dir, to)
 			}
 		}
+		for dir, d := range r.Doors {
+			if _, ok := r.Exits[dir]; !ok {
+				return fmt.Errorf("room %d (%s): door %s has no exit", r.Vnum, r.Name, dir)
+			}
+			if d == nil || d.Name == "" {
+				return fmt.Errorf("room %d (%s): door %s needs a name", r.Vnum, r.Name, dir)
+			}
+		}
 	}
+	w.mirrorDoors()
 	return nil
+}
+
+// mirrorDoors copies each door to the far side of its exit when that
+// side leads back and has no door of its own, so a builder declares a
+// door once. Both sides share one Door value, so they open and close
+// together.
+func (w *World) mirrorDoors() {
+	vnums := make([]int, 0, len(w.Rooms))
+	for v := range w.Rooms {
+		vnums = append(vnums, v)
+	}
+	sort.Ints(vnums)
+	for _, v := range vnums {
+		r := w.Rooms[v]
+		for dir, d := range r.Doors {
+			far := w.Rooms[r.Exits[dir]]
+			back := Opposite[dir]
+			if far.Exits[back] != r.Vnum {
+				continue
+			}
+			if far.Doors == nil {
+				far.Doors = map[string]*Door{}
+			}
+			if far.Doors[back] == nil {
+				far.Doors[back] = d
+			}
+		}
+	}
 }
 
 // ExitList returns the room's exits in display order.

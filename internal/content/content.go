@@ -54,6 +54,13 @@ func Load(dir string) (*World, error) {
 }
 
 func (w *World) validate() error {
+	for _, m := range w.Mobs {
+		for _, s := range m.Sells {
+			if _, ok := w.Items[s.Item]; !ok {
+				return fmt.Errorf("mob %d (%s): sells item %d, which does not exist", m.Vnum, m.Name, s.Item)
+			}
+		}
+	}
 	for area, a := range w.Resets {
 		for i, r := range a.Resets {
 			where := fmt.Sprintf("area %s reset %d", area, i)

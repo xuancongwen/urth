@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/common.schema.json",
+  "title": "Shared definitions for Urth content files",
+  "$defs": {
+    "vnum": { "type": "integer", "minimum": 1, "description": "Unique across every area." },
+    "direction": { "enum": ["north", "east", "south", "west", "up", "down"] },
+    "position": {
+      "type": "string",
+      "description": "An equipment position on a character.",
+      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist1", "wrist2", "belt", "legs", "feet", "finger1", "finger2", "shield", "wield", "hold"]
+    },
+    "itemSlot": {
+      "type": "string",
+      "description": "Where an item is worn: a position, or a family (wrist, finger) that fits either side.",
+      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist", "wrist1", "wrist2", "belt", "legs", "feet", "finger", "finger1", "finger2", "shield", "wield", "hold"]
+    },
+    "weapon": {
+      "type": "object",
+      "description": "Rule inputs for a weapon or a natural attack. Fields left out are filled from the level baseline by the rules' itemBaseline or mobBaseline hook.",
+      "additionalProperties": false,
+      "properties": {
+        "damage": { "type": "number", "minimum": 0 },
+        "spread": { "type": "number", "minimum": 0, "description": "Damage variance as a fraction of damage." },
+        "speed": { "type": "number", "minimum": 0, "description": "Swings per round; fractions fill a swing meter." },
+        "hands": { "type": "integer", "enum": [0, 1, 2] },
+        "kind": { "type": "string", "examples": ["slash", "pierce", "blunt", "bite", "claw"] },
+        "verb": { "type": "string", "description": "What a swing is called in messages: slash, stab, bite." }
+      }
+    },
+    "armor": {
+      "type": "object",
+      "description": "Rule inputs for armor or a natural defense.",
+      "additionalProperties": false,
+      "properties": {
+        "defense": { "type": "number", "minimum": 0 },
+        "spread": { "type": "number", "minimum": 0 }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "description": "An effect the rules interpret (docs/RULES.md): kind names the handler, params are its inputs.",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string", "examples": ["stat", "crit", "block", "dodge", "attacks", "regen"] },
+        "params": { "type": "object" }
+      }
+    },
+    "deity": { "enum": ["good", "neutral", "evil"] }
+  }
+}

@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schema/item.schema.json
+vnum: 196
+name: a lost signet ring
+keywords: [lost, signet, ring]
+description: A signet ring glints in the dirt here.
+look: |
+  Heavy gold, the seal worn almost smooth. Whoever lost it will want it
+  back. The herald in the Long Hall pays for lost things.
+weight: 1
+flags: [quest]

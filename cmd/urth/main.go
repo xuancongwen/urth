@@ -17,6 +17,7 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
+	"urth/internal/builder"
 	"urth/internal/config"
 	"urth/internal/content"
 	"urth/internal/copyover"
@@ -31,7 +32,20 @@ import (
 )
 
 func main() {
-	if err := run(); err != nil {
+	var err error
+	if len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "check":
+			err = runCheck(os.Args[2:])
+		case "admin":
+			err = runAdmin(os.Args[2:])
+		default:
+			err = run()
+		}
+	} else {
+		err = run()
+	}
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "urth:", err)
 		os.Exit(1)
 	}
@@ -41,6 +55,10 @@ func run() error {
 	configPath := flag.String("config", "config.yaml", "path to the server configuration file")
 	copyoverPath := flag.String("copyover", "", "internal: copyover state file written by the previous process")
 	showVersion := flag.Bool("version", false, "print the version and exit")
+	flag.Usage = func() {
+		fmt.Fprintln(flag.CommandLine.Output(), "usage: urth [-config path] [-version]\n       urth check [-config path] [-quiet]\n       urth admin [-config path] <command> [name]")
+		flag.PrintDefaults()
+	}
 	flag.Parse()
 
 	if *showVersion {
@@ -69,6 +87,7 @@ func run() error {
 		"pid", os.Getpid(),
 		"telnet", cfg.Server.TelnetAddr,
 		"websocket", cfg.Server.WebSocketAddr,
+		"builder", cfg.Server.BuilderAddr,
 		"tick_ms", cfg.Timing.TickMs,
 		"round_ms", cfg.Timing.RoundMs,
 		"data", cfg.Paths.Data,
@@ -229,6 +248,17 @@ func run() error {
 			defer wg.Done()
 			if err := ws.Serve(tctx); err != nil {
 				logger.Error("web server failed", "err", err)
+				stop()
+			}
+		}()
+	}
+	if cfg.Server.BuilderAddr != "" {
+		bs := builder.NewServer(cfg.Server.BuilderAddr, filepath.Join(cfg.Paths.Data, "world"), w.Builder(), logger.With("component", "builder"))
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			if err := bs.Serve(tctx); err != nil {
+				logger.Error("builder server failed", "err", err)
 				stop()
 			}
 		}()

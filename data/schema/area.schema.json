@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/area.schema.json",
+  "title": "Urth area",
+  "description": "Optional metadata: data/world/<area>/area.yaml. The directory name is the area's id.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "description": "Display name; defaults to the directory name." },
+    "author": { "type": "string" },
+    "detached": { "type": "boolean", "description": "Not meant to be reachable on foot or to place its prototypes by reset; the content check leaves it alone." }
+  }
+}

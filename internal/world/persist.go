@@ -19,7 +19,7 @@ func saveItems(list []*item.Item) []store.SavedItem {
 		if it.Proto.Vnum == 0 {
 			continue // corpses and other synthetic items are not saved
 		}
-		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn})
+		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn, Quest: it.Quest})
 	}
 	return out
 }
@@ -35,6 +35,7 @@ func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
 		it := item.New(proto)
 		it.Contents = w.loadItems(s.Contents, owner)
 		it.Effects = s.Effects
+		it.Quest = s.Quest
 		if s.Burn != 0 {
 			it.Burn = s.Burn
 		}
@@ -47,7 +48,7 @@ func (w *World) saveCharacterItems(p *Player) {
 	p.rec.Inventory = saveItems(p.Inventory)
 	p.rec.Equipment = map[string]store.SavedItem{}
 	for slot, it := range p.Equipment {
-		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn}
+		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn, Quest: it.Quest}
 	}
 }
 
@@ -80,6 +81,13 @@ func (w *World) loadSheet(p *Player) {
 	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
 	p.Schools = append([]string(nil), p.rec.Schools...)
 	p.Deity = p.rec.Deity
+	p.questPoints = p.rec.QuestPoints
+	p.questWait = p.rec.QuestWait
+	p.quest = nil
+	if q := p.rec.Quest; q != nil {
+		copy := *q
+		p.quest = &copy
+	}
 	p.visited = map[int]bool{}
 	for _, v := range p.rec.Visited {
 		p.visited[v] = true
@@ -114,6 +122,13 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Silver = p.Silver
 	p.rec.Schools = append([]string(nil), p.Schools...)
 	p.rec.Deity = p.Deity
+	p.rec.QuestPoints = p.questPoints
+	p.rec.QuestWait = p.questWait
+	p.rec.Quest = nil
+	if p.quest != nil {
+		copy := *p.quest
+		p.rec.Quest = &copy
+	}
 	p.rec.Effects = append([]effect.Active(nil), p.Effects...)
 	p.rec.Health = p.Health
 	p.rec.Mana = p.Mana

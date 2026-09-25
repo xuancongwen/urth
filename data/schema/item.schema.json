@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/item.schema.json",
+  "title": "Urth item prototype",
+  "description": "One item prototype: data/world/<area>/items/<vnum>.yaml. Numbers here are rule inputs the engine stores and never interprets.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vnum", "name", "keywords"],
+  "properties": {
+    "vnum": { "$ref": "common.schema.json#/$defs/vnum" },
+    "name": { "type": "string", "minLength": 1, "description": "Short description used in sentences: a rusty sword." },
+    "keywords": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "What players type to refer to it. Lowercased at load." },
+    "description": { "type": "string", "description": "Shown when it lies in a room: A rusty sword lies here. Defaults to '<Name> is here.'" },
+    "look": { "type": "string", "description": "Shown by look <item>." },
+    "type": { "enum": ["weapon", "armor", "container", "material", "totem", "light", "other"], "default": "other" },
+    "slot": { "$ref": "common.schema.json#/$defs/itemSlot", "description": "Required for armor. Weapons default to wield." },
+    "weight": { "type": "integer", "minimum": 0 },
+    "value": { "type": "integer", "minimum": 0, "description": "Worth in silver." },
+    "level": { "type": "integer", "minimum": 1, "default": 1, "description": "Row of the rules' item curve (docs/RULES.md 5.2)." },
+    "baseline": { "type": "string", "description": "Which baseline of the item curve; empty means the type's default." },
+    "weapon": { "$ref": "common.schema.json#/$defs/weapon" },
+    "armor": { "$ref": "common.schema.json#/$defs/armor" },
+    "mods": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Stat modifiers while worn, by stat name." },
+    "effects": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/effect" }, "description": "Intrinsic to every instance." },
+    "material": { "type": "string", "description": "Required for type material: the pool name a spell consumes (ash, wolf fang)." },
+    "rarity": { "enum": ["common", "uncommon", "rare", "deterministic"], "default": "common" },
+    "school": { "type": "string", "description": "Required for type totem: the arcane school it unlocks." },
+    "sacrifice": { "$ref": "common.schema.json#/$defs/deity", "description": "The deity that accepts this as a great sacrifice at its temple." },
+    "burn": { "type": "integer", "minimum": 0, "description": "Rounds a light lasts while worn; 0 never goes out." },
+    "capacity": { "type": "integer", "minimum": 0, "description": "Weight a container holds; 0 is unlimited." },
+    "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "examples": ["nopickup", "coins", "quest"] } }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "armor" } }, "required": ["type"] }, "then": { "required": ["slot"] } },
+    { "if": { "properties": { "type": { "const": "material" } }, "required": ["type"] }, "then": { "required": ["material"] } },
+    { "if": { "properties": { "type": { "const": "totem" } }, "required": ["type"] }, "then": { "required": ["school"] } }
+  ]
+}

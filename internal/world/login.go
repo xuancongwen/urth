@@ -78,6 +78,12 @@ func (w *World) loginOldPassword(p *Player, line string) {
 				p.SendPrompt("Password: ")
 				return
 			}
+			if rec.Denied {
+				w.log.Warn("denied login", "name", name, "addr", p.conn.RemoteAddr())
+				p.Send("Your account has been denied. Goodbye.\n")
+				p.disconnect()
+				return
+			}
 			w.enterGame(p, rec)
 		})
 	}()
@@ -206,6 +212,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	}
 	w.loadCharacterItems(p)
 	w.loadSheet(p)
+	w.resumeQuest(p)
 
 	room, ok := w.content.Rooms.Get(rec.Room)
 	if !ok {
@@ -233,6 +240,11 @@ func (w *World) restore(p *Player, r Restore) {
 		w.greet(p)
 		return
 	}
+	if rec.Denied {
+		p.Send("Your account has been denied. Goodbye.\n")
+		p.disconnect()
+		return
+	}
 	p.rec = rec
 	p.setName(rec.Name)
 	p.Admin = rec.Admin
@@ -240,6 +252,7 @@ func (w *World) restore(p *Player, r Restore) {
 	p.State = StatePlaying
 	w.loadCharacterItems(p)
 	w.loadSheet(p)
+	w.resumeQuest(p)
 	room, ok := w.content.Rooms.Get(r.Room)
 	if !ok {
 		room, ok = w.content.Rooms.Get(rec.Room)

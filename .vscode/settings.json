@@ -1,0 +1,11 @@
+{
+  // Content files validate against data/schema/ (needs the YAML extension,
+  // redhat.vscode-yaml). Other editors: see data/README.md.
+  "yaml.schemas": {
+    "data/schema/room.schema.json": "data/world/*/rooms/*.yaml",
+    "data/schema/item.schema.json": "data/world/*/items/*.yaml",
+    "data/schema/mob.schema.json": "data/world/*/mobs/*.yaml",
+    "data/schema/resets.schema.json": "data/world/*/resets.yaml",
+    "data/schema/area.schema.json": "data/world/*/area.yaml"
+  }
+}

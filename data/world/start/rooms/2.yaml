@@ -3,7 +3,8 @@ name: The Long Hall
 description: |
   A high, plain corridor of dressed stone. Torches burn in brackets. An
   old soldier sits on a bench by the wall, watching everyone who passes
-  with the same faint amusement.
+  with the same faint amusement. Across from him a hooded herald leans
+  on a staff with a ledger under one arm, waiting for volunteers.
 exits:
   south: 1
   north: 3

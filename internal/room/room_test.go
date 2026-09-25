@@ -77,3 +77,35 @@ func TestLoadErrors(t *testing.T) {
 		})
 	}
 }
+
+func TestDoorsMirrorAndValidate(t *testing.T) {
+	dir := writeWorld(t, map[string]string{
+		"a/rooms/1.yaml": "vnum: 1\nname: One\nexits:\n  north: 2\n  east: 3\ndoors:\n  north: {name: the oak door, closed: true}\n  east: {name: the one-way hatch}\n",
+		"a/rooms/2.yaml": "vnum: 2\nname: Two\nexits:\n  south: 1\n",
+		"a/rooms/3.yaml": "vnum: 3\nname: Three\nexits:\n  north: 2\n",
+	})
+	w, err := Load(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	d := w.Rooms[2].Door("south")
+	if d == nil || d.Name != "the oak door" || !d.Closed {
+		t.Fatalf("door not mirrored: %+v", d)
+	}
+	if d != w.Rooms[1].Door("north") {
+		t.Fatal("mirrored door is not shared")
+	}
+	if w.Rooms[3].Door("west") != nil {
+		t.Fatal("door mirrored onto an exit that does not lead back")
+	}
+
+	for name, body := range map[string]string{
+		"no exit": "vnum: 1\nname: One\nexits: {}\ndoors:\n  north: {name: the door}\n",
+		"no name": "vnum: 1\nname: One\nexits:\n  north: 1\ndoors:\n  north: {closed: true}\n",
+	} {
+		dir := writeWorld(t, map[string]string{"a/rooms/1.yaml": body})
+		if _, err := Load(dir); err == nil {
+			t.Errorf("%s: no error", name)
+		}
+	}
+}

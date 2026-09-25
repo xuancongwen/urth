@@ -64,6 +64,10 @@ func cmdGet(w *World, p *Player, args string) {
 				p.Send("You can't take " + output.Escape(it.Name()) + ".\n")
 				continue
 			}
+			if ok, why := canTake(p, it); !ok {
+				p.Send(why + "\n")
+				continue
+			}
 			w.contents(p.Room).items = item.Remove(w.contents(p.Room).items, it)
 			if takeCoins(p.Character, it) {
 				w.act("You get $t.", p.Character, nil, escapeMoney(it.Coins), toChar)
@@ -91,6 +95,10 @@ func cmdGet(w *World, p *Player, args string) {
 		return
 	}
 	for _, it := range found {
+		if ok, why := canTake(p, it); !ok {
+			p.Send(why + "\n")
+			continue
+		}
 		container.Contents = item.Remove(container.Contents, it)
 		if takeCoins(p.Character, it) {
 			w.act("You get $t from "+output.Escape(container.Name())+".", p.Character, nil, escapeMoney(it.Coins), toChar)
@@ -376,6 +384,9 @@ func (w *World) lookAt(p *Player, args string) {
 			look = "You see nothing special about " + it.Name() + "."
 		}
 		p.Send(output.Escape(strings.TrimRight(look, "\n")) + "\n" + w.itemCard(it))
+		return
+	}
+	if w.lookDirection(p, args) {
 		return
 	}
 	p.Send("You don't see that here.\n")

@@ -11,3 +11,5 @@ exits:
   north: 711
   south: 712
 flags: [safe]
+doors:
+  south: {name: the hostel door}

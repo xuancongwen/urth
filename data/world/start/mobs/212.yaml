@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../../schema/mob.schema.json
+vnum: 212
+name: a hooded herald
+keywords: [hooded, herald, questmaster]
+description: A hooded herald leans on a staff by the wall, a ledger under one arm.
+look: |
+  Hood up, face in shadow, a ledger of complaints from every corner of
+  the world under one arm. The herald hands out the work nobody else
+  wants done, and pays in a coin of its own: quest points, which it
+  trades for the odd fine thing. Try 'quest request' and 'quest list'.
+level: 20
+flags: [sentinel, peaceful, questmaster]
+attack:
+  verb: punch
+sells:
+  - { item: 181, points: 15 }   # brass lantern
+  - { item: 156, points: 25 }   # hunting spear
+  - { item: 151, points: 25 }   # studded brigandine
+  - { item: 155, points: 30 }   # steel longsword
+  - { item: 162, points: 80 }   # ring of the ox
+  - { item: 163, points: 80 }   # windstep boots

@@ -650,6 +650,36 @@ function moneyFor(victim) {
 }
 
 // ---------------------------------------------------------------------
+// Quests (RULES 7.6). The engine draws a kill or fetch task against a
+// live mob near the player's level and runs the clock; these hooks set
+// the band, the timers (in rounds), and what finishing pays.
+// ---------------------------------------------------------------------
+var QUEST = {
+  levelBand: 3,        // targets within this many levels of the player
+  minutes: 15,         // time to finish
+  cooldownMinutes: 5,  // wait after finishing or failing
+  quitMinutes: 10,     // wait after giving up, so quitting is not a reroll
+  pointsBase: 8,       // quest points for a level-0 task ...
+  pointsPerLevel: 2,   // ... plus this per level of the target
+  silverPerLevel: 20,  // coin on top, in silver
+  roundSeconds: 2      // timing.round_ms in config; keep in step
+};
+
+function questRules(c) {
+  var perMinute = 60 / QUEST.roundSeconds;
+  return { levelBand: QUEST.levelBand, rounds: QUEST.minutes * perMinute,
+           cooldown: QUEST.cooldownMinutes * perMinute, quitCooldown: QUEST.quitMinutes * perMinute };
+}
+
+// questReward is asked once, when the quest is handed out; the numbers
+// are shown to the player and paid on completion. q has kind ("kill" or
+// "fetch"), target (vnum), name, level, area, room, rounds.
+function questReward(c, q) {
+  var points = QUEST.pointsBase + QUEST.pointsPerLevel * (q.level || 1);
+  return { points: Math.max(1, Math.round(points)), silver: QUEST.silverPerLevel * (q.level || 1), xp: 0, message: "" };
+}
+
+// ---------------------------------------------------------------------
 // Damage words, after ROM's dam_message, keyed to the share of the
 // target's maximum health one hit takes so the ladder reads the same at
 // every level. "max" is the fraction the rung covers up to; the last rung

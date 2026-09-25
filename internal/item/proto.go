@@ -137,6 +137,8 @@ type Proto struct {
 	Flags []string `yaml:"flags,omitempty"`
 
 	Area string `yaml:"-"`
+	// File is the path the prototype was read from, for tooling.
+	File string `yaml:"-"`
 }
 
 // WeaponSpec is rule input for weapons. Damage is the mean per swing,
@@ -231,6 +233,7 @@ func LoadArea(dir, area string, protos map[int]*Proto) error {
 			return fmt.Errorf("%s: item vnum %d already used by %s in area %s", f, p.Vnum, prev.Name, prev.Area)
 		}
 		p.Area = area
+		p.File = f
 		protos[p.Vnum] = &p
 	}
 	return nil

@@ -103,6 +103,20 @@ runnable.
 and editing a baseline function changes every item's numbers without a
 restart.
 
+## 9. Quests `[x]`
+
+Random kill and fetch quests from a questmaster, drawn from the live
+world and scaled to the player, with a clock, paid in quest points that
+a vendor trades for items (`RULES.md` 7.6, 2026-09-25). `quest request`,
+`info`, `complete`, `quit`, `points`, `list`, `buy`. Rules hooks
+`questRules` and `questReward`.
+
+**Done:** a level-one character takes a quest from the herald, kills or
+fetches, is paid, and buys a lantern.
+
 ## Deferred until after milestone 8
 
-Crafting and enchanting (designed in `RULES.md` 5.5 and 5.6), shops, web admin, i18n, GMCP, MCCP, Discord, mapper, quests, boards.
+Crafting and enchanting (designed in `RULES.md` 5.5 and 5.6), shops, a
+production status dashboard (the builder page, content check, schemas,
+and account commands landed on 2026-09-25; see `DECISIONS.md` D19),
+i18n, GMCP, MCCP, Discord, mapper, boards.

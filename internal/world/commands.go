@@ -38,6 +38,9 @@ func init() {
 		{"get", 1, cmdGet, false},
 		{"inventory", 1, cmdInventory, false},
 		{"exits", 2, cmdExits, false},
+		{"scan", 3, cmdScan, false},
+		{"open", 2, cmdOpen, false},
+		{"close", 3, cmdClose, false},
 		{"say", 1, cmdSay, false},
 		{"chat", 2, cmdChat, false},
 		{"yell", 1, cmdYell, false},
@@ -63,6 +66,7 @@ func init() {
 		{"spells", 3, cmdSpells, false},
 		{"skills", 3, cmdSkills, false},
 		{"practice", 2, cmdPractice, false},
+		{"quest", 2, cmdQuest, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},
@@ -81,6 +85,12 @@ func init() {
 		{"transfer", 3, cmdTransfer, true},
 		{"peace", 3, cmdPeace, true},
 		{"reload", 3, cmdReload, true},
+		{"promote", 4, cmdPromote, true},
+		{"demote", 4, cmdDemote, true},
+		{"passwd", 6, cmdPasswd, true},
+		{"deny", 4, cmdDeny, true},
+		{"allow", 5, cmdAllow, true},
+		{"users", 4, cmdUsers, true},
 		{"simulate", 3, cmdSimulate, true},
 		{"copyover", 8, cmdCopyover, true},
 		{"shutdown", 8, cmdShutdown, true},
@@ -138,13 +148,16 @@ func cmdMove(dir string) func(w *World, p *Player, args string) {
 			p.Send("No way! You are fighting.\n")
 			return
 		}
-		to, ok := p.Room.Exits[dir]
-		if !ok {
+		if _, ok := p.Room.Exits[dir]; !ok {
 			p.Send("Alas, you cannot go that way.\n")
 			return
 		}
-		dest, ok := w.content.Rooms.Get(to)
-		if !ok {
+		if w.doorClosed(p.Room, dir) {
+			p.Send(capitalize(output.Escape(p.Room.Door(dir).Name)) + " is closed.\n")
+			return
+		}
+		dest := w.passable(p.Room, dir)
+		if dest == nil {
 			p.Send("That way leads nowhere.\n")
 			return
 		}
@@ -176,10 +189,10 @@ func (w *World) look(p *Player) {
 	p.visited[r.Vnum] = true
 	if !w.canSee(p.Character) {
 		p.SendMsg(output.Message{Type: output.Room, Text: "It is pitch black. You can't see a thing.\n",
-			Data: output.RoomData{Vnum: r.Vnum, Name: "Darkness", Area: r.Area, Exits: r.ExitList(), Players: []string{}, Mobs: []output.Entity{}, Items: []output.Entity{}}})
+			Data: output.RoomData{Vnum: r.Vnum, Name: "Darkness", Area: r.Area, Exits: w.openExits(r), Players: []string{}, Mobs: []output.Entity{}, Items: []output.Entity{}}})
 		return
 	}
-	data := output.RoomData{Vnum: r.Vnum, Name: r.Name, Area: r.Area, Exits: r.ExitList(), Players: []string{}, Map: w.mapAround(r, p)}
+	data := output.RoomData{Vnum: r.Vnum, Name: r.Name, Area: r.Area, Exits: w.openExits(r), Players: []string{}, Map: w.mapAround(r, p)}
 	data.Mobs, data.Items = w.roomEntities(r, p)
 	if data.Mobs == nil {
 		data.Mobs = []output.Entity{}
@@ -216,8 +229,14 @@ func (w *World) look(p *Player) {
 	p.SendMsg(output.Message{Type: output.Room, Text: b.String(), Data: data})
 }
 
+// cmdExits: exits. The ways out and where they lead. A closed door is not
+// an obvious exit, so it is left out; look <direction> finds it.
 func cmdExits(w *World, p *Player, _ string) {
-	exits := p.Room.ExitList()
+	if !w.canSee(p.Character) {
+		p.Send("You can't see a thing.\n")
+		return
+	}
+	exits := w.openExits(p.Room)
 	if len(exits) == 0 {
 		p.Send("Obvious exits:\nNone.\n")
 		return
@@ -225,8 +244,11 @@ func cmdExits(w *World, p *Player, _ string) {
 	var b strings.Builder
 	b.WriteString("Obvious exits:\n")
 	for _, d := range exits {
-		dest, _ := w.content.Rooms.Get(p.Room.Exits[d])
-		b.WriteString(padRight(strings.ToUpper(d[:1])+d[1:], 6) + "- " + output.Escape(dest.Name) + "\n")
+		dest := w.passable(p.Room, d)
+		if dest == nil {
+			continue
+		}
+		b.WriteString(padRight(capitalize(d), 6) + "- " + output.Escape(dest.Name) + "\n")
 	}
 	p.Send(b.String())
 }

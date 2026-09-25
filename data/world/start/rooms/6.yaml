@@ -14,3 +14,8 @@ exits:
   north: 600
   south: 800
 flags: [safe]
+doors:
+  west: {name: the green-wood door}
+  east: {name: the salt-grey door}
+  north: {name: the frost-rimed door}
+  south: {name: the iron-bound door}

@@ -29,6 +29,9 @@ type Item struct {
 	// Burn is the rounds of light left; -1 means it never goes out and 0
 	// means it has burned out. Set from the prototype at creation.
 	Burn int
+	// Quest names the player whose fetch quest this item was made for;
+	// nobody else can pick it up.
+	Quest string
 }
 
 // Lit reports whether a light item still gives light.

@@ -59,8 +59,9 @@ make deploy
 ## 3. Deploying
 
 `make deploy` (or `deploy/deploy.sh`) opens one ssh connection as root
-(asking for a password once if no key is set up), runs vet and tests,
-cross-compiles a static `linux/amd64` binary, pushes it and `data/{world,scripts,
+(asking for a password once if no key is set up), runs the content check
+(`urth check`: a world that fails to load or has unreachable rooms never
+ships), vet, and tests, cross-compiles a static `linux/amd64` binary, pushes it and `data/{world,scripts,
 banner.txt}` over rsync, restarts the service, and prints the last log
 lines. `data/players`, `data/instances`, and the copyover state file are
 excluded on both sides, so a deploy never touches a character.
@@ -77,7 +78,8 @@ Three variants:
   zero-downtime path. It works because rsync renames a new file over the
   old one and Go resolves its own path without the kernel's "(deleted)"
   suffix, so the exec picks up the new inode.
-- `make deploy DEPLOY_ARGS=--skip-check` skips vet and tests.
+- `make deploy DEPLOY_ARGS=--skip-check` skips the content check, vet,
+  and tests.
 
 For an arm64 container set `URTH_ARCH=arm64` in `deploy.env`.
 
@@ -86,7 +88,17 @@ Useful on the host:
 ```
 systemctl status urth
 journalctl -u urth -f
+/opt/urth/bin/urth admin -config /etc/urth/config.yaml list
 ```
+
+`urth admin` edits player files directly: `promote`, `demote`, `passwd`,
+`deny`, `allow`, `delete`, `show`. It is for when nobody with admin can
+log in; for a character who is online, the in-game commands of the same
+names are right, since the server rewrites the file at its next save.
+
+Leave `server.builder_addr` unset on the host. The builder page has no
+login and is built for the checkout on the dev machine, where content
+is edited; the next deploy overwrites `data/world` on the host anyway.
 
 ## 4. Reaching the server from the internet
 
@@ -167,10 +179,16 @@ what is in the room; the input bar completes command names on Tab.
   get, sacrifice) that send the same reference a typed command would.
 - **Vitals** from the prompt's data, with a flash on the health bar when
   it drops.
+- **Connect** is a button. The page does not open a socket on load;
+  the player clicks Connect (or presses Enter) to start a session.
 - **Reconnect** on its own after a copyover, a tunnel blip, a phone
   coming back from the background, or a server restart, with backoff up
   to 30 s; Enter retries at once. A deliberate quit does not reconnect.
   Password prompts switch the box to a password field.
+- **Idle** sessions are hung up by the client: fifteen minutes without
+  a command, with a warning in the log a minute before. Output arriving
+  does not count. After that the Connect button is back and nothing
+  reconnects unasked. The limit is `idleLimit` in `static/index.html`.
 - On a phone the side panel is a drawer behind the **map** button.
 
 ## 5. Backups

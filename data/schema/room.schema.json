@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urth/room.schema.json",
+  "title": "Urth room",
+  "description": "One room: data/world/<area>/rooms/<vnum>.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["vnum", "name", "exits"],
+  "properties": {
+    "vnum": { "$ref": "common.schema.json#/$defs/vnum" },
+    "name": { "type": "string", "minLength": 1, "description": "The title line: The Cellar Stair." },
+    "description": { "type": "string", "description": "What look shows. Use a block scalar (|) and wrap at about 72 columns." },
+    "exits": {
+      "type": "object",
+      "description": "Direction to destination vnum. Every destination must exist; the content check warns when the way back is missing or leads elsewhere.",
+      "additionalProperties": false,
+      "properties": {
+        "north": { "$ref": "common.schema.json#/$defs/vnum" },
+        "east": { "$ref": "common.schema.json#/$defs/vnum" },
+        "south": { "$ref": "common.schema.json#/$defs/vnum" },
+        "west": { "$ref": "common.schema.json#/$defs/vnum" },
+        "up": { "$ref": "common.schema.json#/$defs/vnum" },
+        "down": { "$ref": "common.schema.json#/$defs/vnum" }
+      }
+    },
+    "doors": {
+      "type": "object",
+      "description": "Doors on exits, by direction. Declare a door on one side only; the loader mirrors it to the room beyond. A closed door blocks the way and hides the exit and whoever is past it from look, exits, and scan. Area resets restore the closed state given here.",
+      "additionalProperties": false,
+      "properties": {
+        "north": { "$ref": "#/$defs/door" },
+        "east": { "$ref": "#/$defs/door" },
+        "south": { "$ref": "#/$defs/door" },
+        "west": { "$ref": "#/$defs/door" },
+        "up": { "$ref": "#/$defs/door" },
+        "down": { "$ref": "#/$defs/door" }
+      }
+    },
+    "flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "examples": ["safe", "dark"] },
+      "description": "safe forbids fighting; dark needs a light. Other flags are free for rules."
+    },
+    "temple": { "$ref": "common.schema.json#/$defs/deity", "description": "This room is the named deity's temple; sacrifice works here." },
+    "position": {
+      "type": "object",
+      "description": "Anchor this room on the area map; rooms without one are placed by walking exits from an anchor. North decreases y, up increases z.",
+      "additionalProperties": false,
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "integer" },
+        "y": { "type": "integer" },
+        "z": { "type": "integer" }
+      }
+    }
+  },
+  "$defs": {
+    "door": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "description": "How messages call it, with its article: the oak door, the iron gate. Players may name it by any word of this." },
+        "closed": { "type": "boolean", "description": "Shut when the area resets. Open is the default." }
+      }
+    }
+  }
+}

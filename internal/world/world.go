@@ -8,6 +8,7 @@ import (
 	"log/slog"
 	"math/rand/v2"
 	"sort"
+	"sync/atomic"
 	"time"
 
 	"urth/internal/config"
@@ -60,6 +61,10 @@ type World struct {
 	players map[session.ID]*Player
 	rooms   map[int]*roomContents // dynamic contents by vnum
 	areas   map[string]*areaState
+	// doors is the live state of every door someone has touched, true
+	// when closed, keyed by room and direction. Untouched doors are in
+	// the state their room file gives; an area reset forgets its entries.
+	doors   map[doorKey]bool
 	rng     *rand.Rand
 	events  chan session.Event
 	posts   chan func()
@@ -71,6 +76,8 @@ type World struct {
 	// damageLadder is the rules' damage-word ladder (damage.go).
 	damageLadder []damageWord
 
+	// generation counts successful content loads, for the builder page.
+	generation atomic.Uint64
 	lastMobID  uint64
 	rounds     uint64 // attack rounds resolved, for stats
 	scriptDir  string // set by tests that edit scripts
@@ -110,6 +117,7 @@ func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *Worl
 		players:        map[session.ID]*Player{},
 		rooms:          map[int]*roomContents{},
 		areas:          map[string]*areaState{},
+		doors:          map[doorKey]bool{},
 		rng:            newRNG(),
 		scripts:        deps.Scripts,
 		hookErrors:     map[string]time.Time{},
@@ -271,6 +279,7 @@ func (w *World) round() {
 	w.tickEffects()
 	w.burnLights()
 	w.decayItems()
+	w.tickQuests()
 	w.wanderMobs()
 	w.tickAreas()
 	if w.scripts != nil {

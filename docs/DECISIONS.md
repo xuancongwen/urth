@@ -153,3 +153,18 @@ before the material system is proven. The fields stay; rules set
 `manaMax` to zero and no cast checks it; a zero pool is hidden from the
 prompt. If materials fail, mana is the fallback with no engine change.
 
+
+## D19. Builder tooling is a page over the files; admin is in-game plus a CLI
+
+The dev loop that produced the world is bulk file authoring followed by
+reload (D17), and deploys overwrite `data/world` on the host from the
+checkout. A web editor on the server would therefore make the server the
+source of truth and lose git, so there is none. Instead the builder page
+(`internal/builder`) runs on the dev machine against the checkout, draws
+what the loaded world looks like, shows the content check's findings, and
+reloads on save; editing stays in the editor with JSON schemas for
+completion and validation. Position-dependent builder commands stay in
+game because they mean "here". Account administration is in-game
+commands for the common case and `urth admin` on the host for lockouts,
+which together cover one operator with ssh; a status dashboard on
+production waits until there is a second person who needs it.

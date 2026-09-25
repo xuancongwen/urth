@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 COMMIT  := $(shell git rev-parse --short HEAD 2>/dev/null || echo none)
 LDFLAGS := -s -w -X urth/internal/version.Version=$(VERSION) -X urth/internal/version.Commit=$(COMMIT)
 
-.PHONY: help build run test vet fmt fmtcheck check clean deploy
+.PHONY: help build run test vet fmt fmtcheck content check clean deploy
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -27,7 +27,10 @@ fmt: ## Format all Go files
 fmtcheck: ## Fail if any Go file is not gofmt-formatted
 	@test -z "$$(gofmt -l .)" || (gofmt -l . && exit 1)
 
-check: fmtcheck vet test ## Format check, vet, and test
+content: ## Load, lint, and report on data/ without starting a server
+	go run $(PKG) check -config config.yaml
+
+check: fmtcheck vet test content ## Format check, vet, test, and content check
 
 clean: ## Remove build output
 	rm -rf bin

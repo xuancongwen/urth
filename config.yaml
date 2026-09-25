@@ -8,6 +8,9 @@ server:
   # WebSocket listener and bare browser client. Leave empty to disable.
   # Open http://<addr>/ in a browser.
   websocket_addr: 127.0.0.1:4001
+  # Builder page: area maps, content problems, auto-reload on save. No
+  # login, so keep it on loopback and leave it empty in production.
+  builder_addr: 127.0.0.1:4002
   # Flood protection, applied to each listener separately. 0 disables one.
   limits:
     # Live connections on the listener, and from one address. Behind

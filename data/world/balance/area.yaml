@@ -1,2 +1,5 @@
 name: The Balance Range
 author: urth
+# Reached only by goto and the simulator; the content check does not
+# expect it to connect to the world or place its mobs.
+detached: true

@@ -53,6 +53,7 @@ func (w *World) tickAreas() {
 // resetArea applies every reset in the area's list. Limits make it safe to
 // run repeatedly: nothing is duplicated.
 func (w *World) resetArea(a *areaState) {
+	w.resetDoors(a.dir)
 	spawned := 0
 	for _, r := range a.resets.Resets {
 		rm, ok := w.content.Rooms.Get(r.Room)
@@ -129,13 +130,13 @@ func (w *World) wanderMobs() {
 }
 
 func (w *World) wander(m *Mob) {
-	exits := m.Room.ExitList()
+	exits := w.openExits(m.Room)
 	if len(exits) == 0 {
 		return
 	}
 	dir := exits[w.rng.IntN(len(exits))]
-	dest, ok := w.content.Rooms.Get(m.Room.Exits[dir])
-	if !ok {
+	dest := w.passable(m.Room, dir)
+	if dest == nil {
 		return
 	}
 	if m.Proto.StaysInArea() && dest.Area != m.Room.Area {

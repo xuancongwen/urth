@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../schema/item.schema.json
+vnum: 195
+name: a bundle of sealed dispatches
+keywords: [bundle, dispatches, sealed]
+description: A bundle of sealed dispatches lies here, the string still knotted.
+look: |
+  Half a dozen letters tied with string, every seal unbroken. Somebody
+  is waiting for these. The herald in the Long Hall pays for lost things.
+weight: 1
+flags: [quest]
