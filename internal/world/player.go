@@ -42,6 +42,9 @@ type Player struct {
 	Color bool
 
 	rec *store.Record
+	// visited is the set of room vnums this character has seen, for the
+	// map; saved with the record.
+	visited map[int]bool
 
 	// Login scratch.
 	pendingName     string

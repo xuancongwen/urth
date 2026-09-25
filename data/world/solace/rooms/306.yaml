@@ -7,3 +7,4 @@ description: |
 exits:
   west: 305
   north: 307
+position: {x: 2, y: -3, z: 0}

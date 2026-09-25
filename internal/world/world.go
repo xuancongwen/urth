@@ -332,6 +332,9 @@ func (w *World) prompt(p *Player) output.Message {
 func (w *World) shutdown() {
 	w.log.Info("world stopping", "players", len(w.players), "saved", w.saveAll())
 	for _, p := range w.players {
+		// A Reconnect without a token tells a browser the server is
+		// expected back, so it retries instead of treating this as a quit.
+		p.SendMsg(output.Message{Type: output.Reconnect})
 		p.SendMsg(output.Message{Type: output.System, Text: "\nThe world is shutting down. Goodbye.\n"})
 		p.disconnect()
 	}

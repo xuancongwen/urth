@@ -492,6 +492,10 @@ func (w *World) reloadContent(area string) (string, error) {
 	if !ok {
 		return "", errStartRoomMissing
 	}
+	for _, warn := range nc.Rooms.Warnings {
+		w.log.Warn("map layout", "problem", warn)
+		w.broadcastAdmins("{Y}Map layout: " + output.Escape(warn) + "{x}\n")
+	}
 	moved, mobsGone, itemsGone := 0, 0, 0
 
 	// Rooms: re-point players and mobs, drop contents of vanished rooms.

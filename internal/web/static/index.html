@@ -3,106 +3,464 @@
 <head>
 <meta charset="utf-8">
 <title>Urth</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
 <style>
-  :root { color-scheme: dark; }
-  html, body { margin: 0; height: 100%; background: #0b0b0b; color: #d0d0d0;
-    font: 15px/1.35 ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace; }
-  #screen { position: fixed; inset: 0 0 3.2em 0; overflow-y: auto; padding: 1em 1.2em;
-    white-space: pre-wrap; word-break: break-word; }
-  #bar { position: fixed; left: 0; right: 0; bottom: 0; height: 3.2em; display: flex;
-    align-items: center; gap: .6em; padding: 0 1.2em; background: #151515;
-    border-top: 1px solid #2a2a2a; }
-  #prompt { color: #8f8; white-space: pre; }
-  #input { flex: 1; background: #0b0b0b; color: #fff; border: 1px solid #333;
-    padding: .4em .6em; font: inherit; outline: none; }
-  #input:focus { border-color: #5a5; }
-  .room { display: block; }
-  .system { color: #f88; }
-  .c-d { color: #000 } .c-D { color: #777 }
-  .c-r { color: #b22 } .c-R { color: #f55 }
-  .c-g { color: #2a2 } .c-G { color: #5f5 }
-  .c-y { color: #aa2 } .c-Y { color: #ff5 }
-  .c-b { color: #33c } .c-B { color: #77f }
-  .c-m { color: #a2a } .c-M { color: #f5f }
-  .c-c { color: #2aa } .c-C { color: #5ff }
-  .c-w { color: #ccc } .c-W { color: #fff }
+  :root {
+    color-scheme: dark;
+    --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
+    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --mana: #5a8fd6;
+    --font: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 14.5px/1.45 var(--font); }
+  body { display: grid; height: 100dvh; overflow: hidden;
+    grid-template-columns: 1fr 290px; grid-template-rows: 1fr auto;
+    grid-template-areas: "main side" "bar bar"; }
+
+  /* Log */
+  #main { grid-area: main; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  #head { display: flex; align-items: baseline; gap: .8em; padding: .55em 1.1em; background: var(--panel);
+    border-bottom: 1px solid var(--line); }
+  #title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
+  #area { color: var(--dim); font-size: .85em; }
+  #conn { margin-left: auto; font-size: .8em; color: var(--dim); }
+  #conn.on { color: var(--ok); } #conn.off { color: var(--bad); }
+  #screen { flex: 1; min-height: 0; overflow-y: auto; padding: .8em 1.1em 1em;
+    white-space: pre-wrap; word-break: break-word; overscroll-behavior: contain; }
+  #screen .room { display: block; margin: .7em 0 .3em; padding-top: .5em; border-top: 1px dashed var(--line); }
+  #screen .room:first-child { border-top: 0; margin-top: 0; }
+  #screen .system { color: var(--dim); font-style: italic; }
+  #screen .echo { color: var(--dim); }
+  #screen .prompt { display: none; }
+
+  /* Side panel */
+  #side { grid-area: side; display: flex; flex-direction: column; min-height: 0; background: var(--panel);
+    border-left: 1px solid var(--line); overflow-y: auto; }
+  #side h3 { margin: 0; padding: .45em .9em; font-size: .72em; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--dim); background: var(--panel-2); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+  #side h3:first-child { border-top: 0; }
+  #map { display: block; width: 100%; height: 250px; background: #0b0c0f; cursor: crosshair; touch-action: none; }
+  #mapname { padding: .3em .9em; font-size: .8em; color: var(--dim); min-height: 1.9em; border-bottom: 1px solid var(--line); }
+  #vitals { padding: .6em .9em; display: grid; grid-template-columns: auto 1fr auto; gap: .35em .6em; align-items: center; font-size: .85em; }
+  #vitals .lab { color: var(--dim); }
+  .bar { height: .55em; background: #0b0c0f; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; width: 0; transition: width .25s; }
+  .hp > i { background: var(--bad); } .hp.hit > i { background: #fff; transition: none; }
+  .mana > i { background: var(--mana); }
+  #here { padding: .3em 0 .5em; font-size: .9em; }
+  #here .row { display: flex; flex-wrap: wrap; gap: .25em .4em; padding: .15em .9em; }
+  #here .lab { color: var(--dim); font-size: .8em; width: 100%; }
+  #here .ent { padding: .1em .5em; border: 1px solid var(--line); border-radius: 3px; background: var(--panel-2); cursor: pointer; }
+  #here .ent:hover { border-color: var(--accent); }
+  #here .ent.player { cursor: default; }
+  #here .empty { color: var(--dim); padding: .1em .9em; }
+  #exits { display: flex; flex-wrap: wrap; gap: .3em; padding: .4em .9em .7em; }
+  #exits button { font: inherit; font-size: .85em; padding: .15em .6em; background: var(--panel-2); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 3px; cursor: pointer; }
+  #exits button:hover { border-color: var(--accent); }
+
+  /* Input bar */
+  #bar { grid-area: bar; display: flex; align-items: center; gap: .6em; padding: .5em 1.1em;
+    padding-bottom: calc(.5em + env(safe-area-inset-bottom)); background: var(--panel); border-top: 1px solid var(--line); }
+  #prompt { color: var(--ok); white-space: pre; overflow: hidden; text-overflow: ellipsis; max-width: 45%; }
+  #inputwrap { flex: 1; position: relative; min-width: 0; }
+  #input { width: 100%; background: var(--bg); color: #fff; border: 1px solid var(--line); border-radius: 4px;
+    padding: .45em .6em; font: inherit; font-size: 16px; outline: none; }
+  #input:focus { border-color: var(--accent); }
+  #input.offline { border-color: var(--bad); }
+  #hint { position: absolute; right: .7em; top: 50%; transform: translateY(-50%); color: var(--dim); font-size: .8em; pointer-events: none; }
+  #toggle { display: none; font: inherit; font-size: .85em; padding: .35em .6em; background: var(--panel-2); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 4px; }
+
+  /* Popup menu */
+  #menu { position: fixed; display: none; flex-direction: column; background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 4px; box-shadow: 0 6px 20px #0008; z-index: 10; min-width: 9em; }
+  #menu button { font: inherit; text-align: left; padding: .4em .9em; background: none; color: var(--fg); border: 0; cursor: pointer; }
+  #menu button:hover { background: var(--panel); color: var(--accent); }
+  #menu .name { padding: .35em .9em; color: var(--dim); font-size: .8em; border-bottom: 1px solid var(--line); }
+
+  /* Color tokens */
+  .c-d { color: #3a3d46 } .c-D { color: #7c8090 }
+  .c-r { color: #b3453f } .c-R { color: #e8685f }
+  .c-g { color: #4f9a55 } .c-G { color: #7cc47c }
+  .c-y { color: #b28a2e } .c-Y { color: #e0b04a }
+  .c-b { color: #3d64a8 } .c-B { color: #6f9be0 }
+  .c-m { color: #9a4f9a } .c-M { color: #d17ad1 }
+  .c-c { color: #3a9a9a } .c-C { color: #6fd0d0 }
+  .c-w { color: #b8b5aa } .c-W { color: #f2efe4 }
+
+  @media (max-width: 760px) {
+    body { grid-template-columns: 1fr; grid-template-areas: "main" "bar"; font-size: 14px; }
+    #side { position: fixed; inset: 0 0 auto 0; height: 70dvh; border-left: 0; border-bottom: 1px solid var(--line);
+      transform: translateY(-100%); transition: transform .2s; z-index: 5; box-shadow: 0 8px 30px #000a; }
+    #side.open { transform: none; }
+    #toggle { display: block; }
+    #head, #screen, #bar { padding-left: .8em; padding-right: .8em; }
+    #prompt { max-width: 35%; }
+  }
 </style>
 </head>
 <body>
-<div id="screen"></div>
-<div id="bar">
-  <span id="prompt"></span>
-  <input id="input" autocomplete="off" autofocus placeholder="type a command">
+<div id="main">
+  <div id="head"><span id="title">Urth</span><span id="area"></span><span id="conn">connecting</span></div>
+  <div id="screen"></div>
 </div>
+<div id="side">
+  <h3>Map</h3>
+  <canvas id="map"></canvas>
+  <div id="mapname"></div>
+  <h3>Vitals</h3>
+  <div id="vitals">
+    <span class="lab">HP</span><span class="bar hp"><i id="hpbar"></i></span><span id="hp">-</span>
+    <span class="lab" id="manalab">Mana</span><span class="bar mana" id="manabarwrap"><i id="manabar"></i></span><span id="mana">-</span>
+    <span class="lab">Next</span><span id="tnl" style="grid-column: span 2">-</span>
+  </div>
+  <h3>Here</h3>
+  <div id="here"><div class="empty">Nothing yet.</div></div>
+  <div id="exits"></div>
+</div>
+<div id="bar">
+  <button id="toggle" type="button">map</button>
+  <span id="prompt"></span>
+  <span id="inputwrap"><input id="input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+    enterkeyhint="send" autofocus placeholder="type a command"><span id="hint"></span></span>
+</div>
+<div id="menu"></div>
 <script>
 (function () {
-  var screen = document.getElementById('screen');
-  var prompt = document.getElementById('prompt');
-  var input = document.getElementById('input');
-  var history = [], hIndex = 0;
+  var $ = function (id) { return document.getElementById(id); };
+  var screen = $('screen'), prompt = $('prompt'), input = $('input'), hint = $('hint');
+  var side = $('side'), menu = $('menu');
+  var history = [], hIndex = 0, commandNames = [];
 
+  function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
   function append(html, cls) {
+    var atBottom = screen.scrollTop + screen.clientHeight >= screen.scrollHeight - 40;
     var span = document.createElement('span');
     if (cls) span.className = cls;
     span.innerHTML = html;
     screen.appendChild(span);
-    screen.scrollTop = screen.scrollHeight;
+    if (screen.childNodes.length > 3000) screen.removeChild(screen.firstChild);
+    if (atBottom) screen.scrollTop = screen.scrollHeight;
   }
-  function system(text) { append(text + '\n', 'system'); }
+  function system(text) { append(esc(text) + '\n', 'system'); }
 
+  // ---- Vitals -------------------------------------------------------
+  var lastHealth = null;
+  function setBar(barId, textId, cur, max) {
+    $(textId).textContent = cur + ' / ' + max;
+    $(barId).style.width = (max > 0 ? Math.max(0, Math.min(100, 100 * cur / max)) : 0) + '%';
+  }
+  function showVitals(d) {
+    setBar('hpbar', 'hp', d.health, d.healthMax);
+    var hasMana = d.manaMax > 0;
+    $('manalab').style.display = $('manabarwrap').style.display = $('mana').style.display = hasMana ? '' : 'none';
+    setBar('manabar', 'mana', d.mana, d.manaMax);
+    $('tnl').textContent = d.tnl >= 0 ? d.tnl + ' xp' : 'max level';
+    if (lastHealth !== null && d.health < lastHealth) {
+      var bar = $('hpbar').parentNode;
+      bar.classList.add('hit');
+      setTimeout(function () { bar.classList.remove('hit'); }, 180);
+    }
+    lastHealth = d.health;
+  }
+
+  // ---- Here panel and menus ----------------------------------------
+  function showHere(d) {
+    var here = $('here');
+    here.textContent = '';
+    function row(label, list, cls, onclick) {
+      if (!list || !list.length) return;
+      var r = document.createElement('div'); r.className = 'row';
+      var l = document.createElement('span'); l.className = 'lab'; l.textContent = label; r.appendChild(l);
+      list.forEach(function (e) {
+        var s = document.createElement('span'); s.className = 'ent ' + cls;
+        s.textContent = (e.count > 1 ? '(' + e.count + ') ' : '') + (e.name || e);
+        if (onclick) s.addEventListener('click', function (ev) { ev.stopPropagation(); onclick(e, s); });
+        r.appendChild(s);
+      });
+      here.appendChild(r);
+    }
+    row('Players', d.players, 'player');
+    row('Creatures', d.mobs, 'mob', function (e, el) {
+      openMenu(el, e.name, [['look', 'look ' + e.ref], ['consider', 'consider ' + e.ref], ['kill', 'kill ' + e.ref]]);
+    });
+    row('Items', d.items, 'item', function (e, el) {
+      openMenu(el, e.name, [['look', 'look ' + e.ref], ['get', 'get ' + e.ref], ['sacrifice', 'sacrifice ' + e.ref]]);
+    });
+    if (!here.childNodes.length) { var em = document.createElement('div'); em.className = 'empty'; em.textContent = 'Nobody and nothing.'; here.appendChild(em); }
+    var exits = $('exits');
+    exits.textContent = '';
+    (d.exits || []).forEach(function (dir) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = dir;
+      b.addEventListener('click', function (ev) { ev.preventDefault(); sendLine(dir); input.focus(); });
+      exits.appendChild(b);
+    });
+  }
+  function openMenu(anchor, name, actions) {
+    menu.textContent = '';
+    var n = document.createElement('div'); n.className = 'name'; n.textContent = name; menu.appendChild(n);
+    actions.forEach(function (a) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = a[0];
+      b.addEventListener('click', function () { closeMenu(); sendLine(a[1]); input.focus(); });
+      menu.appendChild(b);
+    });
+    var r = anchor.getBoundingClientRect();
+    menu.style.display = 'flex';
+    var mw = menu.offsetWidth, mh = menu.offsetHeight;
+    menu.style.left = Math.min(r.left, window.innerWidth - mw - 8) + 'px';
+    menu.style.top = (r.bottom + mh + 8 > window.innerHeight ? r.top - mh - 4 : r.bottom + 4) + 'px';
+  }
+  function closeMenu() { menu.style.display = 'none'; }
+  document.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') closeMenu(); });
+
+  // ---- Map ----------------------------------------------------------
+  var canvas = $('map'), ctx = canvas.getContext('2d');
+  var mapData = null, mapCurrent = 0, mapRooms = {}, hoverVnum = 0;
+  var CELL = 30, BOX = 16;
+  var DIRS = { north: [0, -1], south: [0, 1], east: [1, 0], west: [-1, 0] };
+
+  function setMap(d, current) {
+    mapData = d; mapCurrent = current; mapRooms = {};
+    if (d) d.rooms.forEach(function (r) { mapRooms[r.vnum] = r; });
+    drawMap();
+  }
+  function mapGeometry() {
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    }
+    return { dpr: dpr, w: w, h: h };
+  }
+  function roomAt(px, py) {
+    var cur = mapRooms[mapCurrent];
+    if (!cur) return null;
+    var g = mapGeometry(), cx = g.w / 2, cy = g.h / 2;
+    var found = null;
+    mapData.rooms.forEach(function (r) {
+      if (r.z !== cur.z) return;
+      var x = cx + (r.x - cur.x) * CELL, y = cy + (r.y - cur.y) * CELL;
+      if (Math.abs(px - x) <= BOX / 2 + 3 && Math.abs(py - y) <= BOX / 2 + 3) found = r;
+    });
+    return found;
+  }
+  function drawMap() {
+    var g = mapGeometry();
+    ctx.setTransform(g.dpr, 0, 0, g.dpr, 0, 0);
+    ctx.clearRect(0, 0, g.w, g.h);
+    var cur = mapRooms[mapCurrent];
+    if (!mapData || !cur) {
+      ctx.fillStyle = '#4a4e5a'; ctx.font = '12px ' + getComputedStyle(document.body).fontFamily;
+      ctx.textAlign = 'center'; ctx.fillText('no map here', g.w / 2, g.h / 2);
+      return;
+    }
+    var cx = g.w / 2, cy = g.h / 2;
+    function pos(r) { return [cx + (r.x - cur.x) * CELL, cy + (r.y - cur.y) * CELL]; }
+    // Exits first, so rooms draw over them.
+    ctx.lineWidth = 2;
+    mapData.rooms.forEach(function (r) {
+      if (r.z !== cur.z) return;
+      var p = pos(r);
+      Object.keys(r.exits).forEach(function (dir) {
+        var d = DIRS[dir];
+        if (!d) return;
+        var to = mapRooms[r.exits[dir]];
+        ctx.strokeStyle = (r.seen || (to && to.seen)) ? '#4d5261' : '#2a2e38';
+        ctx.beginPath(); ctx.moveTo(p[0], p[1]);
+        // A neighbour drawn nearby gets a full line; anything further, off
+        // this level, or off the map gets a short stub in the exit's direction.
+        var near = to && to.z === cur.z && Math.abs(to.x - r.x) <= 2 && Math.abs(to.y - r.y) <= 2;
+        if (near) { var q = pos(to); ctx.lineTo(q[0], q[1]); }
+        else { ctx.lineTo(p[0] + d[0] * CELL * 0.45, p[1] + d[1] * CELL * 0.45); }
+        ctx.stroke();
+      });
+    });
+    mapData.rooms.forEach(function (r) {
+      if (r.z !== cur.z) return;
+      var p = pos(r), x = p[0] - BOX / 2, y = p[1] - BOX / 2;
+      ctx.fillStyle = r.seen ? (r.safe ? '#3b6a5a' : '#3a3f4c') : '#1d2027';
+      ctx.strokeStyle = r.seen ? '#8c92a3' : '#3a3e4a';
+      ctx.lineWidth = 1;
+      ctx.fillRect(x, y, BOX, BOX); ctx.strokeRect(x + .5, y + .5, BOX - 1, BOX - 1);
+      if (r.exits.up || r.exits.down) {
+        ctx.fillStyle = '#a9aebd'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(r.exits.up && r.exits.down ? '↕' : (r.exits.up ? '↑' : '↓'), p[0], p[1] + 3);
+      }
+      if (r.vnum === hoverVnum && r.vnum !== mapCurrent) { ctx.strokeStyle = '#e0b04a'; ctx.strokeRect(x - 1.5, y - 1.5, BOX + 3, BOX + 3); }
+    });
+    var c = pos(cur);
+    ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 2;
+    ctx.strokeRect(c[0] - BOX / 2 - 2, c[1] - BOX / 2 - 2, BOX + 4, BOX + 4);
+    ctx.fillStyle = '#e0b04a'; ctx.beginPath(); ctx.arc(c[0], c[1], 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#4a4e5a'; ctx.font = '10px ' + getComputedStyle(document.body).fontFamily; ctx.textAlign = 'right';
+    ctx.fillText(cur.z ? 'level ' + cur.z : '', g.w - 6, g.h - 6);
+  }
+  // Shortest walk to a room over the exits we know, sent as one command per step.
+  function pathTo(target) {
+    var prev = {}, queue = [mapCurrent], seen = {}; seen[mapCurrent] = true;
+    while (queue.length) {
+      var v = queue.shift();
+      if (v === target) break;
+      var r = mapRooms[v]; if (!r) continue;
+      Object.keys(r.exits).forEach(function (dir) {
+        var to = r.exits[dir];
+        if (seen[to] || !mapRooms[to]) return;
+        seen[to] = true; prev[to] = [v, dir]; queue.push(to);
+      });
+    }
+    if (!seen[target]) return null;
+    var steps = [], at = target;
+    while (at !== mapCurrent) { steps.unshift(prev[at][1]); at = prev[at][0]; }
+    return steps;
+  }
+  canvas.addEventListener('mousemove', function (ev) {
+    var b = canvas.getBoundingClientRect();
+    var r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    var v = r ? r.vnum : 0;
+    $('mapname').textContent = r ? (r.seen ? r.name : 'unexplored') : (mapRooms[mapCurrent] ? mapRooms[mapCurrent].name : '');
+    if (v !== hoverVnum) { hoverVnum = v; drawMap(); }
+  });
+  canvas.addEventListener('mouseleave', function () { hoverVnum = 0; drawMap(); $('mapname').textContent = mapRooms[mapCurrent] ? mapRooms[mapCurrent].name : ''; });
+  canvas.addEventListener('click', function (ev) {
+    var b = canvas.getBoundingClientRect();
+    var r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    if (!r || r.vnum === mapCurrent) return;
+    var steps = pathTo(r.vnum);
+    if (!steps) return;
+    steps.forEach(function (s) { sendLine(s, true); });
+    append('<span class="echo">walk ' + esc(steps.join(' ')) + '</span>\n');
+    if (window.innerWidth <= 760) side.classList.remove('open');
+    input.focus();
+  });
+  window.addEventListener('resize', drawMap);
+
+  // ---- Connection ---------------------------------------------------
   var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-  var ws = null;
-  var reconnectToken = null;   // set by a copyover notice; used once
+  var ws = null, reconnectToken = null, expectRestart = false, retryDelay = 0, retryTimer = null, everConnected = false;
+  var conn = $('conn');
 
+  function setConnected(on) {
+    input.classList.toggle('offline', !on);
+    input.placeholder = on ? 'type a command' : 'disconnected. press Enter to reconnect';
+    conn.textContent = on ? 'connected' : 'offline';
+    conn.className = on ? 'on' : 'off';
+    if (!on) { input.type = 'text'; prompt.textContent = ''; }
+  }
+  function scheduleRetry() {
+    if (retryTimer) return;
+    retryDelay = retryDelay < 0 ? -retryDelay : (retryDelay ? Math.min(retryDelay * 2, 30000) : 1000);
+    system('[reconnecting in ' + Math.round(retryDelay / 1000) + 's]');
+    conn.textContent = 'retrying';
+    retryTimer = setTimeout(function () { retryTimer = null; connect(); }, retryDelay);
+  }
   function connect() {
+    if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
+    if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) return;
     var url = proto + location.host + '/ws' + (reconnectToken ? '?token=' + encodeURIComponent(reconnectToken) : '');
     var resuming = !!reconnectToken;
     reconnectToken = null;
+    conn.textContent = 'connecting'; conn.className = '';
     ws = new WebSocket(url);
-    ws.onopen = function () { system(resuming ? '[reconnected]' : '[connected]'); };
-    ws.onclose = function (e) {
-      prompt.textContent = '';
-      if (reconnectToken) { system('[server restarting, reconnecting...]'); setTimeout(connect, 600); return; }
-      system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']');
+    ws.onopen = function () {
+      retryDelay = 0; everConnected = true;
+      setConnected(true); input.type = 'text';
+      system(resuming ? '[reconnected]' : '[connected]');
+      input.focus();
     };
-    ws.onerror = function () { if (reconnectToken) { setTimeout(connect, 1000); } };
+    ws.onclose = function (e) {
+      setConnected(false);
+      if (expectRestart) { expectRestart = false; system('[server restarting]'); retryDelay = -(reconnectToken ? 300 : 1000); scheduleRetry(); return; }
+      if (e.code === 1000) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); return; }
+      if (retryDelay === 0) system('[connection lost]');
+      scheduleRetry();
+    };
     ws.onmessage = function (e) {
-      var msgs = JSON.parse(e.data);
-      msgs.forEach(function (m) {
+      JSON.parse(e.data).forEach(function (m) {
         switch (m.type) {
-          case 'prompt': prompt.textContent = m.text; return;
+          case 'prompt':
+            if (m.data && typeof m.data.health === 'number') { showVitals(m.data); prompt.textContent = ''; }
+            else { prompt.textContent = m.text; }
+            return;
           case 'echo-off': input.type = 'password'; return;
           case 'echo-on': input.type = 'text'; return;
-          case 'reconnect': reconnectToken = m.data && m.data.token; return;
-          case 'room': if (m.data) { document.title = m.data.name + ' - Urth'; } break;
+          case 'reconnect': reconnectToken = (m.data && m.data.token) || null; expectRestart = true; return;
+          case 'commands': commandNames = m.data || []; return;
+          case 'room':
+            if (m.data) {
+              $('title').textContent = m.data.name;
+              $('area').textContent = m.data.area || '';
+              document.title = m.data.name + ' - Urth';
+              showHere(m.data);
+              setMap(m.data.map || null, m.data.vnum);
+              $('mapname').textContent = m.data.map ? m.data.name : '';
+            }
+            break;
         }
         append(m.html, m.type);
       });
     };
   }
-  connect();
 
+  function sendLine(line, quiet) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) return false;
+    ws.send(line);
+    if (!quiet) {
+      var shown = input.type === 'password' ? '' : line;
+      append('<span class="echo">' + esc(prompt.textContent || '') + esc(shown) + '</span>\n');
+    }
+    return true;
+  }
+
+  // ---- Input: history and completion --------------------------------
+  function completions() {
+    var v = input.value;
+    if (!v || v.indexOf(' ') >= 0 || input.type === 'password') return [];
+    return commandNames.filter(function (c) { return c.indexOf(v.toLowerCase()) === 0 && c !== v; });
+  }
+  function updateHint() {
+    var c = completions();
+    hint.textContent = c.length ? c[0] + (c.length > 1 ? '  +' + (c.length - 1) : '') + '  ⇥' : '';
+  }
+  input.addEventListener('input', updateHint);
   input.addEventListener('keydown', function (ev) {
     if (ev.key === 'Enter') {
+      ev.preventDefault();
+      if (!ws || ws.readyState !== WebSocket.OPEN) { retryDelay = 0; connect(); return; }
       var line = input.value;
-      if (!ws || ws.readyState !== WebSocket.OPEN) return;
-      ws.send(line);
-      var shown = input.type === 'password' ? '' : line;
-      append('<span class="c-D">' + (prompt.textContent || '') + shown.replace(/[&<>]/g, function (c) {
-        return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</span>\n');
-      if (line) { history.push(line); if (history.length > 100) history.shift(); }
+      sendLine(line);
+      if (line && input.type !== 'password') { history.push(line); if (history.length > 200) history.shift(); }
       hIndex = history.length;
-      input.value = '';
+      input.value = ''; updateHint();
+    } else if (ev.key === 'Tab') {
+      var c = completions();
+      if (c.length) { input.value = c[0] + ' '; }
+      ev.preventDefault(); updateHint();
     } else if (ev.key === 'ArrowUp') {
       if (hIndex > 0) { hIndex--; input.value = history[hIndex]; }
-      ev.preventDefault();
+      ev.preventDefault(); updateHint();
     } else if (ev.key === 'ArrowDown') {
       if (hIndex < history.length) { hIndex++; input.value = history[hIndex] || ''; }
-      ev.preventDefault();
+      ev.preventDefault(); updateHint();
     }
   });
-  document.addEventListener('click', function () { input.focus(); });
+  document.addEventListener('click', function (ev) {
+    if (ev.target.closest('#side') || ev.target.closest('#menu') || ev.target.tagName === 'BUTTON') return;
+    if (!window.getSelection().toString()) input.focus();
+  });
+  $('toggle').addEventListener('click', function (ev) { ev.stopPropagation(); side.classList.toggle('open'); drawMap(); });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && everConnected && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); }
+  });
+  window.addEventListener('online', function () { if (!ws || ws.readyState === WebSocket.CLOSED) { retryDelay = 0; connect(); } });
+
+  setConnected(false);
+  input.placeholder = 'connecting';
+  input.focus();
+  drawMap();
+  connect();
 })();
 </script>
 </body>

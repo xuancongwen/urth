@@ -12,3 +12,6 @@ exits:
   west: 304
   east: 306
   north: 308
+# Map anchor: the smithy and the lake path sit one column east so the
+# overgrown shrine west of the path has a cell of its own.
+position: {x: 0, y: -3, z: 0}

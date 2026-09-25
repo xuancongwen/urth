@@ -28,6 +28,8 @@ type Record struct {
 	LastLogin    time.Time `yaml:"last_login"`
 	Room         int       `yaml:"room"`
 	Color        bool      `yaml:"color"`
+	// Visited is every room the character has stood in, for the map.
+	Visited []int `yaml:"visited,omitempty,flow"`
 	// Sheet. Stats is free-form because the stat set is a rules decision.
 	Level      int            `yaml:"level"`
 	Experience int            `yaml:"experience"`

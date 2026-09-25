@@ -199,6 +199,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 		w.log.Info("reconnected", "session", p.conn.ID(), "name", p.Name, "old_session", old.conn.ID())
 		p.Send("\nReconnecting.\n")
 		w.act("$n has reconnected.", p.Character, nil, "", toRoom)
+		w.sendCommands(p)
 		w.look(p)
 		w.save(p)
 		return
@@ -219,6 +220,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	w.log.Info("logged in", "session", p.conn.ID(), "name", p.Name, "addr", p.conn.RemoteAddr())
 	p.Send("\nWelcome, " + p.Name + ".\n\n")
 	w.act("$n has entered the game.", p.Character, nil, "", toRoom)
+	w.sendCommands(p)
 	w.look(p)
 	w.save(p)
 }
@@ -247,6 +249,7 @@ func (w *World) restore(p *Player, r Restore) {
 	}
 	p.Room = room
 	w.log.Info("restored", "session", p.conn.ID(), "name", p.Name)
+	w.sendCommands(p)
 	p.Send("{G}Copyover complete.{x}\n")
 }
 

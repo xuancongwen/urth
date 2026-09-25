@@ -1,6 +1,8 @@
 package world
 
 import (
+	"sort"
+
 	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/output"
@@ -78,6 +80,10 @@ func (w *World) loadSheet(p *Player) {
 	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
 	p.Schools = append([]string(nil), p.rec.Schools...)
 	p.Deity = p.rec.Deity
+	p.visited = map[int]bool{}
+	for _, v := range p.rec.Visited {
+		p.visited[v] = true
+	}
 	if len(p.Stats) == 0 {
 		r := w.onCreate(p.Character)
 		for k, v := range r.Stats {
@@ -111,4 +117,9 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Effects = append([]effect.Active(nil), p.Effects...)
 	p.rec.Health = p.Health
 	p.rec.Mana = p.Mana
+	p.rec.Visited = p.rec.Visited[:0]
+	for v := range p.visited {
+		p.rec.Visited = append(p.rec.Visited, v)
+	}
+	sort.Ints(p.rec.Visited)
 }

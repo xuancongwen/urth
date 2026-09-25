@@ -171,12 +171,23 @@ func cmdLook(w *World, p *Player, args string) {
 // clients that want it.
 func (w *World) look(p *Player) {
 	r := p.Room
+	if p.visited == nil {
+		p.visited = map[int]bool{}
+	}
+	p.visited[r.Vnum] = true
 	if !w.canSee(p.Character) {
 		p.SendMsg(output.Message{Type: output.Room, Text: "It is pitch black. You can't see a thing.\n",
-			Data: output.RoomData{Vnum: r.Vnum, Name: "Darkness", Exits: r.ExitList(), Players: []string{}}})
+			Data: output.RoomData{Vnum: r.Vnum, Name: "Darkness", Area: r.Area, Exits: r.ExitList(), Players: []string{}, Mobs: []output.Entity{}, Items: []output.Entity{}}})
 		return
 	}
-	data := output.RoomData{Vnum: r.Vnum, Name: r.Name, Exits: r.ExitList(), Players: []string{}}
+	data := output.RoomData{Vnum: r.Vnum, Name: r.Name, Area: r.Area, Exits: r.ExitList(), Players: []string{}, Map: w.mapAround(r, p)}
+	data.Mobs, data.Items = w.roomEntities(r, p)
+	if data.Mobs == nil {
+		data.Mobs = []output.Entity{}
+	}
+	if data.Items == nil {
+		data.Items = []output.Entity{}
+	}
 	var b strings.Builder
 	b.WriteString("{C}" + output.Escape(r.Name) + "{x}\n")
 	if r.Description != "" {

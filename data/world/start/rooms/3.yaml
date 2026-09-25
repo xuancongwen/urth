@@ -10,3 +10,6 @@ exits:
   north: 11
   west: 30
 flags: [safe]
+# Map anchor: the colonnade west of here runs under the arena, so the
+# arena is anchored one column east (room 11) to keep the map honest.
+position: {x: 0, y: -2, z: 0}

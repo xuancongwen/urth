@@ -36,9 +36,16 @@ type Room struct {
 	// Temple names the deity whose temple this is ("good", "neutral",
 	// "evil"); sacrifice works only here (docs/RULES.md 6.1).
 	Temple string `yaml:"temple,omitempty"`
+	// Position anchors the room on the area map (layout.go). Most rooms
+	// leave it unset and are placed by walking exits from an anchor.
+	Position *Coord `yaml:"position,omitempty"`
 
 	// Area is the directory name the room was loaded from.
 	Area string `yaml:"-"`
+	// X, Y, Z are the map position Layout assigned; Placed is false for a
+	// room it could not fit, which the map leaves out.
+	X, Y, Z int  `yaml:"-"`
+	Placed  bool `yaml:"-"`
 }
 
 // HasFlag reports whether the room carries flag.
@@ -67,6 +74,8 @@ type Area struct {
 type World struct {
 	Rooms map[int]*Room
 	Areas map[string]Area
+	// Warnings are layout conflicts found at load, for the log.
+	Warnings []string
 }
 
 // Get returns a room by vnum.
@@ -97,6 +106,7 @@ func Load(dir string) (*World, error) {
 	if err := w.validate(); err != nil {
 		return nil, err
 	}
+	w.Warnings = w.Layout()
 	return w, nil
 }
 

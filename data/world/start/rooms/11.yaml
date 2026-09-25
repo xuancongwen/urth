@@ -8,3 +8,4 @@ exits:
   east: 12
   west: 10
   south: 3
+position: {x: 1, y: -3, z: 0}
