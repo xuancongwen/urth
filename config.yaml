@@ -12,8 +12,9 @@ server:
 timing:
   # World loop period. Input is processed once per tick.
   tick_ms: 100
-  # Length of a combat/regen round.
-  round_seconds: 3
+  # Length of a combat/regen round in milliseconds. Fractional seconds are
+  # fine (1500 is a second and a half); must be at least tick_ms.
+  round_ms: 2000
   # How often every online player is saved to disk.
   autosave_seconds: 300
 

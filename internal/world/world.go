@@ -90,11 +90,11 @@ type pendingToken struct {
 // New creates a world over loaded content and populates every area.
 func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *World {
 	tick := time.Duration(cfg.Timing.TickMs) * time.Millisecond
-	roundTicks := int(time.Duration(cfg.Timing.RoundSeconds) * time.Second / tick)
+	roundTicks := int(cfg.Timing.Round() / tick)
 	if roundTicks < 1 {
 		roundTicks = 1
 	}
-	autosaveRounds := cfg.Timing.AutosaveSeconds / cfg.Timing.RoundSeconds
+	autosaveRounds := cfg.Timing.AutosaveSeconds * 1000 / cfg.Timing.RoundMs
 	if autosaveRounds < 1 {
 		autosaveRounds = 1
 	}
@@ -254,7 +254,7 @@ func (w *World) runCommands() {
 	}
 }
 
-// round runs once every Timing.RoundSeconds: fights, regeneration, mob
+// round runs once every Timing.RoundMs: fights, regeneration, mob
 // movement, area resets, script reload, autosave.
 func (w *World) round() {
 	w.roundCount++

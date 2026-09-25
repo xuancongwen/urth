@@ -69,7 +69,7 @@ func run() error {
 		"telnet", cfg.Server.TelnetAddr,
 		"websocket", cfg.Server.WebSocketAddr,
 		"tick_ms", cfg.Timing.TickMs,
-		"round_seconds", cfg.Timing.RoundSeconds,
+		"round_ms", cfg.Timing.RoundMs,
 		"data", cfg.Paths.Data,
 	)
 

@@ -32,7 +32,7 @@ func (w *World) initAreas() {
 }
 
 func (w *World) roundsFor(seconds int) int {
-	n := seconds / w.cfg.Timing.RoundSeconds
+	n := seconds * 1000 / w.cfg.Timing.RoundMs
 	if n < 1 {
 		n = 1
 	}

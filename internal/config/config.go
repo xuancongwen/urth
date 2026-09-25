@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"time"
 
 	"gopkg.in/yaml.v3"
 )
@@ -33,11 +34,16 @@ type Server struct {
 type Timing struct {
 	// TickMs is the world loop period in milliseconds. Input is processed once per tick.
 	TickMs int `yaml:"tick_ms"`
-	// RoundSeconds is the combat/regen round length. Everything paced by rounds keys off this.
-	RoundSeconds int `yaml:"round_seconds"`
+	// RoundMs is the combat/regen round length in milliseconds. Everything
+	// paced by rounds keys off this. Fractional seconds are allowed so the
+	// round can be tuned in playtesting; it must be at least one tick.
+	RoundMs int `yaml:"round_ms"`
 	// AutosaveSeconds is how often every online player is written to disk.
 	AutosaveSeconds int `yaml:"autosave_seconds"`
 }
+
+// Round returns the round length as a duration.
+func (t Timing) Round() time.Duration { return time.Duration(t.RoundMs) * time.Millisecond }
 
 // Paths locates on-disk data.
 type Paths struct {
@@ -72,7 +78,7 @@ func Default() Config {
 		},
 		Timing: Timing{
 			TickMs:          100,
-			RoundSeconds:    3,
+			RoundMs:         2000,
 			AutosaveSeconds: 300,
 		},
 		Paths: Paths{
@@ -117,8 +123,8 @@ func (c Config) Validate() error {
 	if c.Timing.TickMs < 10 || c.Timing.TickMs > 5000 {
 		return fmt.Errorf("timing.tick_ms must be between 10 and 5000, got %d", c.Timing.TickMs)
 	}
-	if c.Timing.RoundSeconds < 1 {
-		return fmt.Errorf("timing.round_seconds must be at least 1, got %d", c.Timing.RoundSeconds)
+	if c.Timing.RoundMs < c.Timing.TickMs {
+		return fmt.Errorf("timing.round_ms must be at least timing.tick_ms (%d), got %d", c.Timing.TickMs, c.Timing.RoundMs)
 	}
 	if c.Timing.AutosaveSeconds < 10 {
 		return fmt.Errorf("timing.autosave_seconds must be at least 10, got %d", c.Timing.AutosaveSeconds)
