@@ -15,16 +15,18 @@ import (
 
 // Skill is one entry of skillList.
 type Skill struct {
-	ID          string  `json:"id"`
-	Name        string  `json:"name"`
-	Level       int     `json:"level"`
-	Passive     bool    `json:"passive"`
-	Target      string  `json:"target"` // single or none, for active skills
-	Cooldown    int     `json:"cooldown"`
-	Start       float64 `json:"start"`  // effectiveness on first use
-	Innate      bool    `json:"innate"` // known by everyone at level; others need a trainer
-	Price       int     `json:"price"`  // in silver, at a trainer
-	Description string  `json:"description"`
+	ID       string  `json:"id"`
+	Name     string  `json:"name"`
+	Level    int     `json:"level"`
+	Passive  bool    `json:"passive"`
+	Target   string  `json:"target"` // single or none, for active skills
+	Cooldown int     `json:"cooldown"`
+	Start    float64 `json:"start"`  // effectiveness on first use
+	Innate   bool    `json:"innate"` // known by everyone at level; others need a trainer
+	Price    int     `json:"price"`  // in silver, at a trainer
+	// Requires are items handed over as well as coin, by material name.
+	Requires    []SpellMaterial `json:"requires"`
+	Description string          `json:"description"`
 }
 
 // SkillResult is what useSkill returns.
@@ -313,5 +315,5 @@ func (w *World) startFightIfIdle(att, def *Character) {
 
 func skillView(sk Skill) map[string]any {
 	return map[string]any{"id": sk.ID, "name": sk.Name, "level": sk.Level, "passive": sk.Passive,
-		"target": sk.Target, "cooldown": sk.Cooldown, "start": sk.Start, "innate": sk.Innate, "price": sk.Price}
+		"target": sk.Target, "cooldown": sk.Cooldown, "start": sk.Start, "innate": sk.Innate, "price": sk.Price, "requires": sk.Requires}
 }

@@ -1,0 +1,10 @@
+vnum: 32
+name: The Stillroom
+description: |
+  Shelves of jars and bundles: the rare stuff of casting, laid out for
+  anyone who needs it. On the highest shelf, a single feather that gives
+  off its own light. Two odd objects sit apart on a cloth: a grey stone
+  and a black nail.
+exits:
+  north: 30
+flags: [safe]

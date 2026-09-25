@@ -1,0 +1,12 @@
+vnum: 210
+name: a beast-master
+keywords: [beast-master, beastmaster, master]
+description: A beast-master leans on a post, a chained hound at her feet.
+look: |
+  Scarred forearms, patient eyes, and a hound that never looks away from
+  you. She teaches what the beasts taught her, for coin and for fangs.
+level: 12
+flags: [sentinel, peaceful]
+teaches: [rend]
+attack:
+  verb: punch

@@ -1,0 +1,13 @@
+vnum: 30
+name: The West Colonnade
+description: |
+  A covered walk of pale columns along the arena's west wall. Doors open
+  off it: a hall of stone plinths to the north, a stillroom that smells
+  of herbs to the south, two shrines further along, and yards where
+  teachers wait for students with coin.
+exits:
+  east: 3
+  north: 31
+  south: 32
+  west: 33
+flags: [safe]

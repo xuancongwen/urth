@@ -1,0 +1,8 @@
+vnum: 136
+name: a grave totem
+keywords: [grave, totem]
+description: A grave totem rests on a plinth.
+look: |
+  Cold clay with a fingerprint pressed into it that is not yours. It is heavier every time you lift it.
+type: totem
+school: necromancy

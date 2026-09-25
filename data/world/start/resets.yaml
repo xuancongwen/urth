@@ -43,7 +43,7 @@ resets:
   - { mob: 201, room: 10, max: 2 }   # dogs
   - { mob: 204, room: 11, max: 2 }   # crows
   - { mob: 203, room: 12 }           # beggar
-  - { mob: 205, room: 13, max: 2 }   # wolves, they assist each other
+  - { mob: 205, room: 13, max: 2, equip: [{ item: 190 }] }   # wolves, they assist each other and carry fangs
   # --- second row (14-17): levels 4 to 6 ---
   - { mob: 206, room: 14, equip: [{ item: 101, slot: wield }, { item: 109 }] }   # bandit, club, purse
   - { mob: 200, room: 15, equip: [{ item: 100, slot: wield }, { item: 102, slot: head }] }   # guard, sword, cap
@@ -55,7 +55,7 @@ resets:
   - { mob: 202, room: 19, equip: [{ item: 101, slot: wield }] }   # blacksmith with a club
   - { mob: 910, room: 20 }           # level-10 dummy, and the ring
   - { item: 162, room: 20 }
-  - { mob: 205, room: 21, max: 3 }   # a wolf pack
+  - { mob: 205, room: 21, max: 3, equip: [{ item: 190 }] }   # a wolf pack
   # --- north row (22-25): 15 and up ---
   - { mob: 915, room: 22 }           # level-15 dummy
   - { item: 163, room: 22 }          # the windstep boots
@@ -67,3 +67,27 @@ resets:
   # --- the dark cell: the salt totem and the chalice ---
   - { item: 131, room: 26 }
   - { item: 140, room: 26 }
+  # --- the colleges, west of the gate ---
+  - { item: 130, room: 31 }   # all eight totems
+  - { item: 131, room: 31 }
+  - { item: 132, room: 31 }
+  - { item: 133, room: 31 }
+  - { item: 134, room: 31 }
+  - { item: 135, room: 31 }
+  - { item: 136, room: 31 }
+  - { item: 137, room: 31 }
+  - { item: 126, room: 32 }   # rare materials in the stillroom
+  - { item: 126, room: 32 }
+  - { item: 127, room: 32 }
+  - { item: 127, room: 32 }
+  - { item: 128, room: 32 }
+  - { item: 120, room: 32 }
+  - { item: 120, room: 32 }
+  - { item: 121, room: 32 }
+  - { item: 123, room: 32 }
+  - { item: 124, room: 32 }
+  - { item: 125, room: 32 }
+  - { item: 141, room: 32 }   # the other gods' sacrifices
+  - { item: 142, room: 32 }
+  - { mob: 210, room: 36 }    # the specialty trainers
+  - { mob: 211, room: 36 }

@@ -1,0 +1,9 @@
+vnum: 31
+name: The Hall of Totems
+description: |
+  Eight stone plinths in a ring, each holding a carved totem. A plaque
+  on the wall reads: "One school, one totem. Consume, and know." The
+  totems are replaced as fast as they are taken; nobody asks how.
+exits:
+  south: 30
+flags: [safe]

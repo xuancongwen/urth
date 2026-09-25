@@ -1,0 +1,9 @@
+vnum: 141
+name: a plain grey stone
+keywords: [plain, grey, stone]
+description: A plain grey stone sits on a cloth.
+look: |
+  A river stone, perfectly ordinary, perfectly balanced in the hand. The
+  Neutral god asks for nothing more, and nothing less.
+type: other
+sacrifice: neutral

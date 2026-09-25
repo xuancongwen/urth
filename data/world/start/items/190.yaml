@@ -1,0 +1,9 @@
+vnum: 190
+name: a wolf fang
+keywords: [wolf, fang]
+description: A wolf fang lies here.
+look: |
+  Yellow-white and as long as a finger. The beast-master collects them.
+type: material
+material: wolf fang
+rarity: uncommon

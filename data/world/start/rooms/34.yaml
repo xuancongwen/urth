@@ -1,0 +1,10 @@
+vnum: 34
+name: The Grey Shrine
+description: |
+  A plain altar of unpolished grey stone, with no carving at all. The
+  Neutral god asks for balance, and takes what is offered without
+  comment.
+exits:
+  south: 33
+flags: [safe]
+temple: neutral

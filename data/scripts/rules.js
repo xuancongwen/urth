@@ -207,9 +207,9 @@ function resolveAttack(att, def, weapon, round) {
   var dodge = P.dodgeBase * mult(def, "dexterity", true) + sumEffects(def, "dodge", "amount");
   if (dodge > 0 && random.float() < dodge) return { hit: false, damage: 0, crit: false, verb: verb, stage: "dodge" };
 
-  // Block: nothing intrinsic; a shield or a feat grants it, Strength
-  // scales it.
-  var block = P.blockBase + sumEffects(def, "block", "chance") * mult(def, "strength", true);
+  // Block: nothing intrinsic; a shield, a feat, or Riposte (with a weapon
+  // in hand) grants it, Strength scales it.
+  var block = P.blockBase + (sumEffects(def, "block", "chance") + riposteBlock(def)) * mult(def, "strength", true);
   if (block > 0 && random.float() < block) return { hit: false, damage: 0, crit: false, verb: verb, stage: "block" };
 
   // Roll: the weapon's spread, then Strength and level.
@@ -542,7 +542,12 @@ var SKILLS = [
     damage: 0.6, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
   { id: "twin", name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
-    description: "A second swing in the same round, as often as your skill allows. Triple and Quad Strike follow." }
+    description: "A second swing in the same round, as often as your skill allows. Triple and Quad Strike follow." },
+  { id: "rend", name: "Rend", level: 3, passive: false, target: "single", cooldown: 3, start: 30, innate: false, price: 100,
+    requires: [{ material: "wolf fang", count: 2 }], damage: 0.8, verb: "rend", bleed: 0.25,
+    description: "Tear at them like a beast: some damage now, and a wound that bleeds for three rounds. The beast-master wants wolf fangs for it." },
+  { id: "riposte", name: "Riposte", level: 4, passive: true, start: 20, innate: false, price: 500,
+    description: "Turn a swing aside with your own blade: at full skill, one swing in five is blocked, weapon in hand." }
 ];
 
 var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how far from 100
@@ -550,7 +555,7 @@ var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how 
 function skillList() {
   return SKILLS.map(function (sk) {
     return { id: sk.id, name: sk.name, level: sk.level, passive: !!sk.passive, target: sk.target || "none",
-      cooldown: sk.cooldown || 0, start: sk.start, innate: !!sk.innate, price: sk.price || 0, description: sk.description || "" };
+      cooldown: sk.cooldown || 0, start: sk.start, innate: !!sk.innate, price: sk.price || 0, requires: sk.requires || [], description: sk.description || "" };
   });
 }
 
@@ -574,6 +579,13 @@ function improve(rating) {
     return Math.min(100, rating + SKILL_IMPROVE.min + random.int(SKILL_IMPROVE.max - SKILL_IMPROVE.min + 1));
   }
   return rating;
+}
+
+// riposteBlock: Riposte grants up to 20 percent block, scaled by rating,
+// only while a weapon is wielded.
+function riposteBlock(c) {
+  if (!c.equipment || !c.equipment.wield) return 0;
+  return 0.2 * skillRating(c, "riposte") / 100;
 }
 
 // passiveSwings: Twin Strike grants rating/100 of an extra swing per round.
@@ -619,6 +631,9 @@ function useSkill(user, target, skill, e) {
   if (sk.stunChance && random.float() < sk.stunChance * scale) {
     out.effects.push({ on: "target", kind: "speedMult", params: { mult: 0 }, rounds: 1 });
     out.message = "They stagger.";
+  }
+  if (sk.bleed) {
+    out.effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(out.damage * sk.bleed)) }, rounds: 3 });
   }
   return out;
 }

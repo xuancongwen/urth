@@ -1,0 +1,10 @@
+vnum: 35
+name: The Black Shrine
+description: |
+  An altar of black iron, cold to the touch, with a groove around its
+  edge that was cut for a purpose. The Evil god is not fussy about who
+  serves, only about what they bring.
+exits:
+  north: 33
+flags: [safe]
+temple: evil

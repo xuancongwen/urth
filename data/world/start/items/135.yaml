@@ -1,0 +1,8 @@
+vnum: 135
+name: a mirrored totem
+keywords: [mirrored, totem]
+description: A mirrored totem rests on a plinth.
+look: |
+  Polished silver that shows the room behind you, and somebody in it who is not there.
+type: totem
+school: illusion

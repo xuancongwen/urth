@@ -3,8 +3,10 @@ name: The Arena Gate
 description: |
   The hall ends at an iron gate that stands open. Beyond it the light
   changes: sand, sky, and the sound of something large breathing. A small
-  door in the east wall of the hall leads to a shrine.
+  door in the east wall of the hall leads to a shrine, and a colonnade
+  runs west toward the colleges.
 exits:
   south: 2
   north: 11
+  west: 30
 flags: [safe]

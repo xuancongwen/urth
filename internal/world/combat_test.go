@@ -1220,3 +1220,34 @@ func TestSacrificeCorpse(t *testing.T) {
 		t.Fatalf("missing: %q", o)
 	}
 }
+
+func TestTrainerRequiresItems(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, skillRules+`
+function skillList() {
+  return [ { id: "rend", name: "Rend", level: 1, passive: false, target: "single", cooldown: 3, start: 30, innate: false, price: 100,
+             requires: [{ material: "ash", count: 2 }], description: "Tear." } ];
+}`)
+	p := w.players[1]
+	w.content.Mobs[20].Teaches = []string{"rend"}
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "1 gold and 2 ashs") && !strings.Contains(o, "1 gold and 2 ash") {
+		t.Fatalf("practice list with requirement: %q", o)
+	}
+	p.Silver = 100
+	send(w, 1, "practice rend")
+	if o := bob.take(); !strings.Contains(o, "wants 2 ash") || p.Silver != 100 {
+		t.Fatalf("missing items: %q", o)
+	}
+	giveItem(w, p.Character, 17)
+	giveItem(w, p.Character, 17)
+	giveItem(w, p.Character, 17)
+	send(w, 1, "practice rend")
+	if o := bob.take(); !strings.Contains(o, "You hand a city guard 2 ash") || !strings.Contains(o, "learn Rend") || p.Silver != 0 {
+		t.Fatalf("buy with items: %q silver=%d", o, p.Silver)
+	}
+	if n := len(materialsHeld(p.Character, "ash")); n != 1 {
+		t.Fatalf("items not consumed: %d ash left", n)
+	}
+}

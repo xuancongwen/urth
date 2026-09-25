@@ -50,7 +50,7 @@ left out; the engine then uses a quiet default.
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
-| `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, start, innate, price, description}]` |
+| `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, start, innate, price, requires:[{material, count}], description}]` |
 | `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |
 | `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}}` |
 | `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
@@ -1518,8 +1518,10 @@ and from spells (discovered, material-costed).
 
 **How skills are gained (decided 2026-09-25).** Most skills are
 taught: a trainer in the world teaches a set of skills, each for a
-price in coin (7.5), and `practice` at the trainer buys one at its
-starting rating, level permitting. A few skills are *innate*: every
+price in coin (7.5) and, for some, items handed over as well (named as
+materials, the same way spells name theirs, so a beast-master can ask
+for wolf fangs), and `practice` at the trainer buys one at its starting
+rating, level permitting. A few skills are *innate*: every
 character has them at level with no teacher (Kick is the first). This
 keeps trainers and coin meaningful without making the basics gated,
 and nothing competes with feats for the level-up choice.
@@ -1531,6 +1533,8 @@ and nothing competes with feats for the level-up choice.
 | Kick | 1 | action, single target | 2 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
 | Bash | 3 | action, single target | 4 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
 | Twin Strike | 5 | passive | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
+| Rend | 3 | action, single target | 3 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
+| Riposte | 4 | passive | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
 Twin Strike is the first of a chain: Triple Strike and Quad Strike
 follow at higher levels, the last for special cases, each a further

@@ -1,0 +1,9 @@
+vnum: 36
+name: The Training Yards
+description: |
+  Two yards side by side under an awning. In one, a beast-master with a
+  scarred forearm and a chained hound. In the other, a fencing master
+  drawing lines in the sand with a blunted blade.
+exits:
+  east: 33
+flags: [safe]

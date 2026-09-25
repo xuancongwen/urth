@@ -1,0 +1,9 @@
+vnum: 127
+name: a sliver of heartwood
+keywords: [sliver, heartwood]
+description: A sliver of heartwood lies here.
+look: |
+  Pale wood from the centre of a tree older than the arena. It is warm.
+type: material
+material: heartwood
+rarity: rare

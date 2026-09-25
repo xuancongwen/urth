@@ -1,0 +1,8 @@
+vnum: 137
+name: a quicksilver totem
+keywords: [quicksilver, totem]
+description: A quicksilver totem rests on a plinth.
+look: |
+  It will not hold a shape. Right now it is a fish.
+type: totem
+school: transmutation

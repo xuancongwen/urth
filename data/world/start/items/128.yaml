@@ -1,0 +1,9 @@
+vnum: 128
+name: a phoenix feather
+keywords: [phoenix, feather]
+description: A feather that gives off its own light lies here.
+look: |
+  Red and gold and impossible to hold still. There is only ever one.
+type: material
+material: phoenix feather
+rarity: deterministic

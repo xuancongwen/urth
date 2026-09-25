@@ -1,0 +1,8 @@
+vnum: 132
+name: a knotted totem
+keywords: [knotted, totem]
+description: A knotted totem rests on a plinth.
+look: |
+  Rope-wound wood, knotted so many times it has no beginning. Something is always about to be pulled out of it.
+type: totem
+school: conjuration

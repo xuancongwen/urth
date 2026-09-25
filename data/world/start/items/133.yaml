@@ -1,0 +1,8 @@
+vnum: 133
+name: a glass totem
+keywords: [glass, totem]
+description: A glass totem rests on a plinth.
+look: |
+  Clear glass with a single flaw at its heart. Look through it and you see the room a moment before it happens.
+type: totem
+school: divination

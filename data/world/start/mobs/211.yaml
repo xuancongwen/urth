@@ -1,0 +1,12 @@
+vnum: 211
+name: a fencing master
+keywords: [fencing, master, fencer]
+description: A fencing master draws lines in the sand with a blunted blade.
+look: |
+  Thin, upright, and never quite still. He will teach you to turn a
+  blade aside, if you have the coin and a blade of your own.
+level: 12
+flags: [sentinel, peaceful]
+teaches: [riposte]
+attack:
+  verb: punch

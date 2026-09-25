@@ -3,6 +3,7 @@ package world
 import (
 	"strings"
 
+	"urth/internal/item"
 	"urth/internal/output"
 )
 
@@ -58,7 +59,11 @@ func cmdPractice(w *World, p *Player, args string) {
 				continue
 			}
 			n++
-			line := "  " + padRight(output.Escape(sk.Name), 14) + padRight(escapeMoney(sk.Price), 24)
+			cost := escapeMoney(sk.Price)
+			for _, r := range sk.Requires {
+				cost += " and " + plural(max(r.Count, 1), output.Escape(r.Material))
+			}
+			line := "  " + padRight(output.Escape(sk.Name), 14) + padRight(cost, 34)
 			switch {
 			case skillEffect(p.Character, sk.ID) != nil:
 				line += "(you know this)"
@@ -104,6 +109,19 @@ func cmdPractice(w *World, p *Player, args string) {
 	if p.Silver < match.Price {
 		p.Send(output.Escape(match.Name) + " costs " + escapeMoney(match.Price) + ". You have " + escapeMoney(p.Silver) + ".\n")
 		return
+	}
+	for _, r := range match.Requires {
+		if len(materialsHeld(p.Character, r.Material)) < max(r.Count, 1) {
+			w.act("$N wants "+plural(max(r.Count, 1), output.Escape(r.Material))+" for that, and you don't have them.", p.Character, trainer, "", toChar)
+			return
+		}
+	}
+	for _, r := range match.Requires {
+		held := materialsHeld(p.Character, r.Material)
+		for i := 0; i < max(r.Count, 1) && i < len(held); i++ {
+			p.Inventory = item.Remove(p.Inventory, held[i])
+		}
+		w.act("You hand $N "+plural(max(r.Count, 1), output.Escape(r.Material))+".", p.Character, trainer, "", toChar)
 	}
 	p.Silver -= match.Price
 	ensureSkill(p.Character, *match)

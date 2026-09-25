@@ -1,0 +1,11 @@
+vnum: 33
+name: The Colonnade, further along
+description: |
+  The columns continue. A shrine of grey stone stands to the north and a
+  shrine of black iron to the south. West, the yards.
+exits:
+  east: 30
+  north: 34
+  south: 35
+  west: 36
+flags: [safe]

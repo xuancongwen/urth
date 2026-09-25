@@ -1,0 +1,9 @@
+vnum: 126
+name: a shard of star iron
+keywords: [shard, star, iron]
+description: A shard of star iron lies here, too heavy for its size.
+look: |
+  Black, pitted, and far heavier than iron. It fell from somewhere.
+type: material
+material: star iron
+rarity: rare

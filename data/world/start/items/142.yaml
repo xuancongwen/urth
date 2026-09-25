@@ -1,0 +1,9 @@
+vnum: 142
+name: a black iron nail
+keywords: [black, iron, nail]
+description: A black iron nail sits on a cloth.
+look: |
+  A hand's length of iron, square in section, stained at the point. You
+  would rather not know what it was drawn from. The Evil god knows.
+type: other
+sacrifice: evil

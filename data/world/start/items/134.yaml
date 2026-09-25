@@ -1,0 +1,8 @@
+vnum: 134
+name: a whispering totem
+keywords: [whispering, totem]
+description: A whispering totem rests on a plinth.
+look: |
+  Smooth bone that seems to murmur when nobody is speaking. You want to agree with it.
+type: totem
+school: enchantment
