@@ -1,0 +1,13 @@
+vnum: 324
+name: Tasslehoff
+keywords: [tasslehoff, tas, kender]
+description: A small figure with a topknot is looking at something that was in your pocket a moment ago.
+look: |
+  Small, quick, and delighted by everything. His pouches are full of
+  things other people have lost, which he will return, honestly puzzled
+  that they were ever missing. He is not afraid of anything, which is
+  not the same as being brave, and works out much the same.
+level: 6
+flags: [peaceful]
+attack:
+  verb: poke

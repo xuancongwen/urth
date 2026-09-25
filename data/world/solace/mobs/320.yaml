@@ -1,0 +1,12 @@
+vnum: 320
+name: Tanis
+keywords: [tanis, half-elf, halfelf, leader]
+description: A bearded half-elf sits where he can see the door, and everyone who comes through it.
+look: |
+  Elf in the eyes and the ears, human in the beard and the tiredness. He
+  is the one the others look to, and he would rather they didn't. He
+  nods to you the way a man nods who is counting exits.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: cut

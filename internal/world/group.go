@@ -80,9 +80,13 @@ func (w *World) hostilesIn(c *Character) []*Character {
 	}
 	var out []*Character
 	for _, o := range w.charactersIn(c.Room) {
-		if !sameGroup(c, o) {
-			out = append(out, o)
+		if sameGroup(c, o) {
+			continue
 		}
+		if o.mob != nil && o.mob.Proto.HasFlag("peaceful") {
+			continue // nothing hostile touches the peaceful
+		}
+		out = append(out, o)
 	}
 	return out
 }

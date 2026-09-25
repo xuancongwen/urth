@@ -1275,3 +1275,13 @@ function skillList() {
 		t.Fatalf("buy from the second trainer: %q", o)
 	}
 }
+
+func TestPeacefulMobsAreLeftOutOfAreaSpells(t *testing.T) {
+	w := testWorld(t)
+	login(t, w, 1, "Bob")
+	p := w.players[1]
+	w.content.Mobs[20].Flags = append(w.content.Mobs[20].Flags, "peaceful")
+	if h := w.hostilesIn(p.Character); len(h) != 0 {
+		t.Fatalf("peaceful guard counted as hostile: %v", h)
+	}
+}

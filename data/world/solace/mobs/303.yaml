@@ -1,11 +1,12 @@
 vnum: 303
-name: a hooded stranger
-keywords: [hooded, stranger, figure]
-description: A hooded figure sits alone at the darkest table, hands folded.
+name: Raistlin
+keywords: [raistlin, mage, hooded, frail]
+description: A frail young mage in red robes sits apart, coughing into his sleeve, watching everything.
 look: |
-  The hood does not move when you approach. What you can see of the face
-  is thin and pale. There is a staff of blue crystal near the chair that
-  the stranger does not seem to own and does not seem to have noticed.
+  Thin as a stick, skin with a gold cast to it, and eyes that do not look
+  at you so much as through the years you have left. He leans on a staff
+  and coughs, and when the coughing stops his voice is very quiet and
+  very sure. He would teach you nothing. He is not the sharing kind.
 level: 15
 flags: [sentinel, peaceful]
 attack:

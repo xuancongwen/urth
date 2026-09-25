@@ -1,0 +1,13 @@
+vnum: 326
+name: Riverwind
+keywords: [riverwind, plainsman, ranger]
+description: A tall plainsman stands between the door and the woman with the staff, and does not sit.
+look: |
+  Dark, silent, and watchful, with a bow across his back and a look that
+  says he has already decided what he will do if you take one more step.
+  He has followed her across half the world and would follow her the rest
+  of the way.
+level: 9
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

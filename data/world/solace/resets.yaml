@@ -23,8 +23,15 @@ resets:
   - { item: 300, room: 312 }
   - { item: 301, room: 312 }
   - { item: 307, room: 313 }   # the spice jar in the kitchen
-  - { mob: 303, room: 315 }   # the hooded stranger, upstairs
-  - { item: 302, room: 315 }  # the blue crystal staff, near the chair
+  - { mob: 303, room: 315 }   # Raistlin, upstairs, with Caramon never far
+  - { mob: 323, room: 315 }
+  - { mob: 325, room: 315 }   # Goldmoon and Riverwind, and the staff against the wall
+  - { mob: 326, room: 315 }
+  - { item: 302, room: 315 }
+  - { mob: 320, room: 312 }   # the companions in the common room
+  - { mob: 321, room: 312 }
+  - { mob: 322, room: 312 }
+  - { mob: 324, room: 312 }   # Tas, who does not stay put
   # the lake and the shrine
   - { item: 121, room: 307 }   # salt at the lakeshore
   - { item: 121, room: 307 }

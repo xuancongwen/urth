@@ -1,0 +1,13 @@
+vnum: 325
+name: Goldmoon
+keywords: [goldmoon, woman, plainswoman, chieftain]
+description: A tall woman of the plains, silver-gold hair to her waist, stands guard over a staff leaned against the wall.
+look: |
+  Daughter of a chieftain, and it shows in how she stands. She came a long
+  way with the staff and does not know yet what it is, only that it healed
+  a man who should have died, and that the Seekers must not have it. She
+  watches you look at it.
+level: 8
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

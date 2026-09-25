@@ -1,0 +1,14 @@
+vnum: 323
+name: Caramon
+keywords: [caramon, big, warrior]
+description: A huge, cheerful warrior is eating his third plate of potatoes.
+look: |
+  Shoulders like a door, a smile like a boy's, and a hand that never
+  strays far from his brother's chair. He fights the way he eats. He will
+  teach you to swing twice where others swing once, and buy you a drink
+  after.
+level: 12
+flags: [sentinel, peaceful]
+teaches: [twin]
+attack:
+  verb: pound

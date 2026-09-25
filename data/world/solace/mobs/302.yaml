@@ -1,14 +1,18 @@
 vnum: 302
-name: an old storyteller
-keywords: [old, storyteller, man]
-description: An old man in a grey robe sits by the hearth, telling a story to nobody in particular.
+name: Fizban
+keywords: [fizban, old, wizard, mage, storyteller]
+description: An old man in a battered hat wanders about, muttering, looking for something he has just put down.
 look: |
-  White beard, bright eyes, a robe the color of ash, and a way of seeming
-  to know your name before you say it. He is telling a story about the
-  old gods, which the Seekers would not like. "The shrine by the lake,"
-  he says, to you or to the fire, "is not as empty as it looks. It wants
-  what was taken from it."
-level: 20
-flags: [sentinel, peaceful]
+  A tangle of white beard, a robe the color of ash, and a pointed hat that
+  has been sat on more than once. He is telling a story about the old gods
+  to nobody, or possibly to you; halfway through he forgets how it goes
+  and starts a different one. "The shrine by the lake," he says, "is not
+  as empty as it looks. It wants what was taken from it. Now where did I
+  put... never mind." You have the odd feeling that nothing in the world
+  could harm him, and that he would be surprised to learn it.
+level: 50
+health: 9999
+flags: [peaceful]
+stats: { strength: 30, dexterity: 30, constitution: 30, intelligence: 40, wisdom: 40, charisma: 30 }
 attack:
-  verb: rap
+  verb: swat

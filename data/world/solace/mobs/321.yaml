@@ -1,0 +1,14 @@
+vnum: 321
+name: Sturm
+keywords: [sturm, knight, brightblade]
+description: A tall man with an old-fashioned moustache sits very straight, a two-handed sword against his chair.
+look: |
+  Armor older than he is, kept bright; a sword older than the armor; and
+  a code older than either. He will not lie, will not run, and will not
+  let a wrong pass. He will teach you to turn a blade, if you can pay and
+  will use it honorably.
+level: 12
+flags: [sentinel, peaceful]
+teaches: [riposte]
+attack:
+  verb: slash

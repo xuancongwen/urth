@@ -1,0 +1,14 @@
+vnum: 322
+name: Flint
+keywords: [flint, dwarf, fireforge]
+description: A grey-bearded dwarf sits with his boots on a stool, complaining about the stairs.
+look: |
+  Broad, grizzled, and disapproving of most things, boats and stairs
+  especially. He has forged more than swords in his time. He will show
+  you how to put your shoulder into a blow, for a price, and grumble
+  about it.
+level: 10
+flags: [sentinel, peaceful]
+teaches: [bash]
+attack:
+  verb: butt
