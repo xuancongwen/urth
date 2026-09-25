@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"urth/internal/content"
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/output"
 	"urth/internal/room"
@@ -160,7 +161,7 @@ func (w *World) statCharacter(c *Character) string {
 		b.WriteString("Room: " + itoa(c.Room.Vnum) + "  ")
 	}
 	b.WriteString("Level: " + itoa(c.Level) + "  XP: " + itoa(c.Experience) + "\n")
-	b.WriteString("Health: " + itoa(c.Health) + "/" + itoa(c.HealthMax) + "  Mana: " + itoa(c.Mana) + "/" + itoa(c.ManaMax) + "  Attacks: " + itoa(c.AttacksPerRound) + "\n")
+	b.WriteString("Health: " + itoa(c.Health) + "/" + itoa(c.HealthMax) + "  Mana: " + itoa(c.Mana) + "/" + itoa(c.ManaMax) + "  Speed: " + ftoa(c.Speed) + "  Stat points: " + itoa(c.StatPoints) + "\n")
 	if len(c.Stats) > 0 {
 		b.WriteString("Stats:")
 		for _, k := range sortedKeys(c.Stats) {
@@ -168,8 +169,22 @@ func (w *World) statCharacter(c *Character) string {
 		}
 		b.WriteString("\n")
 	}
-	if c.mob != nil && len(c.mob.Proto.Flags) > 0 {
-		b.WriteString("Flags: " + strings.Join(c.mob.Proto.Flags, " ") + "\n")
+	if len(c.Effects) > 0 {
+		b.WriteString("Effects: " + effectList(c.Effects) + "\n")
+	}
+	if c.mob != nil {
+		pr := c.mob.Proto.Resolved
+		if len(c.mob.Proto.Flags) > 0 {
+			b.WriteString("Flags: " + strings.Join(c.mob.Proto.Flags, " ") + "\n")
+		}
+		b.WriteString("Natural (" + pr.Source + "): attack " + weaponLine(pr.Attack) + "  armor defense " + itoa(pr.Armor.Defense) + " spread " + ftoa(pr.Armor.Spread))
+		if pr.Health > 0 {
+			b.WriteString("  health override " + itoa(pr.Health))
+		}
+		if pr.XP > 0 {
+			b.WriteString("  xp override " + itoa(pr.XP))
+		}
+		b.WriteString("\n")
 	}
 	if c.Fighting != nil {
 		b.WriteString("Fighting: " + output.Escape(c.Fighting.Name) + "\n")
@@ -193,11 +208,27 @@ func statItem(it *item.Item) string {
 	b.WriteString("Name: {C}" + output.Escape(p.Name) + "{x}  Vnum: " + itoa(p.Vnum) + "  Area: " + output.Escape(p.Area) + "  Instance: " + strconv.FormatUint(it.ID, 10) + "\n")
 	b.WriteString("Type: " + string(p.Type) + "  Slot: " + string(p.WearSlot()) + "  Weight: " + itoa(p.Weight) + "  Value: " + itoa(p.Value) + "\n")
 	b.WriteString("Keywords: " + strings.Join(p.Keywords, " ") + "\n")
-	if p.Weapon != nil {
-		b.WriteString("Weapon: damage " + itoa(p.Weapon.Damage) + " hands " + itoa(p.Weapon.Hands) + " kind " + output.Escape(p.Weapon.Kind) + "\n")
+	b.WriteString("Level: " + itoa(p.Level) + "  Baseline: " + output.Escape(p.Baseline) + "  Numbers from: " + p.Resolved.Source + "\n")
+	if p.Type == item.Weapon {
+		b.WriteString("Weapon: " + weaponLine(p.Resolved.Weapon))
+		if p.Weapon != nil {
+			b.WriteString("  (stated: " + weaponLine(*p.Weapon) + ")")
+		}
+		b.WriteString("\n")
 	}
-	if p.Armor != nil {
-		b.WriteString("Armor: defense " + itoa(p.Armor.Defense) + "\n")
+	if p.Type == item.Armor {
+		b.WriteString("Armor: defense " + itoa(p.Resolved.Armor.Defense) + " spread " + ftoa(p.Resolved.Armor.Spread))
+		if p.Armor != nil {
+			b.WriteString("  (stated: defense " + itoa(p.Armor.Defense) + " spread " + ftoa(p.Armor.Spread) + ")")
+		}
+		b.WriteString("\n")
+	}
+	if len(p.Effects) > 0 || len(it.Effects) > 0 {
+		b.WriteString("Effects: ")
+		for _, e := range p.Effects {
+			b.WriteString(output.Escape(e.Kind) + " ")
+		}
+		b.WriteString(effectList(it.Effects) + "\n")
 	}
 	if len(p.Mods) > 0 {
 		b.WriteString("Mods:")
@@ -418,6 +449,7 @@ func cmdReload(w *World, p *Player, args string) {
 			return
 		}
 		w.hookErrors = map[string]time.Time{}
+		w.resolveBaselines()
 		p.Send("{G}Scripts reloaded.{x}\n")
 	case "area", "world":
 		if w.deps.LoadContent == nil {
@@ -542,6 +574,7 @@ func (w *World) reloadContent(area string) (string, error) {
 	}
 
 	w.content = nc
+	w.resolveBaselines()
 
 	// Areas: keep countdowns for areas that still exist, add new ones.
 	fresh := map[string]*areaState{}
@@ -580,3 +613,29 @@ func (e contentError) Error() string { return string(e) }
 
 // contentLoader is what Deps.LoadContent must satisfy.
 var _ = content.Load
+
+func weaponLine(s item.WeaponSpec) string {
+	line := "damage " + itoa(s.Damage) + " spread " + ftoa(s.Spread) + " speed " + ftoa(s.Speed)
+	if s.Verb != "" {
+		line += " verb " + output.Escape(s.Verb)
+	}
+	if s.Kind != "" {
+		line += " kind " + output.Escape(s.Kind)
+	}
+	if s.Hands > 0 {
+		line += " hands " + itoa(s.Hands)
+	}
+	return line
+}
+
+func effectList(list []effect.Active) string {
+	var parts []string
+	for _, e := range list {
+		s := output.Escape(e.Kind)
+		if e.Rounds > 0 {
+			s += "(" + itoa(e.Rounds) + ")"
+		}
+		parts = append(parts, s)
+	}
+	return strings.Join(parts, " ")
+}

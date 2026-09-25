@@ -6,3 +6,5 @@ look: |
   Glossy black and entirely unafraid.
 level: 1
 flags: []
+attack:
+  verb: peck

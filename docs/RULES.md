@@ -29,31 +29,43 @@ beat.
 What a rule script will and will not be able to touch once milestone 6
 lands. This section is owned by the engine, not the designer.
 
-### Hook points (implemented in milestone 6)
+### Hook points (implemented; milestone 8 combat core, 2026-09-24)
 
 Each hook is a global function in `data/scripts/*.js`. Inputs are
 read-only snapshots; outputs are plain objects the engine applies. The
-placeholder implementations live in `data/scripts/rules.js`.
+live rules are `data/scripts/rules.js`. Hooks marked optional may be
+left out; the engine then uses a quiet default.
 
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
-| `resolveAttack` | each swing in a combat round, and once on `kill` | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb}` |
-| `derivedStats` | login, spawn, equipment change, level | character | `{healthMax, manaMax, attacksPerRound}` (fractional from milestone 8, 4.4) |
+| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false |
+| `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, speed}`; `speed` is swings per round, fractional allowed |
 | `onTick` | once per round for every character | character | `{healthDelta, manaDelta}` |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
-| `xpToLevel` | after any experience gain | level | integer (total xp needed) |
-| `onLevel` | a character gains a level | character, new level | `{statDeltas:{}, message}` |
-| `itemBaseline`, `mobBaseline` | content load and script reload (milestone 8) | prototype | the primary numbers; explicit prototype fields override (5.2, 8) |
-| `resolveCast` | a `cast` command (milestone 8) | caster, target, school, spell | `{ok, damage, effects, consume:[item ids], message}` |
+| `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
+| `onLevel` | a character gains a level | character, new level | `{statPoints, statDeltas:{}, message}` |
+| `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, message}` |
+| `deathRules` (optional) | every death | | `{xpFraction, xpLevelCap, corpseRounds, respawnHealth}` |
+| `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}}` |
+| `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
+| `resolveCast` | not yet; arrives with magic | caster, target, school, spell | `{ok, damage, effects, consume:[item ids], message}` |
 
 ### What scripts see
 
-- Character: `{name, level, xp, stats:{}, health, healthMax, mana, manaMax,
-  equipment:{slot: item}, isPlayer, fighting, room:{vnum,name,area}, vnum
-  and flags for mobs}`. `stats` is whatever the rules put there; the engine
-  does not define the stat set.
-- Item: `{vnum, name, type, slot, weight, value, flags, weapon:{damage,
-  hands, kind}, armor:{defense}, mods:{}}`.
+- Character: `{name, level, xp, stats:{}, statPoints, health, healthMax,
+  mana, manaMax, speed, equipment:{slot: item}, effects:[], isPlayer,
+  fighting, room:{vnum,name,area}}`, plus for mobs `vnum`, `flags`, and
+  `mob:{vnum, flags, health, xp, attack, armor, effects}` carrying the
+  prototype's resolved natural numbers. `stats` is whatever the rules put
+  there; the engine does not define the stat set.
+- Item: `{vnum, name, type, slot, level, baseline, weight, value, flags,
+  weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense,
+  spread}, effects:[], mods:{}}`. The weapon and armor numbers are the
+  *resolved* ones: what the builder stated, with the baseline filling
+  the gaps.
+- Effect: `{kind, params:{}, state:{}, rounds}`. `rounds` 0 is permanent.
+  An item's `effects` merges the prototype's intrinsic effects with any
+  applied to the instance.
 - `random.int(n)`, `random.float()`, `random.roll(count, sides)`: seeded
   per simulation so runs are reproducible. `log(...)` writes to the server
   log.
@@ -67,11 +79,28 @@ placeholder implementations live in `data/scripts/rules.js`.
   the engine removes them from the actor's inventory before applying the
   rest of the result. Decided 2026-09-24; see D17. If any listed item is
   not in the inventory the whole result is rejected, so a spell never
-  half-fires.
+  half-fires. (Not yet wired; lands with `resolveCast`.)
 - Block. A hook that runs longer than 50 ms is interrupted; the engine
   uses a safe default (a miss, no regen, 1 max health) and warns admins
   once per load.
-- Keep state between calls. Effects on characters arrive with magic.
+- Keep state between calls. Effects carry a `state` map for that; the
+  engine persists it. (Scripts can read it now; a return channel to
+  write it lands with the first effect that needs one.)
+
+### What the engine owns
+
+- The swing meter (4.4): each round a combatant's meter gains its
+  `speed`; every whole point is one `resolveAttack` call.
+- Effect lifetimes (5.4): timed effects count down once per round and
+  are dropped at zero; `derivedStats` is re-run when a list changes.
+- Death (4.6): the corpse (a container holding everything carried and
+  worn, decaying after `corpseRounds`), the experience loss with its cap
+  and floor, respawn at the start room at `respawnHealth`.
+- Stat points and `train`: banked from `onLevel` and `onCreate`, spent
+  one at a time on any stat the character has.
+- Baseline resolution: `itemBaseline` and `mobBaseline` run for every
+  prototype at load and after every successful script reload; a live
+  mob keeps the base stats it spawned with but its derived values move.
 
 ### Time
 
@@ -84,9 +113,12 @@ placeholder implementations live in `data/scripts/rules.js`.
 ### Balance tooling (implemented)
 
 - `simulate <mob|me> <mob> [fights] [seed]` runs detached fights through
-  the same hooks and reports win rates, rounds, and damage per fight. Mobs
+  the same hooks and reports win rates, rounds (mean and standard
+  deviation), damage and swings per fight, and the winner's health left
+  as mean and standard deviation, which is the 4.5 variance row. Mobs
   are equipped as their reset entry spawns them; `me` uses your sheet and
-  gear. A seed makes the run reproducible.
+  gear. A seed makes the run reproducible. The run blocks the world
+  loop, so keep batches to a few thousand on a live server.
 - Scripts reload when a file changes, checked once per round. A syntax
   error keeps the previous rules and warns admins once. `reload` forces it.
 - `bin/urthbot` drives a running server from the command line for
@@ -347,7 +379,7 @@ Starting values, to be adjusted in playtesting:
 | Points per level | 2 | with few levels (7.2), two is one meaningful choice per level beside the feat |
 | Stat band (4.2) | ±10 percent of the multiplier | the value the variance table in 4.2 was computed at |
 | Level multiplier (7.2) | 1 + 0.02 * (level - 1) | "slight": ten levels is 20 percent, which is felt but is less than a gear tier |
-| Health base | 20 + 10 * level, times Constitution's multiplier | the placeholder's shape with a step a player can see on the prompt |
+| Health base | 40 + 10 * level, times Constitution's multiplier | set from the 4.5 round target: with a standard weapon at every level this gives 9 to 11 rounds; 20 gave 6 |
 | Dodge base | 3 percent | a few percent, per 4.3's sizing |
 | Block base | 0 | per 4.3 |
 | `K` for reduction (4.3) | 20 | starter armor totals about 3 defense, giving 13 percent reduction, so armor is felt from the first jerkin |
@@ -622,6 +654,22 @@ should be checked against.
 | Even fights chained with no rest before death is likely | 3 to 4 |
 | Materials consumed per outing when magic is used freely | to be set with 6.2 |
 | Standard deviation of health remaining after an even fight (this row sizes avoidance, 4.3) | under 8 points |
+
+First measurement, 2026-09-24, with the 3.3 starting values and the
+starter area (a level-1 character in a rusty sword, leather jerkin, and
+leather cap, six creation points unspent, against a level-1 dog, 1000
+seeded fights):
+
+| Measured | Value | Against target |
+|---|---|---|
+| Rounds | 10.3, sd 0.7 | in band |
+| Wins | 100 percent | expected at level |
+| Health left | 48.6 percent, sd 5.7 | just under the band; spending the six points will lift it |
+| Same character against a level-5 guard wielding a sword | 0 percent, 8.8 rounds | armed mob, see 8; not a baseline comparison |
+
+Win rates at +1, +3, and +5 need unarmed mobs at those levels, which the
+starter area does not have. A balance area with one plain mob per level
+is the next content task (section 9).
 
 ### 4.6 Death
 
@@ -1193,8 +1241,19 @@ the player's side of the fight.
 sets a *baseline* for everything, the same way an item's level does
 (5.2), and every value is overridable in the prototype. The baseline
 gives it the six stats at 10, health from the 3.3 curve, a natural
-attack on the `unarmed` weapon baseline, and natural armor on the
-`medium` armor baseline, all at its level. A builder who writes only
+attack that is a `standard` weapon at its level scaled by `mobDamage`
+(0.45 to start), and natural armor on the `medium` armor baseline, all
+at its level.
+
+Why the scaling (found in the first simulator run, 2026-09-24): a
+mirror fight can only end with the winner near empty, because equals
+trade down together. For a player at level in standard gear to finish
+an even fight at the 4.5 health target, a level-N mob has to hit softer
+than a level-N player. Health stays equal so the fight length is set by
+the player's damage; the mob's damage sets how much the player has left.
+A mob that *wields* a weapon uses the weapon's full numbers, so an armed
+mob is markedly stronger than its level's baseline; that is the
+builder's lever for guards and champions, and it is visible on `look`. A builder who writes only
 `level: 8` gets a plain level-8 creature; one who writes `stats:
 {strength: 14, intelligence: 6}` gets a brute; `health: 300` gets a
 boss. Role tags are unnecessary because a role is just a set of
@@ -1232,24 +1291,23 @@ its equipment. Section 9 lists the hook.
 
 Anything not yet placed in a section above.
 
+- **Balance area.** One unarmed baseline mob per level, 1 to 20, in a
+  builder-only area, so `simulate` can fill the 4.5 win-rate row without
+  hand-editing prototypes. Small content task.
 - **Hint authoring.** 6.1 relies on the world carrying hints toward
   each totem. That is content, but it needs a builder-side view of which
   totems exist and which rooms and NPCs mention them, or hints will rot
   as areas change. Belongs in milestone 7.
-- **Contract widening for milestone 6.** `resolveCast` needs the caster's
-  unlocked schools in its view. The item view needs `weapon.spread`,
-  `weapon.speed` (4.4), and `armor.spread` (4.1) and an `effects` list;
-  mob prototypes may carry an optional `xp` override (7.1); two new
-  hooks, `itemBaseline` and `mobBaseline`, run at content load and
-  script reload so a curve edit re-derives every prototype's numbers
-  without a restart (5.2, 8); the character view needs
-  an `effects` list and a way to attach timed effects from
-  `resolveCast` (5.4). Each effect is `{kind, params, state}`; the engine
-  stores all three blindly per D15, persists them, counts lifetimes in
-  rounds, and applies returned state updates. New hooks that effects
-  will eventually want, each a separate widening: `onMove`, `onDamaged`
-  (for effects on the defender that must fire even when the attack was
-  not resolved by `resolveAttack`, such as a spell), `onDeath`.
+- **Contract widenings still owed.** Done on 2026-09-24: item spread,
+  speed, level, baseline, and effects in the view; mob natural attack,
+  armor, health and xp overrides; the two baseline hooks; effects on
+  characters and instances with persistence and lifetimes; stat points
+  and `train`; `deathRules`; fractional speed. Still owed: `resolveCast`
+  with the caster's unlocked schools and deities in the view, the
+  `consume` return, a return channel for attaching effects and updating
+  effect `state`, feat picks from `onLevel` with a pick command, and the
+  hooks effects will eventually want, each a separate widening:
+  `onMove`, `onDamaged`, `onDeath`.
 - **Feats** (the designer's word, replacing "skills") are permanent
   effects with a minimum level, gained one or two per level by choice or
   from a trainer (7.2, leaning). No new system; the engine's share is a

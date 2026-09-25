@@ -5,7 +5,9 @@ description: A wooden club lies here.
 look: |
   A length of ash, worn smooth where a hand grips it.
 type: weapon
+level: 1
+baseline: heavy
 weapon:
-  damage: 4
-  hands: 1
+  hands: 2
   kind: blunt
+  verb: club

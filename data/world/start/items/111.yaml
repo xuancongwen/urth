@@ -1,0 +1,13 @@
+vnum: 111
+name: a bronze dagger
+keywords: [bronze, dagger]
+description: A bronze dagger lies here.
+look: |
+  Short, green at the hilt, and quick in the hand.
+type: weapon
+level: 1
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

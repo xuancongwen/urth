@@ -117,6 +117,7 @@ func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *Worl
 		roundTicks:     roundTicks,
 		autosaveRounds: autosaveRounds,
 	}
+	w.resolveBaselines()
 	w.initAreas()
 	return w
 }
@@ -260,6 +261,8 @@ func (w *World) round() {
 	w.roundCount++
 	w.violence()
 	w.regen()
+	w.tickEffects()
+	w.decayItems()
 	w.wanderMobs()
 	w.tickAreas()
 	if w.scripts != nil {
@@ -269,6 +272,7 @@ func (w *World) round() {
 				w.broadcastAdmins("{R}Script reload failed: " + output.Escape(err.Error()) + "{x}\n")
 			} else {
 				w.hookErrors = map[string]time.Time{}
+				w.resolveBaselines()
 				w.broadcastAdmins("{G}Scripts reloaded.{x}\n")
 			}
 		}
@@ -303,7 +307,11 @@ func (w *World) flush() {
 
 // prompt builds the in-game prompt: <health/max hp mana/max m>.
 func (w *World) prompt(p *Player) output.Message {
-	text := "<" + itoa(p.Health) + "/" + itoa(p.HealthMax) + "hp " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "m> "
+	text := "<" + itoa(p.Health) + "/" + itoa(p.HealthMax) + "hp"
+	if p.ManaMax > 0 {
+		text += " " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "m"
+	}
+	text += "> "
 	return output.Message{Type: output.Prompt, Text: text, Data: map[string]int{
 		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax,
 	}}

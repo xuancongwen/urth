@@ -38,3 +38,7 @@ resets:
     room: 10
   - item: 101         # spare club in the smithy
     room: 10
+  - item: 110         # shield in the smithy
+    room: 10
+  - item: 111         # dagger in the smithy
+    room: 10

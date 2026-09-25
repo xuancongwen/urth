@@ -1,8 +1,10 @@
 package world
 
 import (
+	"strconv"
 	"strings"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/output"
 )
@@ -36,11 +38,14 @@ func cmdKill(w *World, p *Player, args string) {
 	w.attackRound(p.Character, target)
 }
 
-// startFight makes att fight def, and def fight back if idle.
+// startFight makes att fight def, and def fight back if idle. Swing meters
+// start empty so the first round is a clean one.
 func (w *World) startFight(att, def *Character) {
 	att.Fighting = def
+	att.swing = 0
 	if def.Fighting == nil {
 		def.Fighting = att
+		def.swing = 0
 	}
 }
 
@@ -73,7 +78,9 @@ func (w *World) allCharacters() []*Character {
 	return out
 }
 
-// violence runs one combat round for everyone fighting.
+// violence runs one combat round for everyone fighting. Each combatant's
+// swing meter gains its speed; every whole point is one swing, so speed 2
+// swings twice a round and speed 0.5 swings every other round.
 func (w *World) violence() {
 	for _, c := range w.allCharacters() {
 		def := c.Fighting
@@ -84,8 +91,10 @@ func (w *World) violence() {
 			c.Fighting = nil
 			continue
 		}
-		for i := 0; i < c.AttacksPerRound; i++ {
-			if c.Fighting != def || def.Health <= 0 {
+		c.swing += c.Speed
+		for c.swing >= 1 {
+			c.swing--
+			if c.Fighting != def || def.Health <= 0 || c.Health <= 0 {
 				break
 			}
 			w.attackRound(c, def)
@@ -94,67 +103,56 @@ func (w *World) violence() {
 }
 
 // attackRound is one swing: ask the rules, apply, narrate, handle death.
+// Messages name the weapon's verb: "Your slash hits a guard. [12]".
 func (w *World) attackRound(att, def *Character) {
 	weapon := att.Equipment["wield"]
 	w.rounds++
 	r := w.resolveAttack(att, def, weapon, int(w.roundCount))
-	with := "your fists"
-	withOthers := escapeName(att.Name) + "'s fists"
-	if weapon != nil {
-		with = output.Escape(weapon.Name())
-		withOthers = with
-	}
+	verb := output.Escape(r.Verb)
 	if !r.Hit {
-		w.act("You miss $N with $t.", att, def, with, toChar)
-		w.act("$n misses you with $t.", att, def, withOthers, toVict)
-		w.act("$n misses $N with $t.", att, def, withOthers, toNotVict)
+		switch r.Stage {
+		case "dodge":
+			w.act("$N dodges your "+verb+".", att, def, "", toChar)
+			w.act("You dodge $n's "+verb+".", att, def, "", toVict)
+			w.act("$N dodges $n's "+verb+".", att, def, "", toNotVict)
+		case "block":
+			w.act("$N blocks your "+verb+".", att, def, "", toChar)
+			w.act("You block $n's "+verb+".", att, def, "", toVict)
+			w.act("$N blocks $n's "+verb+".", att, def, "", toNotVict)
+		default:
+			w.act("Your "+verb+" misses $N.", att, def, "", toChar)
+			w.act("$n's "+verb+" misses you.", att, def, "", toVict)
+			w.act("$n's "+verb+" misses $N.", att, def, "", toNotVict)
+		}
 		return
 	}
 	crit := ""
 	if r.Crit {
 		crit = " {Y}Critical!{x}"
 	}
-	verb := output.Escape(r.Verb)
 	dmg := itoa(r.Damage)
-	w.act("You "+verb+" $N with $t. {W}["+dmg+"]{x}"+crit, att, def, with, toChar)
-	w.act("$n "+thirdPerson(verb)+" you with $t. {R}["+dmg+"]{x}"+crit, att, def, withOthers, toVict)
-	w.act("$n "+thirdPerson(verb)+" $N with $t."+crit, att, def, withOthers, toNotVict)
+	w.act("Your "+verb+" hits $N. {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
+	w.act("$n's "+verb+" hits you. {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
+	w.act("$n's "+verb+" hits $N."+crit, att, def, "", toNotVict)
 	def.Health -= r.Damage
 	if def.Health <= 0 {
 		w.die(def, att)
 	}
 }
 
-// thirdPerson turns "hit" into "hits" for the observer messages.
-func thirdPerson(verb string) string {
-	switch {
-	case strings.HasSuffix(verb, "s") || strings.HasSuffix(verb, "sh") || strings.HasSuffix(verb, "ch"):
-		return verb + "es"
-	default:
-		return verb + "s"
-	}
-}
-
-// die handles a character reaching zero health. Mobs are removed and drop
-// what they carried; players respawn at the start room. What death costs
-// is a rule to be written; for now it costs nothing.
+// die handles a character reaching zero health (docs/RULES.md 4.6). Both
+// players and mobs leave a corpse holding everything they carried and
+// wore. Mobs are removed; players lose a capped slice of experience and
+// respawn at the start room.
 func (w *World) die(victim, killer *Character) {
 	w.act("$n is DEAD!!", victim, nil, "", toRoom)
 	victim.Send("{R}You have been KILLED!!{x}\n")
 	w.stopFighting(victim, true)
+	rules := w.deathRules()
+	w.makeCorpse(victim, rules.CorpseRounds)
 
 	if victim.mob != nil {
 		m := victim.mob
-		c := w.contents(m.Room)
-		for _, s := range m.equippedList() {
-			c.items = append(c.items, m.Equipment[s])
-		}
-		c.items = append(c.items, m.Inventory...)
-		if len(m.Inventory)+len(m.Equipment) > 0 {
-			w.act("$n's belongings fall to the ground.", victim, nil, "", toRoom)
-		}
-		m.Inventory = nil
-		m.Equipment = map[item.Slot]*item.Item{}
 		w.removeMobFromRoom(m)
 		if killer != nil && killer.player != nil {
 			w.grantXP(killer, w.xpForKill(killer, victim))
@@ -163,8 +161,13 @@ func (w *World) die(victim, killer *Character) {
 	}
 
 	p := victim.player
+	if loss := w.deathXPLoss(victim, rules); loss > 0 {
+		victim.Experience -= loss
+		victim.Send("You lose {C}" + itoa(loss) + "{x} experience points.\n")
+	}
 	start, _ := w.content.Rooms.Get(w.cfg.World.StartRoom)
-	victim.Health = victim.HealthMax
+	w.recalc(victim)
+	victim.Health = max(1, int(float64(victim.HealthMax)*rules.RespawnHealth))
 	victim.Mana = victim.ManaMax
 	if start != nil && victim.Room != start {
 		victim.Room = start
@@ -172,6 +175,102 @@ func (w *World) die(victim, killer *Character) {
 	}
 	w.look(p)
 	w.save(p)
+}
+
+// deathXPLoss is the experience a death costs: a fraction of the total,
+// capped at a fraction of the current level's cost, never crossing the
+// level's threshold.
+func (w *World) deathXPLoss(c *Character, rules DeathRules) int {
+	if rules.XpFraction <= 0 {
+		return 0
+	}
+	loss := int(float64(c.Experience) * rules.XpFraction)
+	floor := w.xpToLevel(c.Level)
+	if rules.XpLevelCap > 0 {
+		levelCost := w.xpToLevel(c.Level+1) - floor
+		if levelCost > 0 && levelCost < 1<<29 {
+			loss = min(loss, int(float64(levelCost)*rules.XpLevelCap))
+		}
+	}
+	if c.Experience-loss < floor {
+		loss = c.Experience - floor
+	}
+	return max(loss, 0)
+}
+
+// makeCorpse moves everything the character carried and wore into a corpse
+// in the room. The corpse decays after rounds; its contents spill out.
+func (w *World) makeCorpse(c *Character, rounds int) {
+	if c.Room == nil {
+		return
+	}
+	var held []*item.Item
+	for _, s := range c.equippedList() {
+		held = append(held, c.Equipment[s])
+	}
+	held = append(held, c.Inventory...)
+	c.Inventory = nil
+	c.Equipment = map[item.Slot]*item.Item{}
+	corpse := item.New(corpseProto(c))
+	corpse.Contents = held
+	corpse.Decay = max(rounds, 1)
+	w.contents(c.Room).items = append(w.contents(c.Room).items, corpse)
+}
+
+// corpseProto builds the prototype for a corpse. Corpses have no vnum and
+// are never saved; they exist only in room contents.
+func corpseProto(c *Character) *item.Proto {
+	kws := []string{"corpse"}
+	kws = append(kws, c.Keywords...)
+	p := &item.Proto{
+		Name:        "the corpse of " + c.Name,
+		Keywords:    kws,
+		Description: "The corpse of " + c.Name + " lies here.",
+		Look:        "It is still. Whatever it carried is still with it.",
+		Type:        item.Container,
+		Flags:       []string{"nopickup", "corpse"},
+		Level:       c.Level,
+	}
+	p.ResolveStated()
+	return p
+}
+
+// decayItems counts down decaying items in every room. A decayed container
+// spills its contents where it lay.
+func (w *World) decayItems() {
+	for vnum, c := range w.rooms {
+		var kept []*item.Item
+		for _, it := range c.items {
+			if it.Decay <= 0 {
+				kept = append(kept, it)
+				continue
+			}
+			it.Decay--
+			if it.Decay > 0 {
+				kept = append(kept, it)
+				continue
+			}
+			kept = append(kept, it.Contents...)
+			if r, ok := w.content.Rooms.Get(vnum); ok {
+				for _, p := range w.playersIn(r) {
+					p.Send(capitalize(output.Escape(it.Name())) + " crumbles into dust.\n")
+				}
+			}
+		}
+		c.items = kept
+	}
+}
+
+// tickEffects counts down timed effects on everyone and recalculates
+// anyone whose list changed.
+func (w *World) tickEffects() {
+	for _, c := range w.allCharacters() {
+		before := len(c.Effects)
+		c.Effects = effect.Tick(c.Effects)
+		if len(c.Effects) != before {
+			w.recalc(c)
+		}
+	}
 }
 
 // grantXP adds experience and applies any levels gained.
@@ -190,6 +289,7 @@ func (w *World) grantXP(c *Character, xp int) {
 			}
 			c.Stats[k] += d
 		}
+		c.StatPoints += max(r.StatPoints, 0)
 		w.recalc(c)
 		c.Health = c.HealthMax
 		c.Mana = c.ManaMax
@@ -198,11 +298,55 @@ func (w *World) grantXP(c *Character, xp int) {
 			msg = "You raise a level!"
 		}
 		c.Send("{Y}" + output.Escape(msg) + "{x} You are now level " + itoa(c.Level) + ".\n")
+		if r.StatPoints > 0 {
+			c.Send("You have " + itoa(c.StatPoints) + " stat points to train.\n")
+		}
 		w.act("$n has gained a level.", c, nil, "", toRoom)
 	}
 	if c.player != nil {
 		w.save(c.player)
 	}
+}
+
+// cmdTrain: train | train <stat>. Spends one banked stat point.
+func cmdTrain(w *World, p *Player, args string) {
+	if args == "" {
+		var b strings.Builder
+		b.WriteString("You have " + itoa(p.StatPoints) + " stat points to train.\n")
+		if len(p.Stats) > 0 {
+			b.WriteString("Stats:")
+			for _, k := range sortedKeys(p.Stats) {
+				b.WriteString(" " + k + " " + itoa(p.Stats[k]))
+			}
+			b.WriteString("\n")
+		}
+		p.Send(b.String())
+		return
+	}
+	if p.StatPoints <= 0 {
+		p.Send("You have no stat points to train.\n")
+		return
+	}
+	name := strings.ToLower(args)
+	match := ""
+	for _, k := range sortedKeys(p.Stats) {
+		if strings.HasPrefix(k, name) {
+			if match != "" {
+				p.Send("Which stat: " + match + " or " + k + "?\n")
+				return
+			}
+			match = k
+		}
+	}
+	if match == "" {
+		p.Send("You can't train that.\n")
+		return
+	}
+	p.Stats[match]++
+	p.StatPoints--
+	w.recalc(p.Character)
+	p.Send("You train " + match + " to " + itoa(p.Stats[match]) + ". " + itoa(p.StatPoints) + " points left.\n")
+	w.save(p)
 }
 
 // cmdFlee tries to leave through a random exit. Whether fleeing costs
@@ -256,12 +400,28 @@ func clamp(v, lo, hi int) int {
 func cmdScore(_ *World, p *Player, _ string) {
 	var b strings.Builder
 	b.WriteString("You are " + output.Escape(p.Name) + ", level " + itoa(p.Level) + ".\n")
-	b.WriteString("Health " + itoa(p.Health) + "/" + itoa(p.HealthMax) + "  Mana " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "\n")
-	b.WriteString("Experience " + itoa(p.Experience) + "  Attacks per round " + itoa(p.AttacksPerRound) + "\n")
+	b.WriteString("Health " + itoa(p.Health) + "/" + itoa(p.HealthMax))
+	if p.ManaMax > 0 {
+		b.WriteString("  Mana " + itoa(p.Mana) + "/" + itoa(p.ManaMax))
+	}
+	b.WriteString("\nExperience " + itoa(p.Experience) + "  Speed " + ftoa(p.Speed) + "\n")
 	if len(p.Stats) > 0 {
 		b.WriteString("Stats:")
 		for _, k := range sortedKeys(p.Stats) {
 			b.WriteString(" " + k + " " + itoa(p.Stats[k]))
+		}
+		b.WriteString("\n")
+	}
+	if p.StatPoints > 0 {
+		b.WriteString("You have " + itoa(p.StatPoints) + " stat points to train.\n")
+	}
+	if len(p.Effects) > 0 {
+		b.WriteString("Effects:")
+		for _, e := range p.Effects {
+			b.WriteString(" " + output.Escape(e.Kind))
+			if e.Rounds > 0 {
+				b.WriteString("(" + itoa(e.Rounds) + ")")
+			}
 		}
 		b.WriteString("\n")
 	}
@@ -279,3 +439,5 @@ func sortedKeys(m map[string]int) []string {
 	sortStrings(keys)
 	return keys
 }
+
+func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', 1, 64) }

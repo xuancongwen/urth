@@ -6,7 +6,9 @@ look: |
   Pitted along the edge and dull at the point. It has been dropped and
   picked up many times.
 type: weapon
+level: 1
+baseline: standard
 weapon:
-  damage: 5
   hands: 1
   kind: slash
+  verb: slash

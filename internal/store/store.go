@@ -15,6 +15,8 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/yaml.v3"
+
+	"urth/internal/effect"
 )
 
 // Record is everything saved about a player.
@@ -30,8 +32,12 @@ type Record struct {
 	Level      int            `yaml:"level"`
 	Experience int            `yaml:"experience"`
 	Stats      map[string]int `yaml:"stats,omitempty"`
+	StatPoints int            `yaml:"stat_points,omitempty"`
 	Health     int            `yaml:"health"`
 	Mana       int            `yaml:"mana"`
+	// Effects are the character's active effects: feats (permanent) and
+	// anything timed that was running at save.
+	Effects []effect.Active `yaml:"effects,omitempty"`
 	// Inventory and Equipment are recreated from prototypes at login.
 	Inventory []SavedItem          `yaml:"inventory,omitempty"`
 	Equipment map[string]SavedItem `yaml:"equipment,omitempty"`
@@ -40,8 +46,9 @@ type Record struct {
 // SavedItem is an item instance on disk: its prototype and, for
 // containers, what was inside.
 type SavedItem struct {
-	Vnum     int         `yaml:"vnum"`
-	Contents []SavedItem `yaml:"contents,omitempty"`
+	Vnum     int             `yaml:"vnum"`
+	Contents []SavedItem     `yaml:"contents,omitempty"`
+	Effects  []effect.Active `yaml:"effects,omitempty"`
 }
 
 // ErrNotFound is returned by Load for an unknown name.

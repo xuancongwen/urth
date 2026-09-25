@@ -10,6 +10,9 @@ import (
 	"strings"
 
 	"gopkg.in/yaml.v3"
+
+	"urth/internal/effect"
+	"urth/internal/item"
 )
 
 // Proto is a mob definition.
@@ -27,10 +30,53 @@ type Proto struct {
 	// Flags: "sentinel" never moves; "stay_area" (default on) never leaves
 	// its area when wandering. Others are free for rules.
 	Flags []string `yaml:"flags,omitempty"`
-	// Stats are rule inputs the engine stores and never interprets.
+	// Rule inputs the engine stores and never interprets. Everything a
+	// builder leaves out is filled from the level baseline by the rules'
+	// mobBaseline hook into Resolved (docs/RULES.md 8).
 	Stats map[string]int `yaml:"stats,omitempty"`
+	// Health overrides the derived maximum when positive.
+	Health int `yaml:"health,omitempty"`
+	// Attack is the natural attack used when nothing is wielded; Armor the
+	// natural defense used when nothing is worn.
+	Attack *item.WeaponSpec `yaml:"attack,omitempty"`
+	Armor  *item.ArmorSpec  `yaml:"armor,omitempty"`
+	// XP overrides the kill reward formula when positive.
+	XP int `yaml:"xp,omitempty"`
+	// Effects every instance carries (a poisonous bite, thick hide).
+	Effects []effect.Spec `yaml:"effects,omitempty"`
+	// Resolved is what the game uses: stated values with the baseline
+	// filling the gaps. Set by the world; never read from YAML.
+	Resolved Resolved `yaml:"-"`
 
 	Area string `yaml:"-"`
+}
+
+// Resolved is a mob's numbers after the baseline has been applied.
+type Resolved struct {
+	Stats  map[string]int
+	Health int
+	Attack item.WeaponSpec
+	Armor  item.ArmorSpec
+	XP     int
+	Source string
+}
+
+// ResolveStated fills Resolved from the stated values alone.
+func (p *Proto) ResolveStated() {
+	r := Resolved{Stats: map[string]int{}, Health: p.Health, XP: p.XP, Source: "stated"}
+	for k, v := range p.Stats {
+		r.Stats[k] = v
+	}
+	if p.Attack != nil {
+		r.Attack = *p.Attack
+	}
+	if r.Attack.Speed == 0 {
+		r.Attack.Speed = 1
+	}
+	if p.Armor != nil {
+		r.Armor = *p.Armor
+	}
+	p.Resolved = r
 }
 
 // HasFlag reports whether the prototype carries flag.
@@ -80,6 +126,12 @@ func LoadArea(dir, area string, protos map[int]*Proto) error {
 		if p.Level <= 0 {
 			p.Level = 1
 		}
+		for i, e := range p.Effects {
+			if e.Kind == "" {
+				return fmt.Errorf("%s: mob %d: effect %d has no kind", f, p.Vnum, i)
+			}
+		}
+		p.ResolveStated()
 		if prev, dup := protos[p.Vnum]; dup {
 			return fmt.Errorf("%s: mob vnum %d already used by %s in area %s", f, p.Vnum, prev.Name, prev.Area)
 		}

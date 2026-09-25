@@ -3,6 +3,7 @@ package world
 import (
 	"io"
 	"log/slog"
+	"math/rand/v2"
 	"os"
 	"path/filepath"
 	"strings"
@@ -26,13 +27,15 @@ import (
 // weapon damage or 1; every swing hits; pools are small so fights end fast.
 const testRules = `
 function resolveAttack(a, d, w, round) {
-  return { hit: true, damage: w && w.weapon ? w.weapon.damage : 1, crit: false, verb: "hit" };
+  return { hit: true, damage: w && w.weapon ? w.weapon.damage : 1, crit: false, verb: w && w.weapon ? w.weapon.verb : "punch", stage: "" };
 }
-function derivedStats(c) { return { healthMax: 10 + c.level * 2, manaMax: 5, attacksPerRound: 1 }; }
+function derivedStats(c) { return { healthMax: 10 + c.level * 2 + c.effects.length * 5, manaMax: 5, speed: 1 }; }
 function onTick(c) { return { healthDelta: c.fighting ? 0 : 1, manaDelta: 0 }; }
 function xpForKill(k, v) { return 60; }
 function xpToLevel(level) { return (level - 1) * 100; }
-function onLevel(c, l) { return { statDeltas: { might: 1 }, message: "Level up." }; }
+function onLevel(c, l) { return { statPoints: 1, statDeltas: { might: 1 }, message: "Level up." }; }
+function onCreate(c) { return { stats: { might: 0 }, statPoints: 0 }; }
+function deathRules() { return { xpFraction: 0, xpLevelCap: 0, corpseRounds: 3, respawnHealth: 1 }; }
 `
 
 // fakeConn is an in-memory session.Conn that records output rendered as
@@ -78,7 +81,8 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
 		"a/rooms/2.yaml":  "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n  east: 3\n",
 		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n",
-		"a/items/10.yaml": "vnum: 10\nname: a rusty sword\nkeywords: [rusty, sword]\ndescription: A rusty sword lies here.\nlook: Pitted and dull.\ntype: weapon\nweapon:\n  damage: 4\n  hands: 1\n",
+		"a/items/10.yaml": "vnum: 10\nname: a rusty sword\nkeywords: [rusty, sword]\ndescription: A rusty sword lies here.\nlook: Pitted and dull.\ntype: weapon\nweapon:\n  damage: 4\n  hands: 1\n  verb: slash\n",
+		"a/items/15.yaml": "vnum: 15\nname: a plain spear\nkeywords: [plain, spear]\ntype: weapon\nlevel: 3\nbaseline: standard\nweapon:\n  hands: 2\n",
 		"a/items/11.yaml": "vnum: 11\nname: a leather cap\nkeywords: [leather, cap]\ntype: armor\nslot: head\narmor:\n  defense: 1\n",
 		"a/items/12.yaml": "vnum: 12\nname: a small sack\nkeywords: [small, sack]\ntype: container\n",
 		"a/items/13.yaml": "vnum: 13\nname: a loaf of bread\nkeywords: [loaf, bread]\n",
@@ -129,6 +133,9 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 		LoadContent: func() (*content.World, error) { return content.Load(dir) }})
 	w.scriptDir = scriptDir
 	w.contentDir = dir
+	// A fixed seed keeps mob wandering and flee directions the same run to
+	// run; the world seeds from the clock in production.
+	w.rng = rand.New(rand.NewPCG(7, 11))
 	return w, st
 }
 

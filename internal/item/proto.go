@@ -12,6 +12,8 @@ import (
 	"strings"
 
 	"gopkg.in/yaml.v3"
+
+	"urth/internal/effect"
 )
 
 // Type is the broad kind of an item. It decides which commands apply.
@@ -60,10 +62,23 @@ type Proto struct {
 	Slot   Slot `yaml:"slot"`
 	Weight int  `yaml:"weight"`
 	Value  int  `yaml:"value"`
-	// Rule inputs. The engine stores them and never interprets them.
+	// Level and Baseline select the row of the rules' item curve this item
+	// was drawn from (docs/RULES.md 5.2). Level defaults to 1; an empty
+	// Baseline means the rules' default for the type.
+	Level    int    `yaml:"level"`
+	Baseline string `yaml:"baseline"`
+	// Rule inputs as the builder stated them. The engine stores them and
+	// never interprets them. Fields left zero are filled from the baseline
+	// by the rules' itemBaseline hook into Resolved.
 	Weapon *WeaponSpec    `yaml:"weapon,omitempty"`
 	Armor  *ArmorSpec     `yaml:"armor,omitempty"`
 	Mods   map[string]int `yaml:"mods,omitempty"`
+	// Effects are intrinsic: every instance of this prototype has them.
+	Effects []effect.Spec `yaml:"effects,omitempty"`
+	// Resolved is the numbers the game actually uses: stated fields with
+	// the baseline filling the gaps. Set by the world after load and after
+	// every script reload; never read from YAML.
+	Resolved Resolved `yaml:"-"`
 	// Capacity is how much a container holds, in weight. 0 means unlimited.
 	Capacity int `yaml:"capacity"`
 	// Flags are free-form markers for rules and builders.
@@ -72,16 +87,45 @@ type Proto struct {
 	Area string `yaml:"-"`
 }
 
-// WeaponSpec is rule input for weapons.
+// WeaponSpec is rule input for weapons. Damage is the mean per swing,
+// Spread the fraction it varies by, Speed the swings per round, Verb the
+// word combat messages use ("slash", "bite").
 type WeaponSpec struct {
-	Damage int    `yaml:"damage"`
-	Hands  int    `yaml:"hands"`
-	Kind   string `yaml:"kind"` // slash, pierce, blunt, ...
+	Damage int     `yaml:"damage" json:"damage"`
+	Spread float64 `yaml:"spread" json:"spread"`
+	Speed  float64 `yaml:"speed" json:"speed"`
+	Hands  int     `yaml:"hands" json:"hands"`
+	Kind   string  `yaml:"kind" json:"kind"` // slash, pierce, blunt, ...
+	Verb   string  `yaml:"verb" json:"verb"`
 }
 
 // ArmorSpec is rule input for armor.
 type ArmorSpec struct {
-	Defense int `yaml:"defense"`
+	Defense int     `yaml:"defense" json:"defense"`
+	Spread  float64 `yaml:"spread" json:"spread"`
+}
+
+// Resolved holds the numbers in play after the baseline has been applied.
+// Source says where they came from, for the builder's stat command.
+type Resolved struct {
+	Weapon WeaponSpec
+	Armor  ArmorSpec
+	Source string
+}
+
+// ResolveStated fills Resolved with the stated values alone, for use when
+// no baseline hook is available.
+func (p *Proto) ResolveStated() {
+	p.Resolved = Resolved{Source: "stated"}
+	if p.Weapon != nil {
+		p.Resolved.Weapon = *p.Weapon
+	}
+	if p.Armor != nil {
+		p.Resolved.Armor = *p.Armor
+	}
+	if p.Resolved.Weapon.Speed == 0 && p.Type == Weapon {
+		p.Resolved.Weapon.Speed = 1
+	}
 }
 
 // HasFlag reports whether the prototype carries flag.
@@ -165,6 +209,15 @@ func (p *Proto) validate() error {
 	if p.Type == Weapon && p.Slot == "" {
 		p.Slot = "wield"
 	}
+	if p.Level <= 0 {
+		p.Level = 1
+	}
+	for i, e := range p.Effects {
+		if e.Kind == "" {
+			return fmt.Errorf("item %d: effect %d has no kind", p.Vnum, i)
+		}
+	}
+	p.ResolveStated()
 	if p.Description == "" {
 		p.Description = capitalize(p.Name) + " is here."
 	}

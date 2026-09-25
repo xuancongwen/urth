@@ -1,7 +1,9 @@
 package world
 
 import (
+	"urth/internal/effect"
 	"urth/internal/item"
+	"urth/internal/output"
 	"urth/internal/store"
 )
 
@@ -12,7 +14,10 @@ import (
 func saveItems(list []*item.Item) []store.SavedItem {
 	var out []store.SavedItem
 	for _, it := range list {
-		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents)})
+		if it.Proto.Vnum == 0 {
+			continue // corpses and other synthetic items are not saved
+		}
+		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects})
 	}
 	return out
 }
@@ -27,6 +32,7 @@ func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
 		}
 		it := item.New(proto)
 		it.Contents = w.loadItems(s.Contents, owner)
+		it.Effects = s.Effects
 		out = append(out, it)
 	}
 	return out
@@ -36,7 +42,7 @@ func (w *World) saveCharacterItems(p *Player) {
 	p.rec.Inventory = saveItems(p.Inventory)
 	p.rec.Equipment = map[string]store.SavedItem{}
 	for slot, it := range p.Equipment {
-		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents)}
+		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects}
 	}
 }
 
@@ -56,11 +62,25 @@ func (w *World) loadCharacterItems(p *Player) {
 }
 
 // loadSheet restores level, experience, stats, and vitals, then derives
-// maxima. A brand-new record has zero health; it starts full.
+// maxima. A brand-new record has zero health; it starts full. A record
+// with no stats yet (new, or made before the rules defined any) gets its
+// sheet from the onCreate hook.
 func (w *World) loadSheet(p *Player) {
 	p.Level = max(p.rec.Level, 1)
 	p.Experience = p.rec.Experience
 	p.Stats = copyStats(p.rec.Stats)
+	p.StatPoints = p.rec.StatPoints
+	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
+	if len(p.Stats) == 0 {
+		r := w.onCreate(p.Character)
+		for k, v := range r.Stats {
+			p.Stats[k] = v
+		}
+		p.StatPoints += max(r.StatPoints, 0)
+		if r.Message != "" {
+			p.Send(output.Escape(r.Message) + "\n")
+		}
+	}
 	w.recalc(p.Character)
 	if p.rec.Health <= 0 {
 		p.Health, p.Mana = p.HealthMax, p.ManaMax
@@ -74,6 +94,8 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Level = p.Level
 	p.rec.Experience = p.Experience
 	p.rec.Stats = copyStats(p.Stats)
+	p.rec.StatPoints = p.StatPoints
+	p.rec.Effects = append([]effect.Active(nil), p.Effects...)
 	p.rec.Health = p.Health
 	p.rec.Mana = p.Mana
 }

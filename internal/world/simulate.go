@@ -1,6 +1,7 @@
 package world
 
 import (
+	"math"
 	"math/rand/v2"
 	"strconv"
 	"strings"
@@ -13,7 +14,7 @@ import (
 // The simulator runs fights between throwaway characters using the same
 // hooks as live combat, with a seeded random source, and reports the
 // distribution. It is the balance tool: change a formula, run a thousand
-// fights, read the numbers.
+// fights, read the numbers against docs/RULES.md 4.5.
 
 // SimResult summarises a batch of fights.
 type SimResult struct {
@@ -22,10 +23,17 @@ type SimResult struct {
 	BWins     int
 	Draws     int
 	MeanRound float64
+	SDRound   float64
 	MinRound  int
 	MaxRound  int
 	MeanDmgA  float64 // mean total damage dealt by A per fight
 	MeanDmgB  float64
+	SwingsA   float64 // mean swings per fight
+	SwingsB   float64
+	// Health A has left, as a fraction of its maximum, over fights A won.
+	// The standard deviation is the 4.5 variance target.
+	MeanLeftA float64
+	SDLeftA   float64
 }
 
 const simMaxRounds = 200
@@ -41,7 +49,8 @@ func (w *World) simulate(protoA, protoB *mob.Proto, playerA *Player, n int, seed
 		w.scripts.SetRandom(rng)
 		defer w.scripts.SetRandom(w.rng)
 	}
-	var totalRounds, totalA, totalB int
+	var rounds, left []float64
+	var totalA, totalB, swingsA, swingsB int
 	for i := 0; i < n; i++ {
 		var a *Character
 		if playerA != nil {
@@ -50,34 +59,55 @@ func (w *World) simulate(protoA, protoB *mob.Proto, playerA *Player, n int, seed
 			a = w.simCharacter(protoA)
 		}
 		b := w.simCharacter(protoB)
-		rounds, dmgA, dmgB := w.simFight(a, b)
-		totalRounds += rounds
-		totalA += dmgA
-		totalB += dmgB
+		f := w.simFight(a, b)
+		rounds = append(rounds, float64(f.rounds))
+		totalA += f.dmgA
+		totalB += f.dmgB
+		swingsA += f.swingsA
+		swingsB += f.swingsB
 		switch {
 		case b.Health <= 0 && a.Health > 0:
 			res.AWins++
+			left = append(left, float64(a.Health)/float64(max(a.HealthMax, 1)))
 		case a.Health <= 0 && b.Health > 0:
 			res.BWins++
 		default:
 			res.Draws++
 		}
-		res.MinRound = min(res.MinRound, rounds)
-		res.MaxRound = max(res.MaxRound, rounds)
+		res.MinRound = min(res.MinRound, f.rounds)
+		res.MaxRound = max(res.MaxRound, f.rounds)
 	}
 	if n > 0 {
-		res.MeanRound = float64(totalRounds) / float64(n)
+		res.MeanRound, res.SDRound = meanSD(rounds)
 		res.MeanDmgA = float64(totalA) / float64(n)
 		res.MeanDmgB = float64(totalB) / float64(n)
+		res.SwingsA = float64(swingsA) / float64(n)
+		res.SwingsB = float64(swingsB) / float64(n)
+	}
+	if len(left) > 0 {
+		res.MeanLeftA, res.SDLeftA = meanSD(left)
 	}
 	return res
+}
+
+func meanSD(xs []float64) (mean, sd float64) {
+	if len(xs) == 0 {
+		return 0, 0
+	}
+	for _, x := range xs {
+		mean += x
+	}
+	mean /= float64(len(xs))
+	for _, x := range xs {
+		sd += (x - mean) * (x - mean)
+	}
+	return mean, math.Sqrt(sd / float64(len(xs)))
 }
 
 // simCharacter builds a detached mob character from a prototype, equipped
 // the way its first reset entry would spawn it.
 func (w *World) simCharacter(p *mob.Proto) *Character {
 	m := w.newMob(p)
-	m.Stats = copyStats(p.Stats)
 	for _, a := range w.content.Resets {
 		for _, r := range a.Resets {
 			if r.Mob != p.Vnum {
@@ -97,50 +127,61 @@ equipped:
 	return m.Character
 }
 
-// cloneForSim copies a player's character sheet and equipment views.
+// cloneForSim copies a player's character sheet, effects, and equipment.
 func (w *World) cloneForSim(src *Character) *Character {
 	c := newCharacter(src.Name, src.Keywords)
 	c.Level = src.Level
 	c.Experience = src.Experience
 	c.Stats = copyStats(src.Stats)
+	c.Effects = append(c.Effects, src.Effects...)
 	for slot, it := range src.Equipment {
-		c.Equipment[slot] = item.New(it.Proto)
+		clone := item.New(it.Proto)
+		clone.Effects = append(clone.Effects, it.Effects...)
+		c.Equipment[slot] = clone
 	}
 	w.recalc(c)
 	c.Health, c.Mana = c.HealthMax, c.ManaMax
 	return c
 }
 
-// simFight runs rounds until someone drops or the cap is hit. Damage is
-// applied directly; no messages, no death handling.
-func (w *World) simFight(a, b *Character) (rounds, dmgA, dmgB int) {
+type simFightResult struct {
+	rounds, dmgA, dmgB, swingsA, swingsB int
+}
+
+// simFight runs rounds until someone drops or the cap is hit, using the
+// same swing meter as live combat. Damage is applied directly; no
+// messages, no death handling.
+func (w *World) simFight(a, b *Character) simFightResult {
+	var f simFightResult
 	a.Fighting, b.Fighting = b, a
-	for rounds = 1; rounds <= simMaxRounds; rounds++ {
-		for i := 0; i < a.AttacksPerRound && b.Health > 0; i++ {
-			r := w.resolveAttack(a, b, a.Equipment["wield"], rounds)
+	a.swing, b.swing = 0, 0
+	swing := func(att, def *Character, round int, dmg, swings *int) {
+		att.swing += att.Speed
+		for att.swing >= 1 && def.Health > 0 {
+			att.swing--
+			*swings++
+			r := w.resolveAttack(att, def, att.Equipment["wield"], round)
 			if r.Hit {
-				b.Health -= r.Damage
-				dmgA += r.Damage
+				def.Health -= r.Damage
+				*dmg += r.Damage
 			}
 		}
+	}
+	for f.rounds = 1; f.rounds <= simMaxRounds; f.rounds++ {
+		swing(a, b, f.rounds, &f.dmgA, &f.swingsA)
 		if b.Health <= 0 {
-			return rounds, dmgA, dmgB
+			return f
 		}
-		for i := 0; i < b.AttacksPerRound && a.Health > 0; i++ {
-			r := w.resolveAttack(b, a, b.Equipment["wield"], rounds)
-			if r.Hit {
-				a.Health -= r.Damage
-				dmgB += r.Damage
-			}
-		}
+		swing(b, a, f.rounds, &f.dmgB, &f.swingsB)
 		if a.Health <= 0 {
-			return rounds, dmgA, dmgB
+			return f
 		}
 		ta, tb := w.onTick(a), w.onTick(b)
 		a.Health = clamp(a.Health+ta.HealthDelta, 0, a.HealthMax)
 		b.Health = clamp(b.Health+tb.HealthDelta, 0, b.HealthMax)
 	}
-	return simMaxRounds, dmgA, dmgB
+	f.rounds = simMaxRounds
+	return f
 }
 
 func copyStats(m map[string]int) map[string]int {
@@ -198,8 +239,11 @@ func cmdSimulate(w *World, p *Player, args string) {
 	var b strings.Builder
 	b.WriteString("Simulated " + itoa(res.Fights) + " fights: " + output.Escape(nameA) + " vs " + output.Escape(protoB.Name) + "\n")
 	b.WriteString("  A wins " + pct(res.AWins, res.Fights) + "  B wins " + pct(res.BWins, res.Fights) + "  draws " + pct(res.Draws, res.Fights) + "\n")
-	b.WriteString("  rounds: mean " + ftoa(res.MeanRound) + "  min " + itoa(res.MinRound) + "  max " + itoa(res.MaxRound) + "\n")
-	b.WriteString("  damage per fight: A " + ftoa(res.MeanDmgA) + "  B " + ftoa(res.MeanDmgB) + "\n")
+	b.WriteString("  rounds: mean " + ftoa(res.MeanRound) + "  sd " + ftoa(res.SDRound) + "  min " + itoa(res.MinRound) + "  max " + itoa(res.MaxRound) + "\n")
+	b.WriteString("  damage per fight: A " + ftoa(res.MeanDmgA) + " over " + ftoa(res.SwingsA) + " swings  B " + ftoa(res.MeanDmgB) + " over " + ftoa(res.SwingsB) + " swings\n")
+	if res.AWins > 0 {
+		b.WriteString("  A health left when winning: mean " + pctf(res.MeanLeftA) + "  sd " + pctf(res.SDLeftA) + "\n")
+	}
 	p.Send(b.String())
 }
 
@@ -210,4 +254,4 @@ func pct(n, total int) string {
 	return strconv.FormatFloat(100*float64(n)/float64(total), 'f', 1, 64) + "%"
 }
 
-func ftoa(f float64) string { return strconv.FormatFloat(f, 'f', 1, 64) }
+func pctf(f float64) string { return strconv.FormatFloat(100*f, 'f', 1, 64) + "%" }

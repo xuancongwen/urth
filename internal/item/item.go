@@ -4,6 +4,8 @@ import (
 	"strconv"
 	"strings"
 	"sync/atomic"
+
+	"urth/internal/effect"
 )
 
 var lastID atomic.Uint64
@@ -16,7 +18,16 @@ type Item struct {
 	Proto *Proto
 	// Contents are the items inside, for containers.
 	Contents []*Item
+	// Effects applied to this instance (an enchantment), on top of the
+	// prototype's intrinsic ones.
+	Effects []effect.Active
+	// Decay is rounds until this item is destroyed; 0 means never. Corpses
+	// use it.
+	Decay int
 }
+
+// AllEffects renders intrinsic and applied effects for scripts.
+func (i *Item) AllEffects() []any { return effect.Views(i.Proto.Effects, i.Effects) }
 
 // New creates an instance of p.
 func New(p *Proto) *Item {

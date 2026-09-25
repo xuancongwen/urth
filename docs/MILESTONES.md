@@ -63,10 +63,31 @@ and items at the new rooms and prototypes.
 
 **Done:** content can be built while playing.
 
-## 8. Rules, in scripts `[ ]`
+## 8. Rules, in scripts `[~]`
 
-Combat first, then magic, then progression. Each balanced with the simulator
-from milestone 6.
+Built against `RULES.md`, in four steps, each leaving the simulator
+runnable.
+
+1. **Engine widenings** `[x]` Item spread, speed, verb, level, baseline,
+   and effects; mob natural attack, armor, health and xp overrides;
+   `itemBaseline` and `mobBaseline` hooks at load and reload; the swing
+   meter for fractional speed; effects on characters and item instances
+   with persistence and round lifetimes; stat points and `train`;
+   `deathRules`; corpses; the simulator reports variance.
+2. **Combat core in scripts** `[x]` Six stats with linear multipliers,
+   baselines by level, spread and stat band, dodge, block, asymptotic
+   reduction, level multiplier, regeneration, the hybrid experience
+   curve, death cost, and the first effect kinds (stat, crit, block,
+   dodge, attacks). First simulator run recorded in `RULES.md` 4.5.
+3. **Progression** `[ ]` Feat list and a pick command; `onLevel` offering
+   picks; a balance area with one plain mob per level to fill the 4.5
+   win-rate row.
+4. **Magic** `[ ]` Work `RULES.md` 6.4, then `cast`, `consume`, schools and
+   deities, materials, totems, and the effect return channel.
+
+**Done:** a player in starter gear fights an even mob to the 4.5 targets,
+and editing a baseline function changes every item's numbers without a
+restart.
 
 ## Deferred until after milestone 8
 

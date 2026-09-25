@@ -1,0 +1,13 @@
+vnum: 110
+name: a wooden shield
+keywords: [wooden, shield]
+description: A wooden shield leans against the wall.
+look: |
+  Three planks banded with iron, with a strap for the forearm. It has
+  stopped a few blows already.
+type: armor
+slot: shield
+level: 1
+effects:
+  - kind: block
+    params: { chance: 0.15 }

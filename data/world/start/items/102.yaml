@@ -3,8 +3,8 @@ name: a leather cap
 keywords: [leather, cap]
 description: A leather cap lies here.
 look: |
-  Boiled leather, cracked at the brim.
+  Boiled leather, shaped to a head somewhat larger than yours.
 type: armor
 slot: head
-armor:
-  defense: 1
+level: 1
+baseline: light

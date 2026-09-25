@@ -6,3 +6,5 @@ look: |
   Wrapped in rags that were once several different garments.
 level: 1
 flags: []
+attack:
+  verb: punch

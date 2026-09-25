@@ -6,5 +6,5 @@ look: |
   Sleeveless, stiff, and smelling faintly of horse.
 type: armor
 slot: body
-armor:
-  defense: 2
+level: 1
+baseline: light

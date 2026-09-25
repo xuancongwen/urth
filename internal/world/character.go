@@ -3,6 +3,7 @@ package world
 import (
 	"strings"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/mob"
 	"urth/internal/output"
@@ -18,14 +19,22 @@ type Character struct {
 
 	// Sheet. Base stats are a free-form map because the stat set is a
 	// rules decision (docs/RULES.md 3.2); maxima come from derivedStats.
-	Level           int
-	Experience      int
-	Stats           map[string]int
-	Health          int
-	HealthMax       int
-	Mana            int
-	ManaMax         int
-	AttacksPerRound int
+	Level      int
+	Experience int
+	Stats      map[string]int
+	// StatPoints are banked, unspent points from levels (train spends them).
+	StatPoints int
+	Health     int
+	HealthMax  int
+	Mana       int
+	ManaMax    int
+	// Speed is swings per round; swing is the meter that turns a fractional
+	// speed into whole swings (docs/RULES.md 4.4).
+	Speed float64
+	swing float64
+	// Effects on the character: feats are permanent, buffs and poisons are
+	// timed. The engine stores and counts them; the rules interpret them.
+	Effects []effect.Active
 
 	Fighting *Character
 
@@ -38,7 +47,7 @@ type Character struct {
 }
 
 func newCharacter(name string, keywords []string) *Character {
-	return &Character{Name: name, Keywords: keywords, Level: 1, Stats: map[string]int{}, HealthMax: 1, Health: 1, AttacksPerRound: 1, Equipment: map[item.Slot]*item.Item{}}
+	return &Character{Name: name, Keywords: keywords, Level: 1, Stats: map[string]int{}, HealthMax: 1, Health: 1, Speed: 1, Equipment: map[item.Slot]*item.Item{}}
 }
 
 // IsPlayer reports whether this character is a connected player.
@@ -70,7 +79,10 @@ func (w *World) newMob(p *mob.Proto) *Mob {
 	w.lastMobID++
 	m := &Mob{Character: newCharacter(p.Name, p.Keywords), Proto: p, id: w.lastMobID}
 	m.Level = p.Level
-	m.Stats = copyStats(p.Stats)
+	m.Stats = copyStats(p.Resolved.Stats)
+	for _, e := range p.Effects {
+		m.Effects = append(m.Effects, effect.Active{Spec: e})
+	}
 	m.mob = m
 	return m
 }
