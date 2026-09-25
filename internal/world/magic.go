@@ -421,9 +421,10 @@ func (w *World) applyCastTarget(c, t *Character, sp Spell, name string, tr CastT
 		if tr.Saved {
 			resist = " partly"
 		}
-		w.act("Your "+name+" hits $N"+resist+". {W}["+dmg+"]{x}", c, t, "", toChar)
-		w.act("$n's "+name+" hits you"+resist+". {R}["+dmg+"]{x}", c, t, "", toVict)
-		w.act("$n's "+name+" hits $N"+resist+".", c, t, "", toNotVict)
+		_, word, punct := w.hitWords(tr.Damage, t)
+		w.act("Your "+name+" "+word+" $N"+resist+punct+" {W}["+dmg+"]{x}", c, t, "", toChar)
+		w.act("$n's "+name+" "+word+" you"+resist+punct+" {R}["+dmg+"]{x}", c, t, "", toVict)
+		w.act("$n's "+name+" "+word+" $N"+resist+punct, c, t, "", toNotVict)
 		t.Health -= tr.Damage
 	case tr.Heal > 0:
 		healed := min(tr.Heal, t.HealthMax-t.Health)

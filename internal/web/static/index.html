@@ -29,7 +29,7 @@
   #area { color: var(--dim); font-size: .85em; }
   #conn { margin-left: auto; font-size: .8em; color: var(--dim); }
   #conn.on { color: var(--ok); } #conn.off { color: var(--bad); }
-  #screen { flex: 1; min-height: 0; overflow-y: auto; padding: .8em 1.1em 1em;
+  #screen { flex: 1; min-height: 0; overflow-y: auto; padding: .8em 1.1em 1.6em;
     white-space: pre-wrap; word-break: break-word; overscroll-behavior: contain; }
   #screen .room { display: block; margin: .7em 0 .3em; padding-top: .5em; border-top: 1px dashed var(--line); }
   #screen .room:first-child { border-top: 0; margin-top: 0; }
@@ -64,8 +64,8 @@
   #exits button:hover { border-color: var(--accent); }
 
   /* Input bar */
-  #bar { grid-area: bar; display: flex; align-items: center; gap: .6em; padding: .5em 1.1em;
-    padding-bottom: calc(.5em + env(safe-area-inset-bottom)); background: var(--panel); border-top: 1px solid var(--line); }
+  #bar { grid-area: bar; display: flex; align-items: center; gap: .6em; padding: .9em 1.1em;
+    padding-bottom: calc(.9em + env(safe-area-inset-bottom)); background: var(--panel); border-top: 1px solid var(--line); }
   #prompt { color: var(--ok); white-space: pre; overflow: hidden; text-overflow: ellipsis; max-width: 45%; }
   #inputwrap { flex: 1; position: relative; min-width: 0; }
   #input { width: 100%; background: var(--bg); color: #fff; border: 1px solid var(--line); border-radius: 4px;

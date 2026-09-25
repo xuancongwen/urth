@@ -308,6 +308,7 @@ func (w *World) resolveBaselines() {
 			}
 		}
 	}
+	w.loadDamageWords()
 	// Live characters keep pointers to prototypes, so their derived values
 	// may have moved.
 	for _, c := range w.allCharacters() {

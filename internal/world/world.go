@@ -68,6 +68,8 @@ type World struct {
 	// hookErrors records the script load each hook last failed under, so
 	// a broken formula is reported once per reload.
 	hookErrors map[string]time.Time
+	// damageLadder is the rules' damage-word ladder (damage.go).
+	damageLadder []damageWord
 
 	lastMobID  uint64
 	rounds     uint64 // attack rounds resolved, for stats

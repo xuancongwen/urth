@@ -273,9 +273,10 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 			}
 		} else {
 			dmg := itoa(r.Damage)
-			w.act("Your "+verb+" hits $N. {W}["+dmg+"]{x}", c, target, "", toChar)
-			w.act("$n's "+verb+" hits you. {R}["+dmg+"]{x}", c, target, "", toVict)
-			w.act("$n's "+verb+" hits $N.", c, target, "", toNotVict)
+			_, word, punct := w.hitWords(r.Damage, target)
+			w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}", c, target, "", toChar)
+			w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}", c, target, "", toVict)
+			w.act("$n's "+verb+" "+word+" $N"+punct, c, target, "", toNotVict)
 			target.Health -= r.Damage
 		}
 	} else if r.Message == "" {

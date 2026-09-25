@@ -649,3 +649,32 @@ function moneyFor(victim) {
   return Math.max(0, Math.round(spreadRoll(base, MONEY.spread)));
 }
 
+// ---------------------------------------------------------------------
+// Damage words, after ROM's dam_message, keyed to the share of the
+// target's maximum health one hit takes so the ladder reads the same at
+// every level. "max" is the fraction the rung covers up to; the last rung
+// covers everything above. Edit freely.
+// ---------------------------------------------------------------------
+function damageWords() {
+  return [
+    { max: 0.02, word: "scratch" },
+    { max: 0.04, word: "graze" },
+    { max: 0.07, word: "hit" },
+    { max: 0.10, word: "injure" },
+    { max: 0.14, word: "wound" },
+    { max: 0.18, word: "maul", shout: true },
+    { max: 0.22, word: "decimate", shout: true },
+    { max: 0.27, word: "devastate", shout: true },
+    { max: 0.32, word: "maim", shout: true },
+    { max: 0.38, word: "MUTILATE", shout: true },
+    { max: 0.45, word: "DISEMBOWEL", shout: true },
+    { max: 0.55, word: "DISMEMBER", shout: true },
+    { max: 0.65, word: "MASSACRE", shout: true },
+    { max: 0.80, word: "MANGLE", shout: true },
+    { max: 1.00, word: "*** DEMOLISH ***", shout: true },
+    { max: 1.50, word: "=== OBLITERATE ===", shout: true },
+    { max: 2.50, word: ">>> ANNIHILATE <<<", shout: true },
+    { max: 99,   word: "do UNSPEAKABLE things to", shout: true }
+  ];
+}
+

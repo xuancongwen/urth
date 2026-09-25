@@ -1285,3 +1285,42 @@ func TestPeacefulMobsAreLeftOutOfAreaSpells(t *testing.T) {
 		t.Fatalf("peaceful guard counted as hostile: %v", h)
 	}
 }
+
+func TestDamageWordsLadder(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	// Without the hook, every hit "hits".
+	guard := w.contents(w.players[1].Room).mobs[0]
+	if _, third, punct := w.hitWords(4, guard.Character); third != "hits" || punct != "." {
+		t.Fatalf("default ladder: %q %q", third, punct)
+	}
+	setRules(t, w, testRules+`function damageWords() { return [
+	  { max: 0.10, word: "scratch" }, { max: 0.30, word: "wound" }, { max: 0.60, word: "MUTILATE", shout: true },
+	  { max: 9, word: "do UNSPEAKABLE things to", shout: true } ]; }`)
+	guard.HealthMax = 100
+	cases := map[int]string{5: "scratches", 20: "wounds", 50: "MUTILATES", 200: "does UNSPEAKABLE things to"}
+	for dmg, want := range cases {
+		if _, third, _ := w.hitWords(dmg, guard.Character); third != want {
+			t.Fatalf("hitWords(%d) = %q, want %q", dmg, third, want)
+		}
+	}
+	if _, _, punct := w.hitWords(50, guard.Character); punct != "!" {
+		t.Fatal("shout rungs should end with an exclamation mark")
+	}
+	for in, want := range map[string]string{"maul": "mauls", "crush": "crushes", "DISEMBOWEL": "DISEMBOWELS", "*** DEMOLISH ***": "*** DEMOLISH ***"} {
+		if got := thirdPersonVerb(in); got != want && in != "*** DEMOLISH ***" {
+			t.Fatalf("thirdPersonVerb(%q) = %q, want %q", in, got, want)
+		}
+	}
+	// Live: the guard's sword takes 4 of Bob's 12, a third, which this
+	// ladder calls MUTILATE; Bob's punch takes 1 of 12, a scratch.
+	guard.HealthMax, guard.Health = 12, 12
+	send(w, 1, "kill guard")
+	if o := bob.take(); !strings.Contains(o, "Your punch scratches a city guard. [1]") {
+		t.Fatalf("live scratch: %q", o)
+	}
+	nextRound(w)
+	if o := bob.take(); !strings.Contains(o, "A city guard's slash MUTILATES you! [4]") {
+		t.Fatalf("live damage word: %q", o)
+	}
+}

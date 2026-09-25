@@ -162,9 +162,10 @@ func (w *World) attackRound(att, def *Character) {
 		crit = " {Y}Critical!{x}"
 	}
 	dmg := itoa(r.Damage)
-	w.act("Your "+verb+" hits $N. {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
-	w.act("$n's "+verb+" hits you. {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
-	w.act("$n's "+verb+" hits $N."+crit, att, def, "", toNotVict)
+	_, word, punct := w.hitWords(r.Damage, def)
+	w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
+	w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
+	w.act("$n's "+verb+" "+word+" $N"+punct+crit, att, def, "", toNotVict)
 	def.Health -= r.Damage
 	if def.casting != nil && def.casting.spell.InterruptOnDamage {
 		w.interruptCast(def, "Your "+output.Escape(def.casting.spell.Name)+" is interrupted!")
