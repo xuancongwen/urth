@@ -252,6 +252,7 @@ func (w *World) restore(p *Player, r Restore) {
 
 func (w *World) greet(p *Player) {
 	p.State = StateGetName
+	p.SendMsg(output.Message{Type: output.System, Text: w.banner})
 	p.Send("Welcome to {C}" + output.Escape(w.cfg.Server.Name) + "{x}.\n")
 	p.SendPrompt("By what name do you wish to be known? ")
 }

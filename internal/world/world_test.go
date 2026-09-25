@@ -669,3 +669,23 @@ func TestLookupPrefixOrder(t *testing.T) {
 		}
 	}
 }
+
+func TestBannerOnConnect(t *testing.T) {
+	w := testWorld(t)
+	c := &fakeConn{id: 9}
+	w.Events() <- session.Connected{Conn: c}
+	w.Tick()
+	out := c.take()
+	if !strings.Contains(out, "\\____//_/") || !strings.Contains(out, "By what name") {
+		t.Fatalf("banner missing: %q", out)
+	}
+	// A banner file under the data directory replaces the default.
+	dir := t.TempDir()
+	os.WriteFile(filepath.Join(dir, "banner.txt"), []byte("CUSTOM ART"), 0o644)
+	if got := loadBanner(dir); got != "CUSTOM ART\n" {
+		t.Fatalf("custom banner: %q", got)
+	}
+	if got := loadBanner(filepath.Join(dir, "missing")); got != defaultBanner {
+		t.Fatal("default banner not used when the file is missing")
+	}
+}

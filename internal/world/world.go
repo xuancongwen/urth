@@ -74,6 +74,7 @@ type World struct {
 	scriptDir  string // set by tests that edit scripts
 	contentDir string // set by tests that edit content
 
+	banner         string
 	tick           time.Duration
 	roundTicks     int
 	autosaveRounds int
@@ -113,6 +114,7 @@ func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *Worl
 		events:         make(chan session.Event, eventBuffer),
 		posts:          make(chan func(), eventBuffer),
 		tokens:         map[string]pendingToken{},
+		banner:         loadBanner(cfg.Paths.Data),
 		tick:           tick,
 		roundTicks:     roundTicks,
 		autosaveRounds: autosaveRounds,
