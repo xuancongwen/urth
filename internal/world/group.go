@@ -313,7 +313,7 @@ func (w *World) followLeader(leader *Character, from, dest *room.Room, dir strin
 		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
 		w.interruptCast(p.Character, "You stop casting as you move.")
 		p.Room = dest
-		w.act("$n arrives from the $t.", p.Character, nil, room.Opposite[dir], toRoom)
+		w.act("$n arrives $t.", p.Character, nil, arrivesFrom(dir), toRoom)
 		w.look(p)
 	}
 }

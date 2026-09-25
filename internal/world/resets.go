@@ -149,7 +149,7 @@ func (w *World) moveMob(m *Mob, dest *room.Room, dir string) {
 	w.act("$n leaves $t.", m.Character, nil, dir, toRoom)
 	w.removeMobFromRoom(m)
 	w.placeMob(m, dest)
-	w.act("$n arrives from the $t.", m.Character, nil, room.Opposite[dir], toRoom)
+	w.act("$n arrives $t.", m.Character, nil, arrivesFrom(dir), toRoom)
 }
 
 // newRNG seeds the world's random source. Tests replace it for determinism.
@@ -167,4 +167,17 @@ func freePosition(c *Character, slot item.Slot) item.Slot {
 		}
 	}
 	return positions[0]
+}
+
+// arrivesFrom words where a character came from, given the direction it
+// moved: "from the south" after going north, "from below" after going up.
+func arrivesFrom(dir string) string {
+	switch dir {
+	case "up":
+		return "from below"
+	case "down":
+		return "from above"
+	default:
+		return "from the " + room.Opposite[dir]
+	}
 }

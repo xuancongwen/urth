@@ -5,7 +5,6 @@ import (
 
 	"urth/internal/item"
 	"urth/internal/output"
-	"urth/internal/room"
 	"urth/internal/store"
 )
 
@@ -153,7 +152,7 @@ func cmdMove(dir string) func(w *World, p *Player, args string) {
 		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
 		from := p.Room
 		p.Room = dest
-		w.act("$n arrives from the $t.", p.Character, nil, room.Opposite[dir], toRoom)
+		w.act("$n arrives $t.", p.Character, nil, arrivesFrom(dir), toRoom)
 		w.look(p)
 		w.followLeader(p.Character, from, dest, dir)
 	}
