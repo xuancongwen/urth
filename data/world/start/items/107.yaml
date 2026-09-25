@@ -1,7 +1,7 @@
 vnum: 107
 name: the notice board
 keywords: [notice, board]
-description: A notice board leans at the corner of the green.
+description: A notice board leans against the wall.
 look: |
   Every notice has faded to nothing. Someone has carved a crude arrow
   pointing east.

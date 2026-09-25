@@ -1,9 +1,9 @@
 vnum: 21
-name: A Wayside Shrine
+name: The Arena, east edge
 description: |
-  A low stone altar under a wooden roof, a little off the south road. A
-  rising sun is cut into the stone, worn smooth by hands. There is
-  nothing on the altar. Whatever people bring here does not stay.
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
 exits:
-  north: 4
-temple: good
+  north: 25
+  south: 17
+  west: 20

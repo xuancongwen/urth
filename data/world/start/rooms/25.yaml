@@ -1,0 +1,9 @@
+vnum: 25
+name: The Arena, northeast corner
+description: |
+  The far end of the arena, under the highest seats. This is where they keep the things that kill people.
+  Rows of empty seats rise on every side.
+exits:
+  south: 21
+  west: 24
+  east: 26

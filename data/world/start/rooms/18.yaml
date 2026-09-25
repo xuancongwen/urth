@@ -1,7 +1,9 @@
 vnum: 18
-name: The Hill Path
+name: The Arena, west edge
 description: |
-  The path climbs steeply. Loose stones skitter downhill with each step.
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
 exits:
-  south: 17
-  north: 20
+  north: 22
+  south: 14
+  east: 19

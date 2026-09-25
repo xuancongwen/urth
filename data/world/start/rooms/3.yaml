@@ -1,8 +1,10 @@
 vnum: 3
-name: The Old Well
+name: The Arena Gate
 description: |
-  A ring of mossy stones surrounds a well whose rope has rotted through. The
-  air is cool here, and damp.
+  The hall ends at an iron gate that stands open. Beyond it the light
+  changes: sand, sky, and the sound of something large breathing. A small
+  door in the east wall of the hall leads to a shrine.
 exits:
-  west: 1
-  down: 7
+  south: 2
+  north: 11
+flags: [safe]

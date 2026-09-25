@@ -1,7 +1,8 @@
 vnum: 10
-name: The Smithy
+name: The Arena, southwest corner
 description: |
-  Heat rolls out of an open forge. Tongs and hammers hang from pegs in no
-  particular order, and the floor is gritty with scale.
+  Sand, raked and bloodied. The easy fights are here, near the gate.
+  Rows of empty seats rise on every side.
 exits:
-  south: 9
+  north: 14
+  east: 11

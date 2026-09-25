@@ -1,7 +1,7 @@
 vnum: 202
 name: a blacksmith
 keywords: [blacksmith, smith]
-description: A blacksmith hammers at something on the anvil.
+description: A blacksmith swings a club to loosen his shoulders.
 look: |
   Forearms like hams and a burn scar across one cheek.
 level: 8

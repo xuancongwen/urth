@@ -1,7 +1,10 @@
 vnum: 15
-name: The Tavern Loft
+name: The Arena, middle
 description: |
-  Straw pallets under a low roof. A small window looks over the green.
-  Something glints under the straw at the far end of the loft.
+  The sand gives way to packed earth. Whatever is kept here has teeth.
+  Rows of empty seats rise on every side.
 exits:
-  down: 13
+  north: 19
+  south: 11
+  east: 16
+  west: 14

@@ -1,7 +1,10 @@
 vnum: 20
-name: The Hilltop Cairn
+name: The Arena, middle
 description: |
-  A heap of stones marks the summit. From here the village is a cluster
-  of roofs, and beyond it the crossroads.
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
 exits:
-  south: 18
+  north: 24
+  south: 16
+  east: 21
+  west: 19

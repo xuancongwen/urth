@@ -1,8 +1,11 @@
 vnum: 2
-name: The North Road
+name: The Long Hall
 description: |
-  The road climbs gently between low stone walls. Somewhere ahead a bell is
-  ringing, slow and far away.
+  A high, plain corridor of dressed stone. Torches burn in brackets. An
+  old soldier sits on a bench by the wall, watching everyone who passes
+  with the same faint amusement.
 exits:
   south: 1
-  north: 6
+  north: 3
+  east: 4
+flags: [safe]

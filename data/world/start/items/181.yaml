@@ -1,7 +1,7 @@
 vnum: 181
 name: a brass lantern
 keywords: [brass, lantern]
-description: A brass lantern sits on the stall.
+description: A brass lantern sits on a table.
 look: |
   Dented brass with a horn window. The flame inside does not seem to
   need feeding.

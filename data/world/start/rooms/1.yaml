@@ -1,11 +1,9 @@
 vnum: 1
-name: The Crossroads
+name: The Armory
 description: |
-  Four roads meet here beneath a leaning signpost whose arms have long since
-  lost their letters. Wagon ruts cut deep into the packed earth, and the
-  grass at the verges is worn to dust.
+  A square stone room lit by braziers. Racks and tables hold weapons,
+  armor, and the odd bits a fighter needs, all free for the taking. A
+  long hall leads north; the noise of the arena carries down it.
 exits:
   north: 2
-  east: 3
-  south: 4
-  west: 5
+flags: [safe]

@@ -1,7 +1,10 @@
 vnum: 19
-name: The Bog Edge
+name: The Arena, middle
 description: |
-  The track sinks into black mud and reeds. Nothing beyond here looks
-  like it would hold your weight.
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
 exits:
-  north: 17
+  north: 23
+  south: 15
+  east: 20
+  west: 18

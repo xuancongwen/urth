@@ -1,8 +1,8 @@
 vnum: 13
-name: The Tavern Common Room
+name: The Arena, southeast corner
 description: |
-  Long tables, a cold hearth, and a bar with nobody behind it. A ladder
-  leads up to a loft.
+  Sand, raked and bloodied. The easy fights are here, near the gate.
+  Rows of empty seats rise on every side.
 exits:
-  north: 11
-  up: 15
+  north: 17
+  west: 12

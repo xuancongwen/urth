@@ -1,7 +1,7 @@
 vnum: 110
 name: a wooden shield
 keywords: [wooden, shield]
-description: A wooden shield leans against the wall.
+description: A wooden shield leans against a rack.
 look: |
   Three planks banded with iron, with a strap for the forearm. It has
   stopped a few blows already.

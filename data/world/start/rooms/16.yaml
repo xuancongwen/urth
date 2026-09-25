@@ -1,8 +1,10 @@
 vnum: 16
-name: The Scrub Track
+name: The Arena, middle
 description: |
-  Thorny scrub presses close on both sides. Something small rustles away
-  as you approach.
+  The sand gives way to packed earth. Whatever is kept here has teeth.
+  Rows of empty seats rise on every side.
 exits:
-  west: 14
+  north: 20
+  south: 12
   east: 17
+  west: 15

@@ -1,9 +1,10 @@
 vnum: 4
-name: The South Road
+name: A Wayside Shrine
 description: |
-  The road runs straight and flat toward a line of dark trees. Crows watch
-  from a fence post. A worn path leaves the road to the south, toward a
-  wooden roof among the trees. Someone has left flowers along it.
+  A low stone altar in an alcove off the hall. A rising sun is cut into
+  the stone. There is nothing on the altar; whatever people bring here
+  does not stay.
 exits:
-  north: 1
-  south: 21
+  west: 2
+flags: [safe]
+temple: good

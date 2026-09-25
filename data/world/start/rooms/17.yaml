@@ -1,9 +1,9 @@
 vnum: 17
-name: The Old Milestone
+name: The Arena, east edge
 description: |
-  A waist-high stone with a worn number stands where the track forks.
-  One branch climbs north, the other bends south.
+  The sand gives way to packed earth. Whatever is kept here has teeth.
+  Rows of empty seats rise on every side.
 exits:
+  north: 21
+  south: 13
   west: 16
-  north: 18
-  south: 19

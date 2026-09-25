@@ -1,8 +1,10 @@
 vnum: 11
-name: The Tavern Door
+name: The Arena, south edge
 description: |
-  A heavy oak door stands propped open with a barrel. Inside it is dim and
-  smells of ale and woodsmoke.
+  Sand, raked and bloodied. The easy fights are here, near the gate.
+  Rows of empty seats rise on every side.
 exits:
-  north: 9
-  south: 13
+  north: 15
+  east: 12
+  west: 10
+  south: 3

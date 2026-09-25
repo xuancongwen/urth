@@ -1,10 +1,10 @@
 vnum: 208
 name: a hill troll
 keywords: [hill, troll]
-description: A hill troll sits among the stones of the cairn, gnawing something.
+description: A hill troll sits under the high seats, gnawing something.
 look: |
-  Twice your height and mostly arm. The cairn's stones are worn where
-  it sits.
+  Twice your height and mostly arm. The sand is packed hard where it
+  sits.
 level: 12
 flags: [sentinel]
 health: 400

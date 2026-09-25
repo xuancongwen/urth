@@ -1,0 +1,8 @@
+vnum: 26
+name: A Dark Cell
+description: |
+  A cell cut into the arena wall, with no window and no torch. You can
+  feel the walls but not see them. Something is kept here.
+exits:
+  west: 25
+flags: [dark]

@@ -1,119 +1,69 @@
-# Repopulation for The Crossroads. Runs at boot and every interval.
+# The test arena. Everything respawns on the interval.
 interval_seconds: 300
 resets:
-  - mob: 200          # village guard at the gate
-    room: 5
-    equip:
-      - item: 100
-        slot: wield
-      - item: 102
-        slot: head
-  - mob: 202          # blacksmith in the smithy
-    room: 10
-    equip:
-      - item: 101
-        slot: wield
-  - mob: 201          # stray dogs, up to two; they carry tallow (6.2)
-    room: 9
-    max: 2
-    equip:
-      - item: 122
-  - mob: 203          # beggar on the green
-    room: 9
-  - mob: 204          # crows on the south road
-    room: 4
-    max: 3
-  - item: 107         # the notice board
-    room: 9
-  - item: 106         # bucket by the well
-    room: 3
-  - item: 104         # backpack in the tavern loft
-    room: 15
-  - item: 105         # bread in the backpack
-    into: 104
-    room: 15
-  - item: 108         # candle stub in the loft
-    room: 15
-  - item: 109         # purse at the market
-    room: 12
-  - item: 103         # jerkin in the smithy
-    room: 10
-  - item: 101         # spare club in the smithy
-    room: 10
-  - item: 110         # shield in the smithy
-    room: 10
-  - item: 111         # dagger in the smithy
-    room: 10
-  - item: 120         # ash by the forge
-    room: 10
-  - item: 120
-    room: 10
-  - item: 125         # quicksilver at the smithy
-    room: 10
-  - item: 121         # salt at the market
-    room: 12
-  - item: 121
-    room: 12
-  - item: 123         # bone dust at the bog
-    room: 19
-  - item: 124         # nightshade on the hill path
-    room: 18
-  - item: 130         # the charred totem at the cairn (evocation)
-    room: 20
-  - item: 131         # the salt-crusted totem at the bottom of the well (abjuration)
-    room: 7
-  - item: 140         # the chalice, hidden in the loft (the Good god's sacrifice)
-    room: 15
-  - item: 150         # a set of level-2 iron at the smithy
-    room: 10
-  - item: 151
-    room: 10
-  - item: 152
-    room: 10
-  - item: 153
-    room: 10
-  - item: 154
-    room: 10
-  - item: 155         # the longsword at the market
-    room: 12
-  - item: 156         # the spear on the scrub track
-    room: 16
-  - mob: 205          # wolves on the scrub track and at the milestone; they assist each other
-    room: 16
-    max: 3
-  - mob: 206          # a bandit at the milestone, with a club and a purse
-    room: 17
-    equip:
-      - item: 101
-        slot: wield
-      - item: 109
-  - mob: 207          # the wight in the bog
-    room: 19
-  - mob: 208          # the troll on the cairn, guarding the Blade
-    room: 20
-  - item: 160         # the Sundering Blade on the cairn
-    room: 20
-  - item: 161         # the hauberk in the bog
-    room: 19
-  - item: 162         # the ring in the bell tower top
-    room: 8
-  - item: 163         # the boots in the tavern loft
-    room: 15
-  - mob: 209          # the old soldier in the tavern teaches skills
-    room: 13
-  - item: 170         # level-2 pieces for the new slots, at the smithy
-    room: 10
-  - item: 171         # level-2 pieces for the new slots, at the smithy
-    room: 10
-  - item: 172         # level-2 pieces for the new slots, at the smithy
-    room: 10
-  - item: 173         # level-2 pieces for the new slots, at the smithy
-    room: 10
-  - item: 174         # level-2 pieces for the new slots, at the smithy
-    room: 10
-  - item: 180         # torches at the market
-    room: 12
-  - item: 180
-    room: 12
-  - item: 181         # a lantern at the market
-    room: 12
+  # --- the armory: gear, lights, and materials ---
+  - { item: 100, room: 1 }   # rusty sword
+  - { item: 101, room: 1 }   # club
+  - { item: 102, room: 1 }   # leather cap
+  - { item: 103, room: 1 }   # leather jerkin
+  - { item: 110, room: 1 }   # shield
+  - { item: 111, room: 1 }   # dagger
+  - { item: 150, room: 1 }   # level-2 iron set
+  - { item: 151, room: 1 }
+  - { item: 152, room: 1 }
+  - { item: 153, room: 1 }
+  - { item: 154, room: 1 }
+  - { item: 155, room: 1 }   # longsword
+  - { item: 156, room: 1 }   # spear
+  - { item: 170, room: 1 }   # gloves, belt, shoulders, wristguard, mask
+  - { item: 171, room: 1 }
+  - { item: 172, room: 1 }
+  - { item: 173, room: 1 }
+  - { item: 174, room: 1 }
+  - { item: 180, room: 1 }   # torches and a lantern
+  - { item: 180, room: 1 }
+  - { item: 181, room: 1 }
+  - { item: 120, room: 1 }   # materials: ash, salt, tallow, bone dust, nightshade, quicksilver
+  - { item: 120, room: 1 }
+  - { item: 120, room: 1 }
+  - { item: 121, room: 1 }
+  - { item: 121, room: 1 }
+  - { item: 122, room: 1 }
+  - { item: 122, room: 1 }
+  - { item: 123, room: 1 }
+  - { item: 123, room: 1 }
+  - { item: 124, room: 1 }
+  - { item: 125, room: 1 }
+  - { item: 125, room: 1 }
+  - { item: 104, room: 1 }   # a backpack
+  - { item: 107, room: 1 }   # the notice board
+  # --- the hall: the trainer ---
+  - { mob: 209, room: 2 }
+  # --- south row (10-13): levels 1 to 3 ---
+  - { mob: 201, room: 10, max: 2 }   # dogs
+  - { mob: 204, room: 11, max: 2 }   # crows
+  - { mob: 203, room: 12 }           # beggar
+  - { mob: 205, room: 13, max: 2 }   # wolves, they assist each other
+  # --- second row (14-17): levels 4 to 6 ---
+  - { mob: 206, room: 14, equip: [{ item: 101, slot: wield }, { item: 109 }] }   # bandit, club, purse
+  - { mob: 200, room: 15, equip: [{ item: 100, slot: wield }, { item: 102, slot: head }] }   # guard, sword, cap
+  - { mob: 905, room: 16 }           # level-5 dummy
+  - { mob: 906, room: 17 }           # level-6 dummy
+  # --- third row (18-21): levels 7 to 12 ---
+  - { mob: 207, room: 18 }           # bog wight, guarding the hauberk
+  - { item: 161, room: 18 }
+  - { mob: 202, room: 19, equip: [{ item: 101, slot: wield }] }   # blacksmith with a club
+  - { mob: 910, room: 20 }           # level-10 dummy, and the ring
+  - { item: 162, room: 20 }
+  - { mob: 205, room: 21, max: 3 }   # a wolf pack
+  # --- north row (22-25): 15 and up ---
+  - { mob: 915, room: 22 }           # level-15 dummy
+  - { item: 163, room: 22 }          # the windstep boots
+  - { mob: 920, room: 23 }           # level-20 dummy
+  - { mob: 925, room: 24 }           # level-25 dummy
+  - { mob: 208, room: 25 }           # the hill troll, on the Blade and the charred totem
+  - { item: 160, room: 25 }
+  - { item: 130, room: 25 }
+  # --- the dark cell: the salt totem and the chalice ---
+  - { item: 131, room: 26 }
+  - { item: 140, room: 26 }
