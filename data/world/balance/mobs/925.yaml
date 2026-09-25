@@ -1,0 +1,8 @@
+vnum: 925
+name: a level 25 dummy
+keywords: [dummy, d25]
+description: A wooden dummy painted with the number 25 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 25 is painted on its chest.
+level: 25
+flags: [sentinel]

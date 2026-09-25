@@ -1,6 +1,6 @@
 # balance
 
-A builder-only area holding one plain mob per level, 1 to 20, for the
+A builder-only area holding one plain mob per level, 1 to 25, for the
 simulator. Nothing here spawns (there is no resets.yaml) and the one
 room has no exits. Use it to fill the win-rate row of docs/RULES.md 4.5:
 

@@ -102,7 +102,7 @@ type Proto struct {
 // Spread the fraction it varies by, Speed the swings per round, Verb the
 // word combat messages use ("slash", "bite").
 type WeaponSpec struct {
-	Damage int     `yaml:"damage" json:"damage"`
+	Damage float64 `yaml:"damage" json:"damage"`
 	Spread float64 `yaml:"spread" json:"spread"`
 	Speed  float64 `yaml:"speed" json:"speed"`
 	Hands  int     `yaml:"hands" json:"hands"`
@@ -112,7 +112,7 @@ type WeaponSpec struct {
 
 // ArmorSpec is rule input for armor.
 type ArmorSpec struct {
-	Defense int     `yaml:"defense" json:"defense"`
+	Defense float64 `yaml:"defense" json:"defense"`
 	Spread  float64 `yaml:"spread" json:"spread"`
 }
 

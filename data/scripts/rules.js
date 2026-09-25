@@ -22,11 +22,13 @@ var P = {
   statK: 0.05,          // multiplier per point above or below 10
   statBand: 0.10,       // ±10% jitter on every stat multiplier (4.2)
   levelK: 0.02,         // slight per-level multiplier (7.2)
-  healthBase: 40, healthPerLevel: 10,  // 9 to 11 rounds for an even fight at every level
+  levelGrowth: 1.10,    // every baseline grows by this factor per level (RULES 5.2, decided 2026-09-24)
+  healthBase: 50,       // health at level 1; grows by levelGrowth
   mobDamage: 0.45,      // a mob's natural attack as a fraction of a standard weapon (RULES 8)
   dodgeBase: 0.03,      // intrinsic dodge before stats and effects (4.3)
   blockBase: 0.0,       // nothing blocks without a shield or a feat
-  K: 20,                // reduction = D / (D + K); K is a unit, not a cap
+  K: 20,                // reduction = D / (D + K) at level 1; K is a unit, not a cap
+  kGrowth: 1.0,         // K grows with the attacker's level as levelGrowth^((L-1)*kGrowth); at 1.0 a tier of armor reduces the same share at every level
   regenRounds: 15,      // rounds from empty to full when resting (30 s)
   xpBase: 50, xpR: 1.15, // cost(N) = xpBase * N * xpR^(N-1)
   xpPerLevelKill: 10,   // an even kill is worth 10 * victim level
@@ -44,17 +46,22 @@ var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom", 
 // Baselines by level (RULES 5.2, 8). An item or mob prototype names its
 // level and baseline; anything the builder stated explicitly wins.
 // ---------------------------------------------------------------------
+// growth is the geometric level factor: 1 at level 1, levelGrowth^(L-1)
+// after. A gap of N levels is the same ratio at every level, which is
+// what lets one win-rate row hold everywhere (RULES 4.5).
+function growth(L) { return Math.pow(P.levelGrowth, Math.max(0, (L || 1) - 1)); }
+
 var WEAPON_BASELINES = {
-  standard: function (L) { return { damage: 4 + 2 * L, speed: 1.0, spread: 0.2, verb: "hit" }; },
-  dagger:   function (L) { return { damage: Math.max(1, Math.round((4 + 2 * L) / 2)), speed: 2.0, spread: 0.1, verb: "stab" }; },
-  heavy:    function (L) { return { damage: (4 + 2 * L) * 2, speed: 0.5, spread: 0.4, verb: "smash" }; },
-  unarmed:  function (L) { return { damage: 1 + Math.floor(L / 2), speed: 1.0, spread: 0.2, verb: "punch" }; }
+  standard: function (L) { return { damage: 6 * growth(L), speed: 1.0, spread: 0.2, verb: "hit" }; },
+  dagger:   function (L) { return { damage: 3 * growth(L), speed: 2.0, spread: 0.1, verb: "stab" }; },
+  heavy:    function (L) { return { damage: 12 * growth(L), speed: 0.5, spread: 0.4, verb: "smash" }; },
+  unarmed:  function (L) { return { damage: 1.5 * growth(L), speed: 1.0, spread: 0.2, verb: "punch" }; }
 };
 
 var ARMOR_BASELINES = {
-  medium: function (L) { return { defense: L + 2, spread: 0.2 }; },
-  light:  function (L) { return { defense: 0.7 * (L + 2), spread: 0.1 }; },
-  heavy:  function (L) { return { defense: 1.3 * (L + 2), spread: 0.3 }; }
+  medium: function (L) { return { defense: 3 * growth(L), spread: 0.2 }; },
+  light:  function (L) { return { defense: 0.7 * 3 * growth(L), spread: 0.1 }; },
+  heavy:  function (L) { return { defense: 1.3 * 3 * growth(L), spread: 0.3 }; }
 };
 
 // A set's total D is split across slots by these weights (5.2). Slots not
@@ -82,7 +89,7 @@ function itemBaseline(p) {
     var ab = (ARMOR_BASELINES[p.baseline] || ARMOR_BASELINES.medium)(L);
     var weight = SLOT_WEIGHT[p.slot] || 0;
     out.armor = {
-      defense: a.defense || Math.round(ab.defense * weight),
+      defense: a.defense || ab.defense * weight,
       spread:  a.spread  || ab.spread
     };
   }
@@ -101,7 +108,7 @@ function mobBaseline(p) {
   // empty, so a level-N mob must hit softer than a level-N player in
   // standard gear for an even fight to end at the 4.5 health target.
   var base = WEAPON_BASELINES.standard(L);
-  base.damage = Math.max(1, Math.round(base.damage * P.mobDamage));
+  base.damage = base.damage * P.mobDamage;
   var arm = p.armor || {};
   var ab = ARMOR_BASELINES.medium(L);
   return {
@@ -178,6 +185,9 @@ function spreadRoll(mean, spread) {
 }
 
 // ---------------------------------------------------------------------
+// kFor is the reduction unit against an attacker of level L (RULES 4.3).
+function kFor(att) { return P.K * Math.pow(P.levelGrowth, Math.max(0, (att.level || 1) - 1) * P.kGrowth); }
+
 // The attack pipeline (RULES 4.1 to 4.4, 5.4): prepare is the engine's
 // swing meter; here roll, modify, dodge, block, reduce.
 // ---------------------------------------------------------------------
@@ -210,8 +220,8 @@ function resolveAttack(att, def, weapon, round) {
 
   // Reduce: D / (D + K), with D from armor or natural hide, Constitution,
   // and level; then protection effects.
-  var D = defense(def);
-  dmg = dmg * P.K / (D + P.K) * protectMult(def);
+  var D = defense(def), K = kFor(att);
+  dmg = dmg * K / (D + K) * protectMult(def);
 
   return { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "" };
 }
@@ -251,7 +261,7 @@ function speedMult(c) {
 function derivedStats(c) {
   var healthMax = (c.mob && c.mob.health > 0)
     ? c.mob.health
-    : Math.round((P.healthBase + P.healthPerLevel * (c.level || 1)) * mult(c, "constitution") * levelMult(c));
+    : Math.round(P.healthBase * growth(c.level) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
   var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount")) * speedMult(c);
   return {
@@ -451,7 +461,8 @@ function resolveCast(caster, targets, spell) {
     var scale = saved ? 0.5 : 1;
     tr.saved = saved;
     if (sp.damage) {
-      var dmg = power * sp.damage * scale * P.K / (defense(t) + P.K) * protectMult(t);
+      var K = kFor(caster);
+      var dmg = power * sp.damage * scale * K / (defense(t) + K) * protectMult(t);
       tr.damage = Math.max(1, Math.round(dmg));
       if (sp.drain) totalDrain += tr.damage * sp.drain;
     }

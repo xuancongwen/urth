@@ -418,10 +418,11 @@ Starting values, to be adjusted in playtesting:
 | Points per level | 2 | with few levels (7.2), two is one meaningful choice per level beside the feat |
 | Stat band (4.2) | ±10 percent of the multiplier | the value the variance table in 4.2 was computed at |
 | Level multiplier (7.2) | 1 + 0.02 * (level - 1) | "slight": ten levels is 20 percent, which is felt but is less than a gear tier |
-| Health base | 40 + 10 * level, times Constitution's multiplier | set from the 4.5 round target: with a standard weapon at every level this gives 9 to 11 rounds; 20 gave 6 |
+| Level growth | 1.10 per level, `levelGrowth` | every baseline (damage, defense, health) is its level-1 value times 1.10^(level-1); decided 2026-09-24 after the linear curve failed the 4.5 gap row |
+| Health base | 50 at level 1, times level growth and Constitution's multiplier | with a standard weapon this gives about 10.5 rounds for an even fight at every level |
 | Dodge base | 3 percent | a few percent, per 4.3's sizing |
 | Block base | 0 | per 4.3 |
-| `K` for reduction (4.3) | 20 | starter armor totals about 3 defense, giving 13 percent reduction, so armor is felt from the first jerkin |
+| `K` for reduction (4.3) | 20 at level 1, times level growth to the power `kGrowth` (1.0) of the attacker's level | starter armor totals about 3 defense, 13 percent reduction; with `kGrowth` 1.0 a tier of armor reduces the same share against an attacker of any level, so fight length does not drift with level |
 | Default weapon and armor spread | 0.2 | the value the variance tables were computed at |
 
 The first playtest question these values pose is whether five percent
@@ -566,9 +567,15 @@ scaling it. A plain percentage scales cleanly but must be capped below
     effective health = health * (1 + D / K)
 
 `D` is the sum over worn armor of each piece's draw from its spread
-(4.1), multiplied by the defending stat's multiplier. `K` is a constant
-in the rules scripts and is a unit, not a cap: it is how much defense
-doubles effective health. Effective health is *linear* in `D`, so every
+(4.1), multiplied by the defending stat's multiplier. `K` is a unit,
+not a cap: it is how much defense doubles effective health. Since the
+baselines grow geometrically with level (5.2), `K` grows with the
+*attacker's* level at the same rate (revised 2026-09-24), so a piece of
+armor at level N reduces the same share of a level-N attacker's blow as
+a level-1 piece does of a level-1 blow, and high-level armor is
+correspondingly strong against low-level attackers. The exponent
+`kGrowth` lets that be softened; at 0.5, reduction rises slowly with
+level and fights lengthen slowly. Effective health is *linear* in `D`, so every
 point of defense is worth the same from the first to the thousandth
 even though the displayed percentage flattens. "Defense 40, K 40" means
 doubled effective health, which is as legible as a weapon's damage
@@ -694,46 +701,47 @@ should be checked against.
 | Materials consumed per outing when magic is used freely | to be set with 6.2 |
 | Standard deviation of health remaining after an even fight (this row sizes avoidance, 4.3) | under 8 points |
 
-Measured 2026-09-24 with the 3.3 starting values, using
-`simulate fighter:N` against the balance dummies, 500 seeded fights
-per cell. Even fights first:
+Measured 2026-09-24 with the 3.3 starting values, geometric baselines
+at 1.10, and `kGrowth` 1.0, using `simulate fighter:N` against the
+balance dummies, 500 seeded fights per cell. Even fights:
 
 | Fighter level | Rounds | Health left | sd |
 |---|---|---|---|
-| 1 | 10.3 | 50.8 percent | 5.8 |
-| 5 | 9.6 | 59.5 | 5.1 |
-| 10 | 10.7 | 56.5 | 4.7 |
-| 15 | 12.5 | 59.0 | 4.3 |
+| 1 | 10.4 | 57.8 percent | 5.3 |
+| 10 | 10.5 | 57.3 | 4.6 |
+| 20 | 10.9 | 57.2 | 4.6 |
 
-All in band (rounds drift slightly long at 15). Win rates by level gap:
+Flat across levels, in band on health and variance, a touch long on
+rounds. Win rates by level gap (from the run at `kGrowth` 0.5, which
+differs only in a slow drift):
 
 | Fighter level | +1 | +3 | +5 |
 |---|---|---|---|
 | target | 80 | 40 | under 10 |
-| 1 | 91 | 0 | 0 |
-| 5 | 100 | 26 | 0 |
-| 10 | 100 | 96 | 1 |
-| 15 | 100 | 100 | 54 |
+| 1 | 100 | 77 | 0 |
+| 5 | 100 | 79 | 0 |
+| 10 | 100 | 72 | 0 |
+| 15 | 100 | 60 | 0 |
+| 20 | 100 | 49 | 0 |
 
-**Finding.** The gap is far steeper than the target at low level and
-far flatter at high level, and the cause is the shape of the baselines,
-not their numbers. Damage `4 + 2L`, health `40 + 10L`, and defense
-`L + 2` are all linear, so three levels is a 2x jump at level 1 and a
-1.2x jump at level 15. A player feels the same "+3" very differently
-depending on where they are. The target row assumes a gap feels the
-same at every level, and no linear curve can deliver that.
+The shape is now the same at every level, which is what the geometric
+curve was for. The row sits easier than the target: +1 is a sure win
+and +3 is favourable. Two knobs move it, and they are independent:
+`levelGrowth` steepens the gap (1.15 would bring +3 toward 40 and make
++1 less than sure), and `mobDamage` (8) raises difficulty across the
+whole row without changing its shape. Neither has been moved; the
+designer asked for 1.10 as the starting point.
 
-**Recommendation (open, for the designer).** Make the baselines
-geometric in level, the way the experience curve already is: damage,
-health, and defense each grow by a fixed factor per level, on the order
-of 1.10. Then a three-level gap is the same ratio everywhere and the
-+1/+3/+5 row can be hit at every level with one set of numbers. The
-per-level multiplier in 7.2 would fold into the same factor. The cost
-is that a level-20 number is no longer readable off a level-1 one by
-addition, and that high-level numbers grow large (a factor of 1.10 over
-twenty levels is 6x). The alternative is to accept that early levels are
-lethal and late ones forgiving, and write the row per level band. The
-linear curve stays until this is decided.
+**History.** The first measurement used linear baselines (`4 + 2L`,
+`40 + 10L`, `L + 2`) and found +3 at 0 percent for a level-1 fighter
+and 100 percent for a level-15 one: three levels was a 2x jump at
+level 1 and a 1.2x jump at level 15. Geometric growth was chosen over
+a per-band target row on 2026-09-24. Two consequences followed: damage
+and defense became decimals in the engine, because whole-number
+rounding at level 1 (a weapon doing 6 against one doing 8) was
+distorting the low-level cells; and `K` had to grow with the attacker's
+level, because a fixed `K` against geometric defense made even fights
+lengthen from 10 rounds at level 1 to 20 at level 20.
 
 ### 4.6 Death
 
@@ -856,16 +864,21 @@ Starting baselines, arbitrary in the sense of 3.3 and chosen to hit
 the 4.5 targets against the 3.3 health curve (an even fight at level
 lasting eight to ten rounds with a naked Constitution of 10):
 
+Every baseline is geometric in level (decided 2026-09-24, replacing
+the linear curves measured in 4.5): its level-1 value times
+`growth(level) = 1.10^(level - 1)`. Numbers are kept as decimals in
+the engine so that rounding does not distort low levels.
+
 | Baseline | Damage per swing | Speed | Spread | Notes |
 |---|---|---|---|---|
-| `standard` (sword, spear, mace) | `4 + 2 * level` | 1.0 | 0.2 | the reference curve |
-| `dagger` | half of standard | 2.0 | 0.1 | same damage per round, steadier |
-| `heavy` (maul, greataxe) | double standard | 0.5 | 0.4 | same damage per round, swingier; two hands |
-| `unarmed` | `1 + level / 2` | 1.0 | 0.2 | what a player with nothing wielded does; verb `punch` |
+| `standard` (sword, spear, mace) | `6 * growth` | 1.0 | 0.2 | the reference curve |
+| `dagger` | `3 * growth` | 2.0 | 0.1 | same damage per round, steadier |
+| `heavy` (maul, greataxe) | `12 * growth` | 0.5 | 0.4 | same damage per round, swingier; two hands |
+| `unarmed` | `1.5 * growth` | 1.0 | 0.2 | what a player with nothing wielded does; verb `punch` |
 
 | Baseline | Total `D` at level, across all slots | Spread | Notes |
 |---|---|---|---|
-| `medium` | `level + 2` | 0.2 | the reference: 13 percent reduction at level 1, 52 at level 20 with `K` 20 |
+| `medium` | `3 * growth` | 0.2 | the reference: 13 percent reduction against an attacker of the same level, at every level |
 | `light` | 0.7 of medium | 0.1 | carries an intrinsic effect raising dodge |
 | `heavy` | 1.3 of medium | 0.3 | carries an intrinsic effect lowering dodge |
 
@@ -1582,9 +1595,6 @@ Anything not yet placed in a section above.
   open: none. The material model is decided (6.2) and a first pool and
   spell list are proposed in 6.5 for the designer to edit. Engine work
   is listed above; 4.7 goes first.
-- **Baseline shape.** Linear baselines cannot hit the 4.5 gap row at
-  every level (measured 2026-09-24; see the finding there). Decide
-  between geometric baselines and a per-band target row.
 - **Hint authoring.** 6.1 relies on the world carrying hints toward
   each totem. That is content, but it needs a builder-side view of which
   totems exist and which rooms and NPCs mention them, or hints will rot

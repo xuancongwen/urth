@@ -1,0 +1,8 @@
+vnum: 922
+name: a level 22 dummy
+keywords: [dummy, d22]
+description: A wooden dummy painted with the number 22 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 22 is painted on its chest.
+level: 22
+flags: [sentinel]

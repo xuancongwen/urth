@@ -1,0 +1,8 @@
+vnum: 921
+name: a level 21 dummy
+keywords: [dummy, d21]
+description: A wooden dummy painted with the number 21 stands here.
+look: |
+  Oak, iron-banded, and scarred. The number 21 is painted on its chest.
+level: 21
+flags: [sentinel]
