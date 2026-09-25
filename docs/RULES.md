@@ -1065,8 +1065,8 @@ The pieces, tied to what exists:
   can add: a higher rating gives a chance at a *fine* result, which
   carries an intrinsic effect the recipe names, or a level above the
   recipe's. How much is a starting value for playtest.
-- **Crafted items are marked** as such on the instance, and that mark
-  is what enchanting (5.6) looks for.
+- **Crafted items are marked** as such on the instance, for the record
+  and for whatever later cares who made a thing.
 
 Starting formula, in the shape the rest of the document uses:
 
@@ -1082,51 +1082,66 @@ does (7.4), so failure is also practice.
 **Thesis.** Any item can be enchanted, as many times as its owner can
 afford; enchanting is how gear grows.
 
-**Antithesis.** Then found gear is only raw material for enchanting,
-the four pillars (2.2) collapse into one, and the best item in the game
-is whatever has been enchanted most. Unbounded enchanting also
-contradicts nothing in the "no caps" rule, which is exactly the
-problem: something has to make the tenth enchantment harder than the
-first.
+**Antithesis.** Then the best item in the game is whatever has been
+enchanted most, and every item is a blank to be filled. Something has
+to make the tenth enchantment rarer than the first, and something has
+to make one sword worth enchanting and another not.
 
-**Synthesis (decided 2026-09-25, design only).** Only *crafted* items
-can be enchanted. An enchantment is an attempt, like a craft: it names
-materials, it can fail, and success attaches one *permanent* effect
-(5.4) to the item instance, which is the applied-effect slot the engine
-already persists. Found gear keeps its intrinsic effects and gets no
-more; crafted gear starts plain and becomes whatever its maker and
-their materials make of it. That is the reason to craft.
+**Synthesis (decided 2026-09-25, revised the same day, design only).**
+Any item can be enchanted. Each item carries a fixed number of
+*enchantment slots*, set on its prototype, and that number is where
+rarity lives: most found gear has none or one, good gear has a few, and
+the rare and deterministic items of 6.2 have many. There is no global
+cap on slots; a builder may make an item with twenty. Balance is done
+per item, later, by the count.
+
+An enchantment is an attempt, like a craft: it names materials, it can
+fail, and success fills one slot with one *permanent* effect (5.4), the
+applied-effect storage the engine already persists. Failure consumes
+the materials, and has a small chance of destroying the item, a chance
+that grows with every enchantment already on it. So the first
+enchantment on a plain sword is cheap and safe, and the twelfth on a
+sword with eleven is a gamble with something irreplaceable.
 
 - **Enchantments** are content: each names its materials, the effect it
   attaches, and its difficulty. Basic ones come with the enchanting
-  skill; better ones are found.
-- **Each further enchantment on the same item is harder**: its
-  difficulty rises with the number of effects already on it. No cap,
-  the asymptote the document uses everywhere; the tenth enchantment is
-  possible and very expensive in materials lost to failure.
-- **Failure** consumes the materials and leaves the item as it was
-  (leaning). Losing an item with three enchantments on it to a failed
-  fourth is too steep for the first version. An *unstable* class of
-  enchantment that risks the item for a stronger effect is a natural
-  later addition and needs no new engine.
-- **Enchanting is a skill** (7.4), or the crafting skill of the item's
-  kind; open, leaning one enchanting skill shared across crafts.
-- **Materials** for enchanting are the same pool. The effect decides the
-  cost: a stat effect wants common things, a crit or attack effect wants
-  rare ones.
+  skill; better ones are found (6.1's discovery rule).
+- **Difficulty rises with the count.** With `n` effects already on the
+  item, the attempt is harder than at zero, and on failure the chance
+  the item is destroyed is small at zero and rises with `n`. Both are
+  asymptotic, never certain, the shape the document uses everywhere.
+- **Powerful items are rare by construction.** An item's ceiling is its
+  slot count, so an item that could become extraordinary is one the
+  world places rarely and guards well, and filling it means surviving a
+  rising risk of losing it. The unbounded top end exists, and almost
+  nobody reaches it.
+- **Enchanting is a skill** (7.4) with a rating that lowers the failure
+  chance; open, leaning one enchanting skill shared across crafts.
+- **Materials** are the one pool. The effect decides the cost: a stat
+  effect wants common things, a crit or attack effect wants rare ones,
+  and the deterministic drops are what the last slots on the best items
+  are for.
+- **Crafted items** (5.5) are ordinary items with slots like any other;
+  a fine result from a high crafting rating may carry an extra slot,
+  which is one reason to craft.
 
-Why crafted-only: it gives crafting a reason beyond making what the
-world already drops, and it keeps found gear legible (what it says is
-what it does). It also gives the deterministic drops in 6.2 a purpose:
-the phoenix feather is what you spend to put something extraordinary on
-a sword you made.
+Starting formulas, arbitrary in the sense of 3.3:
+
+    success  = rating / (rating + difficulty + n * step)
+    destroyed on failure = n / (n + R)
+
+with `step` and `R` parameters. At `R` 10, the first failure never
+destroys, the fifth destroys one time in three, the twentieth two times
+in three.
 
 Consequences for the engine (both sections, section 9): a `recipeList`
 and `enchantList` from the rules with materials, difficulty, station,
 and result; `craft` and `enchant` commands that take an attempt through
-a `resolveCraft` hook and apply the result; a `crafted` mark on item
-instances, persisted; station flags on rooms; `describeEffect` already
-covers showing what an enchantment does on `look`.
+`resolveCraft` and `resolveEnchant` hooks and apply the result, which
+for an enchant may be "destroyed"; a `slots` field on item prototypes
+and a `crafted` mark on instances, persisted; station flags on rooms;
+`look` shows slots used and free; `describeEffect` already covers what
+an enchantment does.
 
 ---
 
@@ -1752,8 +1767,9 @@ Anything not yet placed in a section above.
   totems exist and which rooms and NPCs mention them, or hints will rot
   as areas change. Belongs in milestone 7.
 - **Crafting and enchanting** (5.5, 5.6): `recipeList`, `enchantList`,
-  `resolveCraft`, `craft` and `enchant` commands, a `crafted` mark on
-  instances, station room flags. Design done; build after milestone 8.
+  `resolveCraft`, `resolveEnchant`, `craft` and `enchant` commands, a
+  `slots` field on prototypes, a `crafted` mark on instances, station
+  room flags. Design done; build after milestone 8.
 - **Contract widenings still owed.** Done on 2026-09-24: item spread,
   speed, level, baseline, and effects in the view; mob natural attack,
   armor, health and xp overrides; the two baseline hooks; effects on

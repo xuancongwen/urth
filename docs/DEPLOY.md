@@ -36,10 +36,11 @@ scp deploy/setup.sh root@<lxc>:/root/
 ssh root@<lxc> bash /root/setup.sh
 ```
 
-This installs rsync, creates the `urth` system user, lays out
-`/opt/urth/{bin,data}` and `/etc/urth/config.yaml`, installs and enables
-`urth.service` with a hardened unit (read-only system, writable data tree
-only), and caps the journal. It is safe to rerun: the unit is refreshed,
+This installs rsync, lays out `/opt/urth/{bin,data}` and
+`/etc/urth/config.yaml`, installs and enables `urth.service`, and caps
+the journal. Everything on the host is owned and run by root; there is no
+service user. The unit still keeps the filesystem read-only to the game
+apart from the data tree. It is safe to rerun: the unit is refreshed,
 the config and players are kept.
 
 With a Cloudflare tunnel token it also installs cloudflared as a service:
@@ -57,8 +58,9 @@ make deploy
 
 ## 3. Deploying
 
-`make deploy` (or `deploy/deploy.sh`) runs vet and tests, cross-compiles
-a static `linux/amd64` binary, pushes it and `data/{world,scripts,
+`make deploy` (or `deploy/deploy.sh`) opens one ssh connection as root
+(asking for a password once if no key is set up), runs vet and tests,
+cross-compiles a static `linux/amd64` binary, pushes it and `data/{world,scripts,
 banner.txt}` over rsync, restarts the service, and prints the last log
 lines. `data/players`, `data/instances`, and the copyover state file are
 excluded on both sides, so a deploy never touches a character.
