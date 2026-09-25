@@ -998,22 +998,27 @@ world's content has nothing to do with what a character can do.
 as in Dungeons and Dragons, and each is unlocked by something found in
 the world rather than by level:
 
-- **Arcane.** Organised into *schools* (evocation, abjuration,
-  necromancy, and so on; the list is open). A school is unlocked by
-  finding its *totem*, an item placed in the world, and consuming it.
-  Scaled by Intelligence (3.2).
-- **Divine.** Organised by *deity*, each with a domain of spells. Divine
-  casting is unlocked by finding a way to worship a god: a shrine, a
-  rite, a priest who will take you, whatever the world's hints lead to.
-  It can be dressed as a quest but does not need to be. Scaled by
-  Wisdom (3.2).
+- **Arcane.** Organised into the eight schools of Dungeons and Dragons
+  (decided 2026-09-24): abjuration, conjuration, divination,
+  enchantment, evocation, illusion, necromancy, transmutation. A school
+  is unlocked by finding its *totem*, an item placed in the world, and
+  consuming it. Scaled by Intelligence (3.2).
+- **Divine.** Three deities, unnamed for now (decided 2026-09-24): a
+  Supreme Good, a Supreme Neutral, and a Supreme Evil god, each with a
+  domain of spells. Divine casting is unlocked by a *great sacrifice*:
+  make or find an item the god wants, carry it to that god's temple,
+  and give it up there. The character becomes an apostle of that god.
+  The hints that lead to the item and the temple are content (6.1's
+  discovery rule); the mechanism is one command at one place. Scaled by
+  Wisdom (3.2). Leaning: one god at a time, and a new sacrifice to
+  another god ends the old apostleship.
 
 A character holds what it has unlocked permanently. Level does not
 grant magic. Two characters of the same level can differ entirely in
 what they can cast, based on where they have been and what they found.
-Whether a character can serve more than one god, and whether a god
-objects to arcane practice, are open and are exactly the kind of
-consequence 6.3 wants magic to carry.
+Whether a god objects to arcane practice, and what an apostle owes
+after the sacrifice, are open and are exactly the kind of consequence
+6.3 wants magic to carry.
 
 Discovery is the point, and it is done with content, not a quest
 system. The world carries hints: room descriptions, what NPCs say, books,
@@ -1030,9 +1035,10 @@ others.
 Consequences: a `totem` item type carrying a school (5.1). The
 character keeps a persistent set of unlocked schools and deities, saved
 in the player file, that `resolveCast` reads. Consuming the totem is the
-first use of the `consume` return (section 1). How worship is recorded
-(a flag set by an NPC or rite; the engine's placeholder can be an admin
-command) is a milestone 7 builder concern. Hints are a builder concern:
+first use of the `consume` return (section 1). Divine access needs a
+`sacrifice <item>` command that works only in a room flagged as a
+god's temple, consumes the item through the `consume` return, and
+records the deity beside the schools. Hints are a builder concern:
 milestone 7 tooling should make it easy to see which totems exist and
 where their hints are. No dependency on a quest system.
 
@@ -1091,19 +1097,79 @@ being balanced. 4.5 gains a row for it.
 
 ### 6.4 Casting mechanics
 
-**Status: open.** Deferred until 6.1 to 6.3 are decided.
+Decided 2026-09-24 from the designer's answers; the syntheses below
+record where a simplification was taken and why.
 
-- Instant, or a cast time in rounds during which the caster is
-  vulnerable? Cast time is a natural second cost if mana is dropped.
-- Interruption by damage or movement?
-- Spells scale with a stat multiplier the same way weapons do (3.1):
-  Intelligence for arcane, Wisdom for divine (decided 2026-09-24, with
-  3.2). Both stats have a second job for characters with no magic.
-- Resistance: flat chance, stat contest, or none?
-- Effect model: settled by 5.4. A buff, debuff, or damage over time is a
-  timed effect on the character, in the same vocabulary as item effects.
-  `resolveCast` returns effects to apply; the engine attaches them and
-  counts them down in rounds.
+**Cast time.** A spell has a cast time in rounds, and it varies by
+spell. The designer described three kinds: *instant* (outside the
+round entirely), *zero-round* (inside the round, but able to happen
+alongside another spell), and *N-round*. Thesis: model all three.
+Antithesis: instant and zero-round both mean "costs no action and no
+time"; they differ only in whether the spell resolves on the tick it is
+typed or at the next round boundary, and no player will feel that
+difference against a two-second round. Two concepts for one experience
+is a cost with no return. **Synthesis (leaning):** one number,
+`castRounds`. Zero means the spell resolves on the tick it is typed
+and does not take the round's action (2.1), so it can be chained with
+another spell or with an attack in the same round. One means it takes
+this round's action and completes at the round boundary. N means N
+rounds of casting. A caster has at most one spell in progress; starting
+another cancels it. Free spells are limited by their material cost and
+by an optional per-spell cooldown, not by the round. If a real
+difference between instant and zero-round appears in play, the doc
+comes back here.
+
+**Interruption.** Movement always interrupts a cast in progress. Damage
+interrupts only spells that say so (`interruptOnDamage`). Leaning:
+materials are committed when the cast begins, so an interrupted cast
+loses them. That is the consequence 6.3 asks magic to carry, and it is
+why a long cast is a real decision in a fight. Open: whether an
+interrupted cast also triggers the cooldown.
+
+**Saves.** A target resists a spell by a saving throw in the Dungeons
+and Dragons manner, and the spell names which: *reflex* (Dexterity),
+*fortitude* (Constitution), or *will* (Wisdom). A successful save does
+what the spell says: negates it, or halves it. Some spells allow no
+save. Note against 4.2: a save is a binary roll, the kind of variance
+4.2 keeps out of the weapon fight. It is admitted here on purpose,
+because a spell is rare, costs materials, and is meant to be strong
+(6.3); a fight is not decided by a single save the way it would be by
+a hit roll on every swing. The simulator should report save rates.
+Starting formula, asymptotic like everything else here:
+
+    save score  S = target's save-stat multiplier * target's level multiplier
+    spell power C = caster's spell-stat multiplier * caster's level multiplier
+    chance to save = S / (S + 2 C)
+
+which is one in three at parity and never reaches one.
+
+**Scaling.** A spell's output scales by a combination the spell names:
+the caster's level, one or more stats (Intelligence for arcane,
+Wisdom for divine by default, 3.2), or both. There is no other
+multiplier. Whether a spell also carries a use-based effectiveness
+rating (7.4) is **open**; the leaning is no, since magic is discovered
+rather than practised, and its growth comes from stats and level.
+
+**Targets.** A spell is *single* (one target), *area* (the room), or,
+left for later, *global* (the world). Area, for a hostile spell, means
+every character in the room who is not the caster or in the caster's
+group (4.7); for a helpful spell, the caster's group. Whether a hostile
+area spell can catch allies (friendly fire) is open and leans no.
+`resolveCast` receives the target set already built.
+
+**Spell definition fields**, so the list can be written: `id`, `name`,
+`branch` (arcane or divine), `school` or `deity`, `castRounds`,
+`interruptOnDamage`, `cooldown`, `materials` (kind and count),
+`target` (single, area, self), `save` (reflex, fortitude, will, none)
+and `saveEffect` (negate, half), `scaling` (stats and whether level),
+and the effect: damage, healing, or effects to attach (5.4).
+
+Consequences: the engine tracks one cast in progress per character with
+rounds remaining, cancels it on movement, and calls a hook on damage to
+ask whether the spell in progress is interruptible. `resolveCast` runs
+at completion with the caster, the target set, and the spell, and
+returns damage or healing per target, effects to attach, and materials
+to consume. Cooldowns are counted in rounds on the character.
 
 ---
 
@@ -1417,6 +1483,11 @@ Anything not yet placed in a section above.
   `group` and `enemies` in the views. Engine work, no rules decision
   outstanding; should land before `resolveCast` because spells target
   sets.
+- **Before magic is built.** Decided 2026-09-24: cast time, interruption,
+  saves, scaling, targets, schools, deities, sacrifice (6.1, 6.4). Still
+  open: the material model (kinds, stacking, sources) and the first
+  spell list, two or three per school and deity. Both are content
+  decisions the designer can make as starting points.
 - **Baseline shape.** Linear baselines cannot hit the 4.5 gap row at
   every level (measured 2026-09-24; see the finding there). Decide
   between geometric baselines and a per-band target row.
