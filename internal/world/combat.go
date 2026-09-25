@@ -441,46 +441,6 @@ func clamp(v, lo, hi int) int {
 	return v
 }
 
-// cmdScore shows the character sheet.
-func cmdScore(w *World, p *Player, _ string) {
-	var b strings.Builder
-	b.WriteString("You are " + output.Escape(p.Name) + ", level " + itoa(p.Level) + ".\n")
-	b.WriteString("Health " + itoa(p.Health) + "/" + itoa(p.HealthMax))
-	if p.ManaMax > 0 {
-		b.WriteString("  Mana " + itoa(p.Mana) + "/" + itoa(p.ManaMax))
-	}
-	b.WriteString("\nExperience " + itoa(p.Experience) + "  Speed " + ftoa(p.Speed) + "\n")
-	if len(p.Stats) > 0 {
-		b.WriteString("Stats:")
-		for _, k := range sortedKeys(p.Stats) {
-			b.WriteString(" " + k + " " + itoa(p.Stats[k]))
-		}
-		b.WriteString("\n")
-	}
-	if p.StatPoints > 0 {
-		b.WriteString("You have " + itoa(p.StatPoints) + " stat points to train.\n")
-	}
-	if p.FeatPoints > 0 {
-		b.WriteString("You may choose " + plural(p.FeatPoints, "feat") + ".\n")
-	}
-	if names := w.featNames(p.Character); len(names) > 0 {
-		b.WriteString("Feats: " + strings.Join(names, ", ") + "\n")
-	}
-	var timed []string
-	for _, e := range p.Effects {
-		if e.Rounds > 0 {
-			timed = append(timed, output.Escape(e.Kind)+"("+itoa(e.Rounds)+")")
-		}
-	}
-	if len(timed) > 0 {
-		b.WriteString("Effects: " + strings.Join(timed, " ") + "\n")
-	}
-	if p.Fighting != nil {
-		b.WriteString("You are fighting " + output.Escape(p.Fighting.Name) + ".\n")
-	}
-	p.Send(b.String())
-}
-
 func sortedKeys(m map[string]int) []string {
 	keys := make([]string, 0, len(m))
 	for k := range m {

@@ -85,7 +85,7 @@ func TestKillMobAwardsXPAndLevels(t *testing.T) {
 		t.Fatalf("level-up state wrong: level=%d stats=%v hp=%d/%d points=%d", p.Level, p.Stats, p.Health, p.HealthMax, p.StatPoints)
 	}
 	send(w, 1, "score")
-	if o := bob.take(); !strings.Contains(o, "level 2") || !strings.Contains(o, "might 1") {
+	if o := bob.take(); !strings.Contains(o, "Level 2") || !strings.Contains(o, "Might        1") || !strings.Contains(o, "Stat points  1") {
 		t.Fatalf("score: %q", o)
 	}
 }
@@ -587,7 +587,7 @@ func TestFeatsPickAndGate(t *testing.T) {
 		t.Fatalf("double pick: %q", o)
 	}
 	send(w, 1, "score")
-	if o := bob.take(); !strings.Contains(o, "Feats: Toughness") || !strings.Contains(o, "You may choose 1 feat.") {
+	if o := bob.take(); !strings.Contains(o, "Feats     Toughness") || !strings.Contains(o, "Feat picks   1") {
 		t.Fatalf("score: %q", o)
 	}
 	// Levelling grants a pick.
