@@ -1,0 +1,9 @@
+vnum: 320
+name: A Bridge Over the Square
+description: |
+  A bridge across the open air of the square, high enough that the people
+  below are hats and shoulders. The Seekers on the ground look up at it
+  often. From here the inn's colored window glows like a lamp in the
+  leaves.
+exits:
+  south: 311

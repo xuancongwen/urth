@@ -1,0 +1,10 @@
+vnum: 307
+name: a jar of the inn's spice
+keywords: [jar, spice]
+description: A small clay jar sits on a high shelf.
+look: |
+  Red-brown powder with a smell that makes you hungry at once. The cook
+  would notice if it went missing.
+type: material
+material: spice
+rarity: uncommon

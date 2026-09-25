@@ -1,0 +1,9 @@
+vnum: 314
+name: The Kitchen Stair
+description: |
+  A ladder more than a stair, pegged straight down the shadowed side of
+  the trunk. It is a long way down and there is no rail. Nobody uses this
+  who has a choice.
+exits:
+  up: 313
+  down: 304

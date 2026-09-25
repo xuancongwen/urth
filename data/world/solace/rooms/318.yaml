@@ -1,0 +1,9 @@
+vnum: 318
+name: The Bridge to the Watch-Tree
+description: |
+  A longer bridge, better made, and guarded: a Seeker stands at the far
+  end with a spear and a list of who may cross. The tree beyond is the
+  tallest in Solace.
+exits:
+  south: 317
+  north: 319

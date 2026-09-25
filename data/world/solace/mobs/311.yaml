@@ -1,0 +1,11 @@
+vnum: 311
+name: a wood-shade
+keywords: [wood-shade, shade, shadow]
+description: Something darker than the dark stands very still between the trees.
+look: |
+  It has a shape only when you do not look straight at it. It has been
+  here longer than the trees.
+level: 9
+health: 200
+attack:
+  verb: touch

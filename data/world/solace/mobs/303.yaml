@@ -1,0 +1,12 @@
+vnum: 303
+name: a hooded stranger
+keywords: [hooded, stranger, figure]
+description: A hooded figure sits alone at the darkest table, hands folded.
+look: |
+  The hood does not move when you approach. What you can see of the face
+  is thin and pale. There is a staff of blue crystal near the chair that
+  the stranger does not seem to own and does not seem to have noticed.
+level: 15
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

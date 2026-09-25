@@ -1,0 +1,12 @@
+vnum: 305
+name: a Seeker theocrat
+keywords: [seeker, theocrat, priest]
+description: A Seeker theocrat in a fine brown robe looks down at you from a raised chair.
+look: |
+  Heavier cloth, a chain of office, and a voice made for telling other
+  people what is true. He has found that the old gods are dead and that
+  he is not.
+level: 9
+silver: 150
+attack:
+  verb: strike

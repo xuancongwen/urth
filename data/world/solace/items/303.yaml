@@ -1,0 +1,13 @@
+vnum: 303
+name: a Seeker's spear
+keywords: [seeker, seekers, spear]
+description: A spear with a brown pennant lies here.
+look: |
+  Ash and iron, with a strip of brown cloth tied below the head. Well kept.
+type: weapon
+level: 5
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

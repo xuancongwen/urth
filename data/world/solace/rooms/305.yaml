@@ -1,0 +1,14 @@
+vnum: 305
+name: Solace Square
+description: |
+  The town's one open place, floored with packed earth and ringed by the
+  trunks of the great trees. Rope bridges cross far overhead, and the
+  whole square is roofed in leaves. Men in brown robes stand about in
+  pairs, watching who comes and goes. A forge glows to the east; a path
+  runs west toward the sound of water; a tall building of new timber
+  stands to the north, out of keeping with everything else.
+exits:
+  south: 303
+  west: 304
+  east: 306
+  north: 308

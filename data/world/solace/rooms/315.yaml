@@ -1,0 +1,9 @@
+vnum: 315
+name: Upstairs at the Inn
+description: |
+  A gallery of small rooms let into the branches, each with a bed, a
+  shutter, and a hook for a cloak. Most doors are shut. From one, low
+  voices; from another, nothing at all, though somebody is inside.
+exits:
+  down: 312
+flags: [safe]

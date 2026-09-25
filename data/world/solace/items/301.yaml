@@ -1,0 +1,8 @@
+vnum: 301
+name: a mug of dark ale
+keywords: [mug, dark, ale]
+description: A mug of dark ale has been left half finished.
+look: |
+  Brown, bitter, and warm from the hearth.
+type: other
+value: 2

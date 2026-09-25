@@ -1,0 +1,9 @@
+vnum: 321
+name: The Edge of the Dark Wood
+description: |
+  The track dies among trees that are not vallenwoods and do not want to
+  be. The light fails a few steps in. Nothing sings. There are webs, high
+  up, of a thickness you would rather not think about.
+exits:
+  north: 301
+  south: 322

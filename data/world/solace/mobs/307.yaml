@@ -1,0 +1,12 @@
+vnum: 307
+name: a hobgoblin captain
+keywords: [hobgoblin, captain]
+description: A fat hobgoblin captain sits on a wagon, shouting at the others.
+look: |
+  Fatter than a hobgoblin should be, dressed in stolen finery two sizes
+  too small, and holding a whip he does not need. He is looking for
+  something, and for someone to blame.
+level: 7
+silver: 120
+attack:
+  verb: lash

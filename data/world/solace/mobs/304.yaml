@@ -1,0 +1,12 @@
+vnum: 304
+name: a Seeker guard
+keywords: [seeker, guard]
+description: A Seeker guard in a brown robe watches the square, spear grounded.
+look: |
+  Brown wool over mail, a spear, and the expression of a man who has been
+  told he is important. He does not like strangers, questions, or the old
+  gods, in that order.
+level: 5
+flags: [assist]
+attack:
+  verb: punch

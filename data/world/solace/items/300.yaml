@@ -1,0 +1,9 @@
+vnum: 300
+name: a plate of spiced potatoes
+keywords: [plate, spiced, potatoes]
+description: A plate of spiced potatoes steams on the table.
+look: |
+  Fried in something that is not quite oil, with a spice nobody outside
+  this kitchen has ever named. People travel a long way for these.
+type: other
+value: 5

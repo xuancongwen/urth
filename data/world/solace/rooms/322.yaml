@@ -1,0 +1,9 @@
+vnum: 322
+name: Deep in the Dark Wood
+description: |
+  There is no path now, only the spaces between trunks, and the sense that
+  the spaces are watching. Old bones under the leaf litter. Somewhere, a
+  sound like breathing that is not the wind.
+exits:
+  north: 321
+flags: [dark]

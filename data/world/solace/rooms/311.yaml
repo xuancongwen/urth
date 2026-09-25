@@ -1,0 +1,12 @@
+vnum: 311
+name: The Landing Outside the Inn
+description: |
+  A broad platform lashed into the crook of the great vallenwood, sixty
+  feet up and steady as a floor. A door of dark wood stands open on warmth
+  and noise and the smell of spice. Rope bridges lead off east and north,
+  swaying slightly in a wind you cannot feel.
+exits:
+  down: 310
+  west: 312
+  east: 316
+  north: 320

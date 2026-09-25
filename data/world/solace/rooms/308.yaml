@@ -1,0 +1,9 @@
+vnum: 308
+name: The Seekers' Hall
+description: |
+  New timber, tall doors, and a smell of varnish. Inside, a raised chair,
+  a lectern, and a great deal of brown cloth. The men here call themselves
+  Seekers, and they have found, among other things, that the old gods are
+  not to be spoken of and that the town's business is theirs.
+exits:
+  south: 305

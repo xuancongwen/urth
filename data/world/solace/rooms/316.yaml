@@ -1,0 +1,9 @@
+vnum: 316
+name: A Rope Bridge, Swaying
+description: |
+  Planks strung on ropes between two trees, with more rope for rails and a
+  long drop through leaves to the ground. It moves with every step. Do not
+  look down; everybody looks down.
+exits:
+  west: 311
+  east: 317

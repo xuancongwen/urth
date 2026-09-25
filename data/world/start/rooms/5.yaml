@@ -1,0 +1,10 @@
+vnum: 5
+name: The Cellar Stair
+description: |
+  A trapdoor in the armory floor opens on worn stone steps that go down
+  further than a cellar should. At the bottom, an old road under the earth
+  runs north, and there is daylight somewhere ahead.
+exits:
+  up: 1
+  north: 301
+flags: [safe]

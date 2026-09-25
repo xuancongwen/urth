@@ -1,0 +1,11 @@
+vnum: 323
+name: An Overgrown Shrine
+description: |
+  Vines have pulled down most of a small stone shrine, and reeds have done
+  the rest. One wall still stands, and on it, under the moss, a carving of
+  a rising sun that somebody has tried to chisel away and given up. The
+  altar stone is cracked but whole. It is very quiet here.
+exits:
+  east: 307
+temple: good
+flags: [safe]

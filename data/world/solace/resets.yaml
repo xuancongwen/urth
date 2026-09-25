@@ -1,0 +1,35 @@
+# Solace repopulates on the interval.
+interval_seconds: 300
+resets:
+  # the road
+  - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }] }   # hobgoblin soldiers
+  - { mob: 307, room: 302, equip: [{ item: 304, slot: wield }] }   # the captain, on his wagon
+  - { item: 310, room: 302 }   # the ledger
+  - { mob: 308, room: 303, max: 2 }   # refugees
+  - { item: 309, room: 303 }   # bark
+  - { item: 309, room: 303 }
+  # the square and the seekers
+  - { mob: 304, room: 305, max: 2, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # seeker guards
+  - { mob: 312, room: 305, max: 2 }   # townsmen
+  - { mob: 309, room: 306 }   # the smith
+  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }] }   # the theocrat
+  - { mob: 304, room: 308, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # his guard
+  - { mob: 304, room: 318, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # the bridge guard
+  # the inn
+  - { mob: 300, room: 312 }
+  - { mob: 301, room: 312 }
+  - { mob: 302, room: 312 }
+  - { item: 300, room: 312 }
+  - { item: 300, room: 312 }
+  - { item: 301, room: 312 }
+  - { item: 307, room: 313 }   # the spice jar in the kitchen
+  - { mob: 303, room: 315 }   # the hooded stranger, upstairs
+  - { item: 302, room: 315 }  # the blue crystal staff, near the chair
+  # the lake and the shrine
+  - { item: 121, room: 307 }   # salt at the lakeshore
+  - { item: 121, room: 307 }
+  # the dark wood
+  - { mob: 310, room: 321, max: 2, equip: [{ item: 308 }] }   # spiders carry venom sacs
+  - { mob: 311, room: 322 }
+  - { item: 123, room: 322 }   # bone dust among the bones
+  - { item: 124, room: 321 }   # nightshade at the wood's edge

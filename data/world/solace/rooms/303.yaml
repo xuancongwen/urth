@@ -1,0 +1,11 @@
+vnum: 303
+name: Under the Vallenwood Eaves
+description: |
+  The vallenwoods begin: trunks broader than houses, bark like folded grey
+  cloth, and a canopy so high the leaves are a rumour of gold. Between the
+  roots, a camp of tents and cook fires. The people there watch the road
+  and do not talk much. A stair of split planks climbs the nearest tree.
+exits:
+  south: 302
+  north: 305
+  up: 310

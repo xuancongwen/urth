@@ -1,0 +1,9 @@
+vnum: 310
+name: The Winding Stair
+description: |
+  Planks pegged into the trunk climb in a slow spiral, with a rope for a
+  rail. The camp shrinks below; the light grows. Halfway up, a landing
+  looks out over the square through a gap in the leaves.
+exits:
+  down: 303
+  up: 311

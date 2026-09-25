@@ -1,0 +1,9 @@
+vnum: 306
+name: The Smithy in the Roots
+description: |
+  A forge built into the hollow of a living tree, the chimney running up
+  through the wood. Tongs, hammers, and a half-made sword. The smith works
+  with his back to the square and his ear toward it.
+exits:
+  west: 305
+  north: 307

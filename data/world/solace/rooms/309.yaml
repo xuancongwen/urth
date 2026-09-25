@@ -1,0 +1,7 @@
+vnum: 309
+name: The North Road
+description: |
+  The road leaves the trees and the town behind. Fields, a stone wall, a
+  line of hills. Whatever is out there has not arrived yet.
+exits:
+  south: 307

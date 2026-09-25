@@ -1,0 +1,9 @@
+vnum: 310
+name: a torn refugee's ledger
+keywords: [torn, ledger, book]
+description: A water-stained ledger lies open on the ground.
+look: |
+  Names, villages, dates. The last page reads, in a shaking hand: "They
+  came from the north. Not men. The Seekers said we were lying. The old
+  shrine by the water is the only place they will not go."
+type: other

@@ -1,0 +1,11 @@
+vnum: 301
+name: a red-haired barmaid
+keywords: [red-haired, barmaid, girl]
+description: A red-haired barmaid carries four mugs in two hands and looks like she could carry more.
+look: |
+  Freckled, quick-tempered, and quicker with a tray. She has broken up
+  more fights here than the Seekers ever have, usually with a skillet.
+level: 4
+flags: [sentinel, peaceful]
+attack:
+  verb: swing

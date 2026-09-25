@@ -1,0 +1,11 @@
+vnum: 308
+name: a refugee
+keywords: [refugee, woman]
+description: A refugee sits by a cook fire, staring at nothing.
+look: |
+  She has walked a long way with very little. She will tell you, if you
+  ask, that the things that burned her village were not men.
+level: 1
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

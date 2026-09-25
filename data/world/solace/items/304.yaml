@@ -1,0 +1,14 @@
+vnum: 304
+name: a hobgoblin's notched blade
+keywords: [hobgoblin, notched, blade]
+description: A notched, filthy blade lies here.
+look: |
+  Heavy, badly balanced, and nicked all along one edge. It has been used
+  on things that were not fighting back.
+type: weapon
+level: 4
+baseline: heavy
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

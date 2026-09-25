@@ -1,0 +1,22 @@
+vnum: 302
+name: a plain blue crystal staff
+keywords: [plain, blue, crystal, staff]
+description: A plain staff of blue crystal leans in a corner where somebody left it.
+look: |
+  Smooth blue stone, a little longer than a walking stick, cool in the
+  hand. It looks like nothing much. When you hold it you feel better than
+  you did, and you are not sure why. Those who remember the old gods would
+  know what it is, and where it belongs.
+type: weapon
+level: 6
+baseline: standard
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+sacrifice: good
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 3 }
+  - kind: defense
+    params: { amount: 4 }

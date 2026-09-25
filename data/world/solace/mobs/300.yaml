@@ -1,0 +1,12 @@
+vnum: 300
+name: the innkeeper
+keywords: [innkeeper, keeper, host]
+description: The innkeeper moves between the tables, round and quick and never still.
+look: |
+  A large, comfortable man with a spotless apron and a memory for every
+  face that has ever ordered his potatoes. He has never turned a guest
+  away and never let one leave hungry.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

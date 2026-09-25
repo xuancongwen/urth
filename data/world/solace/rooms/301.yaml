@@ -1,0 +1,12 @@
+vnum: 301
+name: The Old Road Under the Trees
+description: |
+  The road climbs out of a cutting and into the shade of trees so large
+  that the road itself seems to have been laid between their roots. Far
+  above, the first lamps of a town are lit in the branches. Behind you the
+  way leads down into the dark; ahead it goes on north through the wood,
+  and a rutted track runs off south into deeper shadow.
+exits:
+  down: 5
+  north: 302
+  south: 321

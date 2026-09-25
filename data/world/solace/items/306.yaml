@@ -1,0 +1,10 @@
+vnum: 306
+name: a hobgoblin's iron cap
+keywords: [hobgoblin, iron, cap]
+description: A dented iron cap lies here.
+look: |
+  Too large for a human head, and lined with something that was once fur.
+type: armor
+slot: head
+level: 4
+baseline: heavy

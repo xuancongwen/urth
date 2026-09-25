@@ -1,0 +1,12 @@
+vnum: 306
+name: a hobgoblin soldier
+keywords: [hobgoblin, soldier]
+description: A hobgoblin soldier slouches at the roadside, picking at a wound.
+look: |
+  Taller than a man, hairier, and armored in scraps. It is here because
+  something bigger told it to be.
+level: 4
+flags: [assist]
+silver: 25
+attack:
+  verb: hack

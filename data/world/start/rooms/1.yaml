@@ -3,7 +3,9 @@ name: The Armory
 description: |
   A square stone room lit by braziers. Racks and tables hold weapons,
   armor, and the odd bits a fighter needs, all free for the taking. A
-  long hall leads north; the noise of the arena carries down it.
+  long hall leads north; the noise of the arena carries down it. A
+  trapdoor in the floor stands open on a stair going down.
 exits:
   north: 2
+  down: 5
 flags: [safe]

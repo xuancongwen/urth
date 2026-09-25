@@ -1,0 +1,10 @@
+vnum: 302
+name: The Haven Road
+description: |
+  A wide, hard-packed road with wagon ruts a hand deep. Somebody has been
+  moving a great many people along it lately, and not all of them
+  willingly: a child's shoe lies in the ditch, and there are boot prints
+  with claws. The trees ahead are the largest you have ever seen.
+exits:
+  south: 301
+  north: 303

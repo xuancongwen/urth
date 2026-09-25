@@ -1,0 +1,14 @@
+vnum: 302
+name: an old storyteller
+keywords: [old, storyteller, man]
+description: An old man in a grey robe sits by the hearth, telling a story to nobody in particular.
+look: |
+  White beard, bright eyes, a robe the color of ash, and a way of seeming
+  to know your name before you say it. He is telling a story about the
+  old gods, which the Seekers would not like. "The shrine by the lake,"
+  he says, to you or to the fire, "is not as empty as it looks. It wants
+  what was taken from it."
+level: 20
+flags: [sentinel, peaceful]
+attack:
+  verb: rap

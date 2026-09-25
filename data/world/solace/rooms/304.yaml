@@ -1,0 +1,9 @@
+vnum: 304
+name: Behind the Great Vallenwood
+description: |
+  A quiet hollow between two roots as tall as walls, out of sight of the
+  square. A steep back stair comes down here from somewhere high above,
+  and there is a smell of woodsmoke and frying onions.
+exits:
+  up: 314
+  east: 305

@@ -1,0 +1,11 @@
+vnum: 309
+name: the smith
+keywords: [smith, blacksmith]
+description: A broad-shouldered smith hammers at a blade, one arm thicker than the other.
+look: |
+  Dark-skinned, huge, and quiet. He listens to the square while he works
+  and has opinions about the Seekers that he keeps to his anvil.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

@@ -1,0 +1,10 @@
+vnum: 312
+name: a townsman
+keywords: [townsman, man]
+description: A townsman hurries across the square without looking at anyone.
+look: |
+  Head down, hands in his sleeves. He has learned not to see things.
+level: 2
+flags: [peaceful]
+attack:
+  verb: punch

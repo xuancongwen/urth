@@ -1,0 +1,11 @@
+vnum: 307
+name: The Path to the Lake
+description: |
+  A footpath winds between roots and down a gentle slope. The trees thin,
+  and light comes in off water: a long lake, flat as beaten silver, with
+  reeds along its edge. Something overgrown stands among the reeds to the
+  west, half buried in vines.
+exits:
+  south: 306
+  west: 323
+  north: 309

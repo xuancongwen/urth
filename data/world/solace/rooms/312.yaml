@@ -1,0 +1,14 @@
+vnum: 312
+name: The Inn of the Last Home
+description: |
+  The common room fills the tree's crown. The floor is the living wood,
+  planed smooth; the walls are its branches, grown through with windows. A
+  great hearth throws light over long tables, and above the bar a window
+  of colored glass turns the last of the day into red and gold on the
+  floor. It is loud, crowded, and safe, and it smells of the best fried
+  potatoes in the world.
+exits:
+  east: 311
+  north: 313
+  up: 315
+flags: [safe]

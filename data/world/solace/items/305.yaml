@@ -1,0 +1,10 @@
+vnum: 305
+name: a brown Seeker's robe
+keywords: [brown, seeker, robe]
+description: A brown robe lies in a heap.
+look: |
+  Coarse brown wool with a hood. It smells of varnish and self-regard.
+type: armor
+slot: body
+level: 5
+baseline: light

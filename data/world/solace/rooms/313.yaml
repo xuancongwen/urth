@@ -1,0 +1,11 @@
+vnum: 313
+name: The Inn's Kitchen
+description: |
+  Heat, steam, and a cook who does not look up. Copper pans, sacks of
+  potatoes, a jar of some spice mix guarded like gold. A back door opens
+  on a stair that goes down the far side of the tree, steep and unlit, for
+  deliveries and for leaving without being seen.
+exits:
+  south: 312
+  down: 314
+flags: [safe]

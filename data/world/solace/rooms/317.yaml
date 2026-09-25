@@ -1,0 +1,9 @@
+vnum: 317
+name: The Weaver's Tree
+description: |
+  A house built round the trunk of a lesser vallenwood, with a loom in the
+  window and cloth hung out to dry along the branches. The weaver has seen
+  the road too, and has stopped taking new orders.
+exits:
+  west: 316
+  north: 318

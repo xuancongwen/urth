@@ -1,0 +1,9 @@
+vnum: 319
+name: The Watch Platform
+description: |
+  The top of the watch-tree, above the canopy. The whole of Solace is a
+  green cloud below, with lamps in it. To the south the wood goes dark and
+  does not stop. To the north, on the far hills, there are fires that are
+  not camp fires.
+exits:
+  south: 318

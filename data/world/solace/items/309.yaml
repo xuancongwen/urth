@@ -1,0 +1,9 @@
+vnum: 309
+name: a strip of vallenwood bark
+keywords: [strip, vallenwood, bark]
+description: A strip of grey vallenwood bark lies here.
+look: |
+  Folded like cloth and light as paper. It burns slow and sweet.
+type: material
+material: vallenwood bark
+rarity: common
