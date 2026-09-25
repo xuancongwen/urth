@@ -52,7 +52,7 @@ var helpText = map[string]string{
 	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
 	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",
 	"consume":   "consume <totem>: consume a totem to learn its school of magic.",
-	"sacrifice": "sacrifice <item>: at a god's temple, give up what the god wants to become its apostle.",
+	"sacrifice": "sacrifice <thing>: offer a corpse or other item lying here to the gods; it vanishes and they leave you a coin. At a god's temple, giving up what the god wants makes you its apostle.",
 
 	"follow": "follow <player> | follow self: follow someone, moving when they move, or go your own way.",
 	"group":  "group | group <follower>: as leader, add someone following you to your group, or list the group. Grouped players share kills and assist each other.",

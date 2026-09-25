@@ -676,7 +676,7 @@ func TestTotemSacrificeAndSpellAccess(t *testing.T) {
 	// Sacrifice only at the temple, only the right item.
 	giveItem(w, w.players[1].Character, 18) // the sun cup: sacrifice good
 	send(w, 1, "sacrifice cup")
-	if o := bob.take(); !strings.Contains(o, "no altar here") {
+	if o := bob.take(); !strings.Contains(o, "Drop it first, or find a temple") {
 		t.Fatalf("sacrifice outside temple: %q", o)
 	}
 	send(w, 1, "n")
@@ -684,7 +684,7 @@ func TestTotemSacrificeAndSpellAccess(t *testing.T) {
 	send(w, 1, "e") // room 3 is the temple in the test world
 	bob.take()
 	send(w, 1, "sacrifice sack")
-	if o := bob.take(); !strings.Contains(o, "don't have that") {
+	if o := bob.take(); !strings.Contains(o, "don't see that here") {
 		t.Fatalf("sacrifice missing: %q", o)
 	}
 	send(w, 1, "sacrifice cup")
@@ -1185,5 +1185,38 @@ func TestTrainerTeachesForCoin(t *testing.T) {
 	send(w, 1, "skills")
 	if o := bob.take(); !strings.Contains(o, "25%") || !strings.Contains(o, "Kick          new") {
 		t.Fatalf("skills after buying: %q", o)
+	}
+}
+
+func TestSacrificeCorpse(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	guard := w.contents(p.Room).mobs[0]
+	guard.Health = 1
+	send(w, 1, "kill guard")
+	bob.take()
+	send(w, 1, "sacrifice guard")
+	o := bob.take()
+	if !strings.Contains(o, "The contents of the corpse of a city guard spill out.") || !strings.Contains(o, "You sacrifice the corpse of a city guard to the gods.") || !strings.Contains(o, "The gods give you 1 silver for your sacrifice.") {
+		t.Fatalf("sacrifice corpse: %q", o)
+	}
+	items := w.contents(p.Room).items
+	if findCorpse(items, "city guard") != nil || !hasVnum(items, 10) || !hasVnum(items, 13) || p.Silver != 1 {
+		t.Fatalf("after sacrifice: items=%v silver=%d", items, p.Silver)
+	}
+	send(w, 1, "sacrifice altar")
+	if o := bob.take(); !strings.Contains(o, "The gods do not want a stone altar.") {
+		t.Fatalf("fixed item: %q", o)
+	}
+	send(w, 1, "get sword")
+	bob.take()
+	send(w, 1, "sacrifice sword")
+	if o := bob.take(); !strings.Contains(o, "Drop it first") {
+		t.Fatalf("inventory item: %q", o)
+	}
+	send(w, 1, "sacrifice nothing")
+	if o := bob.take(); !strings.Contains(o, "don't see that here") {
+		t.Fatalf("missing: %q", o)
 	}
 }

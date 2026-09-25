@@ -502,26 +502,56 @@ func cmdConsume(w *World, p *Player, args string) {
 }
 
 // cmdSacrifice: sacrifice <item>. At a god's temple, giving up the item the
-// god wants makes the character its apostle (docs/RULES.md 6.1).
+// god wants makes the character its apostle (docs/RULES.md 6.1). Anywhere,
+// an item lying in the room (a corpse, most often) can be sacrificed to
+// the gods, who take it away and leave a coin.
 func cmdSacrifice(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Sacrifice what?\n")
 		return
 	}
-	if p.Room.Temple == "" {
-		p.Send("There is no altar here.\n")
-		return
+	if p.Room.Temple != "" {
+		if found := item.Find(p.Inventory, item.ParseTarget(args)); len(found) > 0 && found[0].Proto.Sacrifice == p.Room.Temple {
+			w.greatSacrifice(p, found[0])
+			return
+		}
 	}
-	found := item.Find(p.Inventory, item.ParseTarget(args))
+	// Sacrifice something lying here.
+	c := w.contents(p.Room)
+	found := item.Find(c.items, item.ParseTarget(args))
 	if len(found) == 0 {
-		p.Send("You don't have that.\n")
+		if len(item.Find(p.Inventory, item.ParseTarget(args))) > 0 {
+			if p.Room.Temple == "" {
+				p.Send("The gods take only what lies on the ground. Drop it first, or find a temple.\n")
+			} else {
+				p.Send("The god does not want that.\n")
+			}
+			return
+		}
+		p.Send("You don't see that here.\n")
 		return
 	}
 	it := found[0]
-	if it.Proto.Sacrifice != p.Room.Temple {
-		p.Send("The god does not want that.\n")
+	if it.Proto.HasFlag("nopickup") && !it.Proto.HasFlag("corpse") {
+		p.Send("The gods do not want " + output.Escape(it.Name()) + ".\n")
 		return
 	}
+	if len(it.Contents) > 0 {
+		c.items = append(c.items, it.Contents...)
+		it.Contents = nil
+		w.actItem("The contents of $p spill out.", p.Character, nil, output.Escape(it.Name()), "", toChar)
+		w.actItem("The contents of $p spill out.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
+	}
+	c.items = item.Remove(c.items, it)
+	reward := max(1, it.Proto.Value/10)
+	p.Silver += reward
+	w.actItem("You sacrifice $p to the gods.", p.Character, nil, output.Escape(it.Name()), "", toChar)
+	w.actItem("$n sacrifices $p to the gods.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
+	p.Send("The gods give you " + escapeMoney(reward) + " for your sacrifice.\n")
+}
+
+// greatSacrifice is the divine path: the item the god wants, at its temple.
+func (w *World) greatSacrifice(p *Player, it *item.Item) {
 	p.Inventory = item.Remove(p.Inventory, it)
 	w.actItem("You lay $p on the altar, and it is gone.", p.Character, nil, output.Escape(it.Name()), "", toChar)
 	w.actItem("$n lays $p on the altar, and it is gone.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
