@@ -1,0 +1,12 @@
+vnum: 208
+name: a hill troll
+keywords: [hill, troll]
+description: A hill troll sits among the stones of the cairn, gnawing something.
+look: |
+  Twice your height and mostly arm. The cairn's stones are worn where
+  it sits.
+level: 12
+flags: [sentinel]
+health: 400
+attack:
+  verb: smash

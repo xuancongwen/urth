@@ -1,0 +1,16 @@
+vnum: 163
+name: a pair of windstep boots
+keywords: [windstep, boots]
+description: A pair of soft grey boots has been tucked under the straw.
+look: |
+  Grey doeskin, laced to the knee, and light as a thought. The floor
+  does not seem to notice them.
+type: armor
+slot: feet
+level: 10
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.15 }
+  - kind: attacks
+    params: { amount: 1 }

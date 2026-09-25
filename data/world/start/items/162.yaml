@@ -1,0 +1,15 @@
+vnum: 162
+name: a ring of the ox
+keywords: [ring, ox]
+description: A heavy bronze ring sits on the sill of the bell tower.
+look: |
+  Bronze, worn smooth, with an ox's head in relief. It is far heavier
+  than a ring should be, and you are far stronger wearing it.
+type: armor
+slot: finger
+level: 10
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 6 }
+  - kind: stat
+    params: { stat: constitution, amount: 4 }

@@ -1,0 +1,17 @@
+vnum: 160
+name: the Sundering Blade
+keywords: [sundering, blade, greatsword]
+description: A greatsword lies across the top of the cairn, untouched by weather.
+look: |
+  Longer than you are tall, and it weighs nothing in the hand. The edge
+  hums. Whoever left it here did not mean to come back for it.
+type: weapon
+level: 15
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: crit
+    params: { chance: 0.15, mult: 2 }

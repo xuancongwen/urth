@@ -1,0 +1,10 @@
+vnum: 150
+name: an iron cap
+keywords: [iron, cap]
+description: An iron cap lies here.
+look: |
+  A skullcap of hammered iron with a leather lining.
+type: armor
+slot: head
+level: 2
+baseline: medium

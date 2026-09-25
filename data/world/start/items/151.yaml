@@ -1,0 +1,10 @@
+vnum: 151
+name: a studded leather brigandine
+keywords: [studded, leather, brigandine]
+description: A studded leather brigandine lies here.
+look: |
+  Leather plates riveted to a canvas coat. It creaks when it moves.
+type: armor
+slot: body
+level: 2
+baseline: medium

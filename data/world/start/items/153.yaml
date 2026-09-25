@@ -1,0 +1,10 @@
+vnum: 153
+name: a pair of iron bracers
+keywords: [iron, bracers]
+description: A pair of iron bracers lies here.
+look: |
+  Forearm guards, dented from use.
+type: armor
+slot: arms
+level: 2
+baseline: medium

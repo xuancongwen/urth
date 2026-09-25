@@ -1,0 +1,13 @@
+vnum: 156
+name: a hunting spear
+keywords: [hunting, spear]
+description: A hunting spear leans against a stump.
+look: |
+  Ash shaft, leaf-shaped iron head. Made for boar, but it will do.
+type: weapon
+level: 3
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

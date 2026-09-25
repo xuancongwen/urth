@@ -64,3 +64,38 @@ resets:
     room: 7
   - item: 140         # the chalice, hidden in the loft (the Good god's sacrifice)
     room: 15
+  - item: 150         # a set of level-2 iron at the smithy
+    room: 10
+  - item: 151
+    room: 10
+  - item: 152
+    room: 10
+  - item: 153
+    room: 10
+  - item: 154
+    room: 10
+  - item: 155         # the longsword at the market
+    room: 12
+  - item: 156         # the spear on the scrub track
+    room: 16
+  - mob: 205          # wolves on the scrub track and at the milestone; they assist each other
+    room: 16
+    max: 3
+  - mob: 206          # a bandit at the milestone, with a club and a purse
+    room: 17
+    equip:
+      - item: 101
+        slot: wield
+      - item: 109
+  - mob: 207          # the wight in the bog
+    room: 19
+  - mob: 208          # the troll on the cairn, guarding the Blade
+    room: 20
+  - item: 160         # the Sundering Blade on the cairn
+    room: 20
+  - item: 161         # the hauberk in the bog
+    room: 19
+  - item: 162         # the ring in the bell tower top
+    room: 8
+  - item: 163         # the boots in the tavern loft
+    room: 15

@@ -1,0 +1,14 @@
+vnum: 161
+name: a dragonscale hauberk
+keywords: [dragonscale, hauberk]
+description: Something dark and scaled is half sunk in the bog.
+look: |
+  Overlapping scales, each the size of a palm, black shading to red.
+  They are warm. It fits as if it had been made for you.
+type: armor
+slot: body
+level: 15
+baseline: heavy
+effects:
+  - kind: protect
+    params: { mult: 0.7 }

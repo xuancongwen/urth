@@ -1,0 +1,10 @@
+vnum: 152
+name: a pair of iron greaves
+keywords: [iron, greaves]
+description: A pair of iron greaves lies here.
+look: |
+  Shin plates on leather straps, a little rusted at the buckles.
+type: armor
+slot: legs
+level: 2
+baseline: medium

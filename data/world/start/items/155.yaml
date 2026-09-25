@@ -1,0 +1,13 @@
+vnum: 155
+name: a steel longsword
+keywords: [steel, longsword, sword]
+description: A steel longsword lies here.
+look: |
+  Well kept and well balanced. Somebody was proud of this once.
+type: weapon
+level: 4
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

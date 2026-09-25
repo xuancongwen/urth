@@ -1,0 +1,10 @@
+vnum: 154
+name: a pair of hobnailed boots
+keywords: [hobnailed, boots]
+description: A pair of hobnailed boots lies here.
+look: |
+  Heavy boots with iron nails through the soles.
+type: armor
+slot: feet
+level: 2
+baseline: medium

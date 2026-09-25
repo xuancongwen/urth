@@ -1,0 +1,10 @@
+vnum: 205
+name: a grey wolf
+keywords: [grey, wolf]
+description: A grey wolf watches you from the scrub.
+look: |
+  Lean, yellow-eyed, and not alone for long.
+level: 3
+flags: [assist]
+attack:
+  verb: bite
