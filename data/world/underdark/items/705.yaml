@@ -1,0 +1,15 @@
+vnum: 705
+name: a hook horror's hook
+keywords: [hook, horror, horrors]
+description: A great chitin hook lies here, still wet at the root.
+look: |
+  As long as your forearm and curved like a question. Torn from the
+  wrist of something that was not only a beast. It takes two hands and
+  it goes through mail.
+type: weapon
+level: 12
+baseline: heavy
+weapon:
+  hands: 2
+  kind: pierce
+  verb: hook

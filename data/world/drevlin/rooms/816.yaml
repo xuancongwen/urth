@@ -1,0 +1,14 @@
+vnum: 816
+name: The Factree
+description: |
+  The greatest room in Wombe, and the only one with a ceiling you cannot
+  touch. It was built by whoever built the machine, and the Gegs have
+  filled it with benches and importance. At the far end a statue of a
+  robed man with his hand raised stands on a dais; it hums, faintly, and
+  the Gegs do not look at it directly. Beside the dais a low crawl-hole
+  goes east into the dark, and a stair goes down. The warren is north.
+exits:
+  north: 814
+  east: 817
+  down: 818
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 621
+name: Bruenor's Hall
+description: |
+  The clan's great hall, which is to say a wide chamber with a long
+  table, a fire, and a chair at the head that is a little larger than
+  the rest and has an axe leaning on it. Shields on the walls. Dwarves
+  come and go. West, the forge roars. The gate is south.
+exits:
+  south: 620
+  west: 622
+flags: [safe]

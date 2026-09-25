@@ -1,0 +1,10 @@
+vnum: 610
+name: a lump of knucklehead ivory
+keywords: [lump, knucklehead, ivory]
+description: A lump of knucklehead ivory lies here.
+look: |
+  The forehead bone of a trout, cleaned and dried to a creamy white.
+  Carvers want it. So do people who grind it for other purposes.
+type: material
+material: knucklehead ivory
+rarity: uncommon

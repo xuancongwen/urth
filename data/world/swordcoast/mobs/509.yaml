@@ -1,0 +1,12 @@
+vnum: 509
+name: Khalid
+keywords: [khalid, half-elf, fighter]
+description: Khalid sits close to the fire, a sword across his knees, glancing at the door.
+look: |
+  A half-elf in mail with a stammer and a sword that has been used more
+  than his manner suggests. He would rather nobody had to fight and
+  will be the first to if they must.
+level: 14
+flags: [sentinel, peaceful]
+attack:
+  verb: slash

@@ -1,0 +1,10 @@
+vnum: 518
+name: The Hill Crossing
+description: |
+  The road climbs a saddle between two hills and something has made a
+  camp on the top of it: a fire pit, bones too big for a sheep, and a
+  smell. The view south takes in a mining town and the mountains beyond
+  it. Beregost is back north.
+exits:
+  north: 517
+  south: 519

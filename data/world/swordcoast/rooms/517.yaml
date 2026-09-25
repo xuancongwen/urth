@@ -1,0 +1,9 @@
+vnum: 517
+name: The Road South of Beregost
+description: |
+  Farms give way to heath. A small blue shape darts across the road and
+  screams something in a language of shrieks, then another. The road
+  runs south, up into the hills, and north back to Beregost.
+exits:
+  north: 514
+  south: 518

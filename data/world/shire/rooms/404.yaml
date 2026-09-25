@@ -1,0 +1,13 @@
+vnum: 404
+name: The Lane up the Hill
+description: |
+  A steep lane climbs the Hill between banks of thyme and nodding grass.
+  Below, all Hobbiton lies open: the road, the Water, the Mill, and the
+  green of the Party Field off to the west. At the top of the lane the
+  hedge ends at a gate, and beyond the gate is the best-known door in
+  the Shire.
+exits:
+  south: 401
+  north: 405
+  west: 406
+flags: [safe]

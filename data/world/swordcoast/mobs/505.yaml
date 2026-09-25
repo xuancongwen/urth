@@ -1,0 +1,10 @@
+vnum: 505
+name: a wild dog
+keywords: [wild, dog]
+description: A wild dog watches you from the ditch, ribs showing.
+look: |
+  Yellow, thin, and long past being anyone's. It has eaten off this
+  road before.
+level: 3
+attack:
+  verb: bite

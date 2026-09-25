@@ -1,0 +1,13 @@
+vnum: 500
+name: The Undercellars of Candlekeep
+description: |
+  Barrels older than anyone upstairs, a floor of packed sand, and shelves
+  of books nobody has climbed down to read in a century. The door in the
+  west wall is oak gone black, and the air on its far side belongs to
+  somewhere else. A ladder goes up through a hatch into daylight and the
+  sound of a courtyard.
+exits:
+  west: 6
+  up: 501
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

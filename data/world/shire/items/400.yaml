@@ -1,0 +1,14 @@
+vnum: 400
+name: a sturdy walking stick
+keywords: [sturdy, walking, stick]
+description: A sturdy walking stick leans against the bench.
+look: |
+  Ash, cut from the hedge and worn smooth at the grip. Good for a walk,
+  and for anything that interrupts one.
+type: weapon
+level: 1
+baseline: standard
+weapon:
+  hands: 1
+  kind: blunt
+  verb: thump

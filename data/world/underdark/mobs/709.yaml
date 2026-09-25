@@ -1,0 +1,15 @@
+vnum: 709
+name: Belwar Dissengulp
+keywords: [belwar, dissengulp, burrow-warden, gnome]
+description: Belwar Dissengulp sits by the fountain, resting a hammer and a pick that are his hands.
+look: |
+  A deep gnome broader than most, with a beard of grey stubble and two
+  mithral hands: a hammer on the right wrist and a pick on the left,
+  enchanted, and used for both digging and worse. He calls himself the
+  Most Honored Burrow-Warden without irony. He has been to the surface
+  once and does not recommend it. He looks at you as if you are a
+  problem he has decided to like.
+level: 16
+flags: [sentinel, peaceful]
+attack:
+  verb: hammer

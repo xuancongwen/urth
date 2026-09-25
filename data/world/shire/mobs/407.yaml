@@ -1,0 +1,11 @@
+vnum: 407
+name: a crow
+keywords: [crow]
+description: A crow drops onto a fencepost and eyes you sideways.
+look: |
+  Black, glossy, and loud. It has been watching the fields all day and
+  reports everything.
+level: 1
+flags: [assist]
+attack:
+  verb: peck

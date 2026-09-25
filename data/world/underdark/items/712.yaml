@@ -1,0 +1,11 @@
+vnum: 712
+name: a pinch of faerzress dust
+keywords: [pinch, faerzress, dust]
+description: A pinch of violet dust glows faintly on the rock.
+look: |
+  Scraped from a wall that glows on its own. It fizzes against the
+  skin and makes the hair stand up. Wizards from above would trade an
+  eye for it.
+type: material
+material: faerzress dust
+rarity: rare

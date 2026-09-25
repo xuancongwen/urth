@@ -1,0 +1,11 @@
+vnum: 613
+name: The Foot of Kelvin's Cairn
+description: |
+  The one mountain in a flat land, a heap of rock a god might have
+  dropped. Its lower slopes are scree and scrub willow. A path climbs
+  north along the shoulder. East, the ground folds into a valley where
+  smoke rises from a hole in the rock. The road is west.
+exits:
+  west: 604
+  north: 614
+  east: 615

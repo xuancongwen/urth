@@ -1,0 +1,14 @@
+vnum: 600
+name: a bone-hafted axe
+keywords: [bone-hafted, bone, axe]
+description: An axe with a haft of elk bone lies in the snow.
+look: |
+  A broad iron head bound to a length of antler with sinew. The Tribe
+  of the Elk make these, and the sinew is the part they are proud of.
+type: weapon
+level: 7
+baseline: heavy
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

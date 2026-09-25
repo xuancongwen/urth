@@ -1,0 +1,10 @@
+vnum: 503
+name: Winthrop's Inn
+description: |
+  The only place in Candlekeep where anybody laughs. Low beams, a fire
+  too big for the room, and a bar Winthrop polishes as though it were
+  the last thing standing between him and ruin. Every price is a joke
+  and every joke is a price. The courtyard is out the west door.
+exits:
+  west: 501
+flags: [safe]

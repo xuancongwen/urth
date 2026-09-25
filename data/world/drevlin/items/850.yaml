@@ -1,0 +1,14 @@
+vnum: 850
+name: a Geg's wrench
+keywords: [geg, wrench]
+description: A heavy iron wrench lies here.
+look: |
+  As long as a Geg's arm and older than his grandfather. The jaws fit
+  one bolt in the world, and it is tight.
+type: weapon
+level: 3
+baseline: standard
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

@@ -1,0 +1,17 @@
+vnum: 414
+name: a Black Rider
+keywords: [black, rider, horseman, shadow]
+description: A tall shape in a black hood sits a black horse in the road, bent down, sniffing.
+look: |
+  The hood is empty where a face should be. The horse stands too still.
+  It bends toward the ground, and you hear it draw a long breath in,
+  as if the road itself might tell it where you went. The cold coming
+  off it is not the cold of the wood.
+level: 10
+flags: [sentinel]
+health: 300
+attack:
+  verb: strike
+effects:
+  - kind: crit
+    params: { chance: 0.10, mult: 2 }

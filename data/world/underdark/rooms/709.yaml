@@ -1,0 +1,12 @@
+vnum: 709
+name: The Outer Gate of Blingdenstone
+description: |
+  A gate of stone that looks like more wall until it opens. It has
+  opened for you, a hand's width, and guards stand in the gap with
+  their picks held the way they hold everything, ready to work. The
+  city is west, and its light is white and steady. The road east goes
+  back into the wild.
+exits:
+  east: 708
+  west: 710
+flags: [safe]

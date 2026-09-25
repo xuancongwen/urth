@@ -1,0 +1,9 @@
+vnum: 506
+name: a page torn from a spellbook
+keywords: [page, spellbook, torn]
+description: A torn page covered in cramped script lies here.
+look: |
+  Half a spell in a careful hand, and at the bottom, in another hand
+  and hurried: "Candlekeep. Gorion's ward. Alive if possible. Pay is
+  the same either way."
+type: other

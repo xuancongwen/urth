@@ -1,0 +1,11 @@
+vnum: 605
+name: a knucklehead fisherman
+keywords: [knucklehead, fisherman]
+description: A fisherman guts knucklehead trout on the shingle, tossing the heads to the gulls.
+look: |
+  Weathered past guessing his age, in an oilskin stiff with scales. The
+  ivory in the fish's skull is what pays; the rest is dinner.
+level: 5
+flags: [peaceful]
+attack:
+  verb: punch

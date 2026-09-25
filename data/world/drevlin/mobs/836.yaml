@@ -1,0 +1,11 @@
+vnum: 836
+name: a whistle-clap gone wrong
+keywords: [whistle-clap, whistleclap, hammer, arm]
+description: A hammer-arm has torn off the bell and swings at the air, still keeping time.
+look: |
+  A brass arm with a hammer at the end, wrenched from its mount and
+  walking on its elbow. It strikes whatever is where the bell used to
+  be. Right now that is you.
+level: 4
+attack:
+  verb: clang

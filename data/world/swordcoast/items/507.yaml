@@ -1,0 +1,12 @@
+vnum: 507
+name: Gorion's letter
+keywords: [gorion, gorions, letter]
+description: A letter lies on the desk, half folded.
+look: |
+  "We leave tonight, by the Lion's Way, and do not stop before the
+  Friendly Arm. Do not ask why. Pack light. And know this: the keep has
+  been robbed. A thing from the vaults, a carved totem that let the old
+  readers see what was hidden, went south with the iron shipments. The
+  Fist say the road ends at Nashkel, in the mine. If I do not come back
+  for it, you will."
+type: other

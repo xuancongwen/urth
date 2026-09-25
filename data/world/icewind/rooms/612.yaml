@@ -1,0 +1,10 @@
+vnum: 612
+name: Biggrin's Lair
+description: |
+  A cave that stinks of old meat and the thing that ate it. Bones,
+  mostly reindeer, some not, are heaped against the walls, and a fire
+  pit big enough to roast a horse is banked at the back. The ceiling is
+  high; whatever lives here needs it to be. Daylight is west.
+exits:
+  west: 611
+flags: [dark]

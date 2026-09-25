@@ -1,0 +1,11 @@
+vnum: 605
+name: a pair of sealskin boots
+keywords: [sealskin, boots]
+description: A pair of sealskin boots lies here.
+look: |
+  Oiled seal hide, fur inward, sewn with gut. Dry feet in the Dale are
+  worth more than gold.
+type: armor
+slot: feet
+level: 4
+baseline: light

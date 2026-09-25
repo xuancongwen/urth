@@ -1,0 +1,12 @@
+vnum: 624
+name: The Old Workings
+description: |
+  Nobody has mined here in years. The props are rotten and the air is
+  still. Something has dragged bedding into a side gallery to the north,
+  and the smell from it is musk and rot. The ladder goes up. A second
+  shaft, half choked with fallen rock, goes further down.
+exits:
+  up: 623
+  north: 625
+  down: 626
+flags: [dark]

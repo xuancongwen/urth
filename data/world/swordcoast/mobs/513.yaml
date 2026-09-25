@@ -1,0 +1,11 @@
+vnum: 513
+name: an ogre
+keywords: [ogre]
+description: An ogre sits by its fire pit on the hilltop, gnawing something with a hoof still on it.
+look: |
+  Twice your height and most of it shoulder. It has decided the hill is
+  its and the road is a table that brings food to the hill.
+level: 7
+silver: 40
+attack:
+  verb: pound

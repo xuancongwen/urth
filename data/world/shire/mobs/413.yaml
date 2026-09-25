@@ -1,0 +1,12 @@
+vnum: 413
+name: a ruffian
+keywords: [ruffian, man, big]
+description: A big man in a ragged coat sits on the stile, cleaning his nails with a knife.
+look: |
+  A Big Person, squint-eyed and sallow, with a coat that was a soldier's
+  once and a smell of the South. He has been asking in Bywater about a
+  Mr. Baggins, and did not like the answers.
+level: 5
+silver: 25
+attack:
+  verb: punch

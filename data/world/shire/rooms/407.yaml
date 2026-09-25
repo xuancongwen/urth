@@ -1,0 +1,12 @@
+vnum: 407
+name: The Bywater Road
+description: |
+  The road runs straight and easy along the north bank of the Water,
+  between fields of turnips and barley. Carts have worn two ruts and
+  the grass grows up the middle. The Pool glitters to the north, the
+  Hill is behind you west, and the first houses of Bywater begin east.
+exits:
+  west: 401
+  east: 408
+  north: 412
+flags: [safe]

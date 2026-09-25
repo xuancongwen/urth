@@ -1,0 +1,10 @@
+vnum: 403
+name: a felt hat
+keywords: [felt, hat]
+description: A brown felt hat lies in the road where the wind put it.
+look: |
+  Wide-brimmed, bashed in, with a jay's feather in the band.
+type: armor
+slot: head
+level: 1
+baseline: light

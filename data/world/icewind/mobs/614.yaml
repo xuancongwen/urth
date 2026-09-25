@@ -1,0 +1,13 @@
+vnum: 614
+name: a dwarf smith
+keywords: [dwarf, smith, dwarven]
+description: A dwarf smith hammers a blade flat, then turns it, then hammers it again.
+look: |
+  Arms like the bellows chain, a beard singed to stubble on one side,
+  and no interest in you until you mention coin. Then he will teach you
+  how to hit something so that it stays hit.
+level: 10
+flags: [sentinel, peaceful]
+teaches: [bash]
+attack:
+  verb: punch

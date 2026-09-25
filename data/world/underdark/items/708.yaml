@@ -1,0 +1,9 @@
+vnum: 708
+name: a svirfneblin lamp
+keywords: [svirfneblin, lamp, gnome]
+description: A small stone lamp gives off a steady white light.
+look: |
+  A hollowed stone the size of a fist with a crystal in it that burns
+  without flame or smoke, on some fuel a gnome would not name. It lasts.
+type: light
+burn: 1200

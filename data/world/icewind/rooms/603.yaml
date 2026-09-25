@@ -1,0 +1,12 @@
+vnum: 603
+name: The North Gate
+description: |
+  The palisade opens on the tundra here, and the gate guards wear more
+  fur than armor. South is the market. North, the road runs out onto the
+  white flat toward the cairn. West, a rutted track bends off toward
+  the lake and the fishing town of Lonelywood.
+exits:
+  south: 601
+  north: 604
+  west: 605
+flags: [safe]

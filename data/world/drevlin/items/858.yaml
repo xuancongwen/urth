@@ -1,0 +1,10 @@
+vnum: 858
+name: the ship's water-flask
+keywords: [ship, ships, water, flask]
+description: A silver flask stoppered with crystal lies here.
+look: |
+  Elven work, and full. On Arianus water is the one thing the whole
+  world is short of, and this much of it, this pure, is a small
+  fortune to anyone who lives above the storm.
+type: other
+value: 80

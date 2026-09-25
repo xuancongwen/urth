@@ -1,0 +1,12 @@
+vnum: 701
+name: A Crack in the Rock
+description: |
+  The cut walls end and the living rock begins, folded and wet. The crack
+  is wide enough for a shoulder at a time and slopes downward in the
+  dark. Somebody has scratched a dwarven rune at head height: it means
+  turn back, or it means beware, and you cannot tell which. The way
+  north returns to the shaft; the crack drops away below your feet.
+exits:
+  north: 700
+  down: 702
+flags: [dark]

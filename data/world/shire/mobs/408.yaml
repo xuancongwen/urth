@@ -1,0 +1,10 @@
+vnum: 408
+name: a badger
+keywords: [badger]
+description: A badger has come out of its hole under the bank and is not pleased to see you.
+look: |
+  Grey and striped and built like a small barrel, with claws made for
+  digging and a temper made for nothing.
+level: 3
+attack:
+  verb: rake

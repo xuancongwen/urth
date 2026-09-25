@@ -1,0 +1,10 @@
+vnum: 712
+name: The Hostel of the Deep Gnomes
+description: |
+  A low room with low tables and a pot that has not been empty in
+  living memory. Beds are shelves cut into the wall, with a curtain
+  each. It is quiet, and warm, and the ceiling has been carved to look
+  like stars, by someone who had heard of them. The square is north.
+exits:
+  north: 710
+flags: [safe]

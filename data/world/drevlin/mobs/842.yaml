@@ -1,0 +1,13 @@
+vnum: 842
+name: Hugh the Hand
+keywords: [hugh, hand, assassin, human, cloaked]
+description: A dark-cloaked human sits on a cask at the edge of the dock, sharpening a knife he does not look at.
+look: |
+  A big man, scarred, with a face that has settled into stillness the
+  way a stone does. He is a long way from home, and the dock is not his
+  business, and the boy is. He looks at you once, decides you are not a
+  contract, and goes back to the knife.
+level: 18
+flags: [sentinel, peaceful]
+attack:
+  verb: stab

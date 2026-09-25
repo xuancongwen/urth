@@ -1,0 +1,11 @@
+vnum: 422
+name: The Bank of the Withywindle
+description: |
+  A hot, drowsy hollow where the brown river runs slow under a huge
+  grey willow. The air is thick with sleep. The willow's roots go into
+  the water and along the bank like fingers, and its trunk is split
+  with cracks that open and close. It is very hard to keep your eyes
+  open. The path back north is already hard to find.
+exits:
+  north: 421
+flags: [dark]

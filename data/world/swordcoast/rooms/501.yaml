@@ -1,0 +1,16 @@
+vnum: 501
+name: Candlekeep, the Inner Courtyard
+description: |
+  Flagstones worn to a shine between walls that have never been breached.
+  Monks in brown cross the yard with their arms full of scrolls and do
+  not look up. The library rises to the north on broad steps; Winthrop's
+  inn is east, where the noise is; a stair west leads to the priests'
+  quarters; and the gate stands south. A hatch in the corner opens on
+  the cellars.
+exits:
+  north: 502
+  east: 503
+  west: 504
+  south: 505
+  down: 500
+flags: [safe]

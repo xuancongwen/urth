@@ -1,0 +1,10 @@
+vnum: 807
+name: The Edge of the Works
+description: |
+  The yard ends in nothing. Below the rail there is only cloud, lit from
+  underneath by lightning that never quite stops, and a wind coming up
+  that smells of wet stone. A dig-claw chain hangs over the edge here,
+  taut, going down. Someone has knotted a rope to it. The yard is west.
+exits:
+  west: 806
+  down: 808

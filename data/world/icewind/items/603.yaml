@@ -1,0 +1,11 @@
+vnum: 603
+name: a goblin chieftain's iron crown
+keywords: [goblin, chieftain, iron, crown]
+description: An iron crown lies on the floor, dented.
+look: |
+  A dwarven helm, once, with the cheek-guards torn off and the rim
+  hammered into spikes. Somebody has scratched a face on the front.
+type: armor
+slot: head
+level: 9
+baseline: heavy

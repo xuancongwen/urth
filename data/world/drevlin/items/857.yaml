@@ -1,0 +1,9 @@
+vnum: 857
+name: a bowl of Drevlin stew
+keywords: [bowl, drevlin, stew]
+description: A bowl of grey stew steams on the bench.
+look: |
+  Roots, a mushroom that grows on the pipes, and something that was
+  once a pipe-rat. It is hot, and there is a great deal of it.
+type: other
+value: 3

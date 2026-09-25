@@ -1,0 +1,18 @@
+vnum: 841
+name: the elven captain
+keywords: [elven, elf, captain]
+description: The elven captain sits at his charts with his boots on the table and a sabre across his knees.
+look: |
+  Older than his marines, which shows in the eyes and nowhere else, in
+  a coat that cost more than Wombe. He has flown the Maelstrom forty
+  times and means to make it forty-one, and he has never once lost a
+  cask of water to a groundling.
+level: 9
+flags: [sentinel]
+health: 220
+silver: 200
+attack:
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.1 }

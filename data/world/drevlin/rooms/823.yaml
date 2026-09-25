@@ -1,0 +1,9 @@
+vnum: 823
+name: The Bow and the Engine
+description: |
+  The ship's wings meet at the bow in a housing of crystal that glows
+  faintly blue and is warm as a hand. This is what flies it. A crack in
+  the housing has shed slivers on the deck, and the elves have not
+  swept them, which tells you what they cost. The deck is west.
+exits:
+  west: 822

@@ -1,0 +1,11 @@
+vnum: 818
+name: The WUPP Cellar
+description: |
+  A cellar under the Factree that the High Froman does not know about,
+  which is the point. Crates for seats, a lamp, a table covered in
+  pamphlets, and on the wall a banner reading WORSHIPPERS OF UNIFICATION
+  AND PROGRESS AND PROSPERITY in a hand that ran out of room. The stair
+  up is the only way in.
+exits:
+  up: 816
+flags: [safe]

@@ -1,0 +1,9 @@
+vnum: 607
+name: a knucklehead trout
+keywords: [knucklehead, trout, fish]
+description: A knucklehead trout lies here, its skull thick as a fist.
+look: |
+  Grey and fat, with a bony forehead the fishermen prize and the flesh
+  the rest of the Dale lives on.
+type: other
+value: 6

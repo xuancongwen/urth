@@ -1,0 +1,10 @@
+vnum: 503
+name: a chain shirt
+keywords: [chain, shirt, mail]
+description: A shirt of chain mail lies in a heap.
+look: |
+  Good riveted links, a little large, with candle wax in the weave.
+type: armor
+slot: body
+level: 8
+baseline: medium

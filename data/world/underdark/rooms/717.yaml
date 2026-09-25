@@ -1,0 +1,12 @@
+vnum: 717
+name: Bones at the Chasm Floor
+description: |
+  Bones, in drifts. Some fell; you can tell by the way they lie. Some
+  were dragged, and arranged, and picked clean by something patient.
+  Among them a few skulls have the high cheekbones and small teeth of
+  elves, and those have been set apart in a row, facing south. A cut
+  passage opens that way. The chasm floor lies west.
+exits:
+  west: 716
+  south: 718
+flags: [dark]

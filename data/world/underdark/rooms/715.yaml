@@ -1,0 +1,12 @@
+vnum: 715
+name: A Ledge on the Chasm Wall
+description: |
+  The ledge clings to the wall of the chasm halfway down. Something has
+  been coming and going here on hooked feet: the rock is scored in
+  parallel lines, deep as a chisel. There is a hollow in the wall, and
+  in the hollow, a nest of sorts. The ledge climbs back up to the lip
+  and continues south to the floor.
+exits:
+  up: 714
+  south: 716
+flags: [dark]

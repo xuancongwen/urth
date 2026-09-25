@@ -1,0 +1,10 @@
+vnum: 819
+name: The Liftalofts, Rising
+description: |
+  The cage climbs. The Kicksey-winsey falls away below you into a plain
+  of wheels and steam, and the rain thins, and the cloud thins, and for a
+  moment there is something like sky. The chain clanks over the wheel
+  above. Down is the machine; up is whatever the Liftalofts lift to.
+exits:
+  down: 805
+  up: 820

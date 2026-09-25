@@ -1,0 +1,16 @@
+vnum: 400
+name: A Bend in the Bywater Road
+description: |
+  The road turns here between a high grassy bank and the Water, which
+  slides by brown and slow under a fringe of willows. Set into the bank
+  is a low round door of old oak, green with damp, that nobody in
+  Hobbiton remembers being opened. The road runs on north toward the
+  Hill; a mill-wheel turns somewhere to the west, and a path goes down
+  south to the water's edge.
+exits:
+  east: 6
+  north: 401
+  west: 403
+  south: 410
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

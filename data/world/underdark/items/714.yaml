@@ -1,0 +1,11 @@
+vnum: 714
+name: a vial of drow sleep-poison
+keywords: [vial, drow, sleep-poison, poison]
+description: A tiny vial of clear liquid lies here.
+look: |
+  Clear as water and smelling faintly of mushrooms. A scratch of it
+  and a man sleeps where he stands; the drow do not always bother to
+  wake him.
+type: material
+material: drow sleep-poison
+rarity: uncommon

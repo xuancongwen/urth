@@ -1,0 +1,10 @@
+vnum: 412
+name: The Pool of Bywater
+description: |
+  A broad pool where the Water spreads and slows, ringed with reeds and
+  a few fishing-stools. Ducks argue. Someone has left a rod and gone to
+  the inn. On a still day the whole Hill shows in the water, upside
+  down. The road is back south.
+exits:
+  south: 407
+flags: [safe]

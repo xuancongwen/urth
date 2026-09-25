@@ -1,0 +1,12 @@
+vnum: 606
+name: Lonelywood, the One Street
+description: |
+  Twenty houses of grey wood with their backs to the wind, and a stall
+  under an awning where a man carves fish-bone by lamplight. Nobody here
+  hurries. West, the last cottage stands apart, nearest the water. North
+  the street ends at the shore. The track back to Bryn Shander is east.
+exits:
+  east: 605
+  west: 607
+  north: 608
+flags: [safe]

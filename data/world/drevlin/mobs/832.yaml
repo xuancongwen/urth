@@ -1,0 +1,15 @@
+vnum: 832
+name: Darral Longshoreman, the High Froman
+keywords: [darral, longshoreman, froman, high]
+description: Darral Longshoreman, the High Froman, sits on the dais with his back to the statue and frowns at everyone.
+look: |
+  The fattest Geg in Wombe, in a hat with a dent in it that is the
+  symbol of his office, and a look of a man who has been telling his
+  people that the elves are gods for so long that he almost minds when
+  they treat him like one. He knows the statue hums. He does not go
+  near it.
+level: 12
+flags: [sentinel, peaceful]
+silver: 60
+attack:
+  verb: cuff

@@ -1,0 +1,9 @@
+vnum: 715
+name: a spider's venom sac
+keywords: [spider, venom, sac]
+description: A translucent sac of venom lies here.
+look: |
+  Grey, taut, and unpleasant to hold. Alchemists and worse pay for these.
+type: material
+material: spider venom
+rarity: uncommon

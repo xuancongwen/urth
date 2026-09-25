@@ -1,0 +1,13 @@
+vnum: 601
+name: The Market Square of Bryn Shander
+description: |
+  Wind, always the wind, and under it the shouting of the market. Stalls
+  of scrimshaw and salt fish crowd the square inside the palisade, and
+  every trader has one eye on the sky. A tavern door swings west, a hatch
+  in the ground drops to a cellar, and the north gate stands open on the
+  tundra, with Kelvin's Cairn a white tooth beyond it.
+exits:
+  down: 600
+  west: 602
+  north: 603
+flags: [safe]

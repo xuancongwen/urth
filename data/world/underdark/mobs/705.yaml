@@ -1,0 +1,14 @@
+vnum: 705
+name: a drow warrior
+keywords: [drow, warrior, elf, dark]
+description: A drow warrior walks the black road, silent as his own shadow.
+look: |
+  Black skin, white hair, a face too fine to be kind. He moves without
+  sound and looks at you without interest, the way a cook looks at a
+  hen. His blade is already out; it has been out since before you saw
+  him.
+level: 14
+flags: [assist]
+silver: 70
+attack:
+  verb: slash

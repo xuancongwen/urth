@@ -1,0 +1,14 @@
+vnum: 617
+name: a goblin chieftain
+keywords: [goblin, chieftain, chief]
+description: A goblin chieftain squats on a throne of ore carts, wearing an iron crown that is not his.
+look: |
+  Bigger than his kind, scarred from the fights that made him bigger,
+  and wearing dwarf-work he could not have made in a lifetime. He
+  found the shaft. He has not gone down it. He has heard what comes up.
+level: 10
+flags: [sentinel]
+health: 260
+silver: 50
+attack:
+  verb: bash

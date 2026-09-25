@@ -1,0 +1,12 @@
+vnum: 627
+name: The Chieftain's Hole
+description: |
+  A chamber the goblins have made their own: a throne of stacked ore
+  carts, a heap of loot that is mostly worthless, and skulls on sticks.
+  The gallery is north. In the floor, a square shaft goes down, its
+  edges too cleanly cut for goblin work, and a cold that is not the
+  cold of the tundra comes up out of it.
+exits:
+  north: 626
+  down: 640
+flags: [dark]

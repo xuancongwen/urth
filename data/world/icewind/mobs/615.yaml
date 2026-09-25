@@ -1,0 +1,10 @@
+vnum: 615
+name: a cave bear
+keywords: [cave, bear]
+description: A cave bear lifts its head out of the bedding and huffs at you.
+look: |
+  Brown, vast, and slow to anger, which is not the same as slow. It
+  came in from the cold to sleep and it does not like being woken.
+level: 6
+attack:
+  verb: maul

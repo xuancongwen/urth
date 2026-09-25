@@ -1,0 +1,12 @@
+vnum: 708
+name: a svirfneblin guard
+keywords: [svirfneblin, guard, gnome, deep]
+description: A svirfneblin guard stands in the gap of the gate, pick in hand, watching you without blinking.
+look: |
+  Three and a half feet of grey stone-colored gnome, bald, wiry, with
+  eyes like flint chips. He is not unfriendly. He is a wall that has
+  decided to let you through, for now.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

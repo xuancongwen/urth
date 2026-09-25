@@ -1,0 +1,8 @@
+vnum: 404
+name: a pint of the Green Dragon's best
+keywords: [pint, ale, beer, best]
+description: A pint of ale stands on the bar with a head on it.
+look: |
+  Golden, nutty, and the best in the Shire, which is to say the best.
+type: other
+value: 2

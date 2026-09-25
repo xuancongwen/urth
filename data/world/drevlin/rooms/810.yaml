@@ -1,0 +1,10 @@
+vnum: 810
+name: The Storm's Lip
+description: |
+  The shelf narrows to a lip over the abyss, and here the storm has
+  everything its own way. Coralite crumbles at the edge. Things live in
+  the holes of the rock, and come out for whatever the claws drop. The
+  only way back is north, to the chain.
+exits:
+  north: 809
+flags: [dark]

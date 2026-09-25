@@ -1,0 +1,10 @@
+vnum: 713
+name: a rothe hide
+keywords: [rothe, hide]
+description: A shaggy rothe hide lies in a heap.
+look: |
+  Coarse, musky, and warm. The deep gnomes make everything out of these
+  and so does anyone else who has to live down here.
+type: material
+material: rothe hide
+rarity: common

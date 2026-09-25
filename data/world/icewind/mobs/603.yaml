@@ -1,0 +1,13 @@
+vnum: 603
+name: Regis
+keywords: [regis, halfling, rumblebelly]
+description: Regis, a plump halfling, sits in the good chair with his feet to the fire, turning a ruby pendant on its chain.
+look: |
+  Round, comfortable, and pleased with the world. He talks easily
+  and lets the pendant swing while he does, and you find yourself
+  agreeing with him about things you had not thought about. He would
+  rather not be asked where the pendant came from.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

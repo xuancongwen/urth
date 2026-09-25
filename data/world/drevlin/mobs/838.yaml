@@ -1,0 +1,11 @@
+vnum: 838
+name: a storm-hawk
+keywords: [storm-hawk, hawk, stormhawk]
+description: A storm-hawk rides the wind above the shelf, wings never moving, looking down.
+look: |
+  Grey as the cloud, with a span wider than you are tall, and talons
+  meant for taking things off ledges. It nests in the Maelstrom and
+  eats what the dig-claws scare up.
+level: 6
+attack:
+  verb: rake

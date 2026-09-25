@@ -1,0 +1,13 @@
+vnum: 511
+name: Silke
+keywords: [silke, bard, woman]
+description: Silke leans on the well in a bard's colors, humming, and watches you the way a cat watches a bird.
+look: |
+  Beautiful, red-cloaked, and lying about something. She has a quarrel
+  with some men in town and would like it to be your quarrel too, for a
+  price she has not named. Her hands are a caster's hands.
+level: 6
+flags: [sentinel]
+silver: 60
+attack:
+  verb: strike

@@ -1,0 +1,11 @@
+vnum: 523
+name: The Lower Shaft
+description: |
+  The tunnel ends at a shaft cut deeper than any miner had reason to
+  go. A rope ladder hangs into it. The kobolds here are bigger, better
+  armed, and standing guard rather than scavenging, which means there
+  is something below worth guarding. The tunnel goes back west.
+exits:
+  west: 522
+  down: 524
+flags: [dark]

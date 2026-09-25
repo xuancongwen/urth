@@ -1,0 +1,9 @@
+vnum: 804
+name: The Lubricant Vats
+description: |
+  Three open vats, each big enough to bathe a dragon in, hold something
+  thick and dark that moves when the machine moves. A silver sheen on
+  one of them is not oil. Rats have made a road along the rim. The only
+  way out is back north through the pipes.
+exits:
+  north: 802

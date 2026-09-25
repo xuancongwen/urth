@@ -1,0 +1,10 @@
+vnum: 520
+name: The Mine Entrance
+description: |
+  A timbered mouth in a hillside, with carts rusting outside it and
+  the smell of wet stone coming up from below. The last shift did not
+  come back up, and nobody has gone down to ask why. The shaft goes
+  down. Nashkel is back north.
+exits:
+  north: 519
+  down: 521

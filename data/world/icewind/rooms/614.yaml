@@ -1,0 +1,11 @@
+vnum: 614
+name: The Slopes of Kelvin's Cairn
+description: |
+  The path picks its way between boulders, going up. The wind here has
+  an edge like a blade. Above, a shelf of rock holds a cave, and the
+  snow before it is marked with two sets of prints: a light, booted
+  step, and beside it the pads of a very large cat. The cave is east;
+  the valley floor is south.
+exits:
+  south: 613
+  east: 616

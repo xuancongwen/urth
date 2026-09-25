@@ -1,0 +1,12 @@
+vnum: 502
+name: Tethtoril
+keywords: [tethtoril, monk, first, reader]
+description: Tethtoril stands at the top of the steps, hands folded, waiting for your book.
+look: |
+  An old man in brown who has read more than anyone alive and speaks as
+  if none of it were a burden. He looks at you the way he looks at a
+  page: kindly, and to see what is written there.
+level: 18
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

@@ -1,0 +1,34 @@
+interval_seconds: 300
+resets:
+  # the outer works
+  - { mob: 834, room: 800, equip: [{ item: 850, slot: wield }, { item: 854, slot: body }] }   # a Geg tightener on his rounds
+  - { mob: 837, room: 802, max: 3 }                            # pipe-rats
+  - { item: 863, room: 802 }                                   # machine grease in the pipeworks
+  - { item: 850, room: 802 }                                   # a dropped wrench
+  - { mob: 836, room: 803 }                                    # the hammer-arm off the bell
+  - { item: 863, room: 804 }                                   # grease and quicksilver at the vats
+  - { item: 125, room: 804 }
+  - { mob: 835, room: 806, max: 3, equip: [{ item: 851 }] }   # rogue dig-claws, each with a loose tine
+  - { item: 855, room: 806 }                                   # the riveted cap on its hook
+  - { item: 859, room: 808 }                                   # goggles on the chain
+  # the Terrel Fen
+  - { mob: 838, room: 809 }                                    # the storm-hawk
+  - { item: 862, room: 809 }                                   # coralite
+  - { item: 862, room: 810 }
+  - { mob: 839, room: 810, equip: [{ item: 862 }] }            # the crab carries the rock it wears
+  # Wombe
+  - { mob: 831, room: 812 }                                    # the Geg mother
+  - { item: 857, room: 813 }                                   # stew
+  - { mob: 830, room: 815 }                                    # the scrivener
+  - { mob: 832, room: 816 }                                    # the High Froman
+  - { item: 865, room: 816 }                                   # the statue
+  - { item: 860, room: 817 }                                   # the rune-stone in the crawl
+  - { mob: 833, room: 818 }                                    # Limbeck and his pamphlet
+  - { item: 856, room: 818 }
+  # the Liftalofts and the watership
+  - { mob: 842, room: 821 }                                    # Hugh the Hand
+  - { mob: 843, room: 821 }                                    # Bane
+  - { mob: 840, room: 822, max: 2, equip: [{ item: 852, slot: wield }] }   # marines
+  - { item: 864, room: 823 }                                   # crystal shed by the engine
+  - { mob: 841, room: 825, equip: [{ item: 852, slot: wield }, { item: 853, slot: body }, { item: 858 }] }   # the captain, coat, and the flask
+  - { item: 861, room: 825 }                                   # the totem on his shrine

@@ -1,0 +1,10 @@
+vnum: 710
+name: a black-silk offering
+keywords: [black-silk, black, silk, offering]
+description: A folded square of black silk lies on the altar.
+look: |
+  Spider silk dyed black, folded eight times, and heavy with something
+  that is not cloth. It is what you leave on the altar when you want
+  the Spider Queen to notice you, and she does.
+type: other
+sacrifice: evil

@@ -1,0 +1,11 @@
+vnum: 507
+name: A Scorched Clearing on the Lion's Way
+description: |
+  The road opens into a clearing where the grass has burned in a wide
+  ring and the trees at its edge are split as though by lightning on a
+  clear night. A cairn of road-stones stands in the middle, new, with a
+  scrap of paper pinned under the top stone. The road continues east.
+  North it climbs back to Candlekeep.
+exits:
+  north: 506
+  east: 508

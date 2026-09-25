@@ -1,0 +1,12 @@
+vnum: 604
+name: The Tundra Road
+description: |
+  A road only because the snow is trodden. It runs north from the gate
+  into a flatness with nothing to stop the wind for a hundred miles.
+  West, a lake glimmers grey. East, the ground rises toward the foot of
+  Kelvin's Cairn. North, the snowfields go on.
+exits:
+  south: 603
+  west: 609
+  north: 610
+  east: 613

@@ -1,0 +1,14 @@
+vnum: 840
+name: an elven marine of Tribus
+keywords: [elven, elf, marine, tribus]
+description: An elven marine in silver mail stands at the rail with a hand on a sabre, watching you not board.
+look: |
+  Tall, pale, beautiful, and bored by it. The Tribus empire sends its
+  marines to Drevlin for water, and they treat the Gegs the way you
+  might treat a pump. They will treat you the same, and you are not a
+  pump.
+level: 8
+flags: [assist]
+silver: 40
+attack:
+  verb: slash

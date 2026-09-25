@@ -1,0 +1,12 @@
+vnum: 705
+name: The Fungus Cavern
+description: |
+  Light, of a kind: the cavern glows violet from the walls themselves,
+  and the mushrooms that stand as tall as you glow back. The floor is
+  cropped short and trampled. A hoofed smell lies over everything. The
+  cavern goes on west to its far wall; the fisher's gallery is back
+  east, and a hole among the mushroom stalks drops into blackness.
+exits:
+  east: 703
+  west: 706
+  down: 707

@@ -1,0 +1,12 @@
+vnum: 719
+name: The Drow Road
+description: |
+  A road of black stone, broad and level, with a curb. It would be a
+  proud street in any city above. Here it is empty and it is watched:
+  you feel the watching as a cold spot between your shoulders. Runes
+  in a script you do not know run along the curb, and where your light
+  falls on them they go dark. The stair is above. The road goes south.
+exits:
+  up: 718
+  south: 720
+flags: [dark]

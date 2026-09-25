@@ -1,0 +1,12 @@
+vnum: 613
+name: Catti-brie
+keywords: [catti-brie, cattibrie, girl, catti]
+description: Catti-brie, a girl with a tangle of auburn hair, is going somewhere fast with a bow too big for her.
+look: |
+  Human, and not yet grown, and raised by dwarves, which shows in the
+  way she walks and the words she uses. She is not supposed to be in
+  the tunnels. She is in the tunnels.
+level: 12
+flags: [peaceful]
+attack:
+  verb: punch

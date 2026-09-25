@@ -1,0 +1,9 @@
+vnum: 512
+name: a kobold scale
+keywords: [kobold, scale]
+description: A small red-brown scale lies here.
+look: |
+  Thumb-sized, tough as horn, and smelling faintly of wet dog.
+type: material
+material: kobold scale
+rarity: uncommon

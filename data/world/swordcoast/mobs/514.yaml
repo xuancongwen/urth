@@ -1,0 +1,13 @@
+vnum: 514
+name: a Flaming Fist mercenary
+keywords: [flaming, fist, mercenary, soldier]
+description: A Flaming Fist mercenary stands at the crossroads, hand on his sword, watching everyone.
+look: |
+  Red tabard, good mail, and the bored watchfulness of a man who is paid
+  by the day and paid well. He keeps order in Nashkel by being the most
+  dangerous thing in it, and he knows exactly what is coming out of the
+  mine.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: slash

@@ -1,0 +1,15 @@
+vnum: 800
+name: The Maintenance Hatch
+description: |
+  A riveted iron hatch, warm to the touch and humming, has let you out
+  onto a catwalk in the rain. The rain comes sideways. Around you and
+  above you the Kicksey-winsey goes on in every direction: pipes as wide
+  as houses, wheels the size of hills turning slow, and a whistle
+  somewhere that has not stopped since it started. The catwalk runs east
+  along a gantry and south into the pipeworks. The hatch behind you leads
+  back north into the quiet.
+exits:
+  north: 6
+  east: 801
+  south: 802
+position: {x: 0, y: 0, z: 0}

@@ -1,0 +1,10 @@
+vnum: 524
+name: Mulahey's Chamber
+description: |
+  A cavern the kobolds have made a temple of. Candles in their dozens,
+  an altar of stacked ore, a table with letters and a strongbox, and a
+  wide-shouldered figure in chain who turns from his prayers without
+  hurry. The ore on the altar is tainted; you can smell it. The ladder
+  goes back up.
+exits:
+  up: 523

@@ -1,0 +1,9 @@
+vnum: 508
+name: a mug of Winthrop's ale
+keywords: [mug, winthrop, winthrops, ale]
+description: A mug of ale sits on the bar with a price chalked beside it.
+look: |
+  Dark, flat, and overpriced. Winthrop will tell you the second mug is
+  half price and it will not be.
+type: other
+value: 3

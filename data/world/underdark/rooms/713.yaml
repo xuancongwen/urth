@@ -1,0 +1,11 @@
+vnum: 713
+name: A Winding Descent
+description: |
+  The passage corkscrews down through layered rock, each turn a little
+  steeper than the last. There are claw-marks on the corners, and in one
+  place a smear of something dried. The den is back west. The passage
+  goes south and down, always down.
+exits:
+  west: 707
+  south: 714
+flags: [dark]

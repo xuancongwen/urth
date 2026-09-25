@@ -1,0 +1,11 @@
+vnum: 714
+name: The Lip of the Chasm
+description: |
+  The floor stops. Beyond it there is nothing, and a wind rising out of
+  the nothing that is warmer than the air you brought. A stone dropped
+  here takes a long time to land. A ledge, wide as a boot, angles down
+  the wall of the chasm. The descent is back north.
+exits:
+  north: 713
+  down: 715
+flags: [dark]

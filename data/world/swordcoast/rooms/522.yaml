@@ -1,0 +1,10 @@
+vnum: 522
+name: A Mine Tunnel
+description: |
+  The tunnel narrows until you walk stooped. Picks lie where they were
+  dropped. Someone has scratched marks on the props in a hand that is
+  not human, and the marks all point east. North is the first level.
+exits:
+  north: 521
+  east: 523
+flags: [dark]

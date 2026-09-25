@@ -1,0 +1,11 @@
+vnum: 864
+name: a shard of elven crystal
+keywords: [shard, elven, elf, crystal]
+description: A blue shard of crystal glows faintly on the deck.
+look: |
+  A sliver of the crystal that flies the elven ships, warm and blue and
+  singing very faintly if you hold it to your ear. The elves would
+  kill for it, and have.
+type: material
+material: elven crystal
+rarity: rare

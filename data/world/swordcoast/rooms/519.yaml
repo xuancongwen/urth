@@ -1,0 +1,12 @@
+vnum: 519
+name: Nashkel, the Crossroads
+description: |
+  A town that lives on iron and is dying without it. Half the shops are
+  shut. Soldiers in Flaming Fist colors keep the road and keep their
+  hands on their swords, and the sword-hands are the ones the townsfolk
+  watch. South, a track climbs to the mine. The road north goes back to
+  Beregost.
+exits:
+  north: 518
+  south: 520
+flags: [safe]

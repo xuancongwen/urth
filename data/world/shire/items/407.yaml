@@ -1,0 +1,14 @@
+vnum: 407
+name: a ruffian's knife
+keywords: [ruffian, ruffians, knife]
+description: A long knife with a bound grip lies in the grass.
+look: |
+  A hand and a half of dull steel, sharpened on one side only, with a
+  grip wound in dirty cord. Southern work.
+type: weapon
+level: 5
+baseline: light
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

@@ -1,0 +1,12 @@
+vnum: 608
+name: a tundra yeti
+keywords: [tundra, yeti]
+description: A tundra yeti, white on white, rises out of the snow where you would have sworn there was only snow.
+look: |
+  Taller than a man and wider, with fur the color of the crust and
+  small black eyes deep in it. Its hands are white and end in claws.
+  It is hungry, because it is always hungry.
+level: 6
+flags: [assist]
+attack:
+  verb: claw

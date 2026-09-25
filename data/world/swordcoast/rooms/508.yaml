@@ -1,0 +1,10 @@
+vnum: 508
+name: The Lion's Way, Toward the Coast
+description: |
+  The trees thin and the road drops toward a wider one you can hear
+  before you see it: cart wheels, hooves, someone swearing at a mule.
+  A dog with no collar watches from the ditch. West is the clearing;
+  east, the Coast Way.
+exits:
+  west: 507
+  east: 509

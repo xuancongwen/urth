@@ -1,0 +1,10 @@
+vnum: 511
+name: The Friendly Arm Inn
+description: |
+  A hall the size of a barn, full of smoke and the smell of stew. The
+  keeper is a gnome who cheats nobody and trusts nobody, and the guards
+  are his. A half-elf couple sits near the fire and looks up every time
+  the door opens: the man anxious, the woman not. The steps are south.
+exits:
+  south: 510
+flags: [safe]

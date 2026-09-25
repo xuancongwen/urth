@@ -1,0 +1,9 @@
+vnum: 707
+name: a bowl of mushroom stew
+keywords: [bowl, mushroom, stew]
+description: A bowl of grey mushroom stew steams on the table.
+look: |
+  Grey, thick, and better than it looks by a wide margin. Something in
+  it tastes faintly of iron and faintly of home.
+type: other
+value: 4

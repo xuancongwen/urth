@@ -1,0 +1,11 @@
+vnum: 507
+name: a hobgoblin
+keywords: [hobgoblin]
+description: A hobgoblin sits on a rock by the road and does not bother to stand.
+look: |
+  Taller than you, hairier, and armored in whatever the last traveler
+  was wearing. Someone hired it, which is the worrying part.
+level: 4
+silver: 20
+attack:
+  verb: hack

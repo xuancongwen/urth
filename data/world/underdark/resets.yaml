@@ -1,0 +1,26 @@
+interval_seconds: 300
+resets:
+  # the wild tunnels
+  - { mob: 700, room: 703 }                                   # the cave fisher on its ledge
+  - { mob: 704, room: 704, max: 3, equip: [{ item: 706 }] }   # goblin slaves, each with a broken chain and the goblin marks on it
+  - { mob: 701, room: 705, max: 3, equip: [{ item: 713 }] }   # the rothe herd, hides
+  - { item: 712, room: 706 }                                  # faerzress dust at the glowing wall
+  - { mob: 702, room: 707 }                                   # the quaggoth in its den
+  # Blingdenstone
+  - { mob: 708, room: 709, max: 2 }                           # gate guards
+  - { mob: 709, room: 710 }                                   # Belwar
+  - { mob: 710, room: 711 }                                   # the smith, who teaches riposte
+  - { mob: 711, room: 712 }                                   # the hosteler
+  - { item: 707, room: 712 }                                  # stew
+  - { item: 707, room: 712 }
+  - { item: 708, room: 712 }                                  # a lamp for the road
+  # the chasm
+  - { mob: 703, room: 715, equip: [{ item: 705 }] }           # the hook horror, and its hook when it falls
+  # the drow road
+  - { mob: 705, room: 719, max: 2, equip: [{ item: 700, slot: wield }, { item: 702, slot: shoulders }, { item: 703, slot: body }, { item: 714 }] }   # the patrol
+  - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }] }   # the wizard in the watchpost
+  - { mob: 712, room: 721, max: 2, equip: [{ item: 715 }] }   # shrine spiders carry venom
+  # the shrine of Lolth
+  - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }] }   # the priestess, whip and signet
+  - { item: 709, room: 723 }                                  # the necromancy totem on the altar
+  - { item: 710, room: 723 }                                  # the black-silk offering

@@ -1,0 +1,10 @@
+vnum: 511
+name: a lump of tainted iron
+keywords: [lump, tainted, iron, ore]
+description: A lump of grey, crumbling iron ore lies here.
+look: |
+  It should be heavy and it is not quite. Squeeze it and it flakes.
+  Whatever was done to it was done on purpose.
+type: material
+material: tainted iron
+rarity: common

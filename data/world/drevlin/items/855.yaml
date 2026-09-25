@@ -1,0 +1,12 @@
+vnum: 855
+name: a riveted iron cap
+keywords: [riveted, iron, cap]
+description: A riveted iron cap hangs on a hook.
+look: |
+  Plates riveted over a leather skull, made by Gegs for Gegs who work
+  under things that fall. It fits a human badly and stops a dropped
+  bolt well.
+type: armor
+slot: head
+level: 5
+baseline: heavy

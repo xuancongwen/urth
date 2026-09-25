@@ -1,0 +1,12 @@
+vnum: 821
+name: The Dockside
+description: |
+  A ship is moored here, if a ship is a thing with wings of stretched
+  skin and a hull of wood that never grew on this world. Elves in silver
+  are loading casks of water up its gangplank, and the Gegs who filled
+  the casks stand back with their hats off. A cistern the size of a
+  house drips beside the dock. The ship's deck is north across the
+  plank; the platform is south.
+exits:
+  south: 820
+  north: 822

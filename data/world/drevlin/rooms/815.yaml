@@ -1,0 +1,10 @@
+vnum: 815
+name: The Scrivener's Hole
+description: |
+  A round room stacked to the ceiling with bound sheets of hammered tin,
+  each one scratched full of numbers. This is the record of what the
+  machine has done, kept by a family who have never once read it back.
+  The street is east.
+exits:
+  east: 812
+flags: [safe]

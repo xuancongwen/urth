@@ -1,0 +1,9 @@
+vnum: 607
+name: A Cottage at the Edge of Lonelywood
+description: |
+  Small, snug, and better furnished than any house in the town has a
+  right to be. A fire burns, a chair is drawn up to it, and on every
+  flat surface lies a piece of carved bone. The only door is east.
+exits:
+  east: 606
+flags: [safe]

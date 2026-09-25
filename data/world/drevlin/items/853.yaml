@@ -1,0 +1,12 @@
+vnum: 853
+name: the elven captain's coat
+keywords: [elven, elf, captain, captains, coat]
+description: A long coat of blue-grey elven cloth lies here, hardly creased.
+look: |
+  Cut for someone tall, in cloth that sheds rain and most things
+  lighter than a sabre. Silver at the cuffs. Somebody was very proud of
+  it.
+type: armor
+slot: body
+level: 9
+baseline: light

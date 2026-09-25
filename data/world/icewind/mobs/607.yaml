@@ -1,0 +1,11 @@
+vnum: 607
+name: a tundra wolf
+keywords: [tundra, wolf]
+description: A white tundra wolf trots along the shore, nose down, then stops and looks at you.
+look: |
+  White as the snow and thin as the winter. Its ribs show. The pack is
+  not far, and it knows the pack is not far.
+level: 5
+flags: [assist]
+attack:
+  verb: bite

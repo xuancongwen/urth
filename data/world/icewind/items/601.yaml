@@ -1,0 +1,14 @@
+vnum: 601
+name: a scrimshaw knife
+keywords: [scrimshaw, knife]
+description: A small knife with a carved ivory handle lies on the bench.
+look: |
+  A carver's blade, thin and very sharp, with a wolf scratched into the
+  handle in lines finer than hair.
+type: weapon
+level: 3
+baseline: light
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

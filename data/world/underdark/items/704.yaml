@@ -1,0 +1,15 @@
+vnum: 704
+name: a snake-headed whip
+keywords: [snake-headed, snake, whip, lolth]
+description: A whip of five living snakes writhes on the floor, hissing.
+look: |
+  The handle is bone. The lashes are five snakes, alive, fanged, and of
+  one mind that is not yours. They hate you a little less once you hold
+  them, which is not the same as liking you.
+type: weapon
+level: 18
+baseline: heavy
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

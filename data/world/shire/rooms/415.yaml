@@ -1,0 +1,10 @@
+vnum: 415
+name: Bamfurlong Lane
+description: |
+  A muddy lane between hedges high enough to hide a cart. Crows work
+  the fields either side and rise, shouting, when you pass. There is
+  a smell of pigs and a sound of dogs. The farm gate stands open to
+  the south. The road is back north.
+exits:
+  north: 414
+  south: 416

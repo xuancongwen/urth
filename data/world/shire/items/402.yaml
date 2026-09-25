@@ -1,0 +1,11 @@
+vnum: 402
+name: a wool weskit
+keywords: [wool, weskit, waistcoat]
+description: A wool weskit hangs on a peg by the fire.
+look: |
+  Thick green wool with brass buttons, cut for someone shorter and
+  rounder than you. It is warm and turns a thorn.
+type: armor
+slot: body
+level: 2
+baseline: light

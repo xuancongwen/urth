@@ -1,0 +1,12 @@
+vnum: 722
+name: The Antechamber of the Shrine
+description: |
+  A round chamber with eight pillars, and on each pillar a carved spider
+  with a woman's face. There is a smell of incense over the smell of
+  the web. Below, through a hole ringed with steps, comes a red light
+  and the sound of a voice speaking softly to something that answers
+  in a hiss. The webbed approach is back north.
+exits:
+  north: 721
+  down: 723
+flags: [dark]

@@ -1,0 +1,8 @@
+vnum: 413
+name: a wicker basket
+keywords: [wicker, basket]
+description: A wicker basket stands by the door with a cloth over it.
+look: |
+  Woven close, with a handle mended in twine. It smells of mushrooms.
+type: container
+capacity: 10

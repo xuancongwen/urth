@@ -1,0 +1,12 @@
+vnum: 403
+name: The Mill by the Water
+description: |
+  Flour dust hangs in the air and gets into your teeth. The great wheel
+  groans outside, and the stones grind on with nobody minding them.
+  Sacks lean in the corners, and things move in the sacks. A door opens
+  north onto Bagshot Row, another east onto the road, and a hatch at
+  the back gives onto the mill-pond below.
+exits:
+  north: 402
+  east: 400
+  south: 411

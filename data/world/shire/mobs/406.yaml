@@ -1,0 +1,10 @@
+vnum: 406
+name: a red fox
+keywords: [red, fox]
+description: A red fox trots along the bank with something in its mouth.
+look: |
+  Lean and russet, with a white tip to its brush. It has a hen's worth
+  of feathers around its muzzle and no shame at all.
+level: 2
+attack:
+  verb: bite

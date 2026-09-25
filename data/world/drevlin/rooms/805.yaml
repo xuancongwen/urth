@@ -1,0 +1,10 @@
+vnum: 805
+name: The Foot of the Liftalofts
+description: |
+  Iron girders rise out of the coralite and go up out of sight. Between
+  them a great chain runs over a wheel and up, and every so often a cage
+  comes down it, empty, and goes up again, empty. The Gegs do not ride
+  it. The gantry is south. The cage is open, if you want to go up.
+exits:
+  south: 801
+  up: 819

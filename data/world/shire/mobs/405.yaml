@@ -1,0 +1,10 @@
+vnum: 405
+name: a mill rat
+keywords: [mill, rat]
+description: A fat mill rat sits up on a sack, whiskers going.
+look: |
+  Sleek on stolen flour, bold as a cousin, and never alone.
+level: 1
+flags: [assist]
+attack:
+  verb: bite

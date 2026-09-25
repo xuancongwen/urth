@@ -1,0 +1,12 @@
+vnum: 806
+name: The Dig-Claws' Yard
+description: |
+  Rows of iron claws, each with a bucket the size of a hut, hang from
+  racks on chains and drip. When the machine wants ore they drop through
+  the storm to the islands below and come back full. One or two are not
+  hanging where they were put, and their chains lie slack. A riveted cap
+  hangs on a hook by the chain-house door. The bell is west; the yard
+  runs east to its edge.
+exits:
+  west: 803
+  east: 807

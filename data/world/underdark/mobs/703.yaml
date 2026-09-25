@@ -1,0 +1,15 @@
+vnum: 703
+name: a hook horror
+keywords: [hook, horror]
+description: A hook horror stands in the hollow of the wall, clacking its hooks together in a slow rhythm.
+look: |
+  Taller than a door, plated like a beetle, with a vulture's head and
+  two arms that end in hooks the length of your forearm. The clacking
+  is a pattern; it repeats; it is trying to say something. There is a
+  look in its eye you have seen in old soldiers and in men who have lost
+  a name. It will kill you all the same. It seems to be sorry about it.
+level: 13
+flags: [sentinel]
+health: 420
+attack:
+  verb: hook

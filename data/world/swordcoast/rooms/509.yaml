@@ -1,0 +1,11 @@
+vnum: 509
+name: The Coast Way, at the Crossroads
+description: |
+  The great road of the coast, rutted a foot deep, with a signpost that
+  has lost most of its arms. The one that remains points north, to a
+  walled inn on a rise. South, the road runs on toward Beregost; west,
+  a smaller way climbs back toward Candlekeep.
+exits:
+  west: 508
+  north: 510
+  south: 512

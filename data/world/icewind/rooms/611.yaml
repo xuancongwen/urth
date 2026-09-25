@@ -1,0 +1,10 @@
+vnum: 611
+name: A Cairn on the Tundra
+description: |
+  A heap of stones taller than a man, raised by hands that did not
+  write, for a reason nobody remembers. Elk antlers have been set in it
+  recently. To the east, a dark mouth opens in a low ridge of rock and
+  the snow before it is trodden to slush. The snowfields are south.
+exits:
+  south: 610
+  east: 612

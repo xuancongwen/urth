@@ -1,0 +1,12 @@
+vnum: 802
+name: The Pipeworks
+description: |
+  Pipes cross and recross here at every height, sweating, ticking as they
+  heat and cool. Grease has run down them for a very long time and
+  pooled in the joints. Between two of the largest, a ladder goes down
+  through a round hole into lamplight. The vats are south; the hatch and
+  its catwalk are north.
+exits:
+  north: 800
+  south: 804
+  down: 811

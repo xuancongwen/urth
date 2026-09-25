@@ -1,0 +1,11 @@
+vnum: 417
+name: Farmer Maggot's Kitchen
+description: |
+  A flagged kitchen with a fire, a long table, and a great many hams.
+  The farmer sits at the head of it with his boots off and a mug in
+  his fist, and dogs the size of ponies lie under the benches. A
+  basket of the best mushrooms in the Shire stands by the door. The
+  yard is west.
+exits:
+  west: 416
+flags: [safe]

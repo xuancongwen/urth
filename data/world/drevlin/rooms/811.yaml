@@ -1,0 +1,10 @@
+vnum: 811
+name: The Ladder into Wombe
+description: |
+  The ladder comes down through the roof of a tunnel cut in coralite and
+  shored with pipe. Lamps burn oil the machine does not miss. The
+  hammering above is a heartbeat down here, felt more than heard. South,
+  the tunnel opens into a street; up the ladder is the pipeworks.
+exits:
+  up: 802
+  south: 812

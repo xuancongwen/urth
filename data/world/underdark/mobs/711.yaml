@@ -1,0 +1,12 @@
+vnum: 711
+name: a deep-gnome hosteler
+keywords: [deep-gnome, deep, gnome, hosteler, host]
+description: A deep-gnome hosteler stirs the pot and nods you to a table.
+look: |
+  Old, for a gnome, with a ladle worn to the shape of his hand. He
+  charges surface folk double and considers it a kindness, since they
+  will not stay long enough to learn better.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

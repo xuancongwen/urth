@@ -1,0 +1,11 @@
+vnum: 414
+name: The Road by the Marish
+description: |
+  The land falls away south into flat, rich fields, drained by ditches
+  and thick with the smell of mushrooms and turned earth. A signpost
+  points down a rutted lane south: Bamfurlong. Ahead east, the road
+  goes into the trees of the Woody End. Bywater is back west.
+exits:
+  west: 413
+  south: 415
+  east: 418

@@ -1,0 +1,11 @@
+vnum: 410
+name: Grip
+keywords: [grip, dog, hound]
+description: Grip, a wolfish farm dog, stands square in the row with his hackles up.
+look: |
+  Grey-brown, rangy, and all teeth at one end. He was named for what he
+  does. Where Grip is, Fang and Wolf are not far.
+level: 4
+flags: [assist]
+attack:
+  verb: bite

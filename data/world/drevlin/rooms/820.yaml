@@ -1,0 +1,11 @@
+vnum: 820
+name: The Liftaloft Platform
+description: |
+  A broad platform of iron at the top of the girders, above the storm.
+  The wind is clean and hard. Here the Gegs stack what the machine
+  makes and wait for the ones who come to take it, and are grateful to
+  be allowed. A dockside runs north, where something huge is tied up.
+  The cage goes back down.
+exits:
+  down: 819
+  north: 821

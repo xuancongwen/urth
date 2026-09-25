@@ -1,0 +1,12 @@
+vnum: 835
+name: a rogue dig-claw
+keywords: [rogue, dig-claw, claw, digclaw]
+description: A dig-claw has come off its rack and drags itself across the yard, opening and closing.
+look: |
+  An iron hand as big as a cart, meant to hang from a chain and scoop
+  ore from the islands below. It has shaken its pin loose and now goes
+  where it likes, which is toward anything that moves.
+level: 5
+flags: [assist]
+attack:
+  verb: crush

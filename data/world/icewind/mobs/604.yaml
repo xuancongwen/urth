@@ -1,0 +1,12 @@
+vnum: 604
+name: a scrimshander
+keywords: [scrimshander, carver, old]
+description: An old scrimshander works a fish-bone with a needle, not looking up.
+look: |
+  Fingers like roots, eyes that have gone weak from the work, and a
+  needle that never stops. Ships, wolves, a knight with a lance,
+  scratched into ivory no wider than your thumb.
+level: 6
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

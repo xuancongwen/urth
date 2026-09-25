@@ -1,0 +1,16 @@
+vnum: 860
+name: a Sartan rune-stone
+keywords: [sartan, rune-stone, rune, stone, runestone]
+description: A flat stone set with a single rune is fitted into the floor here.
+look: |
+  A disc of dark stone the size of your palm, cut with one sign in a
+  script nobody on Drevlin can read. It hums with the same note as the
+  statue, and when you hold it the machine's noise arranges itself, for
+  a moment, into something like sense.
+type: other
+slot: hold
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: defense
+    params: { amount: 3 }

@@ -1,0 +1,13 @@
+vnum: 612
+name: Bruenor
+keywords: [bruenor, battlehammer, dwarf, king]
+description: Bruenor Battlehammer sits in the big chair with his boots on the table, glaring at a ledger.
+look: |
+  Red beard, a helm with one horn broken off, and a temper that goes
+  with the beard. He is the clan's king, which in this hole means
+  the dwarf who works hardest and complains loudest. His axe is
+  within reach. It always is.
+level: 18
+flags: [sentinel, peaceful]
+attack:
+  verb: cleave

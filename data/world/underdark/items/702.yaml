@@ -1,0 +1,15 @@
+vnum: 702
+name: a piwafwi
+keywords: [piwafwi, cloak, drow]
+description: A dark cloak lies in a pool of its own shadow.
+look: |
+  A drow cloak, spider silk woven so fine the eye slides off it. Put it
+  on and you are a little harder to look at, and so a little harder
+  to hit.
+type: armor
+slot: shoulders
+level: 14
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.10 }

@@ -1,0 +1,10 @@
+vnum: 506
+name: The Lion's Way
+description: |
+  A road of broken flags between lion-colored rocks, going down from the
+  keep. Scrub oak and gorse press close on both sides. Something small
+  and fast moves in the brush and is answered by something else. The
+  gate is north; the road goes on south into the trees.
+exits:
+  north: 505
+  south: 507

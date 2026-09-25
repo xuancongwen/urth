@@ -1,0 +1,12 @@
+vnum: 620
+name: The Mine Gate
+description: |
+  The steps end at a gate of iron-bound oak, open, and beyond it the
+  rock is warm. Lamps burn in niches. A wide hall opens north, and the
+  ring of hammers comes from that way. East, a low tunnel leads off into
+  the workings, and the light does not follow it far.
+exits:
+  up: 615
+  north: 621
+  east: 623
+flags: [safe]

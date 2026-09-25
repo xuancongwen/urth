@@ -1,0 +1,9 @@
+vnum: 825
+name: The Captain's Cabin
+description: |
+  Windows of the same blue crystal as the engine, a bunk, a table with
+  charts of a sky you do not know, and a small shrine in the corner to a
+  lady with too many hands. The captain does not keep much here that he
+  cannot carry off in a hurry. Below decks is south.
+exits:
+  south: 824

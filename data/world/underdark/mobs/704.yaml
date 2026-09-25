@@ -1,0 +1,13 @@
+vnum: 704
+name: a goblin slave
+keywords: [goblin, slave]
+description: A goblin slave crouches against the wall, a broken chain at its ankle, teeth bared.
+look: |
+  Thin, scarred, and wearing the collar still. Its eyes go to your
+  hands first, then to the way out. It ran from something worse than
+  you. It will fight like it, too.
+level: 8
+flags: [assist]
+silver: 5
+attack:
+  verb: bite

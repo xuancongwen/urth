@@ -1,0 +1,8 @@
+vnum: 509
+name: a bowl of the Friendly Arm's stew
+keywords: [bowl, stew, friendly]
+description: A bowl of thick stew steams on the table.
+look: |
+  Mutton, turnip, and whatever the cook found. Hot, and enough.
+type: other
+value: 4

@@ -1,0 +1,11 @@
+vnum: 718
+name: A Worked Tunnel
+description: |
+  The rock changes again: this was cut, with tools, by hands that knew
+  how, and the walls are polished to a black gloss that swallows your
+  light. Nothing marks it, which is itself a mark. A stair goes down,
+  each step the height of a long stride. The bones are back north.
+exits:
+  north: 717
+  down: 719
+flags: [dark]

@@ -1,0 +1,10 @@
+vnum: 862
+name: a chunk of coralite
+keywords: [chunk, coralite]
+description: A chunk of porous grey coralite lies here.
+look: |
+  Light, rough, full of holes, and faintly warm. The islands of Arianus
+  are made of it, and it grows.
+type: material
+material: coralite
+rarity: common

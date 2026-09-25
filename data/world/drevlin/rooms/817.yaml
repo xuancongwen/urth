@@ -1,0 +1,10 @@
+vnum: 817
+name: The Crawl Behind the Statue
+description: |
+  A passage on your hands and knees, smooth as poured metal, that the
+  Gegs have never widened because they were never told to. The humming
+  is louder here, and comes from the walls. Something is set into the
+  floor at the end where the passage stops. The Factree is west.
+exits:
+  west: 816
+flags: [dark]

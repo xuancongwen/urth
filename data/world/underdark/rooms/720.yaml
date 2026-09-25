@@ -1,0 +1,12 @@
+vnum: 720
+name: A Watchpost on the Drow Road
+description: |
+  A pillar has been hollowed into a post with slits at four heights,
+  and someone sits in it who has not moved since you came into view.
+  The road ends here at a wall of stone spikes. A narrow way turns
+  east, into what feels like cloth against the face. The road runs
+  back north.
+exits:
+  north: 719
+  east: 721
+flags: [dark]

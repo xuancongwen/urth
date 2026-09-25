@@ -1,0 +1,11 @@
+vnum: 616
+name: A Cave on the Cairn
+description: |
+  Dry, small, and swept. A fire is laid but cold, and beside it a
+  figurine of black stone sits on a flat rock, positioned as if someone
+  wanted it to be found and then not touched. A shadow lies along the
+  back wall that the light does not explain, and when you look at it
+  there is nothing there. The slope is west.
+exits:
+  west: 614
+flags: [safe]

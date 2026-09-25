@@ -1,0 +1,8 @@
+vnum: 405
+name: a seed-cake
+keywords: [seed-cake, seed, cake]
+description: A seed-cake sits on a plate under a cloth.
+look: |
+  Dense, yellow, and full of caraway. Second breakfast, or third.
+type: other
+value: 3

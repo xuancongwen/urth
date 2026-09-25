@@ -1,0 +1,43 @@
+interval_seconds: 300
+resets:
+  # the road and the Hill
+  - { item: 403, room: 400 }   # a felt hat blown into the bend
+  - { mob: 400, room: 402 }    # the Gaffer on his bench
+  - { item: 400, room: 402 }   # his stick
+  - { item: 410, room: 402 }   # and his pipe-weed
+  - { item: 405, room: 402 }   # a seed-cake under a cloth
+  - { mob: 401, room: 405 }    # Lobelia outside Bag End
+  - { item: 406, room: 405 }   # the letter under the door
+  # the Mill and the Water
+  - { mob: 402, room: 403 }    # Ted Sandyman
+  - { mob: 405, room: 403, max: 3 }   # mill rats
+  - { mob: 405, room: 411, max: 3 }
+  - { mob: 408, room: 411 }    # a badger under the bank
+  - { mob: 406, room: 410 }    # a fox
+  - { mob: 409, room: 410 }    # the goose
+  # Bywater and the Green Dragon
+  - { mob: 403, room: 409 }    # the landlord
+  - { item: 404, room: 409 }   # pints
+  - { item: 404, room: 409 }
+  - { item: 402, room: 409 }   # a weskit on a peg
+  - { item: 410, room: 409 }   # pipe-weed on the bar
+  - { item: 410, room: 408 }   # and on the green
+  # the East Road
+  - { mob: 413, room: 413, equip: [{ item: 407, slot: wield }] }   # the ruffian and his knife
+  # Bamfurlong
+  - { mob: 407, room: 415, max: 2 }   # crows
+  - { item: 401, room: 415 }   # a pitchfork in the bank
+  - { mob: 410, room: 416 }    # Grip, Fang, and Wolf
+  - { mob: 411, room: 416 }
+  - { mob: 412, room: 416 }
+  - { item: 411, room: 416 }   # mushrooms in the rows
+  - { item: 411, room: 416 }
+  - { mob: 404, room: 417 }    # Farmer Maggot
+  - { item: 413, room: 417 }   # the basket by the door
+  - { item: 411, room: 417, into: 413 }
+  - { item: 411, room: 417, into: 413 }
+  # the Woody End and the Old Forest
+  - { mob: 414, room: 419, equip: [{ item: 408, slot: shoulders }] }   # the Black Rider, cloaked
+  - { item: 409, room: 423 }   # the gloves in the hollow
+  - { mob: 415, room: 422 }    # Old Man Willow
+  - { item: 412, room: 422 }   # heartwood from the split trunk

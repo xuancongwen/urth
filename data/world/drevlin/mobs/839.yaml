@@ -1,0 +1,13 @@
+vnum: 839
+name: a coralite crab
+keywords: [coralite, crab]
+description: A crab the color of the rock backs out of a hole with its claws up.
+look: |
+  Armored in the same porous stone it lives in, and as wide as a door.
+  It has been hit by falling ore all its life and has opinions about
+  things that come down from above.
+level: 7
+attack:
+  verb: pinch
+armor:
+  defense: 14

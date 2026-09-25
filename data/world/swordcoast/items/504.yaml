@@ -1,0 +1,11 @@
+vnum: 504
+name: a bandit's leather vest
+keywords: [bandit, leather, vest]
+description: A leather vest lies here, smelling of woodsmoke.
+look: |
+  Stiff, patched, and stained. It has been slept in on the ground for
+  a season.
+type: armor
+slot: body
+level: 5
+baseline: light

@@ -1,0 +1,10 @@
+vnum: 615
+name: The Dwarven Valley
+description: |
+  A fold in the mountain's skirt, out of the worst of the wind, where
+  chimneys of dressed stone poke up out of the snow and smoke. A wide
+  square shaft goes down into the rock, its walls chiselled true and
+  its steps worn by boots. The foot of the mountain is west.
+exits:
+  west: 613
+  down: 620

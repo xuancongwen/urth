@@ -1,0 +1,13 @@
+vnum: 700
+name: The Bottom of the Shaft
+description: |
+  The dwarven shaft ends here, in a squared-off chamber where the picks
+  stopped and the mountain took over. Timbers hold the ceiling, and the
+  last of them is cracked. The air moving up past you is warm and old
+  and smells of nothing you can name. The ladder goes back up to the
+  mines. To the south the dwarves' cutting gives way to a natural crack
+  that no dwarf finished.
+exits:
+  up: 640
+  south: 701
+position: {x: 0, y: 0, z: 0}

@@ -1,0 +1,12 @@
+vnum: 831
+name: a Geg mother
+keywords: [geg, mother, woman]
+description: A Geg mother rocks a swaddled baby and hums the whistle-clap's rhythm to it.
+look: |
+  A round, tired, cheerful woman with grease on her sleeves and a baby
+  on her hip. The baby is asleep. She is telling it, very softly, that
+  one day it will have a wrench of its own.
+level: 4
+flags: [sentinel, peaceful]
+attack:
+  verb: slap

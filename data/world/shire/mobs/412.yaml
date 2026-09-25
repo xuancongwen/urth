@@ -1,0 +1,11 @@
+vnum: 412
+name: Wolf
+keywords: [wolf, dog, hound]
+description: Wolf, the biggest of Maggot's dogs, blocks the way to the farmhouse.
+look: |
+  Almost a wolf in truth, shaggy and huge, with a chest like a keg and
+  a growl you feel in the ground. He answers to Maggot and to nobody.
+level: 5
+flags: [assist]
+attack:
+  verb: savage

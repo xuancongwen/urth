@@ -1,0 +1,10 @@
+vnum: 413
+name: The East Road Beyond Bywater
+description: |
+  The hedges grow taller and the houses stop. The road narrows to a
+  lane with grass up the middle and ditches full of cow-parsley. It is
+  quieter than the village, and the quiet has a man in it who is not
+  from here. Bywater is behind you west; the road goes on east.
+exits:
+  west: 408
+  east: 414

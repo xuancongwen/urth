@@ -1,0 +1,9 @@
+vnum: 824
+name: Below Decks
+description: |
+  Casks of Drevlin water lashed in rows, worth more than the ship that
+  carries them. The air is close and smells of wet oak and elf-perfume.
+  A door north is finer than the rest. The hatch goes up to the deck.
+exits:
+  up: 822
+  north: 825

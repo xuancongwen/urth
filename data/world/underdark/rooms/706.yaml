@@ -1,0 +1,11 @@
+vnum: 706
+name: The Fungus Cavern, the Far Wall
+description: |
+  The glow is brighter against the far wall, where the rock is veined
+  with the same violet light and warm to the touch. Someone has cut the
+  mushrooms here with a blade, neatly, and stacked the stalks. A path
+  worn by small feet leads north out of the cavern. The herd's ground
+  lies east.
+exits:
+  east: 705
+  north: 708

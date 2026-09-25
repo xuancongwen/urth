@@ -1,0 +1,10 @@
+vnum: 416
+name: Farmer Maggot's Fields
+description: |
+  Rows of mushrooms under sacking, a turnip field, and a great deal of
+  fence. The whole place is patrolled. Three dogs work the fields in a
+  loop and have already noticed you. The farmhouse is east across the
+  yard; the lane runs back north.
+exits:
+  north: 415
+  east: 417

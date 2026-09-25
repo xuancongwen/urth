@@ -1,0 +1,11 @@
+vnum: 703
+name: a drow chain shirt
+keywords: [drow, chain, shirt, mail]
+description: A shirt of fine black mail lies here.
+look: |
+  Adamantite rings no bigger than lentils, linked so closely it moves
+  like cloth. Cold against the skin, and it stays cold.
+type: armor
+slot: body
+level: 14
+baseline: medium

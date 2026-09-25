@@ -1,0 +1,13 @@
+vnum: 706
+name: a drow wizard
+keywords: [drow, wizard, mage, elf]
+description: A drow wizard sits in the hollowed pillar, fingers moving through the shapes of a spell.
+look: |
+  Narrow, ageless, and thin-armed, in robes stitched with a web of
+  silver thread. He does not stand up. He does not need to. The words
+  are already half-said and the air around his hands is getting hot.
+level: 14
+stats: {strength: 6, intelligence: 16}
+silver: 90
+attack:
+  verb: scorch

@@ -1,0 +1,13 @@
+vnum: 501
+name: Imoen
+keywords: [imoen, girl, thief]
+description: Imoen is here, talking, and has been since before you arrived.
+look: |
+  A girl with cropped pink-tinged hair, a bow she is not supposed to
+  have, and a grin that gets her out of most things. She has been told
+  to stay in the keep and has decided that means the whole keep. She
+  wants to know where you are going and whether she can come.
+level: 12
+flags: [peaceful]
+attack:
+  verb: poke

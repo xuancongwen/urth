@@ -1,0 +1,13 @@
+vnum: 616
+name: a goblin raider
+keywords: [goblin, raider]
+description: A goblin raider looks up from a heap of stolen ore with a knife in its hand.
+look: |
+  Yellow-skinned, flat-nosed, and dressed in whatever it could strip
+  from a dwarf's corpse. It came through the broken wall with the
+  others and it is not going back alone.
+level: 5
+flags: [assist]
+silver: 15
+attack:
+  verb: stab

@@ -1,0 +1,10 @@
+vnum: 803
+name: The Whistle-Clap
+description: |
+  A brass bell the size of a room hangs from a beam, and a hammer on an
+  arm strikes it, and strikes it, and strikes it. Nobody knows what it
+  signals. Nobody has ever known. The Gegs bow to it as they pass. The
+  gantry runs west; east, past the bell, is a yard where chains hang.
+exits:
+  west: 801
+  east: 806

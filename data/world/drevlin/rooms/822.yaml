@@ -1,0 +1,11 @@
+vnum: 822
+name: The Watership's Deck
+description: |
+  The deck is polished, the rigging sings, and everything is made to be
+  looked at as much as used. The elves on it do not want you here. The
+  bow is east, where the wings are rooted; a hatch goes down below
+  decks; the gangplank is south.
+exits:
+  south: 821
+  east: 823
+  down: 824

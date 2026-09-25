@@ -1,0 +1,10 @@
+vnum: 706
+name: a broken slave chain
+keywords: [broken, slave, chain]
+description: A broken length of chain lies here, one link scratched with marks.
+look: |
+  Black iron, snapped at the third link by something with more patience
+  than strength. Goblin marks are scratched along the links, the kind
+  they cut for each other: "elves came up the black road. down past the
+  bones. the spider-woman's house is under the web. do not go."
+type: other

@@ -1,0 +1,10 @@
+vnum: 613
+name: a wolf fang
+keywords: [wolf, fang]
+description: A wolf fang lies in the snow.
+look: |
+  Long, yellow, and curved. The beast-masters of the south pay for
+  these; the tundra gives them away.
+type: material
+material: wolf fang
+rarity: uncommon

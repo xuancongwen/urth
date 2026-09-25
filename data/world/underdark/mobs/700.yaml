@@ -1,0 +1,12 @@
+vnum: 700
+name: a cave fisher
+keywords: [cave, fisher]
+description: A cave fisher clings to the ceiling, paying out a strand of sticky silk.
+look: |
+  A crab the size of a pony, flat against the rock, with two claws
+  folded under its chin and a spinneret where a mouth should be. It
+  fishes for what walks below. It has been fishing a long time.
+level: 10
+flags: [sentinel]
+attack:
+  verb: claw

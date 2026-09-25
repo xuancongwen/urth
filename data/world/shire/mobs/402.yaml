@@ -1,0 +1,12 @@
+vnum: 402
+name: Ted Sandyman
+keywords: [ted, sandyman, miller, hobbit]
+description: Ted Sandyman leans on a sack, chewing a straw and watching you with no pleasure.
+look: |
+  The miller's son, floury to the elbows and sour to the eyes. He has
+  heard all about your sort. He would sell his own mill to a stranger
+  if the price was right, and one day he will.
+level: 6
+flags: [sentinel, peaceful]
+attack:
+  verb: shove

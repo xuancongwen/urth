@@ -1,0 +1,9 @@
+vnum: 625
+name: A Den in the Rock
+description: |
+  A dead-end gallery packed with moss, fur, and bones picked very clean.
+  It is warm here, warmer than it should be, and the warmth breathes.
+  The way out is south.
+exits:
+  south: 624
+flags: [dark]

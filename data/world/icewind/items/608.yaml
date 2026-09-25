@@ -1,0 +1,10 @@
+vnum: 608
+name: a scrimshaw carving
+keywords: [scrimshaw, carving]
+description: A scrimshaw carving of a ship sits on the mantel.
+look: |
+  A Luskan galley, sails and rigging and all, scratched into a piece
+  of trout skull the size of your palm. It would fetch something in
+  the south.
+type: other
+value: 40

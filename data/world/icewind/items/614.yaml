@@ -1,0 +1,11 @@
+vnum: 614
+name: an onyx figurine
+keywords: [onyx, figurine, panther, statue]
+description: A figurine of a panther, carved in black onyx, sits on a flat rock beside the cold fire.
+look: |
+  A hunting cat in mid-stride, no longer than your hand, every muscle
+  cut true. It is warm, though the cave is not. You have the strong
+  sense that it is not yours to pick up, and that something would
+  mind if you tried.
+type: other
+flags: [nopickup]

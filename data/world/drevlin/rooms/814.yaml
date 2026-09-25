@@ -1,0 +1,12 @@
+vnum: 814
+name: The Warren, Deeper
+description: |
+  The street bends and narrows and the doors get older. Pictures have
+  been scratched in the coralite at knee height by generations of Geg
+  children: the machine, the machine, a Geg, the machine. Somewhere a
+  baby is crying and being told about the Kicksey-winsey to settle it.
+  South the tunnel opens into a great hall. The street is north.
+exits:
+  north: 812
+  south: 816
+flags: [safe]

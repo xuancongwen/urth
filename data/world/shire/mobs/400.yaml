@@ -1,0 +1,12 @@
+vnum: 400
+name: the Gaffer
+keywords: [gaffer, hamfast, gamgee, old, hobbit]
+description: The Gaffer sits on his bench with his pipe, minding the whole road.
+look: |
+  Old, brown, and bent from a lifetime of bending over other people's
+  gardens. He has opinions on taters, on the weather, and on the
+  Bagginses, and he does not need to be asked for any of them.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: swat

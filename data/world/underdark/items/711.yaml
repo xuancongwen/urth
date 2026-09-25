@@ -1,0 +1,16 @@
+vnum: 711
+name: the priestess's spider-signet
+keywords: [priestess, priestess's, spider, signet, ring]
+description: A ring in the shape of a spider lies here, its legs still curled around nothing.
+look: |
+  Black iron and a single ruby for the abdomen. The legs close around
+  the finger on their own. It sharpens the mind, and the edge.
+type: armor
+slot: finger
+level: 16
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: crit
+    params: { chance: 0.05, mult: 2 }

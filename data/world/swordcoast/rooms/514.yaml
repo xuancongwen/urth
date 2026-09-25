@@ -1,0 +1,14 @@
+vnum: 514
+name: Beregost, the Square
+description: |
+  A market town that has decided to be respectable and nearly managed
+  it. A well, a smithy's ring in the distance, a temple's bell. The
+  Burning Wizard's sign creaks to the west and Feldepost's Inn, grander
+  and quieter, stands east. A woman in a bard's colors leans on the
+  well and watches who comes in. The road goes north to the coast and
+  south toward Nashkel.
+exits:
+  north: 513
+  west: 515
+  east: 516
+  south: 517

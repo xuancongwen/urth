@@ -1,0 +1,39 @@
+# The Sword Coast repopulates on the interval.
+interval_seconds: 300
+resets:
+  # Candlekeep
+  - { mob: 500, room: 503 }   # Winthrop behind his bar
+  - { mob: 501, room: 503 }   # Imoen, who does not stay put
+  - { item: 508, room: 503 }  # the ale
+  - { item: 508, room: 503 }
+  - { mob: 502, room: 502 }   # Tethtoril on the steps
+  - { mob: 503, room: 504 }   # Gorion at his window
+  - { item: 507, room: 504 }  # the letter, and the ring he forgot
+  - { item: 513, room: 504 }
+  # the Lion's Way
+  - { mob: 504, room: 506, max: 3 }   # gibberlings
+  - { item: 514, room: 507 }          # the cairn's note
+  - { mob: 505, room: 508 }           # the wild dog
+  # the Coast Way and the Friendly Arm
+  - { mob: 508, room: 510, equip: [{ item: 505 }, { item: 506 }] }   # Tarnesh, with his wand and his orders
+  - { mob: 509, room: 511 }   # Khalid and Jaheira by the fire
+  - { mob: 510, room: 511 }
+  - { item: 509, room: 511 }  # the stew
+  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 109 }] }   # the bandit, vest and purse
+  - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }] }   # the hobgoblin, with a notched blade
+  # Beregost
+  - { mob: 511, room: 514 }   # Silke at the well
+  # the road to Nashkel
+  - { mob: 512, room: 517, max: 2 }   # xvarts
+  - { mob: 513, room: 518 }           # the ogre on the hill
+  - { mob: 514, room: 519 }           # the Flaming Fist
+  # the mines
+  - { mob: 515, room: 521, max: 4, equip: [{ item: 500, slot: wield }, { item: 512 }] }   # kobolds with swords and scales
+  - { item: 511, room: 521 }   # tainted ore lies everywhere
+  - { item: 511, room: 522 }
+  - { item: 511, room: 522 }
+  - { item: 123, room: 522 }   # bone dust among the picks
+  - { mob: 516, room: 523, max: 2, equip: [{ item: 501, slot: wield }, { item: 512 }] }   # commandos at the shaft
+  - { mob: 517, room: 524, equip: [{ item: 502, slot: wield }, { item: 503, slot: body }, { item: 515 }] }   # Mulahey, armed, with Tazok's letter
+  - { item: 510, room: 524 }   # the stolen totem on the altar
+  - { item: 511, room: 524 }

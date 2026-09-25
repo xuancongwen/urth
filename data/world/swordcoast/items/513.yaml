@@ -1,0 +1,15 @@
+vnum: 513
+name: Gorion's silver ring
+keywords: [gorion, gorions, silver, ring]
+description: A plain silver ring has been left on the desk.
+look: |
+  Worn thin on the inside by years of a scholar's hand. It is warmer
+  than the desk it lay on, and wearing it you find yourself thinking
+  a little more slowly and a little more clearly.
+type: armor
+slot: finger
+level: 6
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

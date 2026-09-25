@@ -1,0 +1,11 @@
+vnum: 707
+name: The Quaggoth's Den
+description: |
+  The hole drops you into a den that stinks of wet fur and rotten meat.
+  Bones are heaped in one corner, and some of them wore boots. The walls
+  are gouged at the height of a very tall man's reach. The hole back up
+  to the fungus cavern is above you; a passage winds away east.
+exits:
+  up: 705
+  east: 713
+flags: [dark]

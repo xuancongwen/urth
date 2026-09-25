@@ -1,0 +1,11 @@
+vnum: 708
+name: The Road to Blingdenstone
+description: |
+  The path becomes a road, if a road can be a tunnel smoothed by ten
+  thousand years of careful feet. The walls are shaped, and the shapes
+  are gnomish: low doorways cut into nothing, waiting to be finished.
+  Small stone eyes watch you from the ceiling and turn as you pass. The
+  road leads west to a gate. The fungus cavern is back south.
+exits:
+  south: 706
+  west: 709

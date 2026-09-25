@@ -1,0 +1,9 @@
+vnum: 606
+name: a lake gull
+keywords: [lake, gull]
+description: A grey lake gull stands over a fish head, daring you to want it.
+look: |
+  Big, filthy, and unafraid. Its beak has a hook at the tip.
+level: 3
+attack:
+  verb: peck

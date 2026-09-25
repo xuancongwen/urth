@@ -1,0 +1,12 @@
+vnum: 809
+name: The Terrel Fen, the Edge
+description: |
+  The chain ends on a shelf of coralite, wet, porous, ringing under your
+  boots like a pot. This is the top of one of the islands the claws
+  feed on. The Maelstrom is all around it: no sky, only cloud lit from
+  inside and a wind that wants you off the shelf. The shelf runs south
+  toward the sound of the storm's teeth.
+exits:
+  up: 808
+  south: 810
+flags: [dark]

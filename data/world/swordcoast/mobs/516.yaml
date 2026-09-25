@@ -1,0 +1,12 @@
+vnum: 516
+name: a kobold commando
+keywords: [kobold, commando]
+description: A kobold commando stands guard at the shaft with a spear, and does not scuttle.
+look: |
+  Bigger than the others, better fed, with a leather harness and a spear
+  it knows how to use. Someone trained it and someone is paying it.
+level: 5
+flags: [assist]
+silver: 15
+attack:
+  verb: thrust

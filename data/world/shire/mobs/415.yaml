@@ -1,0 +1,14 @@
+vnum: 415
+name: Old Man Willow
+keywords: [old, man, willow, tree]
+description: The great grey willow creaks though there is no wind, and a crack in its trunk opens like a mouth.
+look: |
+  Grey, huge, and hollow, with a heart like a knot of old hate. Its
+  branches trail in the river and its roots go out under the whole
+  hollow. The song it sings is sleep, and what it does with sleepers
+  it does slowly.
+level: 8
+flags: [sentinel]
+health: 350
+attack:
+  verb: grasp

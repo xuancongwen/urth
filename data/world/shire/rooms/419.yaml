@@ -1,0 +1,12 @@
+vnum: 419
+name: Deep in the Woody End
+description: |
+  The trees crowd the lane and the birds have stopped. Hoofprints in
+  the soft edge of the road are larger than any pony's, and there is a
+  smell over the leaf-mould, cold and thin, that makes the neck creep.
+  A hollow opens under the bank to the south. The road goes on east
+  toward a high dark hedge; west is back toward daylight.
+exits:
+  west: 418
+  east: 420
+  south: 423

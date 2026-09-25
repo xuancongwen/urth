@@ -1,0 +1,13 @@
+vnum: 833
+name: Limbeck Bolttightner
+keywords: [limbeck, bolttightner, geg, spectacles]
+description: Limbeck Bolttightner is polishing his spectacles on his beard and squinting at a pamphlet.
+look: |
+  A young Geg with a great deal of hair, ink to the elbows, and
+  spectacles he found on an elf that fell from the sky, which is the
+  sort of thing that happens to Limbeck. He asked why the machine does
+  what it does. Nobody had asked before. He has not stopped since.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: poke

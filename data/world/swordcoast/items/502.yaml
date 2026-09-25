@@ -1,0 +1,14 @@
+vnum: 502
+name: Mulahey's mace
+keywords: [mulahey, mace]
+description: A heavy iron mace lies here, its head stained.
+look: |
+  A flanged head on a haft bound in black leather, with a symbol of
+  a skull worked into the pommel. It was used at the altar.
+type: weapon
+level: 9
+baseline: heavy
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash

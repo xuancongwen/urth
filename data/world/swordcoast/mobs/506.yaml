@@ -1,0 +1,12 @@
+vnum: 506
+name: a bandit
+keywords: [bandit, robber]
+description: A bandit steps out from the rocks with a blade and a proposal.
+look: |
+  Leather vest, bad teeth, and the confidence of someone who has done
+  this a dozen times to people who paid. Under it he is scared of the
+  people he works for.
+level: 5
+silver: 30
+attack:
+  verb: slash

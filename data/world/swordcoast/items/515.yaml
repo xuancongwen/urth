@@ -1,0 +1,10 @@
+vnum: 515
+name: a letter sealed with a black wax skull
+keywords: [letter, sealed, skull, tazok]
+description: A letter with a broken black seal lies here.
+look: |
+  "Mulahey. The iron must fail. Every shipment, every blade. Keep the
+  kobolds digging and keep them quiet. The bandits on the Coast Way
+  are mine and will take what comes out of the mine. Fail me and the
+  Fist will be the least of your troubles. Tazok."
+type: other

@@ -1,0 +1,13 @@
+vnum: 510
+name: Jaheira
+keywords: [jaheira, half-elf, druid]
+description: Jaheira watches you across the room with an expression that has already made up its mind.
+look: |
+  Brown, sharp, and dressed for the road, with a staff she leans on
+  like a spear. She serves the balance of things and finds most people
+  on the wrong side of it. She is waiting for someone, and it is not
+  you, and she is not pleased about that either.
+level: 14
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

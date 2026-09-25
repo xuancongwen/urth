@@ -1,0 +1,14 @@
+vnum: 401
+name: The Bywater Road Below the Hill
+description: |
+  A good road of packed earth and old stone, with hedges either side and
+  smoke rising from chimneys that stick out of the hillside. The Hill
+  itself fills the north, terraced with round windows and doors. A lane
+  climbs it. Bagshot Row runs off west under the lower doors, and the
+  road goes on east toward Bywater and the sound of a busy inn.
+exits:
+  south: 400
+  west: 402
+  north: 404
+  east: 407
+flags: [safe]

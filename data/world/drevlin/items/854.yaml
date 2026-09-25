@@ -1,0 +1,11 @@
+vnum: 854
+name: a Geg's leather apron
+keywords: [geg, leather, apron]
+description: A thick leather apron lies here, black with grease.
+look: |
+  Stiff as board, patched with tin at the corners, and big enough on a
+  Geg to be armor. On you it is an apron.
+type: armor
+slot: body
+level: 3
+baseline: light

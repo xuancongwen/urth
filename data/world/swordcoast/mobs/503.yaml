@@ -1,0 +1,12 @@
+vnum: 503
+name: Gorion
+keywords: [gorion, sage, foster, father]
+description: Gorion stands at the window with his back to the door, a letter in his hand.
+look: |
+  Tall, grey, and tired in a way that has nothing to do with the hour.
+  He has been kind to you all your life and is about to stop being able
+  to. He folds the letter away when he sees you looking.
+level: 16
+flags: [sentinel, peaceful]
+attack:
+  verb: strike

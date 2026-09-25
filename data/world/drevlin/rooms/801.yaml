@@ -1,0 +1,12 @@
+vnum: 801
+name: A Gantry in the Rain
+description: |
+  The gantry is a mesh of iron slats over a drop you cannot see the
+  bottom of. Rain hammers the rail. To the east something is clapping,
+  metal on metal, in a rhythm that keeps almost being a tune. North, a
+  column of iron girders climbs into cloud with a chain running up its
+  middle. The hatch is west.
+exits:
+  west: 800
+  east: 803
+  north: 805

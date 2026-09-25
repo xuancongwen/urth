@@ -1,0 +1,11 @@
+vnum: 716
+name: The Chasm Floor
+description: |
+  The floor of the chasm is rubble, and the rubble is old. Far above, a
+  paler black marks the lip you came from. The wind that climbed past
+  you on the ledge is a river down here, steady and warm, flowing east.
+  The ledge is back north.
+exits:
+  north: 715
+  east: 717
+flags: [dark]

@@ -1,0 +1,11 @@
+vnum: 502
+name: The Library Steps
+description: |
+  Wide stone steps climb to doors that are never quite closed and never
+  quite open. The smell of vellum and lamp oil comes down them like heat
+  from a hearth. A rule is carved into the top step: a book of worth
+  buys a way in. Nobody without one gets past the man who waits here.
+  The courtyard is south.
+exits:
+  south: 501
+flags: [safe]

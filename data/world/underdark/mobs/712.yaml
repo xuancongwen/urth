@@ -1,0 +1,15 @@
+vnum: 712
+name: a shrine spider
+keywords: [shrine, spider, giant]
+description: A giant spider drops from the web, its legs spread wider than your arms.
+look: |
+  Glossy black, marked with a red hourglass the size of your hand. Its
+  fangs are wet. It has been fed on what the priestess throws it, and
+  it is used to being fed.
+level: 15
+flags: [assist]
+attack:
+  verb: bite
+effects:
+  - kind: dot
+    params: { damage: 3 }

@@ -1,0 +1,15 @@
+vnum: 508
+name: Tarnesh
+keywords: [tarnesh, bounty, hunter, mage]
+description: Tarnesh, a mage in a good cloak, blocks the top of the steps and asks your name.
+look: |
+  Neat, pale, and holding a wand as if it were a pen. He has a
+  description of someone and thinks it might be you, and he has been
+  paid enough not to care if he is wrong. His hands shake a little.
+level: 6
+flags: [sentinel]
+health: 65
+silver: 80
+stats: { strength: 7, intelligence: 16 }
+attack:
+  verb: strike

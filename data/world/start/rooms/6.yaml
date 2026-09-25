@@ -1,0 +1,16 @@
+vnum: 6
+name: The Undercroft of Doors
+description: |
+  A vault of old stone, older than the armory above it, lit by a lamp
+  nobody fills. Four doors stand in the four walls, each of a different
+  wood and a different age, and each leaks a different air. West, a
+  green smell of turned earth and pipe-smoke. East, salt and the cry of
+  gulls. North, a cold that stings the nose. South, hot iron, oil, and
+  a rumbling under the feet like a machine the size of a country.
+exits:
+  up: 5
+  west: 400
+  east: 500
+  north: 600
+  south: 800
+flags: [safe]

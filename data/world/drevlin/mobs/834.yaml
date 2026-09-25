@@ -1,0 +1,13 @@
+vnum: 834
+name: a Geg tightener
+keywords: [geg, tightener, worker]
+description: A Geg tightener trots past with a wrench, on the way to a bolt that needs him.
+look: |
+  Short, stout, wet through, and happy about it. His job is to tighten
+  the bolts on one section of one pipe, and his father did it, and he
+  does not want to know what the pipe is for.
+level: 4
+flags: [peaceful]
+silver: 10
+attack:
+  verb: whack

@@ -1,0 +1,10 @@
+vnum: 418
+name: The Woody End
+description: |
+  The road goes under trees, oaks and hazels, and the light turns
+  green. The banks are tall and the road sinks between them so that
+  the sky is a strip. Nothing is wrong, exactly. The horses that came
+  this way have gone on east into the wood; the fields are back west.
+exits:
+  west: 414
+  east: 419

@@ -1,0 +1,12 @@
+vnum: 609
+name: a barbarian scout
+keywords: [barbarian, scout, elk]
+description: A barbarian scout of the Tribe of the Elk crouches by the cairn, watching the town's smoke.
+look: |
+  Fair hair braided with elk bone, a bare chest in this cold, and no
+  sign that he feels it. He is counting the walls of Bryn Shander for
+  someone else. He does not want to be seen doing it.
+level: 7
+silver: 35
+attack:
+  verb: strike

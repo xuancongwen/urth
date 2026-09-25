@@ -1,0 +1,11 @@
+vnum: 410
+name: The Bank of the Water
+description: |
+  A path of trodden mud runs along the river under the willows. The
+  Water is wide here and slow, thick with weed, with a smell of mint
+  and rot. Reeds rustle where something is nesting and does not want
+  company. The road is up the bank to the north; the mill-pond lies
+  west.
+exits:
+  north: 400
+  west: 411

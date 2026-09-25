@@ -1,0 +1,10 @@
+vnum: 409
+name: a bad-tempered goose
+keywords: [bad-tempered, goose]
+description: A large white goose comes at you across the mud with its neck out and its wings up.
+look: |
+  Enormous, white, hissing. It has never lost a fight and does not
+  intend to start.
+level: 2
+attack:
+  verb: batter

@@ -1,0 +1,9 @@
+vnum: 606
+name: a flask of hot spiced wine
+keywords: [flask, hot, spiced, wine]
+description: A flask of spiced wine steams on the bar.
+look: |
+  Red wine heated with cloves and something local. It goes down like
+  a coal and stays there.
+type: other
+value: 4

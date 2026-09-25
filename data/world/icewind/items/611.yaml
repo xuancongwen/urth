@@ -1,0 +1,10 @@
+vnum: 611
+name: a hank of yeti fur
+keywords: [hank, yeti, fur]
+description: A hank of white yeti fur lies here.
+look: |
+  Coarse, hollow hairs that hold warmth and a smell you will not get
+  out of your pack.
+type: material
+material: yeti fur
+rarity: common

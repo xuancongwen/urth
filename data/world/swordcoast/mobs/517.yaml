@@ -1,0 +1,15 @@
+vnum: 517
+name: Mulahey
+keywords: [mulahey, half-orc, priest, cleric]
+description: Mulahey, a half-orc in chain, turns from his altar and reaches for his mace.
+look: |
+  Grey-skinned, heavy, and sweating in the candle heat. He serves a god
+  of murder and a master he is more afraid of than the god. He has been
+  told to taint the iron and keep the kobolds in line, and he has done
+  both, and it has not been enough for anyone.
+level: 9
+flags: [sentinel]
+health: 220
+silver: 200
+attack:
+  verb: smash

@@ -1,0 +1,10 @@
+vnum: 409
+name: The Green Dragon
+description: |
+  A low, warm room with a beam you must duck under, a fire that is never
+  out, and a bar polished by a hundred years of elbows. Everyone here
+  knows everyone, and is prepared to know you. The beer is famous. The
+  door onto the green is south.
+exits:
+  south: 408
+flags: [safe]

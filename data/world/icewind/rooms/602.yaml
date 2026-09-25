@@ -1,0 +1,10 @@
+vnum: 602
+name: The Hooked Knucklehead
+description: |
+  Low, dark, and warm, which is all anyone asks of a room in the Dale.
+  Fishermen and caravan drivers sit over spiced wine and argue about the
+  price of ivory. The fire is peat and does not go out. The only door
+  leads east, back into the wind.
+exits:
+  east: 601
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 421
+name: Under the Eaves of the Old Forest
+description: |
+  The gate clangs behind you. The trees are old, moss-bearded, and
+  crowded, and they close over the path so that the light fails a few
+  steps in. Paths open and shut as you look at them. Every one of them,
+  somehow, slopes down and south toward the sound of water.
+exits:
+  west: 420
+  south: 422
+flags: [dark]

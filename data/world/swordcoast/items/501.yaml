@@ -1,0 +1,14 @@
+vnum: 501
+name: a kobold commando's spear
+keywords: [kobold, commando, spear]
+description: A short, well-kept spear lies here.
+look: |
+  Ash shaft cut to kobold height, iron head kept sharp. Someone taught
+  its owner to care for it.
+type: weapon
+level: 5
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

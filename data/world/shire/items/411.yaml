@@ -1,0 +1,10 @@
+vnum: 411
+name: a handful of Maggot's mushrooms
+keywords: [handful, mushrooms, mushroom, maggot, maggots]
+description: A handful of fat brown mushrooms lies here.
+look: |
+  Firm, brown, and smelling of the good black earth of the Marish.
+  Hobbits have crossed the Brandywine for less.
+type: material
+material: mushrooms
+rarity: uncommon

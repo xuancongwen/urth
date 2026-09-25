@@ -1,0 +1,13 @@
+vnum: 843
+name: Bane
+keywords: [bane, boy, prince, child]
+description: A boy in fine clothes, too clean for this dock, is watching everything with wide blue eyes.
+look: |
+  Ten years old, golden-haired, a prince's son by his coat and his
+  manners, with a feather amulet at his throat and a smile that comes on
+  exactly when he wants it to. He asks a great many questions. It is
+  hard to say afterward what you told him.
+level: 8
+flags: [sentinel, peaceful]
+attack:
+  verb: kick

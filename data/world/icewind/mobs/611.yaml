@@ -1,0 +1,13 @@
+vnum: 611
+name: Drizzt
+keywords: [drizzt, drow, ranger, elf]
+description: A drow in a worn cloak sits back from the cold fire, two scimitars across his knees, and watches you come in.
+look: |
+  Skin black as the stone figurine, hair white as the tundra, and eyes
+  of a lavender that should not exist. He is very still. There is
+  nothing in his face of what the stories say about his kind, and
+  everything in his posture of how often he has had to prove it.
+level: 20
+flags: [sentinel, peaceful]
+attack:
+  verb: slash

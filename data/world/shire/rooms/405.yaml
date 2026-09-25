@@ -1,0 +1,11 @@
+vnum: 405
+name: Bag End
+description: |
+  A perfectly round door, painted green, with a brass knob dead in the
+  middle. The curtains are drawn. The brass is dull, the step unswept,
+  and no smoke comes from the chimney. A hobbit-hole this fine does not
+  stand empty long, and someone is already measuring it with her eyes.
+  The lane goes back down south.
+exits:
+  south: 404
+flags: [safe]

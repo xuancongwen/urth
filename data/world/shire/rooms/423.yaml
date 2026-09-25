@@ -1,0 +1,9 @@
+vnum: 423
+name: A Hollow Under the Bank
+description: |
+  A dry hollow in the roots of a great oak, out of sight of the road.
+  Somebody hid here not long ago: the leaves are pressed flat, there
+  is a crust of bread and a shred of pack-cloth, and a pair of small
+  gloves dropped in a hurry. The road is up the bank to the north.
+exits:
+  north: 419

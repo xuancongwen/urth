@@ -1,0 +1,11 @@
+vnum: 604
+name: a yeti-fur cloak
+keywords: [yeti-fur, yeti, fur, cloak]
+description: A cloak of white fur lies in a heap.
+look: |
+  White and thick and rank. Nothing keeps the wind out like the skin
+  of a thing that lived in it.
+type: armor
+slot: shoulders
+level: 6
+baseline: medium

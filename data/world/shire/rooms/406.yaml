@@ -1,0 +1,11 @@
+vnum: 406
+name: The Party Field
+description: |
+  A wide, sloping meadow, cropped short by sheep, with a single enormous
+  tree at the centre. The grass is still scarred in a ring where a
+  pavilion once stood, and a firework case rusts in a hedge. The lane
+  is east, and Bagshot Row lies south under the Hill.
+exits:
+  east: 404
+  south: 402
+flags: [safe]

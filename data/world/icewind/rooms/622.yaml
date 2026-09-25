@@ -1,0 +1,9 @@
+vnum: 622
+name: The Forge
+description: |
+  Heat. A furnace big as a house, a bellows worked by a chain, and a
+  smith who does not look up. Every surface holds a blade or a piece of
+  one. The floor is black with scale. The hall is east.
+exits:
+  east: 621
+flags: [safe]

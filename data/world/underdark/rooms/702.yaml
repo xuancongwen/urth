@@ -1,0 +1,11 @@
+vnum: 702
+name: The Wild Tunnel
+description: |
+  A tunnel the water made, before there was anyone to walk it. The floor
+  is ridged like a riverbed. There is no sound but your own, and when
+  you stop, no sound at all. Above, the crack climbs back toward the
+  mines. The tunnel runs on south, and the dark runs on with it.
+exits:
+  up: 701
+  south: 703
+flags: [dark]

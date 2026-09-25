@@ -1,0 +1,13 @@
+vnum: 402
+name: Bagshot Row
+description: |
+  A row of hobbit-holes dug into the foot of the Hill, each with its
+  round door, its bench, and its bit of garden. Number Three has the
+  best potatoes in the row and will tell you so. Beans climb strings.
+  The Mill lies down the bank to the south, the Party Field opens to
+  the north, and the road is back east.
+exits:
+  east: 401
+  south: 403
+  north: 406
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 623
+name: The Upper Tunnels
+description: |
+  Head-height for a dwarf, which is not for you. Props of old timber
+  hold up the rock, and the rails of an ore cart run off into the dark.
+  The lamps of the gate are a glow to the west. A shaft in the floor,
+  with a ladder, goes down to the old workings.
+exits:
+  west: 620
+  down: 624
+flags: [dark]

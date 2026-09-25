@@ -1,0 +1,12 @@
+vnum: 837
+name: a pipe-rat
+keywords: [pipe-rat, rat, piperat]
+description: A rat the size of a dog watches you from a pipe, licking grease off its whiskers.
+look: |
+  Sleek, black, fat on lubricant, with teeth worn to chisels by a
+  lifetime of iron. It is not afraid of you. Nothing down here has ever
+  hurt it but the machine.
+level: 3
+flags: [assist]
+attack:
+  verb: bite

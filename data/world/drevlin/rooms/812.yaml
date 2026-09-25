@@ -1,0 +1,16 @@
+vnum: 812
+name: The Warren Street, Wombe
+description: |
+  Wombe is a town dug into the rock under the machine, and this is its
+  main street: a tunnel wide enough for two carts, lined with round
+  doors, every one of them at Geg height. Gegs come and go with tools
+  over their shoulders, all of them in a hurry to serve the machine and
+  none of them sure what it does. An eatery steams to the east. A door
+  west has ink on the jamb. The street runs on south, and the ladder
+  up is north.
+exits:
+  north: 811
+  east: 813
+  south: 814
+  west: 815
+flags: [safe]

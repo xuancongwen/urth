@@ -1,0 +1,12 @@
+vnum: 640
+name: The Bottom of the Shaft
+description: |
+  Deeper than any dwarf of Clan Battlehammer dug. The shaft ends on a
+  ledge of black rock, and the rock is not the mountain's. The air
+  rising past you is cold and wet and smells of nothing that has ever
+  seen the sun. Below, the shaft goes on. Above, a long way up, a
+  goblin's torch.
+exits:
+  up: 627
+  down: 700
+flags: [dark]

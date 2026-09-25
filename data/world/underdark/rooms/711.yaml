@@ -1,0 +1,10 @@
+vnum: 711
+name: The Smithy of Blingdenstone
+description: |
+  Heat, for once, and the honest smell of coal. The forge burns a fuel
+  you do not recognize, and the anvil is a single crystal the size of a
+  table. Weapons hang on the wall, none of them decorative. The square
+  is south.
+exits:
+  south: 710
+flags: [safe]

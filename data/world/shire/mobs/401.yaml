@@ -1,0 +1,12 @@
+vnum: 401
+name: Lobelia Sackville-Baggins
+keywords: [lobelia, sackville-baggins, sackville, hobbit]
+description: Lobelia Sackville-Baggins is pacing the step with an umbrella, counting the windows.
+look: |
+  A sharp-faced hobbit of good family and better appetite, in her best
+  bonnet, with an umbrella she uses as a pointer and a weapon. She has
+  waited seventy-seven years for this door, and she is not leaving.
+level: 8
+flags: [sentinel, peaceful]
+attack:
+  verb: jab

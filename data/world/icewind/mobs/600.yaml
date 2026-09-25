@@ -1,0 +1,12 @@
+vnum: 600
+name: Cassius
+keywords: [cassius, spokesman]
+description: Cassius, spokesman of Bryn Shander, stands under the awning of the biggest stall, listening to a complaint.
+look: |
+  A broad man in a good coat, with the patience of someone who has
+  settled a thousand quarrels over fish. He nods while you talk and
+  has decided before you finish.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

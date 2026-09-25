@@ -1,0 +1,13 @@
+vnum: 703
+name: The Fisher's Ledge
+description: |
+  The tunnel widens into a gallery with a high ceiling you cannot see.
+  Something is up there. Thin strands hang from the dark and brush your
+  face like hair, and they are sticky. The gallery runs east into a
+  dead end and west toward a faint, unhealthy light. Back north is the
+  wild tunnel.
+exits:
+  north: 702
+  east: 704
+  west: 705
+flags: [dark]

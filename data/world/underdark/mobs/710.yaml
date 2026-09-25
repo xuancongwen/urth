@@ -1,0 +1,14 @@
+vnum: 710
+name: a deep-gnome smith
+keywords: [deep-gnome, deep, gnome, smith]
+description: A deep-gnome smith works a blade against the crystal anvil, not looking up.
+look: |
+  Soot to the elbows, a leather apron scarred by a hundred sparks, and
+  hands that are quick without hurrying. She will teach you to turn a
+  blade aside with your own, for coin, because a customer who lives
+  comes back.
+level: 13
+flags: [sentinel, peaceful]
+teaches: [riposte]
+attack:
+  verb: strike

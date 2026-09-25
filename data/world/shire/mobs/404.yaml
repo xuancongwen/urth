@@ -1,0 +1,14 @@
+vnum: 404
+name: Farmer Maggot
+keywords: [maggot, farmer, hobbit]
+description: Farmer Maggot sits at his table in his stockings, a mug in his fist and a dog on his feet.
+look: |
+  Broad as a door, with a red face and a stare that has sent bigger
+  folk than you back over the fence. He grows the best mushrooms in
+  the Shire and knows exactly who has stolen them, and when. He is
+  generous to guests and merciless to trespassers, and he decides
+  which you are.
+level: 12
+flags: [sentinel, peaceful]
+attack:
+  verb: thump

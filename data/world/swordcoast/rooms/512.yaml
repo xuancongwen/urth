@@ -1,0 +1,10 @@
+vnum: 512
+name: The Coast Way, South of the Crossroads
+description: |
+  The road runs between low hills that hide too much. Wagon tracks veer
+  suddenly into the grass and back again. There are fresh ashes by the
+  roadside and a boot with nobody in it. North is the crossroads; south
+  the road goes on under the hills.
+exits:
+  north: 509
+  south: 513

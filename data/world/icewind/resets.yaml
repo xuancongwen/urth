@@ -1,0 +1,34 @@
+interval_seconds: 300
+resets:
+  # --- Bryn Shander ---
+  - { mob: 600, room: 601 }   # Cassius, under the awning
+  - { mob: 601, room: 601 }   # a market trader
+  - { mob: 602, room: 602 }   # the tavern keeper, and what he sells
+  - { item: 606, room: 602 }
+  - { item: 607, room: 602 }
+  # --- Lonelywood and the lake ---
+  - { mob: 604, room: 606 }   # the scrimshander and his bench
+  - { item: 601, room: 606 }
+  - { item: 610, room: 606 }
+  - { mob: 603, room: 607 }   # Regis, in the good chair
+  - { item: 608, room: 607 }
+  - { mob: 605, room: 608 }   # the fisherman, the ivory, the gulls
+  - { item: 610, room: 608 }
+  - { mob: 606, room: 608, max: 2 }
+  - { mob: 607, room: 609, max: 3, equip: [{ item: 613 }] }   # tundra wolves carry fangs
+  # --- the tundra ---
+  - { mob: 608, room: 610, max: 2, equip: [{ item: 611 }] }   # yetis carry fur
+  - { mob: 609, room: 611, equip: [{ item: 600, slot: wield }, { item: 605, slot: feet }] }   # the scout, axe and boots
+  - { mob: 610, room: 612, equip: [{ item: 604, slot: shoulders }] }   # Biggrin, in his cloak
+  # --- Kelvin's Cairn ---
+  - { mob: 611, room: 616 }   # Drizzt, and the figurine that stays
+  - { item: 614, room: 616 }
+  # --- the mines ---
+  - { mob: 612, room: 621 }   # Bruenor
+  - { mob: 613, room: 621 }   # Catti-brie, who does not stay put
+  - { mob: 614, room: 622 }   # the smith
+  - { item: 602, room: 623 }  # a pick in the upper tunnels
+  - { mob: 615, room: 625 }   # the bear
+  - { mob: 616, room: 626, max: 3 }   # the goblin band
+  - { mob: 617, room: 627, equip: [{ item: 603, slot: head }, { item: 609 }] }   # the chieftain, crown and belt
+  - { item: 612, room: 640 }  # cairn silver at the bottom of the shaft

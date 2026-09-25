@@ -1,0 +1,14 @@
+vnum: 401
+name: a farmer's pitchfork
+keywords: [farmer, farmers, pitchfork, fork]
+description: A pitchfork has been left stuck in the bank.
+look: |
+  Two long tines and a shaft polished by hands. It was made for hay,
+  but it does not know that.
+type: weapon
+level: 3
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: jab

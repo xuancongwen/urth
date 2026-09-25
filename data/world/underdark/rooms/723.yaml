@@ -1,0 +1,12 @@
+vnum: 723
+name: The Shrine of Lolth
+description: |
+  Candles in their hundreds, all black, all burning red. An altar of a
+  single obsidian block, and above it a spider of iron, its eight eyes
+  set with rubies that follow you. The floor is polished by knees. The
+  web here is silk, woven, and hung like tapestry, and there are things
+  in it that used to move. Steps go up to the antechamber. There is no
+  other way out, and you are meant to know that.
+exits:
+  up: 722
+temple: evil

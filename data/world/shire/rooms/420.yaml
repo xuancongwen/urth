@@ -1,0 +1,11 @@
+vnum: 420
+name: The High Hay
+description: |
+  A hedge twenty feet high, thick as a wall, runs off north and south
+  further than you can see. Beyond it the trees stand close and grey,
+  leaning over the Hay as if to listen. A tunnel of brick goes through
+  under the hedge, closed at the far end by a gate that is not locked.
+  The road is back west.
+exits:
+  west: 419
+  east: 421

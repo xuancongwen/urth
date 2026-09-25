@@ -1,0 +1,10 @@
+vnum: 514
+name: a scrap of paper from the cairn
+keywords: [scrap, paper, cairn, note]
+description: A scrap of paper is pinned under the top stone of the cairn.
+look: |
+  "He died here, on the road, so that you would not. The one who did it
+  was armored and tall and wanted what you carry. Go to the Friendly
+  Arm. Friends of his wait there. Trust the half-elves." The ink has
+  run with rain.
+type: other

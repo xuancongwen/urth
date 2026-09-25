@@ -1,0 +1,11 @@
+vnum: 709
+name: a totem of black bone
+keywords: [totem, black, bone]
+description: A totem of black bone stands on the altar among the candles.
+look: |
+  A finger-length of bone, black as if burnt, carved with a spider whose
+  legs are eight small skulls. It is colder than the room. Holding it
+  you can hear, at the edge of sound, the dead in the web behind you
+  trying to speak.
+type: totem
+school: necromancy

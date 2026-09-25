@@ -1,0 +1,14 @@
+vnum: 701
+name: a drow dagger
+keywords: [drow, dagger]
+description: A slim black dagger lies here.
+look: |
+  Adamantite, leaf-bladed, and light enough to forget you are holding.
+  The hilt is wrapped in spider silk. It has been used on people.
+type: weapon
+level: 13
+baseline: light
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

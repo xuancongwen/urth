@@ -1,0 +1,11 @@
+vnum: 605
+name: The Track to Lonelywood
+description: |
+  Sled ruts and a line of stunted pines mark the way from the gate to
+  the lake town. The trees lean south, all of them, the way the wind has
+  pushed them since they were seedlings. Lonelywood is west; the shore
+  of Maer Dualdon lies north of the track; the gate is back east.
+exits:
+  east: 603
+  west: 606
+  north: 609

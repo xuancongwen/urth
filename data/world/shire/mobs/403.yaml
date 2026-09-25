@@ -1,0 +1,12 @@
+vnum: 403
+name: the landlord of the Green Dragon
+keywords: [landlord, innkeeper, keeper, hobbit]
+description: The landlord is drawing a pint with one hand and settling an argument with the other.
+look: |
+  Round, red, and unhurried, with a cloth over one shoulder and the
+  memory of every tab in Bywater. Nothing said in this room is news to
+  him, and nothing said in this room leaves it.
+level: 10
+flags: [sentinel, peaceful]
+attack:
+  verb: cuff

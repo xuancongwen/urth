@@ -1,0 +1,9 @@
+vnum: 813
+name: A Geg Eatery
+description: |
+  Benches, a long table scarred by ten thousand wrench-handles, and a
+  pot the size of a lubricant vat, though what is in it smells better.
+  It is stew. It is always stew. The street is west.
+exits:
+  west: 812
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 408
+name: a torn black cloak
+keywords: [torn, black, cloak]
+description: A torn black cloak lies in the road, and the leaves shrink from it.
+look: |
+  Heavy black cloth, cold to the touch on a warm day, torn at the hem
+  by a blade. It does not smell of horse, or of anything that lives.
+  Wearing it, you feel taller, and watched.
+type: armor
+slot: shoulders
+level: 8
+baseline: light

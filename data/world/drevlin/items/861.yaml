@@ -1,0 +1,10 @@
+vnum: 861
+name: a totem of shifting glass
+keywords: [totem, shifting, glass]
+description: A small figure of glass sits on the shrine, changing shape when you are not looking.
+look: |
+  A hand's length of glass, carved into a figure that is a bird, then a
+  fish, then a bird again, though it never moves while watched. It is
+  the captain's luck-piece, and it is older than his empire.
+type: totem
+school: transmutation

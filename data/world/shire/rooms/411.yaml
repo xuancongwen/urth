@@ -1,0 +1,10 @@
+vnum: 411
+name: The Mill-pond
+description: |
+  The wheel churns the pond to brown foam and throws spray on you.
+  Underneath the mill, the bank is honeycombed with holes, and the
+  timber of the wheelhouse is chewed at every corner. A hatch leads
+  up into the mill; the riverbank runs east.
+exits:
+  east: 410
+  north: 403

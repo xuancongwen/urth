@@ -1,0 +1,10 @@
+vnum: 513
+name: The Coast Way, Under the Hills
+description: |
+  The hills close in and the road runs in their shadow. A tall shape in
+  scrap armor sits on a rock as though it owns the road, which for the
+  moment it does. Beregost's roofs show to the south; the crossroads is
+  back north.
+exits:
+  north: 512
+  south: 514

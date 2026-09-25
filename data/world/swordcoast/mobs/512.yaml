@@ -1,0 +1,12 @@
+vnum: 512
+name: a xvart
+keywords: [xvart, blue]
+description: A small blue xvart shrieks at you from the road and does not run.
+look: |
+  Knee-high, blue as a bruise, and furious about everything. It has a
+  knife it stole and a grudge it made itself.
+level: 2
+flags: [assist]
+silver: 5
+attack:
+  verb: stab

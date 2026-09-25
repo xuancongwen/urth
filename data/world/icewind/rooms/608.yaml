@@ -1,0 +1,10 @@
+vnum: 608
+name: The Shore of Maer Dualdon
+description: |
+  Ice at the edge, black water further out, and boats hauled up on the
+  shingle with their oars stowed. The lake is the color of the sky and
+  as deep, they say, as the Cairn is tall. Gulls quarrel over gutted
+  fish. The street is south; the shore goes on east.
+exits:
+  south: 606
+  east: 609

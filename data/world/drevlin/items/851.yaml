@@ -1,0 +1,14 @@
+vnum: 851
+name: a dig-claw tine
+keywords: [dig-claw, claw, tine, digclaw]
+description: An iron tine as long as a spear lies here, bent at the root.
+look: |
+  One finger of a dig-claw, snapped off at the knuckle. Pitted by ore,
+  pointed by use, and heavier than it looks.
+type: weapon
+level: 5
+baseline: heavy
+weapon:
+  hands: 2
+  kind: pierce
+  verb: gore

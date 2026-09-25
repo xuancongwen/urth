@@ -1,0 +1,11 @@
+vnum: 601
+name: a market trader
+keywords: [market, trader, merchant]
+description: A market trader stamps her feet behind a stall of scrimshaw and salt fish.
+look: |
+  Wrapped to the eyes in fur, and the eyes miss nothing. She will sell
+  you anything on the table and tell you it came from Luskan.
+level: 8
+flags: [peaceful]
+attack:
+  verb: punch

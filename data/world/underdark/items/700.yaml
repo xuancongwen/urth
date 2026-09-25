@@ -1,0 +1,15 @@
+vnum: 700
+name: an adamantite short sword
+keywords: [adamantite, short, sword, drow]
+description: A short sword of black metal lies here, drinking the light.
+look: |
+  Adamantite, drow-forged, the edge so fine it hums. It was made in a
+  place that has never seen the sun, and it will not forgive being
+  shown one: given enough daylight it will crumble to black sand.
+type: weapon
+level: 14
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

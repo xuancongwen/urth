@@ -1,0 +1,13 @@
+vnum: 710
+name: The Square of the Ruling Council
+description: |
+  A cavern shaped to a city: houses hollowed from boulders, streets that
+  are ramps, and a square that is only level ground with a fountain in
+  it. Deep gnomes go about their business and look at you sidelong,
+  which from a svirfneblin is a warm welcome. A smithy rings to the
+  north. A hostel's door stands open to the south. The gate is east.
+exits:
+  east: 709
+  north: 711
+  south: 712
+flags: [safe]

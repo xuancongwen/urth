@@ -1,0 +1,11 @@
+vnum: 412
+name: a splinter of willow heartwood
+keywords: [splinter, willow, heartwood]
+description: A grey splinter of heartwood lies on the bank where the trunk split.
+look: |
+  Grey, dense, and faintly warm, with a grain that seems to move when
+  you are not looking at it. It came out of the crack in the old
+  willow, and it hums, very low, like the song.
+type: material
+material: heartwood
+rarity: rare

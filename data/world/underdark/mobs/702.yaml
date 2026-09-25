@@ -1,0 +1,12 @@
+vnum: 702
+name: a quaggoth
+keywords: [quaggoth, beast, brute]
+description: A quaggoth rises from its heap of bones, white fur bristling.
+look: |
+  Seven feet of white-furred muscle with a face like a bear's that has
+  learned to hate. It uses no weapon because it has never needed one.
+  It is tearing something as it looks at you.
+level: 12
+flags: [sentinel]
+attack:
+  verb: rend

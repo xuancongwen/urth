@@ -1,0 +1,11 @@
+vnum: 505
+name: The Gate of Candlekeep
+description: |
+  A gatehouse thick enough to walk on top of, and gates you could not
+  open if the guards did not wish it. They wish it, going out. Coming
+  back is another matter. North is the courtyard and everything safe;
+  south the Lion's Way runs down between the rocks toward the coast.
+exits:
+  north: 501
+  south: 506
+flags: [safe]

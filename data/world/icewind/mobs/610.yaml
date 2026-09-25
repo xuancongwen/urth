@@ -1,0 +1,14 @@
+vnum: 610
+name: Biggrin
+keywords: [biggrin, verbeeg, giant]
+description: Biggrin, a verbeeg with a smile too wide for his face, sits by the fire pit, cracking a bone for the marrow.
+look: |
+  Ten feet of giant-kin, knobbed and hairy, and a grin that was cut
+  into him by a blade a long time ago and never healed shut. He has
+  been told to wait here for something. He does not mind killing to
+  pass the time.
+level: 9
+flags: [sentinel]
+silver: 45
+attack:
+  verb: club

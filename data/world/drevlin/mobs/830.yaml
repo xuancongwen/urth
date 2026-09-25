@@ -1,0 +1,13 @@
+vnum: 830
+name: a Geg scrivener
+keywords: [geg, scrivener, scribe]
+description: A Geg scrivener scratches numbers onto a sheet of tin without looking up.
+look: |
+  Short, broad, bearded to the belt, with a stylus behind each ear and
+  tin-dust in his beard. His family has kept the machine's numbers for
+  eleven generations. He can tell you the total. He cannot tell you what
+  it is the total of.
+level: 6
+flags: [sentinel, peaceful]
+attack:
+  verb: jab

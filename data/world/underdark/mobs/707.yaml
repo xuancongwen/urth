@@ -1,0 +1,16 @@
+vnum: 707
+name: a drow priestess
+keywords: [drow, priestess, priestess of lolth, matron, elf]
+description: A drow priestess stands before the altar, a whip of living snakes coiling in her hand.
+look: |
+  Tall, black-skinned, robed in spider silk that moves when she does
+  not. The whip has five heads, and they watch you separately. She has
+  the bored cruelty of someone for whom you are not the first, nor the
+  hundredth. On her finger a ring in the shape of a spider catches the
+  red light.
+level: 18
+flags: [sentinel]
+health: 900
+silver: 300
+attack:
+  verb: lash

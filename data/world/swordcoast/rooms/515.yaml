@@ -1,0 +1,9 @@
+vnum: 515
+name: The Burning Wizard
+description: |
+  Low, loud, and cheap. The sign shows a wizard on fire and nobody
+  remembers why. Mercenaries drink here between jobs and talk too much
+  about the last one. The square is out the east door.
+exits:
+  east: 514
+flags: [safe]

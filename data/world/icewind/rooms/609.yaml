@@ -1,0 +1,11 @@
+vnum: 609
+name: Along the Lakeshore
+description: |
+  The shingle gives way to frozen reeds and the reeds to snow. Tracks
+  cross here, many of them, four-toed and wide. The water is west, the
+  Lonelywood track south, and the Bryn Shander road east across the
+  flat.
+exits:
+  west: 608
+  south: 605
+  east: 604

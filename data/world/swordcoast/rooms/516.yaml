@@ -1,0 +1,9 @@
+vnum: 516
+name: Feldepost's Inn
+description: |
+  Polished wood and a fire that behaves. The clientele pays for quiet
+  and gets it. The keeper has the look of a man who has thrown out
+  better people than you. The square is out the west door.
+exits:
+  west: 514
+flags: [safe]

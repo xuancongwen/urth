@@ -1,0 +1,13 @@
+vnum: 408
+name: Bywater
+description: |
+  A cluster of hobbit-holes and low stone houses around a green, with a
+  well, a horse-trough, and a great deal of talking. Every window is
+  open. The Green Dragon stands on the north side of the green with its
+  sign creaking. The road goes back west to Hobbiton and on east out of
+  the village, where the hedges close in.
+exits:
+  west: 407
+  north: 409
+  east: 413
+flags: [safe]

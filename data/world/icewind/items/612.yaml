@@ -1,0 +1,10 @@
+vnum: 612
+name: a nugget of cairn silver
+keywords: [nugget, cairn, silver]
+description: A nugget of silver gleams in a crack of the black rock.
+look: |
+  Silver with a blue cast to it, from a seam the dwarves did not
+  know was here. It is very cold to hold.
+type: material
+material: cairn silver
+rarity: rare

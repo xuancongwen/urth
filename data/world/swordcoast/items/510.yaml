@@ -1,0 +1,11 @@
+vnum: 510
+name: a totem of carved vellum
+keywords: [totem, vellum, carved]
+description: A totem of tightly rolled and carved vellum stands on the altar among the candles.
+look: |
+  A hand's length of vellum rolled hard as wood and carved with an open
+  eye. Every line on it is a line of writing, too small to read, and
+  holding it you have the feeling of a page turning somewhere far off.
+  It was Candlekeep's before it was Mulahey's.
+type: totem
+school: divination

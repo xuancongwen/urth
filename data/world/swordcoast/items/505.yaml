@@ -1,0 +1,9 @@
+vnum: 505
+name: Tarnesh's wand
+keywords: [tarnesh, wand]
+description: A slim wand of pale wood lies here.
+look: |
+  Willow, capped in silver, and quite dead. Whatever it held was spent
+  on you. A collector might pay for the silver.
+type: other
+value: 50

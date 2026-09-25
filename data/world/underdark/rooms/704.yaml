@@ -1,0 +1,10 @@
+vnum: 704
+name: A Dry Cul-de-sac
+description: |
+  The gallery pinches into a pocket of dry rock with only the one way
+  out, west. There are droppings here, and a fire-scar, and small bones
+  cracked for their marrow. Whoever hides here has hidden here before,
+  and does not expect to be followed.
+exits:
+  west: 703
+flags: [dark]

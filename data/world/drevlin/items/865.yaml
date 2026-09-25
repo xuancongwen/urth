@@ -1,0 +1,11 @@
+vnum: 865
+name: a statue of a robed man
+keywords: [statue, robed, man, sartan]
+description: A statue of a robed man with his hand raised stands on the dais, humming.
+look: |
+  Taller than any Geg, carved from a stone that is not coralite, in
+  robes covered with signs. The hand is raised as if to explain
+  something. The hum is in your teeth when you stand close. The Gegs
+  say it has always been here. The Gegs say that about the machine, too.
+type: other
+flags: [nopickup]

@@ -1,0 +1,10 @@
+vnum: 410
+name: a twist of pipe-weed
+keywords: [twist, pipe-weed, pipeweed, leaf, longbottom]
+description: A twist of pipe-weed has been left on the bench.
+look: |
+  Longbottom Leaf, sweet and dark, wrapped in a scrap of paper. It is
+  the Shire's one export and the only thing the Gaffer will not share.
+type: material
+material: pipe-weed
+rarity: common

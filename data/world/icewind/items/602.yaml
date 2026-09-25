@@ -1,0 +1,14 @@
+vnum: 602
+name: a dwarven mining pick
+keywords: [dwarven, mining, pick]
+description: A mining pick leans against a rotten prop.
+look: |
+  Iron, dwarf-made, and heavy enough to go through rock. It would go
+  through other things.
+type: weapon
+level: 5
+baseline: standard
+weapon:
+  hands: 2
+  kind: blunt
+  verb: swing

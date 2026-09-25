@@ -1,0 +1,11 @@
+vnum: 808
+name: The Chain, Hanging
+description: |
+  You are on the chain, in the cloud, with the rain going up past you
+  as often as down. Each link is longer than your arm. The Kicksey-winsey
+  is a roar above and a glow below. A pair of goggles hangs from a link
+  by their strap, left by whoever last did this and did not need them
+  after. Up is the yard; down is the storm.
+exits:
+  up: 807
+  down: 809

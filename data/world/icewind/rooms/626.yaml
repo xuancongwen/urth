@@ -1,0 +1,12 @@
+vnum: 626
+name: The Broken Gallery
+description: |
+  The dwarves sealed this level once; the wall is in pieces on the
+  floor, and the pieces have been kicked aside by small feet. Crude
+  torches have been jammed in cracks and left to gutter. Filth and
+  gnawed bones. The shaft goes up; south, the gallery narrows into a
+  hole that has been widened by hand.
+exits:
+  up: 624
+  south: 627
+flags: [dark]

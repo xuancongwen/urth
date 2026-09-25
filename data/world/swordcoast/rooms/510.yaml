@@ -1,0 +1,11 @@
+vnum: 510
+name: The Steps of the Friendly Arm
+description: |
+  Stone steps climb to the door of an inn that was a fortress first and
+  has not forgotten it. Travelers pass up and down with their hands near
+  their purses. A man in a good cloak stands at the top and studies each
+  face that comes up the steps, as if looking for one in particular.
+  The inn is north; the crossroads south.
+exits:
+  south: 509
+  north: 511

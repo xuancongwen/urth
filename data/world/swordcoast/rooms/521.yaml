@@ -1,0 +1,11 @@
+vnum: 521
+name: The Nashkel Mines, First Level
+description: |
+  Timber props, a dripping roof, and a floor of iron dust that shatters
+  underfoot like rotten ice. Small yellow eyes open and shut in the
+  dark ahead, more of them each time you look. The shaft goes up to the
+  daylight; a tunnel runs south into the dark.
+exits:
+  up: 520
+  south: 522
+flags: [dark]

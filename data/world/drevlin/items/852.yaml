@@ -1,0 +1,15 @@
+vnum: 852
+name: an elven sabre
+keywords: [elven, elf, sabre, saber]
+description: A curved sabre with a silver hilt lies here.
+look: |
+  Light, curved, and etched down the blade with vines that were never
+  meant to be looked at closely. It cuts because it was made by people
+  who had a long time to learn how.
+type: weapon
+level: 8
+baseline: light
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

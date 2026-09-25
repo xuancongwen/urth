@@ -1,0 +1,10 @@
+vnum: 863
+name: a smear of machine grease
+keywords: [smear, machine, grease]
+description: A smear of black machine grease has been scraped into a tin.
+look: |
+  Thick, black, and smelling of hot iron. The Kicksey-winsey runs on
+  it, and so does more than one recipe in the colleges.
+type: material
+material: machine grease
+rarity: common

@@ -1,0 +1,11 @@
+vnum: 602
+name: the tavern keeper
+keywords: [tavern, keeper, barman]
+description: The tavern keeper leans on the bar, ladling wine from a pot on the fire.
+look: |
+  Red-faced from the fire and the wine both. He has a cellar of the
+  stuff and a rule that nobody freezes on his floor.
+level: 8
+flags: [sentinel, peaceful]
+attack:
+  verb: punch

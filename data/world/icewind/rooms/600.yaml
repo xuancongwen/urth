@@ -1,0 +1,13 @@
+vnum: 600
+name: A Root Cellar Under the Wall
+description: |
+  Turnips, salt fish, and frost. The cellar is dug into the earth bank
+  under Bryn Shander's palisade, and the ice on the walls has not melted
+  in living memory. A ladder goes up through a hatch to the noise of a
+  market. The door you came in by, south, is rimed white on this side and
+  should not, by any sense, open onto a stone vault.
+exits:
+  up: 601
+  south: 6
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

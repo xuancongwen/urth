@@ -1,0 +1,12 @@
+vnum: 859
+name: a pair of storm-goggles
+keywords: [storm-goggles, storm, goggles]
+description: A pair of brass-rimmed goggles hangs by its strap.
+look: |
+  Thick glass in brass, with a strap of rat-leather. The glass is
+  scoured but you can see through it, which in the Maelstrom is more
+  than can be said for eyes.
+type: armor
+slot: face
+level: 6
+baseline: light

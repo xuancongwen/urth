@@ -1,0 +1,12 @@
+vnum: 721
+name: The Webbed Approach
+description: |
+  Web, in sheets and cables, from floor to a ceiling you cannot find.
+  It is thick enough to walk on in places, and something does. A path
+  has been cut through it with a single clean stroke, and re-cut, many
+  times. The watchpost is back west. The path leads south, and the
+  web grows thicker that way, not thinner.
+exits:
+  west: 720
+  south: 722
+flags: [dark]

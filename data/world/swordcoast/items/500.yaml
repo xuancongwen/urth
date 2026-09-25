@@ -1,0 +1,14 @@
+vnum: 500
+name: a kobold's short sword
+keywords: [kobold, short, sword]
+description: A rusty short sword lies here.
+look: |
+  Pitted iron with a grip wound in rag. It was a man's knife once and
+  a kobold's sword since.
+type: weapon
+level: 3
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,11 @@
+vnum: 610
+name: The Snowfields
+description: |
+  White to every horizon except the east, where the Cairn stands. The
+  crust holds your weight, mostly. Here and there it has been broken by
+  something heavy that walked upright, and the holes are already
+  filling with blown snow. The road is south; north, a dark shape on the
+  flat might be a cairn.
+exits:
+  south: 604
+  north: 611

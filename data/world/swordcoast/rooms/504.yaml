@@ -1,0 +1,11 @@
+vnum: 504
+name: Gorion's Quarters
+description: |
+  A small room at the top of a stair, more books than bed. A desk under
+  the window is covered in papers weighted down with whatever came to
+  hand, and a pack stands ready by the door, laced and full. Someone was
+  about to leave in a hurry and has not quite gone. The stair goes back
+  east to the courtyard.
+exits:
+  east: 501
+flags: [safe]

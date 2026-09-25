@@ -1,0 +1,15 @@
+vnum: 409
+name: a pair of soft hobbit-sized gloves
+keywords: [soft, hobbit-sized, gloves, pair]
+description: A pair of small soft gloves lies where they were dropped.
+look: |
+  Fine doeskin, stitched small, and lighter than they look. Someone
+  wore them on the road and left without them, in a hurry. They fit,
+  somehow, and make the hands quick.
+type: armor
+slot: hands
+level: 5
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }
