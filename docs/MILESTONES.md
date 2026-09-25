@@ -91,9 +91,11 @@ runnable.
    sets; `consume` for totems and `sacrifice` at temples; material and
    totem item types; the 6.5 spell list in `rules.js` with saves and
    scaling; the starter area carries two totems, a shrine, a sacrifice,
-   and farmable materials with hints. Not built: skills and
-   effectiveness (7.4), mob casting, the simulator casting spells, the
-   effect `state` write-back.
+   and farmable materials with hints. Skills with effectiveness
+   ratings (7.4) followed on 2026-09-25: Kick, Bash, Twin Strike, one
+   action per round, ratings improving with use and persisting. Not
+   built: mob casting, the simulator using skills or spells, general
+   effect `state` write-back beyond ratings.
 
 **Done:** a player in starter gear fights an even mob to the 4.5 targets,
 and editing a baseline function changes every item's numbers without a

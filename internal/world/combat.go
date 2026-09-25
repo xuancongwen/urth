@@ -332,6 +332,7 @@ func (w *World) grantXP(c *Character, xp int) {
 		}
 		c.StatPoints += max(r.StatPoints, 0)
 		c.FeatPoints += max(r.FeatPicks, 0)
+		w.ensurePassives(c)
 		w.recalc(c)
 		c.Health = c.HealthMax
 		c.Mana = c.ManaMax
@@ -423,6 +424,10 @@ func cmdFlee(w *World, p *Player, _ string) {
 func (w *World) regen() {
 	for _, c := range w.allCharacters() {
 		r := w.onTick(c)
+		if len(r.Skills) > 0 {
+			applySkillRatings(c, r.Skills)
+			w.recalc(c)
+		}
 		c.Health = clamp(c.Health+r.HealthDelta, 0, c.HealthMax)
 		c.Mana = clamp(c.Mana+r.ManaDelta, 0, c.ManaMax)
 		if c.Health <= 0 && r.HealthDelta < 0 {

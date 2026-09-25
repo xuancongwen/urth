@@ -62,6 +62,7 @@ func init() {
 		{"assist", 2, cmdAssist, false},
 		{"cast", 1, cmdCast, false},
 		{"spells", 3, cmdSpells, false},
+		{"skills", 3, cmdSkills, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},
@@ -122,6 +123,9 @@ func (w *World) dispatch(p *Player, line string) {
 	}
 	c := lookup(word, p.Admin)
 	if c == nil {
+		if w.trySkill(p, word, args) {
+			return
+		}
 		p.Send("Huh?\n")
 		return
 	}

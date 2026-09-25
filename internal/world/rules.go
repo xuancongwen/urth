@@ -30,6 +30,8 @@ type AttackResult struct {
 type TickResult struct {
 	HealthDelta int `json:"healthDelta"`
 	ManaDelta   int `json:"manaDelta"`
+	// Skills carries updated effectiveness ratings for skills in use.
+	Skills map[string]float64 `json:"skills"`
 }
 
 // LevelResult is what onLevel returns.

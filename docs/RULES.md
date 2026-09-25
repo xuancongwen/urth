@@ -40,7 +40,7 @@ left out; the engine then uses a quiet default.
 |---|---|---|---|
 | `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false |
 | `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, speed}`; `speed` is swings per round, fractional allowed |
-| `onTick` | once per round for every character | character | `{healthDelta, manaDelta}` |
+| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, skills:{id: rating}}` |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
 | `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |
@@ -50,6 +50,8 @@ left out; the engine then uses a quiet default.
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
+| `skillList` (optional) | typing a skill's name, `skills`, level-up | | `[{id, name, level, passive, target, cooldown, start, description}]` |
+| `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}}` |
 | `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
 | `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
 
@@ -93,8 +95,9 @@ left out; the engine then uses a quiet default.
   uses a safe default (a miss, no regen, 1 max health) and warns admins
   once per load.
 - Keep state between calls. Effects carry a `state` map for that; the
-  engine persists it. (Scripts can read it now; a return channel to
-  write it lands with the first effect that needs one.)
+  engine persists it. The first write-back is skill ratings: a `skills`
+  map in a hook result updates `state.effectiveness` on the named skill
+  effects. Other state stays read-only until something needs it.
 - Attach effects except through a cast. `resolveCast` returns effects
   per target and for the caster and the engine attaches them; the attack
   pipeline cannot yet.
@@ -1503,19 +1506,39 @@ per ability, set in the rules. Whether a trainer can raise it, and
 whether it decays, are open.
 
 "Skills" here are the *actions* of 2.1: the one thing a player may do
-each round beyond the auto-attack. They are distinct from feats (which
-are passive and permanent) and from spells (which are magic). The skill
-list, how skills are gained, and their cooldowns are not yet designed;
-this section fixes only that they carry effectiveness.
+each round beyond the auto-attack, plus a few passives that work on
+their own. They are distinct from feats (chosen, permanent, no rating)
+and from spells (discovered, material-costed).
 
-Consequences: an effect instance's `state` map holds the rating
-(`effectiveness`, 0 to 100), so the engine's storage is already right.
-What is missing is the write-back: hooks must be able to return updated
-`state` for an effect they used, which is the return channel listed in
-section 9. Skill *use* also needs an engine event (a command that
-invokes a skill and calls a hook with it), which arrives with the skill
-system. The simulator should be able to pin effectiveness for a run, so
-"at 60 percent" and "at 100 percent" can both be measured.
+**How skills are gained (leaning, 2026-09-25).** Every character has
+every skill its level allows, starting at the skill's starting rating
+the first time it is used (passives start the moment the level is
+reached). No trainer and no pick, so nothing competes with feats for
+the level-up choice. Whether some later skills are found or taught
+instead is open.
+
+**First skills**, starting values:
+
+| Skill | Level | Kind | Cooldown | Start | What the rating scales |
+|---|---|---|---|---|---|
+| Kick | 1 | action, single target | 2 | 30 | damage: 1.2x a standard swing at full skill, no weapon needed |
+| Bash | 3 | action, single target | 4 | 25 | damage (0.6x a swing) and the chance the target loses its next round of swings |
+| Twin Strike | 5 | passive | | 20 | the fraction of an extra swing per round; 100 is a full second swing |
+
+Twin Strike is the first of a chain: Triple Strike and Quad Strike
+follow at higher levels, the last for special cases, each a further
+swing. Improvement: each use (each round in a fight, for passives) has
+a chance to raise the rating by one to three points, the chance
+shrinking as the rating nears 100. One active skill per round.
+
+Consequences (built 2026-09-25): a skill's rating lives in the `state`
+of a `skill` effect on the character (`params.skill` names it), so it
+persists like any effect. `useSkill` resolves an active skill and any
+hook may return a `skills` map of updated ratings, which the engine
+stores: `useSkill` for the skill used, `onTick` for passives in use.
+Typing a skill's name uses it; the command table is searched first, so
+a skill never shadows a command. Open: the simulator should be able to
+pin a rating for a run, so "at 60" and "at 100" can both be measured.
 
 ---
 

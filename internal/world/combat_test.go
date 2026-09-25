@@ -969,3 +969,118 @@ func TestLookShowsItemNumbersUnlessUnidentified(t *testing.T) {
 		t.Fatalf("unidentified: %q", o)
 	}
 }
+
+const skillRules = testRules + `
+function skillList() {
+  return [
+    { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30, description: "A kick." },
+    { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25, description: "A bash." },
+    { id: "twin", name: "Twin Strike", level: 1, passive: true, cooldown: 0, start: 50, description: "An extra swing." }
+  ];
+}
+function useSkill(user, target, skill, e) {
+  var eff = e.state.effectiveness;
+  var out = { ok: true, hit: true, stage: "", damage: Math.round(10 * eff / 100), verb: skill.id, effects: [], skills: {} };
+  out.skills[skill.id] = eff + 10;
+  if (skill.id === "bash") out.effects.push({ on: "target", kind: "speedMult", params: { mult: 0 }, rounds: 1 });
+  return out;
+}
+function derivedStats(c) {
+  var extra = 0;
+  for (var i = 0; i < c.effects.length; i++) if (c.effects[i].kind === "skill" && c.effects[i].params.skill === "twin") extra = c.effects[i].state.effectiveness / 100;
+  return { healthMax: 10 + c.level * 2, manaMax: 5, speed: 1 + extra };
+}
+function onTick(c) {
+  var out = { healthDelta: c.fighting ? 0 : 1, manaDelta: 0, skills: {} };
+  if (c.fighting) out.skills.twin = 60;
+  return out;
+}
+`
+
+func TestSkillsUseImproveAndPassives(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, skillRules)
+	p := w.players[1]
+	w.ensurePassives(p.Character)
+	// Passive Twin Strike exists at once and feeds derived stats.
+	if e := skillEffect(p.Character, "twin"); e == nil || effectiveness(e) != 50 || p.Speed != 1.5 {
+		t.Fatalf("passive: %+v speed=%v", e, p.Speed)
+	}
+	send(w, 1, "skills")
+	if o := bob.take(); !strings.Contains(o, "Kick") || !strings.Contains(o, "new") || strings.Contains(o, "Bash") || !strings.Contains(o, "Twin Strike") || !strings.Contains(o, "50%") {
+		t.Fatalf("skills list: %q", o)
+	}
+	send(w, 1, "kick")
+	if o := bob.take(); !strings.Contains(o, "Kick whom?") {
+		t.Fatalf("kick no target: %q", o)
+	}
+	send(w, 1, "kick guard")
+	o := bob.take()
+	if !strings.Contains(o, "Your kick hits a city guard. [3]") {
+		t.Fatalf("kick: %q", o)
+	}
+	if e := skillEffect(p.Character, "kick"); e == nil || effectiveness(e) != 40 {
+		t.Fatalf("kick rating after use: %+v", e)
+	}
+	if p.Fighting == nil {
+		t.Fatal("kick did not start the fight")
+	}
+	// One skill per round, then the cooldown.
+	send(w, 1, "kick guard")
+	if o := bob.take(); !strings.Contains(o, "still recovering") {
+		t.Fatalf("second use same round: %q", o)
+	}
+	p.cooldowns["skill:kick"] = 2 // pin it: a round may already have fired during the refused use
+	nextRound(w)
+	bob.take()
+	send(w, 1, "kick guard")
+	if o := bob.take(); !strings.Contains(o, "Kick is not ready for another 1 round.") {
+		t.Fatalf("cooldown: %q", o)
+	}
+	// Passives improve while fighting.
+	if e := skillEffect(p.Character, "twin"); effectiveness(e) != 60 || p.Speed != 1.6 {
+		t.Fatalf("passive improvement: %v speed=%v", effectiveness(e), p.Speed)
+	}
+	// Bash needs level 3; help knows skills.
+	send(w, 1, "bash guard")
+	if o := bob.take(); !strings.Contains(o, "Huh?") {
+		t.Fatalf("bash below level: %q", o)
+	}
+	send(w, 1, "help kick")
+	if o := bob.take(); !strings.Contains(o, "Kick (skill, level 1)") {
+		t.Fatalf("help skill: %q", o)
+	}
+	p.Level = 3
+	for i := 0; i < 20; i++ {
+		w.Tick()
+	}
+	bob.take()
+	send(w, 1, "bash guard")
+	if o := bob.take(); !strings.Contains(o, "Your bash hits a city guard.") {
+		t.Fatalf("bash: %q", o)
+	}
+	guard := w.contents(p.Room).mobs[0]
+	if len(guard.Effects) != 1 || guard.Effects[0].Kind != "speedMult" {
+		t.Fatalf("bash effect: %+v", guard.Effects)
+	}
+	// Ratings persist with the character.
+	w.save(p)
+	found := false
+	for _, e := range p.rec.Effects {
+		if e.Kind == "skill" && e.Params["skill"] == "kick" && e.State["effectiveness"] == 40.0 {
+			found = true
+		}
+	}
+	if !found {
+		t.Fatalf("skill rating not saved: %+v", p.rec.Effects)
+	}
+}
+
+// nextRound ticks until exactly one round has run.
+func nextRound(w *World) {
+	r := w.roundCount
+	for w.roundCount == r {
+		w.Tick()
+	}
+}

@@ -263,7 +263,7 @@ function derivedStats(c) {
     ? c.mob.health
     : Math.round(P.healthBase * growth(c.level) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
-  var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount")) * speedMult(c);
+  var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount") + passiveSwings(c)) * speedMult(c);
   return {
     healthMax: Math.max(1, healthMax),
     manaMax: P.manaEnabled ? 10 + 2 * c.level : 0,
@@ -276,7 +276,7 @@ function onTick(c) {
   // not the character is fighting.
   var dot = 0;
   eachEffect(c, function (e) { if (e.kind === "dot") dot += num(e.params.damage); });
-  if (c.fighting) return { healthDelta: -Math.round(dot), manaDelta: 0 };
+  if (c.fighting) return { healthDelta: -Math.round(dot), manaDelta: 0, skills: improvePassives(c) };
   return { healthDelta: Math.max(1, Math.round(c.healthMax / P.regenRounds)) - Math.round(dot), manaDelta: 0 };
 }
 
@@ -512,7 +512,103 @@ function describeEffect(e) {
     case "protect": return "Takes " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
     case "speedMult": return "Swings at " + Math.round(num(p.mult) * 100) + " percent speed" + tail;
     case "dot": return "Takes " + num(p.damage) + " damage a round" + tail;
+    case "skill": return "";
     default: return "";
   }
+}
+
+// ---------------------------------------------------------------------
+// Skills (RULES 7.4): the one action per round beyond the auto-attack,
+// and passives that improve with use. A rating from start to 100 is how
+// much of the skill's potential a use delivers; it is never a chance of
+// failure. Every character has every skill its level allows.
+// ---------------------------------------------------------------------
+var SKILLS = [
+  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30,
+    damage: 1.2, verb: "kick",
+    description: "A kick worth more than a swing at full skill, and it needs no weapon." },
+  { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25,
+    damage: 0.6, verb: "bash", stunChance: 1.0,
+    description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
+  { id: "twin", name: "Twin Strike", level: 5, passive: true, start: 20,
+    description: "A second swing in the same round, as often as your skill allows. Triple and Quad Strike follow." }
+];
+
+var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how far from 100
+
+function skillList() {
+  return SKILLS.map(function (sk) {
+    return { id: sk.id, name: sk.name, level: sk.level, passive: !!sk.passive, target: sk.target || "none",
+      cooldown: sk.cooldown || 0, start: sk.start, description: sk.description || "" };
+  });
+}
+
+function skillById(id) { for (var i = 0; i < SKILLS.length; i++) if (SKILLS[i].id === id) return SKILLS[i]; return null; }
+
+function skillRating(c, id) {
+  var r = 0;
+  if (c.effects) for (var i = 0; i < c.effects.length; i++) {
+    var e = c.effects[i];
+    if (e.kind === "skill" && e.params.skill === id) r = num(e.state.effectiveness);
+  }
+  return r;
+}
+
+// improve rolls one step of improvement toward 100 and returns the new
+// rating, or the old one.
+function improve(rating) {
+  if (rating >= 100) return 100;
+  var room = (100 - rating) / 100;
+  if (random.float() < SKILL_IMPROVE.chance * room) {
+    return Math.min(100, rating + SKILL_IMPROVE.min + random.int(SKILL_IMPROVE.max - SKILL_IMPROVE.min + 1));
+  }
+  return rating;
+}
+
+// passiveSwings: Twin Strike grants rating/100 of an extra swing per round.
+function passiveSwings(c) {
+  return skillRating(c, "twin") / 100;
+}
+
+// improvePassives: while fighting, every passive the character holds has a
+// chance to improve each round.
+function improvePassives(c) {
+  var out = {};
+  if (c.effects) for (var i = 0; i < c.effects.length; i++) {
+    var e = c.effects[i];
+    if (e.kind !== "skill") continue;
+    var sk = skillById(e.params.skill);
+    if (!sk || !sk.passive) continue;
+    var next = improve(num(e.state.effectiveness));
+    if (next !== num(e.state.effectiveness)) out[sk.id] = next;
+  }
+  return out;
+}
+
+// useSkill resolves an active skill through the same pipeline stages as a
+// swing: dodge, block, roll, reduce; the rating scales the result.
+function useSkill(user, target, skill, e) {
+  var sk = skillById(skill.id);
+  if (!sk) return { ok: false, message: "You have forgotten how." };
+  var rating = num(e.state.effectiveness);
+  var out = { ok: true, hit: true, stage: "", damage: 0, verb: sk.verb || sk.id, effects: [], skills: {} };
+  var next = improve(rating);
+  if (next !== rating) out.skills[sk.id] = next;
+  if (!target) return out;
+  var scale = rating / 100;
+  var dodge = P.dodgeBase * mult(target, "dexterity", true) + sumEffects(target, "dodge", "amount");
+  if (dodge > 0 && random.float() < dodge) { out.hit = false; out.stage = "dodge"; return out; }
+  var block = P.blockBase + sumEffects(target, "block", "chance") * mult(target, "strength", true);
+  if (block > 0 && random.float() < block) { out.hit = false; out.stage = "block"; return out; }
+  var base = WEAPON_BASELINES.standard(user.level || 1).damage * (sk.damage || 0) * scale;
+  var dmg = spreadRoll(base, 0.2) * mult(user, "strength", true) * levelMult(user);
+  var K = kFor(user);
+  dmg = dmg * K / (defense(target) + K) * protectMult(target);
+  out.damage = Math.max(1, Math.round(dmg));
+  if (sk.stunChance && random.float() < sk.stunChance * scale) {
+    out.effects.push({ on: "target", kind: "speedMult", params: { mult: 0 }, rounds: 1 });
+    out.message = "They stagger.";
+  }
+  return out;
 }
 

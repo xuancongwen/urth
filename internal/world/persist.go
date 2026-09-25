@@ -85,6 +85,7 @@ func (w *World) loadSheet(p *Player) {
 			p.Send(output.Escape(r.Message) + "\n")
 		}
 	}
+	w.ensurePassives(p.Character)
 	w.recalc(p.Character)
 	if p.rec.Health <= 0 {
 		p.Health, p.Mana = p.HealthMax, p.ManaMax

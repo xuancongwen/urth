@@ -18,7 +18,7 @@ type helpSection struct {
 var helpSections = []helpSection{
 	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits"}},
 	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
-	{"Combat", []string{"kill", "flee", "consider", "assist"}},
+	{"Combat", []string{"kill", "flee", "consider", "assist", "skills"}},
 	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
 	{"Groups", []string{"follow", "group", "gtell"}},
 	{"Talking", []string{"say", "chat", "yell"}},
@@ -46,6 +46,7 @@ var helpText = map[string]string{
 	"flee":     "flee: run through a random exit to end a fight.",
 	"consider": "consider <target>: how the fight would go, and how hurt they look.",
 	"assist":   "assist [member]: attack whatever a group member here is fighting.",
+	"skills":   "skills: the skills your level allows and how good you are at each. Use one by name: kick, bash. One skill per round; they improve with use.",
 
 	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
 	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",
@@ -91,6 +92,14 @@ func cmdHelp(w *World, p *Player, args string) {
 		word := strings.ToLower(strings.Fields(args)[0])
 		c := lookup(word, p.Admin)
 		if c == nil {
+			if sk, ok := w.findSkill(p.Character, word); ok {
+				use := "Use it by name"
+				if sk.Passive {
+					use = "It works on its own"
+				}
+				p.Send("{C}" + output.Escape(sk.Name) + "{x} (skill, level " + itoa(sk.Level) + ")\n  " + output.Escape(sk.Description) + " " + use + "; it improves with use.\n")
+				return
+			}
 			p.Send("There is no command called that. Type 'help' for the list.\n")
 			return
 		}
@@ -123,6 +132,15 @@ func cmdHelp(w *World, p *Player, args string) {
 			continue
 		}
 		b.WriteString("{c}" + padRight(sec.title, 11) + "{x}" + strings.Join(names, "  ") + "\n")
+	}
+	var skills []string
+	for _, sk := range w.skillList() {
+		if !sk.Passive && p.Level >= sk.Level {
+			skills = append(skills, strings.ToLower(sk.Name))
+		}
+	}
+	if len(skills) > 0 {
+		b.WriteString("{c}" + padRight("Skills", 11) + "{x}" + strings.Join(skills, "  ") + "\n")
 	}
 	b.WriteString("{c}" + padRight("Also", 11) + "{x}help  and  ' as shorthand for say\n")
 	p.Send(b.String())

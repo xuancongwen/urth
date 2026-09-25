@@ -44,6 +44,8 @@ type Character struct {
 	// per spell id.
 	casting   *casting
 	cooldowns map[string]int
+	// lastSkillRound enforces one skill use per round (docs/RULES.md 2.1).
+	lastSkillRound uint64
 
 	// Fighting is the current target. Everyone whose Fighting is this
 	// character is one of its attackers (enemiesOf).
