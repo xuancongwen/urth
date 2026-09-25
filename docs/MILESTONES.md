@@ -105,4 +105,4 @@ restart.
 
 ## Deferred until after milestone 8
 
-Web admin, i18n, GMCP, MCCP, Discord, mapper, quests, shops, boards.
+Crafting and enchanting (designed in `RULES.md` 5.5 and 5.6), shops, web admin, i18n, GMCP, MCCP, Discord, mapper, quests, boards.

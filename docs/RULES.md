@@ -1023,6 +1023,111 @@ pipeline with two or three kinds, not a library.
   undead, only when below half health). Cheap in the pipeline; the
   question is whether the views carry enough to test the condition.
 
+### 5.5 Crafting
+
+**Thesis.** Crafting as most games do it: a recipe lists materials, you
+have them, you press the button, you get the item. Reliable, and a
+sink for the material pool (6.2).
+
+**Antithesis.** A guaranteed craft makes materials into a currency and
+crafting into a shop with extra steps. Nothing is risked, so nothing is
+felt, and every crafted item is identical to every other. That is the
+opposite of what discovery (6.1) and effectiveness (7.4) do elsewhere:
+there, the world hands out possibilities and the character's skill
+decides what comes of them.
+
+**Synthesis (decided 2026-09-25, design only).** Crafting is an
+*attempt*. A recipe names the materials it consumes and the item it
+makes; the attempt consumes the materials whether it succeeds or not,
+and it can fail. Crafting is a skill (7.4) with a rating: the rating
+sets the chance of success and, on success, how good the result is.
+The pieces, tied to what exists:
+
+- **Materials** come from the one pool of 6.2. A recipe is a list of
+  `{material, count}` like a spell's cost, and the same farming, rarity,
+  and deterministic drops feed it. A rare recipe is one that wants a
+  rare material.
+- **Recipes** are content. The basic ones come with the crafting skill
+  when a trainer teaches it; better ones are *found*, as patterns or as
+  the words of someone who knows, in the discovery spirit of 6.1. There
+  is no recipe list a character can read that the world did not give
+  them.
+- **Stations.** A recipe may need a place: a forge, a loom, a still. A
+  room flag, as temples are.
+- **Skills**, one per craft: smithing, leatherwork, alchemy, and so on,
+  each taught (7.4) and each rated. Which crafts exist is content.
+- **Failure** consumes the materials and nothing else. That is the
+  consequence, and with rare materials it is a real one. Note against
+  4.2: success is a binary roll, admitted for the same reason saves are
+  (6.4): it is rare, it is costed, and no fight turns on it.
+- **Quality.** On success the item is the recipe's item at the recipe's
+  level, resolved through the baseline like any other (5.2). The rating
+  can add: a higher rating gives a chance at a *fine* result, which
+  carries an intrinsic effect the recipe names, or a level above the
+  recipe's. How much is a starting value for playtest.
+- **Crafted items are marked** as such on the instance, and that mark
+  is what enchanting (5.6) looks for.
+
+Starting formula, in the shape the rest of the document uses:
+
+    chance = rating / (rating + difficulty)
+
+where `difficulty` is the recipe's number, in rating points. At a
+rating equal to the difficulty, one attempt in two succeeds; the rating
+never reaches certainty, and improves with each attempt as any skill
+does (7.4), so failure is also practice.
+
+### 5.6 Enchanting
+
+**Thesis.** Any item can be enchanted, as many times as its owner can
+afford; enchanting is how gear grows.
+
+**Antithesis.** Then found gear is only raw material for enchanting,
+the four pillars (2.2) collapse into one, and the best item in the game
+is whatever has been enchanted most. Unbounded enchanting also
+contradicts nothing in the "no caps" rule, which is exactly the
+problem: something has to make the tenth enchantment harder than the
+first.
+
+**Synthesis (decided 2026-09-25, design only).** Only *crafted* items
+can be enchanted. An enchantment is an attempt, like a craft: it names
+materials, it can fail, and success attaches one *permanent* effect
+(5.4) to the item instance, which is the applied-effect slot the engine
+already persists. Found gear keeps its intrinsic effects and gets no
+more; crafted gear starts plain and becomes whatever its maker and
+their materials make of it. That is the reason to craft.
+
+- **Enchantments** are content: each names its materials, the effect it
+  attaches, and its difficulty. Basic ones come with the enchanting
+  skill; better ones are found.
+- **Each further enchantment on the same item is harder**: its
+  difficulty rises with the number of effects already on it. No cap,
+  the asymptote the document uses everywhere; the tenth enchantment is
+  possible and very expensive in materials lost to failure.
+- **Failure** consumes the materials and leaves the item as it was
+  (leaning). Losing an item with three enchantments on it to a failed
+  fourth is too steep for the first version. An *unstable* class of
+  enchantment that risks the item for a stronger effect is a natural
+  later addition and needs no new engine.
+- **Enchanting is a skill** (7.4), or the crafting skill of the item's
+  kind; open, leaning one enchanting skill shared across crafts.
+- **Materials** for enchanting are the same pool. The effect decides the
+  cost: a stat effect wants common things, a crit or attack effect wants
+  rare ones.
+
+Why crafted-only: it gives crafting a reason beyond making what the
+world already drops, and it keeps found gear legible (what it says is
+what it does). It also gives the deterministic drops in 6.2 a purpose:
+the phoenix feather is what you spend to put something extraordinary on
+a sword you made.
+
+Consequences for the engine (both sections, section 9): a `recipeList`
+and `enchantList` from the rules with materials, difficulty, station,
+and result; `craft` and `enchant` commands that take an attempt through
+a `resolveCraft` hook and apply the result; a `crafted` mark on item
+instances, persisted; station flags on rooms; `describeEffect` already
+covers showing what an enchantment does on `look`.
+
 ---
 
 ## 6. Magic
@@ -1646,6 +1751,9 @@ Anything not yet placed in a section above.
   each totem. That is content, but it needs a builder-side view of which
   totems exist and which rooms and NPCs mention them, or hints will rot
   as areas change. Belongs in milestone 7.
+- **Crafting and enchanting** (5.5, 5.6): `recipeList`, `enchantList`,
+  `resolveCraft`, `craft` and `enchant` commands, a `crafted` mark on
+  instances, station room flags. Design done; build after milestone 8.
 - **Contract widenings still owed.** Done on 2026-09-24: item spread,
   speed, level, baseline, and effects in the view; mob natural attack,
   armor, health and xp overrides; the two baseline hooks; effects on
