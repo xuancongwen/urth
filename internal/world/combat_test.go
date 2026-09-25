@@ -1251,3 +1251,27 @@ function skillList() {
 		t.Fatalf("items not consumed: %d ash left", n)
 	}
 }
+
+func TestTwoTrainersInOneRoom(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, skillRules+`
+function skillList() {
+  return [ { id: "bash", name: "Bash", level: 1, passive: false, target: "single", cooldown: 4, start: 25, innate: false, price: 10, description: "A bash." },
+           { id: "twin", name: "Twin Strike", level: 1, passive: true, start: 20, innate: false, price: 10, description: "A swing." } ];
+}`)
+	p := w.players[1]
+	w.content.Mobs[20].Teaches = []string{"bash"}
+	w.content.Mobs[21].Teaches = []string{"twin"}
+	send(w, 1, "load mob 21")
+	bob.take()
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "A city guard can teach you:") || !strings.Contains(o, "A stray dog can teach you:") || !strings.Contains(o, "Twin Strike") {
+		t.Fatalf("both trainers listed: %q", o)
+	}
+	p.Silver = 20
+	send(w, 1, "practice twin")
+	if o := bob.take(); !strings.Contains(o, "You pay a stray dog 10 silver and learn Twin Strike.") {
+		t.Fatalf("buy from the second trainer: %q", o)
+	}
+}

@@ -11,14 +11,15 @@ import (
 // teaches. practice at a trainer buys a skill for its price in silver;
 // innate skills need no trainer.
 
-// trainerHere returns a trainer in the player's room, or nil.
-func (w *World) trainerHere(p *Player) *Character {
+// trainersHere returns every trainer in the player's room.
+func (w *World) trainersHere(p *Player) []*Character {
+	var out []*Character
 	for _, m := range w.contents(p.Room).mobs {
 		if len(m.Proto.Teaches) > 0 {
-			return m.Character
+			out = append(out, m.Character)
 		}
 	}
-	return nil
+	return out
 }
 
 func teaches(trainer *Character, id string) bool {
@@ -44,36 +45,38 @@ func knowsSkill(c *Character, sk Skill) bool {
 
 // cmdPractice: practice | practice <skill>
 func cmdPractice(w *World, p *Player, args string) {
-	trainer := w.trainerHere(p)
-	if trainer == nil {
+	trainers := w.trainersHere(p)
+	if len(trainers) == 0 {
 		p.Send("There is nobody here to teach you.\n")
 		return
 	}
 	skills := w.skillList()
 	if args == "" {
 		var b strings.Builder
-		b.WriteString(trainer.DisplayName() + " can teach you:\n")
-		n := 0
-		for _, sk := range skills {
-			if !teaches(trainer, sk.ID) {
-				continue
+		for _, trainer := range trainers {
+			b.WriteString(trainer.DisplayName() + " can teach you:\n")
+			n := 0
+			for _, sk := range skills {
+				if !teaches(trainer, sk.ID) {
+					continue
+				}
+				n++
+				cost := escapeMoney(sk.Price)
+				for _, r := range sk.Requires {
+					cost += " and " + plural(max(r.Count, 1), output.Escape(r.Material))
+				}
+				line := "  " + padRight(output.Escape(sk.Name), 14) + padRight(cost, 34)
+				switch {
+				case skillEffect(p.Character, sk.ID) != nil:
+					line += "(you know this)"
+				case p.Level < sk.Level:
+					line += "(level " + itoa(sk.Level) + ")"
+				}
+				b.WriteString(line + "\n")
 			}
-			n++
-			cost := escapeMoney(sk.Price)
-			for _, r := range sk.Requires {
-				cost += " and " + plural(max(r.Count, 1), output.Escape(r.Material))
+			if n == 0 {
+				b.WriteString("  nothing, it turns out.\n")
 			}
-			line := "  " + padRight(output.Escape(sk.Name), 14) + padRight(cost, 34)
-			switch {
-			case skillEffect(p.Character, sk.ID) != nil:
-				line += "(you know this)"
-			case p.Level < sk.Level:
-				line += "(level " + itoa(sk.Level) + ")"
-			}
-			b.WriteString(line + "\n")
-		}
-		if n == 0 {
-			b.WriteString("  nothing, it turns out.\n")
 		}
 		b.WriteString("You have " + escapeMoney(p.Silver) + ".\n")
 		p.Send(b.String())
@@ -81,21 +84,29 @@ func cmdPractice(w *World, p *Player, args string) {
 	}
 	want := strings.ToLower(args)
 	var match *Skill
+	var trainer *Character
 	for i := range skills {
 		sk := &skills[i]
-		if !teaches(trainer, sk.ID) {
+		var who *Character
+		for _, t := range trainers {
+			if teaches(t, sk.ID) {
+				who = t
+				break
+			}
+		}
+		if who == nil {
 			continue
 		}
 		if strings.ToLower(sk.Name) == want || strings.ToLower(sk.ID) == want {
-			match = sk
+			match, trainer = sk, who
 			break
 		}
 		if strings.HasPrefix(strings.ToLower(sk.Name), want) && match == nil {
-			match = sk
+			match, trainer = sk, who
 		}
 	}
 	if match == nil {
-		w.act("$N can't teach you that.", p.Character, trainer, "", toChar)
+		w.act("$N can't teach you that.", p.Character, trainers[0], "", toChar)
 		return
 	}
 	if skillEffect(p.Character, match.ID) != nil {
