@@ -133,3 +133,23 @@ truth on disk (and in git), avoids a second schema for OLC forms, and
 makes a bad edit cheap: validation fails and the old world stays up. If
 in-game editing is ever wanted, it can write the same files and call the
 same reload.
+
+## D17. Hooks consume items by returning their ids
+
+D16 says the engine applies and never decides, so scripts have no handle
+that destroys an item. Casting (RULES 6.2) and unlocking a school of magic
+(RULES 6.1) both need to consume inventory items, so a hook result may
+carry a `consume` list of item ids. The engine checks every listed item is
+in the actor's inventory, removes them, and only then applies the rest of
+the result; a missing item rejects the whole result so nothing half-fires.
+This keeps D16 intact: the script still only returns values. Lands with
+`resolveCast` and the `cast` command in milestone 8.
+
+## D18. Mana is kept but not required
+
+The material-based casting cost in RULES 6.2 makes a regenerating pool
+redundant, but removing `mana` from the engine would be a one-way door
+before the material system is proven. The fields stay; rules set
+`manaMax` to zero and no cast checks it; a zero pool is hidden from the
+prompt. If materials fail, mana is the fallback with no engine change.
+

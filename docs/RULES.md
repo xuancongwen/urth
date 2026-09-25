@@ -38,12 +38,13 @@ placeholder implementations live in `data/scripts/rules.js`.
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
 | `resolveAttack` | each swing in a combat round, and once on `kill` | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb}` |
-| `derivedStats` | login, spawn, equipment change, level | character | `{healthMax, manaMax, attacksPerRound}` |
+| `derivedStats` | login, spawn, equipment change, level | character | `{healthMax, manaMax, attacksPerRound}` (fractional from milestone 8, 4.4) |
 | `onTick` | once per round for every character | character | `{healthDelta, manaDelta}` |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain | level | integer (total xp needed) |
 | `onLevel` | a character gains a level | character, new level | `{statDeltas:{}, message}` |
-| `resolveCast` | not yet; arrives with magic in milestone 8 | | |
+| `itemBaseline`, `mobBaseline` | content load and script reload (milestone 8) | prototype | the primary numbers; explicit prototype fields override (5.2, 8) |
+| `resolveCast` | a `cast` command (milestone 8) | caster, target, school, spell | `{ok, damage, effects, consume:[item ids], message}` |
 
 ### What scripts see
 
@@ -59,8 +60,14 @@ placeholder implementations live in `data/scripts/rules.js`.
 
 ### What scripts cannot do
 
-- Move characters, create or destroy items, send arbitrary text. Scripts
-  return values; the engine applies them and renders messages.
+- Move characters, create items, or send arbitrary text. Scripts return
+  values; the engine applies them and renders messages.
+- Destroy items directly. A hook that needs to consume items (casting,
+  6.2; unlocking a school, 6.1) returns their ids in a `consume` list and
+  the engine removes them from the actor's inventory before applying the
+  rest of the result. Decided 2026-09-24; see D17. If any listed item is
+  not in the inventory the whole result is rejected, so a spell never
+  half-fires.
 - Block. A hook that runs longer than 50 ms is interrupted; the engine
   uses a safe default (a miss, no regen, 1 max health) and warns admins
   once per load.
@@ -69,8 +76,10 @@ placeholder implementations live in `data/scripts/rules.js`.
 ### Time
 
 - A tick is `timing.tick_ms` (100 ms). Commands are processed once per tick.
-- A round is `timing.round_seconds` (3 s). Combat, regeneration, and effect
-  durations are counted in rounds.
+- A round is `timing.round_ms` (2000 ms as of 2026-09-24, down from 3 s).
+  Combat, regeneration, and effect durations are counted in rounds. The
+  field is in milliseconds so fractional seconds can be tried in
+  playtesting; it must be at least one tick.
 
 ### Balance tooling (implemented)
 
@@ -130,25 +139,29 @@ meta, and every mob has to be balanced against the best gear a player
 could possibly have been handed. Stats (3.1) become noise on top of the
 sword.
 
-**Synthesis (leaning).** Three axes with distinct jobs. Level *gates*:
-items carry a level requirement, and experience from mobs far below the
-player's level falls to nothing. Gear *sets the base numbers*: the weapon
-is the damage, the armor is the defense, and the item level table (5.2)
+**Synthesis (leaning, revised 2026-09-24).** Three pillars, each
+dominant in its own right. Level, gear, and stats are all meant to be
+felt strongly; a character who is far ahead on any one of them is far
+ahead, full stop. What distinguishes them is not their weight but their
+job. Level *gates*: it decides which mobs give experience (and, if 5.2's
+leaning changes, what can be worn). Gear *sets the base numbers*: the
+weapon is the damage, the armor is the defense, and the item table (5.2)
 is the progression curve made visible. Stats *multiply* and are the
-build: two characters of the same level in the same gear differ by their
-stat allocation, and that difference is felt but never larger than the
-gear difference.
+build: two characters of the same level in the same gear differ by
+their stat allocation.
 
-Working ratios to test in the simulator: at a fixed level, best
-available gear versus starting gear is about 2x; best stat allocation
-versus worst is about 1.5x; five levels of item table is about 2x. The
-ordering matters more than the numbers: level > gear > stats over a
-career, gear > stats > level within a session.
+No caps, ceilings, or fixed ratios between the pillars for now. The
+antithesis's twinking concern is real but is a balance problem, and
+balance work happens in the simulator once the formulas exist. If a
+pillar turns out to swamp the others, the fix is a cap added then, with
+the simulator run that justified it.
 
-Consequences: 5.1 adds a `level` field to items and the engine enforces
-it on `wear` and `wield` (a small contract widening for milestone 6).
-3.3's multiplier ceiling is bounded by the 1.5x figure. 7.1's `xpForKill`
-must decay with level gap.
+Earned magic (6.1) is a fourth pillar, gated by content rather than by
+numbers, and uncapped like the other three.
+
+Consequences: 3.3 has no multiplier ceiling yet. 7.1's `xpForKill` still
+decays with level gap, since that is a gate, not a cap. Item level
+requirements are settled in 5.2 (leaning no).
 
 ### 2.3 Lethality
 
@@ -162,22 +175,25 @@ annoyance. ROM's routine death (lose some experience, corpse in the
 room, walk back) has kept players for thirty years precisely because it
 is survivable.
 
-**Synthesis (leaning).** Death is routine in frequency and bounded in
-cost. It never destroys the character, never de-levels, and never
-permanently destroys gear. What it costs is time and a slice of
-experience: respawn in town at low health, lose a capped fraction of the
-experience toward the next level, and leave a corpse holding the
-inventory that persists long enough to walk back for it.
+**Synthesis (leaning, revised 2026-09-24).** Death is uncommon and
+consequential. It should feel like an event, not a tax, but the
+consequence is bounded: the character is never destroyed. What it costs
+is respawning in town at low health, losing experience, and leaving a
+corpse that holds the inventory until the player walks back for it.
+That package is already heavy enough to make `flee` worth typing; it
+does not need permadeath or gear destruction on top. Whether the
+experience loss can cross a level boundary is left open.
 
-The tension comes from *attrition*, not from variance. An even fight at
-full health should almost never kill; a chain of fights without resting
-should. A careful player at level dies about once every several outings,
-and a reckless one dies every outing. `flee` is typed because the player
-sees health dropping across a chain, not because one swing went badly.
+Frequency is controlled by making death the result of a decision the
+player can identify afterwards, not of a bad roll. An even fight at full
+health should almost never kill; fighting above level, or chaining
+fights without resting, is what does. A careful player at level rarely
+dies. A reckless one does, and knows why.
 
 Consequences: 4.2 must choose low variance (one fight cannot swing from
 comfortable to fatal). 4.6 is mostly written by this section. 4.5's
-recovery time is what makes resting a real choice.
+recovery time is what makes resting a real choice, and its attrition row
+is tuned so that death takes a run of poor choices, not one.
 
 ### 2.4 Solo or group
 
@@ -211,8 +227,8 @@ the middle of one, with the player logging out somewhere unsafe or
 abandoning the run.
 
 **Synthesis (leaning).** An outing is ten to twenty minutes. That is
-roughly ten fights with rests between them, each fight lasting six to
-eight rounds at three seconds a round. A longer delve is several outings
+roughly ten fights with rests between them, each fight lasting fifteen
+to twenty seconds, which is eight to ten rounds at two seconds a round. A longer delve is several outings
 chained by a player who chooses not to return to town, which is exactly
 the attrition risk 2.3 wants. Session-scale goals (a level, a piece of
 gear) span a few outings; career-scale goals span many sessions.
@@ -220,6 +236,9 @@ gear) span a few outings; career-scale goals span many sessions.
 Consequences: 4.5's table is filled from these numbers. Regeneration
 (`onTick`) is tuned so resting to full between fights takes about thirty
 seconds, long enough to be a choice and short enough not to be a chore.
+The targets are in seconds; the round counts follow from the round
+length, so a shorter round means more rounds per fight, not shorter
+fights, and more swings for 4.2's variance to average over.
 
 ---
 
@@ -235,68 +254,356 @@ stat allocation a build choice rather than a pile of small bonuses.
 
 ### 3.2 Which stats exist
 
-**Status: open.**
+**Thesis.** The six from Dungeons and Dragons: Strength, Dexterity,
+Constitution, Intelligence, Wisdom, Charisma. Every player knows them,
+builders know what a "strong" mob means, and six names leave room for
+jobs that do not exist yet.
 
-- List the stats. Fewer is better; each must affect at least two things so
-  no stat is a dump stat.
-- Which stat multiplies weapon damage? Spell damage? Hit chance? Defense?
-  Speed or attacks per round? Health and mana pools? Regeneration?
-- Are mob stats the same set as player stats, or a simplified one?
+**Antithesis.** The rule at the top of this section is that each stat
+must affect at least two things or it is a dump stat. In D&D itself,
+Charisma is the dump stat for most of the table, and Intelligence and
+Wisdom are told apart by class. There are no classes here (7.3), so
+Intelligence and Wisdom need distinct jobs on their own merits, and
+Charisma needs two things worth having. Six multiplier axes with no
+caps (2.2) is also six dimensions for the simulator to sweep. Four
+would be easier: Might, Agility, Mind, Presence.
 
-### 3.3 Multiplier shape and ceiling
+**Synthesis (leaning, 2026-09-24).** Keep the six names. Names are
+cheap, familiarity is worth something, and the engine does not define
+the stat set (section 1), so this costs no Go. But a name is not a
+stat: a stat exists when it has at least two jobs in the table below,
+drawn from numbers the system actually has. Any stat with fewer than
+two jobs when milestone 8 starts is merged into its neighbour. The
+table is the decision; the names are the flexibility.
 
-**Status: open.** This decision shapes itemization more than any other.
+The numbers available to assign, gathered from the sections above:
+weapon damage multiplier (4.1), spell power multiplier (6.4), defense
+`D` multiplier (4.3), dodge and block chances (4.3), health maximum and
+health regeneration (4.5), attacks per round or speed (4.4, open),
+resistance to spells and to timed effects (5.4), carrying weight, and
+the two things discovery (6.1) and materials (6.2) make matter: what
+NPCs will tell you and what things cost.
 
-- Formula: linear (`1 + k * stat`), diminishing (`stat / (stat + c)`), or
-  stepped?
-- Ceiling: across the whole progression, what is the largest multiplier a
-  stat can reach? (Suggested starting bound: 2x to 3x base.)
-- Where do stat points come from: level, training, gear, all three?
+| Stat | Job 1 | Job 2 | Job 3 |
+|---|---|---|---|
+| Strength | weapon damage multiplier | block chance (shields, parrying weapons) | carrying weight |
+| Dexterity | dodge chance | weapon speed multiplier (4.4) | |
+| Constitution | health maximum | health regeneration | defense `D` multiplier |
+| Intelligence | arcane spell power multiplier (6.1) | potency of effects the character applies (buff strength, DoT damage) | |
+| Wisdom | divine spell power multiplier (6.1) | resistance to spells and timed effects (shorter, weaker) | optional: the width of the character's own stat band (4.2), a wise character being a steady one |
+| Charisma | what NPCs tell you: hint depth in discovery (6.1) | prices, and group benefits (2.4: an aura effect on allies) | |
+
+Intelligence and Wisdom split the way D&D splits them: arcane power
+against divine power (6.1), so the two are told apart by which branch
+of magic a character pursues rather than by class. Wisdom's optional
+third job, narrowing the stat band, is a proposal: it fits the name but
+means one stat modifies the randomness of the others, and it should be
+adopted only if the simulator shows it is felt. Charisma as the
+discovery stat is the one that makes it not a
+dump stat here specifically: in a game where power comes from finding
+totems, the stat that makes NPCs talk is a power stat. If discovery
+turns out to be authored so that Charisma does not matter to it,
+Charisma is the first merge candidate.
+
+Mobs use the same six with prototype values; the builder sets what is
+needed and the rest default. A mob's stats are how "brute" or "caster"
+is expressed (8), not a separate role system.
+
+Consequences: 4.3's open questions close (dodge from Dexterity, block
+from Strength, `D` from Constitution). 4.4 honours Dexterity as the
+speed multiplier. `derivedStats` reads all six.
+
+### 3.3 Multiplier shape, and a starting point
+
+**Status: leaning (2026-09-24).** The shape is decided; the numbers are
+an arbitrary starting point chosen so that there is something to
+playtest, not something the simulator picked. Every value in the table
+below is expected to change.
+
+Shape: linear, no ceiling (2.2). A stat's multiplier is
+
+    multiplier = 1 + k * (stat - 10)
+
+with 10 as the baseline, as in D&D, so a stat of 10 is exactly the
+item's number and every point above or below it moves the number by
+`k`. Linear is the only shape that keeps "one point is worth the same
+everywhere", which is what makes a stat point at level 30 feel like
+one at level 3. The diminishing and stepped shapes in the old text of
+this section are kept out for the same reason the document rejects
+caps: they are balance tools, to be reached for with a simulator run
+in hand, not a starting assumption.
+
+Where stat points come from: character creation, every level (7.2),
+and `stat` effects on gear (5.4). Whether a trainer can also sell them
+is open.
+
+Starting values, to be adjusted in playtesting:
+
+| Quantity | Starting value | Why this and not another |
+|---|---|---|
+| Baseline stat | 10 in each of the six | D&D-familiar; multiplier of exactly 1 |
+| `k`, per point | 0.05 (5 percent) | 7.2 asked for a point to be visible, on the order of a few percent |
+| Points at creation | 6, placed freely | enough to make a build identity on day one, not enough to hollow a stat |
+| Points per level | 2 | with few levels (7.2), two is one meaningful choice per level beside the feat |
+| Stat band (4.2) | ±10 percent of the multiplier | the value the variance table in 4.2 was computed at |
+| Level multiplier (7.2) | 1 + 0.02 * (level - 1) | "slight": ten levels is 20 percent, which is felt but is less than a gear tier |
+| Health base | 20 + 10 * level, times Constitution's multiplier | the placeholder's shape with a step a player can see on the prompt |
+| Dodge base | 3 percent | a few percent, per 4.3's sizing |
+| Block base | 0 | per 4.3 |
+| `K` for reduction (4.3) | 20 | starter armor totals about 3 defense, giving 13 percent reduction, so armor is felt from the first jerkin |
+| Default weapon and armor spread | 0.2 | the value the variance tables were computed at |
+
+The first playtest question these values pose is whether five percent
+per point is too little to feel at creation with six points (a 30
+percent swing in one stat) or too much at level 20 with forty-six
+(a 230 percent multiplier). Both ends should be tried before `k` moves.
 
 ---
 
 ## 4. Combat
 
-### 4.1 Weapons have fixed damage
+### 4.1 Weapons carry a damage number and a spread
 
-**Status: decided (2026-09-23).** A weapon's damage is a number, not a dice
-expression. The number is multiplied by the wielder's stat multiplier.
+**Status: decided 2026-09-23, revised 2026-09-24.** A weapon's damage is
+a single number that is the *mean* of what it does, plus a spread that
+is part of the item's identity. The number is what a player compares
+between two swords; the spread is how reliable the sword is. Both are
+multiplied by the wielder's stat multiplier.
 
-Why: item tiers become the visible progression axis; damage is predictable
-and comparable at a glance.
+Why the revision: the original rule chose one number over dice for
+legibility. Keeping the mean as the headline number preserves that; a
+spread field beside it costs nothing in legibility and buys a design
+axis. A dagger that always does close to its number and a maul that
+swings wide around the same number are different weapons in a way that
+two flat numbers cannot express. Armor gets the same treatment: a
+defense number and a spread.
+
+Item form: `damage: 10` with `spread: 0.2` means each swing is drawn
+uniformly from 8 to 12 before multipliers. A missing spread is zero.
+There is no global cap on spread (2.2); it is an item field the builder
+sets.
 
 ### 4.2 Where randomness lives
 
-**Status: open.** With fixed damage and multiplicative stats, combat is
-deterministic unless variance is added somewhere on purpose. Choose at
-most one primary source:
+**Thesis.** Randomness lives in the hit roll, as in ROM and most of its
+descendants. A swing either lands or misses; damage on a hit is
+whatever the weapon says. Swingy, familiar, and easy to explain: "you
+missed".
 
-- Hit chance (miss = 0 damage): swingy, easy to explain.
-- Critical hits (rare bonus): keeps base damage fixed, adds highs.
-- Damage spread (e.g. 90 to 110 percent): smooths without changing the mean.
-- None: fights are fully predictable; tactics come from choices, not rolls.
+**Antithesis.** A binary roll is the most violent kind of variance a
+fight can have. Over seven swings at an 80 percent hit chance, the
+total damage of an even fight varies by about 19 percent (standard
+deviation), which is enough for an even fight at full health to kill
+now and then. That is exactly what 2.3 forbids: death from a roll
+rather than from a decision. Crits have the same problem from the other
+side; a spike is a miss with the sign flipped.
 
-Also decide whether randomness is symmetric for mobs and players.
+**Synthesis (leaning, 2026-09-24).** Randomness is *continuous and
+symmetric*, and it lives in two places with different widths:
 
-### 4.3 Defense
+1. **Equipment.** Each swing draws damage from the weapon's spread
+   (4.1), and each hit draws the defender's reduction from the armor's
+   spread. This is the primary source and the wider one. Items differ
+   in how reliable they are, which is a thing to itemise.
+2. **Stats.** Each stat's multiplier is drawn from a narrower band
+   around its value. Every stat has one, so the jitter applies to
+   whatever the stat touches: damage, defense, regeneration, spell
+   power. This is the secondary source and always narrower than the
+   equipment's.
 
-**Status: open.** How does armor reduce damage?
+The attacker has no to-hit roll and no critical roll. Every swing is
+delivered at its drawn value. The one binary outcome in the game sits
+on the defender's side: the avoidance tries in 4.3's pipeline (dodge,
+block), which are intrinsic to every character but start small and are
+sized by the variance row in 4.5. A "miss" is a dodge or a block, so
+the message ROM players expect exists, and it is the defender's doing.
 
-- Flat reduction: simple but breaks fixed damage (a weapon below the armor
-  value does nothing; a weapon above it is unaffected by more armor).
-- Percentage reduction: scales cleanly with fixed damage; needs a cap.
-- Hit-chance penalty: only meaningful if 4.2 chose hit chance.
-- Which stat, if any, multiplies armor?
+**Critical hits are not natural (decided 2026-09-24).** No character has
+a base critical chance or multiplier. A crit exists only as an *effect*
+(5.4): something a feat, an item, or a spell grants, with its own
+chance and multiplier as parameters. A character with no such effect
+never crits. This keeps the base game at the low variance 2.3 asks for
+and makes a crit build something a player assembles on purpose.
+
+Why this satisfies 2.3: continuous per-swing spread averages out over a
+fight. With a ±20 percent weapon spread and a ±10 percent stat band,
+the total damage of a seven-swing fight has a standard deviation of
+about 5 percent, against 19 percent for the hit-roll model. Individual
+swings feel varied (about 13 percent per swing) while the fight's
+outcome stays close to its mean. The 4.5 row "health remaining after an
+even fight" is what the simulator checks this against.
+
+An honest note on the stat band: at ±5 percent it is nearly invisible
+in outcomes (fight-level deviation moves from 4.4 to 4.5 percent). It
+earns its place as flavour on individual swings and by being the only
+randomness a naked character has, not by changing who wins. If it needs
+a distinct job, the leaning is to draw it once per round rather than per
+swing, so a round can read as a good or bad one. Open.
+
+Randomness is symmetric between mobs and players: a mob's natural
+attack is a weapon with a damage number and a spread, and its stats
+have the same band.
+
+Consequences: `resolveAttack` gains nothing; `weapon.spread` and
+`armor.spread` are added to the item view (section 9). Damage stays
+positive after a low draw; the floor is zero, not negative. 4.3 should
+choose percentage reduction so that spread on armor is expressed in the
+same units as spread on weapons. The simulator should report the
+standard deviation of health remaining, not only the mean.
+
+### 4.3 Defense is a three-stage pipeline
+
+**Thesis.** Defense is one number that reduces damage. The prior text
+of this section argued flat versus percentage and settled on an
+asymptotic reduction; that reasoning is kept below as stage 3.
+
+**Antithesis.** A single reduction has no texture. It cannot express a
+nimble character who is hard to hit but fragile when hit, or a shield
+that stops some blows outright and does nothing for the rest. Every
+defensive item and stat would be feeding one number, so defensive
+builds would all feel the same and defensive effects (5.4) would have
+only one phase to act in.
+
+**Synthesis (leaning, 2026-09-24).** Defense is three stages, run in
+order for every incoming swing. Each stage is an intrinsic property of
+every character, with a base value, and each is modified by stats,
+equipment, and effects. The first two *mitigate*: the swing is stopped
+entirely or it is not. The third *reduces*: whatever gets through is
+scaled down.
+
+| Stage | Kind | Intrinsic base | Modified by | Effects phase |
+|---|---|---|---|---|
+| 1. Dodge | try: the swing misses | small, from the body | a stat; light versus heavy armor; effects | `dodge` |
+| 2. Block | try: equipment stops it | zero without a shield or parrying weapon | the item; a stat; effects | `block` |
+| 3. Reduce | continuous | zero when naked | armor `D` and its stat; effects | `reduce` |
+
+The two tries are independent rolls, so combined avoidance is
+`1 - (1 - dodge)(1 - block)`. That rises toward but never reaches one,
+which is the same no-cap-but-asymptote shape as stage 3 and needs no
+ceiling. Both chances take the stat band from 4.2 like any other
+stat-derived number.
+
+**Stage 3, reduction.** Flat reduction has a threshold: below the armor
+value a weapon does nothing, which is immunity by accident, and with
+4.1's spread the low end of a draw hits the threshold while the high
+end does not, so armor reshapes the weapon's randomness instead of
+scaling it. A plain percentage scales cleanly but must be capped below
+100, and 2.2 forbids caps. So:
+
+    reduction     = D / (D + K)
+    damage taken  = roll * K / (D + K)
+    effective health = health * (1 + D / K)
+
+`D` is the sum over worn armor of each piece's draw from its spread
+(4.1), multiplied by the defending stat's multiplier. `K` is a constant
+in the rules scripts and is a unit, not a cap: it is how much defense
+doubles effective health. Effective health is *linear* in `D`, so every
+point of defense is worth the same from the first to the thousandth
+even though the displayed percentage flattens. "Defense 40, K 40" means
+doubled effective health, which is as legible as a weapon's damage
+number. Damage floors at zero, never below. Mobs use the same three
+stages with prototype values.
+
+**The cost of the tries, stated plainly.** Stages 1 and 2 are the only
+binary randomness in the game, and they are the largest variance lever
+it has. With a ±20 percent weapon spread alone, the total damage of a
+seven-swing fight has a standard deviation of about 4 percent. Adding
+avoidance:
+
+| Combined avoidance | Fight-level deviation |
+|---|---|
+| 0 percent | 4 percent |
+| 5 percent | 10 percent |
+| 10 percent | 13 percent |
+| 20 percent | 19 percent |
+
+Five percent avoidance doubles the variance of a fight; twenty percent
+reproduces the hit-roll model that 4.2 rejected. The pipeline is worth
+that cost for the texture it buys, but only if the tries start small.
+So: the intrinsic base for dodge is a few percent and the base for
+block is zero, and high avoidance is something a build *reaches*
+through a stat, light armor, a shield, and effects, in the same spirit
+as crits. The variance row in 4.5 is the check: the simulator must
+report fight-level deviation for a character at level in standard
+gear, and if avoidance at level pushes it past the target, the bases
+or the modifiers come down. No cap; a target the simulator enforces.
+
+Consequences: 5.4's `defend` phase becomes three phases, `dodge`,
+`block`, and `reduce`. `resolveAttack` returns `hit: false` on a dodge
+or block, and the `verb` says which, so the transport can render "dodges"
+and "blocks" distinctly. `derivedStats` gains `dodge` and `block` so the
+values are visible on `score`. Armor items may carry an effect that
+lowers dodge (heavy) or raises it (light); this is an effect, not a
+field, per 5.1. Shields are armor with a `block` effect intrinsic to
+them. `K` is the first tuning constant the simulator sweeps.
+
+Stats: dodge from Dexterity, block from Strength, `D` from
+Constitution (3.2).
+
+**Open:** whether the
+stat band is drawn per hit or per round (shared with 4.2); whether a
+block can be partial (absorb a fraction) rather than binary, which
+would move variance from the tries to the reduction and may be the
+right call for shields.
 
 ### 4.4 Action economy
 
-**Status: open.**
+**Thesis.** One attack per round for everyone, as the placeholder does.
+The simplest model, and it makes damage per round equal the weapon's
+number.
 
-- One attack per round, or attacks per round as a derived stat?
-- Do weapons have a speed? (Fast weapon: lower damage, more attacks.)
-- Does dual wield exist? Off-hand penalty?
-- Can a player act during a round beyond auto-attacking (abilities,
-  flee, quaff)?
+**Antithesis.** Then a dagger and a maul are the same weapon with
+different numbers, and there is no reason for a fast weapon to exist.
+ROM's answer was extra attacks as skills (second attack, third attack)
+rolled as chances, which is binary randomness of the kind 4.2 avoids,
+and it still left weapons themselves speedless.
+
+**Synthesis (leaning, 2026-09-24).** A weapon has a *speed*: swings per
+round, which may be fractional. Speed 2 swings twice a round; speed
+0.5 swings once every other round. The rules keep a *swing meter* per
+combatant: each round it adds the combatant's total speed, and while
+the meter is at least one, a swing resolves and one is subtracted. That
+handles any rate without a roll, so a slow weapon is exactly as
+reliable as a fast one, just lumpier. Speed is per round.
+
+Total speed is the weapon's speed, multiplied by Dexterity (3.2, which
+gives Dexterity its second job as promised), plus any additive swings
+from effects. The additive part is where ROM's second and third attack
+live: each is a feat (7.2) that adds one full swing per round to the
+meter, level-locked, deterministic, no roll. A half-swing feat (one
+extra swing every other round) is equally expressible and is a
+plausible lower-level rung.
+
+What speed buys, and what to watch:
+
+- Damage per round is `damage * speed` before multipliers, and that
+  product is the number to show a player comparing weapons; the
+  headline damage number (4.1) is per swing.
+- Stage 3 reduction (4.3) is proportional, so a fast weapon and a slow
+  one of equal damage per round are equal against armor. Flat
+  reduction would have punished fast weapons; this is one more reason
+  4.3 chose the asymptote.
+- Each swing draws its own spread and faces its own dodge and block
+  tries, so fast weapons have *lower* fight-level variance than slow
+  ones at the same damage per round. That is a real axis: the maul is
+  the swingy choice, the dagger the steady one, and 4.2's variance
+  table should be checked at both ends.
+- Per-swing effects (`onhit` procs, 5.4) fire more often on fast
+  weapons. That is intended, and it is the fast weapon's identity;
+  effect kinds that should not scale with speed carry a per-round
+  chance instead of a per-swing one, decided per kind.
+
+Beyond the auto-attack, one player action per round (2.1): an ability,
+`flee`, an item. Dual wield is open and is best treated as a feat that
+lets an off-hand weapon add its speed to the meter at a penalty.
+
+Consequences: `weapon.speed` on the item and in the view (section 9),
+default 1. `derivedStats` returns `attacksPerRound` as the total speed
+and the engine's combat loop keeps the meter, or the rules keep it in
+effect state; the leaning is the engine, since the meter is a lifetime
+concern like an effect's rounds. Dexterity multiplies speed. Feats
+`second attack` and `third attack` are `prepare`-phase effects adding
+one swing each.
 
 ### 4.5 Pacing targets
 
@@ -307,17 +614,42 @@ should be checked against.
 
 | Target | Value |
 |---|---|
-| Rounds for an even fight (equal level, standard gear) | 6 to 8 |
-| Health remaining after an even fight at full health | 40 to 60 percent |
+| Rounds for an even fight (equal level, standard gear) | 8 to 10 (15 to 20 seconds) |
+| Health remaining after an even fight at full health | 50 to 70 percent |
 | Win rate at +1 level, +3 levels, +5 levels | 80, 40, under 10 percent |
-| Rounds to recover from a fight to full | about 10 (30 seconds) |
+| Rounds to recover from a fight to full | about 15 (30 seconds) |
 | Fights per outing before returning to town | about 10 |
-| Even fights chained with no rest before death is likely | 2 to 3 |
+| Even fights chained with no rest before death is likely | 3 to 4 |
+| Materials consumed per outing when magic is used freely | to be set with 6.2 |
+| Standard deviation of health remaining after an even fight (this row sizes avoidance, 4.3) | under 8 points |
 
 ### 4.6 Death
 
-**Status: open.** What is lost on death: XP, gear, time, nothing? Where do
-you return? Is there a corpse?
+**Status: decided 2026-09-24, with 2.3.** The cost of death:
+
+- **Experience: 20 percent of the character's total, capped at half
+  the current level's cost, floored at the current level's threshold.**
+  Two parameters in the rules scripts, `deathXpFraction` (0.20) and
+  `deathXpLevelCap` (0.50), both starting values for playtesting. A
+  death never crosses a level boundary downward. Under the 7.1 curve
+  the 20 percent alone is a rising share of the current level, a tenth
+  at level 2, half at about level 9, and the whole level by 30; the cap
+  stops that climb at half, so from level 9 on every death costs the
+  same half a level of progress and never more. Death gets heavier
+  with level up to a point, then holds, and never takes a level.
+- **Respawn in town** at low health, at the recall room of the area's
+  town or the world's start room.
+- **A corpse in the room** holding the inventory and equipment. It
+  persists long enough to walk back for it; the duration is a
+  starting value for playtesting, on the order of the 2.5 outing, so
+  twenty minutes. Whether mobs can loot a corpse is open and leans no.
+
+Consequences: the engine's death path applies the experience rule
+through `xpToLevel` (the floor is the total for the current level) and
+creates the corpse. The two experience parameters and the corpse
+duration live in the rules scripts as named constants, read by the
+engine through a small `deathRules()` hook, so they can be tuned
+without a rebuild.
 
 ---
 
@@ -325,56 +657,328 @@ you return? Is there a corpse?
 
 ### 5.1 Definition fields
 
-**Status: leaning.** What an item definition carries, independent of any
-formula. Weapons: damage, speed or attacks, hands, damage type. Armor:
-slot, defense, and stat modifiers. All: level, weight, value, flags.
+**Status: leaning, revised 2026-09-24.** An item has exactly one
+*primary* property, set by its type, and everything else about it is an
+effect (5.4).
 
-### 5.2 Power budget
+- Weapon: `damage` and `spread` (4.1) and `speed` (4.4), plus `hands`,
+  `kind` (damage type), and `verb` (decided 2026-09-24): the word the
+  combat message uses for a swing with this weapon, so a sword's
+  "slash" reads "Your slash hits the guard for 12 damage" and an
+  unarmed swing uses "punch". A mob's natural attack carries its own
+  verb ("bite", "claw"). `resolveAttack` returns the verb; the
+  transport renders the perspective forms (D10).
+- Armor: `defense` and `spread`, plus `slot`.
+- Material (6.2): the schools it feeds, and a quantity if it stacks.
+- Totem (6.1): the school it unlocks. Consumed on use.
+- All: `weight`, `value`, `flags`, and an `effects` list.
 
-**Status: open.**
+Anything that would once have been a stat modifier, a proc, a
+resistance, or a special property is an entry in `effects`. There is no
+other place for it. Items carry a `level` and a `baseline` (5.2); the
+level is not a requirement to use the item (5.2, leaning no).
 
-- What does an item of level N look like? A table of damage and defense by
-  level is the single most useful balance artifact to produce early.
-- How many equipment slots matter? (Suggested: few. Every slot is a
-  multiplier on the number of items to balance.)
-- Do stat modifiers on gear stack with base stats before the multiplier is
-  computed? (Interacts with 3.3.)
+### 5.2 Power budget: baselines by level, overridable
+
+**Thesis.** A hand-written table: for each level, the damage a weapon
+does and the defense a piece of armor gives. Builders read the row and
+copy the numbers into the item.
+
+**Antithesis.** A table has one column per number and no room for a
+dagger and a maul to both be "level 10". Every item copies numbers
+that go stale the moment the curve is tuned, and the simulator cannot
+change the curve without a builder re-editing every file.
+
+**Synthesis (decided 2026-09-24).** An item's level selects a
+*baseline*, and there are many baselines, one per family of item. A
+baseline is a formula in the rules scripts from level to the item's
+primary numbers: for weapons `damage`, `spread`, and `speed`; for armor
+`defense` and `spread`. An item prototype names its level and its
+baseline and gets those numbers computed; any number it states
+explicitly overrides the baseline. Builders write `level: 10, baseline:
+dagger` and nothing else for an ordinary item, and `damage: 40` beside
+it for the one that is special. Tuning the curve is editing one
+function; overrides are the exceptions a builder chose on purpose, and
+`stat` shows both the computed and the stated value.
+
+Starting baselines, arbitrary in the sense of 3.3 and chosen to hit
+the 4.5 targets against the 3.3 health curve (an even fight at level
+lasting eight to ten rounds with a naked Constitution of 10):
+
+| Baseline | Damage per swing | Speed | Spread | Notes |
+|---|---|---|---|---|
+| `standard` (sword, spear, mace) | `4 + 2 * level` | 1.0 | 0.2 | the reference curve |
+| `dagger` | half of standard | 2.0 | 0.1 | same damage per round, steadier |
+| `heavy` (maul, greataxe) | double standard | 0.5 | 0.4 | same damage per round, swingier; two hands |
+| `unarmed` | `1 + level / 2` | 1.0 | 0.2 | what a player with nothing wielded does; verb `punch` |
+
+| Baseline | Total `D` at level, across all slots | Spread | Notes |
+|---|---|---|---|
+| `medium` | `level + 2` | 0.2 | the reference: 13 percent reduction at level 1, 52 at level 20 with `K` 20 |
+| `light` | 0.7 of medium | 0.1 | carries an intrinsic effect raising dodge |
+| `heavy` | 1.3 of medium | 0.3 | carries an intrinsic effect lowering dodge |
+
+A set's total `D` is split across slots by fixed weights (body 40
+percent, legs 20, head 15, arms 15, feet 10), so a single piece's
+number follows from its slot. Few slots matter, on purpose: body,
+head, arms, legs, feet, plus a wielded weapon, an off-hand, and two
+accessory slots that carry only effects. Nine in all.
+
+Stat effects on gear stack with base stats *before* the multiplier is
+computed (follows from 3.1 and 5.4): an effect that gives +2 Strength
+raises the stat, and the multiplier is derived from the raised stat. A
+flat bonus to damage is not a thing an effect can give.
+
+Level requirement: **leaning no.** An item's level is the row of the
+curve it was drawn from, not a gate. The twinking concern from 2.2 is
+bounded by where gear comes from (8: mobs wear what they drop, so a
+level-N mob drops level-N gear), and the designer has not asked for a
+restriction.
+
+Consequences: a new hook, `itemBaseline(prototype)`, called by the
+engine when content loads and again when scripts reload, returning the
+primary numbers; explicit fields on the prototype win. Prototypes gain
+`level` and `baseline` fields. The engine stores the results and never
+computes them (D15, D16). Section 9 lists it.
 
 ### 5.3 Rarity and drops
 
-**Status: open.** Is there a rarity tier? Random affixes or fixed items?
-Where do items come from: drops, shops, crafting?
+**Status: open.** Rephrased in terms of 5.4. Rarity, if it exists, is a
+count or quality of effects. A "random affix" is an effect rolled onto
+an instance at spawn. A fixed item is a prototype with intrinsic
+effects. Where items come from (drops, shops, crafting) is untouched.
+
+### 5.4 Effects
+
+**Thesis.** Items carry modifiers, as ROM's affects do: +2 strength,
++10 hit points, +5 damroll. Builders understand them, and they are a
+flat list of numbers the engine can add up.
+
+**Antithesis.** A list of flat modifiers is a bonus economy. Every item
+becomes a bag of small numbers, the interesting properties (a chance to
+crit, a burn on hit, a resistance) do not fit the list and grow a
+second system beside it, and 3.1 already forbids flat additions. Worse,
+buffs on characters, procs on weapons, and enchantments on gear end up
+as three implementations of one idea.
+
+**Synthesis (leaning, 2026-09-24, resized the same day).** One
+vocabulary: the *effect*. An effect is not a modifier. It is a small
+piece of behaviour with parameters, and what it can do is arbitrary:
+raise a stat, roll the weapon's damage twice and keep both, reflect a
+fraction of damage taken, cast a spell when the wearer is hit, add an
+attack, change who a swing targets. Each effect is a named kind, and a
+kind is *code in the rules scripts* that attaches handlers to points in
+the combat and tick pipelines. The engine never interprets an effect;
+it stores the kind and parameters blindly (D15), keeps the list on the
+item or character, and manages lifetimes.
+
+**Where the behaviour runs.** Inside the existing hooks. `resolveAttack`
+as the scripts implement it is a pipeline with fixed phases, and every
+effect on the attacker, the defender, and their equipment is offered
+each phase in turn. A first cut of the phases:
+
+| Phase | What an effect can do here | Example kinds |
+|---|---|---|
+| `prepare` | change attack count, target, or which weapon is used | extra attack, cleave |
+| `roll` | replace or repeat the damage draw (4.1) | roll twice keep both, roll twice keep best |
+| `modify` | scale or add to the rolled amount | `stat` multiplier, `crit` |
+| `dodge` | change the defender's dodge try (4.3 stage 1) | light armor bonus, blind |
+| `block` | change the defender's block try (4.3 stage 2) | shield, parry |
+| `reduce` | change how `D` applies (4.3 stage 3) | armor pierce, ward, reflect |
+| `onhit` | do something because damage landed | burn, poison, `lifesteal`, `onhit` spell |
+| `after` | do something because the attack finished | on-kill triggers |
+
+Phase order is fixed, which is what makes "roll twice then double" and
+"double then roll twice" unambiguous: rolling is `roll`, doubling is
+`modify`, and `roll` always comes first. Within a phase, effects run in
+a stable order (attacker's, then attacker's equipment, then defender's,
+then defender's equipment, each in list order) so the outcome is
+reproducible in the simulator. `onTick` and `derivedStats` have their
+own smaller phase lists.
+
+**Reach is bounded by the hooks.** An effect can do anything a hook can
+see and return, and nothing else. "When you enter a room" needs an
+`onMove` hook that does not exist yet. "Summon a creature" needs a
+return channel the engine acts on. Every such wish is a contract
+widening, listed and costed in section 9, not a feature of the effect
+system. This is the bound that keeps "arbitrary" implementable: the
+effect vocabulary grows by adding kinds in scripts, cheaply and
+hot-reloaded; the *reach* grows by adding hooks in Go, deliberately.
+
+**State.** Some effects need memory: charges left, stacks, a cooldown.
+Scripts cannot keep state between calls, so each effect instance
+carries a small `state` map beside its `params`. Hooks return updated
+state and the engine persists it. A `params` map is the definition and
+never changes; `state` is what the effect has done so far.
+
+Effects have three sources and one lifetime axis:
+
+| Source | Lives on | Lifetime | Example |
+|---|---|---|---|
+| Intrinsic | item prototype | permanent | a sword that rolls twice |
+| Applied | item instance | permanent, or charges | an enchantment |
+| Cast or triggered | character | timed in rounds, or charges | a buff, a poison |
+
+The same kind means the same thing wherever it sits. A `stat` effect
+on a worn ring and one from a spell both raise the stat before the
+multiplier. A `crit` effect from a feat and one from a dagger are the
+same code.
+
+**Sizing.** This is the largest single piece of rules work in the
+document, and it is script work, not engine work. The engine's share is
+small and fixed: an `effects` list with `kind`, `params`, and `state` on
+item instances and characters, persisted with the player file;
+lifetimes counted in rounds; the two lists exposed in the views; a
+return channel to attach, update, and remove effects. The scripts' share
+is the pipeline, the ordering rule, and every kind, and it is
+unbounded by design. Because it is scripts, it is hot-reloaded and the
+simulator can run it, so kinds can be added one at a time against a
+regression set of fights. The first milestone-8 target should be the
+pipeline with two or three kinds, not a library.
+
+**Open within 5.4:**
+
+- Stacking: two effects of the same kind on the same character. Leaning
+  is that stacking is a property of the kind (`stat` adds, `crit` takes
+  the larger, `roll twice` does not stack), decided per kind in its
+  code, not a global rule.
+- A cap on effects per item: none, per 2.2. Rarity (5.3) may make the
+  count expensive rather than bounded.
+- Feats (7.2) are permanent effects a character holds; no distinct
+  system.
+- Whether effects can be conditional on the target (only against
+  undead, only when below half health). Cheap in the pipeline; the
+  question is whether the views carry enough to test the condition.
 
 ---
 
 ## 6. Magic
 
-### 6.1 Resource
+Worked dialectically on 2026-09-24. The shape is set by three
+commitments from the designer: any character can potentially use magic,
+each school of magic must be discovered and unlocked through play, and
+casting consumes gathered materials. Magic is meant to be very strong
+and to carry real costs. Everything below follows from those.
 
-**Status: open.** Mana pool, cooldowns, components, or a mix? What
-regenerates it and how fast?
+### 6.1 Schools are discovered and unlocked by consuming a totem
 
-### 6.2 Casting
+**Thesis.** Spells are learned from trainers as a character levels, as
+in ROM. Simple, predictable, and the level table is the whole design.
 
-**Status: open.**
+**Antithesis.** Then magic is a function of level. Every character of
+level N has the same options, magic is another number going up, and the
+world's content has nothing to do with what a character can do.
 
-- Instant or cast time in rounds?
-- Can casting be interrupted by damage or movement?
-- Do spells scale with a stat multiplier the same way weapons do (3.1)?
+**Synthesis (leaning, revised 2026-09-24).** Magic has two branches,
+as in Dungeons and Dragons, and each is unlocked by something found in
+the world rather than by level:
 
-### 6.3 Resistance and effects
+- **Arcane.** Organised into *schools* (evocation, abjuration,
+  necromancy, and so on; the list is open). A school is unlocked by
+  finding its *totem*, an item placed in the world, and consuming it.
+  Scaled by Intelligence (3.2).
+- **Divine.** Organised by *deity*, each with a domain of spells. Divine
+  casting is unlocked by finding a way to worship a god: a shrine, a
+  rite, a priest who will take you, whatever the world's hints lead to.
+  It can be dressed as a quest but does not need to be. Scaled by
+  Wisdom (3.2).
 
-**Status: open.**
+A character holds what it has unlocked permanently. Level does not
+grant magic. Two characters of the same level can differ entirely in
+what they can cast, based on where they have been and what they found.
+Whether a character can serve more than one god, and whether a god
+objects to arcane practice, are open and are exactly the kind of
+consequence 6.3 wants magic to carry.
 
-- How does a target resist a spell: flat chance, stat contest, or none?
-- Effect model: buffs, debuffs, damage over time, all as timed effects on
-  a character (the engine's effect list is the only cross-round state
-  scripts get).
+Discovery is the point, and it is done with content, not a quest
+system. The world carries hints: room descriptions, what NPCs say, books,
+the look of the totem itself. A player who reads and explores finds
+schools; one who does not, does not. There is no quest log, no
+objective marker, and no NPC that says "bring me five pelts". If a
+later milestone adds quests, they are one more way to place a hint,
+not the mechanism.
 
-### 6.4 Special rules
+This makes magic a fourth pillar of power beside level, gear, and stats
+(2.2): earned by content rather than by numbers, and uncapped like the
+others.
 
-**Status: open.** The rules you said would differ from typical systems.
-List each as its own sub-decision with the reason it exists.
+Consequences: a `totem` item type carrying a school (5.1). The
+character keeps a persistent set of unlocked schools and deities, saved
+in the player file, that `resolveCast` reads. Consuming the totem is the
+first use of the `consume` return (section 1). How worship is recorded
+(a flag set by an NPC or rite; the engine's placeholder can be an admin
+command) is a milestone 7 builder concern. Hints are a builder concern:
+milestone 7 tooling should make it easy to see which totems exist and
+where their hints are. No dependency on a quest system.
+
+### 6.2 Casting consumes gathered materials
+
+**Thesis.** Casting draws from a mana pool that regenerates. Cheap to
+implement, and the engine already has `mana`, `manaMax`, and `manaDelta`.
+
+**Antithesis.** A regenerating pool makes magic free at the margin. The
+only question is whether the pool is full, and it always is at the start
+of an outing. That cannot support "very strong with significant
+consequences"; the consequence of casting is waiting.
+
+**Synthesis (leaning).** Every cast consumes materials: items gathered
+from the world and carried in inventory. Both branches pay; arcane
+materials are reagents, divine ones are offerings, and the difference
+is flavour and where they are found, not mechanics. The cost is paid before the
+outing, in time spent gathering, and again at the moment of casting,
+when the materials are gone. Strength is balanced by cost and access,
+not by shrinking the effect. A character who has the category and the
+materials should feel powerful; one who has spent the materials is back
+to steel.
+
+Mana is kept behind a flag, not removed (decided 2026-09-24). The engine
+keeps `mana`, `manaMax`, and `manaDelta`; the rules set `manaMax` to
+zero and no cast requires it, and the prompt hides a zero pool. If the
+material system turns out not to work, mana is there to fall back to
+without an engine change. Until then a second cost would dilute the
+first, so it stays off.
+
+Consequences: an item type for materials (5.1). Materials need sources:
+harvest points, drops, or shops (5.3). `resolveCast` lists the materials
+it used in its `consume` return and the engine removes them (section 1).
+
+### 6.3 Magic is very strong
+
+**Thesis.** Magic sits at parity with weapons so that casters and
+fighters are balanced against each other.
+
+**Antithesis.** There are no casters and fighters (7.3); every character
+can potentially cast. Parity would make the discovery and the materials a
+tax on an effect you could have got from a sword. If magic costs more
+than a swing it has to do more than a swing.
+
+**Synthesis (leaning).** Per use, magic is the strongest tool in the
+game. The material cost and discovered access are what balance it, so
+its output is not held back to weapon levels. In terms of 2.1, casting
+is the decision a fight offers: when to spend materials, on which fight.
+An even fight at level is winnable with steel alone; magic is what makes
+a fight above level winnable, and spending it on an even fight is a
+choice to trade materials for safety and speed.
+
+Consequences: the simulator must run fights with and without material
+use, and report material consumption per fight, since that is the cost
+being balanced. 4.5 gains a row for it.
+
+### 6.4 Casting mechanics
+
+**Status: open.** Deferred until 6.1 to 6.3 are decided.
+
+- Instant, or a cast time in rounds during which the caster is
+  vulnerable? Cast time is a natural second cost if mana is dropped.
+- Interruption by damage or movement?
+- Spells scale with a stat multiplier the same way weapons do (3.1):
+  Intelligence for arcane, Wisdom for divine (decided 2026-09-24, with
+  3.2). Both stats have a second job for characters with no magic.
+- Resistance: flat chance, stat contest, or none?
+- Effect model: settled by 5.4. A buff, debuff, or damage over time is a
+  timed effect on the character, in the same vocabulary as item effects.
+  `resolveCast` returns effects to apply; the engine attaches them and
+  counts them down in rounds.
 
 ---
 
@@ -382,30 +986,245 @@ List each as its own sub-decision with the reason it exists.
 
 ### 7.1 Experience and levels
 
-**Status: open.** XP per kill formula (level gap, mob difficulty), XP curve
-per level, level cap.
+**Thesis.** A quadratic curve, as most MUDs use: total experience for
+level N grows with N squared, so each level costs a bit more than the
+last. Familiar, and easy to tune with one constant.
 
-### 7.2 What a level grants
+**Antithesis.** Experience per kill grows with the victim's level, and
+a player at level N fights mobs at level N. Under a quadratic total,
+the *kills* per level come out constant, ten at every level from 2 to
+40. The curve looks steeper in experience and feels flat in play, and
+with no level cap (decided 2026-09-24) it never stops: level 40 arrives
+after 26 sessions of the same pace as level 5. A curve that is to feel
+"not much at first, then larger and larger" has to outgrow the kill
+reward, not merely grow.
 
-**Status: open.** Stat points, health and mana, access to abilities or gear?
-(`onLevel` returns these.)
+**Synthesis (leaning, 2026-09-24).** The cost of a level is the
+experience to go from N to N+1, and it grows geometrically with a
+linear factor in front:
 
-### 7.3 Classes or free-form
+    cost(N) = base * N * r^(N-1)
 
-**Status: open.** Classes, professions, skill trees, or pure stat
-allocation? This decides whether "build" is chosen once or continuously.
+The `r^(N-1)` is what makes late levels rare in practice without a cap;
+the `N` in front cancels the kill reward's own growth in the early
+levels, so kills per level rise from the first level and never dip.
+That dip is real: a purely geometric cost with the kill reward growing
+linearly gets *cheaper* in kills for the first ten levels, so a player
+would race from level 3 to 12 in under two sessions and then hit a
+wall. The hybrid has no valley.
+
+The candidates, in kills per level and cumulative sessions, using the
+2.5 targets (about fifteen even kills per session) and a kill reward of
+ten times the victim's level:
+
+| Reach level | A: quadratic | B: geometric r=1.20 | C: geometric r=1.30 | D: hybrid r=1.15 |
+|---|---|---|---|---|
+| 2 | 10 kills, 0.7 sessions | 5, 0.3 | 5, 0.3 | 5, 0.3 |
+| 5 | 10, 2.7 | 2, 0.8 | 3, 0.9 | 8, 1.7 |
+| 10 | 10, 6.0 | 2, 1.6 | 5, 2.1 | 15, 5.6 |
+| 20 | 10, 12.7 | 7, 4.5 | 30, 11.5 | 62, 29 |
+| 30 | 10, 19.3 | 28, 15 | 267, 91 | 250, 126 |
+| 40 | 10, 26.0 | 131, 63 | 2740, 880 | 1013, 515 |
+
+A is flat in play. B and C both have the early valley (two kills a
+level around level 5 to 10, which is a feat every few minutes). D
+rises monotonically: a level every outing early, one every few
+sessions in the teens, one every ten or more past twenty. Its effective
+ceiling sits near level 30 for a regular player, and level 40 is a
+matter of years, which is what "no cap" should mean: nothing stops you,
+and almost nobody gets there.
+
+Starting values, arbitrary and for playtesting like 3.3's: `base` 50,
+`r` 1.15. If the teens feel slow, lower `r` toward 1.12 before touching
+`base`; `base` moves the whole curve and `r` moves where the wall is.
+
+Kill reward: ten times the victim's level at an even fight, decaying
+with level gap in both directions (2.2): a mob well below the player's
+level gives nothing, and one well above gives more, but not so much
+more that fighting up is the efficient path (2.3 wants death to come
+from that choice, not the curve to reward it). The decay shape is a
+starting value for the simulator, not a decision here.
+
+Death (2.3) costs a fraction of the progress toward the next level.
+Whether it can cross a level boundary is still open there; under this
+curve a late level is many sessions of progress, so the fraction, not
+the boundary rule, is what decides how much death stings.
+
+**Alternative argued on 2026-09-24: a fixed reward per mob.** Each mob
+prototype carries an `xp` number the builder sets, and the total grows
+geometrically. Why would that not work? It would. The kills-per-level
+valley above is a property of the *ratio* of cost to reward, and
+fixing the reward per mob moves the reward's growth out of a formula
+and into the builder's hands. If builders give higher-level mobs
+proportionally more experience, the valley comes straight back; if
+they give every mob about the same, a pure geometric cost has no valley
+and the `N` factor is unnecessary. So the alternative works exactly as
+well as the content is authored, and it has real merits:
+
+- Legibility. A mob is worth what it says. A boss can be worth a lot
+  without a formula having to know it is a boss.
+- The level-gap decay downward comes for free: a late level costs so
+  much that a rat's fixed reward is nothing, with no "grey mob" rule.
+- `xpForKill` becomes trivial and group split is a plain division.
+
+And real costs:
+
+- The curve's feel now depends on every area author, and the valley is
+  a content bug that no formula change can fix.
+- There is no decay *upward*. A mob far above the player gives its
+  full reward, so fighting up is rewarded by the curve, which 2.3 does
+  not want. That needs a separate rule, and then a formula is back.
+
+The synthesis is to take the legibility without giving up the formula:
+the mob prototype carries an optional `xp` field that *overrides* the
+formula's default, and the default is the formula above. A builder
+sees what a mob is worth (the `stat` command shows the computed value),
+can pin it for a boss or a set piece, and the decay still applies on
+top of either. This is the smallest reading of the alternative that
+keeps the curve's shape out of the content.
+
+Consequences: `xpToLevel(level)` is the running sum of `cost` and the
+engine already treats it as a total. `xpForKill` gains the decay and
+reads an optional `xp` on the victim's prototype. The simulator should
+report levels per session against this table.
+
+### 7.2 What a level grants, and making each one count
+
+**Thesis.** A level grants what ROM grants: a few hit points, a few
+practices, a stat point now and then. Steady, predictable growth.
+
+**Antithesis.** Steady growth is growth nobody feels. Five hit points
+on a hundred is noise, and this game has already given away the two
+things that made a ROM level an event: new spells arrive by discovery
+(6.1), not by level, and there are no class tables to open. If a level
+only nudges numbers, it competes with gear (2.2) and loses, because a
+new sword is visible and +3 health is not.
+
+**Synthesis (leaning, 2026-09-24, revised the same day).** A level is
+felt when it is *rare*, *large*, and *chosen*. Three grants, with the
+starting quantities in 3.3:
+
+1. **A slight level multiplier, and stat points.** Level itself
+   multiplies the character's numbers by a small factor per level, in
+   keeping with 3.1's rule that power is multiplicative. It is the
+   smallest of the grants on purpose: it keeps level a real pillar
+   (2.2) without making it the visible one. Alongside it, each level
+   grants stat points the player spends on any of the six (decided
+   2026-09-24; the count is a 3.3 starting value). This is the
+   continuous build 7.3 promised.
+2. **Feats.** One or two per level, chosen by the player from what is
+   available, or granted by a trainer found in the world. A feat is a
+   permanent effect (5.4) the character holds forever: a crit chance,
+   ROM's second and third attack (4.4), a stronger block, a wider
+   dodge, a proc. Every feat carries a minimum level, so the list a character
+   can choose from grows as it levels, and the limit of one or two per
+   level is the pace at which a build assembles. Feats are the answer
+   to the "skills" question in section 9 and need no new system: items
+   give intrinsic effects, discovery gives magic, levels give feats.
+   This is what makes a level-up a decision the player remembers.
+3. **Health, grown as a multiplier.** `healthMax` is a base that grows
+   with level, times the Constitution multiplier (3.1). A level should
+   raise the base enough to be seen on the prompt.
+
+Rarity is the lever the feats depend on: the fewer levels there are,
+the more each can grant. The leaning is few levels far apart, so that a
+level is a career-scale event (2.5) that takes several sessions, while
+gear is the session-scale one. No hard level cap, per 2.2; the
+`xpToLevel` curve instead steepens so that late levels are rare in
+practice, the same asymptote-instead-of-cap shape used everywhere else
+in this document. Death's experience loss (2.3) is what makes the gap
+between levels feel like something held, not just waited for.
+
+Consequences: the engine needs a `feats` list on the character, which
+is the character's effects list with a permanent lifetime (5.4), so no
+new storage; banked counts of unspent stat points and feat picks; and
+a command to spend either (`train` is ROM's word, and a trainer NPC can use the same
+path). `onLevel` returns the picks granted and the message; the choice
+itself is a command, since a hook cannot ask a question. Feats have a
+`level` field and the pick command enforces it. 3.3's per-level
+multiplier and 7.1's curve are the next things to set, and they should
+be set together against a target of levels per session.
+
+### 7.3 Classless
+
+**Thesis.** Classes, as in ROM: warrior, mage, cleric, thief. Players
+know them, and a class is a build chosen once, which makes the early
+game legible.
+
+**Antithesis.** Every class is a balance target against every other
+class, and 2.4 already forbids any class that cannot solo. The work of
+keeping four classes fair is work that produces no content. And 6.1
+already gives characters a way to differ by what they have earned.
+
+**Synthesis (leaning, 2026-09-24).** No classes. A character is level,
+stats, gear, and the set of magic schools it has unlocked. Build is
+chosen continuously: by stat allocation, and by which totems the player
+finds and pursues. There is nothing to balance against a class because there is
+no class; there are only pillars, and those are uncapped by design.
+
+**Open: a limit on unlocked schools.** Over a long enough career a
+character could unlock every school, at which point veteran builds
+converge and discovery stops meaning anything. Three options:
+
+- No limit. Differences come from which schools a character has
+  unlocked *so far* and which materials it has on hand. Consistent with
+  no caps (2.2); revisit only if convergence is observed.
+- A soft limit. Each further school costs more to unlock or to cast,
+  so specialising is cheaper than breadth without being enforced.
+- A hard limit. A fixed number of slots, with a way to give one up.
+
+Leaning: no limit for now, per 2.2. This is the decision most likely to
+be revisited once there are enough schools to matter.
 
 ---
 
 ## 8. Mobs
 
-**Status: open.**
+**Thesis.** Mobs are a simplified table: level implies everything. A
+builder writes `level: 8` and the engine knows the mob's health, damage,
+and defense. Fast to author and always consistent.
 
-- Are mobs built from the same stat model as players, or from a simplified
-  "level implies everything" table?
-- How is mob difficulty expressed to the builder: level alone, or level plus
-  role tags (brute, caster, swarm)?
-- Do mobs use abilities or only auto-attack?
+**Antithesis.** Then every level-8 mob is the same mob. A caster, a
+brute, and a swarm rat cannot be told apart except by level, and the
+six stats (3.2), the effects (5.4), and the whole gear system stop at
+the player's side of the fight.
+
+**Synthesis (decided 2026-09-24).** A mob is a character. Its level
+sets a *baseline* for everything, the same way an item's level does
+(5.2), and every value is overridable in the prototype. The baseline
+gives it the six stats at 10, health from the 3.3 curve, a natural
+attack on the `unarmed` weapon baseline, and natural armor on the
+`medium` armor baseline, all at its level. A builder who writes only
+`level: 8` gets a plain level-8 creature; one who writes `stats:
+{strength: 14, intelligence: 6}` gets a brute; `health: 300` gets a
+boss. Role tags are unnecessary because a role is just a set of
+overrides, and the builder's `stat` command shows the computed
+baseline beside every override.
+
+**Mobs use equipment like a player.** A mob's wielded weapon replaces
+its natural attack, and armor it wears replaces its natural armor,
+through the same pipeline and the same hooks. This is already the
+engine's shape (D15: one Character type). Two things follow:
+
+- A guaranteed drop is simply an equipped item. The corpse holds what
+  the mob was wearing and wielding, and nothing else needs a drop
+  rule. Loot that is not worn (a key, a material) is a 5.3 concern.
+- A player who looks at a mob sees its equipment, as they would a
+  player's. What a mob drops is visible before the fight, which makes
+  "kill the guard for his spear" a decision the world can hint at
+  (6.1) rather than a lookup.
+
+Mobs use abilities and effects the same way players do: a prototype
+can list feats (7.2) and unlocked schools (6.1), and the same
+`resolveCast` and pipeline apply. Whether mobs *choose* to cast is an
+AI question for the engine's behaviour scripts, not a rules question;
+the rules only need the mob to be able to.
+
+Consequences: a `mobBaseline(prototype)` hook alongside
+`itemBaseline`, same contract. Mob prototypes gain `baseline`
+overrides for stats, health, natural attack, and natural armor, plus
+optional `feats`, `schools`, and `xp` (7.1). `look` at a mob renders
+its equipment. Section 9 lists the hook.
 
 ---
 
@@ -413,4 +1232,33 @@ allocation? This decides whether "build" is chosen once or continuously.
 
 Anything not yet placed in a section above.
 
-- 
+- **Hint authoring.** 6.1 relies on the world carrying hints toward
+  each totem. That is content, but it needs a builder-side view of which
+  totems exist and which rooms and NPCs mention them, or hints will rot
+  as areas change. Belongs in milestone 7.
+- **Contract widening for milestone 6.** `resolveCast` needs the caster's
+  unlocked schools in its view. The item view needs `weapon.spread`,
+  `weapon.speed` (4.4), and `armor.spread` (4.1) and an `effects` list;
+  mob prototypes may carry an optional `xp` override (7.1); two new
+  hooks, `itemBaseline` and `mobBaseline`, run at content load and
+  script reload so a curve edit re-derives every prototype's numbers
+  without a restart (5.2, 8); the character view needs
+  an `effects` list and a way to attach timed effects from
+  `resolveCast` (5.4). Each effect is `{kind, params, state}`; the engine
+  stores all three blindly per D15, persists them, counts lifetimes in
+  rounds, and applies returned state updates. New hooks that effects
+  will eventually want, each a separate widening: `onMove`, `onDamaged`
+  (for effects on the defender that must fire even when the attack was
+  not resolved by `resolveAttack`, such as a spell), `onDeath`.
+- **Feats** (the designer's word, replacing "skills") are permanent
+  effects with a minimum level, gained one or two per level by choice or
+  from a trainer (7.2, leaning). No new system; the engine's share is a
+  pick command, a banked pick count, and a `level` field on the effect. Item consumption is settled (section 1,
+  D17) and lands with the `cast` command.
+- **Round length.** Set to 2 s on 2026-09-24, and the config field is
+  now `round_ms` so 1.5 s is a one-line change when playtesting wants
+  it. The variance tables in 4.2 and 4.3 were computed at seven swings;
+  at eight to ten rounds they are slightly conservative.
+- **Mana** stays in the engine behind a flag and is not required by any
+  rule (6.2). Remove from the contract only if the material system is
+  confirmed after milestone 8.
