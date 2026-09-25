@@ -3,3 +3,4 @@
 *.log
 /data/players/
 /data/instances/
+/deploy/deploy.env

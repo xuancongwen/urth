@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 COMMIT  := $(shell git rev-parse --short HEAD 2>/dev/null || echo none)
 LDFLAGS := -s -w -X urth/internal/version.Version=$(VERSION) -X urth/internal/version.Commit=$(COMMIT)
 
-.PHONY: help build run test vet fmt fmtcheck check clean
+.PHONY: help build run test vet fmt fmtcheck check clean deploy
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -31,3 +31,6 @@ check: fmtcheck vet test ## Format check, vet, and test
 
 clean: ## Remove build output
 	rm -rf bin
+
+deploy: ## Build and push to the LXC named in deploy/deploy.env
+	deploy/deploy.sh $(DEPLOY_ARGS)

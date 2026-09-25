@@ -66,7 +66,8 @@ standing in the area see the changes at once; anyone in a deleted room is
 moved to the start room; a file that fails validation leaves the old world
 running. `stat` shows vnums; `load`, `purge`, `goto`, and `at` place and
 inspect things without leaving the game.
-- `docs/`            `MILESTONES.md`, `DECISIONS.md`, `RULES.md`, and `COORDINATE-PORT.md`
+- `docs/`            `MILESTONES.md`, `DECISIONS.md`, `RULES.md`, `DEPLOY.md`, and `COORDINATE-PORT.md`
+- `deploy/`          LXC setup and deploy scripts (`docs/DEPLOY.md`)
 
 ## License
 

@@ -151,12 +151,27 @@ on the hostname; the server needs no change.
 
 ### The browser client
 
-The page at `/` reconnects on its own: a copyover, a tunnel blip, a phone
-coming back from the background, or the server returning after a restart
-all trigger a retry with backoff up to 30 s, and Enter reconnects at
-once. A deliberate quit does not reconnect. Password prompts switch the
-box to a password field. The prompt's health, mana, and experience data
-render as a status line, and the current room's exits render as buttons.
+The page at `/` is a full client, not a terminal. The log fills the main
+pane with a sticky room title; the side panel holds a map, vitals, and
+what is in the room; the input bar completes command names on Tab.
+
+- **Map.** Drawn from the `map` field of each room message: the rooms
+  within six steps in the same area, positioned by the server's layout
+  pass (`internal/room/layout.go`). Rooms the character has stood in are
+  lit, safe rooms are green, up and down exits carry an arrow, and
+  clicking a room walks there along known exits. Room files may carry
+  `position: {x, y, z}` to anchor the layout where exits contradict the
+  grid; the server logs every such conflict at load and reload.
+- **Here.** Players, creatures, and items in the room. Clicking a
+  creature or item opens a menu of commands (look, consider, kill; look,
+  get, sacrifice) that send the same reference a typed command would.
+- **Vitals** from the prompt's data, with a flash on the health bar when
+  it drops.
+- **Reconnect** on its own after a copyover, a tunnel blip, a phone
+  coming back from the background, or a server restart, with backoff up
+  to 30 s; Enter retries at once. A deliberate quit does not reconnect.
+  Password prompts switch the box to a password field.
+- On a phone the side panel is a drawer behind the **map** button.
 
 ## 5. Backups
 
