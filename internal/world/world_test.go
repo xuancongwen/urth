@@ -80,7 +80,10 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	files := map[string]string{
 		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
 		"a/rooms/2.yaml":  "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n  east: 3\n",
-		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\nflags: [safe]\ntemple: good\n",
+		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n  east: 4\nflags: [safe]\ntemple: good\n",
+		"b/rooms/4.yaml":  "vnum: 4\nname: Four\ndescription: Four.\nexits:\n  west: 3\n  east: 5\n",
+		"b/rooms/5.yaml":  "vnum: 5\nname: Five\ndescription: Five.\nexits:\n  west: 4\n  east: 6\n",
+		"b/rooms/6.yaml":  "vnum: 6\nname: Six\ndescription: Six.\nexits:\n  west: 5\n",
 		"a/items/16.yaml": "vnum: 16\nname: an ember totem\nkeywords: [ember, totem]\ntype: totem\nschool: evocation\n",
 		"a/items/17.yaml": "vnum: 17\nname: a handful of ash\nkeywords: [handful, ash]\ntype: material\nmaterial: ash\n",
 		"a/items/18.yaml": "vnum: 18\nname: a sun cup\nkeywords: [sun, cup]\nsacrifice: good\n",
@@ -687,5 +690,58 @@ func TestBannerOnConnect(t *testing.T) {
 	}
 	if got := loadBanner(filepath.Join(dir, "missing")); got != defaultBanner {
 		t.Fatal("default banner not used when the file is missing")
+	}
+}
+
+func TestHelpChatAndYell(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	send(w, 2, "help") // Alice is not an admin; Bob, the first character, is
+	o := alice.take()
+	for _, want := range []string{"Movement", "kill", "cast", "gtell", "yell", "help <command>"} {
+		if !strings.Contains(o, want) {
+			t.Fatalf("help missing %q: %q", want, o)
+		}
+	}
+	if strings.Contains(o, "Builder") {
+		t.Fatalf("help showed builder commands to a player: %q", o)
+	}
+	send(w, 1, "help")
+	if o := bob.take(); !strings.Contains(o, "Builder") || !strings.Contains(o, "simulate") {
+		t.Fatalf("admin help: %q", o)
+	}
+	send(w, 1, "help k")
+	if o := bob.take(); !strings.Contains(o, "kill <target>") {
+		t.Fatalf("help kill: %q", o)
+	}
+	send(w, 1, "help e")
+	if o := bob.take(); !strings.Contains(o, "walk through an exit") {
+		t.Fatalf("help east: %q", o)
+	}
+	send(w, 1, "help nonsense")
+	if o := bob.take(); !strings.Contains(o, "no command called that") {
+		t.Fatalf("help unknown: %q", o)
+	}
+	// Chat reaches everyone; yell reaches four rooms but not five.
+	w.players[2].Room = w.content.Rooms.Rooms[5] // four steps from the hub: 1-2-3-4-5
+	send(w, 1, "chat hello all")
+	if o := alice.take(); !strings.Contains(o, "Bob chats 'hello all'") {
+		t.Fatalf("chat: %q", o)
+	}
+	if o := bob.take(); !strings.Contains(o, "You chat 'hello all'") {
+		t.Fatalf("chat self: %q", o)
+	}
+	send(w, 1, "yell over here")
+	if o := alice.take(); !strings.Contains(o, "Bob yells 'over here'") {
+		t.Fatalf("yell at range 4: %q", o)
+	}
+	w.players[2].Room = w.content.Rooms.Rooms[6]
+	send(w, 1, "yell again")
+	if o := alice.take(); strings.Contains(o, "yells") {
+		t.Fatalf("yell heard at range 5: %q", o)
+	}
+	if o := bob.take(); !strings.Contains(o, "You yell 'again'") {
+		t.Fatalf("yell self: %q", o)
 	}
 }

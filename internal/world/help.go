@@ -1,0 +1,193 @@
+package world
+
+import (
+	"strings"
+
+	"urth/internal/output"
+	"urth/internal/room"
+)
+
+// help, chat, and yell. Help is built from the command table so it can
+// never list a command that does not exist; descriptions live here.
+
+type helpSection struct {
+	title string
+	names []string
+}
+
+var helpSections = []helpSection{
+	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits"}},
+	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
+	{"Combat", []string{"kill", "flee", "consider", "assist"}},
+	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
+	{"Groups", []string{"follow", "group", "gtell"}},
+	{"Talking", []string{"say", "chat", "yell"}},
+	{"Character", []string{"score", "train", "feat", "who", "color", "save", "password", "quit"}},
+	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "copyover", "shutdown"}},
+}
+
+var helpText = map[string]string{
+	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
+	"look":  "look | look <thing> | look in <container>: the room, a character or item, or what a container holds.",
+	"exits": "exits: list the ways out of this room.",
+
+	"get":       "get <item> | get all | get <item> <container> | get all <container>: pick things up, here or from a container (a corpse is a container).",
+	"drop":      "drop <item> | drop all: put things down.",
+	"put":       "put <item> <container>: put an item into a container you can see.",
+	"give":      "give <item> <character>: hand an item over.",
+	"wear":      "wear <item> | wear all: put on armor.",
+	"wield":     "wield <weapon>: take up a weapon. Its verb is what your swings are called.",
+	"hold":      "hold <item>: hold an item in your off hand.",
+	"remove":    "remove <item>: take off something worn, wielded, or held.",
+	"inventory": "inventory: what you carry.",
+	"equipment": "equipment: what you wear, wield, and hold.",
+
+	"kill":     "kill <target>: attack. While fighting, kill <other> switches your target. Nobody can fight in a safe room.",
+	"flee":     "flee: run through a random exit to end a fight.",
+	"consider": "consider <target>: how the fight would go, and how hurt they look.",
+	"assist":   "assist [member]: attack whatever a group member here is fighting.",
+
+	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
+	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",
+	"consume":   "consume <totem>: consume a totem to learn its school of magic.",
+	"sacrifice": "sacrifice <item>: at a god's temple, give up what the god wants to become its apostle.",
+
+	"follow": "follow <player> | follow self: follow someone, moving when they move, or go your own way.",
+	"group":  "group | group <follower>: as leader, add someone following you to your group, or list the group. Grouped players share kills and assist each other.",
+	"gtell":  "gtell <message>: talk to your group wherever they are.",
+
+	"say":  "say <message> or '<message>: talk to the room.",
+	"chat": "chat <message>: talk to everyone in the world.",
+	"yell": "yell <message>: shout. Heard up to four rooms away along the exits.",
+
+	"score":    "score: your character sheet.",
+	"train":    "train | train <stat>: see your stats, or spend a stat point on one.",
+	"feat":     "feat | feat <name>: see the feats you can learn, or spend a pick on one.",
+	"who":      "who: who is playing.",
+	"color":    "color: toggle color.",
+	"save":     "save: write your character to disk (it also saves on its own).",
+	"password": "password <old> <new>: change your password.",
+	"quit":     "quit: leave the game.",
+	"help":     "help | help <command>: this list, or one command in detail.",
+
+	"goto":     "goto <room|player|mob>: go there.",
+	"at":       "at <room|player|mob> <command>: run a command as if you were there.",
+	"stat":     "stat | stat <room|character|item>: everything the engine knows about it, including where its numbers came from.",
+	"load":     "load mob <vnum> | load obj <vnum>: create one here.",
+	"purge":    "purge [target]: destroy a mob or item here, or everything here.",
+	"force":    "force <character> <command>: make them do it.",
+	"restore":  "restore <player>: full health.",
+	"transfer": "transfer <player> [room]: bring them here, or send them there.",
+	"peace":    "peace: stop every fight in the room.",
+	"reload":   "reload [scripts | area <name> | world]: re-read the rules, one area, or everything from disk.",
+	"simulate": "simulate <mob | me | fighter[:level]> <mob> [fights] [seed]: run fights through the rules and report the numbers.",
+	"copyover": "copyover: restart the server without disconnecting anyone.",
+	"shutdown": "shutdown: stop the server.",
+}
+
+// cmdHelp: help | help <command>
+func cmdHelp(w *World, p *Player, args string) {
+	if args != "" {
+		word := strings.ToLower(strings.Fields(args)[0])
+		c := lookup(word, p.Admin)
+		if c == nil {
+			p.Send("There is no command called that. Type 'help' for the list.\n")
+			return
+		}
+		text, ok := helpText[c.name]
+		if !ok {
+			for _, dir := range []string{"east", "south", "west", "up", "down"} {
+				if c.name == dir {
+					text = helpText["north"]
+					ok = true
+				}
+			}
+		}
+		if !ok {
+			p.Send(output.Escape(c.name) + ": no help written yet.\n")
+			return
+		}
+		p.Send("{C}" + output.Escape(c.name) + "{x}\n  " + output.Escape(text) + "\n")
+		return
+	}
+	var b strings.Builder
+	b.WriteString("Commands. Type 'help <command>' for one in detail; the first letters usually suffice.\n")
+	for _, sec := range helpSections {
+		var names []string
+		for _, n := range sec.names {
+			if c := lookup(n, p.Admin); c != nil && c.name == n {
+				names = append(names, n)
+			}
+		}
+		if len(names) == 0 {
+			continue
+		}
+		b.WriteString("{c}" + padRight(sec.title, 11) + "{x}" + strings.Join(names, "  ") + "\n")
+	}
+	b.WriteString("{c}" + padRight("Also", 11) + "{x}help  and  ' as shorthand for say\n")
+	p.Send(b.String())
+}
+
+// cmdChat: chat <message>. The world channel.
+func cmdChat(w *World, p *Player, args string) {
+	if args == "" {
+		p.Send("Chat what?\n")
+		return
+	}
+	msg := output.Escape(args)
+	for _, o := range w.players {
+		if o.State != StatePlaying {
+			continue
+		}
+		if o == p {
+			o.Send("{M}You chat '" + msg + "'{x}\n")
+		} else {
+			o.Send("{M}" + p.DisplayName() + " chats '" + msg + "'{x}\n")
+		}
+	}
+}
+
+// yellRange is how many rooms a yell carries along the exits.
+const yellRange = 4
+
+// cmdYell: yell <message>. Heard in every room within yellRange exits.
+func cmdYell(w *World, p *Player, args string) {
+	if args == "" {
+		p.Send("Yell what?\n")
+		return
+	}
+	msg := output.Escape(args)
+	p.Send("{Y}You yell '" + msg + "'{x}\n")
+	for _, r := range w.roomsWithin(p.Room, yellRange) {
+		for _, o := range w.playersIn(r) {
+			if o != p {
+				o.Send("{Y}" + p.DisplayName() + " yells '" + msg + "'{x}\n")
+			}
+		}
+	}
+}
+
+// roomsWithin returns every room reachable from start in at most n steps
+// along exits, start included.
+func (w *World) roomsWithin(start *room.Room, n int) []*room.Room {
+	seen := map[int]bool{start.Vnum: true}
+	frontier := []*room.Room{start}
+	out := []*room.Room{start}
+	for step := 0; step < n && len(frontier) > 0; step++ {
+		var next []*room.Room
+		for _, r := range frontier {
+			for _, to := range r.Exits {
+				if seen[to] {
+					continue
+				}
+				seen[to] = true
+				if dest, ok := w.content.Rooms.Get(to); ok {
+					next = append(next, dest)
+					out = append(out, dest)
+				}
+			}
+		}
+		frontier = next
+	}
+	return out
+}
