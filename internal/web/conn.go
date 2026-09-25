@@ -10,6 +10,7 @@ import (
 
 	"github.com/coder/websocket"
 
+	"urth/internal/limit"
 	"urth/internal/output"
 	"urth/internal/session"
 	"urth/internal/telnet"
@@ -36,6 +37,7 @@ type conn struct {
 	id        session.ID
 	ws        *websocket.Conn
 	remote    string
+	bucket    *limit.Bucket
 	out       chan []byte
 	closeOnce sync.Once
 	closed    chan struct{}
@@ -107,6 +109,13 @@ func (s *Server) readLoop(c *conn, token string) {
 		if len(line) > telnet.MaxLineLen {
 			line = line[:telnet.MaxLineLen]
 		}
+		switch c.bucket.Allow(time.Now()) {
+		case limit.Drop:
+			continue
+		case limit.Kick:
+			c.closeWith("input flood")
+			continue
+		}
 		select {
 		case <-c.closed:
 		default:
@@ -119,6 +128,7 @@ func (s *Server) readLoop(c *conn, token string) {
 		reason = *r
 	}
 	c.closeWith(reason)
+	s.gate.Release(c.remote)
 	s.mu.Lock()
 	delete(s.conns, c.id)
 	s.mu.Unlock()

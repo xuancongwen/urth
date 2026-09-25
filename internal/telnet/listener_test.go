@@ -6,9 +6,11 @@ import (
 	"io"
 	"log/slog"
 	"net"
+	"strings"
 	"testing"
 	"time"
 
+	"urth/internal/limit"
 	"urth/internal/output"
 	"urth/internal/session"
 )
@@ -154,4 +156,99 @@ func TestSlowClientIsDropped(t *testing.T) {
 	}
 	cancel()
 	<-done
+}
+
+func TestConnectionCapRefusesWithMessage(t *testing.T) {
+	events := make(chan session.Event, 16)
+	l := NewListener("127.0.0.1:0", events, slog.New(slog.NewTextHandler(io.Discard, nil)))
+	l.SetLimits(limit.Config{MaxConns: 1})
+	if err := l.Listen(); err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	go func() { _ = l.Serve(ctx) }()
+
+	first, err := net.Dial("tcp", l.Addr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer first.Close()
+	if _, ok := nextEvent(t, events).(session.Connected); !ok {
+		t.Fatal("expected Connected for the first client")
+	}
+
+	second, err := net.Dial("tcp", l.Addr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer second.Close()
+	_ = second.SetReadDeadline(time.Now().Add(2 * time.Second))
+	line, err := bufio.NewReader(second).ReadString('\n')
+	if err != nil || line != "Too many connections. Try again later.\r\n" {
+		t.Fatalf("second client got %q, %v", line, err)
+	}
+	if _, err := bufio.NewReader(second).ReadByte(); err != io.EOF {
+		t.Fatalf("second client should be closed, got %v", err)
+	}
+	select {
+	case ev := <-events:
+		t.Fatalf("refused client must not reach the world, got %T", ev)
+	case <-time.After(100 * time.Millisecond):
+	}
+
+	// Releasing the first slot lets a new client in.
+	first.Close()
+	if _, ok := nextEvent(t, events).(session.Disconnected); !ok {
+		t.Fatal("expected Disconnected")
+	}
+	third, err := net.Dial("tcp", l.Addr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer third.Close()
+	if _, ok := nextEvent(t, events).(session.Connected); !ok {
+		t.Fatal("expected Connected for the third client")
+	}
+}
+
+func TestInputFloodIsThrottledThenKicked(t *testing.T) {
+	events := make(chan session.Event, 64)
+	l := NewListener("127.0.0.1:0", events, slog.New(slog.NewTextHandler(io.Discard, nil)))
+	l.SetLimits(limit.Config{LinesPerSecond: 1, Burst: 2, FloodLimit: 3})
+	if err := l.Listen(); err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	go func() { _ = l.Serve(ctx) }()
+
+	client, err := net.Dial("tcp", l.Addr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer client.Close()
+	if _, ok := nextEvent(t, events).(session.Connected); !ok {
+		t.Fatal("expected Connected")
+	}
+	// One write: the server may reset the socket once it kicks us, and a
+	// later write would fail for the wrong reason.
+	if _, err := client.Write([]byte(strings.Repeat("look\r\n", 10))); err != nil {
+		t.Fatal(err)
+	}
+	inputs := 0
+	for {
+		switch ev := nextEvent(t, events).(type) {
+		case session.Input:
+			inputs++
+		case session.Disconnected:
+			if ev.Reason != "input flood" {
+				t.Fatalf("reason = %q", ev.Reason)
+			}
+			if inputs != 2 {
+				t.Fatalf("delivered %d lines, want the burst of 2", inputs)
+			}
+			return
+		}
+	}
 }

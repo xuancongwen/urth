@@ -11,6 +11,7 @@ import (
 
 	"github.com/coder/websocket"
 
+	"urth/internal/limit"
 	"urth/internal/output"
 	"urth/internal/session"
 )
@@ -154,4 +155,45 @@ func indexOf(s, sub string) int {
 		}
 	}
 	return -1
+}
+
+func TestConnectionCapReturns503(t *testing.T) {
+	events := make(chan session.Event, 16)
+	s := NewServer("127.0.0.1:0", events, slog.New(slog.NewTextHandler(io.Discard, nil)))
+	s.SetLimits(limit.Config{MaxPerIP: 1})
+	if err := s.Listen(); err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	go func() { _ = s.Serve(ctx) }()
+
+	dctx, cancelDial := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancelDial()
+	first, _, err := websocket.Dial(dctx, "ws://"+s.Addr().String()+"/ws", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer first.CloseNow()
+	if _, ok := nextEvent(t, events).(session.Connected); !ok {
+		t.Fatal("expected Connected")
+	}
+
+	_, resp, err := websocket.Dial(dctx, "ws://"+s.Addr().String()+"/ws", nil)
+	if err == nil || resp == nil || resp.StatusCode != http.StatusServiceUnavailable {
+		t.Fatalf("second dial: err=%v resp=%v", err, resp)
+	}
+
+	// A proxied request from loopback is keyed by the forwarded address,
+	// so a different browser behind cloudflared is not refused.
+	hdr := http.Header{"CF-Connecting-IP": []string{"203.0.113.9"}}
+	third, _, err := websocket.Dial(dctx, "ws://"+s.Addr().String()+"/ws", &websocket.DialOptions{HTTPHeader: hdr})
+	if err != nil {
+		t.Fatalf("forwarded client refused: %v", err)
+	}
+	defer third.CloseNow()
+	c := nextEvent(t, events).(session.Connected).Conn
+	if c.RemoteAddr() != "203.0.113.9" {
+		t.Fatalf("remote = %q, want the forwarded address", c.RemoteAddr())
+	}
 }

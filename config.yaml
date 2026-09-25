@@ -8,6 +8,17 @@ server:
   # WebSocket listener and bare browser client. Leave empty to disable.
   # Open http://<addr>/ in a browser.
   websocket_addr: 127.0.0.1:4001
+  # Flood protection, applied to each listener separately. 0 disables one.
+  limits:
+    # Live connections on the listener, and from one address. Behind
+    # cloudflared the web listener keys addresses by CF-Connecting-IP.
+    max_connections: 256
+    max_per_ip: 8
+    # Input lines per connection: a sustained rate, a burst allowance, and
+    # how many lines over the rate get a client disconnected.
+    input_lines_per_second: 10
+    input_burst: 20
+    input_flood_limit: 200
 
 timing:
   # World loop period. Input is processed once per tick.

@@ -14,6 +14,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"urth/internal/limit"
 	"urth/internal/output"
 	"urth/internal/session"
 )
@@ -35,12 +36,16 @@ type Listener struct {
 	mu    sync.Mutex
 	conns map[session.ID]*conn
 	ln    net.Listener
+	gate  *limit.Gate // nil admits everything
 }
 
 // NewListener creates a listener that reports to events.
 func NewListener(addr string, events chan<- session.Event, log *slog.Logger) *Listener {
 	return &Listener{addr: addr, events: events, log: log, conns: map[session.ID]*conn{}}
 }
+
+// SetLimits installs connection and input caps. Call before Serve.
+func (l *Listener) SetLimits(cfg limit.Config) { l.gate = limit.New(cfg) }
 
 // Listen binds the address. Serve calls it if it has not been called; tests
 // call it first so they can read Addr before connecting.
@@ -79,6 +84,8 @@ func (l *Listener) File() (*os.File, error) {
 // it to the world as Connected with restore information.
 func (l *Listener) Adopt(nc net.Conn, restore *session.Restore) {
 	c := newConn(session.NextID(), nc)
+	l.gate.Admit(c.ip, true)
+	c.bucket = l.gate.NewBucket(time.Now())
 	l.mu.Lock()
 	l.conns[c.id] = c
 	l.mu.Unlock()
@@ -126,6 +133,14 @@ func (l *Listener) Serve(ctx context.Context) error {
 			_ = tc.SetNoDelay(true)
 		}
 		c := newConn(session.NextID(), nc)
+		if !l.gate.Admit(c.ip, false) {
+			l.log.Warn("connection refused: limit", "remote", c.ip)
+			_ = nc.SetWriteDeadline(time.Now().Add(time.Second))
+			_, _ = nc.Write([]byte("Too many connections. Try again later.\r\n"))
+			nc.Close()
+			continue
+		}
+		c.bucket = l.gate.NewBucket(time.Now())
 		l.mu.Lock()
 		l.conns[c.id] = c
 		l.mu.Unlock()
@@ -143,6 +158,8 @@ func (l *Listener) Serve(ctx context.Context) error {
 type conn struct {
 	id        session.ID
 	nc        net.Conn
+	ip        string // remote address without the port, for limits
+	bucket    *limit.Bucket
 	out       chan string
 	closeOnce sync.Once
 	closed    chan struct{}
@@ -150,9 +167,14 @@ type conn struct {
 }
 
 func newConn(id session.ID, nc net.Conn) *conn {
+	ip, _, err := net.SplitHostPort(nc.RemoteAddr().String())
+	if err != nil {
+		ip = nc.RemoteAddr().String()
+	}
 	return &conn{
 		id:     id,
 		nc:     nc,
+		ip:     ip,
 		out:    make(chan string, outboundBuffer),
 		closed: make(chan struct{}),
 	}
@@ -208,6 +230,13 @@ func (l *Listener) readLoop(c *conn, restore *session.Restore) {
 		if err != nil && !errors.Is(err, ErrLineTooLong) {
 			break
 		}
+		switch c.bucket.Allow(time.Now()) {
+		case limit.Drop:
+			continue
+		case limit.Kick:
+			c.closeWith("input flood")
+			continue
+		}
 		select {
 		case <-c.closed:
 			// Discard input typed after the server closed us.
@@ -221,6 +250,7 @@ func (l *Listener) readLoop(c *conn, restore *session.Restore) {
 		reason = *r
 	}
 	c.closeWith(reason)
+	l.gate.Release(c.ip)
 	l.mu.Lock()
 	delete(l.conns, c.id)
 	l.mu.Unlock()

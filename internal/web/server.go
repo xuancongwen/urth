@@ -13,11 +13,13 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
 	"github.com/coder/websocket"
 
+	"urth/internal/limit"
 	"urth/internal/session"
 )
 
@@ -34,7 +36,11 @@ type Server struct {
 
 	mu    sync.Mutex
 	conns map[session.ID]*conn
+	gate  *limit.Gate // nil admits everything
 }
+
+// SetLimits installs connection and input caps. Call before Serve.
+func (s *Server) SetLimits(cfg limit.Config) { s.gate = limit.New(cfg) }
 
 // NewServer creates a server reporting to events.
 func NewServer(addr string, events chan<- session.Event, log *slog.Logger) *Server {
@@ -118,16 +124,46 @@ func (s *Server) Serve(ctx context.Context) error {
 }
 
 func (s *Server) handleWS(w http.ResponseWriter, r *http.Request) {
-	ws, err := websocket.Accept(w, r, nil)
-	if err != nil {
-		s.log.Warn("websocket accept failed", "err", err, "remote", r.RemoteAddr)
+	ip := clientIP(r)
+	if !s.gate.Admit(ip, false) {
+		s.log.Warn("connection refused: limit", "remote", ip)
+		http.Error(w, "too many connections", http.StatusServiceUnavailable)
 		return
 	}
-	c := newConn(session.NextID(), ws, r.RemoteAddr)
+	ws, err := websocket.Accept(w, r, nil)
+	if err != nil {
+		s.gate.Release(ip)
+		s.log.Warn("websocket accept failed", "err", err, "remote", ip)
+		return
+	}
+	c := newConn(session.NextID(), ws, ip)
+	c.bucket = s.gate.NewBucket(time.Now())
 	s.mu.Lock()
 	s.conns[c.id] = c
 	s.mu.Unlock()
 	s.wg.Add(2)
 	go s.writeLoop(c)
 	s.readLoop(c, r.URL.Query().Get("token")) // runs on the HTTP handler goroutine
+}
+
+// clientIP is the address limits and logs are keyed by. A request from
+// loopback is trusted to come from a proxy on this host (cloudflared, or
+// a reverse proxy), and the proxy's header names the real client; any
+// other request is keyed by its socket address so headers cannot be
+// spoofed from the internet.
+func clientIP(r *http.Request) string {
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		host = r.RemoteAddr
+	}
+	if ip := net.ParseIP(host); ip != nil && ip.IsLoopback() {
+		if h := r.Header.Get("CF-Connecting-IP"); h != "" {
+			return h
+		}
+		if h := r.Header.Get("X-Forwarded-For"); h != "" {
+			first, _, _ := strings.Cut(h, ",")
+			return strings.TrimSpace(first)
+		}
+	}
+	return host
 }

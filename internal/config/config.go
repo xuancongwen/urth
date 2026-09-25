@@ -28,6 +28,25 @@ type Server struct {
 	TelnetAddr string `yaml:"telnet_addr"`
 	// WebSocketAddr is the host:port for the WebSocket listener. Empty disables it.
 	WebSocketAddr string `yaml:"websocket_addr"`
+	// Limits protect both listeners from floods (internal/limit).
+	Limits Limits `yaml:"limits"`
+}
+
+// Limits are per-listener connection and input caps. Zero disables one.
+type Limits struct {
+	// MaxConnections caps live connections on each listener.
+	MaxConnections int `yaml:"max_connections"`
+	// MaxPerIP caps live connections from one address on each listener.
+	// Behind cloudflared the web listener uses the CF-Connecting-IP header
+	// so every browser does not count as 127.0.0.1.
+	MaxPerIP int `yaml:"max_per_ip"`
+	// InputLinesPerSecond is the sustained input rate per connection;
+	// InputBurst is how many lines may arrive at once. Lines over the
+	// rate are dropped; a client that keeps flooding past InputFloodLimit
+	// is disconnected.
+	InputLinesPerSecond int `yaml:"input_lines_per_second"`
+	InputBurst          int `yaml:"input_burst"`
+	InputFloodLimit     int `yaml:"input_flood_limit"`
 }
 
 // Timing controls the world loop.
@@ -75,6 +94,13 @@ func Default() Config {
 			Name:          "Urth",
 			TelnetAddr:    "127.0.0.1:4000",
 			WebSocketAddr: "",
+			Limits: Limits{
+				MaxConnections:      256,
+				MaxPerIP:            8,
+				InputLinesPerSecond: 10,
+				InputBurst:          20,
+				InputFloodLimit:     200,
+			},
 		},
 		Timing: Timing{
 			TickMs:          100,
@@ -119,6 +145,10 @@ func Load(path string) (cfg Config, found bool, err error) {
 func (c Config) Validate() error {
 	if c.Server.TelnetAddr == "" && c.Server.WebSocketAddr == "" {
 		return errors.New("at least one of server.telnet_addr or server.websocket_addr must be set")
+	}
+	lim := c.Server.Limits
+	if lim.MaxConnections < 0 || lim.MaxPerIP < 0 || lim.InputLinesPerSecond < 0 || lim.InputBurst < 0 || lim.InputFloodLimit < 0 {
+		return errors.New("server.limits values must not be negative")
 	}
 	if c.Timing.TickMs < 10 || c.Timing.TickMs > 5000 {
 		return fmt.Errorf("timing.tick_ms must be between 10 and 5000, got %d", c.Timing.TickMs)

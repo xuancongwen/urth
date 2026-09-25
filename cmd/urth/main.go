@@ -20,6 +20,7 @@ import (
 	"urth/internal/config"
 	"urth/internal/content"
 	"urth/internal/copyover"
+	"urth/internal/limit"
 	"urth/internal/script"
 	"urth/internal/session"
 	"urth/internal/store"
@@ -82,6 +83,9 @@ func run() error {
 	}
 	logger.Info("world loaded", "areas", len(world_.Rooms.Areas), "rooms", len(world_.Rooms.Rooms),
 		"items", len(world_.Items), "mobs", len(world_.Mobs))
+	for _, warn := range world_.Rooms.Warnings {
+		logger.Warn("map layout", "problem", warn)
+	}
 
 	players, err := store.New(filepath.Join(cfg.Paths.Data, "players"), bcrypt.DefaultCost)
 	if err != nil {
@@ -158,11 +162,20 @@ func run() error {
 	w := world.New(cfg, world_, logger.With("component", "world"), deps)
 	w.RegisterTokens(state.Players)
 
+	limits := limit.Config{
+		MaxConns:       cfg.Server.Limits.MaxConnections,
+		MaxPerIP:       cfg.Server.Limits.MaxPerIP,
+		LinesPerSecond: cfg.Server.Limits.InputLinesPerSecond,
+		Burst:          cfg.Server.Limits.InputBurst,
+		FloodLimit:     cfg.Server.Limits.InputFloodLimit,
+	}
 	if cfg.Server.TelnetAddr != "" {
 		tl = telnet.NewListener(cfg.Server.TelnetAddr, w.Events(), logger.With("component", "telnet"))
+		tl.SetLimits(limits)
 	}
 	if cfg.Server.WebSocketAddr != "" {
 		ws = web.NewServer(cfg.Server.WebSocketAddr, w.Events(), logger.With("component", "web"))
+		ws.SetLimits(limits)
 	}
 
 	// Adopt inherited sockets before serving so restored players are known
