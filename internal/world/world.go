@@ -259,7 +259,9 @@ func (w *World) runCommands() {
 // movement, area resets, script reload, autosave.
 func (w *World) round() {
 	w.roundCount++
+	w.tickCooldowns()
 	w.violence()
+	w.tickCasting()
 	w.regen()
 	w.tickEffects()
 	w.decayItems()
@@ -329,6 +331,8 @@ func (w *World) shutdown() {
 // leave removes a player from the map, telling the room.
 func (w *World) leave(p *Player) {
 	w.stopFighting(p.Character, true)
+	w.leaveGroup(p.Character)
+	p.casting = nil
 	if p.Room == nil {
 		return
 	}

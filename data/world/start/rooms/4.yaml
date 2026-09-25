@@ -2,6 +2,8 @@ vnum: 4
 name: The South Road
 description: |
   The road runs straight and flat toward a line of dark trees. Crows watch
-  from a fence post.
+  from a fence post. A worn path leaves the road to the south, toward a
+  wooden roof among the trees. Someone has left flowers along it.
 exits:
   north: 1
+  south: 21

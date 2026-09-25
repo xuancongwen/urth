@@ -1,0 +1,9 @@
+vnum: 122
+name: a knob of tallow
+keywords: [knob, tallow]
+description: A knob of tallow lies here.
+look: |
+  Rendered fat, waxy and faintly sweet.
+type: material
+material: tallow
+rarity: common

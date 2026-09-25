@@ -1,0 +1,9 @@
+vnum: 124
+name: a sprig of nightshade
+keywords: [sprig, nightshade]
+description: A sprig of nightshade lies here.
+look: |
+  Purple-black berries. Do not eat them.
+type: material
+material: nightshade
+rarity: uncommon

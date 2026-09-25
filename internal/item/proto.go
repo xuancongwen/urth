@@ -23,6 +23,8 @@ const (
 	Weapon    Type = "weapon"
 	Armor     Type = "armor"
 	Container Type = "container"
+	Material  Type = "material" // consumed by spells (docs/RULES.md 6.2)
+	Totem     Type = "totem"    // consumed to unlock a school (6.1)
 	Other     Type = "other"
 )
 
@@ -75,6 +77,15 @@ type Proto struct {
 	Mods   map[string]int `yaml:"mods,omitempty"`
 	// Effects are intrinsic: every instance of this prototype has them.
 	Effects []effect.Spec `yaml:"effects,omitempty"`
+	// Material is the pool name a material item counts as ("ash"), and
+	// Rarity its tier ("common", "uncommon", "rare", "deterministic").
+	Material string `yaml:"material,omitempty"`
+	Rarity   string `yaml:"rarity,omitempty"`
+	// School is the arcane school a totem unlocks.
+	School string `yaml:"school,omitempty"`
+	// Sacrifice names the deity ("good", "neutral", "evil") that accepts
+	// this item as a great sacrifice at its temple.
+	Sacrifice string `yaml:"sacrifice,omitempty"`
 	// Resolved is the numbers the game actually uses: stated fields with
 	// the baseline filling the gaps. Set by the world after load and after
 	// every script reload; never read from YAML.
@@ -197,6 +208,17 @@ func (p *Proto) validate() error {
 	}
 	switch p.Type {
 	case Weapon, Armor, Container, Other:
+	case Material:
+		if p.Material == "" {
+			return fmt.Errorf("item %d: a material needs a material name", p.Vnum)
+		}
+		if p.Rarity == "" {
+			p.Rarity = "common"
+		}
+	case Totem:
+		if p.School == "" {
+			return fmt.Errorf("item %d: a totem needs a school", p.Vnum)
+		}
 	default:
 		return fmt.Errorf("item %d: unknown type %q", p.Vnum, p.Type)
 	}

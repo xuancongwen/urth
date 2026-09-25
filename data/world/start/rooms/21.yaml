@@ -1,0 +1,9 @@
+vnum: 21
+name: A Wayside Shrine
+description: |
+  A low stone altar under a wooden roof, a little off the south road. A
+  rising sun is cut into the stone, worn smooth by hands. There is
+  nothing on the altar. Whatever people bring here does not stay.
+exits:
+  north: 4
+temple: good

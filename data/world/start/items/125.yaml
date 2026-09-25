@@ -1,0 +1,9 @@
+vnum: 125
+name: a vial of quicksilver
+keywords: [vial, quicksilver]
+description: A vial of quicksilver lies here.
+look: |
+  It rolls and shivers inside the glass.
+type: material
+material: quicksilver
+rarity: uncommon

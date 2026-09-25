@@ -34,8 +34,12 @@ type Record struct {
 	Stats      map[string]int `yaml:"stats,omitempty"`
 	StatPoints int            `yaml:"stat_points,omitempty"`
 	FeatPoints int            `yaml:"feat_points,omitempty"`
-	Health     int            `yaml:"health"`
-	Mana       int            `yaml:"mana"`
+	// Magic access (docs/RULES.md 6.1): unlocked arcane schools and the
+	// deity served, if any.
+	Schools []string `yaml:"schools,omitempty"`
+	Deity   string   `yaml:"deity,omitempty"`
+	Health  int      `yaml:"health"`
+	Mana    int      `yaml:"mana"`
 	// Effects are the character's active effects: feats (permanent) and
 	// anything timed that was running at save.
 	Effects []effect.Active `yaml:"effects,omitempty"`

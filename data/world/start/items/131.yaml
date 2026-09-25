@@ -1,0 +1,9 @@
+vnum: 131
+name: a salt-crusted totem
+keywords: [salt, crusted, totem]
+description: A salt-crusted totem stands in a corner.
+look: |
+  Driftwood, rimed white with salt, carved with a closed circle. It is
+  heavier than it should be, as if it were holding something out.
+type: totem
+school: abjuration

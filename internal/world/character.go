@@ -37,8 +37,20 @@ type Character struct {
 	// Effects on the character: feats are permanent, buffs and poisons are
 	// timed. The engine stores and counts them; the rules interpret them.
 	Effects []effect.Active
+	// Magic access (docs/RULES.md 6.1).
+	Schools []string
+	Deity   string
+	// casting is the spell in progress, if any; cooldowns are rounds left
+	// per spell id.
+	casting   *casting
+	cooldowns map[string]int
 
+	// Fighting is the current target. Everyone whose Fighting is this
+	// character is one of its attackers (enemiesOf).
 	Fighting *Character
+	// following and group implement parties (docs/RULES.md 4.7).
+	following *Character
+	group     *Group
 
 	Inventory []*item.Item
 	Equipment map[item.Slot]*item.Item
@@ -50,6 +62,16 @@ type Character struct {
 
 func newCharacter(name string, keywords []string) *Character {
 	return &Character{Name: name, Keywords: keywords, Level: 1, Stats: map[string]int{}, HealthMax: 1, Health: 1, Speed: 1, Equipment: map[item.Slot]*item.Item{}}
+}
+
+// HasSchool reports whether the character has unlocked the school.
+func (c *Character) HasSchool(school string) bool {
+	for _, s := range c.Schools {
+		if s == school {
+			return true
+		}
+	}
+	return false
 }
 
 // IsPlayer reports whether this character is a connected player.

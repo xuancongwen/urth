@@ -80,7 +80,10 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	files := map[string]string{
 		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: The hub.\nexits:\n  north: 2\n",
 		"a/rooms/2.yaml":  "vnum: 2\nname: North\ndescription: Up north.\nexits:\n  south: 1\n  east: 3\n",
-		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\n",
+		"b/rooms/3.yaml":  "vnum: 3\nname: Elsewhere\ndescription: Another area.\nexits:\n  west: 2\nflags: [safe]\ntemple: good\n",
+		"a/items/16.yaml": "vnum: 16\nname: an ember totem\nkeywords: [ember, totem]\ntype: totem\nschool: evocation\n",
+		"a/items/17.yaml": "vnum: 17\nname: a handful of ash\nkeywords: [handful, ash]\ntype: material\nmaterial: ash\n",
+		"a/items/18.yaml": "vnum: 18\nname: a sun cup\nkeywords: [sun, cup]\nsacrifice: good\n",
 		"a/items/10.yaml": "vnum: 10\nname: a rusty sword\nkeywords: [rusty, sword]\ndescription: A rusty sword lies here.\nlook: Pitted and dull.\ntype: weapon\nweapon:\n  damage: 4\n  hands: 1\n  verb: slash\n",
 		"a/items/15.yaml": "vnum: 15\nname: a plain spear\nkeywords: [plain, spear]\ntype: weapon\nlevel: 3\nbaseline: standard\nweapon:\n  hands: 2\n",
 		"a/items/11.yaml": "vnum: 11\nname: a leather cap\nkeywords: [leather, cap]\ntype: armor\nslot: head\narmor:\n  defense: 1\n",

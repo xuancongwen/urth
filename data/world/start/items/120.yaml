@@ -1,0 +1,9 @@
+vnum: 120
+name: a handful of ash
+keywords: [handful, ash]
+description: A handful of grey ash lies here.
+look: |
+  Cold and fine. It sticks to the fingers.
+type: material
+material: ash
+rarity: common

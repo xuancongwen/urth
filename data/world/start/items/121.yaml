@@ -1,0 +1,9 @@
+vnum: 121
+name: a lump of salt
+keywords: [lump, salt]
+description: A lump of rock salt lies here.
+look: |
+  Grey-white and heavy for its size.
+type: material
+material: salt
+rarity: common

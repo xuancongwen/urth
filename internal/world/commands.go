@@ -53,6 +53,14 @@ func init() {
 		{"score", 2, cmdScore, false},
 		{"train", 2, cmdTrain, false},
 		{"feat", 3, cmdFeat, false},
+		{"follow", 3, cmdFollow, false},
+		{"group", 2, cmdGroup, false},
+		{"gtell", 2, cmdGtell, false},
+		{"assist", 2, cmdAssist, false},
+		{"cast", 1, cmdCast, false},
+		{"spells", 3, cmdSpells, false},
+		{"consume", 4, cmdConsume, false},
+		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},
 		{"color", 3, cmdColor, false},
 		{"save", 2, cmdSave, false},
@@ -132,10 +140,13 @@ func cmdMove(dir string) func(w *World, p *Player, args string) {
 			p.Send("That way leads nowhere.\n")
 			return
 		}
+		w.interruptCast(p.Character, "You stop casting as you move.")
 		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
+		from := p.Room
 		p.Room = dest
 		w.act("$n arrives from the $t.", p.Character, nil, room.Opposite[dir], toRoom)
 		w.look(p)
+		w.followLeader(p.Character, from, dest, dir)
 	}
 }
 

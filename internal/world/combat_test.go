@@ -619,3 +619,276 @@ func TestSimulateFighterUsesStandardKit(t *testing.T) {
 		t.Fatalf("bad level: %q", o)
 	}
 }
+
+const magicRules = testRules + `
+function spellList() {
+  return [
+    { id: "bolt", name: "Bolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+      materials: [{ material: "ash", count: 1 }], target: "single", save: "reflex", saveEffect: "half" },
+    { id: "ward", name: "Ward", branch: "abjuration" === "x" ? "" : "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 0,
+      materials: [], target: "self", save: "none" },
+    { id: "nova", name: "Nova", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: false, cooldown: 0,
+      materials: [], target: "area", save: "none" },
+    { id: "mend", name: "Mend", branch: "divine", deity: "good", castRounds: 0, interruptOnDamage: false, cooldown: 0,
+      materials: [], target: "ally", save: "none" }
+  ];
+}
+function resolveCast(caster, targets, spell) {
+  var out = { ok: true, message: "", consume: [], targets: [], casterEffects: [] };
+  for (var i = 0; i < targets.length; i++) {
+    var t = targets[i];
+    if (spell.id === "bolt") out.targets.push({ index: i, damage: 5, saved: t.name === "Dodger", effects: [] });
+    if (spell.id === "nova") out.targets.push({ index: i, damage: 3, effects: [] });
+    if (spell.id === "ward") out.targets.push({ index: i, effects: [{ kind: "tough", params: {}, rounds: 4 }] });
+    if (spell.id === "mend") out.targets.push({ index: i, heal: 6 });
+  }
+  return out;
+}
+`
+
+func giveItem(w *World, c *Character, vnum int) *item.Item {
+	it := item.New(w.content.Items[vnum])
+	c.Inventory = append(c.Inventory, it)
+	return it
+}
+
+func TestTotemSacrificeAndSpellAccess(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, magicRules)
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "You know no spells.") {
+		t.Fatalf("no spells: %q", o)
+	}
+	send(w, 1, "cast bolt guard")
+	if o := bob.take(); !strings.Contains(o, "don't know that spell") {
+		t.Fatalf("cast unknown: %q", o)
+	}
+	giveItem(w, w.players[1].Character, 16) // the ember totem: evocation
+	send(w, 1, "consume totem")
+	if o := bob.take(); !strings.Contains(o, "The ways of evocation open to you.") {
+		t.Fatalf("consume totem: %q", o)
+	}
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "Bolt") || strings.Contains(o, "Ward") || !strings.Contains(o, "needs 1 ash") {
+		t.Fatalf("spells after totem: %q", o)
+	}
+	// Sacrifice only at the temple, only the right item.
+	giveItem(w, w.players[1].Character, 18) // the sun cup: sacrifice good
+	send(w, 1, "sacrifice cup")
+	if o := bob.take(); !strings.Contains(o, "no altar here") {
+		t.Fatalf("sacrifice outside temple: %q", o)
+	}
+	send(w, 1, "n")
+	bob.take()
+	send(w, 1, "e") // room 3 is the temple in the test world
+	bob.take()
+	send(w, 1, "sacrifice sack")
+	if o := bob.take(); !strings.Contains(o, "don't have that") {
+		t.Fatalf("sacrifice missing: %q", o)
+	}
+	send(w, 1, "sacrifice cup")
+	if o := bob.take(); !strings.Contains(o, "apostle of the good god") {
+		t.Fatalf("sacrifice: %q", o)
+	}
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "Mend") || !strings.Contains(o, "Apostle of the good god") {
+		t.Fatalf("spells after sacrifice: %q", o)
+	}
+	// Access persists.
+	p := w.players[1]
+	w.save(p)
+	if len(p.rec.Schools) != 1 || p.rec.Schools[0] != "evocation" || p.rec.Deity != "good" {
+		t.Fatalf("access not saved: %+v %q", p.rec.Schools, p.rec.Deity)
+	}
+}
+
+func TestCastTimingMaterialsAndInterruption(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, magicRules)
+	p := w.players[1]
+	p.Schools = []string{"evocation", "abjuration"}
+	p.HealthMax, p.Health = 100, 100
+	send(w, 1, "cast bolt guard")
+	if o := bob.take(); !strings.Contains(o, "You need 1 ash to cast Bolt.") {
+		t.Fatalf("materials check: %q", o)
+	}
+	giveItem(w, p.Character, 17) // ash
+	giveItem(w, p.Character, 17)
+	send(w, 1, "cast bolt guard")
+	if o := bob.take(); !strings.Contains(o, "You begin casting Bolt.") {
+		t.Fatalf("begin cast: %q", o)
+	}
+	if n := len(materialsHeld(p.Character, "ash")); n != 1 {
+		t.Fatalf("material not committed at start: %d ash held", n)
+	}
+	if p.casting == nil || p.casting.rounds != 1 {
+		t.Fatalf("casting state: %+v", p.casting)
+	}
+	for i := 0; i < 10; i++ { // one round: the cast completes
+		w.Tick()
+	}
+	o := bob.take()
+	if !strings.Contains(o, "You cast Bolt.") || !strings.Contains(o, "Your bolt hits a city guard. [5]") {
+		t.Fatalf("cast resolved: %q", o)
+	}
+	guard := w.contents(p.Room).mobs[0]
+	if guard.Health != 12-5 || guard.Fighting != p.Character || p.Fighting != guard.Character {
+		t.Fatalf("hostile cast did not start the fight: hp=%d", guard.Health)
+	}
+	send(w, 1, "cast bolt")
+	if o := bob.take(); !strings.Contains(o, "Bolt is not ready for another 3 rounds.") {
+		t.Fatalf("cooldown: %q", o)
+	}
+	// A free cast resolves at once and attaches a timed effect.
+	send(w, 1, "cast ward")
+	if o := bob.take(); !strings.Contains(o, "You cast Ward.") || !strings.Contains(o, "Your ward takes hold.") {
+		t.Fatalf("instant cast: %q", o)
+	}
+	if len(p.Effects) != 1 || p.Effects[0].Kind != "tough" || p.Effects[0].Rounds < 3 || p.Effects[0].Rounds > 4 {
+		t.Fatalf("effect not attached: %+v", p.Effects)
+	}
+	// Damage interrupts an interruptible cast; materials are gone.
+	send(w, 1, "flee")
+	bob.take()
+	send(w, 1, "s")
+	bob.take()
+	for i := 0; i < 40; i++ { // wait out the cooldown
+		w.Tick()
+	}
+	bob.take()
+	send(w, 1, "kill guard")
+	bob.take()
+	send(w, 1, "cast bolt")
+	if o := bob.take(); !strings.Contains(o, "You begin casting Bolt.") {
+		t.Fatalf("second cast: %q", o)
+	}
+	for i := 0; i < 10; i++ {
+		w.Tick()
+	}
+	if o := bob.take(); !strings.Contains(o, "Your Bolt is interrupted!") {
+		t.Fatalf("damage interruption: %q", o)
+	}
+	if len(materialsHeld(p.Character, "ash")) != 0 || p.casting != nil {
+		t.Fatal("interrupted cast should keep the materials spent and clear the cast")
+	}
+	// Movement interrupts too.
+	send(w, 1, "flee")
+	bob.take()
+	send(w, 1, "cast nova")
+	bob.take()
+	send(w, 1, "s")
+	if o := bob.take(); !strings.Contains(o, "You stop casting as you move.") {
+		t.Fatalf("movement interruption: %q", o)
+	}
+}
+
+func TestAreaSpellSafeRoomAndGroupXP(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	setRules(t, w, magicRules)
+	w.players[1].Schools = []string{"evocation"}
+	// Alice follows Bob and joins his group.
+	send(w, 2, "follow bob")
+	if o := alice.take(); !strings.Contains(o, "You now follow Bob.") {
+		t.Fatalf("follow: %q", o)
+	}
+	send(w, 1, "group alice")
+	if o := bob.take(); !strings.Contains(o, "Alice joins your group.") {
+		t.Fatalf("group: %q", o)
+	}
+	send(w, 1, "gtell hello")
+	if o := alice.take(); !strings.Contains(o, "Bob tells the group 'hello'") {
+		t.Fatalf("gtell: %q", o)
+	}
+	// Nova hits everyone here who is not in the group: the guard, not Alice.
+	send(w, 1, "cast nova")
+	bob.take()
+	for i := 0; i < 20; i++ {
+		w.Tick()
+	}
+	o := bob.take()
+	if !strings.Contains(o, "Your nova hits a city guard. [3]") || strings.Contains(o, "hits Alice") {
+		t.Fatalf("area targeting: %q", o)
+	}
+	if w.players[2].Health != w.players[2].HealthMax {
+		t.Fatal("area spell hit a group member")
+	}
+	// The guard fights Bob; Alice auto-assists because she is grouped and here.
+	if w.players[2].Fighting == nil {
+		t.Fatal("grouped player did not assist")
+	}
+	// A kill pays every grouped player here.
+	guard := w.contents(w.players[1].Room).mobs[0]
+	guard.Health = 1
+	w.attackRound(w.players[1].Character, guard.Character)
+	w.Tick()
+	bob.take()
+	alice.take()
+	if w.players[1].Experience != 60 || w.players[2].Experience != 60 {
+		t.Fatalf("group xp: bob=%d alice=%d", w.players[1].Experience, w.players[2].Experience)
+	}
+	// Followers move with the leader; the safe room forbids fighting.
+	send(w, 1, "n")
+	bob.take()
+	if o := alice.take(); !strings.Contains(o, "You follow Bob.") || w.players[2].Room.Vnum != 2 {
+		t.Fatalf("follow move: %q room=%d", o, w.players[2].Room.Vnum)
+	}
+	send(w, 1, "kill alice")
+	if o := bob.take(); !strings.Contains(o, "can't attack a member of your group") {
+		t.Fatalf("group protection: %q", o)
+	}
+	send(w, 1, "e") // room 3: safe temple
+	bob.take()
+	alice.take()
+	send(w, 2, "follow self")
+	alice.take()
+	bob.take()
+	send(w, 1, "kill alice")
+	if o := bob.take(); !strings.Contains(o, "You cannot fight here.") {
+		t.Fatalf("safe room: %q", o)
+	}
+}
+
+func TestKillSwitchesTargetAndManyOnOne(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.HealthMax, p.Health = 1000, 1000
+	send(w, 1, "n") // two dogs
+	bob.take()
+	dogs := w.contents(p.Room).mobs
+	if len(dogs) < 2 {
+		t.Skip("need two dogs")
+	}
+	send(w, 1, "kill dog")
+	bob.take()
+	send(w, 1, "kill 2.dog")
+	if o := bob.take(); !strings.Contains(o, "You turn on a stray dog.") {
+		t.Fatalf("switch: %q", o)
+	}
+	if p.Fighting != dogs[1].Character {
+		t.Fatal("target did not switch")
+	}
+	// The first dog keeps fighting Bob: two attackers, one target.
+	for i := 0; i < 10; i++ {
+		w.Tick()
+	}
+	if n := countOccurrences(bob.take(), "A stray dog's punch hits you. [1]"); n != 2 {
+		t.Fatalf("expected both dogs to swing, got %d", n)
+	}
+	if en := w.enemiesOf(p.Character); len(en) != 2 {
+		t.Fatalf("enemies: %d", len(en))
+	}
+	// When the current target dies, Bob turns on the other attacker.
+	dogs[1].Health = 1
+	w.attackRound(p.Character, dogs[1].Character)
+	for i := 0; i < 10; i++ {
+		w.Tick()
+	}
+	if p.Fighting != dogs[0].Character {
+		t.Fatal("did not retarget the remaining attacker")
+	}
+}

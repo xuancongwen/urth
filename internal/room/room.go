@@ -30,10 +30,29 @@ type Room struct {
 	Name        string         `yaml:"name"`
 	Description string         `yaml:"description"`
 	Exits       map[string]int `yaml:"exits"`
+	// Flags: "safe" forbids fighting here (docs/RULES.md 4.7). Others are
+	// free for rules and builders.
+	Flags []string `yaml:"flags,omitempty"`
+	// Temple names the deity whose temple this is ("good", "neutral",
+	// "evil"); sacrifice works only here (docs/RULES.md 6.1).
+	Temple string `yaml:"temple,omitempty"`
 
 	// Area is the directory name the room was loaded from.
 	Area string `yaml:"-"`
 }
+
+// HasFlag reports whether the room carries flag.
+func (r *Room) HasFlag(flag string) bool {
+	for _, f := range r.Flags {
+		if f == flag {
+			return true
+		}
+	}
+	return false
+}
+
+// Safe reports whether fighting is forbidden here.
+func (r *Room) Safe() bool { return r.HasFlag("safe") }
 
 // Area is the optional data/world/<area>/area.yaml metadata.
 type Area struct {

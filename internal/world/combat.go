@@ -21,10 +21,6 @@ func cmdKill(w *World, p *Player, args string) {
 		p.Send("Kill whom?\n")
 		return
 	}
-	if p.Fighting != nil {
-		p.Send("You are already fighting!\n")
-		return
-	}
 	target := w.findCharacter(p.Room, p.Character, args)
 	if target == nil {
 		p.Send("They aren't here.\n")
@@ -32,6 +28,30 @@ func cmdKill(w *World, p *Player, args string) {
 	}
 	if target.mob != nil && target.mob.Proto.HasFlag("peaceful") {
 		p.Send("You can't bring yourself to attack " + output.Escape(target.Name) + ".\n")
+		return
+	}
+	if p.Room.Safe() {
+		p.Send("You cannot fight here.\n")
+		return
+	}
+	if sameGroup(p.Character, target) {
+		p.Send("You can't attack a member of your group.\n")
+		return
+	}
+	if p.Fighting == target {
+		p.Send("You are already fighting them!\n")
+		return
+	}
+	if p.Fighting != nil {
+		// Switching targets mid-fight (docs/RULES.md 4.7).
+		w.act("You turn on $N.", p.Character, target, "", toChar)
+		w.act("$n turns on you.", p.Character, target, "", toVict)
+		w.act("$n turns on $N.", p.Character, target, "", toNotVict)
+		p.Fighting = target
+		if target.Fighting == nil {
+			target.Fighting = p.Character
+			target.swing = 0
+		}
 		return
 	}
 	w.startFight(p.Character, target)
@@ -47,6 +67,7 @@ func (w *World) startFight(att, def *Character) {
 		def.Fighting = att
 		def.swing = 0
 	}
+	w.autoAssist(att, def)
 }
 
 // stopFighting ends c's fight and any fight aimed at c.
@@ -88,8 +109,18 @@ func (w *World) violence() {
 			continue
 		}
 		if def.Room != c.Room || c.Room == nil || def.Health <= 0 {
+			// The target is gone; turn on anyone still fighting us.
 			c.Fighting = nil
-			continue
+			for _, e := range w.enemiesOf(c) {
+				if e.Health > 0 {
+					c.Fighting = e
+					def = e
+					break
+				}
+			}
+			if c.Fighting == nil {
+				continue
+			}
 		}
 		c.swing += c.Speed
 		for c.swing >= 1 {
@@ -135,6 +166,9 @@ func (w *World) attackRound(att, def *Character) {
 	w.act("$n's "+verb+" hits you. {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
 	w.act("$n's "+verb+" hits $N."+crit, att, def, "", toNotVict)
 	def.Health -= r.Damage
+	if def.casting != nil && def.casting.spell.InterruptOnDamage {
+		w.interruptCast(def, "Your "+output.Escape(def.casting.spell.Name)+" is interrupted!")
+	}
 	if def.Health <= 0 {
 		w.die(def, att)
 	}
@@ -151,11 +185,18 @@ func (w *World) die(victim, killer *Character) {
 	rules := w.deathRules()
 	w.makeCorpse(victim, rules.CorpseRounds)
 
+	victim.casting = nil
 	if victim.mob != nil {
 		m := victim.mob
+		room := m.Room
 		w.removeMobFromRoom(m)
 		if killer != nil && killer.player != nil {
-			w.grantXP(killer, w.xpForKill(killer, victim))
+			// Every grouped player here earns the kill as if alone (4.7).
+			for _, member := range groupOf(killer) {
+				if member.Room == room && member.player != nil {
+					w.grantXP(member, w.xpForKill(member, victim))
+				}
+			}
 		}
 		return
 	}

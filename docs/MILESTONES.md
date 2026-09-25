@@ -85,8 +85,15 @@ runnable.
    rules' standard kit. The 4.5 gap row is measured; its finding on
    baseline shape is open in `RULES.md`. Skills and effectiveness
    ratings (`RULES.md` 7.4) are designed, not built.
-4. **Magic** `[ ]` Work `RULES.md` 6.4, then `cast`, `consume`, schools and
-   deities, materials, totems, and the effect return channel.
+4. **Magic and groups** `[x]` Groups, target switching, many-on-one, safe
+   rooms (4.7). `spellList` and `resolveCast`; `cast` with cast time,
+   interruption, committed materials, cooldowns, and engine-built target
+   sets; `consume` for totems and `sacrifice` at temples; material and
+   totem item types; the 6.5 spell list in `rules.js` with saves and
+   scaling; the starter area carries two totems, a shrine, a sacrifice,
+   and farmable materials with hints. Not built: skills and
+   effectiveness (7.4), mob casting, the simulator casting spells, the
+   effect `state` write-back.
 
 **Done:** a player in starter gear fights an even mob to the 4.5 targets,
 and editing a baseline function changes every item's numbers without a

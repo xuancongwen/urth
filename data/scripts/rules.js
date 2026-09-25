@@ -209,16 +209,16 @@ function resolveAttack(att, def, weapon, round) {
   if (ce && random.float() < num(ce.params.chance)) { dmg *= (num(ce.params.mult) || 2); crit = true; }
 
   // Reduce: D / (D + K), with D from armor or natural hide, Constitution,
-  // and level.
+  // and level; then protection effects.
   var D = defense(def);
-  dmg = dmg * P.K / (D + P.K);
+  dmg = dmg * P.K / (D + P.K) * protectMult(def);
 
   return { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "" };
 }
 
 // defense is the defender's D for this hit: the sum of worn armor's draws,
-// or the mob's natural armor if nothing is worn, times Constitution and
-// level.
+// or the mob's natural armor if nothing is worn, plus flat "defense"
+// effects (wards), times Constitution and level.
 function defense(c) {
   var D = 0, worn = false, s;
   if (c.equipment) for (s in c.equipment) {
@@ -226,7 +226,23 @@ function defense(c) {
     if (it && it.armor && it.armor.defense) { D += spreadRoll(it.armor.defense, it.armor.spread); worn = true; }
   }
   if (!worn && c.mob && c.mob.armor) D = spreadRoll(c.mob.armor.defense, c.mob.armor.spread);
+  D += sumEffects(c, "defense", "amount");
   return Math.max(0, D * mult(c, "constitution", true) * levelMult(c));
+}
+
+// protectMult is the product of "protect" effects on c (Sanctuary): a
+// multiplier on damage taken. Stacking: multiply.
+function protectMult(c) {
+  var m = 1;
+  eachEffect(c, function (e) { if (e.kind === "protect") m *= (num(e.params.mult) || 1); });
+  return m;
+}
+
+// speedMult is the product of "speedMult" effects (Daze, Stillness).
+function speedMult(c) {
+  var m = 1;
+  eachEffect(c, function (e) { if (e.kind === "speedMult") m *= (num(e.params.mult) || 1); });
+  return m;
 }
 
 // ---------------------------------------------------------------------
@@ -237,7 +253,7 @@ function derivedStats(c) {
     ? c.mob.health
     : Math.round((P.healthBase + P.healthPerLevel * (c.level || 1)) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
-  var speed = (w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount");
+  var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount")) * speedMult(c);
   return {
     healthMax: Math.max(1, healthMax),
     manaMax: P.manaEnabled ? 10 + 2 * c.level : 0,
@@ -246,8 +262,12 @@ function derivedStats(c) {
 }
 
 function onTick(c) {
-  if (c.fighting) return { healthDelta: 0, manaDelta: 0 };
-  return { healthDelta: Math.max(1, Math.round(c.healthMax / P.regenRounds)), manaDelta: 0 };
+  // Damage over time ("dot" effects: Acid Splash, Blight) ticks whether or
+  // not the character is fighting.
+  var dot = 0;
+  eachEffect(c, function (e) { if (e.kind === "dot") dot += num(e.params.damage); });
+  if (c.fighting) return { healthDelta: -Math.round(dot), manaDelta: 0 };
+  return { healthDelta: Math.max(1, Math.round(c.healthMax / P.regenRounds)) - Math.round(dot), manaDelta: 0 };
 }
 
 function levelCost(n) { return P.xpBase * n * Math.pow(P.xpR, n - 1); }
@@ -329,3 +349,121 @@ function onCreate(c) {
 function deathRules() {
   return { xpFraction: P.deathXpFraction, xpLevelCap: P.deathXpLevelCap, corpseRounds: P.corpseRounds, respawnHealth: P.respawnHealth };
 }
+
+// ---------------------------------------------------------------------
+// Magic (RULES 6). spellList defines the spells; the engine owns cast
+// time, targets, materials, and cooldowns; resolveCast decides what each
+// target suffers or gains. Damage is a multiple of the standard weapon's
+// per-swing damage at the caster's level (6.5), times the branch stat and
+// level (6.4).
+// ---------------------------------------------------------------------
+var SPELLS = [
+  { id: "firebolt", name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    materials: [{ material: "ash", count: 1 }], target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
+    description: "A bolt of fire at one target." },
+  { id: "fireball", name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
+    materials: [{ material: "ash", count: 2 }, { material: "star iron", count: 1 }], target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
+    description: "Fire fills the room." },
+  { id: "ward", name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
+    materials: [{ material: "salt", count: 1 }], target: "ally", save: "none",
+    effect: function (caster, target) { return { kind: "defense", params: { amount: target.level + 2 }, rounds: 10 }; },
+    description: "A ward as strong as armor, for ten rounds." },
+  { id: "acid", name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    materials: [{ material: "salt", count: 1 }, { material: "ash", count: 1 }], target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
+    effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.3 * power) }, rounds: 3 }; },
+    description: "Acid that keeps burning." },
+  { id: "foresight", name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
+    materials: [{ material: "nightshade", count: 1 }], target: "self", save: "none",
+    effect: function () { return { kind: "dodge", params: { amount: 0.10 }, rounds: 10 }; },
+    description: "See the blow before it lands." },
+  { id: "daze", name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
+    materials: [{ material: "bone dust", count: 1 }], target: "single", save: "will", saveEffect: "negate",
+    effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 3 }; },
+    description: "The target's swings come slow." },
+  { id: "blur", name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
+    materials: [{ material: "quicksilver", count: 1 }], target: "self", save: "none",
+    effect: function () { return { kind: "dodge", params: { amount: 0.15 }, rounds: 5 }; },
+    description: "Your outline swims." },
+  { id: "drain", name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+    materials: [{ material: "bone dust", count: 1 }], target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
+    description: "Take their life for your own." },
+  { id: "haste", name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
+    materials: [{ material: "quicksilver", count: 2 }], target: "self", save: "none",
+    effect: function () { return { kind: "attacks", params: { amount: 1 }, rounds: 5 }; },
+    description: "One more swing every round." },
+  { id: "mend", name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    materials: [{ material: "tallow", count: 1 }], target: "ally", save: "none", heal: 0.30,
+    description: "Close wounds." },
+  { id: "sanctuary", name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
+    materials: [{ material: "salt", count: 1 }, { material: "heartwood", count: 1 }], target: "group", save: "none",
+    effect: function () { return { kind: "protect", params: { mult: 0.5 }, rounds: 5 }; },
+    description: "The group takes half damage." },
+  { id: "stillness", name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
+    materials: [{ material: "salt", count: 1 }, { material: "tallow", count: 1 }], target: "area", save: "will", saveEffect: "negate",
+    effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 2 }; },
+    description: "Every enemy slows." },
+  { id: "blight", name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
+    materials: [{ material: "bone dust", count: 1 }, { material: "nightshade", count: 1 }], target: "area", save: "fortitude", saveEffect: "half",
+    effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
+    description: "Rot spreads through every enemy." }
+];
+
+function spellList() {
+  // The engine only needs the definition fields; functions stay here.
+  return SPELLS.map(function (sp) {
+    return { id: sp.id, name: sp.name, branch: sp.branch, school: sp.school || "", deity: sp.deity || "",
+      castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage, cooldown: sp.cooldown || 0,
+      materials: sp.materials || [], target: sp.target, save: sp.save || "none", saveEffect: sp.saveEffect || "",
+      description: sp.description || "" };
+  });
+}
+
+function spellById(id) { for (var i = 0; i < SPELLS.length; i++) if (SPELLS[i].id === id) return SPELLS[i]; return null; }
+
+var SAVE_STAT = { reflex: "dexterity", fortitude: "constitution", will: "wisdom" };
+
+// spellPower is the caster's number for one "unit" of spell: the standard
+// weapon's damage at the caster's level, times the branch stat and level.
+function spellPower(caster, sp) {
+  var statName = sp.branch === "divine" ? "wisdom" : "intelligence";
+  return WEAPON_BASELINES.standard(caster.level || 1).damage * mult(caster, statName, true) * levelMult(caster);
+}
+
+// saves rolls the target's saving throw (6.4): S / (S + 2C).
+function saves(caster, target, sp) {
+  if (!sp.save || sp.save === "none") return false;
+  var S = mult(target, SAVE_STAT[sp.save], true) * levelMult(target);
+  var C = mult(caster, sp.branch === "divine" ? "wisdom" : "intelligence", true) * levelMult(caster);
+  return random.float() < S / (S + 2 * C);
+}
+
+function resolveCast(caster, targets, spell) {
+  var sp = spellById(spell.id);
+  if (!sp) return { ok: false, message: "Nobody remembers how that spell goes." };
+  var out = { ok: true, message: "", consume: [], targets: [], casterEffects: [] };
+  var totalDrain = 0;
+  for (var i = 0; i < targets.length; i++) {
+    var t = targets[i];
+    var tr = { index: i, damage: 0, heal: 0, saved: false, negated: false, effects: [], message: "" };
+    var power = spellPower(caster, sp);
+    var saved = saves(caster, t, sp);
+    if (saved && sp.saveEffect === "negate") { tr.saved = true; tr.negated = true; out.targets.push(tr); continue; }
+    var scale = saved ? 0.5 : 1;
+    tr.saved = saved;
+    if (sp.damage) {
+      var dmg = power * sp.damage * scale * P.K / (defense(t) + P.K) * protectMult(t);
+      tr.damage = Math.max(1, Math.round(dmg));
+      if (sp.drain) totalDrain += tr.damage * sp.drain;
+    }
+    if (sp.heal) tr.heal = Math.max(1, Math.round(t.healthMax * sp.heal * mult(caster, "wisdom") ));
+    if (sp.effect) {
+      var e = sp.effect(caster, t, power * scale);
+      if (e) tr.effects.push(e);
+    }
+    out.targets.push(tr);
+  }
+  if (totalDrain > 0) out.message = "You feel stronger.";
+  if (totalDrain > 0) out.casterEffects.push({ kind: "healNow", params: { amount: Math.round(totalDrain) }, rounds: 1 });
+  return out;
+}
+

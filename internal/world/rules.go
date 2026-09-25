@@ -163,9 +163,21 @@ func (w *World) view(c *Character) map[string]any {
 		"speed":      c.Speed,
 		"equipment":  eq,
 		"effects":    effect.Views(nil, c.Effects),
+		"schools":    append([]string{}, c.Schools...),
+		"deity":      c.Deity,
 		"isPlayer":   c.player != nil,
 		"fighting":   c.Fighting != nil,
+		"group":      briefViews(groupOf(c)),
+		"enemies":    briefViews(w.enemiesOf(c)),
 	}
+	if c.casting != nil {
+		v["casting"] = map[string]any{"spell": c.casting.spell.ID, "rounds": c.casting.rounds}
+	}
+	cds := map[string]any{}
+	for id, n := range c.cooldowns {
+		cds[id] = n
+	}
+	v["cooldowns"] = cds
 	if c.Room != nil {
 		v["room"] = map[string]any{"vnum": c.Room.Vnum, "name": c.Room.Name, "area": c.Room.Area}
 	}
@@ -182,6 +194,16 @@ func (w *World) view(c *Character) map[string]any {
 	return v
 }
 
+// briefViews is the light form of a character used inside another's view
+// for group and enemy lists, so views do not recurse.
+func briefViews(list []*Character) []any {
+	out := make([]any, 0, len(list))
+	for _, c := range list {
+		out = append(out, map[string]any{"name": c.Name, "level": c.Level, "health": c.Health, "healthMax": c.HealthMax, "isPlayer": c.player != nil})
+	}
+	return out
+}
+
 func weaponView(s item.WeaponSpec) map[string]any {
 	return map[string]any{"damage": s.Damage, "spread": s.Spread, "speed": s.Speed, "hands": s.Hands, "kind": s.Kind, "verb": s.Verb}
 }
@@ -196,10 +218,21 @@ func itemView(it *item.Item) map[string]any {
 	}
 	p := it.Proto
 	v := map[string]any{
+		"id":   it.ID,
 		"vnum": p.Vnum, "name": p.Name, "type": string(p.Type), "slot": string(p.Slot),
 		"level": p.Level, "baseline": p.Baseline,
 		"weight": p.Weight, "value": p.Value, "flags": p.Flags,
 		"effects": it.AllEffects(),
+	}
+	if p.Material != "" {
+		v["material"] = p.Material
+		v["rarity"] = p.Rarity
+	}
+	if p.School != "" {
+		v["school"] = p.School
+	}
+	if p.Sacrifice != "" {
+		v["sacrifice"] = p.Sacrifice
 	}
 	if p.Type == item.Weapon {
 		v["weapon"] = weaponView(p.Resolved.Weapon)

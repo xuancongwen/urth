@@ -1,0 +1,9 @@
+vnum: 140
+name: a tarnished silver chalice
+keywords: [tarnished, silver, chalice]
+description: A tarnished silver chalice has been left here.
+look: |
+  Old silver, black in the engraving. The engraving is a rising sun.
+  Someone kept this hidden for a long time, and not for its value.
+type: other
+sacrifice: good

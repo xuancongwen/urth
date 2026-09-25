@@ -13,9 +13,11 @@ resets:
     equip:
       - item: 101
         slot: wield
-  - mob: 201          # stray dogs, up to two
+  - mob: 201          # stray dogs, up to two; they carry tallow (6.2)
     room: 9
     max: 2
+    equip:
+      - item: 122
   - mob: 203          # beggar on the green
     room: 9
   - mob: 204          # crows on the south road
@@ -42,3 +44,23 @@ resets:
     room: 10
   - item: 111         # dagger in the smithy
     room: 10
+  - item: 120         # ash by the forge
+    room: 10
+  - item: 120
+    room: 10
+  - item: 125         # quicksilver at the smithy
+    room: 10
+  - item: 121         # salt at the market
+    room: 12
+  - item: 121
+    room: 12
+  - item: 123         # bone dust at the bog
+    room: 19
+  - item: 124         # nightshade on the hill path
+    room: 18
+  - item: 130         # the charred totem at the cairn (evocation)
+    room: 20
+  - item: 131         # the salt-crusted totem at the bottom of the well (abjuration)
+    room: 7
+  - item: 140         # the chalice, hidden in the loft (the Good god's sacrifice)
+    room: 15

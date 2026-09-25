@@ -1,0 +1,10 @@
+vnum: 130
+name: a charred totem
+keywords: [charred, totem]
+description: A charred totem lies here, half buried in ash.
+look: |
+  A hand's length of blackened wood, carved with a flame that has not
+  burned away. Holding it, you feel the heat of a forge on your face,
+  though the wood is cold.
+type: totem
+school: evocation

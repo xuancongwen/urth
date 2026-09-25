@@ -1,0 +1,9 @@
+vnum: 123
+name: a pinch of bone dust
+keywords: [pinch, bone, dust]
+description: A pinch of bone dust lies here.
+look: |
+  Someone ground this very fine, on purpose.
+type: material
+material: bone dust
+rarity: uncommon

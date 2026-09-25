@@ -50,19 +50,25 @@ left out; the engine then uses a quiet default.
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
-| `resolveCast` | not yet; arrives with magic | caster, target, school, spell | `{ok, damage, effects, consume:[item ids], message}` |
+| `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
+| `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
 
 ### What scripts see
 
-- Character: `{name, level, xp, stats:{}, statPoints, health, healthMax,
-  mana, manaMax, speed, equipment:{slot: item}, effects:[], isPlayer,
-  fighting, room:{vnum,name,area}}`, plus for mobs `vnum`, `flags`, and
+- Character: `{name, level, xp, stats:{}, statPoints, featPoints, health,
+  healthMax, mana, manaMax, speed, equipment:{slot: item}, effects:[],
+  schools:[], deity, isPlayer, fighting, group:[brief], enemies:[brief],
+  casting:{spell, rounds} or absent, cooldowns:{id: rounds},
+  room:{vnum,name,area}}`, plus for mobs `vnum`, `flags`, and
   `mob:{vnum, flags, health, xp, attack, armor, effects}` carrying the
-  prototype's resolved natural numbers. `stats` is whatever the rules put
+  prototype's resolved natural numbers. A brief is `{name, level,
+  health, healthMax, isPlayer}`, so views do not recurse. `stats` is whatever the rules put
   there; the engine does not define the stat set.
-- Item: `{vnum, name, type, slot, level, baseline, weight, value, flags,
-  weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense,
-  spread}, effects:[], mods:{}}`. The weapon and armor numbers are the
+- Item: `{id, vnum, name, type, slot, level, baseline, weight, value,
+  flags, weapon:{damage, spread, speed, hands, kind, verb},
+  armor:{defense, spread}, effects:[], mods:{}}`, plus `material` and
+  `rarity` on materials, `school` on totems, and `sacrifice` on an item
+  a god accepts. `id` is the instance id that `consume` names. The weapon and armor numbers are the
   *resolved* ones: what the builder stated, with the baseline filling
   the gaps.
 - Effect: `{kind, params:{}, state:{}, rounds}`. `rounds` 0 is permanent.
@@ -81,13 +87,17 @@ left out; the engine then uses a quiet default.
   the engine removes them from the actor's inventory before applying the
   rest of the result. Decided 2026-09-24; see D17. If any listed item is
   not in the inventory the whole result is rejected, so a spell never
-  half-fires. (Not yet wired; lands with `resolveCast`.)
+  half-fires. A spell's listed materials are committed by the engine when
+  the cast begins (6.4), so `consume` is for anything beyond them.
 - Block. A hook that runs longer than 50 ms is interrupted; the engine
   uses a safe default (a miss, no regen, 1 max health) and warns admins
   once per load.
 - Keep state between calls. Effects carry a `state` map for that; the
   engine persists it. (Scripts can read it now; a return channel to
   write it lands with the first effect that needs one.)
+- Attach effects except through a cast. `resolveCast` returns effects
+  per target and for the caster and the engine attaches them; the attack
+  pipeline cannot yet.
 
 ### What the engine owns
 
@@ -108,6 +118,22 @@ left out; the engine then uses a quiet default.
 - Baseline resolution: `itemBaseline` and `mobBaseline` run for every
   prototype at load and after every successful script reload; a live
   mob keeps the base stats it spawned with but its derived values move.
+- Casting (6.4): one cast in progress per character with rounds left;
+  `castRounds` 0 resolves on the command; movement always cancels;
+  damage cancels when the spell says so; materials leave the inventory
+  when the cast begins; cooldowns count down per round. Targets are
+  built by the engine from the spell's `target`: single (named or the
+  current target), ally (named or self), self, group (members here),
+  area (everyone here not in the caster's group). A hostile cast starts
+  the fight. Access: `consume <totem>` adds its school; `sacrifice
+  <item>` in a room whose `temple` matches the item's `sacrifice` makes
+  the character that god's apostle (one god at a time).
+- Groups (4.7): `follow`, `group`, `gtell`, `assist`; followers move with
+  the leader; grouped players here auto-assist when a member's fight
+  starts; a mob flagged `assist` joins a mob of its kind; `kill` on a new
+  target switches; a fighter whose target is gone turns on whoever is
+  still fighting it; every grouped player here earns a kill's experience
+  as if alone; a room flagged `safe` forbids fighting and hostile casts.
 
 ### Time
 
