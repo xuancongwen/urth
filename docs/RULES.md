@@ -1052,10 +1052,17 @@ only question is whether the pool is full, and it always is at the start
 of an outing. That cannot support "very strong with significant
 consequences"; the consequence of casting is waiting.
 
-**Synthesis (leaning).** Every cast consumes materials: items gathered
-from the world and carried in inventory. Both branches pay; arcane
-materials are reagents, divine ones are offerings, and the difference
-is flavour and where they are found, not mechanics. The cost is paid before the
+**Synthesis (decided 2026-09-24).** Every cast consumes materials:
+items gathered from the world and carried in inventory. Materials are
+*not* bound to a school or a deity. There is one common pool, and each
+material in it has a rarity. A spell names which materials it needs
+and how many, from that pool, so a rare spell is one that wants a rare
+material, and two schools may compete for the same one. Materials
+come from *farming*: random drops and harvest points that yield from
+the pool by rarity, so a player can grind for common ones; and some
+are *deterministic*, dropped by one thing in the world, very rare or
+very hard to reach, so that a particular spell is a project. Both
+branches draw from the same pool; an offering is a material. The cost is paid before the
 outing, in time spent gathering, and again at the moment of casting,
 when the materials are gone. Strength is balanced by cost and access,
 not by shrinking the effect. A character who has the category and the
@@ -1069,8 +1076,11 @@ material system turns out not to work, mana is there to fall back to
 without an engine change. Until then a second cost would dilute the
 first, so it stays off.
 
-Consequences: an item type for materials (5.1). Materials need sources:
-harvest points, drops, or shops (5.3). `resolveCast` lists the materials
+Consequences: an item type for materials (5.1) that stacks by count.
+Rarity is a field on the material's prototype and the drop tables in
+5.3 draw by it. Harvest points are a room feature (a `forage` or
+`gather` command at a flagged room, on a timer). The first pool and
+list are proposed in 6.5. `resolveCast` lists the materials
 it used in its `consume` return and the engine removes them (section 1).
 
 ### 6.3 Magic is very strong
@@ -1170,6 +1180,64 @@ ask whether the spell in progress is interruptible. `resolveCast` runs
 at completion with the caster, the target set, and the spell, and
 returns damage or healing per target, effects to attach, and materials
 to consume. Cooldowns are counted in rounds on the character.
+
+### 6.5 First pool and spell list (proposal, 2026-09-24)
+
+A starting point to edit, sized so that every school and deity has one
+spell and the engine has something to resolve. Damage is written as a
+multiple of the standard weapon's per-swing damage at the caster's
+level (5.2), before the spell's stat and level scaling, so the list
+stays true when the curve moves. Durations are rounds.
+
+**Materials pool.** Rarity sets how often farming yields it; the last
+tier is never random.
+
+| Material | Rarity | Where |
+|---|---|---|
+| ash | common | any hearth or fire; drops from most mobs |
+| salt | common | the coast, the market |
+| tallow | common | animals |
+| bone dust | uncommon | undead, graves |
+| nightshade | uncommon | forest harvest points |
+| quicksilver | uncommon | the smithy, alchemists |
+| star iron | rare | one meteor site; deep drops |
+| heartwood | rare | a single ancient tree, on a long timer |
+| phoenix feather | deterministic | one creature, once |
+
+**Arcane**, one per school.
+
+| Spell | School | Cast | Interrupt | Cooldown | Materials | Target | Save | Effect |
+|---|---|---|---|---|---|---|---|---|
+| Firebolt | evocation | 1 | yes | 0 | 1 ash | single | reflex, half | damage 2.0x |
+| Ward | abjuration | 0 | no | 10 | 1 salt | self or one ally | none | +defense equal to medium armor at level, 10 rounds |
+| Acid Splash | conjuration | 1 | yes | 0 | 1 salt, 1 ash | single | fortitude, half | damage 1.5x, then 0.3x per round for 3 rounds |
+| Foresight | divination | 0 | no | 20 | 1 nightshade | self | none | +10 percent dodge, 10 rounds |
+| Daze | enchantment | 1 | yes | 5 | 1 bone dust | single | will, negate | target speed halved, 3 rounds |
+| Blur | illusion | 1 | no | 15 | 1 quicksilver | self | none | +15 percent dodge, 5 rounds |
+| Drain | necromancy | 1 | yes | 3 | 1 bone dust | single | fortitude, half | damage 1.5x; caster heals half of it |
+| Haste | transmutation | 2 | yes | 20 | 2 quicksilver | self | none | +1 swing per round, 5 rounds |
+| Fireball | evocation | 2 | yes | 8 | 2 ash, 1 star iron | area | reflex, half | damage 1.5x to each enemy |
+
+**Divine**, one per god, plus a second for Good since healing is the
+thing a group (4.7) needs first.
+
+| Spell | Deity | Cast | Interrupt | Cooldown | Materials | Target | Save | Effect |
+|---|---|---|---|---|---|---|---|---|
+| Mend | Good | 1 | yes | 0 | 1 tallow | self or one ally | none | heals 30 percent of the target's maximum |
+| Sanctuary | Good | 2 | yes | 30 | 1 salt, 1 heartwood | group | none | damage taken halved, 5 rounds |
+| Stillness | Neutral | 1 | yes | 10 | 1 salt, 1 tallow | area | will, negate | every enemy's speed halved, 2 rounds |
+| Blight | Evil | 1 | yes | 6 | 1 bone dust, 1 nightshade | area | fortitude, half | 0.4x per round to each enemy, 5 rounds |
+
+Scaling for all of the above: the branch stat (Intelligence or Wisdom)
+times the level multiplier, per 6.4. Fireball and Blight are the first
+area spells and the reason 4.7 lands first. Sanctuary is the first
+spell to need a group. Haste is the first to touch the swing meter
+through an effect, which the `attacks` kind already supports.
+
+What the list deliberately leaves out: anything that creates a mob or
+an item (conjuration proper), anything that moves a character, and
+anything global. Each needs an engine return channel that does not yet
+exist and is listed in section 9.
 
 ---
 
@@ -1485,9 +1553,9 @@ Anything not yet placed in a section above.
   sets.
 - **Before magic is built.** Decided 2026-09-24: cast time, interruption,
   saves, scaling, targets, schools, deities, sacrifice (6.1, 6.4). Still
-  open: the material model (kinds, stacking, sources) and the first
-  spell list, two or three per school and deity. Both are content
-  decisions the designer can make as starting points.
+  open: none. The material model is decided (6.2) and a first pool and
+  spell list are proposed in 6.5 for the designer to edit. Engine work
+  is listed above; 4.7 goes first.
 - **Baseline shape.** Linear baselines cannot hit the 4.5 gap row at
   every level (measured 2026-09-24; see the finding there). Decide
   between geometric baselines and a per-band target row.
