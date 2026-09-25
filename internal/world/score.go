@@ -96,11 +96,18 @@ func cmdScore(w *World, p *Player, _ string) {
 		s.rule()
 		keys := orderedStats(p.Stats)
 		rows := (len(keys) + 1) / 2
+		show := func(k string) string {
+			v := itoa(p.Stats[k])
+			if eff, ok := p.EffStats[k]; ok && eff != p.Stats[k] {
+				v += " (" + itoa(eff) + ")"
+			}
+			return v
+		}
 		for i := 0; i < rows; i++ {
-			l1, v1 := capitalizeWord(keys[i]), itoa(p.Stats[keys[i]])
+			l1, v1 := capitalizeWord(keys[i]), show(keys[i])
 			l2, v2 := "", ""
 			if j := i + rows; j < len(keys) {
-				l2, v2 = capitalizeWord(keys[j]), itoa(p.Stats[keys[j]])
+				l2, v2 = capitalizeWord(keys[j]), show(keys[j])
 			}
 			s.pair(l1, v1, l2, v2)
 		}

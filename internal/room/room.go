@@ -54,6 +54,9 @@ func (r *Room) HasFlag(flag string) bool {
 // Safe reports whether fighting is forbidden here.
 func (r *Room) Safe() bool { return r.HasFlag("safe") }
 
+// Dark reports whether the room needs a light to be seen.
+func (r *Room) Dark() bool { return r.HasFlag("dark") }
+
 // Area is the optional data/world/<area>/area.yaml metadata.
 type Area struct {
 	Name   string `yaml:"name"`

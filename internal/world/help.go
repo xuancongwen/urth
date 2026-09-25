@@ -37,7 +37,7 @@ var helpText = map[string]string{
 	"give":      "give <item> <character> | give <amount> silver|gold <character>: hand over an item or coins.",
 	"wear":      "wear <item> | wear all: put on armor.",
 	"wield":     "wield <weapon>: take up a weapon. Its verb is what your swings are called.",
-	"hold":      "hold <item>: hold an item in your off hand.",
+	"hold":      "hold <item>: hold an item in your off hand. A torch or lantern is lit by wearing or holding it; dark rooms need one.",
 	"remove":    "remove <item>: take off something worn, wielded, or held.",
 	"inventory": "inventory: what you carry.",
 	"equipment": "equipment: what you wear, wield, and hold.",

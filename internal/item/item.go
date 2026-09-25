@@ -26,14 +26,28 @@ type Item struct {
 	Decay int
 	// Coins is the silver in a coin pile (an item flagged "coins").
 	Coins int
+	// Burn is the rounds of light left; -1 means it never goes out and 0
+	// means it has burned out. Set from the prototype at creation.
+	Burn int
 }
+
+// Lit reports whether a light item still gives light.
+func (i *Item) Lit() bool { return i.Proto.Type == Light && i.Burn != 0 }
 
 // AllEffects renders intrinsic and applied effects for scripts.
 func (i *Item) AllEffects() []any { return effect.Views(i.Proto.Effects, i.Effects) }
 
 // New creates an instance of p.
 func New(p *Proto) *Item {
-	return &Item{ID: lastID.Add(1), Proto: p}
+	it := &Item{ID: lastID.Add(1), Proto: p}
+	if p.Type == Light {
+		if p.Burn > 0 {
+			it.Burn = p.Burn
+		} else {
+			it.Burn = -1
+		}
+	}
+	return it
 }
 
 // Name is the short description.

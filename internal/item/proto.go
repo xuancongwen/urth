@@ -25,6 +25,7 @@ const (
 	Container Type = "container"
 	Material  Type = "material" // consumed by spells (docs/RULES.md 6.2)
 	Totem     Type = "totem"    // consumed to unlock a school (6.1)
+	Light     Type = "light"    // lights dark rooms while worn
 	Other     Type = "other"
 )
 
@@ -124,6 +125,8 @@ type Proto struct {
 	// Sacrifice names the deity ("good", "neutral", "evil") that accepts
 	// this item as a great sacrifice at its temple.
 	Sacrifice string `yaml:"sacrifice,omitempty"`
+	// Burn is how many rounds a light lasts while worn; 0 never goes out.
+	Burn int `yaml:"burn,omitempty"`
 	// Resolved is the numbers the game actually uses: stated fields with
 	// the baseline filling the gaps. Set by the world after load and after
 	// every script reload; never read from YAML.
@@ -192,6 +195,8 @@ func (p *Proto) WearSlot() Slot {
 	switch p.Type {
 	case Weapon:
 		return "wield"
+	case Light:
+		return "light"
 	case Armor:
 		return p.Slot
 	default:
@@ -257,6 +262,7 @@ func (p *Proto) validate() error {
 		if p.School == "" {
 			return fmt.Errorf("item %d: a totem needs a school", p.Vnum)
 		}
+	case Light:
 	default:
 		return fmt.Errorf("item %d: unknown type %q", p.Vnum, p.Type)
 	}

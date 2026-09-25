@@ -6,6 +6,7 @@ import (
 	"strings"
 	"testing"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 )
 
@@ -292,5 +293,79 @@ func TestPairedSlotsAndNewPositions(t *testing.T) {
 	bob.take()
 	if _, ok := p.Equipment["finger1"]; ok {
 		t.Fatal("remove did not free the finger")
+	}
+}
+
+func TestLightsDarkRoomsAndBurn(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	torch := &item.Proto{Vnum: 92, Name: "a torch", Keywords: []string{"torch"}, Type: item.Light, Burn: 2}
+	torch.ResolveStated()
+	lantern := &item.Proto{Vnum: 93, Name: "a lantern", Keywords: []string{"lantern"}, Type: item.Light}
+	lantern.ResolveStated()
+	p.Inventory = append(p.Inventory, item.New(torch), item.New(lantern))
+	w.content.Rooms.Rooms[2].Flags = []string{"dark"}
+	send(w, 1, "n")
+	if o := bob.take(); !strings.Contains(o, "It is pitch black.") || strings.Contains(o, "stray dog") {
+		t.Fatalf("dark room: %q", o)
+	}
+	send(w, 1, "hold torch")
+	if o := bob.take(); !strings.Contains(o, "You light a torch.") || !strings.Contains(o, "North") {
+		t.Fatalf("lighting shows the room: %q", o)
+	}
+	nextRound(w)
+	nextRound(w)
+	if o := bob.take(); !strings.Contains(o, "A torch flickers and goes out.") {
+		t.Fatalf("burn out: %q", o)
+	}
+	send(w, 1, "look")
+	if o := bob.take(); !strings.Contains(o, "pitch black") {
+		t.Fatalf("dark again after burn out: %q", o)
+	}
+	send(w, 1, "wear lantern")
+	if o := bob.take(); !strings.Contains(o, "You light a lantern.") {
+		t.Fatalf("lantern: %q", o)
+	}
+	for i := 0; i < 3; i++ {
+		nextRound(w)
+	}
+	bob.take()
+	send(w, 1, "look")
+	if o := bob.take(); strings.Contains(o, "pitch black") {
+		t.Fatalf("a lantern never goes out: %q", o)
+	}
+	send(w, 1, "look lantern")
+	if o := bob.take(); !strings.Contains(o, "A light that never goes out.") {
+		t.Fatalf("look lantern: %q", o)
+	}
+	// Another character's light lights the room for everyone.
+	send(w, 1, "remove lantern")
+	bob.take()
+	alice := login(t, w, 2, "Alice")
+	w.players[2].Room = w.players[1].Room
+	w.players[2].Equipment["light"] = item.New(lantern)
+	send(w, 1, "look")
+	if o := bob.take(); strings.Contains(o, "pitch black") {
+		t.Fatalf("another's light: %q", o)
+	}
+	_ = alice
+}
+
+func TestPromptShowsToNextLevelAndScoreShowsEffectiveStats(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	send(w, 1, "look")
+	if o := bob.take(); !strings.Contains(o, "<12/12hp 5/5m 100tnl> ") {
+		t.Fatalf("prompt: %q", o)
+	}
+	setRules(t, w, testRules+`function derivedStats(c) { var m = c.stats.might || 0; for (var i = 0; i < c.effects.length; i++) if (c.effects[i].kind === "stat") m += c.effects[i].params.amount; return { healthMax: 12, manaMax: 5, speed: 1, stats: { might: m } }; }`)
+	p := w.players[1]
+	p.Stats["might"] = 3
+	p.Effects = append(p.Effects, effect.Active{Spec: effect.Spec{Kind: "stat", Params: map[string]any{"stat": "might", "amount": 2}}})
+	w.recalc(p.Character)
+	send(w, 1, "score")
+	if o := bob.take(); !strings.Contains(o, "Might        3 (5)") {
+		t.Fatalf("effective stat: %q", o)
 	}
 }

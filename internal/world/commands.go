@@ -171,6 +171,11 @@ func cmdLook(w *World, p *Player, args string) {
 // clients that want it.
 func (w *World) look(p *Player) {
 	r := p.Room
+	if !w.canSee(p.Character) {
+		p.SendMsg(output.Message{Type: output.Room, Text: "It is pitch black. You can't see a thing.\n",
+			Data: output.RoomData{Vnum: r.Vnum, Name: "Darkness", Exits: r.ExitList(), Players: []string{}}})
+		return
+	}
 	data := output.RoomData{Vnum: r.Vnum, Name: r.Name, Exits: r.ExitList(), Players: []string{}}
 	var b strings.Builder
 	b.WriteString("{C}" + output.Escape(r.Name) + "{x}\n")

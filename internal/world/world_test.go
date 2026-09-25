@@ -206,7 +206,7 @@ func signin(t *testing.T, w *World, id session.ID, name, password string) *fakeC
 		t.Fatalf("no password prompt: %q", out)
 	}
 	w.Events() <- session.Input{ID: id, Line: password}
-	tickUntil(t, w, c, "m> ") // the in-game prompt: covers both login and reconnect
+	tickUntil(t, w, c, "tnl> ") // the in-game prompt: covers both login and reconnect
 	return c
 }
 

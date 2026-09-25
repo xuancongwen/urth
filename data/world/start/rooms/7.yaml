@@ -5,3 +5,4 @@ description: |
   narrow crack in the wall leads nowhere you can fit.
 exits:
   up: 3
+flags: [dark]

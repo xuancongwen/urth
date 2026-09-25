@@ -60,6 +60,15 @@ func (w *World) itemCard(it *item.Item) string {
 		lines = append(lines, "A totem of "+output.Escape(p.School)+". Consume it to learn the school.")
 	case item.Container:
 		lines = append(lines, "A container.")
+	case item.Light:
+		switch {
+		case it.Burn < 0:
+			lines = append(lines, "A light that never goes out.")
+		case it.Burn == 0:
+			lines = append(lines, "A light, burned out.")
+		default:
+			lines = append(lines, "A light with about "+plural(it.Burn, "round")+" left.")
+		}
 	}
 	if p.Sacrifice != "" {
 		lines = append(lines, "The "+output.Escape(p.Sacrifice)+" god would accept this as a sacrifice.")

@@ -267,6 +267,7 @@ func (w *World) round() {
 	w.showConditions()
 	w.regen()
 	w.tickEffects()
+	w.burnLights()
 	w.decayItems()
 	w.wanderMobs()
 	w.tickAreas()
@@ -310,15 +311,21 @@ func (w *World) flush() {
 	}
 }
 
-// prompt builds the in-game prompt: <health/max hp mana/max m>.
+// prompt builds the in-game prompt: <health/max hp [mana/max m] tnl>,
+// where tnl is the experience still needed for the next level.
 func (w *World) prompt(p *Player) output.Message {
 	text := "<" + itoa(p.Health) + "/" + itoa(p.HealthMax) + "hp"
 	if p.ManaMax > 0 {
 		text += " " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "m"
 	}
+	tnl := -1
+	if next := w.xpToLevel(p.Level + 1); next < 1<<29 {
+		tnl = max(next-p.Experience, 0)
+		text += " " + itoa(tnl) + "tnl"
+	}
 	text += "> "
 	return output.Message{Type: output.Prompt, Text: text, Data: map[string]int{
-		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax,
+		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax, "tnl": tnl,
 	}}
 }
 

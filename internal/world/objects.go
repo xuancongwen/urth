@@ -206,6 +206,8 @@ func cmdWear(w *World, p *Player, args string) {
 		switch it.Proto.Type {
 		case item.Armor:
 			w.wearItem(p, it, it.Proto.WearSlot(), "You wear $p.", "$n wears $p.")
+		case item.Light:
+			w.wearLight(p, it)
 		case item.Weapon:
 			if !all {
 				p.Send("You must wield that.\n")
@@ -253,6 +255,10 @@ func cmdHold(w *World, p *Player, args string) {
 	it := found[0]
 	if it.Proto.Type == item.Armor {
 		p.Send("You can't hold that.\n")
+		return
+	}
+	if it.Proto.Type == item.Light {
+		w.wearLight(p, it)
 		return
 	}
 	w.wearItem(p, it, "hold", "You hold $p.", "$n holds $p.")

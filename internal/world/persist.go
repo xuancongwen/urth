@@ -17,7 +17,7 @@ func saveItems(list []*item.Item) []store.SavedItem {
 		if it.Proto.Vnum == 0 {
 			continue // corpses and other synthetic items are not saved
 		}
-		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects})
+		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn})
 	}
 	return out
 }
@@ -33,6 +33,9 @@ func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
 		it := item.New(proto)
 		it.Contents = w.loadItems(s.Contents, owner)
 		it.Effects = s.Effects
+		if s.Burn != 0 {
+			it.Burn = s.Burn
+		}
 		out = append(out, it)
 	}
 	return out
@@ -42,7 +45,7 @@ func (w *World) saveCharacterItems(p *Player) {
 	p.rec.Inventory = saveItems(p.Inventory)
 	p.rec.Equipment = map[string]store.SavedItem{}
 	for slot, it := range p.Equipment {
-		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects}
+		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn}
 	}
 }
 

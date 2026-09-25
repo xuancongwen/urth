@@ -1,0 +1,9 @@
+vnum: 180
+name: a pitch torch
+keywords: [pitch, torch]
+description: A pitch torch lies here.
+look: |
+  A length of wood wrapped in rag and dipped in pitch. It will burn for
+  a while once lit, and then it will not.
+type: light
+burn: 600

@@ -22,6 +22,9 @@ type Character struct {
 	Level      int
 	Experience int
 	Stats      map[string]int
+	// EffStats are the stats after gear and effects, as derivedStats
+	// reports them; nil when the rules do not report them.
+	EffStats map[string]int
 	// StatPoints and FeatPoints are banked, unspent grants from levels;
 	// train and feat spend them.
 	StatPoints int

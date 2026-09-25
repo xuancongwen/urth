@@ -266,10 +266,13 @@ function derivedStats(c) {
     : Math.round(P.healthBase * growth(c.level) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
   var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount") + passiveSwings(c)) * speedMult(c);
+  var stats = {};
+  for (var i = 0; i < STATS.length; i++) stats[STATS[i]] = stat(c, STATS[i]);
   return {
     healthMax: Math.max(1, healthMax),
     manaMax: P.manaEnabled ? 10 + 2 * c.level : 0,
-    speed: Math.max(0.1, speed)
+    speed: Math.max(0.1, speed),
+    stats: stats
   };
 }
 

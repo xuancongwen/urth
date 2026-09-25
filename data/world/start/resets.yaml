@@ -111,3 +111,9 @@ resets:
     room: 10
   - item: 174         # level-2 pieces for the new slots, at the smithy
     room: 10
+  - item: 180         # torches at the market
+    room: 12
+  - item: 180
+    room: 12
+  - item: 181         # a lantern at the market
+    room: 12

@@ -77,6 +77,8 @@ type Derived struct {
 	HealthMax int     `json:"healthMax"`
 	ManaMax   int     `json:"manaMax"`
 	Speed     float64 `json:"speed"`
+	// Stats are the effective stats after gear and effects, for display.
+	Stats map[string]int `json:"stats"`
 }
 
 // DeathRules is what deathRules returns (docs/RULES.md 4.6).
@@ -486,6 +488,7 @@ func (w *World) recalc(c *Character) {
 	c.HealthMax = d.HealthMax
 	c.ManaMax = d.ManaMax
 	c.Speed = d.Speed
+	c.EffStats = d.Stats
 	if c.Health > c.HealthMax {
 		c.Health = c.HealthMax
 	}

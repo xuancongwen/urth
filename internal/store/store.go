@@ -55,6 +55,7 @@ type SavedItem struct {
 	Vnum     int             `yaml:"vnum"`
 	Contents []SavedItem     `yaml:"contents,omitempty"`
 	Effects  []effect.Active `yaml:"effects,omitempty"`
+	Burn     int             `yaml:"burn,omitempty"`
 }
 
 // ErrNotFound is returned by Load for an unknown name.
