@@ -85,6 +85,7 @@ func cmdScore(w *World, p *Player, _ string) {
 	}
 	health := itoa(p.Health) + "/" + itoa(p.HealthMax)
 	s.pair("Health", health, "Experience", xp)
+	s.pair("Coins", moneyString(p.Silver), "", "")
 	if p.ManaMax > 0 {
 		s.pair("Mana", itoa(p.Mana)+"/"+itoa(p.ManaMax), "", "")
 	}

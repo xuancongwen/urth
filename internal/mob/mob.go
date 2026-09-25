@@ -42,6 +42,10 @@ type Proto struct {
 	Armor  *item.ArmorSpec  `yaml:"armor,omitempty"`
 	// XP overrides the kill reward formula when positive.
 	XP int `yaml:"xp,omitempty"`
+	// Silver overrides the coins the mob carries when positive.
+	Silver int `yaml:"silver,omitempty"`
+	// Teaches lists the skill ids this mob trains (docs/RULES.md 7.4).
+	Teaches []string `yaml:"teaches,omitempty"`
 	// Effects every instance carries (a poisonous bite, thick hide).
 	Effects []effect.Spec `yaml:"effects,omitempty"`
 	// Resolved is what the game uses: stated values with the baseline

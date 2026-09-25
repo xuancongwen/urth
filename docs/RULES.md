@@ -50,14 +50,15 @@ left out; the engine then uses a quiet default.
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
-| `skillList` (optional) | typing a skill's name, `skills`, level-up | | `[{id, name, level, passive, target, cooldown, start, description}]` |
+| `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, start, innate, price, description}]` |
+| `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |
 | `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}}` |
 | `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
 | `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
 
 ### What scripts see
 
-- Character: `{name, level, xp, stats:{}, statPoints, featPoints, health,
+- Character: `{name, level, xp, stats:{}, statPoints, featPoints, silver, health,
   healthMax, mana, manaMax, speed, equipment:{slot: item}, effects:[],
   schools:[], deity, isPlayer, fighting, group:[brief], enemies:[brief],
   casting:{spell, rounds} or absent, cooldowns:{id: rounds},
@@ -1510,20 +1511,21 @@ each round beyond the auto-attack, plus a few passives that work on
 their own. They are distinct from feats (chosen, permanent, no rating)
 and from spells (discovered, material-costed).
 
-**How skills are gained (leaning, 2026-09-25).** Every character has
-every skill its level allows, starting at the skill's starting rating
-the first time it is used (passives start the moment the level is
-reached). No trainer and no pick, so nothing competes with feats for
-the level-up choice. Whether some later skills are found or taught
-instead is open.
+**How skills are gained (decided 2026-09-25).** Most skills are
+taught: a trainer in the world teaches a set of skills, each for a
+price in coin (7.5), and `practice` at the trainer buys one at its
+starting rating, level permitting. A few skills are *innate*: every
+character has them at level with no teacher (Kick is the first). This
+keeps trainers and coin meaningful without making the basics gated,
+and nothing competes with feats for the level-up choice.
 
 **First skills**, starting values:
 
-| Skill | Level | Kind | Cooldown | Start | What the rating scales |
-|---|---|---|---|---|---|
-| Kick | 1 | action, single target | 2 | 30 | damage: 1.2x a standard swing at full skill, no weapon needed |
-| Bash | 3 | action, single target | 4 | 25 | damage (0.6x a swing) and the chance the target loses its next round of swings |
-| Twin Strike | 5 | passive | | 20 | the fraction of an extra swing per round; 100 is a full second swing |
+| Skill | Level | Kind | Cooldown | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|
+| Kick | 1 | action, single target | 2 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
+| Bash | 3 | action, single target | 4 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
+| Twin Strike | 5 | passive | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
 
 Twin Strike is the first of a chain: Triple Strike and Quad Strike
 follow at higher levels, the last for special cases, each a further
@@ -1539,6 +1541,19 @@ stores: `useSkill` for the skill used, `onTick` for passives in use.
 Typing a skill's name uses it; the command table is searched first, so
 a skill never shadows a command. Open: the simulator should be able to
 pin a rating for a run, so "at 60" and "at 100" can both be measured.
+
+### 7.5 Money
+
+**Status: decided 2026-09-25.** Coin as in ROM: silver and gold, a
+hundred silver to the gold. A character carries a wallet (one number,
+in silver, shown as gold and silver). Coins in the world are piles that
+go into the wallet on `get`; `give` and `drop` take an amount and a
+unit. Death puts the wallet in the corpse with everything else (4.6).
+
+Sources: mobs carry coin, about five silver per level with a wide
+spread from the rules' `moneyFor` hook, or a stated amount on the
+prototype. Sinks: trainers (7.4). Open: shops, which are deferred past
+milestone 8 in `MILESTONES.md`, and whether anything else costs coin.
 
 ---
 

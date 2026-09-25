@@ -252,6 +252,15 @@ func (w *World) makeCorpse(c *Character, rounds int) {
 	held = append(held, c.Inventory...)
 	c.Inventory = nil
 	c.Equipment = map[item.Slot]*item.Item{}
+	if c.Silver > 0 {
+		held = append(held, coinPile(c.Silver))
+		c.Silver = 0
+	}
+	if c.mob != nil {
+		if silver := w.moneyFor(c); silver > 0 {
+			held = append(held, coinPile(silver))
+		}
+	}
 	corpse := item.New(corpseProto(c))
 	corpse.Contents = held
 	corpse.Decay = max(rounds, 1)

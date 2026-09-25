@@ -99,3 +99,5 @@ resets:
     room: 8
   - item: 163         # the boots in the tavern loft
     room: 15
+  - mob: 209          # the old soldier in the tavern teaches skills
+    room: 13

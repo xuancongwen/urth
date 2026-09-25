@@ -93,9 +93,11 @@ runnable.
    scaling; the starter area carries two totems, a shrine, a sacrifice,
    and farmable materials with hints. Skills with effectiveness
    ratings (7.4) followed on 2026-09-25: Kick, Bash, Twin Strike, one
-   action per round, ratings improving with use and persisting. Not
-   built: mob casting, the simulator using skills or spells, general
-   effect `state` write-back beyond ratings.
+   action per round, ratings improving with use and persisting. Money (silver and gold at
+   100 to 1, coin piles, mob drops) and trainers selling skills for
+   coin followed the same day. Not built: mob casting, the simulator
+   using skills or spells, shops, general effect `state` write-back
+   beyond ratings.
 
 **Done:** a player in starter gear fights an even mob to the 4.5 targets,
 and editing a baseline function changes every item's numbers without a

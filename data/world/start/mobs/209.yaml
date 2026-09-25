@@ -1,0 +1,12 @@
+vnum: 209
+name: an old soldier
+keywords: [old, soldier, veteran]
+description: An old soldier sits by the fire with a mug, watching the door.
+look: |
+  Grey, scarred, and still sitting the way a man sits when he expects to
+  have to stand up quickly. He will teach what he knows, for a price.
+level: 15
+flags: [sentinel, peaceful]
+teaches: [bash, twin]
+attack:
+  verb: punch

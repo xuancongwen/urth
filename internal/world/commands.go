@@ -63,6 +63,7 @@ func init() {
 		{"cast", 1, cmdCast, false},
 		{"spells", 3, cmdSpells, false},
 		{"skills", 3, cmdSkills, false},
+		{"practice", 2, cmdPractice, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},

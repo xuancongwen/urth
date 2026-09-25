@@ -24,6 +24,8 @@ type Item struct {
 	// Decay is rounds until this item is destroyed; 0 means never. Corpses
 	// use it.
 	Decay int
+	// Coins is the silver in a coin pile (an item flagged "coins").
+	Coins int
 }
 
 // AllEffects renders intrinsic and applied effects for scripts.

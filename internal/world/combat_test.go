@@ -973,9 +973,9 @@ func TestLookShowsItemNumbersUnlessUnidentified(t *testing.T) {
 const skillRules = testRules + `
 function skillList() {
   return [
-    { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30, description: "A kick." },
-    { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25, description: "A bash." },
-    { id: "twin", name: "Twin Strike", level: 1, passive: true, cooldown: 0, start: 50, description: "An extra swing." }
+    { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30, innate: true, description: "A kick." },
+    { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25, innate: false, price: 250, description: "A bash." },
+    { id: "twin", name: "Twin Strike", level: 1, passive: true, cooldown: 0, start: 50, innate: true, description: "An extra swing." }
   ];
 }
 function useSkill(user, target, skill, e) {
@@ -1057,6 +1057,11 @@ func TestSkillsUseImproveAndPassives(t *testing.T) {
 	}
 	bob.take()
 	send(w, 1, "bash guard")
+	if o := bob.take(); !strings.Contains(o, "Huh?") {
+		t.Fatalf("bash without a trainer: %q", o)
+	}
+	ensureSkill(p.Character, Skill{ID: "bash", Start: 25})
+	send(w, 1, "bash guard")
 	if o := bob.take(); !strings.Contains(o, "Your bash hits a city guard.") {
 		t.Fatalf("bash: %q", o)
 	}
@@ -1082,5 +1087,103 @@ func nextRound(w *World) {
 	r := w.roundCount
 	for w.roundCount == r {
 		w.Tick()
+	}
+}
+
+func TestMoneyDropsGiveAndCorpse(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	setRules(t, w, testRules+`function moneyFor(v) { return 37; }`)
+	p := w.players[1]
+	if moneyString(0) != "no coins" || moneyString(5) != "5 silver" || moneyString(100) != "1 gold" || moneyString(250) != "2 gold and 50 silver" {
+		t.Fatalf("money strings: %q %q %q %q", moneyString(0), moneyString(5), moneyString(100), moneyString(250))
+	}
+	// A mob's corpse holds its coins; get takes them into the wallet.
+	guard := w.contents(p.Room).mobs[0]
+	guard.Health = 1
+	send(w, 1, "kill guard")
+	bob.take()
+	send(w, 1, "get all guard")
+	if o := bob.take(); !strings.Contains(o, "You get 37 silver from the corpse of a city guard.") || p.Silver != 37 {
+		t.Fatalf("loot coins: %q silver=%d", o, p.Silver)
+	}
+	// Give and drop coins.
+	send(w, 1, "give 1 gold alice")
+	if o := bob.take(); !strings.Contains(o, "don't have that much") {
+		t.Fatalf("give too much: %q", o)
+	}
+	send(w, 1, "give 12 silver alice")
+	if o := alice.take(); !strings.Contains(o, "Bob gives you 12 silver.") || w.players[2].Silver != 12 || p.Silver != 25 {
+		t.Fatalf("give: %q", o)
+	}
+	send(w, 1, "drop 5 silver")
+	bob.take()
+	send(w, 1, "get coins")
+	if o := bob.take(); !strings.Contains(o, "You get 5 silver.") || p.Silver != 25 {
+		t.Fatalf("drop and get: %q silver=%d", o, p.Silver)
+	}
+	send(w, 1, "score")
+	if o := bob.take(); !strings.Contains(o, "25 silver") {
+		t.Fatalf("score coins: %q", o)
+	}
+	// Death puts the wallet in the corpse.
+	p.Health = 1
+	w.attackRound(guard.Character, p.Character)
+	w.Tick()
+	bob.take()
+	if p.Silver != 0 {
+		t.Fatalf("wallet survived death: %d", p.Silver)
+	}
+	// The wallet persists.
+	p.Silver = 300
+	w.save(p)
+	if p.rec.Silver != 300 {
+		t.Fatal("silver not saved")
+	}
+}
+
+func TestTrainerTeachesForCoin(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, skillRules)
+	p := w.players[1]
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "nobody here to teach") {
+		t.Fatalf("no trainer: %q", o)
+	}
+	w.content.Mobs[20].Teaches = []string{"bash"}
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "A city guard can teach you:") || !strings.Contains(o, "Bash") || !strings.Contains(o, "2 gold and 50 silver") || !strings.Contains(o, "(level 3)") {
+		t.Fatalf("practice list: %q", o)
+	}
+	send(w, 1, "practice bash")
+	if o := bob.take(); !strings.Contains(o, "Come back at level 3.") {
+		t.Fatalf("level gate: %q", o)
+	}
+	p.Level = 3
+	send(w, 1, "practice bash")
+	if o := bob.take(); !strings.Contains(o, "Bash costs 2 gold and 50 silver. You have no coins.") {
+		t.Fatalf("price gate: %q", o)
+	}
+	p.Silver = 300
+	send(w, 1, "practice bash")
+	if o := bob.take(); !strings.Contains(o, "You pay a city guard 2 gold and 50 silver and learn Bash.") || p.Silver != 50 {
+		t.Fatalf("buy: %q silver=%d", o, p.Silver)
+	}
+	if e := skillEffect(p.Character, "bash"); e == nil || effectiveness(e) != 25 {
+		t.Fatalf("skill not learned: %+v", e)
+	}
+	send(w, 1, "practice bash")
+	if o := bob.take(); !strings.Contains(o, "already know Bash") {
+		t.Fatalf("double buy: %q", o)
+	}
+	send(w, 1, "practice kick")
+	if o := bob.take(); !strings.Contains(o, "can't teach you that") {
+		t.Fatalf("not taught: %q", o)
+	}
+	send(w, 1, "skills")
+	if o := bob.take(); !strings.Contains(o, "25%") || !strings.Contains(o, "Kick          new") {
+		t.Fatalf("skills after buying: %q", o)
 	}
 }

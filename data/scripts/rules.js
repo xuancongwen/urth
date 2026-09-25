@@ -524,13 +524,13 @@ function describeEffect(e) {
 // failure. Every character has every skill its level allows.
 // ---------------------------------------------------------------------
 var SKILLS = [
-  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30,
+  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30, innate: true,
     damage: 1.2, verb: "kick",
     description: "A kick worth more than a swing at full skill, and it needs no weapon." },
-  { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25,
+  { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25, innate: false, price: 300,
     damage: 0.6, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
-  { id: "twin", name: "Twin Strike", level: 5, passive: true, start: 20,
+  { id: "twin", name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
     description: "A second swing in the same round, as often as your skill allows. Triple and Quad Strike follow." }
 ];
 
@@ -539,7 +539,7 @@ var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how 
 function skillList() {
   return SKILLS.map(function (sk) {
     return { id: sk.id, name: sk.name, level: sk.level, passive: !!sk.passive, target: sk.target || "none",
-      cooldown: sk.cooldown || 0, start: sk.start, description: sk.description || "" };
+      cooldown: sk.cooldown || 0, start: sk.start, innate: !!sk.innate, price: sk.price || 0, description: sk.description || "" };
   });
 }
 
@@ -610,5 +610,16 @@ function useSkill(user, target, skill, e) {
     out.message = "They stagger.";
   }
   return out;
+}
+
+// ---------------------------------------------------------------------
+// Money (RULES 7.5): what a mob carries, in silver. 100 silver is a gold.
+// A prototype's silver field overrides this.
+// ---------------------------------------------------------------------
+var MONEY = { perLevel: 5, spread: 0.5 };  // a level-4 mob carries about 20 silver, give or take half
+
+function moneyFor(victim) {
+  var base = MONEY.perLevel * (victim.level || 1);
+  return Math.max(0, Math.round(spreadRoll(base, MONEY.spread)));
 }
 

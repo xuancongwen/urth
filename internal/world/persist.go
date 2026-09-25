@@ -71,6 +71,7 @@ func (w *World) loadSheet(p *Player) {
 	p.Stats = copyStats(p.rec.Stats)
 	p.StatPoints = p.rec.StatPoints
 	p.FeatPoints = p.rec.FeatPoints
+	p.Silver = p.rec.Silver
 	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
 	p.Schools = append([]string(nil), p.rec.Schools...)
 	p.Deity = p.rec.Deity
@@ -101,6 +102,7 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Stats = copyStats(p.Stats)
 	p.rec.StatPoints = p.StatPoints
 	p.rec.FeatPoints = p.FeatPoints
+	p.rec.Silver = p.Silver
 	p.rec.Schools = append([]string(nil), p.Schools...)
 	p.rec.Deity = p.Deity
 	p.rec.Effects = append([]effect.Active(nil), p.Effects...)

@@ -158,6 +158,7 @@ func (w *World) view(c *Character) map[string]any {
 		"stats":      stats,
 		"statPoints": c.StatPoints,
 		"featPoints": c.FeatPoints,
+		"silver":     c.Silver,
 		"health":     c.Health,
 		"healthMax":  c.HealthMax,
 		"mana":       c.Mana,
@@ -188,7 +189,7 @@ func (w *World) view(c *Character) map[string]any {
 		v["vnum"] = p.Vnum
 		v["flags"] = p.Flags
 		v["mob"] = map[string]any{
-			"vnum": p.Vnum, "flags": p.Flags, "health": p.Resolved.Health, "xp": p.Resolved.XP,
+			"vnum": p.Vnum, "flags": p.Flags, "health": p.Resolved.Health, "xp": p.Resolved.XP, "silver": p.Silver, "teaches": p.Teaches,
 			"attack": weaponView(p.Resolved.Attack), "armor": armorView(p.Resolved.Armor),
 			"effects": effect.Views(p.Effects, nil),
 		}

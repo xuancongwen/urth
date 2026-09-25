@@ -22,7 +22,7 @@ var helpSections = []helpSection{
 	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
 	{"Groups", []string{"follow", "group", "gtell"}},
 	{"Talking", []string{"say", "chat", "yell"}},
-	{"Character", []string{"score", "train", "feat", "who", "color", "save", "password", "quit"}},
+	{"Character", []string{"score", "train", "feat", "practice", "who", "color", "save", "password", "quit"}},
 	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "copyover", "shutdown"}},
 }
 
@@ -32,9 +32,9 @@ var helpText = map[string]string{
 	"exits": "exits: list the ways out of this room.",
 
 	"get":       "get <item> | get all | get <item> <container> | get all <container>: pick things up, here or from a container (a corpse is a container).",
-	"drop":      "drop <item> | drop all: put things down.",
+	"drop":      "drop <item> | drop all | drop <amount> silver|gold: put things or coins down.",
 	"put":       "put <item> <container>: put an item into a container you can see.",
-	"give":      "give <item> <character>: hand an item over.",
+	"give":      "give <item> <character> | give <amount> silver|gold <character>: hand over an item or coins.",
 	"wear":      "wear <item> | wear all: put on armor.",
 	"wield":     "wield <weapon>: take up a weapon. Its verb is what your swings are called.",
 	"hold":      "hold <item>: hold an item in your off hand.",
@@ -46,7 +46,8 @@ var helpText = map[string]string{
 	"flee":     "flee: run through a random exit to end a fight.",
 	"consider": "consider <target>: how the fight would go, and how hurt they look.",
 	"assist":   "assist [member]: attack whatever a group member here is fighting.",
-	"skills":   "skills: the skills your level allows and how good you are at each. Use one by name: kick, bash. One skill per round; they improve with use.",
+	"skills":   "skills: the skills your level allows and how good you are at each. Use one by name: kick, bash. One skill per round; they improve with use. Most are taught by trainers for coin; a few everyone knows.",
+	"practice": "practice | practice <skill>: at a trainer, see what they teach and for how much, or pay to learn one. 100 silver is a gold.",
 
 	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
 	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",

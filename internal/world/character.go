@@ -26,10 +26,12 @@ type Character struct {
 	// train and feat spend them.
 	StatPoints int
 	FeatPoints int
-	Health     int
-	HealthMax  int
-	Mana       int
-	ManaMax    int
+	// Silver is the wallet; 100 silver is a gold (money.go).
+	Silver    int
+	Health    int
+	HealthMax int
+	Mana      int
+	ManaMax   int
 	// Speed is swings per round; swing is the meter that turns a fractional
 	// speed into whole swings (docs/RULES.md 4.4).
 	Speed float64

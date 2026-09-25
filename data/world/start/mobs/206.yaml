@@ -5,5 +5,6 @@ description: A bandit leans on a milestone, picking his teeth with a knife.
 look: |
   Patched leathers and a hard grin. He has done this before.
 level: 4
+silver: 60
 attack:
   verb: punch

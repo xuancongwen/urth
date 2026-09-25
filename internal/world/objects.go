@@ -65,6 +65,11 @@ func cmdGet(w *World, p *Player, args string) {
 				continue
 			}
 			w.contents(p.Room).items = item.Remove(w.contents(p.Room).items, it)
+			if takeCoins(p.Character, it) {
+				w.act("You get $t.", p.Character, nil, escapeMoney(it.Coins), toChar)
+				w.act("$n gets some coins.", p.Character, nil, "", toRoom)
+				continue
+			}
 			p.Inventory = append(p.Inventory, it)
 			w.actItem("You get $p.", p.Character, nil, output.Escape(it.Name()), "", toChar)
 			w.actItem("$n gets $p.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
@@ -87,16 +92,24 @@ func cmdGet(w *World, p *Player, args string) {
 	}
 	for _, it := range found {
 		container.Contents = item.Remove(container.Contents, it)
+		if takeCoins(p.Character, it) {
+			w.act("You get $t from "+output.Escape(container.Name())+".", p.Character, nil, escapeMoney(it.Coins), toChar)
+			w.act("$n gets some coins from "+output.Escape(container.Name())+".", p.Character, nil, "", toRoom)
+			continue
+		}
 		p.Inventory = append(p.Inventory, it)
 		w.actItem("You get $p from $t.", p.Character, nil, output.Escape(it.Name()), output.Escape(container.Name()), toChar)
 		w.actItem("$n gets $p from $t.", p.Character, nil, output.Escape(it.Name()), output.Escape(container.Name()), toRoom)
 	}
 }
 
-// cmdDrop: drop <item> | drop all
+// cmdDrop: drop <item> | drop all | drop <amount> <silver|gold>
 func cmdDrop(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Drop what?\n")
+		return
+	}
+	if w.dropCoins(p, args) {
 		return
 	}
 	found := item.Find(p.Inventory, item.ParseTarget(args))
@@ -146,8 +159,11 @@ func cmdPut(w *World, p *Player, args string) {
 	}
 }
 
-// cmdGive: give <item> <character>
+// cmdGive: give <item> <character> | give <amount> <silver|gold> <character>
 func cmdGive(w *World, p *Player, args string) {
+	if w.giveCoins(p, args) {
+		return
+	}
 	what, whom, _ := strings.Cut(args, " ")
 	whom = strings.TrimSpace(whom)
 	if what == "" || whom == "" {

@@ -21,7 +21,9 @@ type Skill struct {
 	Passive     bool    `json:"passive"`
 	Target      string  `json:"target"` // single or none, for active skills
 	Cooldown    int     `json:"cooldown"`
-	Start       float64 `json:"start"` // effectiveness on first use
+	Start       float64 `json:"start"`  // effectiveness on first use
+	Innate      bool    `json:"innate"` // known by everyone at level; others need a trainer
+	Price       int     `json:"price"`  // in silver, at a trainer
 	Description string  `json:"description"`
 }
 
@@ -79,7 +81,7 @@ func ensureSkill(c *Character, sk Skill) *effect.Active {
 func (w *World) ensurePassives(c *Character) {
 	changed := false
 	for _, sk := range w.skillList() {
-		if sk.Passive && c.Level >= sk.Level && skillEffect(c, sk.ID) == nil {
+		if sk.Passive && sk.Innate && c.Level >= sk.Level && skillEffect(c, sk.ID) == nil {
 			ensureSkill(c, sk)
 			changed = true
 		}
@@ -123,7 +125,7 @@ func (w *World) findSkill(c *Character, word string) (Skill, bool) {
 	list := w.skillList()
 	for i := range list {
 		sk := &list[i]
-		if c.Level < sk.Level {
+		if !knowsSkill(c, *sk) {
 			continue
 		}
 		if strings.ToLower(sk.Name) == word || strings.ToLower(sk.ID) == word {
@@ -150,9 +152,11 @@ func cmdSkills(w *World, p *Player, _ string) {
 		n++
 		line := padRight(output.Escape(sk.Name), 14)
 		if e := skillEffect(p.Character, sk.ID); e != nil {
-			line += padRight(itoa(int(effectiveness(e)+0.5))+"%", 6)
+			line += padRight(itoa(int(effectiveness(e)+0.5))+"%", 9)
+		} else if sk.Innate {
+			line += padRight("new", 9)
 		} else {
-			line += padRight("new", 6)
+			line += padRight("trainer", 9)
 		}
 		if sk.Passive {
 			line += "passive  "
@@ -309,5 +313,5 @@ func (w *World) startFightIfIdle(att, def *Character) {
 
 func skillView(sk Skill) map[string]any {
 	return map[string]any{"id": sk.ID, "name": sk.Name, "level": sk.Level, "passive": sk.Passive,
-		"target": sk.Target, "cooldown": sk.Cooldown, "start": sk.Start}
+		"target": sk.Target, "cooldown": sk.Cooldown, "start": sk.Start, "innate": sk.Innate, "price": sk.Price}
 }
