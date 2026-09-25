@@ -938,3 +938,34 @@ func TestConsiderAndConditionLines(t *testing.T) {
 		t.Fatalf("look condition: %q", o)
 	}
 }
+
+func TestLookShowsItemNumbersUnlessUnidentified(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, baselineRules+`function describeEffect(e) { return e.kind === "crit" ? "Crits sometimes." : ""; }`)
+	sword := w.content.Items[10]
+	sword.Effects = append(sword.Effects, effect.Spec{Kind: "crit", Params: map[string]any{"chance": 0.1}})
+	sword.Effects = append(sword.Effects, effect.Spec{Kind: "odd", Params: map[string]any{"x": 2, "why": "test"}})
+	giveItem(w, w.players[1].Character, 10)
+	send(w, 1, "look sword")
+	o := bob.take()
+	for _, want := range []string{"Pitted and dull.", "Type weapon, level 1", "Damage 4 per swing, speed 1, varies by 20 percent", "Your swings are slashes.", "Crits sometimes.", "odd: why test, x 2"} {
+		if !strings.Contains(o, want) {
+			t.Fatalf("look sword missing %q: %q", want, o)
+		}
+	}
+	send(w, 1, "look cap")
+	if o := bob.take(); !strings.Contains(o, "worn on head") || !strings.Contains(o, "Defense 1") {
+		t.Fatalf("look armor: %q", o)
+	}
+	giveItem(w, w.players[1].Character, 16)
+	send(w, 1, "look totem")
+	if o := bob.take(); !strings.Contains(o, "A totem of evocation.") {
+		t.Fatalf("look totem: %q", o)
+	}
+	sword.Flags = append(sword.Flags, "unidentified")
+	send(w, 1, "look sword")
+	if o := bob.take(); !strings.Contains(o, "can't tell anything more") || strings.Contains(o, "Damage") {
+		t.Fatalf("unidentified: %q", o)
+	}
+}

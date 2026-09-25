@@ -343,7 +343,7 @@ func (w *World) lookAt(p *Player, args string) {
 		if look == "" {
 			look = "You see nothing special about " + it.Name() + "."
 		}
-		p.Send(output.Escape(strings.TrimRight(look, "\n")) + "\n")
+		p.Send(output.Escape(strings.TrimRight(look, "\n")) + "\n" + w.itemCard(it))
 		return
 	}
 	p.Send("You don't see that here.\n")

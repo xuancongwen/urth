@@ -495,3 +495,24 @@ function consider(me, target) {
   return "You ARE mad!";
 }
 
+// ---------------------------------------------------------------------
+// describeEffect: what an effect means, in words, for look and score.
+// ---------------------------------------------------------------------
+function describeEffect(e) {
+  var p = e.params || {};
+  var pct = function (x) { return Math.round(num(x) * 100) + " percent"; };
+  var tail = e.rounds > 0 ? " for " + e.rounds + " rounds" : "";
+  switch (e.kind) {
+    case "stat": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " " + (p.stat || "?") + tail;
+    case "crit": return "A " + pct(p.chance) + " chance to critically hit for " + (num(p.mult) || 2) + "x damage" + tail;
+    case "block": return "Blocks " + pct(p.chance) + " of swings" + tail;
+    case "dodge": return (num(p.amount) >= 0 ? "+" : "") + pct(p.amount) + " dodge" + tail;
+    case "attacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " swing" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round" + tail;
+    case "defense": return "+" + Math.round(num(p.amount)) + " defense" + tail;
+    case "protect": return "Takes " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
+    case "speedMult": return "Swings at " + Math.round(num(p.mult) * 100) + " percent speed" + tail;
+    case "dot": return "Takes " + num(p.damage) + " damage a round" + tail;
+    default: return "";
+  }
+}
+

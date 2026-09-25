@@ -28,7 +28,7 @@ var helpSections = []helpSection{
 
 var helpText = map[string]string{
 	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
-	"look":  "look | look <thing> | look in <container>: the room, a character or item, or what a container holds.",
+	"look":  "look | look <thing> | look in <container>: the room, a character, an item and its numbers, or what a container holds. Only an unidentified item hides its numbers.",
 	"exits": "exits: list the ways out of this room.",
 
 	"get":       "get <item> | get all | get <item> <container> | get all <container>: pick things up, here or from a container (a corpse is a container).",
