@@ -211,14 +211,29 @@ func (w *World) look(p *Player) {
 	} else {
 		b.WriteString("{c}[Exits: " + strings.Join(data.Exits, " ") + "]{x}\n")
 	}
-	for _, g := range item.Group(w.contents(r).items) {
-		if g.Count > 1 {
-			b.WriteString("(" + itoa(g.Count) + ") ")
+	// Fixed objects are part of the room, so they follow the description
+	// in its color; what can be picked up is green; creatures are yellow.
+	groups := item.Group(w.contents(r).items)
+	writeItems := func(fixed bool, color string) {
+		for _, g := range groups {
+			if g.Item.Proto.HasFlag("nopickup") != fixed {
+				continue
+			}
+			b.WriteString(color)
+			if g.Count > 1 {
+				b.WriteString("(" + itoa(g.Count) + ") ")
+			}
+			b.WriteString(output.Escape(g.Item.Proto.Description))
+			if color != "" {
+				b.WriteString("{x}")
+			}
+			b.WriteString("\n")
 		}
-		b.WriteString(output.Escape(g.Item.Proto.Description) + "\n")
 	}
+	writeItems(true, "")
+	writeItems(false, "{G}")
 	for _, m := range w.contents(r).mobs {
-		b.WriteString(output.Escape(m.Proto.Description) + "\n")
+		b.WriteString("{Y}" + output.Escape(m.Proto.Description) + "{x}\n")
 	}
 	for _, other := range w.playersIn(r) {
 		if other != p {

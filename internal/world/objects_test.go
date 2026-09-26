@@ -8,6 +8,7 @@ import (
 
 	"urth/internal/effect"
 	"urth/internal/item"
+	"urth/internal/output"
 )
 
 // The test world (see world_test.go) resets area "a" at boot: a sentinel
@@ -367,5 +368,50 @@ func TestPromptShowsToNextLevelAndScoreShowsEffectiveStats(t *testing.T) {
 	send(w, 1, "score")
 	if o := bob.take(); !strings.Contains(o, "Might        3 (5)") {
 		t.Fatalf("effective stat: %q", o)
+	}
+}
+
+// The room listing tells fixtures, portable items, and creatures apart:
+// fixtures follow the description uncolored and come first, then items
+// in green, then creatures in yellow. The structured data marks fixtures.
+func TestLookSeparatesFixturesItemsAndMobs(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	bob.batches = nil
+	send(w, 1, "look")
+	var msg *output.Message
+	for _, b := range bob.batches {
+		for i := range b.Messages {
+			if b.Messages[i].Type == output.Room {
+				msg = &b.Messages[i]
+			}
+		}
+	}
+	if msg == nil {
+		t.Fatal("no room message")
+	}
+	text := msg.Text
+	altar := strings.Index(text, "A stone altar stands here.\n")
+	cap := strings.Index(text, "{G}A leather cap is here.{x}\n")
+	guard := strings.Index(text, "{Y}A city guard stands here.{x}\n")
+	if altar < 0 || cap < 0 || guard < 0 {
+		t.Fatalf("listing lacks the expected colored lines:\n%s", text)
+	}
+	if strings.Contains(text, "}A stone altar") {
+		t.Errorf("fixture should be uncolored:\n%s", text)
+	}
+	if !(altar < cap && cap < guard) {
+		t.Errorf("want fixture, then item, then mob; got:\n%s", text)
+	}
+	data, ok := msg.Data.(output.RoomData)
+	if !ok {
+		t.Fatalf("room data is %T", msg.Data)
+	}
+	fixed := map[string]bool{}
+	for _, e := range data.Items {
+		fixed[e.Name] = e.Fixed
+	}
+	if !fixed["a stone altar"] || fixed["a leather cap"] {
+		t.Errorf("fixed flags wrong: %v", fixed)
 	}
 }

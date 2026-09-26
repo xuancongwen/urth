@@ -177,6 +177,7 @@ what is in the room; the input bar completes command names on Tab.
 - **Here.** Players, creatures, and items in the room. Clicking a
   creature or item opens a menu of commands (look, consider, kill; look,
   get, sacrifice) that send the same reference a typed command would.
+  Fixtures (items flagged `nopickup`) are dimmed and offer only look.
 - **Vitals** from the prompt's data, with a flash on the health bar when
   it drops.
 - **Connect** is a button. The page does not open a socket on load;

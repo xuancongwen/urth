@@ -53,7 +53,7 @@ func (w *World) roomEntities(r *room.Room, self *Player) (mobs, items []output.E
 				break
 			}
 		}
-		items = append(items, output.Entity{Name: g.Item.Name(), Ref: ref(word, n), Count: g.Count})
+		items = append(items, output.Entity{Name: g.Item.Name(), Ref: ref(word, n), Count: g.Count, Fixed: g.Item.Proto.HasFlag("nopickup")})
 	}
 	return mobs, items
 }

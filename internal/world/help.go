@@ -29,7 +29,7 @@ var helpSections = []helpSection{
 
 var helpText = map[string]string{
 	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
-	"look":  "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. Only an unidentified item hides its numbers.",
+	"look":  "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. In the room listing, fixtures that cannot be taken read like the description, items you can pick up are green, and creatures are yellow. Only an unidentified item hides its numbers.",
 	"exits": "exits: list the obvious ways out of this room and where they lead. A closed door is not obvious.",
 	"scan":  "scan: who stands in each adjacent room. Nothing shows beyond a closed door or in the dark.",
 	"open":  "open <direction|door>: open a door.",

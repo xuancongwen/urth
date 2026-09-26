@@ -64,6 +64,9 @@
   #here .ent { padding: .1em .5em; border: 1px solid var(--line); border-radius: 3px; background: var(--panel-2); cursor: pointer; }
   #here .ent:hover { border-color: var(--accent); }
   #here .ent.player { cursor: default; }
+  #here .ent.mob { color: var(--mob, #e0b04a); }
+  #here .ent.item { color: var(--item, #7cc47c); }
+  #here .ent.fixed { color: var(--dim); border-style: dashed; }
   #here .empty { color: var(--dim); padding: .1em .9em; }
   #exits { display: flex; flex-wrap: wrap; gap: .3em; padding: .4em .9em .7em; }
   #exits button { font: inherit; font-size: .85em; padding: .15em .6em; background: var(--panel-2); color: var(--fg);
@@ -196,7 +199,8 @@
       var r = document.createElement('div'); r.className = 'row';
       var l = document.createElement('span'); l.className = 'lab'; l.textContent = label; r.appendChild(l);
       list.forEach(function (e) {
-        var s = document.createElement('span'); s.className = 'ent ' + cls;
+        var s = document.createElement('span'); s.className = 'ent ' + cls + (e.fixed ? ' fixed' : '');
+        if (e.fixed) s.title = 'Part of the room; cannot be taken.';
         s.textContent = (e.count > 1 ? '(' + e.count + ') ' : '') + (e.name || e);
         if (onclick) s.addEventListener('click', function (ev) { ev.stopPropagation(); onclick(e, s); });
         r.appendChild(s);
@@ -208,7 +212,8 @@
       openMenu(el, e.name, [['look', 'look ' + e.ref], ['consider', 'consider ' + e.ref], ['kill', 'kill ' + e.ref]]);
     });
     row('Items', d.items, 'item', function (e, el) {
-      openMenu(el, e.name, [['look', 'look ' + e.ref], ['get', 'get ' + e.ref], ['sacrifice', 'sacrifice ' + e.ref]]);
+      openMenu(el, e.name, e.fixed ? [['look', 'look ' + e.ref]]
+        : [['look', 'look ' + e.ref], ['get', 'get ' + e.ref], ['sacrifice', 'sacrifice ' + e.ref]]);
     });
     if (!here.childNodes.length) { var em = document.createElement('div'); em.className = 'empty'; em.textContent = 'Nobody and nothing.'; here.appendChild(em); }
     var exits = $('exits');

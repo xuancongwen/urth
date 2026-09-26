@@ -64,6 +64,8 @@ type Entity struct {
 	Name  string `json:"name"`
 	Ref   string `json:"ref"`
 	Count int    `json:"count,omitempty"`
+	// Fixed marks an item that is part of the room and cannot be taken.
+	Fixed bool `json:"fixed,omitempty"`
 }
 
 // MapData is the rooms near the player, positioned for drawing.
