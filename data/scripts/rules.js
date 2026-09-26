@@ -132,6 +132,9 @@ function mobBaseline(p) {
 // Effects (RULES 5.4). A kind is a function of the pipeline context; the
 // engine stores {kind, params, state, rounds} and never looks inside.
 // Kinds in play so far: stat, crit, dodge, block, attacks.
+// The engine itself reads four kinds for visibility (world/visibility.go):
+// invisible and hidden on a character or its gear make it unseen, and
+// detectInvisible and detectHidden on the viewer see through them.
 // ---------------------------------------------------------------------
 function eachEffect(c, fn) {
   var i, s;

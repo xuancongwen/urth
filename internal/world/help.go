@@ -70,7 +70,7 @@ var helpText = map[string]string{
 	"score":    "score: your character sheet.",
 	"train":    "train | train <stat>: see your stats, or spend a stat point on one.",
 	"feat":     "feat | feat <name>: see the feats you can learn, or spend a pick on one.",
-	"who":      "who: who is playing.",
+	"who":      "who: who is playing. Invisible and hidden players are listed only if you can see them.",
 	"color":    "color: toggle color.",
 	"save":     "save: write your character to disk (it also saves on its own).",
 	"password": "password <old> <new>: change your password.",

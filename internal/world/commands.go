@@ -1,6 +1,7 @@
 package world
 
 import (
+	"strconv"
 	"strings"
 
 	"urth/internal/item"
@@ -278,21 +279,37 @@ func cmdSay(w *World, p *Player, args string) {
 	w.act("$n says '{G}$t{x}'", p.Character, nil, said, toRoom)
 }
 
+// cmdWho lists everyone playing whom the asker can see. Invisible and
+// hidden players are left out unless the asker sees through it (or is
+// an admin), and are then marked so the asker knows why others may not
+// see them. The count is of what was listed.
 func cmdWho(w *World, p *Player, _ string) {
-	var names []string
-	for _, other := range w.players {
-		if other.State == StatePlaying {
-			names = append(names, other.Name)
-		}
+	type row struct {
+		name, mark string
+		level      int
 	}
-	sortStrings(names)
+	var rows []row
+	for _, other := range w.players {
+		if other.State != StatePlaying || !w.canSeeChar(p.Character, other.Character) {
+			continue
+		}
+		r := row{name: other.Name, level: other.Level}
+		if other.Invisible() {
+			r.mark += " (Invis)"
+		}
+		if other.Hidden() {
+			r.mark += " (Hidden)"
+		}
+		rows = append(rows, r)
+	}
+	sortStringsBy(rows, func(i, j int) bool { return rows[i].name < rows[j].name })
 	var b strings.Builder
 	b.WriteString("Players online:\n")
-	for _, n := range names {
-		b.WriteString("  " + output.Escape(n) + "\n")
+	for _, r := range rows {
+		b.WriteString("[" + padLeft(strconv.Itoa(r.level), 3) + "] " + output.Escape(r.name) + r.mark + "\n")
 	}
 	b.WriteString("\n")
-	b.WriteString(plural(len(names), "player") + " online.\n")
+	b.WriteString(plural(len(rows), "player") + " online.\n")
 	p.Send(b.String())
 }
 

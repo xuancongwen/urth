@@ -670,7 +670,7 @@ func TestWhoExitsQuitHuh(t *testing.T) {
 	bob.take()
 
 	send(w, 1, "wh")
-	if out := bob.take(); !strings.Contains(out, "  Alice\n  Bob\n") || !strings.Contains(out, "2 players online") {
+	if out := bob.take(); !strings.Contains(out, "[  1] Alice\n[  1] Bob\n") || !strings.Contains(out, "2 players online") {
 		t.Fatalf("who wrong: %q", out)
 	}
 	send(w, 1, "ex")
