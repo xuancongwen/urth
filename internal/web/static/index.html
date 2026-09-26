@@ -365,10 +365,11 @@
 
   // ---- Connection ---------------------------------------------------
   var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-  // wanted is true from the moment the player asks to connect until the
-  // session ends on purpose: a quit, or the idle timer. Only a wanted
-  // connection is retried on its own; the page never connects unasked.
-  var ws = null, reconnectToken = null, expectRestart = false, retryDelay = 0, retryTimer = null, wanted = false;
+  // The page never connects on its own: not on load, not after a drop,
+  // not after a restart. Every close returns to the Connect screen. A
+  // copyover token is kept so that Connect resumes the session while the
+  // server still honours it (two minutes).
+  var ws = null, reconnectToken = null, expectRestart = false;
   var conn = $('conn'), main = $('main');
   // The client hangs up after this long without a command, with a warning
   // a minute before. Output does not count as activity.
@@ -380,9 +381,9 @@
     conn.textContent = on ? 'connected' : 'offline';
     conn.className = on ? 'on' : 'off';
     if (!on) { input.type = 'text'; prompt.textContent = ''; }
-    if (on) { stopIdle(); lastActive = Date.now(); idleWarned = false; idleTimer = setInterval(checkIdle, 15000); }
-    else { stopIdle(); }
-    showConnectBox(!on && !wanted);
+    stopIdle();
+    if (on) { lastActive = Date.now(); idleWarned = false; idleTimer = setInterval(checkIdle, 15000); }
+    showConnectBox(!on);
   }
   function showConnectBox(show, msg) {
     if (msg) $('connectmsg').textContent = msg;
@@ -396,50 +397,35 @@
     if (!ws || ws.readyState !== WebSocket.OPEN) return;
     var idle = Date.now() - lastActive;
     if (idle >= idleLimit) {
-      wanted = false;
       system('[idle for ' + Math.round(idleLimit / 60000) + ' minutes: disconnected]');
-      showConnectBox(true, 'Disconnected after ' + Math.round(idleLimit / 60000) + ' minutes idle.');
       ws.close(1000, 'idle');
     } else if (!idleWarned && idle >= idleLimit - idleWarn) {
       idleWarned = true;
       system('[idle: disconnecting in a minute unless you do something]');
     }
   }
-  function scheduleRetry() {
-    if (retryTimer) return;
-    if (!wanted) return;
-    retryDelay = retryDelay < 0 ? -retryDelay : (retryDelay ? Math.min(retryDelay * 2, 30000) : 1000);
-    system('[reconnecting in ' + Math.round(retryDelay / 1000) + 's]');
-    conn.textContent = 'retrying';
-    retryTimer = setTimeout(function () { retryTimer = null; connect(); }, retryDelay);
-  }
   function connect() {
-    if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
     if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) return;
-    wanted = true;
     showConnectBox(false);
     var url = proto + location.host + '/ws' + (reconnectToken ? '?token=' + encodeURIComponent(reconnectToken) : '');
     var resuming = !!reconnectToken;
-    reconnectToken = null;
     conn.textContent = 'connecting'; conn.className = '';
     ws = new WebSocket(url);
     ws.onopen = function () {
-      retryDelay = 0;
+      reconnectToken = null;
       setConnected(true); input.type = 'text';
       system(resuming ? '[reconnected]' : '[connected]');
       input.focus();
     };
     ws.onclose = function (e) {
+      var why;
+      if (expectRestart) { expectRestart = false; why = 'The server is restarting.'; system('[server restarting]'); }
+      else if (e.reason === 'idle') { why = 'Disconnected after ' + Math.round(idleLimit / 60000) + ' minutes idle.'; }
+      else if (e.code === 1000) { why = 'Disconnected' + (e.reason ? ': ' + e.reason : '') + '.'; system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); }
+      else if (e.wasClean || e.code === 1001) { why = 'Disconnected.'; system('[disconnected]'); }
+      else { why = resuming ? 'Could not resume the session.' : 'Connection lost.'; system('[connection lost]'); }
       setConnected(false);
-      if (expectRestart) { expectRestart = false; system('[server restarting]'); retryDelay = -(reconnectToken ? 300 : 1000); scheduleRetry(); return; }
-      if (e.code === 1000 || !wanted) {
-        if (wanted) { system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); }
-        wanted = false;
-        showConnectBox(true, e.reason && e.reason !== 'idle' ? 'Disconnected: ' + e.reason + '.' : undefined);
-        return;
-      }
-      if (retryDelay === 0) system('[connection lost]');
-      scheduleRetry();
+      showConnectBox(true, why);
     };
     ws.onmessage = function (e) {
       JSON.parse(e.data).forEach(function (m) {
@@ -494,7 +480,7 @@
     touch();
     if (ev.key === 'Enter') {
       ev.preventDefault();
-      if (!ws || ws.readyState !== WebSocket.OPEN) { retryDelay = 0; connect(); return; }
+      if (!ws || ws.readyState !== WebSocket.OPEN) { connect(); return; }
       var line = input.value;
       sendLine(line);
       if (line && input.type !== 'password') { history.push(line); if (history.length > 200) history.shift(); }
@@ -517,11 +503,7 @@
     if (!window.getSelection().toString()) input.focus();
   });
   $('toggle').addEventListener('click', function (ev) { ev.stopPropagation(); side.classList.toggle('open'); drawMap(); });
-  document.addEventListener('visibilitychange', function () {
-    if (!document.hidden && wanted && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); }
-  });
-  window.addEventListener('online', function () { if (wanted && (!ws || ws.readyState === WebSocket.CLOSED)) { retryDelay = 0; connect(); } });
-  $('connect').addEventListener('click', function (ev) { ev.stopPropagation(); retryDelay = 0; connect(); input.focus(); });
+  $('connect').addEventListener('click', function (ev) { ev.stopPropagation(); connect(); input.focus(); });
 
   setConnected(false);
   input.placeholder = 'not connected. press Enter to connect';

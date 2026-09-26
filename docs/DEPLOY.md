@@ -74,8 +74,9 @@ Three variants:
 - `make deploy DEPLOY_ARGS=--no-restart` pushes the binary too but
   leaves the old process running. Type `copyover` in game and the server
   execs the new binary at the same path with every telnet player still
-  connected and every web player reconnected by token. This is the
-  zero-downtime path. It works because rsync renames a new file over the
+  connected and every web player able to resume by token: their page
+  drops to the Connect screen, and a click within two minutes puts them
+  back in without a login. This is the near-zero-downtime path. It works because rsync renames a new file over the
   old one and Go resolves its own path without the kernel's "(deleted)"
   suffix, so the exec picks up the new inode.
 - `make deploy DEPLOY_ARGS=--skip-check` skips the content check, vet,
@@ -180,16 +181,16 @@ what is in the room; the input bar completes command names on Tab.
   Fixtures (items flagged `nopickup`) are dimmed and offer only look.
 - **Vitals** from the prompt's data, with a flash on the health bar when
   it drops.
-- **Connect** is a button. The page does not open a socket on load;
-  the player clicks Connect (or presses Enter) to start a session.
-- **Reconnect** on its own after a copyover, a tunnel blip, a phone
-  coming back from the background, or a server restart, with backoff up
-  to 30 s; Enter retries at once. A deliberate quit does not reconnect.
-  Password prompts switch the box to a password field.
+- **Connect** is a button. The page never opens a socket on its own:
+  not on load, not after a dropped connection, not after a restart.
+  Every close, whatever the cause, returns to the Connect screen with a
+  line saying why, and the player clicks Connect (or presses Enter) to
+  start again. After a copyover the page keeps its reconnect token, so
+  a Connect within the token's two minutes resumes the session without
+  a login. Password prompts switch the box to a password field.
 - **Idle** sessions are hung up by the client: fifteen minutes without
   a command, with a warning in the log a minute before. Output arriving
-  does not count. After that the Connect button is back and nothing
-  reconnects unasked. The limit is `idleLimit` in `static/index.html`.
+  does not count. The limit is `idleLimit` in `static/index.html`.
 - On a phone the side panel is a drawer behind the **map** button.
 
 ## 5. Backups

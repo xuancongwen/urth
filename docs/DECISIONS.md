@@ -100,7 +100,8 @@ Telnet sockets and both listening sockets are handed to the exec'd binary by
 clearing close-on-exec and passing descriptor numbers in a state file. A
 WebSocket connection carries framing state inside the library that cannot be
 reconstructed after exec, so those clients receive a single-use token and the
-browser page reconnects with it; the world re-attaches them without a login.
+browser page reconnects with it (on the player's click; the page never
+connects unasked) and the world re-attaches them without a login.
 Sessions still at the login prompts are closed. The first character created
 on a server is an admin so copyover and shutdown are reachable from day one.
 
