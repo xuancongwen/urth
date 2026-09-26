@@ -88,3 +88,66 @@ func TestCanSeeCharThroughWornGear(t *testing.T) {
 		t.Fatal("cannot see self")
 	}
 }
+
+func TestLookAndScanObeyVisibility(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	w.players[1].Admin = false
+	// Alice stands north with the dogs; Bob is in the hub with the guard.
+	send(w, 2, "n")
+	bob.take()
+	alice.take()
+
+	// Seen: the guard and Alice show up as usual.
+	send(w, 1, "look")
+	if out := bob.take(); !strings.Contains(out, "A city guard stands here.") {
+		t.Fatalf("guard missing from look: %q", out)
+	}
+	send(w, 1, "scan")
+	if out := bob.take(); !strings.Contains(out, "    Alice\n") {
+		t.Fatalf("alice missing from scan: %q", out)
+	}
+
+	guard := w.contents(w.players[1].Room).mobs[0]
+	guard.Effects = append(guard.Effects, effect.Active{Spec: effect.Spec{Kind: effectHidden}})
+	addEffect(w, 2, effectInvisible)
+
+	// Unseen: gone from look, look <name>, and scan.
+	send(w, 1, "look")
+	if out := bob.take(); strings.Contains(out, "city guard") {
+		t.Fatalf("hidden guard in look: %q", out)
+	}
+	send(w, 1, "look guard")
+	if out := bob.take(); !strings.Contains(out, "You don't see that here.") {
+		t.Fatalf("looked at a hidden guard: %q", out)
+	}
+	send(w, 1, "scan")
+	if out := bob.take(); strings.Contains(out, "Alice") {
+		t.Fatalf("invisible alice in scan: %q", out)
+	}
+	send(w, 2, "look")
+	if out := alice.take(); !strings.Contains(out, "A stray dog sniffs about.") {
+		t.Fatalf("alice's own look broken: %q", out)
+	}
+	send(w, 2, "scan")
+	if out := alice.take(); strings.Contains(out, "city guard") || !strings.Contains(out, "    Bob\n") {
+		t.Fatalf("scan from north wrong: %q", out)
+	}
+
+	// Detection restores them.
+	addEffect(w, 1, effectDetectHidden)
+	addEffect(w, 1, effectDetectInvisible)
+	send(w, 1, "look")
+	if out := bob.take(); !strings.Contains(out, "A city guard stands here.") {
+		t.Fatalf("detect hidden did not restore look: %q", out)
+	}
+	send(w, 1, "look guard")
+	if out := bob.take(); !strings.Contains(out, "Tall and bored.") {
+		t.Fatalf("detect hidden did not restore look at: %q", out)
+	}
+	send(w, 1, "scan")
+	if out := bob.take(); !strings.Contains(out, "    Alice\n") {
+		t.Fatalf("detect invisible did not restore scan: %q", out)
+	}
+}

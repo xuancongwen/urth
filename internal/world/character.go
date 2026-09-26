@@ -146,15 +146,28 @@ func (w *World) charactersIn(r *room.Room) []*Character {
 	return out
 }
 
+// visibleCharactersIn returns everyone in r whom viewer can see
+// (visibility.go), in charactersIn's order.
+func (w *World) visibleCharactersIn(viewer *Character, r *room.Room) []*Character {
+	var out []*Character
+	for _, c := range w.charactersIn(r) {
+		if w.canSeeChar(viewer, c) {
+			out = append(out, c)
+		}
+	}
+	return out
+}
+
 // findCharacter resolves a target word to a character in the room, other
-// than self. "2.guard" picks the second match.
+// than self. "2.guard" picks the second match. Only characters self can
+// see are counted, so an unseen one cannot be named.
 func (w *World) findCharacter(r *room.Room, self *Character, ref string) *Character {
 	t := item.ParseTarget(ref)
 	if t.All || t.Word == "" {
 		return nil
 	}
 	n := 0
-	for _, c := range w.charactersIn(r) {
+	for _, c := range w.visibleCharactersIn(self, r) {
 		if c == self || !c.Matches(t.Word) {
 			continue
 		}

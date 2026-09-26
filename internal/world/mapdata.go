@@ -17,10 +17,14 @@ const mapRadius = 6
 // roomEntities lists the mobs and items in r with the references a
 // command would resolve to the same thing. Mob references follow
 // findCharacter, which counts prefix matches over players then mobs in
-// room order, so a second guard is "2.guard".
+// room order, so a second guard is "2.guard". Mobs self cannot see are
+// left out.
 func (w *World) roomEntities(r *room.Room, self *Player) (mobs, items []output.Entity) {
-	chars := w.charactersIn(r)
+	chars := w.visibleCharactersIn(self.Character, r)
 	for _, m := range w.contents(r).mobs {
+		if !w.canSeeChar(self.Character, m.Character) {
+			continue
+		}
 		word := ""
 		if len(m.Keywords) > 0 {
 			word = m.Keywords[0]

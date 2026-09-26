@@ -234,10 +234,13 @@ func (w *World) look(p *Player) {
 	writeItems(true, "")
 	writeItems(false, "{G}")
 	for _, m := range w.contents(r).mobs {
+		if !w.canSeeChar(p.Character, m.Character) {
+			continue
+		}
 		b.WriteString("{Y}" + output.Escape(m.Proto.Description) + "{x}\n")
 	}
 	for _, other := range w.playersIn(r) {
-		if other != p {
+		if other != p && w.canSeeChar(p.Character, other.Character) {
 			data.Players = append(data.Players, other.Name)
 			b.WriteString(output.Escape(other.Name) + " is here.\n")
 		}

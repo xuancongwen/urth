@@ -189,7 +189,7 @@ func (w *World) lookDirection(p *Player, ref string) bool {
 }
 
 // cmdScan: scan. Lists who stands in each adjacent room, skipping closed
-// doors and rooms too dark to see into.
+// doors, rooms too dark to see into, and anyone the scanner cannot see.
 func cmdScan(w *World, p *Player, _ string) {
 	if !w.canSee(p.Character) {
 		p.Send("You can't see a thing.\n")
@@ -202,11 +202,12 @@ func cmdScan(w *World, p *Player, _ string) {
 			continue
 		}
 		var names []string
-		for _, other := range w.playersIn(dest) {
-			names = append(names, other.DisplayName())
-		}
-		for _, m := range w.contents(dest).mobs {
-			names = append(names, output.Escape(m.Name))
+		for _, c := range w.visibleCharactersIn(p.Character, dest) {
+			if c.IsPlayer() {
+				names = append(names, c.DisplayName())
+			} else {
+				names = append(names, output.Escape(c.Name))
+			}
 		}
 		if len(names) == 0 {
 			continue
