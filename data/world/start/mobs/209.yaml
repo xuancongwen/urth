@@ -6,7 +6,7 @@ look: |
   Grey, scarred, and still sitting the way a man sits when he expects to
   have to stand up quickly. He will teach what he knows, for a price.
 level: 15
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [bash, twin]
 attack:
   verb: punch

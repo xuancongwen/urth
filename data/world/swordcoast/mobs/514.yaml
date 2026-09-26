@@ -8,6 +8,6 @@ look: |
   dangerous thing in it, and he knows exactly what is coming out of the
   mine.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: slash

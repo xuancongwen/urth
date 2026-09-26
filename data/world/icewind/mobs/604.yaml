@@ -7,6 +7,6 @@ look: |
   needle that never stops. Ships, wolves, a knight with a lance,
   scratched into ivory no wider than your thumb.
 level: 6
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

@@ -5,6 +5,5 @@ description: A stray dog sniffs at the sand.
 look: |
   Ribs showing, one ear torn. It keeps its distance.
 level: 1
-flags: []
 attack:
   verb: bite

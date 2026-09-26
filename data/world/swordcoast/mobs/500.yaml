@@ -6,6 +6,6 @@ look: |
   Broad, bald, and delighted with himself. He charges for the air and
   gives it back with a grin, and has never once been caught meaning it.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

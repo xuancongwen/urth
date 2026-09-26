@@ -9,7 +9,7 @@ look: |
   they treat him like one. He knows the statue hums. He does not go
   near it.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 silver: 60
 attack:
   verb: cuff

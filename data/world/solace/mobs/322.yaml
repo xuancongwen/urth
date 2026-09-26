@@ -8,7 +8,7 @@ look: |
   you how to put your shoulder into a blow, for a price, and grumble
   about it.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [bash]
 attack:
   verb: butt

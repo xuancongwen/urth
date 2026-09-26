@@ -7,6 +7,6 @@ look: |
   gardens. He has opinions on taters, on the weather, and on the
   Bagginses, and he does not need to be asked for any of them.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: swat

@@ -7,6 +7,6 @@ look: |
   heard all about your sort. He would sell his own mill to a stranger
   if the price was right, and one day he will.
 level: 6
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: shove

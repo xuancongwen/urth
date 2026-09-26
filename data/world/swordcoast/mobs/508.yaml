@@ -7,7 +7,6 @@ look: |
   description of someone and thinks it might be you, and he has been
   paid enough not to care if he is wrong. His hands shake a little.
 level: 6
-flags: [sentinel]
 health: 65
 silver: 80
 stats: { strength: 7, intelligence: 16 }

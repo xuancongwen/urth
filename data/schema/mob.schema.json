@@ -16,8 +16,8 @@
     "flags": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "type": "string", "examples": ["sentinel", "roam", "peaceful", "questmaster"] },
-      "description": "sentinel never moves; roam may wander out of its area; peaceful cannot be attacked; questmaster hands out quests (docs/RULES.md 7.6). Others are free for rules."
+      "items": { "type": "string", "examples": ["wander", "roam", "peaceful", "questmaster"] },
+      "description": "wander moves between rooms on its own (mobs stand still by default); roam lets a wanderer leave its area; peaceful cannot be attacked; questmaster hands out quests (docs/RULES.md 7.6). Others are free for rules."
     },
     "stats": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Stat overrides by name." },
     "health": { "type": "integer", "minimum": 0, "description": "Overrides the derived maximum when positive." },

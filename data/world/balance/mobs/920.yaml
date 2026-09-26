@@ -5,4 +5,3 @@ description: A wooden dummy painted with the number 20 stands here.
 look: |
   Oak, iron-banded, and scarred. The number 20 is painted on its chest.
 level: 20
-flags: [sentinel]

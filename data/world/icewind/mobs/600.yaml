@@ -7,6 +7,6 @@ look: |
   settled a thousand quarrels over fish. He nods while you talk and
   has decided before you finish.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

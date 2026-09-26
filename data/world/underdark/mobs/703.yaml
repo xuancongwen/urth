@@ -9,7 +9,6 @@ look: |
   look in its eye you have seen in old soldiers and in men who have lost
   a name. It will kill you all the same. It seems to be sorry about it.
 level: 13
-flags: [sentinel]
 health: 420
 attack:
   verb: hook

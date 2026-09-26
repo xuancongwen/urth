@@ -7,6 +7,6 @@ look: |
   on her hip. The baby is asleep. She is telling it, very softly, that
   one day it will have a wrench of its own.
 level: 4
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: slap

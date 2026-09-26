@@ -7,6 +7,6 @@ look: |
   if none of it were a burden. He looks at you the way he looks at a
   page: kindly, and to see what is written there.
 level: 18
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

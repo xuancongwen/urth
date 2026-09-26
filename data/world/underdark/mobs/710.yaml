@@ -8,7 +8,7 @@ look: |
   blade aside with your own, for coin, because a customer who lives
   comes back.
 level: 13
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [riposte]
 attack:
   verb: strike

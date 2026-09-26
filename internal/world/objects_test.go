@@ -11,9 +11,9 @@ import (
 	"urth/internal/output"
 )
 
-// The test world (see world_test.go) resets area "a" at boot: a sentinel
+// The test world (see world_test.go) resets area "a" at boot: a stationary
 // guard wielding a rusty sword and carrying bread in room 1, up to two
-// stray dogs in room 2, and in room 1 a sack containing bread, a leather
+// wandering stray dogs in room 2, and in room 1 a sack containing bread, a leather
 // cap, and an immovable altar.
 
 func TestBootResetPopulates(t *testing.T) {
@@ -68,7 +68,7 @@ func TestResetRepopulatesOnSchedule(t *testing.T) {
 		t.Fatalf("reset duplicated room items: %d", n)
 	}
 	if w.countMobs(w.content.Mobs[20]) != 1 {
-		t.Fatal("reset duplicated the sentinel guard")
+		t.Fatal("reset duplicated the guard")
 	}
 	if w.countMobs(w.content.Mobs[21]) != 2 {
 		t.Fatalf("expected dogs to reach max 2, got %d", w.countMobs(w.content.Mobs[21]))
@@ -214,7 +214,7 @@ func TestMobsWanderWithinArea(t *testing.T) {
 	}
 	guardRoom := w.content.Rooms.Rooms[1]
 	if len(w.contents(guardRoom).mobs) == 0 || w.contents(guardRoom).mobs[0].Proto.Vnum != 20 {
-		t.Fatal("sentinel guard moved")
+		t.Fatal("unflagged guard moved")
 	}
 	// Room 3 is in area b; a stay-in-area dog must never be there.
 	for i := 0; i < 400; i++ {

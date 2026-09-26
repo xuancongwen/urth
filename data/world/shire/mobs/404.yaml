@@ -9,6 +9,6 @@ look: |
   generous to guests and merciless to trespassers, and he decides
   which you are.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: thump

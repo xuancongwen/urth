@@ -10,6 +10,6 @@ look: |
   once and does not recommend it. He looks at you as if you are a
   problem he has decided to like.
 level: 16
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: hammer

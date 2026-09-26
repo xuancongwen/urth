@@ -7,6 +7,6 @@ look: |
   than his manner suggests. He would rather nobody had to fight and
   will be the first to if they must.
 level: 14
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: slash

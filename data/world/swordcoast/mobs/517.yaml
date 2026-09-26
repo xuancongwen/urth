@@ -8,7 +8,6 @@ look: |
   told to taint the iron and keep the kobolds in line, and he has done
   both, and it has not been enough for anyone.
 level: 9
-flags: [sentinel]
 health: 220
 silver: 200
 attack:

@@ -8,6 +8,6 @@ look: |
   He has followed her across half the world and would follow her the rest
   of the way.
 level: 9
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

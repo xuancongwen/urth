@@ -7,6 +7,5 @@ look: |
   learned to hate. It uses no weapon because it has never needed one.
   It is tearing something as it looks at you.
 level: 12
-flags: [sentinel]
 attack:
   verb: rend

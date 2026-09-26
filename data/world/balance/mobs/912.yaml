@@ -5,4 +5,3 @@ description: A wooden dummy painted with the number 12 stands here.
 look: |
   Oak, iron-banded, and scarred. The number 12 is painted on its chest.
 level: 12
-flags: [sentinel]

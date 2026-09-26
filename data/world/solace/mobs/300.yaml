@@ -7,6 +7,6 @@ look: |
   face that has ever ordered his potatoes. He has never turned a guest
   away and never let one leave hungry.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

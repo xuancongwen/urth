@@ -7,7 +7,6 @@ look: |
   with some men in town and would like it to be your quarrel too, for a
   price she has not named. Her hands are a caster's hands.
 level: 6
-flags: [sentinel]
 silver: 60
 attack:
   verb: strike

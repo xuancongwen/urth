@@ -9,7 +9,7 @@ look: |
   wants done, and pays in a coin of its own: quest points, which it
   trades for the odd fine thing. Try 'quest request' and 'quest list'.
 level: 20
-flags: [sentinel, peaceful, questmaster]
+flags: [peaceful, questmaster]
 attack:
   verb: punch
 sells:

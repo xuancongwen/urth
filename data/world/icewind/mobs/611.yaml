@@ -8,6 +8,6 @@ look: |
   nothing in his face of what the stories say about his kind, and
   everything in his posture of how often he has had to prove it.
 level: 20
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: slash

@@ -8,6 +8,6 @@ look: |
   and coughs, and when the coughing stops his voice is very quiet and
   very sure. He would teach you nothing. He is not the sharing kind.
 level: 15
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

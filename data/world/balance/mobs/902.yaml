@@ -5,4 +5,3 @@ description: A wooden dummy painted with the number 2 stands here.
 look: |
   Oak, iron-banded, and scarred. The number 2 is painted on its chest.
 level: 2
-flags: [sentinel]

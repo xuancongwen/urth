@@ -5,6 +5,5 @@ description: A blacksmith swings a club to loosen his shoulders.
 look: |
   Forearms like hams and a burn scar across one cheek.
 level: 8
-flags: [sentinel]
 attack:
   verb: punch

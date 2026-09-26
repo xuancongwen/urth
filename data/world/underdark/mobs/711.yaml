@@ -7,6 +7,6 @@ look: |
   charges surface folk double and considers it a kindness, since they
   will not stay long enough to learn better.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

@@ -6,6 +6,6 @@ look: |
   Red-faced from the fire and the wine both. He has a cellar of the
   stuff and a rule that nobody freezes on his floor.
 level: 8
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: punch

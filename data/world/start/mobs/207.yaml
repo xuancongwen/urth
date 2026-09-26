@@ -6,6 +6,5 @@ look: |
   Skin like wet bark over too few bones. It does not breathe. It does
   not need to.
 level: 7
-flags: [sentinel]
 attack:
   verb: claw

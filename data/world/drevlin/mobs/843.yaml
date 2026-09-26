@@ -8,6 +8,6 @@ look: |
   exactly when he wants it to. He asks a great many questions. It is
   hard to say afterward what you told him.
 level: 8
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: kick

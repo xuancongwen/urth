@@ -62,7 +62,7 @@ func TestStat(t *testing.T) {
 		t.Fatalf("stat room: %q", o)
 	}
 	send(w, 1, "stat guard")
-	if o := bob.take(); !strings.Contains(o, "Mob vnum 20") || !strings.Contains(o, "<wielded>") || !strings.Contains(o, "Flags: sentinel") {
+	if o := bob.take(); !strings.Contains(o, "Mob vnum 20") || !strings.Contains(o, "<wielded>") || strings.Contains(o, "Flags:") {
 		t.Fatalf("stat mob: %q", o)
 	}
 	send(w, 1, "stat sack")

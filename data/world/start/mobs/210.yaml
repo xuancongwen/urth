@@ -6,7 +6,7 @@ look: |
   Scarred forearms, patient eyes, and a hound that never looks away from
   you. She teaches what the beasts taught her, for coin and for fangs.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [rend]
 attack:
   verb: punch

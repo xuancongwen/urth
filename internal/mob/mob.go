@@ -27,8 +27,9 @@ type Proto struct {
 	// Look is shown by "look <mob>".
 	Look  string `yaml:"look"`
 	Level int    `yaml:"level"`
-	// Flags: "sentinel" never moves; "stay_area" (default on) never leaves
-	// its area when wandering. Others are free for rules.
+	// Flags: "wander" lets the mob roam between rooms (default off, so
+	// mobs stand where they are placed); "roam" lets a wanderer leave its
+	// area. Others are free for rules.
 	Flags []string `yaml:"flags,omitempty"`
 	// Rule inputs the engine stores and never interprets. Everything a
 	// builder leaves out is filled from the level baseline by the rules'
@@ -104,8 +105,9 @@ func (p *Proto) HasFlag(flag string) bool {
 	return false
 }
 
-// Sentinel mobs never wander.
-func (p *Proto) Sentinel() bool { return p.HasFlag("sentinel") }
+// Wanders reports whether the mob moves about on its own. Off by default:
+// builders flag the mobs that should move.
+func (p *Proto) Wanders() bool { return p.HasFlag("wander") }
 
 // StaysInArea reports whether wandering is confined to the home area.
 func (p *Proto) StaysInArea() bool { return !p.HasFlag("roam") }

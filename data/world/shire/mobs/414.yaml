@@ -8,7 +8,6 @@ look: |
   as if the road itself might tell it where you went. The cold coming
   off it is not the cold of the wood.
 level: 10
-flags: [sentinel]
 health: 300
 attack:
   verb: strike

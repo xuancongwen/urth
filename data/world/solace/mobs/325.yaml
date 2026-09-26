@@ -8,6 +8,6 @@ look: |
   a man who should have died, and that the Seekers must not have it. She
   watches you look at it.
 level: 8
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

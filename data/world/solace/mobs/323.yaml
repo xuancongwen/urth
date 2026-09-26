@@ -8,7 +8,7 @@ look: |
   teach you to swing twice where others swing once, and buy you a drink
   after.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [twin]
 attack:
   verb: pound

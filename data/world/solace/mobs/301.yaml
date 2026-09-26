@@ -7,6 +7,6 @@ look: |
   broken up more fights here than the Seekers ever have, usually with a
   skillet, and she is not afraid of anything that walks in that door.
 level: 4
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: swing

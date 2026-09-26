@@ -8,7 +8,6 @@ look: |
   been told to wait here for something. He does not mind killing to
   pass the time.
 level: 9
-flags: [sentinel]
 silver: 45
 attack:
   verb: club

@@ -8,7 +8,6 @@ look: |
   hollow. The song it sings is sleep, and what it does with sleepers
   it does slowly.
 level: 8
-flags: [sentinel]
 health: 350
 attack:
   verb: grasp

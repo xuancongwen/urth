@@ -93,8 +93,8 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 		"a/items/12.yaml": "vnum: 12\nname: a small sack\nkeywords: [small, sack]\ntype: container\n",
 		"a/items/13.yaml": "vnum: 13\nname: a loaf of bread\nkeywords: [loaf, bread]\n",
 		"a/items/14.yaml": "vnum: 14\nname: a stone altar\nkeywords: [altar]\ndescription: A stone altar stands here.\nflags: [nopickup]\n",
-		"a/mobs/20.yaml":  "vnum: 20\nname: a city guard\nkeywords: [city, guard]\ndescription: A city guard stands here.\nlook: Tall and bored.\nflags: [sentinel]\n",
-		"a/mobs/21.yaml":  "vnum: 21\nname: a stray dog\nkeywords: [stray, dog]\ndescription: A stray dog sniffs about.\n",
+		"a/mobs/20.yaml":  "vnum: 20\nname: a city guard\nkeywords: [city, guard]\ndescription: A city guard stands here.\nlook: Tall and bored.\n",
+		"a/mobs/21.yaml":  "vnum: 21\nname: a stray dog\nkeywords: [stray, dog]\ndescription: A stray dog sniffs about.\nflags: [wander]\n",
 		"a/resets.yaml": "interval_seconds: 5\nresets:\n" +
 			"  - mob: 20\n    room: 1\n    equip:\n      - item: 10\n        slot: wield\n      - item: 13\n" +
 			"  - mob: 21\n    room: 2\n    max: 2\n" +

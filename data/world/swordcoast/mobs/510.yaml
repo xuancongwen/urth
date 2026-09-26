@@ -8,6 +8,6 @@ look: |
   on the wrong side of it. She is waiting for someone, and it is not
   you, and she is not pleased about that either.
 level: 14
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

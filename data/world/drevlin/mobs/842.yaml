@@ -8,6 +8,6 @@ look: |
   business, and the boy is. He looks at you once, decides you are not a
   contract, and goes back to the knife.
 level: 18
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: stab

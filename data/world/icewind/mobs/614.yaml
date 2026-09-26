@@ -7,7 +7,7 @@ look: |
   and no interest in you until you mention coin. Then he will teach you
   how to hit something so that it stays hit.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [bash]
 attack:
   verb: punch

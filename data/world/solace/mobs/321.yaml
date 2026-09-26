@@ -8,7 +8,7 @@ look: |
   let a wrong pass. He will teach you to turn a blade, if you can pay and
   will use it honorably.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 teaches: [riposte]
 attack:
   verb: slash

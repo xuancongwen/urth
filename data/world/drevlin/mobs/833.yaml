@@ -8,6 +8,6 @@ look: |
   sort of thing that happens to Limbeck. He asked why the machine does
   what it does. Nobody had asked before. He has not stopped since.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: poke

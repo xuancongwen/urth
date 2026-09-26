@@ -7,6 +7,6 @@ look: |
   eyes like flint chips. He is not unfriendly. He is a wall that has
   decided to let you through, for now.
 level: 12
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: strike

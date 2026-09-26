@@ -12,9 +12,10 @@ import (
 // from round(). Neither is a rule: how often mobs move and how many spawn
 // is content, set in area files.
 
-// wanderChance is the per-round chance a non-sentinel mob moves, as ROM's
-// one-in-eight per mobile pulse.
-const wanderChance = 8
+// wanderChance is the per-round chance a wandering mob moves: one in
+// twelve, a third slower than ROM's one-in-eight per mobile pulse, which
+// kept mobs pacing constantly.
+const wanderChance = 12
 
 type areaState struct {
 	dir        string
@@ -113,13 +114,14 @@ func hasVnum(list []*item.Item, vnum int) bool {
 	return false
 }
 
-// wanderMobs gives each mobile mob a chance to step through a random exit.
+// wanderMobs gives each mob flagged "wander" a chance to step through a
+// random exit.
 func (w *World) wanderMobs() {
 	// Collect first: moving mutates the per-room lists we iterate.
 	var movers []*Mob
 	for _, c := range w.rooms {
 		for _, m := range c.mobs {
-			if !m.Proto.Sentinel() && m.Fighting == nil && w.rng.IntN(wanderChance) == 0 {
+			if m.Proto.Wanders() && m.Fighting == nil && w.rng.IntN(wanderChance) == 0 {
 				movers = append(movers, m)
 			}
 		}

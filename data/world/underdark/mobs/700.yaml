@@ -7,6 +7,5 @@ look: |
   folded under its chin and a spinneret where a mouth should be. It
   fishes for what walks below. It has been fishing a long time.
 level: 10
-flags: [sentinel]
 attack:
   verb: claw

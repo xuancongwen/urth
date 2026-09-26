@@ -6,7 +6,6 @@ look: |
   Twice your height and mostly arm. The sand is packed hard where it
   sits.
 level: 12
-flags: [sentinel]
 health: 400
 attack:
   verb: smash

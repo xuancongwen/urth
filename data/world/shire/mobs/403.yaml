@@ -7,6 +7,6 @@ look: |
   memory of every tab in Bywater. Nothing said in this room is news to
   him, and nothing said in this room leaves it.
 level: 10
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: cuff

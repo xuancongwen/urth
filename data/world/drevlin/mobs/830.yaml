@@ -8,6 +8,6 @@ look: |
   eleven generations. He can tell you the total. He cannot tell you what
   it is the total of.
 level: 6
-flags: [sentinel, peaceful]
+flags: [peaceful]
 attack:
   verb: jab
