@@ -45,21 +45,97 @@ func oneName(p *Player, args, syntax string) (string, bool) {
 	return name, true
 }
 
-func cmdPromote(w *World, p *Player, args string) {
-	name, ok := oneName(p, args, "promote <player>")
-	if !ok {
-		return
-	}
+// errNoCharacter is the reply to an account change for a name with no
+// record and nobody playing it.
+var errNoCharacter = contentError("there is no character called that")
+
+// The account changes below are shared by the in-game commands and the
+// admin page. by names who asked, for the log and the notice the target
+// sees; the reply is for the asker.
+
+func (w *World) promote(name, by string) (string, error) {
 	online, err := w.editRecord(name, func(rec *store.Record) { rec.Admin = true })
 	if err != nil {
-		p.Send("There is no character called that.\n")
+		return "", errNoCharacter
+	}
+	w.log.Warn("promoted", "name", name, "by", by)
+	if o := w.playingByName(name, nil); online && o != nil {
+		o.Send("{Y}" + output.Escape(by) + " has made you an admin.{x}\n")
+		w.sendCommands(o)
+	}
+	return name + " is now an admin.", nil
+}
+
+func (w *World) demote(name, by string) (string, error) {
+	online, err := w.editRecord(name, func(rec *store.Record) { rec.Admin = false })
+	if err != nil {
+		return "", errNoCharacter
+	}
+	w.log.Warn("demoted", "name", name, "by", by)
+	if o := w.playingByName(name, nil); online && o != nil {
+		o.Send("{Y}" + output.Escape(by) + " has removed your admin privileges.{x}\n")
+		w.sendCommands(o)
+	}
+	return name + " is no longer an admin.", nil
+}
+
+// deny locks an account: its session is dropped and login refuses it
+// until allow.
+func (w *World) deny(name, by string) (string, error) {
+	online, err := w.editRecord(name, func(rec *store.Record) { rec.Denied = true })
+	if err != nil {
+		return "", errNoCharacter
+	}
+	w.log.Warn("denied", "name", name, "by", by)
+	if o := w.playingByName(name, nil); online && o != nil {
+		o.SendMsg(output.Message{Type: output.System, Text: "{R}Your account has been denied.{x}\n"})
+		o.disconnect()
+	}
+	return name + " is denied.", nil
+}
+
+func (w *World) allow(name, by string) (string, error) {
+	if _, err := w.editRecord(name, func(rec *store.Record) { rec.Denied = false }); err != nil {
+		return "", errNoCharacter
+	}
+	w.log.Warn("allowed", "name", name, "by", by)
+	return name + " may log in again.", nil
+}
+
+// setPasswordHash stores a hash made off the world goroutine.
+func (w *World) setPasswordHash(name, hash, by string) (string, error) {
+	if _, err := w.editRecord(name, func(rec *store.Record) { rec.PasswordHash = hash }); err != nil {
+		w.log.Error("passwd", "name", name, "err", err)
+		return "", err
+	}
+	w.log.Warn("password reset", "name", name, "by", by)
+	if o := w.playingByName(name, nil); o != nil {
+		o.Send("{Y}" + output.Escape(by) + " has changed your password.{x}\n")
+	}
+	return "Password for " + name + " changed.", nil
+}
+
+// characterExists reports whether name has a record or is playing.
+func (w *World) characterExists(name string) bool {
+	return store.ValidName(name) && (w.playingByName(name, nil) != nil || w.store.Exists(name))
+}
+
+// reply sends the outcome of an account change to an admin in game.
+func (p *Player) reply(msg string, err error) {
+	if err != nil {
+		if err == errNoCharacter {
+			p.Send("There is no character called that.\n")
+		} else {
+			p.Send("Something went wrong. Nothing changed.\n")
+		}
 		return
 	}
-	w.log.Warn("promoted", "name", name, "by", p.Name)
-	p.Send(output.Escape(name) + " is now an admin.\n")
-	if o := w.playingByName(name, nil); online && o != nil {
-		o.Send("{Y}" + output.Escape(p.Name) + " has made you an admin.{x}\n")
-		w.sendCommands(o)
+	p.Send(output.Escape(msg) + "\n")
+}
+
+func cmdPromote(w *World, p *Player, args string) {
+	if name, ok := oneName(p, args, "promote <player>"); ok {
+		p.reply(w.promote(name, p.Name))
 	}
 }
 
@@ -72,17 +148,7 @@ func cmdDemote(w *World, p *Player, args string) {
 		p.Send("You cannot demote yourself; have another admin do it, or use the urth admin command on the host.\n")
 		return
 	}
-	online, err := w.editRecord(name, func(rec *store.Record) { rec.Admin = false })
-	if err != nil {
-		p.Send("There is no character called that.\n")
-		return
-	}
-	w.log.Warn("demoted", "name", name, "by", p.Name)
-	p.Send(output.Escape(name) + " is no longer an admin.\n")
-	if o := w.playingByName(name, nil); online && o != nil {
-		o.Send("{Y}" + output.Escape(p.Name) + " has removed your admin privileges.{x}\n")
-		w.sendCommands(o)
-	}
+	p.reply(w.demote(name, p.Name))
 }
 
 // cmdPasswd sets another character's password: passwd <player> <new>.
@@ -95,7 +161,7 @@ func cmdPasswd(w *World, p *Player, args string) {
 		p.Send("Syntax: passwd <player> <new password>\n")
 		return
 	}
-	if !store.ValidName(name) || (w.playingByName(name, nil) == nil && !w.store.Exists(name)) {
+	if !w.characterExists(name) {
 		p.Send("There is no character called that.\n")
 		return
 	}
@@ -109,25 +175,19 @@ func cmdPasswd(w *World, p *Player, args string) {
 			if !w.stillConnected(p) {
 				return
 			}
+			msg := ""
 			if err == nil {
-				_, err = w.editRecord(name, func(rec *store.Record) { rec.PasswordHash = hash })
+				msg, err = w.setPasswordHash(name, hash, p.Name)
 			}
 			if err != nil {
-				w.log.Error("passwd", "name", name, "err", err)
 				p.Send("Something went wrong. Nothing changed.\n")
 				return
 			}
-			w.log.Warn("password reset", "name", name, "by", p.Name)
-			p.Send("Password for " + output.Escape(name) + " changed.\n")
-			if o := w.playingByName(name, nil); o != nil {
-				o.Send("{Y}" + output.Escape(p.Name) + " has changed your password.{x}\n")
-			}
+			p.Send(output.Escape(msg) + "\n")
 		})
 	}()
 }
 
-// cmdDeny locks an account: its session is dropped and login refuses it
-// until allow.
 func cmdDeny(w *World, p *Player, args string) {
 	name, ok := oneName(p, args, "deny <player>")
 	if !ok {
@@ -137,30 +197,13 @@ func cmdDeny(w *World, p *Player, args string) {
 		p.Send("You cannot deny yourself.\n")
 		return
 	}
-	online, err := w.editRecord(name, func(rec *store.Record) { rec.Denied = true })
-	if err != nil {
-		p.Send("There is no character called that.\n")
-		return
-	}
-	w.log.Warn("denied", "name", name, "by", p.Name)
-	p.Send(output.Escape(name) + " is denied.\n")
-	if o := w.playingByName(name, nil); online && o != nil {
-		o.SendMsg(output.Message{Type: output.System, Text: "{R}Your account has been denied.{x}\n"})
-		o.disconnect()
-	}
+	p.reply(w.deny(name, p.Name))
 }
 
 func cmdAllow(w *World, p *Player, args string) {
-	name, ok := oneName(p, args, "allow <player>")
-	if !ok {
-		return
+	if name, ok := oneName(p, args, "allow <player>"); ok {
+		p.reply(w.allow(name, p.Name))
 	}
-	if _, err := w.editRecord(name, func(rec *store.Record) { rec.Denied = false }); err != nil {
-		p.Send("There is no character called that.\n")
-		return
-	}
-	w.log.Warn("allowed", "name", name, "by", p.Name)
-	p.Send(output.Escape(name) + " may log in again.\n")
 }
 
 // cmdUsers lists every connection, including those still at the login

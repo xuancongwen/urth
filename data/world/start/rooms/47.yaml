@@ -1,0 +1,7 @@
+vnum: 47
+name: An Unfinished Room
+description: |
+  Nothing has been written here yet.
+exits:
+  north: 48
+  west: 13

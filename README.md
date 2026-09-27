@@ -16,6 +16,7 @@ game rules in scripts that reload live.
 | 4000 | telnet, any MUD client | `server.telnet_addr` |
 | 4001 | browser client at `/` | `server.websocket_addr` |
 | 4002 | builder page, dev only | `server.builder_addr` (empty = off) |
+| 4003 | admin page, loopback only | `server.admin_addr` (empty = off) |
 
 Subcommands:
 
@@ -47,6 +48,12 @@ Prefixes work (`n`, `inv`, `wie`). Targets take ROM forms: `sword`,
 | Character | score train feat practice quest who color save password quit |
 | Builder (admin) | goto at stat load purge force restore transfer peace reload simulate copyover shutdown |
 | Admin | promote demote passwd deny allow users |
+
+The admin page at `server.admin_addr` lists every character with who is
+online and where, shows one in full (sheet, gear, quest, effects, address),
+lists connections, and promotes, demotes, denies, allows, kicks, deletes,
+and sets passwords. It has no login and refuses any address but loopback;
+on a host, reach it with `ssh -L 4003:127.0.0.1:4003 <host>`.
 
 Admin commands work on offline characters too. `deny` drops the session
 and refuses login until `allow`.
@@ -81,8 +88,13 @@ world up. Tools around the loop:
   and with a room selected the map shows a dashed square on each free
   side (click to dig a new room there) and a `+` between it and an
   unlinked neighbour (click to link both ways); the side panel digs up
-  and down, links by vnum, unlinks, and deletes. A change that would not
-  load is refused before it is written. It writes the checkout, so git
+  and down, links by vnum, unlinks, and deletes (the delete button is on
+  the room's title bar; a deleted room's exits in and resets go with it).
+  A room's panel adds items and mobs to it, existing or new: that writes
+  a reset into the area's `resets.yaml` and runs it, and a new one gets a
+  stub file to fill in. The map header counts the vnums each area has
+  left of its hundred per kind. A change that would not load is refused
+  before it is written. It writes the checkout, so git
   sees it (`docs/DECISIONS.md` D20). No login, so loopback only and
   unset in production.
 

@@ -131,6 +131,7 @@ func testWorldWithStore(t *testing.T, playerDir string) (*World, *store.Store) {
 	cfg.Timing.TickMs = 100
 	cfg.Timing.RoundMs = 1000
 	cfg.Timing.AutosaveSeconds = 10
+	cfg.World.StartRoom, cfg.World.RespawnRoom = 1, 0
 	st, err := store.New(playerDir, bcrypt.MinCost)
 	if err != nil {
 		t.Fatal(err)

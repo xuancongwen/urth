@@ -88,6 +88,9 @@ type AreaView struct {
 	Mobs       []ProtoView       `json:"mobs"`
 	Resets     []ResetView       `json:"resets"`
 	Problems   []content.Problem `json:"problems"`
+	// Blocks is how much of each vnum block the area has left, by kind
+	// (content.Blocks).
+	Blocks map[string]content.Block `json:"blocks"`
 }
 
 // RoomView is a room with its layout position and live contents.
@@ -216,6 +219,9 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("/api/dig", s.handleDig)
 	mux.HandleFunc("/api/unlink", s.handleUnlink)
 	mux.HandleFunc("/api/delete", s.handleDelete)
+	mux.HandleFunc("/api/place", s.handlePlace)
+	mux.HandleFunc("/api/unplace", s.handleUnplace)
+	mux.HandleFunc("/api/protos", s.handleProtos)
 	mux.HandleFunc("/api/reload", s.handleReload)
 	mux.HandleFunc("/api/version", s.handleVersion)
 	return mux

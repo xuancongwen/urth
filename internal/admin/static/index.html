@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Urth admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
+    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --warn: #d9a84a; --link: #5a8fd6;
+    --font: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 13.5px/1.45 var(--font); }
+  body { display: grid; height: 100dvh; overflow: hidden; grid-template-columns: 1fr 460px; grid-template-rows: auto auto 1fr;
+    grid-template-areas: "head head" "stats stats" "main detail"; }
+  #head { grid-area: head; display: flex; align-items: center; gap: 1em; padding: .5em 1em; background: var(--panel); border-bottom: 1px solid var(--line); }
+  #head .title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
+  #status { color: var(--dim); font-size: .85em; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #status.bad { color: var(--bad); }
+  #stats { grid-area: stats; display: flex; flex-wrap: wrap; gap: 0; background: var(--panel); border-bottom: 1px solid var(--line); }
+  #stats .stat { padding: .45em 1.1em; border-right: 1px solid var(--line); }
+  #stats .stat .v { font-size: 1.25em; color: var(--fg); font-variant-numeric: tabular-nums; }
+  #stats .stat .k { font-size: .72em; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+  #main { grid-area: main; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  #detail { grid-area: detail; overflow-y: auto; background: var(--panel); border-left: 1px solid var(--line); padding-bottom: 2em; }
+  h3 { margin: 0; padding: .45em .9em; font-size: .72em; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim);
+    background: var(--panel-2); border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+  h3:first-child { border-top: 0; }
+  button { font: inherit; font-size: .85em; color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 3px; padding: .25em .7em; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button.danger { border-color: var(--bad); color: #f0a0a0; }
+  button:disabled { opacity: .4; cursor: default; border-color: var(--line); }
+  input { font: inherit; font-size: .9em; color: var(--fg); background: #0b0c0f; border: 1px solid var(--line); border-radius: 3px; padding: .25em .5em; }
+  input:focus { outline: 0; border-color: var(--accent); }
+
+  #bar { display: flex; align-items: center; gap: .6em; padding: .45em 1em; border-bottom: 1px solid var(--line); background: var(--panel); }
+  #tabs button { border: 0; border-radius: 0; background: transparent; padding: .3em .8em; color: var(--dim); font-size: .8em; letter-spacing: .08em; text-transform: uppercase; }
+  #tabs button.on { color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
+  #filter { flex: 1; max-width: 22em; }
+  #onlyOnline { margin-left: .2em; }
+  #bar label { color: var(--dim); font-size: .85em; }
+  #list { flex: 1; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .92em; }
+  th { position: sticky; top: 0; background: var(--panel-2); color: var(--dim); font-weight: 600; font-size: .75em; letter-spacing: .1em; text-transform: uppercase; text-align: left; padding: .4em .8em; border-bottom: 1px solid var(--line); cursor: pointer; user-select: none; }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td { padding: .3em .8em; border-bottom: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 22em; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover { background: var(--panel-2); }
+  tbody tr.on { background: var(--panel-2); box-shadow: inset 3px 0 var(--accent); }
+  .dim { color: var(--dim); }
+  .badge { font-size: .75em; padding: 0 .45em; border-radius: 2px; margin-left: .4em; }
+  .badge.on { background: #1f3a26; color: #a0e0a8; } .badge.admin { background: #3d3317; color: #f0d090; } .badge.denied { background: #4a2323; color: #f0a0a0; }
+  .dot { display: inline-block; width: .55em; height: .55em; border-radius: 50%; background: #3a3e4a; margin-right: .5em; vertical-align: .05em; }
+  .dot.on { background: var(--ok); }
+
+  #detail .body { padding: .6em .9em; }
+  .kv { display: grid; grid-template-columns: 8em 1fr; gap: .15em .8em; font-size: .9em; }
+  .kv .k { color: var(--dim); }
+  .name { color: var(--accent); font-weight: 600; font-size: 1.1em; }
+  .actions { display: flex; flex-wrap: wrap; gap: .4em; padding: .6em 0; }
+  .pw { display: flex; gap: .4em; padding: .2em 0 .6em; }
+  .pw input { flex: 1; }
+  ul.items { margin: .2em 0; padding-left: 1.1em; font-size: .9em; }
+  ul.items ul { padding-left: 1.1em; }
+  .empty { color: var(--dim); padding: .6em .9em; font-size: .9em; }
+  pre { margin: 0; font-size: .8em; white-space: pre-wrap; word-break: break-word; color: #b8bcc8; }
+  #toast { position: fixed; right: 1em; bottom: 1em; max-width: 40em; padding: .6em .9em; background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--ok); font-size: .9em; display: none; white-space: pre-wrap; }
+  #toast.bad { border-left-color: var(--bad); }
+  @media (max-width: 1000px) { body { grid-template-columns: 1fr 360px; } }
+</style>
+</head>
+<body>
+<div id="head"><span class="title">Urth admin</span><span id="status">connecting</span></div>
+<div id="stats"></div>
+<div id="main">
+  <div id="bar">
+    <div id="tabs"><button data-tab="characters" class="on">characters</button><button data-tab="connections">connections</button></div>
+    <input id="filter" placeholder="filter by name, room, or address" autocomplete="off">
+    <label><input type="checkbox" id="onlyOnline"> online only</label>
+  </div>
+  <div id="list"></div>
+</div>
+<div id="detail"><h3>Character</h3><div class="empty">Pick a character.</div></div>
+<div id="toast"></div>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var tab = 'characters', chars = [], conns = [], selected = null, sortKey = 'name', sortDir = 1;
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function get(url) { return fetch(url, { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.statusText); return j; }); }); }
+  function post(url, body) {
+    return fetch(url, { method: 'POST', headers: { 'X-Urth-Admin': '1', 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return { error: r.statusText }; }); });
+  }
+  function toast(text, bad) {
+    var t = $('toast'); t.textContent = text; t.className = bad ? 'bad' : ''; t.style.display = 'block';
+    clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.style.display = 'none'; }, bad ? 9000 : 4000);
+  }
+  function when(t) {
+    if (!t || t.indexOf('0001-') === 0) return '-';
+    var d = new Date(t), s = (Date.now() - d.getTime()) / 1000;
+    var ago = s < 90 ? 'just now' : s < 5400 ? Math.round(s / 60) + 'm ago' : s < 129600 ? Math.round(s / 3600) + 'h ago' : Math.round(s / 86400) + 'd ago';
+    return '<span title="' + esc(d.toLocaleString()) + '">' + ago + '</span>';
+  }
+  function uptime(t) {
+    var s = Math.max(0, (Date.now() - new Date(t).getTime()) / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60);
+    return (d ? d + 'd ' : '') + (d || h ? h + 'h ' : '') + m + 'm';
+  }
+
+  // ---- Status --------------------------------------------------------
+  function loadStatus() {
+    return get('/api/status').then(function (st) {
+      $('status').textContent = st.name + ' · ' + st.version + (st.commit !== 'none' ? ' (' + st.commit + ')' : '') + ' · up ' + uptime(st.started) +
+        ' · new characters start in room ' + st.startRoom + ', the dead return to ' + st.respawnRoom;
+      $('status').className = '';
+      var cells = [['playing', st.playing], ['connections', st.connections], ['characters', st.characters], ['areas', st.areas], ['rooms', st.rooms], ['items', st.items], ['mobs', st.mobs]];
+      $('stats').innerHTML = cells.map(function (c) { return '<div class="stat"><div class="v">' + c[1] + '</div><div class="k">' + c[0] + '</div></div>'; }).join('');
+    }).catch(function (e) { $('status').textContent = 'server unreachable: ' + e.message; $('status').className = 'bad'; });
+  }
+
+  // ---- Lists ---------------------------------------------------------
+  function matches(text) {
+    var f = $('filter').value.trim().toLowerCase();
+    return !f || text.toLowerCase().indexOf(f) >= 0;
+  }
+  function renderList() {
+    Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) { b.classList.toggle('on', b.getAttribute('data-tab') === tab); });
+    var only = $('onlyOnline').checked, html;
+    if (tab === 'characters') {
+      var rows = chars.filter(function (c) { return (!only || c.online) && matches(c.name + ' ' + (c.roomName || '') + ' ' + (c.area || '') + ' ' + (c.addr || '')); });
+      rows.sort(function (a, b) {
+        var x = a[sortKey], y = b[sortKey];
+        if (sortKey === 'online' || sortKey === 'admin') { x = x ? 1 : 0; y = y ? 1 : 0; }
+        if (x === y) return a.name < b.name ? -1 : 1;
+        return (x < y ? -1 : 1) * sortDir;
+      });
+      html = '<table><thead><tr><th data-sort="name">Name</th><th data-sort="level" class="num">Level</th><th data-sort="roomName">Where</th>' +
+        '<th data-sort="addr">Address</th><th data-sort="lastLogin">Last login</th><th data-sort="created">Created</th></tr></thead><tbody>' +
+        rows.map(function (c) {
+          if (c.error) return '<tr data-name="' + esc(c.name) + '"><td>' + esc(c.name) + '</td><td colspan="5" style="color:#f0a0a0">unreadable: ' + esc(c.error) + '</td></tr>';
+          return '<tr data-name="' + esc(c.name) + '"' + (c.name === selected ? ' class="on"' : '') + '><td><span class="dot' + (c.online ? ' on' : '') + '"></span>' + esc(c.name) +
+            (c.admin ? '<span class="badge admin">admin</span>' : '') + (c.denied ? '<span class="badge denied">denied</span>' : '') + '</td>' +
+            '<td class="num">' + c.level + '</td><td>' + (c.roomName ? esc(c.roomName) + ' <span class="dim">' + c.room + ' ' + esc(c.area) + '</span>' : '<span class="dim">room ' + c.room + '</span>') + '</td>' +
+            '<td class="dim">' + esc(c.addr || '') + '</td><td>' + when(c.lastLogin) + '</td><td>' + when(c.created) + '</td></tr>';
+        }).join('') + '</tbody></table>' + (rows.length ? '' : '<div class="empty">no characters' + (only ? ' online' : '') + '</div>');
+    } else {
+      var cs = conns.filter(function (c) { return (!only || c.state === 'playing') && matches((c.name || '') + ' ' + c.addr + ' ' + c.state); });
+      html = '<table><thead><tr><th class="num">Session</th><th>Name</th><th>State</th><th>Address</th><th class="num">Room</th></tr></thead><tbody>' +
+        cs.map(function (c) {
+          return '<tr' + (c.state === 'playing' ? ' data-name="' + esc(c.name) + '"' : '') + '><td class="num dim">' + c.id + '</td><td>' + esc(c.name || '-') + '</td><td>' + esc(c.state) + '</td>' +
+            '<td class="dim">' + esc(c.addr) + '</td><td class="num">' + (c.room || '') + '</td></tr>';
+        }).join('') + '</tbody></table>' + (cs.length ? '' : '<div class="empty">no connections</div>');
+    }
+    $('list').innerHTML = html;
+  }
+  function loadLists() {
+    return Promise.all([get('/api/characters'), get('/api/connections')]).then(function (r) { chars = r[0]; conns = r[1]; renderList(); })
+      .catch(function (e) { toast(e.message, true); });
+  }
+  $('tabs').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) { tab = b.getAttribute('data-tab'); renderList(); } });
+  $('filter').addEventListener('input', renderList);
+  $('onlyOnline').addEventListener('change', renderList);
+  $('list').addEventListener('click', function (ev) {
+    var th = ev.target.closest('th[data-sort]');
+    if (th) { var k = th.getAttribute('data-sort'); sortDir = k === sortKey ? -sortDir : (k === 'name' || k === 'roomName' || k === 'addr' ? 1 : -1); sortKey = k; renderList(); return; }
+    var tr = ev.target.closest('tr[data-name]'); if (tr) showCharacter(tr.getAttribute('data-name'));
+  });
+
+  // ---- One character -------------------------------------------------
+  function items(list) {
+    if (!list || !list.length) return '<span class="dim">nothing</span>';
+    return '<ul class="items">' + list.map(function (it) {
+      return '<li>' + (it.slot ? '<span class="dim">' + esc(it.slot) + '</span> ' : '') + esc(it.name) + ' <span class="dim">' + it.vnum + '</span>' + (it.contents ? items(it.contents) : '') + '</li>';
+    }).join('') + '</ul>';
+  }
+  var armed = '';
+  function showCharacter(name, quiet) {
+    selected = name; renderList();
+    return get('/api/character?name=' + encodeURIComponent(name)).then(function (c) {
+      if (selected !== name) return;
+      // Keep a half-typed password across the auto-refresh.
+      var pw = $('pw') ? $('pw').value : '', focused = document.activeElement && document.activeElement.id === 'pw';
+      var stats = c.stats ? Object.keys(c.stats).sort().map(function (k) { return k + ' ' + c.stats[k]; }).join(', ') : '';
+      var q = c.quest ? (c.quest.kind + ' ' + (c.quest.targetName || c.quest.target) + (c.quest.roomName ? ' near ' + c.quest.roomName : '') + ', ' + c.quest.rounds + ' rounds left' + (c.quest.done ? ', done' : '') + ', pays ' + c.quest.points + ' qp') : '';
+      $('detail').innerHTML = '<h3>Character</h3><div class="body">' +
+        '<div class="name">' + esc(c.name) + (c.online ? '<span class="badge on">online</span>' : '') + (c.admin ? '<span class="badge admin">admin</span>' : '') + (c.denied ? '<span class="badge denied">denied</span>' : '') + '</div>' +
+        '<div class="actions">' +
+        (c.admin ? '<button data-act="demote">demote</button>' : '<button data-act="promote">promote to admin</button>') +
+        (c.denied ? '<button data-act="allow">allow</button>' : '<button data-act="deny" class="danger">deny</button>') +
+        '<button data-act="kick"' + (c.online ? '' : ' disabled title="not online"') + '>kick</button>' +
+        '<button data-act="delete"' + (c.online ? ' disabled title="kick them first"' : '') + '>delete</button></div>' +
+        '<div class="pw"><input id="pw" type="password" placeholder="new password, 5 to 64 characters" autocomplete="new-password"><button id="setpw">set password</button></div>' +
+        '<div class="kv">' +
+        '<span class="k">level</span><span>' + c.level + ' <span class="dim">(' + c.experience + ' xp)</span></span>' +
+        '<span class="k">where</span><span>' + (c.roomName ? esc(c.roomName) + ' <span class="dim">' + c.room + ' ' + esc(c.area) + '</span>' : 'room ' + c.room) + '</span>' +
+        (c.online ? '<span class="k">address</span><span>' + esc(c.addr) + '</span>' : '') +
+        '<span class="k">health</span><span>' + c.health + (c.healthMax ? ' / ' + c.healthMax : '') + (c.fighting ? ' <span style="color:var(--bad)">fighting ' + esc(c.fighting) + '</span>' : '') + '</span>' +
+        (c.manaMax || c.mana ? '<span class="k">mana</span><span>' + c.mana + (c.manaMax ? ' / ' + c.manaMax : '') + '</span>' : '') +
+        '<span class="k">silver</span><span>' + c.silver + '</span>' +
+        (stats ? '<span class="k">stats</span><span>' + esc(stats) + '</span>' : '') +
+        (c.statPoints || c.featPoints ? '<span class="k">unspent</span><span>' + (c.statPoints || 0) + ' stat, ' + (c.featPoints || 0) + ' feat</span>' : '') +
+        (c.schools && c.schools.length ? '<span class="k">schools</span><span>' + esc(c.schools.join(', ')) + '</span>' : '') +
+        (c.deity ? '<span class="k">deity</span><span>' + esc(c.deity) + '</span>' : '') +
+        '<span class="k">quest points</span><span>' + (c.questPoints || 0) + (c.questWait ? ' <span class="dim">(' + c.questWait + ' rounds to wait)</span>' : '') + '</span>' +
+        (q ? '<span class="k">quest</span><span>' + esc(q) + '</span>' : '') +
+        '<span class="k">rooms seen</span><span>' + c.visited + '</span>' +
+        '<span class="k">created</span><span>' + when(c.created) + '</span>' +
+        '<span class="k">last login</span><span>' + when(c.lastLogin) + '</span>' +
+        '</div></div>' +
+        '<h3>Equipment</h3><div class="body">' + items(c.equipment) + '</div>' +
+        '<h3>Inventory</h3><div class="body">' + items(c.inventory) + '</div>' +
+        '<h3>Effects</h3><div class="body">' + (c.effects && c.effects.length ? c.effects.map(function (e) {
+          return '<div>' + esc(e.kind) + (e.rounds ? ' <span class="dim">' + e.rounds + ' rounds</span>' : '') + (e.params ? ' <span class="dim">' + esc(JSON.stringify(e.params)) + '</span>' : '') + '</div>';
+        }).join('') : '<span class="dim">none</span>') + '</div>';
+      $('pw').value = pw; if (focused) $('pw').focus();
+    }).catch(function (e) {
+      if (!quiet) toast(e.message, true);
+      $('detail').innerHTML = '<h3>Character</h3><div class="empty">' + esc(e.message) + '</div>';
+    });
+  }
+  $('detail').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b || b.disabled || !selected) return;
+    var name = selected;
+    if (b.id === 'setpw') {
+      var pw = $('pw').value;
+      post('/api/password', { name: name, password: pw }).then(function (r) {
+        if (!r.ok) { toast(r.error, true); return; }
+        $('pw').value = ''; toast(r.message);
+      });
+      return;
+    }
+    var act = b.getAttribute('data-act'); if (!act) return;
+    // deny, kick, and delete take two clicks; no dialogs.
+    if ((act === 'deny' || act === 'kick' || act === 'delete') && armed !== act + ':' + name) {
+      armed = act + ':' + name; b.classList.add('danger'); b.textContent = 'click again to ' + act + ' ' + name;
+      setTimeout(function () { if (armed === act + ':' + name) { armed = ''; showCharacter(name, true); } }, 4000);
+      return;
+    }
+    armed = '';
+    post('/api/act', { action: act, name: name }).then(function (r) {
+      if (!r.ok) { toast(r.error, true); return; }
+      toast(r.message);
+      if (act === 'delete') { selected = null; $('detail').innerHTML = '<h3>Character</h3><div class="empty">' + esc(r.message) + '</div>'; }
+      refresh();
+    });
+  });
+  $('detail').addEventListener('keydown', function (ev) { if (ev.key === 'Enter' && ev.target.id === 'pw') $('setpw').click(); });
+
+  function refresh() {
+    loadStatus();
+    return loadLists().then(function () { if (selected && !armed) return showCharacter(selected, true); });
+  }
+  refresh();
+  setInterval(refresh, 3000);
+})();
+</script>
+</body>
+</html>

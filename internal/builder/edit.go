@@ -42,8 +42,10 @@ type EditResult struct {
 	Invalid bool   `json:"invalid,omitempty"`
 	// Hash is the saved file's new content hash, for the next save.
 	Hash string `json:"hash,omitempty"`
-	// Vnum is the room a dig created.
+	// Vnum is the room a dig created, or the prototype a place used.
 	Vnum int `json:"vnum,omitempty"`
+	// Created is a new prototype's file, for the page to open.
+	Created string `json:"created,omitempty"`
 	// Files lists what was written or removed.
 	Files []string `json:"files,omitempty"`
 	// Warnings are map layout conflicts the change introduced.
@@ -149,7 +151,7 @@ func (s *Server) handleSave(w http.ResponseWriter, r *http.Request) {
 		writeEdit(w, http.StatusConflict, &EditResult{Error: "the file changed on disk since it was opened"})
 		return
 	}
-	res, err := s.apply(map[string][]byte{path: body}, r.URL.Query().Get("force") != "")
+	res, err := s.apply(map[string][]byte{path: body}, r.URL.Query().Get("force") != "", s.resetsArea(path))
 	if err != nil {
 		writeEditErr(w, err)
 		return
@@ -244,7 +246,9 @@ func (s *Server) dig(req DigRequest) (*EditResult, error) {
 	} else {
 		vnum = req.Vnum
 		if vnum == 0 {
-			vnum = nextVnum(disk, from.Area)
+			if vnum, err = nextVnum(disk, from.Area, "rooms"); err != nil {
+				return nil, err
+			}
 		}
 		if _, taken := disk.Rooms.Get(vnum); taken || vnum <= 0 {
 			return nil, fmt.Errorf("room vnum %d is taken", vnum)
@@ -266,7 +270,7 @@ func (s *Server) dig(req DigRequest) (*EditResult, error) {
 			return nil, err
 		}
 	}
-	res, err := s.apply(changes, false)
+	res, err := s.apply(changes, false, "")
 	if err != nil {
 		return nil, err
 	}
@@ -331,10 +335,11 @@ func (s *Server) unlink(req UnlinkRequest) (*EditResult, error) {
 			return nil, err
 		}
 	}
-	return s.apply(changes, false)
+	return s.apply(changes, false, "")
 }
 
-// DeleteRequest removes a room's file and every exit that leads to it.
+// DeleteRequest removes a room's file, every exit that leads to it, and
+// every reset that places something in it.
 type DeleteRequest struct {
 	Vnum int `json:"vnum"`
 }
@@ -370,19 +375,28 @@ func (s *Server) deleteRoom(vnum int) (*EditResult, error) {
 	if snap, err := s.api.Snapshot(); err == nil && snap.StartRoom == vnum {
 		return nil, fmt.Errorf("room %d is the start room", vnum)
 	}
-	var users []string
+	changes := map[string][]byte{target.File: nil}
+	// Resets that place things in the room go with it.
 	for area, a := range disk.Resets {
+		var drop []int
 		for i, rs := range a.Resets {
 			if rs.Room == vnum {
-				users = append(users, fmt.Sprintf("%s reset %d", area, i))
+				drop = append(drop, i)
 			}
 		}
+		if len(drop) == 0 {
+			continue
+		}
+		file := filepath.Join(s.worldDir, area, "resets.yaml")
+		src, err := os.ReadFile(file)
+		if err != nil {
+			return nil, err
+		}
+		if src, err = removeResets(src, drop); err != nil {
+			return nil, fmt.Errorf("%s: %w", file, err)
+		}
+		changes[file] = src
 	}
-	if len(users) > 0 {
-		sort.Strings(users)
-		return nil, fmt.Errorf("room %d is used by %s; remove those resets first", vnum, strings.Join(users, ", "))
-	}
-	changes := map[string][]byte{target.File: nil}
 	for _, r := range disk.Rooms.Rooms {
 		if r.Vnum == vnum {
 			continue
@@ -407,7 +421,7 @@ func (s *Server) deleteRoom(vnum int) (*EditResult, error) {
 		}
 		changes[r.File] = src
 	}
-	return s.apply(changes, false)
+	return s.apply(changes, false, "")
 }
 
 // loadDisk loads the world as the files stand now, which is what an edit
@@ -422,8 +436,9 @@ func (s *Server) loadDisk() (*content.World, error) {
 
 // apply checks changes (path to new content, nil to remove) against a
 // scratch copy of the world, then writes them and reloads. force skips
-// the check.
-func (s *Server) apply(changes map[string][]byte, force bool) (*EditResult, error) {
+// the check. A non-empty area has its resets run at once, so something
+// just placed shows up.
+func (s *Server) apply(changes map[string][]byte, force bool, area string) (*EditResult, error) {
 	res := &EditResult{}
 	if !force {
 		before, _ := content.Load(s.worldDir)
@@ -460,7 +475,7 @@ func (s *Server) apply(changes map[string][]byte, force bool) (*EditResult, erro
 		}
 		res.Files = append(res.Files, p)
 	}
-	res.Reload = s.reload("", "page")
+	res.Reload = s.reload(area, "page")
 	s.setSeen(s.signature())
 	res.OK = true
 	return res, nil
@@ -533,6 +548,10 @@ func (s *Server) dryRun(changes map[string][]byte) (*content.World, error) {
 // writeAtomic replaces path through a temporary file in the same
 // directory, so the watcher and the world never read half a file.
 func writeAtomic(path string, b []byte) error {
+	// An area's first item or mob makes its directory.
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
 	f, err := os.CreateTemp(filepath.Dir(path), ".urth-*.tmp")
 	if err != nil {
 		return err
@@ -553,23 +572,15 @@ func writeAtomic(path string, b []byte) error {
 	return os.Rename(f.Name(), path)
 }
 
-// nextVnum is the first room number after the area's highest that no
-// room, item, or mob uses, which keeps the area's vnums in one range.
-func nextVnum(w *content.World, area string) int {
-	top := 0
-	for _, r := range w.Rooms.Rooms {
-		if r.Area == area && r.Vnum > top {
-			top = r.Vnum
-		}
+// nextVnum is the vnum a new thing of kind gets in area: the next free
+// one in the area's block (content.Blocks), or an error when the block is
+// full.
+func nextVnum(w *content.World, area, kind string) (int, error) {
+	b := content.Blocks(w, area)[kind]
+	if b.Next == 0 {
+		return 0, fmt.Errorf("area %s has no free %s vnums left in %d to %d", area, strings.TrimSuffix(kind, "s"), b.First, b.Last)
 	}
-	for v := top + 1; ; v++ {
-		_, room := w.Rooms.Rooms[v]
-		_, it := w.Items[v]
-		_, mob := w.Mobs[v]
-		if !room && !it && !mob {
-			return v
-		}
-	}
+	return b.Next, nil
 }
 
 // newRoomYAML is the file for a new room, laid out like the hand-written

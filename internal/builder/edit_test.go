@@ -174,8 +174,8 @@ func TestDigLinkUnlinkDelete(t *testing.T) {
 		t.Fatalf("unlink left:\n%s\n%s", read(t, hall), read(t, four))
 	}
 
-	// Delete removes the file and every exit into it; the start room and
-	// rooms resets use cannot go.
+	// Delete removes the file and every exit into it; the start room
+	// cannot go.
 	if code, res := send(t, srv, "POST", "/api/delete", DeleteRequest{Vnum: 4}, nil); code != 200 {
 		t.Fatalf("delete: %d %+v", code, res)
 	}

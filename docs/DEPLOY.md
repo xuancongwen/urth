@@ -103,6 +103,15 @@ set up before the tutorial has `start_room: 1` in its config, which
 still works (the corridor is reachable south of the armory) but skips
 it; edit the two lines and restart to use it.
 
+The admin page listens on `server.admin_addr`, loopback only, since it
+has no login. New hosts get `127.0.0.1:4003`; an older config needs the
+line added. From your machine:
+
+    ssh -L 4003:127.0.0.1:4003 <host>
+
+then open http://127.0.0.1:4003/. It lists characters and connections
+and does the account actions; it never shows password hashes.
+
 Leave `server.builder_addr` unset on the host. The builder page has no
 login and is built for the checkout on the dev machine, where content
 is edited; the next deploy overwrites `data/world` on the host anyway.

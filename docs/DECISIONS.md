@@ -187,3 +187,17 @@ page's own header and a Host that is an address or localhost, which
 turns away cross-site forms and DNS rebinding; the page still has no
 login and stays off in production. Items, mobs, and resets are edited as
 text; there are no forms for them.
+
+## D21. An admin page on loopback, reached over ssh
+
+D19 put off a production dashboard until a second person needed one; a
+page is now wanted for looking through characters. It runs in the
+server on `server.admin_addr` and refuses to listen anywhere but
+loopback, so reaching it on the host means an ssh tunnel, and ssh is the
+login. Every request must carry an address or localhost as its Host,
+which stops DNS rebinding from reading characters, and every change
+needs the page's own header, which stops cross-site forms. Account
+changes go through the same world methods as the in-game commands, so
+an online character is changed in place and saved, never overwritten at
+the next autosave. Deletion is refused for someone online and moves the
+file to `players/deleted/`, as `urth admin delete` does.

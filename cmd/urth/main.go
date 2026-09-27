@@ -17,6 +17,7 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
+	"urth/internal/admin"
 	"urth/internal/builder"
 	"urth/internal/config"
 	"urth/internal/content"
@@ -88,6 +89,7 @@ func run() error {
 		"telnet", cfg.Server.TelnetAddr,
 		"websocket", cfg.Server.WebSocketAddr,
 		"builder", cfg.Server.BuilderAddr,
+		"admin", cfg.Server.AdminAddr,
 		"tick_ms", cfg.Timing.TickMs,
 		"round_ms", cfg.Timing.RoundMs,
 		"data", cfg.Paths.Data,
@@ -262,6 +264,18 @@ func run() error {
 			defer wg.Done()
 			if err := bs.Serve(tctx); err != nil {
 				logger.Error("builder server failed", "err", err)
+				stop()
+			}
+		}()
+	}
+
+	if cfg.Server.AdminAddr != "" {
+		as := admin.NewServer(cfg.Server.AdminAddr, w.Admin(), logger.With("component", "admin"))
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			if err := as.Serve(tctx); err != nil {
+				logger.Error("admin server failed", "err", err)
 				stop()
 			}
 		}()

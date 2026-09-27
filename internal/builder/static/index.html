@@ -84,6 +84,13 @@
   input.vnum { width: 5em; }
   button.danger { border-color: var(--bad); color: #f0a0a0; }
   #maphead .files { display: flex; gap: .8em; font-size: .85em; }
+  #blocks { display: flex; gap: .9em; font-size: .8em; color: var(--dim); }
+  #blocks b { color: var(--fg); font-weight: 400; } #blocks .low b { color: var(--warn); } #blocks .full b { color: var(--bad); }
+  #info h3 button { float: right; text-transform: none; letter-spacing: 0; margin-top: -.15em; }
+  .place { display: flex; gap: .4em; align-items: center; padding: .25em 0; font-size: .9em; }
+  .place input:not(.vnum) { flex: 1; min-width: 0; }
+  select { font: inherit; font-size: .9em; color: var(--fg); background: #0b0c0f; border: 1px solid var(--line); border-radius: 3px; padding: .15em .3em; }
+  .reset { display: flex; gap: .5em; align-items: baseline; } .reset .n { flex: 1; }
   #toast { position: fixed; right: 1em; bottom: 1em; max-width: 40em; padding: .6em .9em; background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--ok); font-size: .9em; display: none; white-space: pre-wrap; }
   #toast.bad { border-left-color: var(--bad); }
   @media (max-width: 1000px) { body { grid-template-columns: 180px 1fr 300px; } }
@@ -99,7 +106,7 @@
 <div id="areas"><h3>Areas</h3><div id="arealist"></div><h3>World problems <span class="count" id="wpcount"></span></h3><div id="wproblems"></div></div>
 <div id="main">
   <div id="maphead"><span class="name" id="areaname">pick an area</span><span class="k" id="areainfo"></span>
-    <span class="files"><span class="lnk" id="areafile" title="edit area.yaml">area.yaml</span><span class="lnk" id="resetsfile" title="edit resets.yaml">resets.yaml</span></span><div id="levels"></div></div>
+    <span class="files"><span class="lnk" id="areafile" title="edit area.yaml">area.yaml</span><span class="lnk" id="resetsfile" title="edit resets.yaml">resets.yaml</span></span><span id="blocks" title="vnums left in this area's blocks of 100"></span><div id="levels"></div></div>
   <div id="mapwrap"><canvas id="map"></canvas><div id="hover"></div></div>
   <div id="lists">
     <div id="tabs">
@@ -171,9 +178,15 @@
       $('areaname').textContent = a.title + ' (' + a.name + ')';
       var unplaced = a.rooms.filter(function (r) { return !r.placed; }).length;
       $('areainfo').textContent = a.rooms.length + ' rooms, ' + a.items.length + ' items, ' + a.mobs.length + ' mobs' + (unplaced ? ', ' + unplaced + ' unplaced' : '');
+      $('blocks').innerHTML = ['rooms', 'items', 'mobs'].map(function (k) {
+        var b = a.blocks && a.blocks[k]; if (!b || !b.last) return '';
+        var cls = b.free === 0 ? 'full' : b.free < 10 ? 'low' : '';
+        return '<span class="' + cls + '" title="' + k + ' ' + b.first + ' to ' + b.last + (b.next ? ', next ' + b.next : ', full') + '"><b>' + b.free + '</b> ' + k + ' left</span>';
+      }).join('');
+      loadProtos();
       Array.prototype.forEach.call(document.querySelectorAll('#arealist .row'), function (el) { el.classList.toggle('on', el.getAttribute('data-area') === name); });
       drawMap(); renderTab();
-      if (selected && a.byVnum[selected]) showRoom(selected);
+      if (selected && a.byVnum[selected]) showRoom(selected, keep);
     }).catch(function (e) { toast('area: ' + e.message, true); });
   }
   $('levels').addEventListener('click', function (ev) {
@@ -517,6 +530,54 @@
       refresh();
     });
   }
+  // Things in rooms: a reset in the room's area, for an existing
+  // prototype or a new one the server stubs out.
+  var protos = { items: [], mobs: [] }, place = { kind: 'item', what: '', fresh: '', max: '' };
+  function loadProtos() {
+    return get('/api/protos').then(function (p) { protos = p; var dl = $('protolist'); if (dl) dl.innerHTML = protoOptions(); }).catch(function () {});
+  }
+  function protoOptions() {
+    return (protos[place.kind + 's'] || []).map(function (p) { return '<option value="' + esc(p.vnum + ' ' + p.name + ' (' + p.area + ')') + '">'; }).join('');
+  }
+  function pickProto(text) {
+    var list = protos[place.kind + 's'] || [], m = /^\s*(\d+)/.exec(text);
+    if (m) return Number(m[1]);
+    var t = text.trim().toLowerCase(), hits = list.filter(function (p) { return p.name.toLowerCase().indexOf(t) >= 0; });
+    if (hits.length === 1) return hits[0].vnum;
+    toast(hits.length ? hits.length + ' ' + place.kind + 's match; pick one from the list' : 'no ' + place.kind + ' matches "' + text + '"', true);
+    return 0;
+  }
+  function placeHere(vnum, name) {
+    var body = { room: selected, kind: place.kind, vnum: vnum, name: name };
+    if (place.kind === 'mob' && Number(place.max) > 1) body.max = Number(place.max);
+    send('POST', '/api/place', body).then(function (res) {
+      if (!res.ok) { toast(res.error, true); return; }
+      announce(res.reload);
+      toast('Added ' + place.kind + ' ' + res.vnum + ' to room ' + body.room + ' as a reset' + (res.created ? '; its new file is open to write' : '') + '.');
+      place.what = ''; place.fresh = '';
+      refresh().then(function () { loadProtos(); if (res.created) openEditor(res.created); });
+    });
+  }
+  function unplace(index) {
+    var rs = area.resets[index]; if (!rs) return;
+    send('POST', '/api/unplace', { area: area.name, index: index, room: rs.room, vnum: rs.mob || rs.item }).then(function (res) {
+      if (!res.ok) { toast(res.error, true); return; }
+      announce(res.reload);
+      toast('Reset removed. Whatever it already placed stays until purged or the next boot.');
+      refresh();
+    });
+  }
+  function placePanel() {
+    var b = area.blocks || {}, left = function (k) { return b[k] && b[k].last ? b[k].free + ' ' + k : '?'; };
+    return '<h3 style="margin:.4em -0.9em 0">Add to this room</h3><div style="padding:.4em 0">' +
+      '<div class="place"><select id="pkind"><option value="item"' + (place.kind === 'item' ? ' selected' : '') + '>item</option><option value="mob"' + (place.kind === 'mob' ? ' selected' : '') + '>mob</option></select>' +
+      '<input id="pwhat" list="protolist" placeholder="an existing one: vnum or name" value="' + esc(place.what) + '">' +
+      (place.kind === 'mob' ? '<input id="pmax" class="vnum" type="number" min="1" placeholder="max" title="how many may be alive at once" value="' + esc(place.max) + '">' : '') +
+      '<button class="small" data-place="1">add</button></div>' +
+      '<div class="place"><span class="k">or new</span><input id="pnew" placeholder="' + (place.kind === 'item' ? 'a brass key' : 'a sleepy guard') + '" value="' + esc(place.fresh) + '"><button class="small" data-placenew="1">create and add</button></div>' +
+      '<datalist id="protolist">' + protoOptions() + '</datalist>' +
+      '<div class="k" style="font-size:.85em">Adds a reset to ' + esc(area.name) + '/resets.yaml and runs it. Left in this area: ' + left('items') + ', ' + left('mobs') + '.</div></div>';
+  }
   function buildPanel(r) {
     var rows = ['north', 'east', 'south', 'west', 'up', 'down'].filter(function (dir) { return !r.exits[dir]; }).map(function (dir) {
       return '<span class="k">' + dir + '</span><span><button class="small" data-dig="' + dir + '">dig</button> ' +
@@ -524,10 +585,9 @@
     }).join('');
     return '<h3 style="margin:.4em -0.9em 0">Build</h3>' +
       '<div style="padding:.5em 0 .2em"><input id="digname" placeholder="name for a dug room" style="width:100%" value="' + esc(digName) + '"></div>' +
-      (rows ? '<div class="build">' + rows + '</div>' : '<div class="k" style="padding:.4em 0">every direction has an exit</div>') +
-      '<div style="padding:.5em 0"><button class="small" data-delete="' + r.vnum + '">delete room</button></div>';
+      (rows ? '<div class="build">' + rows + '</div>' : '<div class="k" style="padding:.4em 0">every direction has an exit</div>');
   }
-  function showRoom(vnum) {
+  function showRoom(vnum, keepEditor) {
     var r = area && area.byVnum[vnum]; if (!r) return;
     selected = vnum; drawMap(); if (tab === 'rooms') renderTab();
     var d, opp = { north: 'south', south: 'north', east: 'west', west: 'east', up: 'down', down: 'up' };
@@ -543,12 +603,14 @@
     (r.mobs || []).forEach(function (n) { here.push(esc(n)); });
     (r.items || []).forEach(function (n) { here.push('<span class="k">' + esc(n) + '</span>'); });
     var resets = area.resets.filter(function (rs) { return rs.room === vnum; }).map(function (rs) {
-      return '<div>' + (rs.mob ? 'mob ' : 'item ') + esc(rs.name) + (rs.max > 1 ? ' ×' + rs.max : '') + (rs.into ? ' <span class="k">into ' + rs.into + '</span>' : '') +
-        ((rs.equip || []).length ? ' <span class="k">with ' + esc(rs.equip.map(function (e) { return e.name; }).join(', ')) + '</span>' : '') + '</div>';
+      return '<div class="reset"><span class="n">' + (rs.mob ? 'mob ' : 'item ') + '<span class="lnk" data-proto="' + (rs.mob ? 'mobs' : 'items') + '" data-pvnum="' + (rs.mob || rs.item) + '">' + (rs.mob || rs.item) + '</span> ' + esc(rs.name) +
+        (rs.max > 1 ? ' ×' + rs.max : '') + (rs.into ? ' <span class="k">into ' + rs.into + '</span>' : '') +
+        ((rs.equip || []).length ? ' <span class="k">with ' + esc(rs.equip.map(function (e) { return e.name; }).join(', ')) + '</span>' : '') + '</span>' +
+        '<button class="small" data-unplace="' + rs.index + '" title="remove this reset">remove</button></div>';
     }).join('');
     var probs = problemsFor(vnum).map(problemRow).join('');
     d = $('info');
-    d.innerHTML = '<h3>Room ' + r.vnum + '</h3><div class="body">' +
+    d.innerHTML = '<h3>Room ' + r.vnum + '<button class="small" data-delete="' + r.vnum + '" title="delete the room, every exit into it, and its resets">delete room</button></h3><div class="body">' +
       '<div style="color:var(--accent);font-weight:600">' + esc(r.name) + '</div>' +
       '<div class="file">' + esc(r.file) + '</div>' +
       '<div class="desc">' + esc(r.description || '(no description)') + '</div>' +
@@ -560,8 +622,9 @@
       '<h3 style="margin:.8em -0.9em 0">Here now</h3><div style="padding:.4em 0">' + (here.length ? here.join('<br>') : '<span class="k">nothing</span>') + '</div>' +
       '<h3 style="margin:.4em -0.9em 0">Resets here</h3><div style="padding:.4em 0">' + (resets || '<span class="k">none</span>') + '</div>' +
       (probs ? '<h3 style="margin:.4em -0.9em 0">Problems</h3><div style="margin:0 -0.9em">' + probs + '</div>' : '') +
-      buildPanel(r) + '</div>';
-    openEditor(r.file);
+      placePanel() + buildPanel(r) + '</div>';
+    // A refresh keeps whatever file is open; picking a room opens its own.
+    if (!keepEditor || !ed.file) openEditor(r.file);
   }
   function showProto(kind, vnum) {
     var list = kind === 'items' ? area.items : area.mobs;
@@ -588,11 +651,22 @@
   }
   $('areafile').addEventListener('click', function () { if (area) showAreaFile(area.areaFile, 'Area file'); });
   $('resetsfile').addEventListener('click', function () { if (area) showAreaFile(area.resetsFile, 'Resets'); });
-  $('info').addEventListener('input', function (ev) { if (ev.target.id === 'digname') digName = ev.target.value; });
+  $('info').addEventListener('input', function (ev) {
+    var id = ev.target.id;
+    if (id === 'digname') digName = ev.target.value;
+    else if (id === 'pwhat') place.what = ev.target.value;
+    else if (id === 'pnew') place.fresh = ev.target.value;
+    else if (id === 'pmax') place.max = ev.target.value;
+  });
+  $('info').addEventListener('change', function (ev) {
+    if (ev.target.id === 'pkind') { place.kind = ev.target.value; place.what = ''; if (selected) showRoom(selected, true); }
+  });
   $('info').addEventListener('keydown', function (ev) {
     var dir = ev.target.getAttribute && ev.target.getAttribute('data-linkvnum');
     if (ev.key === 'Enter' && dir) { var v = Number(ev.target.value); if (v) dig(selected, dir, v); }
     if (ev.key === 'Enter' && ev.target.id === 'digname') { toast('pick a direction: a dig button, or a dashed square on the map'); }
+    if (ev.key === 'Enter' && ev.target.id === 'pwhat') { var pv = pickProto(ev.target.value); if (pv) placeHere(pv); }
+    if (ev.key === 'Enter' && ev.target.id === 'pnew' && ev.target.value.trim()) placeHere(0, ev.target.value.trim());
   });
   var deleteArmed = 0;
   $('info').addEventListener('click', function (ev) {
@@ -604,16 +678,24 @@
       dig(selected, dir, v); return;
     }
     if (b.hasAttribute('data-unlink')) { unlink(selected, b.getAttribute('data-unlink')); return; }
+    if (b.hasAttribute('data-unplace')) { unplace(Number(b.getAttribute('data-unplace'))); return; }
+    if (b.hasAttribute('data-place')) { var pv = pickProto($('pwhat').value); if (pv) placeHere(pv); return; }
+    if (b.hasAttribute('data-placenew')) {
+      var nm = $('pnew').value.trim();
+      if (!nm) { toast('name the new ' + place.kind + ' first', true); return; }
+      placeHere(0, nm); return;
+    }
     if (b.hasAttribute('data-delete')) {
       var v2 = Number(b.getAttribute('data-delete'));
       // Two clicks, no dialog: the first arms the button for a few seconds.
       if (deleteArmed === v2) { deleteArmed = 0; removeRoom(v2); return; }
-      deleteArmed = v2; b.classList.add('danger'); b.textContent = 'click again to delete room ' + v2 + ' and every exit to it';
+      deleteArmed = v2; b.classList.add('danger'); b.textContent = 'click again: delete room ' + v2 + ', its exits in, and its resets';
       setTimeout(function () { if (deleteArmed === v2) { deleteArmed = 0; b.classList.remove('danger'); b.textContent = 'delete room'; } }, 4000);
     }
   });
   $('info').addEventListener('click', function (ev) {
     var el = ev.target.closest('.lnk, .problem'); if (!el) return;
+    if (el.hasAttribute('data-proto')) { showProto(el.getAttribute('data-proto'), Number(el.getAttribute('data-pvnum'))); return; }
     var room = Number(el.getAttribute('data-room') || el.getAttribute('data-vnum')), other = el.getAttribute('data-area');
     if (other && other !== areaName) { selected = room; selectArea(other, true).then(function () { showRoom(room); }); }
     else if (room) showRoom(room);

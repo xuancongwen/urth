@@ -113,7 +113,7 @@ func (w *World) builderArea(name string) (*builder.AreaView, error) {
 	}
 	view := &builder.AreaView{Name: name, Title: area.Name, Detached: area.Detached,
 		Rooms: []builder.RoomView{}, Items: []builder.ProtoView{}, Mobs: []builder.ProtoView{},
-		Resets: []builder.ResetView{}, Problems: []content.Problem{}}
+		Resets: []builder.ResetView{}, Problems: []content.Problem{}, Blocks: content.Blocks(w.content, name)}
 	for _, p := range content.Lint(w.content, w.cfg.World.StartRoom) {
 		if p.Area == name {
 			view.Problems = append(view.Problems, p)

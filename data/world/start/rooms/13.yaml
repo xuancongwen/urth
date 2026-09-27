@@ -5,4 +5,5 @@ description: |
   Rows of empty seats rise on every side.
 exits:
   north: 17
+  east: 47
   west: 12

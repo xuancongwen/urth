@@ -5,6 +5,7 @@ package config
 import (
 	"errors"
 	"fmt"
+	"net"
 	"os"
 	"time"
 
@@ -33,6 +34,11 @@ type Server struct {
 	// login. Empty disables it, which is the default and what production
 	// should keep; on a dev machine bind it to loopback.
 	BuilderAddr string `yaml:"builder_addr"`
+	// AdminAddr is the host:port for the admin page (internal/admin):
+	// characters, connections, and account actions, with no login. It
+	// must be a loopback address; on the host, reach it over ssh with
+	// -L 4003:127.0.0.1:4003. Empty disables it.
+	AdminAddr string `yaml:"admin_addr"`
 	// Limits protect both listeners from floods (internal/limit).
 	Limits Limits `yaml:"limits"`
 }
@@ -127,7 +133,9 @@ func Default() Config {
 			Data: "data",
 		},
 		World: World{
-			StartRoom:          1,
+			// The tutorial corridor; the dead return to the armory.
+			StartRoom:          40,
+			RespawnRoom:        1,
 			FirstPlayerIsAdmin: true,
 		},
 		Log: Log{
@@ -162,6 +170,9 @@ func (c Config) Validate() error {
 	if c.Server.TelnetAddr == "" && c.Server.WebSocketAddr == "" {
 		return errors.New("at least one of server.telnet_addr or server.websocket_addr must be set")
 	}
+	if a := c.Server.AdminAddr; a != "" && !loopback(a) {
+		return fmt.Errorf("server.admin_addr must be a loopback address such as 127.0.0.1:4003, got %q; the admin page has no login", a)
+	}
 	lim := c.Server.Limits
 	if lim.MaxConnections < 0 || lim.MaxPerIP < 0 || lim.InputLinesPerSecond < 0 || lim.InputBurst < 0 || lim.InputFloodLimit < 0 {
 		return errors.New("server.limits values must not be negative")
@@ -195,4 +206,18 @@ func (c Config) Validate() error {
 		return fmt.Errorf("log.format must be text or json, got %q", c.Log.Format)
 	}
 	return nil
+}
+
+// loopback reports whether addr is host:port on a loopback address or
+// localhost.
+func loopback(addr string) bool {
+	host, _, err := net.SplitHostPort(addr)
+	if err != nil {
+		return false
+	}
+	if host == "localhost" {
+		return true
+	}
+	ip := net.ParseIP(host)
+	return ip != nil && ip.IsLoopback()
 }

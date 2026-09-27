@@ -71,6 +71,13 @@ func TestRespawnDefaultsToStart(t *testing.T) {
 		t.Fatalf("respawn set to 1: %d", got)
 	}
 	c := Default()
+	for addr, ok := range map[string]bool{"127.0.0.1:4003": true, "localhost:4003": true, "[::1]:4003": true, "0.0.0.0:4003": false, "10.0.0.5:4003": false, ":4003": false} {
+		c.Server.AdminAddr = addr
+		if err := c.Validate(); (err == nil) != ok {
+			t.Errorf("admin_addr %q: %v", addr, err)
+		}
+	}
+	c.Server.AdminAddr = ""
 	c.World.RespawnRoom = -1
 	if err := c.Validate(); err == nil {
 		t.Fatal("a negative respawn room validated")
