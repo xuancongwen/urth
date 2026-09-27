@@ -1,0 +1,10 @@
+vnum: 919
+name: The Arena, middle
+description: |
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
+exits:
+  north: 923
+  south: 915
+  east: 920
+  west: 918

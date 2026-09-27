@@ -11,10 +11,11 @@ server:
   # Builder page: area maps, content problems, auto-reload on save. No
   # login, so keep it on loopback and leave it empty in production.
   builder_addr: 127.0.0.1:4002
-  # Admin page: characters, connections, and account actions. No login,
-  # so it must be loopback; on a host, reach it with
-  # ssh -L 4003:127.0.0.1:4003 <host>. Leave empty to disable.
-  admin_addr: 127.0.0.1:4003
+  # Admin page: characters, connections, and account actions. From this
+  # machine it needs no login; from the LAN, sign in with an admin
+  # character's name and password. Plain HTTP, so keep it off the open
+  # internet. Use 127.0.0.1:4003 for this machine only; empty disables it.
+  admin_addr: 0.0.0.0:4003
   # Flood protection, applied to each listener separately. 0 disables one.
   limits:
     # Live connections on the listener, and from one address. Behind

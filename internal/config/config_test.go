@@ -71,7 +71,7 @@ func TestRespawnDefaultsToStart(t *testing.T) {
 		t.Fatalf("respawn set to 1: %d", got)
 	}
 	c := Default()
-	for addr, ok := range map[string]bool{"127.0.0.1:4003": true, "localhost:4003": true, "[::1]:4003": true, "0.0.0.0:4003": false, "10.0.0.5:4003": false, ":4003": false} {
+	for addr, ok := range map[string]bool{"127.0.0.1:4003": true, "localhost:4003": true, "[::1]:4003": true, "0.0.0.0:4003": true, ":4003": true, "4003": false, "nonsense": false} {
 		c.Server.AdminAddr = addr
 		if err := c.Validate(); (err == nil) != ok {
 			t.Errorf("admin_addr %q: %v", addr, err)

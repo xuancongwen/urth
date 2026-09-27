@@ -1,0 +1,10 @@
+vnum: 930
+name: a village guard
+keywords: [village, guard]
+description: A village guard stands at ease, sword drawn.
+look: |
+  Middle-aged, unhurried, and not interested in you unless you make him
+  be.
+level: 5
+attack:
+  verb: punch

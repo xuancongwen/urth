@@ -1,11 +1,12 @@
 // Package admin serves the admin page: server status, every character on
 // disk with who is online, one character in full, live connections, and
 // the account actions the in-game admin commands have (promote, demote,
-// deny, allow, passwd) plus kick and delete. It has no login, so it
-// listens on loopback only; on the host it is reached over ssh
-// (docs/DEPLOY.md). Every request must name an address or localhost as
-// its Host, which turns away DNS rebinding, and every change must carry
-// the page's own header, which a cross-site form cannot.
+// deny, allow, passwd) plus kick and delete. From loopback (this machine
+// or an ssh tunnel) it needs no login; from any other address, such as
+// the LAN, it needs a sign-in as an admin character (auth.go). Every
+// request must name an address, localhost, or a .local name as its Host,
+// which turns away DNS rebinding, and every change must carry the page's
+// own header, which a cross-site form cannot.
 package admin
 
 import (
@@ -13,7 +14,6 @@ import (
 	"embed"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/fs"
 	"log/slog"
 	"net"
@@ -36,10 +36,16 @@ type API interface {
 	Character(name string) (*CharacterView, error)
 	Connections() ([]Connection, error)
 	// Act runs one account action on a character by name and returns the
-	// reply: promote, demote, deny, allow, kick, delete.
-	Act(action, name string) (string, error)
+	// reply: promote, demote, deny, allow, kick, delete. by is the
+	// signed-in admin, or empty from loopback without a sign-in.
+	Act(by, action, name string) (string, error)
 	// SetPassword replaces a character's password.
-	SetPassword(name, password string) (string, error)
+	SetPassword(by, name, password string) (string, error)
+	// Authenticate checks an admin character's name and game password and
+	// returns the name as stored. It is slow on purpose (bcrypt).
+	Authenticate(name, password string) (string, error)
+	// IsAdmin reports whether name is an admin and not denied, now.
+	IsAdmin(name string) bool
 }
 
 // ErrNotFound is returned for a name with no character.
@@ -139,14 +145,15 @@ type Server struct {
 	api  API
 	log  *slog.Logger
 	ln   net.Listener
+	auth *auth
 }
 
-// NewServer creates a server on addr, which must be loopback.
+// NewServer creates a server on addr.
 func NewServer(addr string, api API, log *slog.Logger) *Server {
-	return &Server{addr: addr, api: api, log: log}
+	return &Server{addr: addr, api: api, log: log, auth: newAuth()}
 }
 
-// Listen binds the address and refuses anything but loopback.
+// Listen binds the address.
 func (s *Server) Listen() error {
 	if s.ln != nil {
 		return nil
@@ -155,12 +162,11 @@ func (s *Server) Listen() error {
 	if err != nil {
 		return err
 	}
-	if tcp, ok := ln.Addr().(*net.TCPAddr); !ok || !tcp.IP.IsLoopback() {
-		ln.Close()
-		return fmt.Errorf("admin page must listen on loopback, not %s: it has no login", ln.Addr())
-	}
 	s.ln = ln
 	s.log.Info("admin listening", "addr", ln.Addr().String(), "url", "http://"+ln.Addr().String()+"/")
+	if tcp, ok := ln.Addr().(*net.TCPAddr); ok && !tcp.IP.IsLoopback() {
+		s.log.Warn("admin page is reachable from other machines: they must sign in as an admin character, over plain HTTP", "addr", ln.Addr().String())
+	}
 	return nil
 }
 
@@ -175,12 +181,15 @@ func (s *Server) Handler() http.Handler {
 	}
 	mux := http.NewServeMux()
 	mux.Handle("/", http.FileServer(http.FS(pages)))
-	mux.HandleFunc("/api/status", s.handleStatus)
-	mux.HandleFunc("/api/characters", s.handleCharacters)
-	mux.HandleFunc("/api/character", s.handleCharacter)
-	mux.HandleFunc("/api/connections", s.handleConnections)
-	mux.HandleFunc("/api/act", s.handleAct)
-	mux.HandleFunc("/api/password", s.handlePassword)
+	mux.HandleFunc("/api/session", s.handleSession)
+	mux.HandleFunc("/api/login", s.handleLogin)
+	mux.HandleFunc("/api/logout", s.handleLogout)
+	mux.HandleFunc("/api/status", s.authed(s.handleStatus))
+	mux.HandleFunc("/api/characters", s.authed(s.handleCharacters))
+	mux.HandleFunc("/api/character", s.authed(s.handleCharacter))
+	mux.HandleFunc("/api/connections", s.authed(s.handleConnections))
+	mux.HandleFunc("/api/act", s.authed(s.handleAct))
+	mux.HandleFunc("/api/password", s.authed(s.handlePassword))
 	return hostGuard(mux)
 }
 
@@ -207,9 +216,9 @@ func (s *Server) Serve(ctx context.Context) error {
 }
 
 // hostGuard refuses a request whose Host is a DNS name other than
-// localhost. A page on another site that rebinds its own name to
-// 127.0.0.1 would otherwise be same-origin with this one and could read
-// every character.
+// localhost or a .local (mDNS) name. A page on another site that rebinds
+// its own name to this machine would otherwise be same-origin with this
+// one; a .local name cannot be registered in public DNS, so it is safe.
 func hostGuard(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		host := r.Host
@@ -217,8 +226,8 @@ func hostGuard(next http.Handler) http.Handler {
 			host = h
 		}
 		host = strings.Trim(host, "[]")
-		if host != "localhost" && net.ParseIP(host) == nil {
-			http.Error(w, "the admin page answers only on an address or localhost", http.StatusForbidden)
+		if host != "localhost" && !strings.HasSuffix(host, ".local") && net.ParseIP(host) == nil {
+			http.Error(w, "the admin page answers only on an address, localhost, or a .local name", http.StatusForbidden)
 			return
 		}
 		w.Header().Set("X-Frame-Options", "DENY")
@@ -264,7 +273,7 @@ func writeErr(w http.ResponseWriter, err error) {
 	writeJSON(w, code, result{Error: err.Error()})
 }
 
-func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request, _ string) {
 	st, err := s.api.Status()
 	if err != nil {
 		writeErr(w, err)
@@ -273,7 +282,7 @@ func (s *Server) handleStatus(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, st)
 }
 
-func (s *Server) handleCharacters(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleCharacters(w http.ResponseWriter, r *http.Request, _ string) {
 	rows, err := s.api.Characters()
 	if err != nil {
 		writeErr(w, err)
@@ -285,7 +294,7 @@ func (s *Server) handleCharacters(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, rows)
 }
 
-func (s *Server) handleCharacter(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleCharacter(w http.ResponseWriter, r *http.Request, _ string) {
 	v, err := s.api.Character(r.URL.Query().Get("name"))
 	if err != nil {
 		writeErr(w, err)
@@ -294,7 +303,7 @@ func (s *Server) handleCharacter(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, v)
 }
 
-func (s *Server) handleConnections(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleConnections(w http.ResponseWriter, r *http.Request, _ string) {
 	rows, err := s.api.Connections()
 	if err != nil {
 		writeErr(w, err)
@@ -309,7 +318,7 @@ func (s *Server) handleConnections(w http.ResponseWriter, r *http.Request) {
 // actions are what /api/act accepts.
 var actions = map[string]bool{"promote": true, "demote": true, "deny": true, "allow": true, "kick": true, "delete": true}
 
-func (s *Server) handleAct(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handleAct(w http.ResponseWriter, r *http.Request, by string) {
 	if !change(w, r) {
 		return
 	}
@@ -321,16 +330,16 @@ func (s *Server) handleAct(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusBadRequest, result{Error: "want {action, name} with action one of promote, demote, deny, allow, kick, delete"})
 		return
 	}
-	msg, err := s.api.Act(req.Action, req.Name)
+	msg, err := s.api.Act(by, req.Action, req.Name)
 	if err != nil {
 		writeErr(w, err)
 		return
 	}
-	s.log.Warn("admin page action", "action", req.Action, "name", req.Name)
+	s.log.Warn("admin page action", "action", req.Action, "name", req.Name, "by", by)
 	writeJSON(w, http.StatusOK, result{OK: true, Message: msg})
 }
 
-func (s *Server) handlePassword(w http.ResponseWriter, r *http.Request) {
+func (s *Server) handlePassword(w http.ResponseWriter, r *http.Request, by string) {
 	if !change(w, r) {
 		return
 	}
@@ -342,7 +351,7 @@ func (s *Server) handlePassword(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusBadRequest, result{Error: "want {name, password}"})
 		return
 	}
-	msg, err := s.api.SetPassword(req.Name, req.Password)
+	msg, err := s.api.SetPassword(by, req.Name, req.Password)
 	if err != nil {
 		writeErr(w, err)
 		return

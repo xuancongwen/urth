@@ -103,9 +103,15 @@ set up before the tutorial has `start_room: 1` in its config, which
 still works (the corridor is reachable south of the armory) but skips
 it; edit the two lines and restart to use it.
 
-The admin page listens on `server.admin_addr`, loopback only, since it
-has no login. New hosts get `127.0.0.1:4003`; an older config needs the
-line added. From your machine:
+The admin page listens on `server.admin_addr`. New hosts get
+`0.0.0.0:4003`, reachable from the LAN at http://<host address>:4003/
+(or http://<name>.local:4003/); an older config needs the line added.
+From the LAN it asks you to sign in with an admin character's name and
+game password; the session is a cookie that lasts 12 hours, ends when
+the character is demoted or denied, and five wrong passwords lock that
+address out for a minute. It is plain HTTP, so the password crosses the
+LAN in the clear: do not forward port 4003 through the router or the
+tunnel. From outside the LAN, use ssh, which needs no sign-in:
 
     ssh -L 4003:127.0.0.1:4003 <host>
 

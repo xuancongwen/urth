@@ -1,0 +1,7 @@
+vnum: 947
+name: An Unfinished Room
+description: |
+  Nothing has been written here yet.
+exits:
+  north: 948
+  west: 913

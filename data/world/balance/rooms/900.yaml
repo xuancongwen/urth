@@ -1,7 +1,17 @@
 vnum: 900
 name: The Balance Range
 description: |
-  A bare stone hall with no doors. Wooden dummies stand in a row, each
-  painted with a number. Nothing here is meant to be reached on foot;
-  builders arrive by goto, and the simulator never needs to.
-exits: {}
+  A bare stone hall with no windows, kept for builders and for testing
+  the rules. Nothing here is meant to be reached on foot: builders arrive
+  by 'goto 900', and the simulator never needs to come here at all.
+  North, an iron gate opens on the arena and the colleges. East, an
+  armory with one of nearly everything, and past it a muster room where
+  a drillmaster and a quartermaster wait. A door in the south wall leads
+  to a sunlit shrine.
+exits:
+  north: 903
+  east: 940
+  south: 945
+doors:
+  south: {name: the shrine door, closed: true}
+flags: [safe]

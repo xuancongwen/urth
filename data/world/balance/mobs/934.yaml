@@ -1,0 +1,9 @@
+vnum: 934
+name: a crow
+keywords: [crow]
+description: A crow hops along the ground, eyeing you sideways.
+look: |
+  Glossy black and entirely unafraid.
+level: 1
+attack:
+  verb: peck

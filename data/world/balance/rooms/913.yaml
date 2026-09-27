@@ -1,0 +1,9 @@
+vnum: 913
+name: The Arena, southeast corner
+description: |
+  Sand, raked and bloodied. The easy fights are here, near the gate.
+  Rows of empty seats rise on every side.
+exits:
+  north: 917
+  east: 947
+  west: 912

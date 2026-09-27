@@ -201,3 +201,18 @@ changes go through the same world methods as the in-game commands, so
 an online character is changed in place and saved, never overwritten at
 the next autosave. Deletion is refused for someone online and moves the
 file to `players/deleted/`, as `urth admin delete` does.
+
+## D22. The admin page opens to the LAN behind an admin sign-in
+
+This changes D21. The page may now listen on any address. A request from
+loopback, which covers the machine itself and an ssh tunnel, still needs
+no login. A request from anywhere else must sign in with the name and
+game password of an admin character that is not denied; there is no
+separate admin account to keep in step. Sessions are in memory, last 12
+hours from last use, and are re-checked on every request, so a demotion
+or deny ends them at once. Five failed sign-ins from one address lock it
+out for a minute. The cookie is HttpOnly and SameSite=Strict, changes
+still need the page's header, and the Host check now also admits .local
+names, which public DNS cannot serve, so mDNS names on the LAN work. The
+page is plain HTTP, so a password crosses the LAN in the clear; TLS is
+left for when the page has to leave the LAN, and ssh covers that today.

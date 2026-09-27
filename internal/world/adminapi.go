@@ -17,8 +17,17 @@ import (
 // the same call the builder page uses.
 
 // adminBy is who the page's changes are logged as, and what an online
-// character is told did it.
+// character is told did it, when nobody signed in (loopback).
 const adminBy = "An admin"
+
+// adminActor is the name an action is done in: the signed-in admin, or
+// adminBy.
+func adminActor(by string) string {
+	if by == "" {
+		return adminBy
+	}
+	return by
+}
 
 type adminAPI struct{ b builderAPI }
 
@@ -215,8 +224,12 @@ func (a adminAPI) Connections() ([]admin.Connection, error) {
 	return rows, err
 }
 
-func (a adminAPI) Act(action, name string) (string, error) {
+func (a adminAPI) Act(by, action, name string) (string, error) {
 	name = canonicalName(name)
+	if by != "" && name == by && (action == "demote" || action == "deny" || action == "delete") {
+		return "", fmt.Errorf("%w: you cannot %s yourself; have another admin do it", admin.ErrRefused, action)
+	}
+	who := adminActor(by)
 	var msg string
 	var err error
 	cerr := a.b.call(func() {
@@ -227,13 +240,13 @@ func (a adminAPI) Act(action, name string) (string, error) {
 		}
 		switch action {
 		case "promote":
-			msg, err = w.promote(name, adminBy)
+			msg, err = w.promote(name, who)
 		case "demote":
-			msg, err = w.demote(name, adminBy)
+			msg, err = w.demote(name, who)
 		case "deny":
-			msg, err = w.deny(name, adminBy)
+			msg, err = w.deny(name, who)
 		case "allow":
-			msg, err = w.allow(name, adminBy)
+			msg, err = w.allow(name, who)
 		case "kick":
 			o := w.playingByName(name, nil)
 			if o == nil {
@@ -243,7 +256,7 @@ func (a adminAPI) Act(action, name string) (string, error) {
 			w.save(o)
 			o.SendMsg(output.Message{Type: output.System, Text: "{R}You have been disconnected by an admin.{x}\n"})
 			o.disconnect()
-			w.log.Warn("kicked", "name", name, "by", adminBy)
+			w.log.Warn("kicked", "name", name, "by", who)
 			msg = name + " was disconnected."
 		case "delete":
 			if w.playingByName(name, nil) != nil {
@@ -251,7 +264,7 @@ func (a adminAPI) Act(action, name string) (string, error) {
 				return
 			}
 			if err = w.store.Delete(name); err == nil {
-				w.log.Warn("deleted", "name", name, "by", adminBy)
+				w.log.Warn("deleted", "name", name, "by", who)
 				msg = name + " was retired to players/deleted/."
 			}
 		default:
@@ -267,7 +280,7 @@ func (a adminAPI) Act(action, name string) (string, error) {
 	return msg, err
 }
 
-func (a adminAPI) SetPassword(name, password string) (string, error) {
+func (a adminAPI) SetPassword(by, name, password string) (string, error) {
 	name = canonicalName(name)
 	if len(password) < minPasswordLen || len(password) > maxPasswordLen {
 		return "", fmt.Errorf("%w: a password must be %d to %d characters", admin.ErrRefused, minPasswordLen, maxPasswordLen)
@@ -285,9 +298,25 @@ func (a adminAPI) SetPassword(name, password string) (string, error) {
 		return "", err
 	}
 	var msg string
-	cerr := a.b.call(func() { msg, err = a.w().setPasswordHash(name, hash, adminBy) })
+	cerr := a.b.call(func() { msg, err = a.w().setPasswordHash(name, hash, adminActor(by)) })
 	if cerr != nil {
 		return "", cerr
 	}
 	return msg, err
+}
+
+// Authenticate reads the file, not the live character: account changes
+// save at once (editRecord), so the file is current.
+func (a adminAPI) Authenticate(name, password string) (string, error) {
+	name = canonicalName(name)
+	rec, err := a.w().store.Load(name)
+	if err != nil || !store.CheckPassword(rec.PasswordHash, password) || !rec.Admin || rec.Denied {
+		return "", admin.ErrBadLogin
+	}
+	return rec.Name, nil
+}
+
+func (a adminAPI) IsAdmin(name string) bool {
+	rec, err := a.w().store.Load(name)
+	return err == nil && rec.Admin && !rec.Denied
 }

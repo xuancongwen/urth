@@ -1,0 +1,19 @@
+vnum: 943
+name: a quartermaster
+keywords: [quartermaster, questmaster]
+description: A quartermaster sits at the end of the table over a ledger.
+look: |
+  Ink on every finger. The ledger is a fair copy of the herald's: the
+  same work, the same quest points, the same things to trade them for.
+  Try 'quest request' and 'quest list'.
+level: 20
+flags: [peaceful, questmaster]
+attack:
+  verb: punch
+sells:
+  - { item: 181, points: 15 }   # brass lantern
+  - { item: 156, points: 25 }   # hunting spear
+  - { item: 151, points: 25 }   # studded brigandine
+  - { item: 155, points: 30 }   # steel longsword
+  - { item: 162, points: 80 }   # ring of the ox
+  - { item: 163, points: 80 }   # windstep boots

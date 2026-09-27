@@ -35,9 +35,10 @@ type Server struct {
 	// should keep; on a dev machine bind it to loopback.
 	BuilderAddr string `yaml:"builder_addr"`
 	// AdminAddr is the host:port for the admin page (internal/admin):
-	// characters, connections, and account actions, with no login. It
-	// must be a loopback address; on the host, reach it over ssh with
-	// -L 4003:127.0.0.1:4003. Empty disables it.
+	// characters, connections, and account actions. Requests from
+	// loopback need no login; from anywhere else, such as the LAN with
+	// 0.0.0.0:4003, they must sign in as an admin character. Empty
+	// disables it.
 	AdminAddr string `yaml:"admin_addr"`
 	// Limits protect both listeners from floods (internal/limit).
 	Limits Limits `yaml:"limits"`
@@ -170,8 +171,10 @@ func (c Config) Validate() error {
 	if c.Server.TelnetAddr == "" && c.Server.WebSocketAddr == "" {
 		return errors.New("at least one of server.telnet_addr or server.websocket_addr must be set")
 	}
-	if a := c.Server.AdminAddr; a != "" && !loopback(a) {
-		return fmt.Errorf("server.admin_addr must be a loopback address such as 127.0.0.1:4003, got %q; the admin page has no login", a)
+	if a := c.Server.AdminAddr; a != "" {
+		if _, _, err := net.SplitHostPort(a); err != nil {
+			return fmt.Errorf("server.admin_addr must be host:port such as 0.0.0.0:4003, got %q", a)
+		}
 	}
 	lim := c.Server.Limits
 	if lim.MaxConnections < 0 || lim.MaxPerIP < 0 || lim.InputLinesPerSecond < 0 || lim.InputBurst < 0 || lim.InputFloodLimit < 0 {
@@ -206,18 +209,4 @@ func (c Config) Validate() error {
 		return fmt.Errorf("log.format must be text or json, got %q", c.Log.Format)
 	}
 	return nil
-}
-
-// loopback reports whether addr is host:port on a loopback address or
-// localhost.
-func loopback(addr string) bool {
-	host, _, err := net.SplitHostPort(addr)
-	if err != nil {
-		return false
-	}
-	if host == "localhost" {
-		return true
-	}
-	ip := net.ParseIP(host)
-	return ip != nil && ip.IsLoopback()
 }

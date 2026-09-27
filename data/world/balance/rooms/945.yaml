@@ -1,0 +1,10 @@
+vnum: 945
+name: A Sunlit Shrine
+description: |
+  A small white room behind a door, with a window full of a sky that is
+  not there. A rising sun is cut into the altar. The Good god takes its
+  offerings here; the grey and black shrines are along the colonnade.
+exits:
+  north: 900
+flags: [safe]
+temple: good

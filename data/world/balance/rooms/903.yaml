@@ -1,0 +1,16 @@
+vnum: 903
+name: The Arena Gate
+description: |
+  An iron gate stands open on the arena. Beyond it the light changes:
+  sand, sky, and the sound of something large breathing. The fights get
+  harder row by row going north, and each row keeps a numbered dummy for
+  checking the rules against. West, a colonnade runs to the colleges;
+  south is the balance hall.
+exits:
+  south: 900
+  north: 911
+  west: 930
+flags: [safe]
+# Map anchor: the colonnade west of here runs under the arena, so the
+# arena is anchored one column east (room 911) to keep the map honest.
+position: {x: 0, y: -2, z: 0}

@@ -50,25 +50,25 @@ func TestAdminAPI(t *testing.T) {
 		t.Fatalf("unknown: %v", err)
 	}
 
-	if msg, err := api.Act("promote", "alice"); err != nil || !strings.Contains(msg, "Alice is now an admin") {
+	if msg, err := api.Act("", "promote", "alice"); err != nil || !strings.Contains(msg, "Alice is now an admin") {
 		t.Fatalf("promote offline: %q %v", msg, err)
 	}
 	if rows, _ := api.Characters(); !rows[0].Admin {
 		t.Fatal("promote not saved")
 	}
-	if _, err := api.Act("kick", "Alice"); !errors.Is(err, admin.ErrRefused) {
+	if _, err := api.Act("", "kick", "Alice"); !errors.Is(err, admin.ErrRefused) {
 		t.Fatalf("kick offline: %v", err)
 	}
-	if _, err := api.Act("delete", "Bob"); !errors.Is(err, admin.ErrRefused) {
+	if _, err := api.Act("", "delete", "Bob"); !errors.Is(err, admin.ErrRefused) {
 		t.Fatalf("delete online: %v", err)
 	}
-	if _, err := api.SetPassword("Alice", "abc"); !errors.Is(err, admin.ErrRefused) {
+	if _, err := api.SetPassword("", "Alice", "abc"); !errors.Is(err, admin.ErrRefused) {
 		t.Fatalf("short password: %v", err)
 	}
-	if msg, err := api.SetPassword("Alice", "newsecret"); err != nil || !strings.Contains(msg, "changed") {
+	if msg, err := api.SetPassword("", "Alice", "newsecret"); err != nil || !strings.Contains(msg, "changed") {
 		t.Fatalf("password: %q %v", msg, err)
 	}
-	if _, err := api.Act("kick", "Bob"); err != nil {
+	if _, err := api.Act("", "kick", "Bob"); err != nil {
 		t.Fatal(err)
 	}
 	deadline := time.Now().Add(2 * time.Second)
@@ -82,11 +82,21 @@ func TestAdminAPI(t *testing.T) {
 		}
 		time.Sleep(10 * time.Millisecond)
 	}
-	if _, err := api.Act("delete", "Bob"); err != nil {
+	if _, err := api.Act("", "delete", "Bob"); err != nil {
 		t.Fatalf("delete offline: %v", err)
 	}
 	if rows, _ := api.Characters(); len(rows) != 1 {
 		t.Fatalf("after delete: %+v", rows)
+	}
+	// Signing in takes an admin's game password; Alice was promoted.
+	if name, err := api.Authenticate("alice", "newsecret"); err != nil || name != "Alice" || !api.IsAdmin("Alice") {
+		t.Fatalf("sign in: %q %v", name, err)
+	}
+	if _, err := api.Authenticate("alice", "secret5"); !errors.Is(err, admin.ErrBadLogin) {
+		t.Fatalf("old password: %v", err)
+	}
+	if _, err := api.Act("Alice", "demote", "alice"); !errors.Is(err, admin.ErrRefused) {
+		t.Fatalf("self demote: %v", err)
 	}
 	_ = alice
 }

@@ -1,0 +1,96 @@
+# The test lab: everything the rules and the engine do, in reach of
+# 'goto 900'. Detached, so nothing here counts toward the content check's
+# reachability, and quests never send anyone here. Dummies 901 to 925
+# are the simulator's; the arena places a few of them to fight by hand.
+interval_seconds: 300
+resets:
+  # --- the test armory (940): one of nearly everything ---
+  - { item: 100, room: 940 }   # rusty sword
+  - { item: 101, room: 940 }   # club
+  - { item: 111, room: 940 }   # dagger
+  - { item: 155, room: 940 }   # longsword
+  - { item: 156, room: 940 }   # spear, two hands
+  - { item: 102, room: 940 }   # leather cap
+  - { item: 103, room: 940 }   # leather jerkin
+  - { item: 110, room: 940 }   # shield
+  - { item: 950, room: 940 }   # level-2 iron set: cap, brigandine, greaves, bracers, boots
+  - { item: 151, room: 940 }
+  - { item: 952, room: 940 }
+  - { item: 953, room: 940 }
+  - { item: 954, room: 940 }
+  - { item: 970, room: 940 }   # gloves, belt, shoulders, wristguard, mask
+  - { item: 971, room: 940 }
+  - { item: 972, room: 940 }
+  - { item: 973, room: 940 }
+  - { item: 974, room: 940 }
+  - { item: 180, room: 940 }   # torch and lantern
+  - { item: 181, room: 940 }
+  - { item: 104, room: 940 }   # backpack
+  - { item: 109, room: 940 }   # purse
+  - { item: 105, room: 940 }   # bread, bucket, candle
+  - { item: 106, room: 940 }
+  - { item: 108, room: 940 }
+  - { item: 120, room: 940 }   # materials: ash, salt, tallow, bone dust, nightshade, quicksilver
+  - { item: 121, room: 940 }
+  - { item: 122, room: 940 }
+  - { item: 123, room: 940 }
+  - { item: 124, room: 940 }
+  - { item: 125, room: 940 }
+  - { item: 990, room: 940 }   # wolf fangs, for rend
+  - { item: 990, into: 104, room: 940 }   # rend wants two: more in the backpack and the purse
+  - { item: 990, into: 109, room: 940 }
+  # --- the muster room (941): trainer and quartermaster ---
+  - { mob: 942, room: 941 }    # drillmaster: bash, twin
+  - { mob: 943, room: 941 }    # quartermaster: quests and quest points
+  # --- the arena, south row (910-913): levels 1 to 3 ---
+  - { mob: 931, room: 910, max: 2 }   # dogs
+  - { mob: 934, room: 911, max: 2 }   # crows
+  - { mob: 933, room: 912 }           # beggar
+  - { mob: 935, room: 913, max: 2, equip: [{ item: 990 }] }   # wolves, they assist each other and carry fangs
+  # --- second row (914-917): levels 4 to 6 ---
+  - { mob: 936, room: 914, equip: [{ item: 101, slot: wield }, { item: 109 }] }   # bandit, club, purse
+  - { mob: 930, room: 915, equip: [{ item: 100, slot: wield }, { item: 102, slot: head }] }   # guard, sword, cap
+  - { mob: 905, room: 916 }           # level-5 dummy
+  - { mob: 906, room: 917 }           # level-6 dummy
+  # --- third row (918-921): levels 7 to 12 ---
+  - { mob: 937, room: 918 }           # bog wight, guarding the hauberk
+  - { item: 961, room: 918 }
+  - { mob: 932, room: 919, equip: [{ item: 101, slot: wield }] }   # blacksmith with a club
+  - { mob: 910, room: 920 }           # level-10 dummy, and the ring
+  - { item: 162, room: 920 }
+  - { mob: 935, room: 921, max: 3, equip: [{ item: 990 }] }   # a wolf pack
+  # --- north row (922-925): 15 and up ---
+  - { mob: 915, room: 922 }           # level-15 dummy
+  - { item: 163, room: 922 }          # the windstep boots
+  - { mob: 920, room: 923 }           # level-20 dummy
+  - { mob: 925, room: 924 }           # level-25 dummy
+  - { mob: 938, room: 925 }           # the hill troll, on the Blade and the charred totem
+  - { item: 960, room: 925 }
+  - { item: 930, room: 925 }
+  # --- the dark cell (926): the salt totem and the chalice ---
+  - { item: 931, room: 926 }
+  - { item: 940, room: 926 }
+  # --- the colleges, west of the gate ---
+  - { item: 930, room: 931 }   # all eight totems
+  - { item: 931, room: 931 }
+  - { item: 932, room: 931 }
+  - { item: 933, room: 931 }
+  - { item: 934, room: 931 }
+  - { item: 935, room: 931 }
+  - { item: 936, room: 931 }
+  - { item: 937, room: 931 }
+  - { item: 926, room: 932 }   # rare materials in the stillroom
+  - { item: 926, room: 932 }
+  - { item: 927, room: 932 }
+  - { item: 927, room: 932 }
+  - { item: 928, room: 932 }
+  - { item: 120, room: 932 }
+  - { item: 120, room: 932 }
+  - { item: 121, room: 932 }
+  - { item: 123, room: 932 }
+  - { item: 124, room: 932 }
+  - { item: 125, room: 932 }
+  - { item: 941, room: 932 }   # the other gods' sacrifices
+  - { item: 942, room: 932 }
+  - { mob: 940, room: 936 }    # the specialty trainers: rend, riposte
+  - { mob: 941, room: 936 }

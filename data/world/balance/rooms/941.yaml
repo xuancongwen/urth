@@ -1,0 +1,11 @@
+vnum: 941
+name: The Muster Room
+description: |
+  A long room with a table and benches. A drillmaster teaches the
+  fighting skills the old soldier in the Long Hall teaches, and a
+  quartermaster keeps a copy of the herald's ledger: quests, quest
+  points, and the things they buy. The beast-master and the fencing
+  master keep to the training yards in the colleges.
+exits:
+  west: 940
+flags: [safe]

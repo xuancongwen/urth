@@ -1,0 +1,13 @@
+vnum: 940
+name: The Test Armory
+description: |
+  Racks and tables hold one of nearly everything: the plain starting
+  gear, every armor slot at the second level, lights, a backpack and a
+  purse, the common casting materials, and wolf fangs for the
+  beast-master's lesson. Bread, a bucket, and a candle sit on a shelf
+  for anyone testing what ordinary things do. It is all free and it all
+  comes back on the reset.
+exits:
+  west: 900
+  east: 941
+flags: [safe]

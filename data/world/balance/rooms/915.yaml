@@ -1,0 +1,10 @@
+vnum: 915
+name: The Arena, middle
+description: |
+  The sand gives way to packed earth. Whatever is kept here has teeth.
+  Rows of empty seats rise on every side.
+exits:
+  north: 919
+  south: 911
+  east: 916
+  west: 914

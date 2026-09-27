@@ -16,7 +16,7 @@ game rules in scripts that reload live.
 | 4000 | telnet, any MUD client | `server.telnet_addr` |
 | 4001 | browser client at `/` | `server.websocket_addr` |
 | 4002 | builder page, dev only | `server.builder_addr` (empty = off) |
-| 4003 | admin page, loopback only | `server.admin_addr` (empty = off) |
+| 4003 | admin page; the LAN signs in | `server.admin_addr` (empty = off) |
 
 Subcommands:
 
@@ -52,8 +52,11 @@ Prefixes work (`n`, `inv`, `wie`). Targets take ROM forms: `sword`,
 The admin page at `server.admin_addr` lists every character with who is
 online and where, shows one in full (sheet, gear, quest, effects, address),
 lists connections, and promotes, demotes, denies, allows, kicks, deletes,
-and sets passwords. It has no login and refuses any address but loopback;
-on a host, reach it with `ssh -L 4003:127.0.0.1:4003 <host>`.
+and sets passwords. From the machine itself (or an ssh tunnel,
+`ssh -L 4003:127.0.0.1:4003 <host>`) it needs no login; from anywhere
+else, such as the LAN on `0.0.0.0:4003`, sign in with an admin
+character's name and game password. It is plain HTTP, so never forward
+the port to the internet.
 
 Admin commands work on offline characters too. `deny` drops the session
 and refuses login until `allow`.

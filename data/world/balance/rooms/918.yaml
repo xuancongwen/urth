@@ -1,0 +1,9 @@
+vnum: 918
+name: The Arena, west edge
+description: |
+  Old blood has soaked the ground black. Nothing here is a beginner's fight.
+  Rows of empty seats rise on every side.
+exits:
+  north: 922
+  south: 914
+  east: 919

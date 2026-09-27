@@ -1,0 +1,8 @@
+vnum: 910
+name: The Arena, southwest corner
+description: |
+  Sand, raked and bloodied. The easy fights are here, near the gate.
+  Rows of empty seats rise on every side.
+exits:
+  north: 914
+  east: 911

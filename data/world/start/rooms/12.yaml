@@ -1,9 +1,0 @@
-vnum: 12
-name: The Arena, south edge
-description: |
-  Sand, raked and bloodied. The easy fights are here, near the gate.
-  Rows of empty seats rise on every side.
-exits:
-  north: 16
-  east: 13
-  west: 11

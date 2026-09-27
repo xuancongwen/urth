@@ -1,0 +1,13 @@
+vnum: 942
+name: a drillmaster
+keywords: [drillmaster, master]
+description: A drillmaster stands by the table with a slate of names.
+look: |
+  Close-cropped, loud, and fair. The drillmaster teaches what the old
+  soldier in the Long Hall teaches, and does not wait for you to be
+  ready. Try 'practice'.
+level: 15
+flags: [peaceful]
+teaches: [bash, twin]
+attack:
+  verb: punch

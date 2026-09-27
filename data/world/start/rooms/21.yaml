@@ -1,9 +1,0 @@
-vnum: 21
-name: The Arena, east edge
-description: |
-  Old blood has soaked the ground black. Nothing here is a beginner's fight.
-  Rows of empty seats rise on every side.
-exits:
-  north: 25
-  south: 17
-  west: 20

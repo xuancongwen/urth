@@ -60,9 +60,10 @@ server:
   # The web client and WebSocket. cloudflared on this host proxies it, so
   # loopback is enough; use 0.0.0.0:4001 to reach it from the LAN too.
   websocket_addr: 127.0.0.1:4001
-  # The admin page. Loopback only; reach it with
-  # ssh -L 4003:127.0.0.1:4003 <this host>, then http://127.0.0.1:4003/.
-  admin_addr: 127.0.0.1:4003
+  # The admin page, on the LAN: sign in with an admin character. Plain
+  # HTTP, so never forward this port to the internet. From elsewhere, use
+  # ssh -L 4003:127.0.0.1:4003 <this host>, which needs no sign-in.
+  admin_addr: 0.0.0.0:4003
   # Per-listener flood protection; see config.yaml in the repo for each field.
   limits:
     max_connections: 256

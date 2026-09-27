@@ -15,9 +15,10 @@ Planned layout (filled in by later milestones):
 - an area whose rooms are not meant to connect to the world, nor whose prototypes to be placed by resets (the balance range), says `detached: true` in `area.yaml`; `urth check` then leaves it alone
 
 Areas under `world/`: `start` (the tutorial corridor where new
-characters wake, rooms 40 to 46, opening north into the armory; then the
-armory, hall, arena, and colleges: a test area), `balance` (one plain mob per level for the simulator,
-unreachable on foot), and `solace` (a town in the vallenwoods, reached by
+characters wake, rooms 40 to 46, opening north into the armory, the
+Long Hall with its trainer and herald, and a shrine), `balance` (the test
+lab, unreachable on foot: `goto 900`; one plain mob per level for the
+simulator, and every mechanic in reach, see its README), and `solace` (a town in the vallenwoods, reached by
 the stair under the armory). Below the stair, the Undercroft of Doors
 (room 6) opens on four more: `shire` (west; Hobbiton, Bywater, Maggot's
 farm, the Woody End and the Old Forest, levels 1 to 10), `swordcoast`

@@ -1,0 +1,9 @@
+vnum: 914
+name: The Arena, west edge
+description: |
+  The sand gives way to packed earth. Whatever is kept here has teeth.
+  Rows of empty seats rise on every side.
+exits:
+  north: 918
+  south: 910
+  east: 915

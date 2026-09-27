@@ -67,13 +67,27 @@
   ul.items ul { padding-left: 1.1em; }
   .empty { color: var(--dim); padding: .6em .9em; font-size: .9em; }
   pre { margin: 0; font-size: .8em; white-space: pre-wrap; word-break: break-word; color: #b8bcc8; }
+  #who { color: var(--dim); font-size: .85em; white-space: nowrap; }
+  #login { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(8,9,11,.92); z-index: 10; }
+  #login form { width: 22em; background: var(--panel); border: 1px solid var(--line); padding: 1.2em 1.3em; display: grid; gap: .6em; }
+  #login .title { color: var(--accent); font-weight: 600; }
+  #login .k { color: var(--dim); font-size: .85em; }
+  #login .err { color: #f0a0a0; font-size: .85em; min-height: 1.2em; }
   #toast { position: fixed; right: 1em; bottom: 1em; max-width: 40em; padding: .6em .9em; background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--ok); font-size: .9em; display: none; white-space: pre-wrap; }
   #toast.bad { border-left-color: var(--bad); }
   @media (max-width: 1000px) { body { grid-template-columns: 1fr 360px; } }
 </style>
 </head>
 <body>
-<div id="head"><span class="title">Urth admin</span><span id="status">connecting</span></div>
+<div id="head"><span class="title">Urth admin</span><span id="status">connecting</span><span id="who"></span></div>
+<div id="login"><form id="loginform">
+  <span class="title">Sign in</span>
+  <span class="k">From another machine, the admin page needs an admin character's name and game password.</span>
+  <input id="lname" placeholder="character name" autocomplete="username">
+  <input id="lpass" type="password" placeholder="password" autocomplete="current-password">
+  <span class="err" id="lerr"></span>
+  <button type="submit">sign in</button>
+</form></div>
 <div id="stats"></div>
 <div id="main">
   <div id="bar">
@@ -92,11 +106,44 @@
   var tab = 'characters', chars = [], conns = [], selected = null, sortKey = 'name', sortDir = 1;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function get(url) { return fetch(url, { cache: 'no-store' }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.statusText); return j; }); }); }
+  var signedOut = false;
+  function needLogin() {
+    signedOut = true; $('login').style.display = 'flex';
+    if (document.activeElement !== $('lpass')) $('lname').focus();
+  }
+  function get(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (r.status === 401) { needLogin(); throw new Error('sign in first'); }
+      return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.statusText); return j; });
+    });
+  }
   function post(url, body) {
     return fetch(url, { method: 'POST', headers: { 'X-Urth-Admin': '1', 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
-      .then(function (r) { return r.json().catch(function () { return { error: r.statusText }; }); });
+      .then(function (r) {
+        if (r.status === 401 && url !== '/api/login') needLogin();
+        return r.json().catch(function () { return { error: r.statusText }; });
+      });
   }
+  function loadSession() {
+    return fetch('/api/session', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (s) {
+      if (s.needLogin) { needLogin(); $('who').innerHTML = ''; return false; }
+      signedOut = false; $('login').style.display = 'none';
+      $('who').innerHTML = s.name ? 'signed in as ' + esc(s.name) + ' · <span class="lnk" id="signout" style="color:var(--link);cursor:pointer">sign out</span>' : (s.local ? 'this machine' : '');
+      return true;
+    });
+  }
+  $('loginform').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    $('lerr').textContent = '';
+    post('/api/login', { name: $('lname').value, password: $('lpass').value }).then(function (r) {
+      if (!r.ok) { $('lerr').textContent = r.error; $('lpass').select(); return; }
+      $('lpass').value = '';
+      loadSession().then(refresh);
+    });
+  });
+  $('head').addEventListener('click', function (ev) {
+    if (ev.target.id === 'signout') post('/api/logout', {}).then(function () { selected = null; loadSession(); });
+  });
   function toast(text, bad) {
     var t = $('toast'); t.textContent = text; t.className = bad ? 'bad' : ''; t.style.display = 'block';
     clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.style.display = 'none'; }, bad ? 9000 : 4000);
@@ -252,10 +299,11 @@
   $('detail').addEventListener('keydown', function (ev) { if (ev.key === 'Enter' && ev.target.id === 'pw') $('setpw').click(); });
 
   function refresh() {
+    if (signedOut) return Promise.resolve();
     loadStatus();
     return loadLists().then(function () { if (selected && !armed) return showCharacter(selected, true); });
   }
-  refresh();
+  loadSession().then(function (ok) { if (ok) refresh(); });
   setInterval(refresh, 3000);
 })();
 </script>
