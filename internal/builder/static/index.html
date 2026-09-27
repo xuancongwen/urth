@@ -15,7 +15,7 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 13.5px/1.45 var(--font); }
   body { display: grid; height: 100dvh; overflow: hidden;
-    grid-template-columns: 230px 1fr 400px; grid-template-rows: auto 1fr;
+    grid-template-columns: 230px 1fr 440px; grid-template-rows: auto 1fr;
     grid-template-areas: "head head head" "areas main detail"; }
   #head { grid-area: head; display: flex; align-items: center; gap: 1em; padding: .5em 1em; background: var(--panel); border-bottom: 1px solid var(--line); }
   #head .title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
@@ -68,6 +68,22 @@
   #detail a:hover, .lnk:hover { text-decoration: underline; }
   .file { color: var(--dim); font-size: .8em; word-break: break-all; }
   .empty { color: var(--dim); padding: .6em .9em; font-size: .9em; }
+  #editor textarea { display: block; width: 100%; min-height: 12em; margin: 0; padding: .7em .9em; border: 0; outline: 0; resize: none; overflow: hidden;
+    font: .82em/1.5 var(--font); color: #d8dce6; background: #0b0c0f; tab-size: 2; white-space: pre; overflow-x: auto; }
+  #editor textarea:focus { box-shadow: inset 2px 0 var(--accent); }
+  #editor h3 button { float: right; margin-left: .4em; text-transform: none; letter-spacing: 0; }
+  #editor h3 .dirty { color: var(--warn); text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: .5em; }
+  #edmsg { font-size: .85em; }
+  #edmsg div { padding: .45em .9em; border-bottom: 1px solid var(--line); white-space: pre-wrap; }
+  #edmsg .bad { color: #f0a0a0; background: #2a1717; } #edmsg .warn { color: #f0d090; background: #2a2412; } #edmsg .ok { color: var(--ok); }
+  #edmsg button { margin: .4em .4em 0 0; }
+  .build { display: grid; grid-template-columns: 4.5em 1fr; gap: .3em .6em; align-items: center; font-size: .9em; padding: .4em 0; }
+  .build .k { color: var(--dim); }
+  input { font: inherit; font-size: .9em; color: var(--fg); background: #0b0c0f; border: 1px solid var(--line); border-radius: 3px; padding: .2em .45em; }
+  input:focus { outline: 0; border-color: var(--accent); }
+  input.vnum { width: 5em; }
+  button.danger { border-color: var(--bad); color: #f0a0a0; }
+  #maphead .files { display: flex; gap: .8em; font-size: .85em; }
   #toast { position: fixed; right: 1em; bottom: 1em; max-width: 40em; padding: .6em .9em; background: var(--panel-2); border: 1px solid var(--line); border-left: 3px solid var(--ok); font-size: .9em; display: none; white-space: pre-wrap; }
   #toast.bad { border-left-color: var(--bad); }
   @media (max-width: 1000px) { body { grid-template-columns: 180px 1fr 300px; } }
@@ -82,7 +98,8 @@
 </div>
 <div id="areas"><h3>Areas</h3><div id="arealist"></div><h3>World problems <span class="count" id="wpcount"></span></h3><div id="wproblems"></div></div>
 <div id="main">
-  <div id="maphead"><span class="name" id="areaname">pick an area</span><span class="k" id="areainfo"></span><div id="levels"></div></div>
+  <div id="maphead"><span class="name" id="areaname">pick an area</span><span class="k" id="areainfo"></span>
+    <span class="files"><span class="lnk" id="areafile" title="edit area.yaml">area.yaml</span><span class="lnk" id="resetsfile" title="edit resets.yaml">resets.yaml</span></span><div id="levels"></div></div>
   <div id="mapwrap"><canvas id="map"></canvas><div id="hover"></div></div>
   <div id="lists">
     <div id="tabs">
@@ -95,7 +112,7 @@
     <div id="tabbody"></div>
   </div>
 </div>
-<div id="detail"><h3>Detail</h3><div class="empty">Click a room, item, mob, or problem.</div></div>
+<div id="detail"><div id="info"><h3>Detail</h3><div class="empty">Click a room, item, mob, or problem. With a room selected, the dashed squares on the map dig a new room that way, and the arrows between neighbours link them.</div></div><div id="editor"></div></div>
 <div id="toast"></div>
 <script>
 (function () {
@@ -143,7 +160,7 @@
 
   // ---- Area --------------------------------------------------------
   function selectArea(name, keep) {
-    areaName = name; if (!keep) { selected = 0; level = null; $('detail').innerHTML = '<h3>Detail</h3><div class="empty">Click a room, item, mob, or problem.</div>'; }
+    areaName = name; if (!keep) { selected = 0; level = null; $('info').innerHTML = '<h3>Detail</h3><div class="empty">Click a room, item, mob, or problem.</div>'; openEditor(null); }
     location.hash = name;
     return get('/api/area?name=' + encodeURIComponent(name)).then(function (a) {
       area = a; a.byVnum = {}; a.rooms.forEach(function (r) { a.byVnum[r.vnum] = r; });
@@ -175,7 +192,7 @@
     var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     rooms.forEach(function (r) { minX = Math.min(minX, r.x); maxX = Math.max(maxX, r.x); minY = Math.min(minY, r.y); maxY = Math.max(maxY, r.y); });
     var wrap = $('mapwrap'), availW = wrap.clientWidth, availH = wrap.clientHeight;
-    var cols = maxX - minX + 2, rows = maxY - minY + 2;
+    var cols = maxX - minX + 3, rows = maxY - minY + 3;
     var cell = Math.floor(Math.min(availW / cols, availH / rows));
     cell = Math.max(26, Math.min(56, cell));
     var w = Math.max(availW, cols * cell), h = Math.max(availH, rows * cell);
@@ -213,7 +230,32 @@
           ctx.lineTo(p[0] + d[0] * g.cell * 0.45, p[1] + d[1] * g.cell * 0.45);
         }
         ctx.stroke(); ctx.setLineDash([]);
+        var door = r.doors && r.doors[dir];
+        if (door) {
+          // A bar across the exit, a third of the way out: solid if the
+          // door starts shut.
+          var mx = p[0] + d[0] * g.cell * 0.33, my = p[1] + d[1] * g.cell * 0.33, half = g.cell * 0.14;
+          ctx.strokeStyle = '#c9a15a'; ctx.lineWidth = door.closed ? 3 : 1.5; ctx.beginPath();
+          ctx.moveTo(mx - d[1] * half, my - d[0] * half); ctx.lineTo(mx + d[1] * half, my + d[0] * half); ctx.stroke(); ctx.lineWidth = 2;
+        }
       });
+    });
+    handles = buildHandles();
+    handles.forEach(function (h) {
+      if (h.to) {
+        // Link: an arrow between the selected room and its neighbour.
+        ctx.setLineDash([2, 3]); ctx.strokeStyle = h === hoverHandle ? '#e0b04a' : '#6a6f7e'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(h.from[0], h.from[1]); ctx.lineTo(h.at[0], h.at[1]); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = h === hoverHandle ? '#e0b04a' : '#1b1e25'; ctx.beginPath(); ctx.arc(h.mid[0], h.mid[1], g.cell * 0.16, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = h === hoverHandle ? '#0e0f12' : '#e0b04a'; ctx.font = Math.round(g.cell * 0.22) + 'px ' + font; ctx.textAlign = 'center'; ctx.fillText('+', h.mid[0], h.mid[1] + g.cell * 0.08);
+      } else {
+        // Dig: a dashed square where the new room will go.
+        var hx = h.at[0] - BOX / 2, hy = h.at[1] - BOX / 2;
+        ctx.setLineDash([4, 3]); ctx.strokeStyle = h === hoverHandle ? '#e0b04a' : '#4d5261'; ctx.lineWidth = 1;
+        ctx.strokeRect(hx + .5, hy + .5, BOX - 1, BOX - 1); ctx.setLineDash([]);
+        ctx.fillStyle = h === hoverHandle ? '#e0b04a' : '#5a5f6e'; ctx.font = Math.round(BOX * 0.5) + 'px ' + font; ctx.textAlign = 'center'; ctx.fillText('+', h.at[0], h.at[1] + BOX * 0.17);
+      }
     });
     g.rooms.forEach(function (r) {
       var p = g.pos(r), x = p[0] - BOX / 2, y = p[1] - BOX / 2;
@@ -235,6 +277,33 @@
       var s = g.pos(area.byVnum[world.startRoom]); ctx.fillStyle = '#7cc47c'; ctx.beginPath(); ctx.arc(s[0] - BOX / 2 + 4, s[1] + BOX / 2 - 4, 2.5, 0, Math.PI * 2); ctx.fill();
     }
   }
+  // Build handles around the selected room: a dig square on each free
+  // side whose cell is empty, a link arrow to a neighbour that has no
+  // exit back this way yet.
+  var handles = [], hoverHandle = null;
+  function buildHandles() {
+    var r = area && area.byVnum[selected], g = geom, out = [];
+    if (!r || !g || !r.placed || r.z !== level) return out;
+    var opp = { north: 'south', south: 'north', east: 'west', west: 'east' };
+    var p = g.pos(r);
+    Object.keys(DIRS).forEach(function (dir) {
+      if (r.exits[dir]) return;
+      var d = DIRS[dir], at = [p[0] + d[0] * g.cell, p[1] + d[1] * g.cell], occupant = null;
+      area.rooms.forEach(function (q) { if (q.placed && q.z === level && q.x === r.x + d[0] && q.y === r.y + d[1]) occupant = q; });
+      if (!occupant) { out.push({ dir: dir, at: at }); return; }
+      if (occupant.exits[opp[dir]] && occupant.exits[opp[dir]] !== r.vnum) return;
+      out.push({ dir: dir, at: at, to: occupant.vnum, name: occupant.name, from: p, mid: [(p[0] + at[0]) / 2, (p[1] + at[1]) / 2] });
+    });
+    return out;
+  }
+  function handleAt(px, py) {
+    var found = null;
+    handles.forEach(function (h) {
+      var c = h.to ? h.mid : h.at, reach = h.to ? geom.cell * 0.2 : geom.box / 2;
+      if (Math.abs(px - c[0]) <= reach && Math.abs(py - c[1]) <= reach) found = h;
+    });
+    return found;
+  }
   function roomAt(px, py) {
     if (!geom) return null;
     var found = null;
@@ -242,14 +311,20 @@
     return found;
   }
   canvas.addEventListener('mousemove', function (ev) {
-    var b = canvas.getBoundingClientRect(), r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    var b = canvas.getBoundingClientRect(), px = ev.clientX - b.left, py = ev.clientY - b.top;
+    var h = handleAt(px, py), r = h ? null : roomAt(px, py);
     var v = r ? r.vnum : 0;
-    $('hover').textContent = r ? (r.vnum + ' ' + r.name + (r.mobs && r.mobs.length ? ' · ' + r.mobs.join(', ') : '')) : '';
-    if (v !== hover) { hover = v; drawMap(); }
+    $('hover').textContent = h ? (h.to ? 'click: link ' + h.dir + ' to ' + h.to + ' ' + h.name + ', both ways' : 'click: dig a new room ' + h.dir) :
+      r ? (r.vnum + ' ' + r.name + (r.mobs && r.mobs.length ? ' · ' + r.mobs.join(', ') : '')) : '';
+    canvas.style.cursor = h ? 'pointer' : 'crosshair';
+    if (v !== hover || h !== hoverHandle) { hover = v; hoverHandle = h; drawMap(); }
   });
-  canvas.addEventListener('mouseleave', function () { hover = 0; $('hover').textContent = ''; drawMap(); });
+  canvas.addEventListener('mouseleave', function () { hover = 0; hoverHandle = null; $('hover').textContent = ''; drawMap(); });
   canvas.addEventListener('click', function (ev) {
-    var b = canvas.getBoundingClientRect(), r = roomAt(ev.clientX - b.left, ev.clientY - b.top);
+    var b = canvas.getBoundingClientRect(), px = ev.clientX - b.left, py = ev.clientY - b.top;
+    var h = handleAt(px, py);
+    if (h) { hoverHandle = null; dig(selected, h.dir, h.to || 0); return; }
+    var r = roomAt(px, py);
     if (r) showRoom(r.vnum);
   });
   window.addEventListener('resize', drawMap);
@@ -300,21 +375,168 @@
   $('wproblems').addEventListener('click', onListClick);
 
   // ---- Detail ------------------------------------------------------
-  function showYAML(container, file) {
-    if (!file) return;
-    fetch('/api/file?path=' + encodeURIComponent(file), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
-      container.innerHTML = '<h3>' + esc(file.replace(/^.*\/world\//, '')) + '</h3><pre>' + esc(t) + '</pre>';
+  // ---- Editor ------------------------------------------------------
+  // One file at a time, kept across re-renders of the panel above it. A
+  // file left with unsaved changes keeps them as a draft until it is
+  // opened again. Saves carry the hash the file was read at, so an edit
+  // made meanwhile in another editor is never overwritten unasked.
+  var ed = { file: null, base: null, disk: '' }, drafts = {};
+  function short(file) { return file.replace(/^.*\/world\//, ''); }
+  function send(method, url, body, headers) {
+    var h = { 'X-Urth-Builder': '1' };
+    Object.keys(headers || {}).forEach(function (k) { h[k] = headers[k]; });
+    if (body && typeof body !== 'string') { body = JSON.stringify(body); h['Content-Type'] = 'application/json'; }
+    return fetch(url, { method: method, headers: h, body: body }).then(function (r) {
+      return r.text().then(function (t) { var j; try { j = JSON.parse(t); } catch (e) { j = { error: t || r.statusText }; } j.status = r.status; return j; });
     });
+  }
+  function edText() { return $('edtext') ? $('edtext').value : ''; }
+  function edDirty() { return !!(ed.file && $('edtext') && edText() !== ed.disk); }
+  function edMark() {
+    var m = $('eddirty'); if (m) m.textContent = edDirty() ? 'unsaved' : '';
+  }
+  function edMsg(kind, text, buttons) {
+    var box = $('edmsg'); if (!box) return;
+    if (!text) { box.innerHTML = ''; return; }
+    box.innerHTML = '<div class="' + kind + '">' + esc(text) + (buttons ? '<br>' + buttons : '') + '</div>';
+  }
+  function grow() { var t = $('edtext'); if (t) { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 4) + 'px'; } }
+  function fetchFile(file) {
+    return fetch('/api/file?path=' + encodeURIComponent(file), { cache: 'no-store' }).then(function (r) {
+      if (r.status === 404) return { text: '', hash: 'new' };
+      if (!r.ok) return r.text().then(function (t) { throw new Error(t); });
+      return r.text().then(function (t) { return { text: t, hash: r.headers.get('ETag') }; });
+    });
+  }
+  function openEditor(file) {
+    if (ed.file && ed.file !== file) {
+      if (edDirty()) drafts[ed.file] = { text: edText(), base: ed.base, disk: ed.disk }; else delete drafts[ed.file];
+    }
+    if (!file) { ed.file = null; $('editor').innerHTML = ''; return; }
+    if (ed.file === file && $('edtext')) {
+      // Already open: pick up a change made on disk unless there are edits.
+      if (!edDirty()) fetchFile(file).then(function (f) {
+        if (ed.file === file && !edDirty() && f.hash !== ed.base) { ed.base = f.hash; ed.disk = f.text; $('edtext').value = f.text; grow(); }
+      });
+      return;
+    }
+    ed.file = file;
+    fetchFile(file).then(function (f) {
+      if (ed.file !== file) return;
+      var draft = drafts[file];
+      ed.base = draft ? draft.base : f.hash; ed.disk = draft ? draft.disk : f.text;
+      $('editor').innerHTML = '<h3>' + esc(short(file)) + '<span class="dirty" id="eddirty"></span>' +
+        '<button class="small" id="edrevert" title="discard edits">revert</button><button class="small" id="edsave" title="save (Ctrl-S or ⌘S)">save</button></h3>' +
+        '<div id="edmsg"></div><textarea id="edtext" spellcheck="false" autocomplete="off"></textarea>';
+      $('edtext').value = draft ? draft.text : f.text;
+      if (f.hash === 'new') edMsg('warn', 'This file does not exist yet; saving creates it.');
+      if (draft && draft.base !== f.hash) edMsg('warn', 'Restored your unsaved edits, but the file has changed on disk since.');
+      delete drafts[file];
+      edMark(); grow();
+    }).catch(function (e) { $('editor').innerHTML = '<div class="empty">' + esc(e.message) + '</div>'; });
+  }
+  function save(force) {
+    if (!ed.file) return;
+    var file = ed.file, text = edText();
+    send('PUT', '/api/file?path=' + encodeURIComponent(file) + (force ? '&force=1' : ''), text, { 'If-Match': ed.base }).then(function (res) {
+      if (ed.file !== file) return;
+      if (res.ok) {
+        ed.base = res.hash; ed.disk = text; edMark();
+        edMsg(res.warnings && res.warnings.length ? 'warn' : 'ok', res.warnings && res.warnings.length ? 'Saved. Map: ' + res.warnings.join('\n') : 'Saved.');
+        announce(res.reload); refresh();
+      } else if (res.invalid) {
+        edMsg('bad', 'Not saved: the world would not load with this.\n' + res.error, '<button class="small danger" id="edforce">save anyway</button>');
+      } else if (res.status === 409) {
+        edMsg('bad', 'Not saved: ' + res.error + '.', '<button class="small" id="edtheirs">load the file from disk</button><button class="small danger" id="edmine">overwrite it</button>');
+      } else {
+        edMsg('bad', 'Not saved: ' + res.error);
+      }
+    }).catch(function (e) { edMsg('bad', 'Not saved: ' + e.message); });
+  }
+  $('editor').addEventListener('click', function (ev) {
+    var id = ev.target.id;
+    if (id === 'edsave') save(false);
+    else if (id === 'edforce') save(true);
+    else if (id === 'edrevert' || id === 'edtheirs') {
+      var file = ed.file; ed.file = null; openEditor(file);
+    } else if (id === 'edmine') {
+      fetchFile(ed.file).then(function (f) { ed.base = f.hash; save(false); });
+    }
+  });
+  $('editor').addEventListener('input', function (ev) { if (ev.target.id === 'edtext') { edMark(); grow(); } });
+  $('editor').addEventListener('keydown', function (ev) {
+    if (ev.target.id !== 'edtext') return;
+    if ((ev.metaKey || ev.ctrlKey) && ev.key === 's') { ev.preventDefault(); save(false); return; }
+    if (ev.key === 'Tab' && !ev.shiftKey) {
+      ev.preventDefault();
+      var t = ev.target, a = t.selectionStart;
+      t.setRangeText('  ', a, t.selectionEnd, 'end'); edMark();
+    }
+  });
+  window.addEventListener('beforeunload', function (ev) {
+    if (edDirty() || Object.keys(drafts).length) { ev.preventDefault(); ev.returnValue = ''; }
+  });
+
+  // ---- Building ----------------------------------------------------
+  var digName = '';
+  function dig(from, dir, to) {
+    var body = { from: from, dir: dir };
+    if (to) body.to = to; else body.name = digName;
+    send('POST', '/api/dig', body).then(function (res) {
+      if (!res.ok) { toast(res.error, true); return; }
+      announce(res.reload);
+      if (res.warnings && res.warnings.length) toast('Map: ' + res.warnings.join('\n'), true);
+      if (!to) { selected = res.vnum; digName = ''; }
+      refresh().then(function () {
+        if (!to && area && area.byVnum[res.vnum]) { showRoom(res.vnum); focusEditorOn('name:'); }
+      });
+    });
+  }
+  function focusEditorOn(prefix) {
+    // Once the new room's file is open, put the cursor on its name.
+    var tries = 0, timer = setInterval(function () {
+      var t = $('edtext');
+      if (t && t.value && ed.file && area && area.byVnum[selected] && ed.file === area.byVnum[selected].file) {
+        clearInterval(timer);
+        var at = t.value.indexOf(prefix);
+        if (at >= 0) { var line = t.value.indexOf('\n', at); t.focus(); t.setSelectionRange(at + prefix.length + 1, line < 0 ? t.value.length : line); }
+      } else if (++tries > 40) clearInterval(timer);
+    }, 50);
+  }
+  function unlink(from, dir) {
+    send('POST', '/api/unlink', { from: from, dir: dir }).then(function (res) {
+      if (!res.ok) { toast(res.error, true); return; }
+      announce(res.reload); refresh();
+    });
+  }
+  function removeRoom(vnum) {
+    send('POST', '/api/delete', { vnum: vnum }).then(function (res) {
+      if (!res.ok) { toast(res.error, true); return; }
+      announce(res.reload); selected = 0;
+      $('info').innerHTML = '<h3>Detail</h3><div class="empty">Room ' + vnum + ' deleted.</div>'; openEditor(null);
+      refresh();
+    });
+  }
+  function buildPanel(r) {
+    var rows = ['north', 'east', 'south', 'west', 'up', 'down'].filter(function (dir) { return !r.exits[dir]; }).map(function (dir) {
+      return '<span class="k">' + dir + '</span><span><button class="small" data-dig="' + dir + '">dig</button> ' +
+        'or link to <input class="vnum" data-linkvnum="' + dir + '" placeholder="vnum"> <button class="small" data-link="' + dir + '">link</button></span>';
+    }).join('');
+    return '<h3 style="margin:.4em -0.9em 0">Build</h3>' +
+      '<div style="padding:.5em 0 .2em"><input id="digname" placeholder="name for a dug room" style="width:100%" value="' + esc(digName) + '"></div>' +
+      (rows ? '<div class="build">' + rows + '</div>' : '<div class="k" style="padding:.4em 0">every direction has an exit</div>') +
+      '<div style="padding:.5em 0"><button class="small" data-delete="' + r.vnum + '">delete room</button></div>';
   }
   function showRoom(vnum) {
     var r = area && area.byVnum[vnum]; if (!r) return;
     selected = vnum; drawMap(); if (tab === 'rooms') renderTab();
-    var d = $('detail'), opp = { north: 'south', south: 'north', east: 'west', west: 'east', up: 'down', down: 'up' };
+    var d, opp = { north: 'south', south: 'north', east: 'west', west: 'east', up: 'down', down: 'up' };
     var exits = ['north', 'east', 'south', 'west', 'up', 'down'].filter(function (dir) { return r.exits[dir]; }).map(function (dir) {
       var to = r.exits[dir], link = r.links && r.links[dir], local = area.byVnum[to];
       var name = link ? link.name + ' <span class="k">[' + esc(link.area) + ']</span>' : (local ? esc(local.name) : '?');
       var back = local ? (local.exits[opp[dir]] === r.vnum ? '' : (local.exits[opp[dir]] ? ' <span class="badge warn">' + opp[dir] + ' goes to ' + local.exits[opp[dir]] + '</span>' : ' <span class="badge warn">one way</span>')) : '';
-      return '<span class="k">' + dir + '</span><span>' + (link ? '<span class="lnk" data-area="' + esc(link.area) + '" data-room="' + to + '">' + to + '</span>' : '<span class="lnk" data-room="' + to + '">' + to + '</span>') + ' ' + name + back + '</span>';
+      var door = r.doors && r.doors[dir] ? ' <span class="k">(' + esc(r.doors[dir].name) + (r.doors[dir].closed ? ', shut' : '') + ')</span>' : '';
+      return '<span class="k">' + dir + '</span><span>' + (link ? '<span class="lnk" data-area="' + esc(link.area) + '" data-room="' + to + '">' + to + '</span>' : '<span class="lnk" data-room="' + to + '">' + to + '</span>') + ' ' + name + door + back + ' <button class="small" data-unlink="' + dir + '" title="remove this exit and the way back">unlink</button></span>';
     }).join('');
     var here = [];
     (r.players || []).forEach(function (n) { here.push('<span style="color:var(--accent)">' + esc(n) + '</span>'); });
@@ -325,6 +547,7 @@
         ((rs.equip || []).length ? ' <span class="k">with ' + esc(rs.equip.map(function (e) { return e.name; }).join(', ')) + '</span>' : '') + '</div>';
     }).join('');
     var probs = problemsFor(vnum).map(problemRow).join('');
+    d = $('info');
     d.innerHTML = '<h3>Room ' + r.vnum + '</h3><div class="body">' +
       '<div style="color:var(--accent);font-weight:600">' + esc(r.name) + '</div>' +
       '<div class="file">' + esc(r.file) + '</div>' +
@@ -337,15 +560,16 @@
       '<h3 style="margin:.8em -0.9em 0">Here now</h3><div style="padding:.4em 0">' + (here.length ? here.join('<br>') : '<span class="k">nothing</span>') + '</div>' +
       '<h3 style="margin:.4em -0.9em 0">Resets here</h3><div style="padding:.4em 0">' + (resets || '<span class="k">none</span>') + '</div>' +
       (probs ? '<h3 style="margin:.4em -0.9em 0">Problems</h3><div style="margin:0 -0.9em">' + probs + '</div>' : '') +
-      '</div><div id="yaml"></div>';
-    showYAML($('yaml'), r.file);
+      buildPanel(r) + '</div>';
+    openEditor(r.file);
   }
   function showProto(kind, vnum) {
     var list = kind === 'items' ? area.items : area.mobs;
     var p = null; list.forEach(function (q) { if (q.vnum === vnum) p = q; });
     if (!p) return;
     var users = area.resets.filter(function (rs) { return rs.mob === vnum || rs.item === vnum || rs.into === vnum || (rs.equip || []).some(function (e) { return e.item === vnum; }); });
-    var d = $('detail');
+    var d = $('info');
+    selected = 0; drawMap();
     d.innerHTML = '<h3>' + (kind === 'items' ? 'Item ' : 'Mob ') + p.vnum + '</h3><div class="body">' +
       '<div style="color:var(--accent);font-weight:600">' + esc(p.name) + '</div><div class="file">' + esc(p.file) + '</div>' +
       '<div class="kv" style="margin-top:.5em"><span class="k">level</span><span>' + p.level + '</span>' +
@@ -353,10 +577,42 @@
       '<span class="k">live now</span><span>' + p.live + '</span></div>' +
       '<h3 style="margin:.8em -0.9em 0">Placed by</h3><div style="padding:.4em 0">' + (users.length ? users.map(function (rs) {
         return '<div><span class="lnk" data-room="' + rs.room + '">' + rs.room + '</span> ' + esc(rs.roomName) + (rs.mob && rs.mob !== vnum ? ' <span class="k">on ' + esc(rs.name) + '</span>' : '') + '</div>';
-      }).join('') : '<span class="k">no reset places it</span>') + '</div></div><div id="yaml"></div>';
-    showYAML($('yaml'), p.file);
+      }).join('') : '<span class="k">no reset places it</span>') + '</div></div>';
+    openEditor(p.file);
   }
-  $('detail').addEventListener('click', function (ev) {
+  function showAreaFile(file, what) {
+    if (!area) return;
+    selected = 0; drawMap();
+    $('info').innerHTML = '<h3>' + esc(what) + ' of ' + esc(area.name) + '</h3><div class="body"><div class="file">' + esc(file) + '</div></div>';
+    openEditor(file);
+  }
+  $('areafile').addEventListener('click', function () { if (area) showAreaFile(area.areaFile, 'Area file'); });
+  $('resetsfile').addEventListener('click', function () { if (area) showAreaFile(area.resetsFile, 'Resets'); });
+  $('info').addEventListener('input', function (ev) { if (ev.target.id === 'digname') digName = ev.target.value; });
+  $('info').addEventListener('keydown', function (ev) {
+    var dir = ev.target.getAttribute && ev.target.getAttribute('data-linkvnum');
+    if (ev.key === 'Enter' && dir) { var v = Number(ev.target.value); if (v) dig(selected, dir, v); }
+    if (ev.key === 'Enter' && ev.target.id === 'digname') { toast('pick a direction: a dig button, or a dashed square on the map'); }
+  });
+  var deleteArmed = 0;
+  $('info').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b || !selected) return;
+    if (b.hasAttribute('data-dig')) { dig(selected, b.getAttribute('data-dig'), 0); return; }
+    if (b.hasAttribute('data-link')) {
+      var dir = b.getAttribute('data-link'), input = document.querySelector('input[data-linkvnum="' + dir + '"]'), v = Number(input && input.value);
+      if (!v) { toast('type the vnum of the room to link to', true); return; }
+      dig(selected, dir, v); return;
+    }
+    if (b.hasAttribute('data-unlink')) { unlink(selected, b.getAttribute('data-unlink')); return; }
+    if (b.hasAttribute('data-delete')) {
+      var v2 = Number(b.getAttribute('data-delete'));
+      // Two clicks, no dialog: the first arms the button for a few seconds.
+      if (deleteArmed === v2) { deleteArmed = 0; removeRoom(v2); return; }
+      deleteArmed = v2; b.classList.add('danger'); b.textContent = 'click again to delete room ' + v2 + ' and every exit to it';
+      setTimeout(function () { if (deleteArmed === v2) { deleteArmed = 0; b.classList.remove('danger'); b.textContent = 'delete room'; } }, 4000);
+    }
+  });
+  $('info').addEventListener('click', function (ev) {
     var el = ev.target.closest('.lnk, .problem'); if (!el) return;
     var room = Number(el.getAttribute('data-room') || el.getAttribute('data-vnum')), other = el.getAttribute('data-area');
     if (other && other !== areaName) { selected = room; selectArea(other, true).then(function () { showRoom(room); }); }

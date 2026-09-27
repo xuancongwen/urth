@@ -77,7 +77,8 @@ paths:
   data: /opt/urth/data
 
 world:
-  start_room: 1
+  start_room: 40
+  respawn_room: 1
   first_player_is_admin: true
 
 log:

@@ -1,0 +1,16 @@
+vnum: 44
+name: The Sparring Room
+description: |
+  Sawdust on the floor, and old scratches low on the walls where
+  something has been chased into corners. Rats come up through a drain
+  in the middle of the room. This is the one room of the corridor where
+  fighting is allowed. The wall:
+
+    'consider rat' TELLS YOU HOW A FIGHT WOULD GO.
+    'kill rat' STARTS ONE. IT GOES ON BY ITSELF, ROUND BY ROUND.
+    'flee' RUNS FOR IT. 'score' SHOWS YOUR HEALTH, WHICH COMES BACK.
+    WHAT DIES LEAVES A CORPSE: 'get all corpse' SEARCHES IT, AND
+    'sacrifice corpse' GIVES IT TO THE GODS FOR A COIN.
+exits:
+  north: 45
+  south: 43

@@ -208,7 +208,10 @@ func (w *World) die(victim, killer *Character) {
 		victim.Experience -= loss
 		victim.Send("You lose {C}" + itoa(loss) + "{x} experience points.\n")
 	}
-	start, _ := w.content.Rooms.Get(w.cfg.World.StartRoom)
+	start, ok := w.content.Rooms.Get(w.cfg.World.Respawn())
+	if !ok {
+		start, _ = w.content.Rooms.Get(w.cfg.World.StartRoom)
+	}
 	w.recalc(victim)
 	victim.Health = max(1, int(float64(victim.HealthMax)*rules.RespawnHealth))
 	victim.Mana = victim.ManaMax

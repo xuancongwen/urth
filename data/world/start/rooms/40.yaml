@@ -1,0 +1,16 @@
+vnum: 40
+name: The Waking Room
+description: |
+  You wake on a straw pallet in a small whitewashed room that smells of
+  lamp oil. There is one way out, a plain corridor running north, and
+  someone has painted words along its walls as though they knew you
+  were coming. Over the pallet, in letters a hand high:
+
+    TYPE 'help' TO SEE EVERY COMMAND.
+    TYPE 'help <command>' TO LEARN ANY ONE OF THEM.
+
+  Underneath, smaller: 'look' shows you the room again, and 'look
+  plaque' reads the plaque by the door. When you are ready, go 'north'.
+exits:
+  north: 41
+flags: [safe]

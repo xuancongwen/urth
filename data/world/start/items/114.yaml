@@ -1,0 +1,13 @@
+vnum: 114
+name: a brass plaque
+keywords: [brass, plaque]
+description: A brass plaque is fixed to the wall beside the doorway.
+look: |
+  WELCOME TO URTH.
+  Everything here is done by typing a command and pressing enter. Most
+  commands can be cut short: 'n' is north, 'l' is look, 'i' is
+  inventory, 'eq' is equipment. If a word does nothing, 'help' will
+  tell you what does, and 'help' followed by a command explains it.
+  You can always walk back the way you came.
+type: other
+flags: [nopickup]

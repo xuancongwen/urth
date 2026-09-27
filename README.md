@@ -29,7 +29,10 @@ server rewrites the file at its next save.
 ## Playing
 
 Type a new name to create a character. The first character on a server
-is an admin. `help` lists commands; `help <command>` explains one.
+is an admin. New characters wake in a short tutorial corridor (rooms 40
+to 46) that walks through help, movement, doors, gear, a fight, and
+talking, and opens into the armory; `world.respawn_room` is where the
+dead come back, so they skip it. `help` lists commands; `help <command>` explains one.
 Prefixes work (`n`, `inv`, `wie`). Targets take ROM forms: `sword`,
 `2.sword`, `all`, `all.sword`.
 
@@ -73,8 +76,15 @@ world up. Tools around the loop:
   reset places, resets into another area, overlapping vnum ranges. Deploys
   run it first. `detached: true` in `area.yaml` exempts an area.
 - **Builder page** at `server.builder_addr`: each area drawn whole, by
-  level; live contents; problems, resets, items, mobs; each file's YAML;
-  reload on save. No login, so loopback only and unset in production.
+  level; live contents; problems, resets, items, mobs; reload on save.
+  It also edits: every file's YAML can be changed and saved in place,
+  and with a room selected the map shows a dashed square on each free
+  side (click to dig a new room there) and a `+` between it and an
+  unlinked neighbour (click to link both ways); the side panel digs up
+  and down, links by vnum, unlinks, and deletes. A change that would not
+  load is refused before it is written. It writes the checkout, so git
+  sees it (`docs/DECISIONS.md` D20). No login, so loopback only and
+  unset in production.
 
 In game, `stat` shows vnums; `goto`, `at`, `load`, and `purge` place and
 inspect without leaving.

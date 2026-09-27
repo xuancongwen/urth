@@ -1,0 +1,15 @@
+vnum: 46
+name: The End of the Corridor
+description: |
+  The corridor ends at an open archway. Through it to the north is an
+  armory, where anything on the racks is free for the taking. Past that
+  is a long hall where an old soldier teaches skills for coin
+  ('practice') and a herald hands out work ('quest request'). A stair
+  under the armory floor goes down, and from there to the rest of the
+  world. The last words on the wall are the first ones, painted larger:
+
+    WHEN YOU ARE LOST, TYPE 'help'.
+exits:
+  north: 1
+  south: 45
+flags: [safe]

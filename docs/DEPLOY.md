@@ -97,6 +97,12 @@ journalctl -u urth -f
 log in; for a character who is online, the in-game commands of the same
 names are right, since the server rewrites the file at its next save.
 
+New characters start in the tutorial corridor (`world.start_room: 40`)
+and the dead come back to the armory (`world.respawn_room: 1`). A host
+set up before the tutorial has `start_room: 1` in its config, which
+still works (the corridor is reachable south of the armory) but skips
+it; edit the two lines and restart to use it.
+
 Leave `server.builder_addr` unset on the host. The builder page has no
 login and is built for the checkout on the dev machine, where content
 is edited; the next deploy overwrites `data/world` on the host anyway.

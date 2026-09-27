@@ -135,6 +135,12 @@ func (w *World) builderArea(name string) (*builder.AreaView, error) {
 				rv.Links[dir] = builder.Link{Vnum: to, Name: next.Name, Area: next.Area}
 			}
 		}
+		for dir, d := range r.Doors {
+			if rv.Doors == nil {
+				rv.Doors = map[string]builder.DoorView{}
+			}
+			rv.Doors[dir] = builder.DoorView{Name: d.Name, Closed: d.Closed}
+		}
 		for _, p := range w.playersIn(r) {
 			rv.Players = append(rv.Players, p.Name)
 		}

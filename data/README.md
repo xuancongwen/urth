@@ -14,8 +14,9 @@ Planned layout (filled in by later milestones):
 - a mob flagged `questmaster` hands out quests; a mob with `sells: [{item: <vnum>, points: <n>}]` trades those items for quest points; an item flagged `quest` is one the questmaster may plant for a fetch quest and is never placed by a reset (docs/RULES.md 7.6)
 - an area whose rooms are not meant to connect to the world, nor whose prototypes to be placed by resets (the balance range), says `detached: true` in `area.yaml`; `urth check` then leaves it alone
 
-Areas under `world/`: `start` (the armory, hall, arena, and colleges: a
-test area), `balance` (one plain mob per level for the simulator,
+Areas under `world/`: `start` (the tutorial corridor where new
+characters wake, rooms 40 to 46, opening north into the armory; then the
+armory, hall, arena, and colleges: a test area), `balance` (one plain mob per level for the simulator,
 unreachable on foot), and `solace` (a town in the vallenwoods, reached by
 the stair under the armory). Below the stair, the Undercroft of Doors
 (room 6) opens on four more: `shire` (west; Hobbiton, Bywater, Maggot's

@@ -79,9 +79,20 @@ type Paths struct {
 type World struct {
 	// StartRoom is the vnum new characters enter the world in.
 	StartRoom int `yaml:"start_room"`
+	// RespawnRoom is where a player who dies comes back. Zero means the
+	// start room, which suits a start room that is not a tutorial.
+	RespawnRoom int `yaml:"respawn_room"`
 	// FirstPlayerIsAdmin grants admin to the first character ever created,
 	// so a fresh server has someone who can copyover and shutdown.
 	FirstPlayerIsAdmin bool `yaml:"first_player_is_admin"`
+}
+
+// Respawn is the room a dead player returns to.
+func (w World) Respawn() int {
+	if w.RespawnRoom > 0 {
+		return w.RespawnRoom
+	}
+	return w.StartRoom
 }
 
 // Log controls logging output.
@@ -169,6 +180,9 @@ func (c Config) Validate() error {
 	}
 	if c.World.StartRoom <= 0 {
 		return fmt.Errorf("world.start_room must be a positive vnum, got %d", c.World.StartRoom)
+	}
+	if c.World.RespawnRoom < 0 {
+		return fmt.Errorf("world.respawn_room must be a vnum, or 0 for the start room, got %d", c.World.RespawnRoom)
 	}
 	switch c.Log.Level {
 	case "debug", "info", "warn", "error":

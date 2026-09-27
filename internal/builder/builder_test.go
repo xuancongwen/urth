@@ -147,7 +147,8 @@ func TestWatcherReloadsOnSave(t *testing.T) {
 	s, api, dir := newTest(t)
 	ctx, cancel := contextWithCancel()
 	defer cancel()
-	go s.watchFrom(ctx, s.signature())
+	s.setSeen(s.signature())
+	go s.watch(ctx)
 	if err := os.WriteFile(filepath.Join(dir, "a", "rooms", "2.yaml"), []byte("vnum: 2\nname: New\n"), 0o644); err != nil {
 		t.Fatal(err)
 	}

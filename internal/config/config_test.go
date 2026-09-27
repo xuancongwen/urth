@@ -60,3 +60,19 @@ func TestLoadRejectsInvalid(t *testing.T) {
 		})
 	}
 }
+
+func TestRespawnDefaultsToStart(t *testing.T) {
+	w := World{StartRoom: 40}
+	if got := w.Respawn(); got != 40 {
+		t.Fatalf("respawn with none set: %d", got)
+	}
+	w.RespawnRoom = 1
+	if got := w.Respawn(); got != 1 {
+		t.Fatalf("respawn set to 1: %d", got)
+	}
+	c := Default()
+	c.World.RespawnRoom = -1
+	if err := c.Validate(); err == nil {
+		t.Fatal("a negative respawn room validated")
+	}
+}

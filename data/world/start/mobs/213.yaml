@@ -1,0 +1,11 @@
+vnum: 213
+name: a cellar rat
+keywords: [cellar, rat]
+description: A cellar rat noses through the sawdust.
+look: |
+  Fat, grey, and bold from living where nobody bothers it. It looks
+  like the sort of thing people practise on.
+level: 1
+silver: 3
+attack:
+  verb: bite

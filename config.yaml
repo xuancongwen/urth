@@ -37,8 +37,10 @@ paths:
   data: data
 
 world:
-  # Vnum of the room new characters start in.
-  start_room: 1
+  # Vnum of the room new characters start in: the tutorial corridor.
+  start_room: 40
+  # Where a player who dies comes back; 0 means start_room.
+  respawn_room: 1
   # The first character ever created becomes an admin (copyover, shutdown).
   first_player_is_admin: true
 

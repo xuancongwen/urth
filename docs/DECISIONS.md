@@ -169,3 +169,21 @@ game because they mean "here". Account administration is in-game
 commands for the common case and `urth admin` on the host for lockouts,
 which together cover one operator with ssh; a status dashboard on
 production waits until there is a second person who needs it.
+
+## D20. The builder page edits the checkout's files
+
+This supersedes D19's "no web editor". D19's worry was a server that
+becomes the source of truth and loses git; the builder page never runs
+on the host, so writing from it changes the same checkout an editor
+would, and git sees every change. The page saves any content file as
+text and does the common room work structurally: dig a room in a
+direction, link two rooms both ways, unlink, delete. Structural edits go
+through yaml.v3 nodes, so comments, key order, and styles survive and a
+diff shows only the lines that changed. Every change is loaded in a
+scratch copy of the world first and refused if it would not load (a
+text save can be forced); saves carry the hash the file was read at and
+are refused if it changed on disk meanwhile. Mutating requests need the
+page's own header and a Host that is an address or localhost, which
+turns away cross-site forms and DNS rebinding; the page still has no
+login and stays off in production. Items, mobs, and resets are edited as
+text; there are no forms for them.

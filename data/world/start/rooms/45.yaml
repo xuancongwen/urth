@@ -1,0 +1,15 @@
+vnum: 45
+name: The Waiting Room
+description: |
+  A round room with a bench all the way around the wall, worn smooth by
+  people waiting for their friends. The wall:
+
+    'say <words>', OR ' AND THE WORDS, SPEAKS TO THE ROOM.
+    'chat <words>' SPEAKS TO EVERYONE IN THE WORLD. 'who' SHOWS WHO.
+    'score' IS YOUR CHARACTER. 'train' SPENDS STAT POINTS, 'feat'
+    SPENDS FEAT PICKS, AND 'skills' LISTS WHAT YOU CAN DO.
+    YOU ARE SAVED AS YOU GO. 'quit' LEAVES THE GAME.
+exits:
+  north: 46
+  south: 44
+flags: [safe]

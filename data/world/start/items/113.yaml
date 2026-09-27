@@ -1,0 +1,11 @@
+vnum: 113
+name: a padded vest
+keywords: [padded, vest]
+description: A padded vest hangs from a peg.
+look: |
+  Two layers of canvas quilted over wool. It stops less than leather
+  and smells better.
+type: armor
+slot: body
+level: 1
+baseline: light

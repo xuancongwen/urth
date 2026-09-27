@@ -1,0 +1,14 @@
+vnum: 112
+name: a wooden practice sword
+keywords: [wooden, practice, sword]
+description: A wooden practice sword leans in a rack.
+look: |
+  Ash, shaped like a sword and weighted like one, with a leather grip
+  worn dark by other people's hands. It will not cut, but it will hurt.
+type: weapon
+level: 1
+baseline: standard
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

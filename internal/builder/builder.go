@@ -1,9 +1,10 @@
 // Package builder serves the builder page: every area drawn whole, what
 // each room holds right now, the content check's findings, and a reload
-// that fires on its own when a file under data/world changes. It is a
-// window onto the same YAML files the editor writes, never a second
-// editor (docs/DECISIONS.md D19). It has no login: bind it to loopback on
-// the dev machine and leave it off in production.
+// that fires on its own when a file under data/world changes. The page
+// also edits: it saves content files and digs, links, unlinks, and
+// deletes rooms, writing the same YAML an editor would in the checkout it
+// runs against (docs/DECISIONS.md D20). It has no login: bind it to
+// loopback on the dev machine and leave it off in production.
 package builder
 
 import (
@@ -75,14 +76,18 @@ type ReloadResult struct {
 
 // AreaView is one area in full.
 type AreaView struct {
-	Name     string            `json:"name"`
-	Title    string            `json:"title"`
-	Detached bool              `json:"detached,omitempty"`
-	Rooms    []RoomView        `json:"rooms"`
-	Items    []ProtoView       `json:"items"`
-	Mobs     []ProtoView       `json:"mobs"`
-	Resets   []ResetView       `json:"resets"`
-	Problems []content.Problem `json:"problems"`
+	Name     string `json:"name"`
+	Title    string `json:"title"`
+	Detached bool   `json:"detached,omitempty"`
+	// AreaFile and ResetsFile are where the area's own files live (or
+	// would, since both are optional); the server fills them in.
+	AreaFile   string            `json:"areaFile"`
+	ResetsFile string            `json:"resetsFile"`
+	Rooms      []RoomView        `json:"rooms"`
+	Items      []ProtoView       `json:"items"`
+	Mobs       []ProtoView       `json:"mobs"`
+	Resets     []ResetView       `json:"resets"`
+	Problems   []content.Problem `json:"problems"`
 }
 
 // RoomView is a room with its layout position and live contents.
@@ -97,12 +102,14 @@ type RoomView struct {
 	Placed      bool           `json:"placed"`
 	Exits       map[string]int `json:"exits"`
 	// Links describes exits that leave the area, by direction.
-	Links   map[string]Link `json:"links,omitempty"`
-	Flags   []string        `json:"flags,omitempty"`
-	Temple  string          `json:"temple,omitempty"`
-	Players []string        `json:"players,omitempty"`
-	Mobs    []string        `json:"mobs,omitempty"`
-	Items   []string        `json:"items,omitempty"`
+	Links map[string]Link `json:"links,omitempty"`
+	// Doors are the shuttable exits, by direction.
+	Doors   map[string]DoorView `json:"doors,omitempty"`
+	Flags   []string            `json:"flags,omitempty"`
+	Temple  string              `json:"temple,omitempty"`
+	Players []string            `json:"players,omitempty"`
+	Mobs    []string            `json:"mobs,omitempty"`
+	Items   []string            `json:"items,omitempty"`
 }
 
 // Link is the far end of an exit into another area.
@@ -110,6 +117,12 @@ type Link struct {
 	Vnum int    `json:"vnum"`
 	Name string `json:"name"`
 	Area string `json:"area"`
+}
+
+// DoorView is a door on an exit.
+type DoorView struct {
+	Name   string `json:"name"`
+	Closed bool   `json:"closed,omitempty"`
 }
 
 // ProtoView is an item or mob prototype in a listing.
@@ -154,6 +167,12 @@ type Server struct {
 
 	mu   sync.Mutex
 	last *ReloadResult
+	// seen is the tree signature the last reload covered, so the watcher
+	// skips a change the page already reloaded for.
+	seen string
+
+	// edit serialises the page's changes.
+	edit sync.Mutex
 }
 
 // NewServer creates a server for the world files under worldDir.
@@ -194,6 +213,9 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("/api/world", s.handleWorld)
 	mux.HandleFunc("/api/area", s.handleArea)
 	mux.HandleFunc("/api/file", s.handleFile)
+	mux.HandleFunc("/api/dig", s.handleDig)
+	mux.HandleFunc("/api/unlink", s.handleUnlink)
+	mux.HandleFunc("/api/delete", s.handleDelete)
 	mux.HandleFunc("/api/reload", s.handleReload)
 	mux.HandleFunc("/api/version", s.handleVersion)
 	return mux
@@ -207,7 +229,8 @@ func (s *Server) Serve(ctx context.Context) error {
 	srv := &http.Server{Handler: s.Handler(), ReadHeaderTimeout: 10 * time.Second}
 	errc := make(chan error, 1)
 	go func() { errc <- srv.Serve(s.ln) }()
-	go s.watchFrom(ctx, s.signature())
+	s.setSeen(s.signature())
+	go s.watch(ctx)
 
 	select {
 	case <-ctx.Done():
@@ -230,12 +253,11 @@ const (
 	watchSettle   = 400 * time.Millisecond
 )
 
-// watchFrom polls the world tree for changes against last, the signature
-// taken before it started. A poll stats every file, which for a few
-// hundred files is well under a millisecond; no inotify dependency is
-// worth that. Every change reloads the whole world, since a room can
-// point at another area.
-func (s *Server) watchFrom(ctx context.Context, last string) {
+// watch polls the world tree for changes against the signature the last
+// reload covered. A poll stats every file, which for a few hundred files
+// is well under a millisecond; no inotify dependency is worth that. Every
+// change reloads the whole world, since a room can point at another area.
+func (s *Server) watch(ctx context.Context) {
 	ticker := time.NewTicker(watchInterval)
 	defer ticker.Stop()
 	for {
@@ -245,7 +267,7 @@ func (s *Server) watchFrom(ctx context.Context, last string) {
 		case <-ticker.C:
 		}
 		sig := s.signature()
-		if sig == last {
+		if sig == s.seenSig() {
 			continue
 		}
 		// Wait for the burst to settle: an editor may write several files,
@@ -258,9 +280,25 @@ func (s *Server) watchFrom(ctx context.Context, last string) {
 			}
 			sig = next
 		}
-		last = sig
+		// The page may have saved and reloaded while this settled.
+		if sig == s.seenSig() {
+			continue
+		}
+		s.setSeen(sig)
 		s.reload("", "watch")
 	}
+}
+
+func (s *Server) seenSig() string {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	return s.seen
+}
+
+func (s *Server) setSeen(sig string) {
+	s.mu.Lock()
+	s.seen = sig
+	s.mu.Unlock()
 }
 
 // signature summarises the tree: one string that changes whenever any
@@ -330,12 +368,19 @@ func (s *Server) handleArea(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
+	view.AreaFile = filepath.Join(s.worldDir, name, "area.yaml")
+	view.ResetsFile = filepath.Join(s.worldDir, name, "resets.yaml")
 	writeJSON(w, view)
 }
 
 // handleFile returns one content file as it is on disk, which is what
-// the editor holds and may differ from what the world loaded.
+// the editor holds and may differ from what the world loaded, with its
+// hash in ETag for the save that follows. PUT saves it (edit.go).
 func (s *Server) handleFile(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodPut {
+		s.handleSave(w, r)
+		return
+	}
 	path := r.URL.Query().Get("path")
 	clean, ok := s.insideWorld(path)
 	if !ok {
@@ -349,6 +394,7 @@ func (s *Server) handleFile(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Set("ETag", hashOf(raw))
 	_, _ = w.Write(raw)
 }
 

@@ -1,0 +1,17 @@
+vnum: 43
+name: The Rack Room
+description: |
+  Past the door the corridor widens into a room lined with wooden
+  racks, nearly all of them empty. What is left is yours. The wall:
+
+    'get <thing>' PICKS IT UP. 'get all' TAKES EVERYTHING.
+    'inventory', OR JUST 'i', SHOWS WHAT YOU CARRY.
+    'wield sword' ARMS YOU. 'wear vest' PUTS IT ON.
+    'equipment' SHOWS WHAT YOU HAVE ON. 'look <thing>' EXAMINES IT.
+
+  If the racks are bare, someone came through before you; the armory
+  at the end of the corridor has plenty more.
+exits:
+  north: 44
+  south: 42
+flags: [safe]

@@ -100,6 +100,9 @@ func run() error {
 	if _, ok := world_.Rooms.Get(cfg.World.StartRoom); !ok {
 		return fmt.Errorf("world.start_room %d does not exist", cfg.World.StartRoom)
 	}
+	if _, ok := world_.Rooms.Get(cfg.World.Respawn()); !ok {
+		return fmt.Errorf("world.respawn_room %d does not exist", cfg.World.RespawnRoom)
+	}
 	logger.Info("world loaded", "areas", len(world_.Rooms.Areas), "rooms", len(world_.Rooms.Rooms),
 		"items", len(world_.Items), "mobs", len(world_.Mobs))
 	for _, warn := range world_.Rooms.Warnings {

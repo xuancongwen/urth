@@ -1,0 +1,15 @@
+vnum: 41
+name: The Painted Corridor
+description: |
+  A long corridor of whitewashed brick, lit by lamps in iron cages. The
+  words go on along the wall at eye level, in the same patient hand:
+
+    'exits' LISTS THE WAYS OUT AND WHERE THEY LEAD.
+    'scan' SHOWS WHO IS IN THE ROOMS AROUND YOU.
+    ONE LETTER IS ENOUGH TO WALK: n e s w u d.
+
+  The pallet room is back to the south. The corridor goes on north.
+exits:
+  north: 42
+  south: 40
+flags: [safe]
