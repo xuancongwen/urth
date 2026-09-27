@@ -131,7 +131,8 @@ function mobBaseline(p) {
 // ---------------------------------------------------------------------
 // Effects (RULES 5.4). A kind is a function of the pipeline context; the
 // engine stores {kind, params, state, rounds} and never looks inside.
-// Kinds in play so far: stat, crit, dodge, block, attacks.
+// Kinds in play so far: stat, crit, dodge, block, attacks, defense,
+// protect, speedMult, dot, and the power kinds below.
 // The engine itself reads four kinds for visibility (world/visibility.go):
 // invisible and hidden on a character or its gear make it unseen, and
 // detectInvisible and detectHidden on the viewer see through them.
@@ -163,6 +164,112 @@ function bestEffect(c, kind, field) {
     if (e.kind === kind && (best === null || num(e.params[field]) > num(best.params[field]))) best = e;
   });
   return best;
+}
+
+// hasEffect reports whether an item or character view carries kind.
+function hasEffect(v, kind) {
+  if (!v || !v.effects) return false;
+  for (var i = 0; i < v.effects.length; i++) if (v.effects[i].kind === kind) return true;
+  return false;
+}
+
+// ---------------------------------------------------------------------
+// Power kinds (the outfit set, cmdOutfit). Their sizes are in units: one
+// unit is a standard weapon's swing at the owner's level, so a kind means
+// the same at level 1 and level 50 and nothing runs away with the curve.
+// Stacking, per kind (5.4):
+//   attuned    the item's weapon and armor numbers follow its wearer's level
+//   proc       each rolls on its own: {chance, power, verb}, on every hit
+//   ignite     a burn per hit, stacking up to maxStacks: {power, rounds, maxStacks}
+//   chill      slows the target; never stacks: {chance, mult, rounds}
+//   leech      adds, capped at LIMITS.leech: {fraction} of damage dealt healed
+//   thorns     adds, capped: {fraction} of a landed hit returned, {verb}
+//   soak       adds: {power} units off every hit taken, never below LIMITS.soakFloor
+//   lastStand  multiplies: take {mult} damage while below {threshold} health
+//   execute    takes the larger: deal {mult} damage to foes below {threshold}
+//   regen      adds, capped: {fraction} of maximum health back every round
+//   aura       each strikes on its own: {power, verb} to every foe, every round
+// ---------------------------------------------------------------------
+var LIMITS = { leech: 0.5, thorns: 1.0, soakFloor: 0.4, regen: 0.10 };
+
+function unit(c) { return WEAPON_BASELINES.standard(c.level || 1).damage; }
+
+// attunedScale is how much an attuned item's numbers grow on c: the
+// baseline ratio between c's level and the item's own.
+function attunedScale(it, c) {
+  if (!hasEffect(it, "attuned")) return 1;
+  return growth(c.level) / growth(it.level);
+}
+
+function capped(c, kind, field, cap) { return Math.min(cap, Math.max(0, sumEffects(c, kind, field))); }
+
+// burningStacks counts the ignite burns already on c.
+function burningStacks(c) {
+  var n = 0;
+  if (c.effects) for (var i = 0; i < c.effects.length; i++) {
+    var e = c.effects[i];
+    if (e.kind === "dot" && e.params.source === "ignite") n++;
+  }
+  return n;
+}
+
+// onHit is the onhit phase (5.4) of a swing that landed for dmg: the
+// attacker's procs, burns, chills, and leech, and the defender's thorns.
+function onHit(att, def, dmg, out) {
+  var procs = [], effects = [], dealt = dmg;
+  eachEffect(att, function (e) {
+    var p = e.params;
+    if (e.kind === "proc" && random.float() < (p.chance === undefined ? 1 : num(p.chance))) {
+      var d = Math.round(spreadRoll(unit(att) * num(p.power), 0.2) * protectMult(def) * lastStandMult(def));
+      if (d > 0) { procs.push({ verb: p.verb || "magic", damage: d }); dealt += d; }
+    }
+  });
+  var stacks = burningStacks(def);
+  eachEffect(att, function (e) {
+    var p = e.params;
+    if (e.kind === "ignite" && stacks < (num(p.maxStacks) || 1)) {
+      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "ignite" }, rounds: num(p.rounds) || 3 });
+      stacks++;
+    }
+  });
+  var chilled = false;
+  eachEffect(def, function (e) { if (e.kind === "speedMult" && e.params.source === "chill") chilled = true; });
+  eachEffect(att, function (e) {
+    var p = e.params;
+    if (e.kind === "chill" && !chilled && random.float() < num(p.chance)) {
+      effects.push({ on: "target", kind: "speedMult", params: { mult: num(p.mult) || 0.5, source: "chill" }, rounds: num(p.rounds) || 2 });
+      chilled = true;
+    }
+  });
+  var thorns = capped(def, "thorns", "fraction", LIMITS.thorns);
+  if (thorns > 0) {
+    var te = bestEffect(def, "thorns", "fraction");
+    var back = Math.round(dmg * thorns);
+    if (back > 0) procs.push({ verb: te.params.verb || "thorns", damage: back, back: true });
+  }
+  var leech = capped(att, "leech", "fraction", LIMITS.leech);
+  out.procs = procs;
+  out.effects = effects;
+  out.heal = Math.round(dealt * leech);
+  return out;
+}
+
+// soakAmount is the flat damage c's soak effects take off each hit.
+function soakAmount(c) { return sumEffects(c, "soak", "power") * unit(c); }
+
+// lastStandMult is the damage multiplier c's lastStand effects give while
+// c is below their threshold. Stacking: multiply.
+function lastStandMult(c) {
+  var m = 1, frac = c.healthMax > 0 ? c.health / c.healthMax : 1;
+  eachEffect(c, function (e) { if (e.kind === "lastStand" && frac < num(e.params.threshold)) m *= (num(e.params.mult) || 1); });
+  return m;
+}
+
+// executeMult is the best execute bonus against def as it stands.
+function executeMult(att, def) {
+  var m = 1, frac = def.healthMax > 0 ? def.health / def.healthMax : 1;
+  eachEffect(att, function (e) { if (e.kind === "execute" && frac < num(e.params.threshold)) m = Math.max(m, num(e.params.mult) || 1); });
+  return m;
 }
 
 // ---------------------------------------------------------------------
@@ -215,20 +322,27 @@ function resolveAttack(att, def, weapon, round) {
   var block = P.blockBase + (sumEffects(def, "block", "chance") + riposteBlock(def)) * mult(def, "strength", true);
   if (block > 0 && random.float() < block) return { hit: false, damage: 0, crit: false, verb: verb, stage: "block" };
 
-  // Roll: the weapon's spread, then Strength and level.
-  var dmg = spreadRoll(w.damage, w.spread) * mult(att, "strength", true) * levelMult(att);
+  // Roll: the weapon's spread, then Strength and level. An attuned
+  // weapon is drawn at its wielder's level.
+  var base = w.damage * (weapon ? attunedScale(weapon, att) : 1);
+  var dmg = spreadRoll(base, w.spread) * mult(att, "strength", true) * levelMult(att);
 
-  // Modify: crits exist only as effects (4.2).
+  // Modify: crits exist only as effects (4.2); execute finishes the
+  // wounded.
   var crit = false;
   var ce = bestEffect(att, "crit", "chance");
   if (ce && random.float() < num(ce.params.chance)) { dmg *= (num(ce.params.mult) || 2); crit = true; }
+  dmg *= executeMult(att, def);
 
   // Reduce: D / (D + K), with D from armor or natural hide, Constitution,
-  // and level; then protection effects.
+  // and level; then soak, a last stand, and protection effects.
   var D = defense(def), K = kFor(att);
-  dmg = dmg * K / (D + K) * protectMult(def);
+  dmg = dmg * K / (D + K);
+  dmg = Math.max(dmg * LIMITS.soakFloor, dmg - soakAmount(def));
+  dmg = dmg * lastStandMult(def) * protectMult(def);
 
-  return { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "" };
+  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "" };
+  return out.damage > 0 ? onHit(att, def, out.damage, out) : out;
 }
 
 // defense is the defender's D for this hit: the sum of worn armor's draws,
@@ -238,7 +352,7 @@ function defense(c) {
   var D = 0, worn = false, s;
   if (c.equipment) for (s in c.equipment) {
     var it = c.equipment[s];
-    if (it && it.armor && it.armor.defense) { D += spreadRoll(it.armor.defense, it.armor.spread); worn = true; }
+    if (it && it.armor && it.armor.defense) { D += spreadRoll(it.armor.defense * attunedScale(it, c), it.armor.spread); worn = true; }
   }
   if (!worn && c.mob && c.mob.armor) D = spreadRoll(c.mob.armor.defense, c.mob.armor.spread);
   D += sumEffects(c, "defense", "amount");
@@ -280,12 +394,19 @@ function derivedStats(c) {
 }
 
 function onTick(c) {
-  // Damage over time ("dot" effects: Acid Splash, Blight) ticks whether or
-  // not the character is fighting.
+  // Damage over time ("dot" effects: Acid Splash, Blight, ignite) ticks
+  // whether or not the character is fighting; so does regen.
   var dot = 0;
   eachEffect(c, function (e) { if (e.kind === "dot") dot += num(e.params.damage); });
-  if (c.fighting) return { healthDelta: -Math.round(dot), manaDelta: 0, skills: improvePassives(c) };
-  return { healthDelta: Math.max(1, Math.round(c.healthMax / P.regenRounds)) - Math.round(dot), manaDelta: 0 };
+  var regen = Math.round(c.healthMax * capped(c, "regen", "fraction", LIMITS.regen));
+  if (c.fighting) {
+    var aura = [];
+    eachEffect(c, function (e) {
+      if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
+    });
+    return { healthDelta: regen - Math.round(dot), manaDelta: 0, skills: improvePassives(c), aura: aura };
+  }
+  return { healthDelta: Math.max(1, Math.round(c.healthMax / P.regenRounds)) + regen - Math.round(dot), manaDelta: 0 };
 }
 
 function levelCost(n) { return P.xpBase * n * Math.pow(P.xpR, n - 1); }
@@ -515,6 +636,13 @@ function consider(me, target) {
 function describeEffect(e) {
   var p = e.params || {};
   var pct = function (x) { return Math.round(num(x) * 100) + " percent"; };
+  // units reads a power as a share of a standard swing at the owner's level.
+  var units = function (x) {
+    var v = num(x);
+    if (v === 1) return "a full swing";
+    if (v === 0.5) return "half a swing";
+    return Math.round(v * 100) + " percent of a swing";
+  };
   var tail = e.rounds > 0 ? " for " + e.rounds + " rounds" : "";
   switch (e.kind) {
     case "stat": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " " + (p.stat || "?") + tail;
@@ -525,7 +653,20 @@ function describeEffect(e) {
     case "defense": return "+" + Math.round(num(p.amount)) + " defense" + tail;
     case "protect": return "Takes " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
     case "speedMult": return "Swings at " + Math.round(num(p.mult) * 100) + " percent speed" + tail;
-    case "dot": return "Takes " + num(p.damage) + " damage a round" + tail;
+    case "dot": return (p.source === "ignite" ? "Burning: takes " : "Takes ") + num(p.damage) + " damage a round" + tail;
+    case "attuned": return "Attuned: its numbers grow to match its wearer's level";
+    case "proc": return "On hit (" + (p.verb || "magic") + "): " + (p.chance === undefined || num(p.chance) >= 1 ? "always" : "a " + pct(p.chance) + " chance") + ", " + units(p.power) + " past armor" + tail;
+    case "ignite": return "On hit (burning): " + units(p.power) + " a round for " + (num(p.rounds) || 3) + " rounds, stacking " + (num(p.maxStacks) || 1) + " deep" + tail;
+    case "chill": return "A " + pct(p.chance) + " chance on each hit to slow the target to " + Math.round(num(p.mult) * 100) + " percent speed for " + (num(p.rounds) || 2) + " rounds" + tail;
+    case "leech": return "Heals you for " + pct(p.fraction) + " of the damage you deal" + tail;
+    case "thorns": return "Thorns (" + (p.verb || "thorns") + "): " + pct(p.fraction) + " of every hit that lands on you goes back to the attacker" + tail;
+    case "soak": return "Every hit on you is " + units(p.power) + " smaller" + tail;
+    case "lastStand": return "Below " + pct(p.threshold) + " health, take " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
+    case "execute": return "Deal " + Math.round((num(p.mult) - 1) * 100) + " percent more damage to foes below " + pct(p.threshold) + " health" + tail;
+    case "regen": return "Heals " + pct(p.fraction) + " of your health every round, even in a fight" + tail;
+    case "aura": return "Aura (" + (p.verb || "aura") + "): " + units(p.power) + " to every foe fighting you, each round" + tail;
+    case "detectInvisible": return "Reveals the invisible" + tail;
+    case "detectHidden": return "Reveals the hidden" + tail;
     case "skill": return "";
     default: return "";
   }

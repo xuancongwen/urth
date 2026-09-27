@@ -1,0 +1,14 @@
+vnum: 911
+name: the Phoenix Torc
+keywords: [phoenix, torc]
+description: A torc of red gold lies here, warm as a living thing.
+look: |
+  Two phoenix heads meet at the throat, beak to beak. It is warmest
+  when its wearer is closest to death.
+type: armor
+slot: neck
+level: 1
+flags: [outfit]
+effects:
+  - { kind: lastStand, params: { threshold: 0.35, mult: 0.5 } }
+  - { kind: regen, params: { fraction: 0.01 } }

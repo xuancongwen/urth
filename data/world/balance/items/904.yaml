@@ -1,0 +1,16 @@
+vnum: 904
+name: the Heartplate of the Glacier
+keywords: [heartplate, glacier, breastplate]
+description: A breastplate of blue-white ice stands here, sweating cold.
+look: |
+  Plate cut from the heart of a glacier and never thawed since. Blows
+  that land on it arrive tired.
+type: armor
+slot: body
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: soak, params: { power: 0.2 } }
+  - { kind: stat, params: { stat: constitution, amount: 4 } }

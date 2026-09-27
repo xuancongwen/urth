@@ -1,0 +1,17 @@
+vnum: 901
+name: the Aegis of the Unbroken Dawn
+keywords: [aegis, unbroken, dawn, shield]
+description: A round shield blazes with a sunburst on the ground here.
+look: |
+  A disc of bright bronze with a sunburst worked in relief. Every ray
+  ends in a point, and every point is sharp.
+type: armor
+slot: shield
+level: 1
+armor:
+  defense: 0.5
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: block, params: { chance: 0.15 } }
+  - { kind: thorns, params: { fraction: 0.3, verb: radiant spikes } }

@@ -1,0 +1,14 @@
+vnum: 913
+name: the band of the quickened hour
+keywords: [band, quickened, hour, ring]
+description: A thin silver ring spins in place on the floor, never falling.
+look: |
+  A plain silver band that ticks faintly, like a watch. The world
+  around it seems to be running a little slow.
+type: armor
+slot: finger
+level: 1
+flags: [outfit]
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - { kind: dodge, params: { amount: 0.04 } }

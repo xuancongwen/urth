@@ -188,38 +188,49 @@ func (w *World) lookDirection(p *Player, ref string) bool {
 	return true
 }
 
-// cmdScan: scan. Lists who stands in each adjacent room, skipping closed
-// doors, rooms too dark to see into, and anyone the scanner cannot see.
+// cmdScan: scan. Lists who stands here with the scanner, then in each
+// adjacent room, skipping closed doors, rooms too dark to see into, and
+// anyone the scanner cannot see.
 func cmdScan(w *World, p *Player, _ string) {
 	if !w.canSee(p.Character) {
 		p.Send("You can't see a thing.\n")
 		return
 	}
 	var b strings.Builder
+	w.scanRoom(&b, p, "Here", p.Room)
 	for _, dir := range w.openExits(p.Room) {
 		dest := w.passable(p.Room, dir)
 		if dest == nil || (dest.Dark() && !w.lightIn(dest)) {
 			continue
 		}
-		var names []string
-		for _, c := range w.visibleCharactersIn(p.Character, dest) {
-			if c.IsPlayer() {
-				names = append(names, c.DisplayName())
-			} else {
-				names = append(names, output.Escape(c.Name))
-			}
-		}
-		if len(names) == 0 {
-			continue
-		}
-		b.WriteString("{c}" + capitalize(dir) + "{x} - " + output.Escape(dest.Name) + ":\n")
-		for _, n := range names {
-			b.WriteString("    " + n + "\n")
-		}
+		w.scanRoom(&b, p, capitalize(dir), dest)
 	}
 	if b.Len() == 0 {
 		p.Send("You see no one nearby.\n")
 		return
 	}
 	p.Send(b.String())
+}
+
+// scanRoom writes one section of a scan: the room under label and everyone
+// in it the scanner can see, other than the scanner. Nothing is written
+// for an empty room.
+func (w *World) scanRoom(b *strings.Builder, p *Player, label string, r *room.Room) {
+	var names []string
+	for _, c := range w.visibleCharactersIn(p.Character, r) {
+		switch {
+		case c == p.Character:
+		case c.IsPlayer():
+			names = append(names, c.DisplayName())
+		default:
+			names = append(names, output.Escape(c.Name))
+		}
+	}
+	if len(names) == 0 {
+		return
+	}
+	b.WriteString("{c}" + label + "{x} - " + output.Escape(r.Name) + ":\n")
+	for _, n := range names {
+		b.WriteString("    " + n + "\n")
+	}
 }

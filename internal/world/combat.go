@@ -166,13 +166,85 @@ func (w *World) attackRound(att, def *Character) {
 	w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
 	w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
 	w.act("$n's "+verb+" "+word+" $N"+punct+crit, att, def, "", toNotVict)
-	def.Health -= r.Damage
+	for _, pr := range r.Procs {
+		if pr.Back {
+			w.actProc(def, att, pr)
+		} else {
+			w.actProc(att, def, pr)
+		}
+	}
+	healed := w.landHit(att, def, r)
+	if healed > 0 {
+		w.act("You draw life from $N. {G}["+itoa(healed)+"]{x}", att, def, "", toChar)
+		w.act("$n draws life from you.", att, def, "", toVict)
+		w.act("$n draws life from $N.", att, def, "", toNotVict)
+	}
 	if def.casting != nil && def.casting.spell.InterruptOnDamage {
 		w.interruptCast(def, "Your "+output.Escape(def.casting.spell.Name)+" is interrupted!")
 	}
 	if def.Health <= 0 {
 		w.die(def, att)
 	}
+	if att.Health <= 0 && att.Room != nil {
+		w.die(att, def)
+	}
+}
+
+// landHit applies a landed swing's numbers without narration, for live
+// combat and the simulator alike: the damage and procs, then the heal,
+// then effects. It returns the health the attacker actually regained.
+func (w *World) landHit(att, def *Character, r AttackResult) int {
+	def.Health -= r.Damage
+	for _, pr := range r.Procs {
+		if pr.Back {
+			att.Health -= pr.Damage
+		} else {
+			def.Health -= pr.Damage
+		}
+	}
+	healed := 0
+	if r.Heal > 0 && att.Health > 0 {
+		healed = max(0, min(r.Heal, att.HealthMax-att.Health))
+		att.Health += healed
+	}
+	for _, se := range r.Effects {
+		on := def
+		if se.On == "self" {
+			on = att
+		}
+		if se.Kind == "" || on.Health <= 0 {
+			continue
+		}
+		on.Effects = append(on.Effects, effect.Active{Spec: effect.Spec{Kind: se.Kind, Params: se.Params}, Rounds: se.Rounds})
+		w.recalc(on)
+	}
+	return healed
+}
+
+// pluralPhrase guesses whether a noun phrase takes a plural verb, from
+// its head noun: "searing flames" and "radiant spikes" do, "corona" and
+// "arc of lightning" do not.
+func pluralPhrase(phrase string) bool {
+	head, _, _ := strings.Cut(strings.ToLower(phrase), " of ")
+	head = strings.TrimSpace(head)
+	return strings.HasSuffix(head, "s") && !strings.HasSuffix(head, "ss")
+}
+
+// actProc narrates one proc or aura strike from src to dst, worded like a
+// swing: "Your searing flames wound a troll. [9]".
+func (w *World) actProc(src, dst *Character, pr Proc) {
+	if pr.Damage <= 0 {
+		return
+	}
+	verb := output.Escape(pr.Verb)
+	dmg := itoa(pr.Damage)
+	base, word, punct := w.hitWords(pr.Damage, dst)
+	if pluralPhrase(pr.Verb) {
+		word = base
+	}
+	w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}", src, dst, "", toChar)
+	w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}", src, dst, "", toVict)
+	w.act("$n's "+verb+" "+word+" $N"+punct, src, dst, "", toNotVict)
 }
 
 // die handles a character reaching zero health (docs/RULES.md 4.6). Both
@@ -434,9 +506,13 @@ func cmdFlee(w *World, p *Player, _ string) {
 	p.Send("PANIC! You couldn't escape!\n")
 }
 
-// regen applies onTick to everyone once per round.
+// regen applies onTick to everyone once per round, auras included.
 func (w *World) regen() {
 	for _, c := range w.allCharacters() {
+		if c.Room == nil || c.Health <= 0 {
+			// Killed earlier this round, by an aura.
+			continue
+		}
 		r := w.onTick(c)
 		if len(r.Skills) > 0 {
 			applySkillRatings(c, r.Skills)
@@ -446,6 +522,19 @@ func (w *World) regen() {
 		c.Mana = clamp(c.Mana+r.ManaDelta, 0, c.ManaMax)
 		if c.Health <= 0 && r.HealthDelta < 0 {
 			w.die(c, nil)
+			continue
+		}
+		for _, pr := range r.Aura {
+			for _, e := range w.enemiesOf(c) {
+				if e.Health <= 0 {
+					continue
+				}
+				w.actProc(c, e, pr)
+				e.Health -= pr.Damage
+				if e.Health <= 0 {
+					w.die(e, c)
+				}
+			}
 		}
 	}
 }

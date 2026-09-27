@@ -1,0 +1,12 @@
+vnum: 914
+name: the Lantern of Truth
+keywords: [lantern, truth]
+description: A lantern burns here with a clear, colourless flame.
+look: |
+  Its light casts no shadows and hides nothing: what is invisible
+  shows plainly in it, and what is hidden has nowhere to go.
+type: light
+flags: [outfit]
+effects:
+  - { kind: detectInvisible }
+  - { kind: detectHidden }

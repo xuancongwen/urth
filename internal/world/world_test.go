@@ -544,9 +544,11 @@ func TestDoorsHideExitsAndScan(t *testing.T) {
 	alice.take()
 	carol.take()
 
-	// Bob in the hub sees Alice and the dogs to the north.
+	// Bob in the hub sees the guard beside him, but not himself, and
+	// Alice and the dogs to the north.
 	send(w, 1, "scan")
-	if out := bob.take(); !strings.Contains(out, "North - North:\n    Alice\n    a stray dog\n") {
+	if out := bob.take(); !strings.HasPrefix(out, "Here - Hub:\n    a city guard\n") || strings.Contains(out, "Bob") ||
+		!strings.Contains(out, "North - North:\n    Alice\n    a stray dog\n") {
 		t.Fatalf("scan wrong: %q", out)
 	}
 	// Alice, up north, sees Carol through the open gate and the gate itself.

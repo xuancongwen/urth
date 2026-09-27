@@ -83,6 +83,7 @@ func init() {
 		{"purge", 3, cmdPurge, true},
 		{"force", 3, cmdForce, true},
 		{"restore", 4, cmdRestore, true},
+		{"outfit", 3, cmdOutfit, true},
 		{"transfer", 3, cmdTransfer, true},
 		{"peace", 3, cmdPeace, true},
 		{"reload", 3, cmdReload, true},

@@ -1,0 +1,12 @@
+vnum: 912
+name: the Bloodthirst Signet
+keywords: [bloodthirst, signet, ring]
+description: A ring set with a dark red stone lies in a small pool of something.
+look: |
+  The stone is not a stone. It is warm, and it drinks.
+type: armor
+slot: finger
+level: 1
+flags: [outfit]
+effects:
+  - { kind: leech, params: { fraction: 0.08 } }

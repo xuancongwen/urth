@@ -1,0 +1,16 @@
+vnum: 903
+name: a mantle of cinders
+keywords: [mantle, cinders]
+description: A dark mantle smoulders on the floor, shedding sparks.
+look: |
+  Black cloth that is always about to catch. Embers drift off the hem
+  and settle on whoever stands too close.
+type: armor
+slot: shoulders
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: aura, params: { verb: drifting cinders, power: 0.1 } }
+  - { kind: stat, params: { stat: constitution, amount: 3 } }

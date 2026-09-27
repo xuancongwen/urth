@@ -24,14 +24,14 @@ var helpSections = []helpSection{
 	{"Talking", []string{"say", "chat", "yell"}},
 	{"Character", []string{"score", "train", "feat", "practice", "quest", "who", "color", "save", "password", "quit"}},
 	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "copyover", "shutdown"}},
-	{"Admin", []string{"promote", "demote", "passwd", "deny", "allow", "users"}},
+	{"Admin", []string{"outfit", "promote", "demote", "passwd", "deny", "allow", "users"}},
 }
 
 var helpText = map[string]string{
 	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
 	"look":  "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. In the room listing, fixtures that cannot be taken read like the description, items you can pick up are green, and creatures are yellow. Only an unidentified item hides its numbers.",
 	"exits": "exits: list the obvious ways out of this room and where they lead. A closed door is not obvious.",
-	"scan":  "scan: who stands in each adjacent room. Nothing shows beyond a closed door or in the dark.",
+	"scan":  "scan: who stands here with you and in each adjacent room. Nothing shows beyond a closed door or in the dark.",
 	"open":  "open <direction|door>: open a door.",
 	"close": "close <direction|door>: shut a door. A closed door blocks the way and hides the exit from both sides.",
 
@@ -87,7 +87,8 @@ var helpText = map[string]string{
 	"transfer": "transfer <player> [room]: bring them here, or send them there.",
 	"peace":    "peace: stop every fight in the room.",
 	"reload":   "reload [scripts | area <name> | world]: re-read the rules, one area, or everything from disk.",
-	"simulate": "simulate <mob | me | fighter[:level]> <mob> [fights] [seed]: run fights through the rules and report the numbers.",
+	"simulate": "simulate <mob | me | fighter[:level] | outfit[:level]> <mob> [fights] [seed]: run fights through the rules and report the numbers. outfit:N is a level-N fighter wearing the outfit set.",
+	"outfit":   "outfit: conjure the admin regalia and put on every piece that fits a free slot; the rest go in your pack. The set grows with your level, so it stays strong without being godlike.",
 	"copyover": "copyover: restart the server without disconnecting anyone.",
 	"shutdown": "shutdown: stop the server.",
 

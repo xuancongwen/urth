@@ -1,0 +1,16 @@
+vnum: 907
+name: the girdle of the titan
+keywords: [girdle, titan, belt]
+description: A belt wide enough for a giant lies coiled here.
+look: |
+  Riveted leather as thick as a hand, with a buckle shaped like a
+  closed fist. It cinches itself to fit.
+type: armor
+slot: belt
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: stat, params: { stat: strength, amount: 4 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

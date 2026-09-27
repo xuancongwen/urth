@@ -1,0 +1,18 @@
+vnum: 902
+name: the Crown of the Ninth Sun
+keywords: [crown, ninth, sun]
+description: A circlet of gold rests here, too bright to look at directly.
+look: |
+  Nine points, each tipped with a sliver of something that burns
+  without heat. Whoever wears it walks inside a small, angry corona.
+type: armor
+slot: head
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: aura, params: { verb: corona, power: 0.15 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: intelligence, amount: 4 } }
+  - { kind: stat, params: { stat: wisdom, amount: 4 } }

@@ -38,9 +38,9 @@ left out; the engine then uses a quiet default.
 
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
-| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false |
+| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage, procs:[{verb, damage, back}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
 | `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, speed}`; `speed` is swings per round, fractional allowed |
-| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, skills:{id: rating}}` |
+| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, skills:{id: rating}, aura:[{verb, damage}]}`; each aura entry strikes every enemy fighting the character in its room |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
 | `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |

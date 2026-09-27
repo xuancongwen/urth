@@ -18,12 +18,29 @@ import (
 
 // AttackResult is what resolveAttack returns. Stage says why a swing did
 // not land ("dodge", "block", or "miss") so the transport can say so.
+// Procs, Heal, and Effects are the onhit phase (docs/RULES.md 5.4) and
+// apply only when the swing hit.
 type AttackResult struct {
 	Hit    bool   `json:"hit"`
 	Damage int    `json:"damage"`
 	Crit   bool   `json:"crit"`
 	Verb   string `json:"verb"`
 	Stage  string `json:"stage"`
+	// Procs are strikes riding on the swing: flames from the blade hit
+	// the defender, thorns on the defender's armor hit the attacker.
+	Procs []Proc `json:"procs"`
+	// Heal is health the attacker draws back from the hit.
+	Heal int `json:"heal"`
+	// Effects attach to the defender ("target") or the attacker ("self").
+	Effects []skillEffectSpec `json:"effects"`
+}
+
+// Proc is one extra strike, named by its verb ("searing flames"). Back
+// marks one that hits the attacker, from the defender's side.
+type Proc struct {
+	Verb   string `json:"verb"`
+	Damage int    `json:"damage"`
+	Back   bool   `json:"back"`
 }
 
 // TickResult is what onTick returns.
@@ -32,6 +49,8 @@ type TickResult struct {
 	ManaDelta   int `json:"manaDelta"`
 	// Skills carries updated effectiveness ratings for skills in use.
 	Skills map[string]float64 `json:"skills"`
+	// Aura strikes every enemy fighting the character in its room.
+	Aura []Proc `json:"aura"`
 }
 
 // LevelResult is what onLevel returns.
@@ -380,6 +399,10 @@ func (w *World) resolveAttack(att, def *Character, weapon *item.Item, round int)
 	if r.Damage < 0 {
 		r.Damage = 0
 	}
+	r.Heal = max(r.Heal, 0)
+	for i := range r.Procs {
+		r.Procs[i].Damage = max(r.Procs[i].Damage, 0)
+	}
 	if r.Verb == "" {
 		r.Verb = attackVerb(att, weapon)
 	}
@@ -406,6 +429,9 @@ func (w *World) onTick(c *Character) TickResult {
 	var r TickResult
 	if !w.call("onTick", &r, w.view(c)) {
 		return TickResult{}
+	}
+	for i := range r.Aura {
+		r.Aura[i].Damage = max(r.Aura[i].Damage, 0)
 	}
 	return r
 }

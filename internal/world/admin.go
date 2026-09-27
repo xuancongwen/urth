@@ -4,8 +4,11 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"os"
+	"sort"
+	"strings"
 
 	"urth/internal/copyover"
+	"urth/internal/item"
 	"urth/internal/output"
 	"urth/internal/session"
 )
@@ -84,6 +87,77 @@ func cmdCopyover(w *World, p *Player, _ string) {
 		p.Send("{R}Copyover failed: " + output.Escape(err.Error()) + "{x}\n")
 	}
 	w.broadcast("{Y}Copyover failed; carrying on.{x}\n")
+}
+
+// outfitFlag marks the item prototypes cmdOutfit hands out. The set lives
+// in the balance lab (data/world/balance, items 900 to 914); a builder
+// adds a piece by giving it the flag.
+const outfitFlag = "outfit"
+
+// cmdOutfit: outfit. Creates one of every item flagged "outfit" and puts
+// each on where a slot is free; the rest go in the pack.
+func cmdOutfit(w *World, p *Player, _ string) {
+	worn, packed := w.outfit(p.Character)
+	if len(worn)+len(packed) == 0 {
+		p.Send("No items are flagged " + outfitFlag + ".\n")
+		return
+	}
+	w.recalc(p.Character)
+	var b strings.Builder
+	b.WriteString("{Y}The regalia answers your call.{x}\n")
+	for _, s := range p.equippedList() {
+		for _, it := range worn {
+			if p.Equipment[s] == it {
+				b.WriteString(slotLabel(s) + output.Escape(it.Name()) + "\n")
+			}
+		}
+	}
+	if len(packed) > 0 {
+		b.WriteString("Into your pack, for want of a free slot:\n")
+		for _, it := range packed {
+			b.WriteString("    " + output.Escape(it.Name()) + "\n")
+		}
+	}
+	p.Send(b.String())
+	w.act("$n is suddenly clad in blazing regalia.", p.Character, nil, "", toRoom)
+	w.save(p)
+}
+
+// outfit creates the outfit set for c, in vnum order, and equips each
+// piece in the first free position its slot allows. It returns what it
+// put on and what it left in the inventory.
+func (w *World) outfit(c *Character) (worn, packed []*item.Item) {
+	var protos []*item.Proto
+	for _, p := range w.content.Items {
+		if p.HasFlag(outfitFlag) {
+			protos = append(protos, p)
+		}
+	}
+	sort.Slice(protos, func(i, j int) bool { return protos[i].Vnum < protos[j].Vnum })
+	for _, proto := range protos {
+		it := item.New(proto)
+		c.Inventory = append(c.Inventory, it)
+		if w.equipFree(c, it) {
+			worn = append(worn, it)
+		} else {
+			packed = append(packed, it)
+		}
+	}
+	return worn, packed
+}
+
+// equipFree puts it on c in a free position, reporting whether one was.
+func (w *World) equipFree(c *Character, it *item.Item) bool {
+	slot := it.Proto.WearSlot()
+	if slot == "" {
+		return false
+	}
+	for _, pos := range item.Positions(slot) {
+		if c.equip(it, pos) {
+			return true
+		}
+	}
+	return false
 }
 
 func newToken() string {

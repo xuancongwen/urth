@@ -1,0 +1,16 @@
+vnum: 909
+name: the stormstride boots
+keywords: [stormstride, boots]
+description: A pair of boots leaves scorch marks where it stands.
+look: |
+  Grey leather that smells of rain. Each step lands a moment before
+  you decide to take it.
+type: armor
+slot: feet
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: dodge, params: { amount: 0.08 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }

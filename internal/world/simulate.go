@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/mob"
 	"urth/internal/output"
@@ -161,6 +162,22 @@ func (w *World) simFighter(level int) *Character {
 	return c
 }
 
+// simOutfitter is simFighter wearing the admin set (cmdOutfit) instead
+// of the standard kit.
+func (w *World) simOutfitter(level int) *Character {
+	c := newCharacter("a level "+itoa(level)+" outfitted fighter", []string{"fighter"})
+	c.Level = level
+	r := w.onCreate(c)
+	for k, v := range r.Stats {
+		c.Stats[k] = v
+	}
+	c.Experience = w.xpToLevel(level)
+	w.outfit(c)
+	w.recalc(c)
+	c.Health, c.Mana = c.HealthMax, c.ManaMax
+	return c
+}
+
 type simFightResult struct {
 	rounds, dmgA, dmgB, swingsA, swingsB int
 }
@@ -179,23 +196,44 @@ func (w *World) simFight(a, b *Character) simFightResult {
 			*swings++
 			r := w.resolveAttack(att, def, att.Equipment["wield"], round)
 			if r.Hit {
-				def.Health -= r.Damage
-				*dmg += r.Damage
+				before := def.Health
+				w.landHit(att, def, r)
+				*dmg += before - def.Health
 			}
+			if att.Health <= 0 {
+				return
+			}
+		}
+	}
+	// tick is one character's onTick: regeneration, damage over time, and
+	// any aura on its opponent, then its timed effects count down.
+	tick := func(c, other *Character, dmg *int) {
+		r := w.onTick(c)
+		c.Health = clamp(c.Health+r.HealthDelta, 0, c.HealthMax)
+		for _, pr := range r.Aura {
+			other.Health -= pr.Damage
+			*dmg += pr.Damage
+		}
+		before := len(c.Effects)
+		c.Effects = effect.Tick(c.Effects)
+		if len(c.Effects) != before {
+			w.recalc(c)
 		}
 	}
 	for f.rounds = 1; f.rounds <= simMaxRounds; f.rounds++ {
 		swing(a, b, f.rounds, &f.dmgA, &f.swingsA)
-		if b.Health <= 0 {
+		if a.Health <= 0 || b.Health <= 0 {
 			return f
 		}
 		swing(b, a, f.rounds, &f.dmgB, &f.swingsB)
-		if a.Health <= 0 {
+		if a.Health <= 0 || b.Health <= 0 {
 			return f
 		}
-		ta, tb := w.onTick(a), w.onTick(b)
-		a.Health = clamp(a.Health+ta.HealthDelta, 0, a.HealthMax)
-		b.Health = clamp(b.Health+tb.HealthDelta, 0, b.HealthMax)
+		tick(a, b, &f.dmgA)
+		tick(b, a, &f.dmgB)
+		if a.Health <= 0 || b.Health <= 0 {
+			return f
+		}
 	}
 	f.rounds = simMaxRounds
 	return f
@@ -209,11 +247,11 @@ func copyStats(m map[string]int) map[string]int {
 	return out
 }
 
-// cmdSimulate: simulate <mobvnum | me | fighter[:level]> <mobvnum> [fights] [seed]
+// cmdSimulate: simulate <mobvnum | me | fighter[:level] | outfit[:level]> <mobvnum> [fights] [seed]
 func cmdSimulate(w *World, p *Player, args string) {
 	fields := strings.Fields(args)
 	if len(fields) < 2 {
-		p.Send("Syntax: simulate <mob vnum | me | fighter[:level]> <mob vnum> [fights] [seed]\n")
+		p.Send("Syntax: simulate <mob vnum | me | fighter[:level] | outfit[:level]> <mob vnum> [fights] [seed]\n")
 		return
 	}
 	var makeA func() *Character
@@ -222,7 +260,7 @@ func cmdSimulate(w *World, p *Player, args string) {
 	case fields[0] == "me":
 		makeA = func() *Character { return w.cloneForSim(p.Character) }
 		nameA = "you"
-	case strings.HasPrefix(fields[0], "fighter"):
+	case strings.HasPrefix(fields[0], "fighter"), strings.HasPrefix(fields[0], "outfit"):
 		level := 1
 		if _, lv, ok := strings.Cut(fields[0], ":"); ok {
 			n, err := strconv.Atoi(lv)
@@ -231,6 +269,11 @@ func cmdSimulate(w *World, p *Player, args string) {
 				return
 			}
 			level = n
+		}
+		if strings.HasPrefix(fields[0], "outfit") {
+			makeA = func() *Character { return w.simOutfitter(level) }
+			nameA = "a level " + itoa(level) + " fighter in the outfit"
+			break
 		}
 		makeA = func() *Character { return w.simFighter(level) }
 		nameA = "a level " + itoa(level) + " fighter"

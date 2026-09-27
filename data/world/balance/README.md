@@ -27,7 +27,16 @@ them to fill the win-rate row of docs/RULES.md 4.5:
 Dummy vnum is 900 + level. Every dummy is its level's baseline: six
 stats at 10, natural attack and armor from mobBaseline, no equipment.
 
-The lab's own items are 926 to 990 and its mobs 930 to 943. Some of what
+Items 900 to 914 are the admin regalia that `outfit` hands out: every
+item flagged `outfit`, anywhere, is part of the set, so a builder adds a
+piece by flagging it. The pieces are level 1 and `attuned`, so their
+numbers follow the wearer's level, and their effects are sized in
+swings at the wearer's level (rules.js, the power kinds). Measure the
+set with `simulate outfit:N <dummy>`: a level-5 wearer ends even fights
+in two rounds, wins at +15 with most of its health, and loses most
+fights at +20. TestOutfitBalance holds that shape.
+
+The lab's other items are 926 to 990 and its mobs 930 to 943. Some of what
 it places belongs to the start area (starter gear, the common
 materials, the herald's wares), because the regular world uses those
 too.

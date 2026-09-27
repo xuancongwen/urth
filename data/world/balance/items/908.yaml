@@ -1,0 +1,16 @@
+vnum: 908
+name: the greaves of the glacier
+keywords: [greaves, glacier]
+description: A pair of ice-blue greaves stands upright on its own.
+look: |
+  The same unmelting ice as the heartplate, shaped for the legs, and
+  lighter than it has any right to be.
+type: armor
+slot: legs
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }

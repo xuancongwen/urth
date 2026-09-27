@@ -1,0 +1,16 @@
+vnum: 905
+name: the Stormcaller Gauntlets
+keywords: [stormcaller, gauntlets]
+description: A pair of gauntlets crackles on the ground, fingers curled.
+look: |
+  Steel knuckles wrapped in copper wire. The hair on your arm stands up
+  as you reach for them.
+type: armor
+slot: hands
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: proc, params: { verb: arc of lightning, chance: 0.2, power: 1.0 } }
+  - { kind: stat, params: { stat: strength, amount: 4 } }

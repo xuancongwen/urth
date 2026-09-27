@@ -1,0 +1,16 @@
+vnum: 906
+name: the rimebound vambraces
+keywords: [rimebound, vambraces]
+description: A pair of vambraces lies in a patch of frost.
+look: |
+  Forearm guards furred with hoarfrost. Whatever they strike moves a
+  little slower afterwards.
+type: armor
+slot: arms
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: chill, params: { chance: 0.1, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

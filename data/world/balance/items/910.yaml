@@ -1,0 +1,16 @@
+vnum: 910
+name: the Visage of the Ashen Judge
+keywords: [visage, ashen, judge, mask]
+description: A grey mask lies face up here, watching.
+look: |
+  A face of fired ash with no expression at all. Blows seem to glance
+  away from whoever wears it, as if ashamed.
+type: armor
+slot: face
+level: 1
+baseline: heavy
+flags: [outfit]
+effects:
+  - { kind: attuned }
+  - { kind: protect, params: { mult: 0.85 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.5 } }
