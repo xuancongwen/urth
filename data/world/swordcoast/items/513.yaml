@@ -5,7 +5,9 @@ description: A plain silver ring has been left on the desk.
 look: |
   Worn thin on the inside by years of a scholar's hand. It is warmer
   than the desk it lay on, and wearing it you find yourself thinking
-  a little more slowly and a little more clearly.
+  a little more slowly and a little more clearly. When things go very
+  badly it grows warmer still, the way a hand on your shoulder does:
+  he died on the road so that you would not.
 type: armor
 slot: finger
 level: 6
@@ -13,3 +15,5 @@ baseline: light
 effects:
   - kind: stat
     params: { stat: wisdom, amount: 2 }
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.8 }

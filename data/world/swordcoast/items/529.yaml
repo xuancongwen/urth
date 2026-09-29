@@ -1,0 +1,11 @@
+vnum: 529
+name: a traveller's cloak
+keywords: [traveller, travellers, traveler, cloak]
+description: A road-stained grey cloak lies here.
+look: |
+  Wool, heavy with the dust of the Coast Way, with a pewter pin cast as
+  the Friendly Arm's sign. Everyone who walks this road owns one.
+type: armor
+slot: shoulders
+level: 5
+baseline: cloth

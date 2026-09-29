@@ -1,0 +1,12 @@
+vnum: 620
+name: a goblin's scrap-mail jerkin
+keywords: [goblin, goblins, scrap-mail, scrap, mail, jerkin]
+description: A jerkin sewn with scraps of dwarven mail lies here.
+look: |
+  Leather with pieces of dwarven mail stitched on wherever there was
+  room, some of it still stamped with the Battlehammer mug. Bruenor
+  would want to know where they got it.
+type: armor
+slot: body
+level: 8
+baseline: medium

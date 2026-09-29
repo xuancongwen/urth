@@ -1,0 +1,27 @@
+vnum: 1120
+name: a Warglaive of Azzinoth
+keywords: [warglaive, azzinoth, glaive, illidan]
+description: A curved, double-ended blade of fel steel lies here, trailing green flame.
+look: |
+  One of a pair of great crescent blades, gripped in the middle and
+  edged at both ends, taken by Illidan Stormrage from the doomguard
+  Azzinoth at the Well of Eternity ten thousand years ago. Green fire
+  streams from the edges and clings to whatever they cut. It moves like
+  a dancer in the hand, and it lends its bearer a little of the
+  Betrayer's sight, so that nothing hidden by magic stays hidden. The
+  tidecaller keeps it for her master and would very much like it back.
+type: weapon
+weight: 5
+level: 16
+baseline: standard
+value: 2500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: ignite
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: dodge
+    params: { amount: 0.04 }
+  - kind: detectInvisible

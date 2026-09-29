@@ -6,8 +6,8 @@ look: |
   A man's body, massive and hairy, with a bull's head and a pair of
   horns tipped with iron. It guards the doors to the throne room and
   does not look as though it has ever been tired.
-level: 8
-health: 220
+level: 11
+health: 295
 silver: 40
 stats: {strength: 14}
 attack:

@@ -1,0 +1,13 @@
+vnum: 3047
+name: a moth-eaten burial shroud
+keywords: [moth-eaten, burial, shroud]
+description: A grey burial shroud lies here in folds.
+look: |
+  Grey linen, embroidered at the hem with a name nobody remembers. It
+  smells of the grave but hangs well across the shoulders.
+type: armor
+slot: shoulders
+weight: 1
+level: 7
+baseline: cloth
+value: 25

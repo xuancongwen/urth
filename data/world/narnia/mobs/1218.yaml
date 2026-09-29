@@ -6,9 +6,9 @@ look: |
   As wide as a cart wheel, blue-grey and barnacled, with one claw much
   larger than the other. It regards you with eyes on stalks and clacks
   slowly, as if keeping time.
-level: 5
+level: 9
 armor:
-  defense: 4
+  defense: 6
 attack:
   verb: pinch
   kind: blunt

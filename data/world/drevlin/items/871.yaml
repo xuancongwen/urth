@@ -1,0 +1,22 @@
+vnum: 871
+name: Limbeck's spectacles
+keywords: [limbeck, limbecks, spectacles, glasses, specs]
+description: A pair of thick-lensed spectacles lies here, one arm bent and mended with wire.
+look: |
+  Two lenses as thick as the bottom of a bottle, in a frame of brass
+  wire mended many times. Through them things far off smear, but what
+  is near comes up sharp as a question: the hidden, the unseen, the
+  lie in a Welf's blessing. The elves took them off Limbeck when they
+  took him up to the ship, and the captain keeps them for a joke.
+  You will not see the sideways blow coming.
+type: armor
+slot: face
+level: 10
+baseline: light
+effects:
+  - kind: detectHidden
+  - kind: detectInvisible
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: dodge
+    params: { amount: -0.02 }

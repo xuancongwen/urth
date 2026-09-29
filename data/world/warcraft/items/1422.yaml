@@ -1,0 +1,23 @@
+vnum: 1422
+name: the Demon Soul
+keywords: [demon, soul, disc, dragon]
+description: A plain golden disc lies here, and the air around it trembles.
+look: |
+  A disc of dull gold no larger than a plate, unmarked, and so heavy
+  with power that the air bends around it. It was made to hold the
+  strength of the dragon Aspects, and the Dragonmaw warlocks used it to
+  chain the red dragonflight to the Horde's war. It still remembers
+  dragon fire. Held, it lets fly a gout of it now and then, and it
+  drinks a little of the life of everything its bearer wounds.
+type: armor
+slot: hold
+weight: 3
+level: 14
+value: 1800
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.5, verb: gout of dragonfire }
+  - kind: leech
+    params: { fraction: 0.08 }
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

@@ -1,0 +1,15 @@
+vnum: 741
+name: a quaggoth's bone club
+keywords: [quaggoth, quaggoths, bone, club]
+description: A club made from a thighbone the size of a man lies here.
+look: |
+  The thighbone of something very large, knobbed at one end and gnawed
+  smooth at the other where a quaggoth held it. It goes through armor
+  by not caring about it.
+type: weapon
+level: 12
+baseline: mace
+weapon:
+  hands: 2
+  kind: blunt
+  verb: club

@@ -1,0 +1,17 @@
+vnum: 1223
+name: a boggle's spiked flail
+keywords: [boggle, boggles, spiked, flail, chain]
+description: A crude flail of chain and spiked iron lies here.
+look: |
+  A stick, a length of sledge-chain, and a lump of iron with spikes
+  hammered through it. It is ugly and it is badly balanced, and it
+  comes round the edge of a shield like a spiteful thought.
+type: weapon
+level: 8
+baseline: flail
+weight: 4
+value: 25
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

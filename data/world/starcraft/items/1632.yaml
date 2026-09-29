@@ -1,0 +1,16 @@
+vnum: 1632
+name: a khaydarin ring
+keywords: [khaydarin, ring, crystal]
+description: A slim golden ring set with a chip of yellow crystal lies here.
+look: |
+  A small ring of gold-bronze, too large for a human finger and padded
+  to fit, set with a chip of khaydarin crystal. It is warm, and it makes
+  it a little easier to be patient.
+type: armor
+slot: finger
+weight: 0
+level: 22
+value: 200
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

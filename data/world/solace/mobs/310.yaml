@@ -5,7 +5,7 @@ description: A spider the size of a dog hangs head-down from a web, watching you
 look: |
   Grey-brown, hairy, and patient. Its fangs are as long as your fingers
   and wet at the tips.
-level: 6
+level: 2
 flags: [assist]
 attack:
   verb: bite

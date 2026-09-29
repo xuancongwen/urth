@@ -7,6 +7,6 @@ look: |
   you. She teaches what the beasts taught her, for coin and for fangs.
 level: 12
 flags: [peaceful]
-teaches: [rend]
+teaches: [rend, hamstring, berserk, sunder, whirlwind]
 attack:
   verb: punch

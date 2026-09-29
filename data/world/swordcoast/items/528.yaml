@@ -1,0 +1,17 @@
+vnum: 528
+name: a pair of mail chausses
+keywords: [pair, mail, chausses, leggings]
+description: A pair of mail leggings lies here in a coil of links.
+look: |
+  Riveted mail from hip to ankle, made in Amn for a knight and worn at
+  the altar by a priest who did not care where it came from. Good
+  work: a blow that lands on them lands softer.
+type: armor
+slot: legs
+level: 9
+baseline: medium
+effects:
+  - kind: soak
+    params: { power: 0.04 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

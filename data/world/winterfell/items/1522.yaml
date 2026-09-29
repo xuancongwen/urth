@@ -1,0 +1,14 @@
+vnum: 1522
+name: a pair of fur leggings
+keywords: [pair, fur, leggings, trousers]
+description: A pair of shaggy fur leggings lies here.
+look: |
+  Leggings of goat and seal fur sewn together with sinew, the hair
+  turned in. Wildling women make them, and wildling women do not care
+  what you think of how they look.
+type: armor
+slot: legs
+level: 10
+baseline: light
+weight: 2
+value: 20

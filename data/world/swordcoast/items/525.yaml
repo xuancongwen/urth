@@ -1,0 +1,11 @@
+vnum: 525
+name: a kobold's hide shield
+keywords: [kobold, kobolds, hide, shield]
+description: A small round shield of stretched hide lies here.
+look: |
+  Dog hide pulled over a wicker frame and painted with a red eye. It is
+  small, but the kobolds of the mine have learned to hold it well.
+type: armor
+slot: shield
+level: 8
+baseline: shield

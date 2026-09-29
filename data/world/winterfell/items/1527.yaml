@@ -1,0 +1,18 @@
+vnum: 1527
+name: a torc of twisted iron
+keywords: [torc, twisted, iron, neck-ring]
+description: A torc of twisted black iron lies among the gnawed bones.
+look: |
+  A thick neck-ring of iron rods twisted like rope, the ends beaten into
+  wolf heads. It came off the neck of someone who went into the den and
+  did not come out. It is heavy, and it makes you feel heavier, in the
+  good way.
+type: armor
+slot: neck
+level: 11
+weight: 2
+value: 90
+rarity: uncommon
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

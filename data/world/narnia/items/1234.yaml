@@ -1,0 +1,25 @@
+vnum: 1234
+name: the Witch's stone knife
+keywords: [witch, witchs, stone, knife, table]
+description: A knife of grey stone, strange and evil in its shape, lies here.
+look: |
+  Not metal but stone, knapped to an edge in the time before the
+  Emperor-beyond-the-Sea set down the Deep Magic, and used once on the
+  Stone Table for a killing that did not stay done. It is heavy with
+  every sacrifice it was made for. It drinks from what it cuts, it is
+  hungriest for what is already failing, and it makes the hand that
+  holds it very hard to like.
+type: weapon
+level: 12
+baseline: dagger
+weight: 2
+value: 700
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: execute, params: { threshold: 0.3, mult: 1.5 } }
+  - { kind: leech, params: { fraction: 0.08 } }
+  - { kind: stat, params: { stat: charisma, amount: -2 } }

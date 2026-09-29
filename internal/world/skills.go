@@ -19,7 +19,7 @@ type Skill struct {
 	Name     string  `json:"name"`
 	Level    int     `json:"level"`
 	Passive  bool    `json:"passive"`
-	Target   string  `json:"target"` // single or none, for active skills
+	Target   string  `json:"target"` // single, area, ally, or none, for active skills
 	Cooldown int     `json:"cooldown"`
 	Start    float64 `json:"start"`  // effectiveness on first use
 	Innate   bool    `json:"innate"` // known by everyone at level; others need a trainer
@@ -39,6 +39,14 @@ type SkillResult struct {
 	Verb    string             `json:"verb"`
 	Effects []skillEffectSpec  `json:"effects"`
 	Skills  map[string]float64 `json:"skills"`
+	// Heal is health the user regains at once (Second Wind).
+	Heal int `json:"heal"`
+	// Taunt, on an ally skill that hit, turns the ally's attackers on the
+	// user (Rescue).
+	Taunt bool `json:"taunt"`
+	// Cooldown, when set, replaces the skill's own for this use (feats
+	// that shorten cooldowns).
+	Cooldown *int `json:"cooldown"`
 }
 
 type skillEffectSpec struct {
@@ -188,7 +196,9 @@ func (w *World) trySkill(p *Player, word, args string) bool {
 	return true
 }
 
-// useSkill resolves one use of an active skill.
+// useSkill resolves one use of an active skill. A single skill strikes
+// one foe, an area skill every foe fighting the user, an ally skill a
+// friend (Rescue), and a skill with no target the user alone.
 func (w *World) useSkill(p *Player, sk Skill, args string) {
 	c := p.Character
 	if c.lastSkillRound == w.roundCount+1 { // stored as round+1 so 0 means never
@@ -200,61 +210,176 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 		p.Send(output.Escape(sk.Name) + " is not ready for another " + plural(cd, "round") + ".\n")
 		return
 	}
-	var target *Character
-	if sk.Target == "single" {
+	targets, ok := w.skillTargets(p, sk, args)
+	if !ok {
+		return
+	}
+	e := ensureSkill(c, sk)
+	used := false
+	for _, target := range targets {
+		if target != nil && (target.Health <= 0 || target.Room != c.Room) {
+			continue
+		}
+		var r SkillResult
+		args2 := []any{w.view(c), nil, skillView(sk), e.View()}
+		if target != nil {
+			args2[1] = w.view(target)
+		}
+		if !w.call("useSkill", &r, args2...) || !r.OK {
+			if used {
+				continue // an area skill that cannot touch one foe still struck the rest
+			}
+			msg := r.Message
+			if msg == "" {
+				msg = "You can't do that right now."
+			}
+			p.Send(output.Escape(msg) + "\n")
+			return
+		}
+		if !used {
+			// The first result sets the pace: one use, one improvement roll,
+			// one cooldown, however many foes an area skill reaches.
+			used = true
+			c.lastSkillRound = w.roundCount + 1
+			if c.cooldowns == nil {
+				c.cooldowns = map[string]int{}
+			}
+			cd := sk.Cooldown
+			if r.Cooldown != nil {
+				cd = max(*r.Cooldown, 0)
+			}
+			if cd > 0 {
+				c.cooldowns[key] = cd
+			}
+			applySkillRatings(c, r.Skills)
+		}
+		w.skillOutcome(c, sk, target, r)
+		if c.Health <= 0 || c.Room == nil {
+			return
+		}
+	}
+}
+
+// skillTargets finds whom a use of sk touches: one foe, every foe, one
+// ally, or nobody (a nil entry). It reports and returns false when the use
+// cannot go ahead.
+func (w *World) skillTargets(p *Player, sk Skill, args string) ([]*Character, bool) {
+	c := p.Character
+	switch sk.Target {
+	case "single":
+		var target *Character
 		if args != "" {
 			target = w.findCharacter(p.Room, c, args)
 			if target == nil {
 				p.Send("They aren't here.\n")
-				return
+				return nil, false
 			}
 		} else {
 			target = c.Fighting
 			if target == nil {
 				p.Send(output.Escape(sk.Name) + " whom?\n")
-				return
+				return nil, false
 			}
 		}
 		if target.mob != nil && target.mob.Proto.HasFlag("peaceful") {
 			p.Send("You can't bring yourself to attack " + output.Escape(target.Name) + ".\n")
-			return
+			return nil, false
 		}
 		if p.Room.Safe() {
 			p.Send("You cannot fight here.\n")
-			return
+			return nil, false
 		}
 		if sameGroup(c, target) {
 			p.Send("You can't attack a member of your group.\n")
-			return
+			return nil, false
+		}
+		return []*Character{target}, true
+	case "area":
+		if p.Room.Safe() {
+			p.Send("You cannot fight here.\n")
+			return nil, false
+		}
+		var foes []*Character
+		for _, o := range w.enemiesOf(c) {
+			if !sameGroup(c, o) && (o.mob == nil || !o.mob.Proto.HasFlag("peaceful")) {
+				foes = append(foes, o)
+			}
+		}
+		if len(foes) == 0 {
+			p.Send("You aren't fighting anyone.\n")
+			return nil, false
+		}
+		return foes, true
+	case "ally":
+		if args == "" {
+			p.Send(output.Escape(sk.Name) + " whom?\n")
+			return nil, false
+		}
+		ally := w.findCharacter(p.Room, c, args)
+		switch {
+		case ally == nil:
+			p.Send("They aren't here.\n")
+			return nil, false
+		case ally == c:
+			p.Send("You can't do that to yourself.\n")
+			return nil, false
+		case ally.mob != nil && !sameGroup(c, ally):
+			p.Send("Only a player or a member of your group.\n")
+			return nil, false
+		case ally.Fighting == c:
+			p.Send(ally.DisplayName() + " is fighting you!\n")
+			return nil, false
+		case len(w.attackersOf(ally)) == 0:
+			p.Send("Nobody is fighting " + output.Escape(ally.Name) + ".\n")
+			return nil, false
+		}
+		return []*Character{ally}, true
+	}
+	return []*Character{nil}, true
+}
+
+// attackersOf is everyone in c's room fighting c.
+func (w *World) attackersOf(c *Character) []*Character {
+	if c.Room == nil {
+		return nil
+	}
+	var out []*Character
+	for _, o := range w.charactersIn(c.Room) {
+		if o != c && o.Fighting == c {
+			out = append(out, o)
 		}
 	}
-	e := ensureSkill(c, sk)
-	var r SkillResult
-	args2 := []any{w.view(c), nil, skillView(sk), e.View()}
-	if target != nil {
-		args2[1] = w.view(target)
-	}
-	if !w.call("useSkill", &r, args2...) || !r.OK {
-		msg := r.Message
-		if msg == "" {
-			msg = "You can't do that right now."
-		}
-		p.Send(output.Escape(msg) + "\n")
-		return
-	}
-	c.lastSkillRound = w.roundCount + 1
-	if c.cooldowns == nil {
-		c.cooldowns = map[string]int{}
-	}
-	if sk.Cooldown > 0 {
-		c.cooldowns[key] = sk.Cooldown
-	}
-	applySkillRatings(c, r.Skills)
+	return out
+}
+
+// skillOutcome applies and narrates one result of a skill on one target
+// (nil for a skill on the user alone).
+func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillResult) {
 	verb := output.Escape(r.Verb)
 	if verb == "" {
 		verb = output.Escape(strings.ToLower(sk.Name))
 	}
-	if target != nil {
+	switch {
+	case target != nil && sk.Target == "ally":
+		if !r.Hit {
+			w.act("You fail to "+verb+" $N.", c, target, "", toChar)
+			break
+		}
+		w.act("You "+verb+" $N!", c, target, "", toChar)
+		w.act("$n "+verb+"s you!", c, target, "", toVict)
+		w.act("$n "+verb+"s $N!", c, target, "", toNotVict)
+		if r.Taunt {
+			// Everyone fighting the ally turns on the rescuer.
+			for _, o := range w.attackersOf(target) {
+				o.Fighting = c
+				o.swing = 0
+				if c.Fighting == nil {
+					c.Fighting = o
+					c.swing = 0
+				}
+			}
+		}
+	case target != nil:
 		w.startFightIfIdle(c, target)
 		if !r.Hit {
 			switch r.Stage {
@@ -271,6 +396,11 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 				w.act("$n's "+verb+" misses you.", c, target, "", toVict)
 				w.act("$n's "+verb+" misses $N.", c, target, "", toNotVict)
 			}
+		} else if r.Damage <= 0 {
+			// A landed use that does no harm by itself (Feint, Disarm).
+			w.act("Your "+verb+" catches $N.", c, target, "", toChar)
+			w.act("$n's "+verb+" catches you.", c, target, "", toVict)
+			w.act("$n's "+verb+" catches $N.", c, target, "", toNotVict)
 		} else {
 			dmg := itoa(r.Damage)
 			_, word, punct := w.hitWords(r.Damage, target)
@@ -279,8 +409,14 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 			w.act("$n's "+verb+" "+word+" $N"+punct, c, target, "", toNotVict)
 			target.Health -= r.Damage
 		}
-	} else if r.Message == "" {
+	case r.Message == "" && r.Heal <= 0:
 		w.act("You use $t.", c, nil, output.Escape(sk.Name), toChar)
+	}
+	if r.Heal > 0 && c.Health > 0 {
+		healed := max(0, min(r.Heal, c.HealthMax-c.Health))
+		c.Health += healed
+		w.act("Your "+verb+" heals you. {G}["+itoa(healed)+"]{x}", c, nil, "", toChar)
+		w.act("$n looks steadier.", c, nil, "", toRoom)
 	}
 	for _, se := range r.Effects {
 		on := c
@@ -294,7 +430,7 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 		w.recalc(on)
 	}
 	if r.Message != "" {
-		p.Send(output.Escape(r.Message) + "\n")
+		c.Send(output.Escape(r.Message) + "\n")
 	}
 	if target != nil && target.Health <= 0 {
 		w.die(target, c)

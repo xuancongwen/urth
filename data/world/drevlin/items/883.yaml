@@ -1,0 +1,11 @@
+vnum: 883
+name: a pair of hobnailed Geg boots
+keywords: [pair, hobnailed, geg, boots]
+description: A pair of wide, hobnailed boots stands here in a puddle.
+look: |
+  Broad as shovels, thick-soled, and hobnailed for walking on wet
+  iron. A Geg wears them for thirty years and hands them down.
+type: armor
+slot: feet
+level: 4
+baseline: medium

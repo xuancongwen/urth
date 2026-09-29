@@ -1,0 +1,13 @@
+vnum: 1425
+name: a kobold's candle
+keywords: [kobold's, kobold, candle, wax]
+description: A fat, lumpy candle of yellow wax sits here, burning.
+look: |
+  A stub of tallow as thick as your wrist, the kind the kobolds glue to
+  their caps before they go into the delve. It gives a mean yellow light
+  and a smell of mutton. Somewhere, a kobold is very upset that you have
+  it.
+type: light
+weight: 1
+value: 8
+burn: 900

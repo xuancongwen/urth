@@ -5,8 +5,10 @@ description: A plain staff of blue crystal leans in a corner where somebody left
 look: |
   Smooth blue stone, a little longer than a walking stick, cool in the
   hand. It looks like nothing much. When you hold it you feel better than
-  you did, and you are not sure why. Those who remember the old gods would
-  know what it is, and where it belongs.
+  you did, and you are not sure why; cuts close while you watch them, even
+  in the thick of a fight, and blows land as though through thick cloth.
+  Those who remember the old gods would know what it is, and whose it is,
+  and why the Seekers would burn the inn down to find it.
 type: weapon
 level: 6
 baseline: standard
@@ -20,3 +22,5 @@ effects:
     params: { stat: wisdom, amount: 3 }
   - kind: defense
     params: { amount: 4 }
+  - kind: regen
+    params: { fraction: 0.02 }

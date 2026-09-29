@@ -1,0 +1,15 @@
+vnum: 1420
+name: an orc warrior
+keywords: [orc, warrior, grunt, veteran]
+description: A scarred orc warrior sharpens a great axe beside the firepit.
+look: |
+  Green-skinned, tusked, and heavy with old wounds, a veteran of the
+  First War with a clan mark ground half away by a shield strap. He
+  has broken more Alliance shields than he has had meals. Lok'tar, he
+  says, and will teach you to split a guard and the armour behind it,
+  for coin.
+level: 16
+flags: [peaceful]
+teaches: [sunder]
+attack:
+  verb: cleave

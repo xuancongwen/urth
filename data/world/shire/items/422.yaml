@@ -1,0 +1,19 @@
+vnum: 422
+name: an Old Forest quarterstaff
+keywords: [old, forest, quarterstaff, staff, ash]
+description: A long staff of grey ash lies under the eaves, half grown over with moss.
+look: |
+  A straight pole of Old Forest ash, grey and hard and cut long ago by
+  someone who knew better than to stay. The moss on it keeps coming
+  back. Holding it, your feet find the roots before you trip on them.
+type: weapon
+level: 9
+baseline: staff
+weight: 3
+value: 60
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: steady, params: { chance: 0.2 } }

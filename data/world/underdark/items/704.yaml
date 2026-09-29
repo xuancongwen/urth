@@ -5,7 +5,9 @@ description: A whip of five living snakes writhes on the floor, hissing.
 look: |
   The handle is bone. The lashes are five snakes, alive, fanged, and of
   one mind that is not yours. They hate you a little less once you hold
-  them, which is not the same as liking you.
+  them, which is not the same as liking you. They bite with every lash,
+  venom on venom, and a bitten limb goes slow and heavy. Only Lolth's
+  high priestesses are given one, and they feel wiser for it.
 type: weapon
 level: 18
 baseline: heavy
@@ -13,3 +15,10 @@ weapon:
   hands: 1
   kind: slash
   verb: lash
+effects:
+  - kind: envenom
+    params: { power: 0.12, rounds: 3, maxStacks: 3 }
+  - kind: chill
+    params: { chance: 0.15, mult: 0.6, rounds: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

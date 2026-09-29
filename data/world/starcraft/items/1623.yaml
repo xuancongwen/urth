@@ -1,0 +1,23 @@
+vnum: 1623
+name: the Xel'Naga artifact
+keywords: [xel'naga, xelnaga, xel, naga, artifact, relic]
+description: An ancient artifact of pale stone and gold light hangs in the air here.
+look: |
+  A relic of the Xel'Naga, the ones who made both the Protoss and the
+  zerg: interlocking arcs of pale stone around a core of golden light,
+  turning slowly with no hand on them. The cerebrate had coiled around
+  it to feed. Held, it pours out a pulse of light that burns everything
+  near, and it fills the mind of its bearer with a patience and clarity
+  that are not quite human.
+type: armor
+slot: hold
+weight: 4
+level: 24
+value: 6000
+effects:
+  - kind: aura
+    params: { power: 0.25, verb: pulse of Xel'Naga light }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

@@ -5,7 +5,7 @@ description: A gibberling comes out of the gorse at a run, gibbering.
 look: |
   A knee-high thing of teeth and matted hair that thinks in numbers and
   only in numbers. One is nothing. There is never one.
-level: 2
+level: 1
 flags: [assist]
 attack:
   verb: bite

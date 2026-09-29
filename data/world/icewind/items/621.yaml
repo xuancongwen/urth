@@ -1,0 +1,15 @@
+vnum: 621
+name: a pair of dwarven greaves
+keywords: [pair, dwarven, dwarf, greaves]
+description: A pair of thick iron greaves lies in the old workings.
+look: |
+  Dwarf-forged plate for the shins and knees, heavy enough that a
+  human feels them in the hips. The dwarf who wore them stood in a
+  tunnel for three days holding it. You stand a little firmer in them.
+type: armor
+slot: legs
+level: 9
+baseline: plate
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

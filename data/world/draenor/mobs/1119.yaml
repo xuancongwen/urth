@@ -1,0 +1,15 @@
+vnum: 1119
+name: a Mag'har blademaster
+keywords: [blademaster, mag'har, maghar, orc]
+description: A Mag'har blademaster stands at the rail, a long curved blade sheathed across his back.
+look: |
+  Brown-skinned, unmarked by fel, and nearly silent. His clan never
+  drank the demon's blood, and the draenei suffer him here for the
+  patrols he breaks. The Burning Blade taught him three cuts where one
+  would do and a fourth that ends it; he will teach both, for coin, to
+  anyone who has already lived long enough to need them.
+level: 20
+flags: [peaceful]
+teaches: [triple, coup_de_grace]
+attack:
+  verb: slash

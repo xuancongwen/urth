@@ -1,0 +1,15 @@
+vnum: 1618
+name: a Confederate medic
+keywords: [medic, confederate, corpsman]
+description: A medic in white-plated armor restocks her kit between the depot shelves.
+look: |
+  Close-cropped hair, a red cross on the pauldron, and the steady hands
+  of someone who has patched marines under zergling claws. Her hardsuit
+  still hums with the injector rig. She will teach you to get your
+  breath back and keep fighting when you should be down, for coin,
+  because that is cheaper for everyone than a body bag.
+level: 18
+flags: [peaceful]
+teaches: [second_wind]
+attack:
+  verb: punch

@@ -5,7 +5,8 @@ description: A great belt of iron links, big enough to fit a barrel, lies here.
 look: |
   A belt of heavy iron links around a plate stamped with two faces, one
   scowling and one sneering. It was made for a waist twice yours; the
-  buckle has been cut new holes by someone patient.
+  buckle has been cut new holes by someone patient. Cinched tight, it
+  lends a little of an ogre's brawn and an ogre's refusal to fall over.
 type: armor
 slot: belt
 level: 16
@@ -13,3 +14,6 @@ baseline: heavy
 value: 400
 mods:
   strength: 1
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

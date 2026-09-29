@@ -5,6 +5,8 @@ resets:
   - { mob: 1208, room: 1207, max: 3, equip: [{ item: 1218 }] }
   - { mob: 1200, room: 1203 }                                     # Mr Tumnus at home
   - { item: 1212, room: 1203 }                                    # his muffler, over a chair
+  - { item: 1226, room: 1203 }                                    # and his flute, by the teapot
+  - { item: 1228, room: 1208 }                                    # a dwarf's hood in the glade
   - { mob: 1209, room: 1204, max: 3, equip: [{ item: 1202 }] }    # spy-ravens drop feathers
   - { mob: 1209, room: 1209, max: 3, equip: [{ item: 1202 }] }
   # --- the Beavers ---
@@ -20,18 +22,22 @@ resets:
   - { mob: 1202, room: 1217, equip: [{ item: 1205, slot: neck }, { item: 1201 }] }   # Maugrim
   # --- the dwarves ---
   - { mob: 1206, room: 1211, max: 2, equip: [{ item: 1203, slot: wield }] }
-  - { mob: 1219, room: 1229, max: 3, equip: [{ item: 1215, slot: body }] }
-  - { mob: 1207, room: 1213, equip: [{ item: 1204, slot: wield }, { item: 1217 }] }
+  - { mob: 1219, room: 1229, max: 3, equip: [{ item: 1215, slot: body }, { item: 1224, slot: wrist1 }] }
+  - { mob: 1207, room: 1213, equip: [{ item: 1204, slot: wield }, { item: 1230, slot: hands }, { item: 1217 }, { item: 1231 }] }   # the chief dwarf, with Susan's horn stolen from the gifts
+  - { item: 1227, room: 1212 }                                    # greaves in a drift below the castle
   # --- the Witch's castle ---
-  - { mob: 1213, room: 1215 }                                     # minotaur at the throne-room doors
+  - { mob: 1213, room: 1215, equip: [{ item: 1221, slot: wield }] }   # minotaur at the throne-room doors
   - { mob: 1215, room: 1216 }                                     # werewolf in the dungeon
-  - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }] }
+  - { item: 1233, room: 1216 }                                    # Reepicheep's rapier, in a prisoner's straw
+  - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }, { item: 1234 }] }   # the Witch, wand, crown, and the stone knife
   # --- Aslan's side ---
   - { mob: 1216, room: 1220 }
   - { mob: 1217, room: 1220, max: 2 }
+  - { mob: 1220, room: 1220 }                                     # the centaur hunter, who teaches hamstring
   # --- the Stone Table and the war camp ---
-  - { mob: 1211, room: 1222 }
-  - { mob: 1212, room: 1223, max: 2 }
-  - { mob: 1210, room: 1223, max: 3 }
+  - { mob: 1211, room: 1222, equip: [{ item: 1232 }] }             # the hag, with a lock of Aslan's mane
+  - { mob: 1212, room: 1223, max: 2, equip: [{ item: 1222, slot: wield }] }   # ogres and their cudgels
+  - { mob: 1210, room: 1223, max: 3, equip: [{ item: 1223, slot: wield }] }   # boggles and their flails
   # --- the coast ---
-  - { mob: 1218, room: 1228, max: 2 }
+  - { mob: 1218, room: 1228, max: 2, equip: [{ item: 1229 }] }     # shore crabs, and a shell for a shield
+  - { item: 1225, room: 1227 }                                    # Narnian mail on its stand

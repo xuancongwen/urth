@@ -1,0 +1,20 @@
+vnum: 532
+name: the Boots of Speed
+keywords: [boots, speed, pair]
+description: A pair of soft, winged boots lies here, twitching as if eager to run.
+look: |
+  Supple red leather with a tiny silver wing stitched at each ankle.
+  Put them on and the world seems to wait for you: blows arrive late,
+  mud lets go of your heels, and nothing that would slow you holds for
+  long. Tarnesh bought them with bounty money and wore them to run.
+type: armor
+slot: feet
+level: 6
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: steady
+    params: { chance: 0.15, slow: 0.5 }

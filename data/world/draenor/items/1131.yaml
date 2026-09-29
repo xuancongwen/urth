@@ -1,0 +1,16 @@
+vnum: 1131
+name: a band of nether-silk
+keywords: [band, nether-silk, nether, silk, wristband]
+description: A band of black cloth that seems to have no surface lies here.
+look: |
+  A wristband woven from something that drifted in from the Nether and
+  snagged on the island's rocks. It is cool, and you can see stars in it
+  if you look too long. Blows slide off it into nothing.
+type: armor
+slot: wrist
+weight: 0
+level: 17
+baseline: cloth
+effects:
+  - kind: dodge
+    params: { amount: 0.02 }

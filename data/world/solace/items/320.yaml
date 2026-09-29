@@ -1,0 +1,13 @@
+vnum: 320
+name: a Seeker's brown hood
+keywords: [seeker's, seeker, brown, hood]
+description: A brown wool hood lies here.
+look: |
+  Brown wool, lined with linen, cut to shade the eyes so that no one
+  can tell whether a Seeker is looking at them. They always are.
+type: armor
+slot: head
+weight: 1
+level: 4
+baseline: cloth
+value: 25

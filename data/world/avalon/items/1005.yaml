@@ -5,7 +5,8 @@ description: A slender spear with a leaf-shaped silver head lies here.
 look: |
   The shaft is pale ash, the head a leaf of silver that never tarnishes.
   It is lighter than a spear has any right to be, and it finds the gaps
-  in things.
+  in things, including the gaps between this world and the one beside
+  it: whoever holds it sees what walks there unseen.
 type: weapon
 level: 11
 baseline: standard
@@ -17,3 +18,4 @@ weapon:
 effects:
   - kind: crit
     params: { chance: 0.1, mult: 2 }
+  - kind: detectInvisible

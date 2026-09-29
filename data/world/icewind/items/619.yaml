@@ -1,0 +1,14 @@
+vnum: 619
+name: a goblin's spiked flail
+keywords: [goblin, goblins, spiked, flail]
+description: A chain flail with a spiked iron ball lies here.
+look: |
+  A dwarven pick-head, filed round and studded with nails, on a length
+  of mine chain. Goblin work: ugly, heavy, and it comes around shields.
+type: weapon
+level: 8
+baseline: flail
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

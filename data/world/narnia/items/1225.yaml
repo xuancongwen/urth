@@ -1,0 +1,17 @@
+vnum: 1225
+name: a coat of Narnian mail
+keywords: [coat, narnian, mail, hauberk]
+description: A long coat of bright mail hangs on a stand by the wall.
+look: |
+  Close-woven rings of bright steel with a surcoat of red and gold, the
+  lion of Narnia on the breast. It was made in the armoury of Cair
+  Paravel for the day the four thrones are filled, and it wears like
+  a promise.
+type: armor
+slot: body
+level: 11
+baseline: heavy
+weight: 12
+value: 150
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

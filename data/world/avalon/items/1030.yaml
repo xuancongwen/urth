@@ -1,0 +1,27 @@
+vnum: 1030
+name: Excalibur
+keywords: [excalibur, caliburn, sword, blade]
+description: A sword lies here, and its blade burns with the light of thirty torches.
+look: |
+  The sword the Lady of the Lake gave into Arthur's hand from beneath
+  the water, bright as thirty torches, with a hilt of gold and gems and
+  words on the blade: take me up, on the one side, and cast me away, on
+  the other. Morgan stole it for her lover to kill her brother with, and
+  it would not kill him. It cuts deeper than common steel, it makes a
+  king of whoever holds it, and it will not let its bearer be knocked
+  from their feet.
+type: weapon
+level: 12
+baseline: standard
+weight: 4
+value: 1500
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

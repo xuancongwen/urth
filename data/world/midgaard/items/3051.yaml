@@ -1,0 +1,19 @@
+vnum: 3051
+name: a grave-iron flail
+keywords: [grave-iron, grave, iron, flail]
+description: A black iron flail lies half-sunk in the grass of an old grave.
+look: |
+  Two spiked iron balls on chains, black with age, buried with some
+  soldier who wanted it to hand. It is heavy work to swing, and it goes
+  round a shield as if the shield were not there.
+type: weapon
+weight: 6
+level: 8
+baseline: flail
+value: 110
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }

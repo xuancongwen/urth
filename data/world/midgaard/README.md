@@ -4,7 +4,7 @@ Midgaard, the old city of every Diku mud, after ROM 2.4: the Temple and
 its altar, Temple Square, Main Street and the Market Square with its
 shops, the Common Square and the Town Hall, the guilds, the Grunting
 Boar, both city gates, Poor Alley and the thieves, the river, the dump,
-the graveyard, and the sewers under the city. Levels 1 to 15. Reached
+the graveyard, and the sewers under the city. Levels 2 to 15. Reached
 through the west door of the Hall of Far Doors (room 7 in `start`), which
 opens into the Temple of Midgaard (3001).
 
@@ -75,13 +75,36 @@ something found in Midgaard as well as coin:
 
 ## Mobs
 
-Fido (1), the cat (1), a beggar (1), the janitor (2), the drunk (2),
-the beastly fido (3), sewer rats (3), the gravedigger (4), a pickpocket
-(5), restless zombies (6), the rat king (7), the crypt ghoul (9),
+The janitor (2), the drunk (2), Fido (3), the cat (3), a beggar (3),
+the beastly fido (5), the gravedigger (5), a pickpocket (5), sewer rats
+(6), restless zombies (7), the crypt ghoul (9), the rat king (10),
 cityguards (10), the mayor (13), the Peacekeeper (14), and Hassan (15)
 in the Grunting Boar. Peaceful: the shopkeepers, the banker, the high
-priest, the sorcerer, the master thief (teaches riposte), and the
-warrior guildmaster (teaches bash and twin).
+priest, the sorcerer, the master thief (teaches riposte and backstab),
+the warrior guildmaster (teaches bash and twin), and the fencing master
+in the training hall (teaches feint).
 
 The Mayor's lost ledger (3035) is a quest item, planted only by a
 questmaster.
+
+## Notable items
+
+| Vnum | Item | Level | Where |
+|---|---|---|---|
+| 3028 | Hassan's scimitar: hard crits, a dancer's dodge, cruel to the wounded | 15 | Hassan, the Grunting Boar |
+| 3032 | the Peacekeeper's steel halberd: parries, the hook trips | 14 | the Peacekeeper, Market Square |
+| 3040 | the Peacekeeper's badge: sanctuary's softer blows, unflinching | 14 | the Peacekeeper |
+| 3024 | the mayor's gold signet ring: charisma, knows secrets, trouble slides off | 13 | the mayor |
+| 3036 | the sword of the ancients: the old kings' wrath, sees the unseen | 10 | lying in the Crypt (3047) |
+| 3037 | the rat king's crown: sees the hidden, rat-quick, stinks | 10 | the rat king, Rats' Nest |
+| 3039 | a ring of regeneration: heals even in a fight | 10 | the rat king's hoard (3064) |
+| 3027 | a ghoul's thighbone club: grave rot | 9 | the crypt ghoul |
+| 3038 | the gravedigger's shovel: finishes the failing and the staggered | 5 | the gravedigger |
+| 3041 | a bag of holding (holds 150) | - | the pickpocket |
+| 3052 | the big bag (holds 100) | - | the City Dump |
+
+Ordinary finds: broken bottle (drunk, 2), janitor's push-broom (2),
+studded dog collar (Fido, 3), frayed rope belt (beggar, 3), thief's
+gloves (pickpocket, 5), fisherman's spear (Riverbank, 5), sewer waders
+(Sewers 3062, 6), burial shroud (Mausoleum zombies, 7), grave-iron flail
+(Old Graves, 8), cityguard's greaves (gate guards, 10).

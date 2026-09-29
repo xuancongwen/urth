@@ -64,7 +64,7 @@ type World struct {
 	// doors is the live state of every door someone has touched, true
 	// when closed, keyed by room and direction. Untouched doors are in
 	// the state their room file gives; an area reset forgets its entries.
-	doors   map[doorKey]bool
+	doors   map[doorKey]doorState
 	rng     *rand.Rand
 	events  chan session.Event
 	posts   chan func()
@@ -117,7 +117,7 @@ func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *Worl
 		players:        map[session.ID]*Player{},
 		rooms:          map[int]*roomContents{},
 		areas:          map[string]*areaState{},
-		doors:          map[doorKey]bool{},
+		doors:          map[doorKey]doorState{},
 		rng:            newRNG(),
 		scripts:        deps.Scripts,
 		hookErrors:     map[string]time.Time{},

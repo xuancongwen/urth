@@ -1,0 +1,21 @@
+vnum: 1323
+name: the Optic Amulet
+keywords: [optic, amulet, eye]
+description: An amulet shaped like a lidless eye lies here, watching.
+look: |
+  A disc of dark crystal on a silver chain, cut into the likeness of an
+  open eye, taken from the halls where the blind things wait. It lets
+  the wearer see what is hiding in the dark, and it takes the edge off
+  every blow as if it had seen it coming. Leoric wore it in his tomb,
+  and it did not stop him dying, only noticing.
+type: armor
+slot: neck
+weight: 0
+level: 17
+value: 1500
+effects:
+  - kind: detectHidden
+  - kind: soak
+    params: { power: 0.1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }

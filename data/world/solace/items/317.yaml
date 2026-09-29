@@ -1,0 +1,16 @@
+vnum: 317
+name: a too-small velvet doublet
+keywords: [too-small, small, velvet, doublet]
+description: A crimson velvet doublet, split at every seam, lies here.
+look: |
+  Good crimson velvet with gilt buttons, looted from some Haven merchant
+  and stretched past bearing by a hobgoblin two sizes too big for it.
+  On anyone the right size it still looks rather fine.
+type: armor
+slot: body
+weight: 2
+level: 3
+baseline: cloth
+value: 60
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

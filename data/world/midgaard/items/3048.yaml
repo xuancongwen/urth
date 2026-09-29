@@ -1,0 +1,16 @@
+vnum: 3048
+name: a fisherman's spear
+keywords: [fisherman's, fisherman, spear, fishing]
+description: A barbed fishing spear lies in the reeds.
+look: |
+  A long pole with a barbed iron head, made for the river's big eels.
+  It keeps an attacker at arm's length just as well.
+type: weapon
+weight: 3
+level: 5
+baseline: spear
+value: 45
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust

@@ -8,6 +8,6 @@ look: |
   how to hit something so that it stays hit.
 level: 10
 flags: [peaceful]
-teaches: [bash]
+teaches: [bash, shield_block]
 attack:
   verb: punch

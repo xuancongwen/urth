@@ -40,7 +40,7 @@ resets:
   - { item: 990, into: 104, room: 940 }   # rend wants two: more in the backpack and the purse
   - { item: 990, into: 109, room: 940 }
   # --- the muster room (941): trainer and quartermaster ---
-  - { mob: 942, room: 941 }    # drillmaster: bash, twin
+  - { mob: 942, room: 941 }    # drillmaster: bash, twin, and the other warrior basics
   - { mob: 943, room: 941 }    # quartermaster: quests and quest points
   # --- the arena, south row (910-913): levels 1 to 3 ---
   - { mob: 931, room: 910, max: 2 }   # dogs
@@ -92,5 +92,5 @@ resets:
   - { item: 125, room: 932 }
   - { item: 941, room: 932 }   # the other gods' sacrifices
   - { item: 942, room: 932 }
-  - { mob: 940, room: 936 }    # the specialty trainers: rend, riposte
+  - { mob: 940, room: 936 }    # the specialty trainers: rend and the brutal skills, riposte and the finesse ones
   - { mob: 941, room: 936 }

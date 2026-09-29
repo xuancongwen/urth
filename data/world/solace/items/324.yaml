@@ -1,0 +1,17 @@
+vnum: 324
+name: a spider-fang dagger
+keywords: [spider-fang, spider, fang, dagger]
+description: A long curved fang, bound to a bone grip, lies among the bones.
+look: |
+  A giant spider's fang lashed to a bone handle by someone who came in
+  here to hunt and stayed. The hollow of the fang is still wet.
+type: weapon
+weight: 1
+level: 2
+baseline: dagger
+value: 45
+weapon:
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: envenom, params: { power: 0.05, rounds: 3, maxStacks: 1 } }

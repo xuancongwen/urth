@@ -1,0 +1,19 @@
+vnum: 1027
+name: a nightshade briar whip
+keywords: [nightshade, briar, whip, thorn]
+description: A long whip of braided briar lies coiled among the nightshade.
+look: |
+  Living briar, braided into a lash and still putting out leaves, with
+  thorns as long as a fingernail and wet with something purple from
+  Morgan's garden. What it scratches, it sickens.
+type: weapon
+level: 9
+baseline: whip
+weight: 1
+value: 60
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - { kind: envenom, params: { power: 0.05, rounds: 3, maxStacks: 1 } }

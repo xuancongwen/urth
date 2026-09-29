@@ -1,0 +1,15 @@
+vnum: 1524
+name: a bronze arm-ring
+keywords: [bronze, arm-ring, arm, ring, band]
+description: A heavy band of dark bronze lies here.
+look: |
+  One of the warlord's bands, one for each fight won, beaten from old
+  bronze and scratched with a crude mark. Slide it on and you feel the
+  fight it stands for.
+type: armor
+slot: wrist
+level: 11
+weight: 1
+value: 50
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }

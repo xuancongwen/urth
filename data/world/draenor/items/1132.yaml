@@ -1,0 +1,16 @@
+vnum: 1132
+name: a fel iron piston-hammer
+keywords: [fel, iron, piston-hammer, piston, hammer, mace]
+description: A hammer made from a great iron piston lies here.
+look: |
+  One of the fel reaver's pistons, broken off and fitted with a haft.
+  The head is a solid drum of fel iron. It does not so much hit armor as
+  go through it.
+type: weapon
+weight: 12
+level: 19
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

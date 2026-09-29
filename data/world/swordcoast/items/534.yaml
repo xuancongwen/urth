@@ -1,0 +1,17 @@
+vnum: 534
+name: the Ring of Wizardry
+keywords: [ring, wizardry]
+description: A ring of twisted gold and silver wires lies here, faintly humming.
+look: |
+  Two wires, gold and silver, twisted together around a chip of blue
+  stone. Wear it and your thoughts come faster and in better order, and
+  the air shows you things that were hiding in it. It came to Mulahey
+  as payment from someone further up the Iron Throne's ladder.
+type: armor
+slot: finger
+level: 10
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: detectInvisible

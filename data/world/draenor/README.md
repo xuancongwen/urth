@@ -18,8 +18,20 @@ Levels, roughly in walking order: felhounds and fel orc grunts 12,
 warlock and fen rays 13, infernal and rampart sentries 14, naga
 myrmidons 14, bog lord 15, Warchief Gorvash 16 (boss of the citadel;
 axe and horned helm), naga tidecaller 16 (boss of the marsh; trident),
-nether rays 17, void terror 18, fel reaver 19, Mograth the Unmade 20
-(the boss; glaive and mantle).
+nether rays 17, void terror 18 (guards Frostmourne; the Helm of
+Domination lies in the same dark hollow), fel reaver 19, Mograth the
+Unmade 20 (the boss; glaive and mantle, and Gorehowl as a trophy). The
+tidecaller also keeps a Warglaive of Azzinoth for her master.
+
+Uniques: a Warglaive of Azzinoth (16; fel fire, evasion, sees the
+invisible), Frostmourne (18; chills, feeds on what it cuts, strength at
+the cost of Wisdom), the Helm of Domination (18; a grave-frost aura, a
+commanding mind, hard to stagger), Gorehowl (20; reckless fury and
+execution). The executioner axe, trident, glaive, horned helm, and mantle
+all carry their own effects now. Common finds: fel-stained harnesses,
+a Shadow Council kris, infernal-rock gauntlets, Hellfire tower shields,
+naga scimitars, a black coral ring, the bog lord's heartwood staff, a
+fen ray tail-lash, nether-silk, and a fel iron piston-hammer.
 
 Merchants:
 

@@ -1,0 +1,14 @@
+vnum: 1224
+name: an iron-studded bracer
+keywords: [iron-studded, iron, studded, bracer]
+description: A leather bracer set with iron studs lies here.
+look: |
+  A dwarf's forearm-guard of thick leather studded with iron, the
+  Queen's mark burned into the inside. It is made to turn a blade
+  aside, and to hit people with when the blade is busy.
+type: armor
+slot: wrist
+level: 8
+baseline: medium
+weight: 1
+value: 20

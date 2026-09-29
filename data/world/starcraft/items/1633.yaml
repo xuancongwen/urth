@@ -1,0 +1,16 @@
+vnum: 1633
+name: a shock baton
+keywords: [shock, baton, stick, mace]
+description: A black riot baton with a crackling tip lies here.
+look: |
+  A heavy baton of black polymer with a capacitor in the grip and a pair
+  of electrodes at the tip. The drill sergeant uses it for
+  resocialization refresher courses. It crackles when it lands.
+type: weapon
+weight: 2
+level: 16
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

@@ -1,0 +1,14 @@
+vnum: 419
+name: a belt with a pipe-weed pouch
+keywords: [belt, pipe-weed, pipeweed, pouch]
+description: A worn leather belt with a pouch on it lies coiled in the lane.
+look: |
+  A hobbit's belt of soft brown leather, let out twice, with a brass
+  buckle and a pouch that still smells of Longbottom Leaf. It holds
+  your breeches up and your spirits with them.
+type: armor
+slot: belt
+level: 2
+baseline: light
+weight: 1
+value: 6

@@ -1,11 +1,13 @@
 vnum: 1612
 name: a khaydarin amulet
-keywords: [khaydarin, amulet, crystal]
+keywords: [khaydarin, amulet, crystal, tassadar]
 description: A pendant of pale yellow crystal glows softly here.
 look: |
-  A shard of khaydarin crystal on a chain of woven gold. It is warm, and
-  when you hold it the noise in your own head grows orderly and quiet, as
-  if someone older and calmer had begun thinking alongside you.
+  A shard of khaydarin crystal on a chain of woven gold, cut, the
+  templar say, from the same stone Tassadar carried to Char. It is warm,
+  and when you hold it the noise in your own head grows orderly and
+  quiet, as if someone older and calmer had begun thinking alongside
+  you, and very little can shake you off your feet.
 type: armor
 slot: neck
 level: 23
@@ -15,3 +17,5 @@ effects:
     params: { stat: intelligence, amount: 3 }
   - kind: stat
     params: { stat: wisdom, amount: 3 }
+  - kind: steady
+    params: { chance: 0.3 }

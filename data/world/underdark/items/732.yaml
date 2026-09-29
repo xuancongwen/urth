@@ -1,0 +1,26 @@
+vnum: 732
+name: Zaknafein's sword
+keywords: [zaknafein, zaknafeins, zak, sword, adamantite]
+description: A long adamantite sword lies at the foot of a pillar, laid there like an offering.
+look: |
+  The weapon master of House Do'Urden fought with two of these and was
+  never bested with them; Matron Malice gave him to the Spider Queen
+  anyway, and his sword was left here as a trophy. It is perfectly
+  balanced and utterly plain. In the hand it teaches: where the guard
+  drops, where a stumbling foe is open, where one stroke ends it.
+type: weapon
+level: 19
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: cut
+effects:
+  - kind: opportunist
+    params: { mult: 1.25 }
+  - kind: critMult
+    params: { amount: 0.4 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

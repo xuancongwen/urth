@@ -5,8 +5,8 @@ description: An ogre sits among the tents, gnawing a bone as long as your arm.
 look: |
   Nine feet of slab-muscled, warty flesh in a jerkin of stitched hides.
   Its eyes are small and its patience is smaller.
-level: 7
-health: 190
+level: 9
+health: 230
 silver: 30
 stats: {strength: 14, intelligence: 6}
 attack:

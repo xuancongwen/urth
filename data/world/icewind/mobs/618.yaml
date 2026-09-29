@@ -1,0 +1,15 @@
+vnum: 618
+name: a barbarian of Tempus
+keywords: [barbarian, tempus, elk, tribesman]
+description: A towering Reghed barbarian drinks alone by the peat fire, an axe across his knees.
+look: |
+  A man of the Tribe of the Elk, bearskin over bare shoulders, the
+  sword-and-shield of Tempus burned into one forearm. The townsfolk
+  give him the whole bench. He says the Lord of Battles comes to a man
+  in the fight and fills him red; he will show you how to let him in,
+  for coin, and for the look on your face afterwards.
+level: 12
+flags: [peaceful]
+teaches: [berserk]
+attack:
+  verb: cleave

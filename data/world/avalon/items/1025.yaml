@@ -1,0 +1,17 @@
+vnum: 1025
+name: a cider-press mallet
+keywords: [cider-press, cider, press, mallet, maul]
+description: A heavy wooden mallet lies against a barrel.
+look: |
+  A mallet of iron-bound applewood used to drive the wedges of the
+  cider press, sticky with old juice. It squashes things. That is what
+  it is for.
+type: weapon
+level: 7
+baseline: mace
+weight: 5
+value: 20
+weapon:
+  hands: 1
+  kind: blunt
+  verb: pound

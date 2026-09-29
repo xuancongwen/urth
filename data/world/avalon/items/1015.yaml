@@ -6,7 +6,8 @@ look: |
   A band of red gold, unadorned, hammered thin and worn smooth by the
   brows of kings whose names were never written down. It weighs almost
   nothing. Put it on and you feel you could stand a long time against
-  something that would not stop.
+  something that would not stop, and that the blows of it would come to
+  you smaller than they were sent.
 type: armor
 slot: head
 level: 12
@@ -16,3 +17,5 @@ value: 350
 effects:
   - kind: stat
     params: { stat: constitution, amount: 2 }
+  - kind: soak
+    params: { power: 0.08 }

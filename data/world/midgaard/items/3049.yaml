@@ -1,0 +1,14 @@
+vnum: 3049
+name: a pair of sewer waders
+keywords: [pair, sewer, waders]
+description: A pair of tarred leather waders lies here, dripping.
+look: |
+  Hip-high tarred leather, stiff and dark with things best not thought
+  about. The sewer workers gave up on this stretch after the rats got
+  big.
+type: armor
+slot: legs
+weight: 4
+level: 6
+baseline: light
+value: 50

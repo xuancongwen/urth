@@ -1,0 +1,29 @@
+vnum: 1320
+name: Windforce
+keywords: [windforce, hydra, bow, longbow]
+description: A great bow of pale horn and silver lies here, its string humming.
+look: |
+  A hydra bow taller than a man, horn laminated on yew and capped in
+  silver, with a string that hums a low note whenever the wind moves.
+  Its arrows do not merely strike; they hit like a gale and throw what
+  they hit back on its heels, and a foe that stumbles is a foe that is
+  hit again, harder. Some rogue of the Sisterhood carried it this far
+  into Hell and no farther.
+type: weapon
+weight: 4
+level: 20
+baseline: standard
+value: 2500
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.6, rounds: 2 }
+  - kind: opportunist
+    params: { mult: 1.15 }
+  - kind: damage
+    params: { mult: 1.08, weapon: true }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

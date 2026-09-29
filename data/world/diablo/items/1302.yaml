@@ -5,8 +5,10 @@ description: A huge cleaver lies here in a pool of something dark.
 look: |
   A slab of iron as long as a child, edged on one side and blunt as a
   door on the other, with a handle wrapped in rotten leather. The blade
-  is notched from bone and has never once been cleaned. It is heavy
-  enough to do the work with its own weight.
+  is notched from bone and has never once been cleaned, and what lives
+  in the notches festers in any cut it makes. It was made for finishing
+  things: the weaker the meat, the harder it falls. Somewhere, faintly,
+  you can still hear him. Ah. Fresh meat.
 type: weapon
 weight: 14
 level: 16
@@ -15,3 +17,10 @@ weapon:
   hands: 2
   kind: slash
   verb: cleave
+effects:
+  - kind: execute
+    params: { threshold: 0.35, mult: 1.3 }
+  - kind: envenom
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

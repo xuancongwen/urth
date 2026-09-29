@@ -1,0 +1,15 @@
+vnum: 1024
+name: a bronze cloak-pin
+keywords: [bronze, cloak-pin, cloak, pin, brooch]
+description: A heavy bronze cloak-pin, green with age, lies here.
+look: |
+  A ring-brooch of bronze with a long pin, the kind the old warriors
+  wore to hold their cloaks at the throat. It is cold, and it has held
+  a dead man's cloak shut for a very long time without once letting go.
+type: armor
+slot: neck
+level: 12
+weight: 0
+value: 70
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

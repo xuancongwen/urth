@@ -1,0 +1,24 @@
+vnum: 533
+name: the Sword of Chaos
+keywords: [sword, chaos, long, longsword]
+description: A long sword lies here, its blade shimmering through colors that do not stay.
+look: |
+  A long sword whose steel will not settle on a color: black, then
+  violet, then a green like bad water. Now and then it lashes out with
+  something that is not steel at all, and it makes its bearer strike
+  wild, brilliant, and a little careless. Silke carries it because it
+  suits her.
+type: weapon
+level: 6
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.5, verb: "flare of raw chaos" }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: dodge
+    params: { amount: -0.02 }

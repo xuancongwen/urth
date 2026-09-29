@@ -9,8 +9,21 @@ temple in a glassed canyon to the south. Levels 16 to 24. Reached
 through the west steel hatch of the Deeper Hall (room 8 in `start`),
 which opens onto the outpost's landing pad (1600).
 
-Bosses: the ultralisk (24) in its cavern and the cerebrate (24) at the
-bottom of the hive shaft; the high templar (23) in the temple sanctum.
+Bosses: the ultralisk (24) in its cavern and the cerebrate (24, the
+Xel'Naga artifact) at the bottom of the hive shaft; the high templar (23)
+in the temple sanctum. Named carriers: Drill Sergeant Kross (19,
+Raynor's confiscated revolver), the zerg queen (21, the claws of the
+Queen of Blades), the dragoon at the warp gate (22, Zeratul's warp
+blade).
+
+Uniques: Raynor's revolver (crits, finishes the wounded, Dexterity and
+Charisma), the claws of the Queen of Blades (bare hands hit harder and
+poison, zerg regeneration), Zeratul's warp blade (hard crits, dodge,
+sees the cloaked), the Xel'Naga artifact (held; a burning light aura,
+Intelligence and Wisdom). Common finds: neosteel greaves, welding
+goggles, a zergling scythe claw, a glave wurm, miners' lamps, fuel
+harnesses, plasma shield emitters, a carapace spaulder in the tunnels,
+a khaydarin ring, and a shock baton in the barracks.
 
 The bridge, the supply depot, and the engineering bay are safe. The
 overrun bunker and everything past the infested colony (spawning pool,

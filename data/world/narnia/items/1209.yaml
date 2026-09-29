@@ -1,11 +1,14 @@
 vnum: 1209
-name: a lion-hilted longsword
-keywords: [lion-hilted, lion, longsword, sword]
-description: A longsword with a golden lion on its hilt rests here.
+name: Rhindon
+keywords: [rhindon, lion-hilted, lion, longsword, sword, peter, peters]
+description: Rhindon, a longsword with a golden lion on its hilt, rests here.
 look: |
   A straight, bright blade, well balanced and a little long for most
   hands. On the cross-guard a lion is worked in gold, rampant, as if it
-  were about to leap. It feels like a gift given in earnest.
+  were about to leap. It is Rhindon, the sword Father Christmas gave
+  the eldest son of Adam, and the first thing it killed was Maugrim.
+  It feels like a gift given in earnest: it steadies the hand that
+  holds it, and it does not let a wounded wolf get up again.
 type: weapon
 level: 8
 baseline: standard
@@ -14,3 +17,7 @@ weapon:
   hands: 1
   kind: slash
   verb: slash
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: steady, params: { chance: 0.25 } }
+  - { kind: execute, params: { threshold: 0.3, mult: 1.3 } }

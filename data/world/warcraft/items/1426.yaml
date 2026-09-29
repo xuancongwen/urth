@@ -1,0 +1,17 @@
+vnum: 1426
+name: a red Defias bandana
+keywords: [red, defias, bandana, kerchief, mask]
+description: A red kerchief, knotted to be worn over a face, lies here.
+look: |
+  A square of red cloth knotted at the back, worn over the nose and
+  mouth by the brotherhood of stonemasons who turned to banditry when
+  the crown would not pay them. It hides a face and makes a hand feel
+  quick.
+type: armor
+slot: face
+weight: 0
+level: 10
+baseline: cloth
+effects:
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

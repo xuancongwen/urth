@@ -1,0 +1,19 @@
+vnum: 1023
+name: a black half-mask
+keywords: [black, half-mask, half, mask, masque]
+description: A black silk half-mask lies here, edged with raven feathers.
+look: |
+  A masque-mask of black silk stiffened with glue and edged in small
+  raven feathers, the kind Morgan's court wears when it would rather
+  not be known. Behind it you are a little harder to read, and a little
+  harder to refuse.
+type: armor
+slot: face
+level: 10
+baseline: light
+weight: 0
+value: 90
+rarity: uncommon
+effects:
+  - { kind: dodge, params: { amount: 0.02 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

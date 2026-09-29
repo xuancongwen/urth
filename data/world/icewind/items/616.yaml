@@ -1,0 +1,12 @@
+vnum: 616
+name: a wolfskin hood
+keywords: [wolfskin, wolf, hood]
+description: A hood made from a tundra wolf's head lies here.
+look: |
+  The whole head of a wolf, cured and hollowed, with the upper jaw
+  over the brow and the pelt hanging down the back. Warm, and it makes
+  the other wolves think twice.
+type: armor
+slot: head
+level: 4
+baseline: light

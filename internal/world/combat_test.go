@@ -666,8 +666,15 @@ func TestTotemSacrificeAndSpellAccess(t *testing.T) {
 	}
 	giveItem(w, w.players[1].Character, 16) // the ember totem: evocation
 	send(w, 1, "consume totem")
-	if o := bob.take(); !strings.Contains(o, "The ways of evocation open to you.") {
+	if o := bob.take(); !strings.Contains(o, "'brandish' it") {
 		t.Fatalf("consume totem: %q", o)
+	}
+	send(w, 1, "brandish totem")
+	if o := bob.take(); !strings.Contains(o, "crumbles to dust") || !strings.Contains(o, "The ways of evocation open to you.") {
+		t.Fatalf("brandish totem: %q", o)
+	}
+	if len(w.players[1].Inventory) != 0 {
+		t.Fatalf("totem not spent: %v", w.players[1].Inventory)
 	}
 	send(w, 1, "spells")
 	if o := bob.take(); !strings.Contains(o, "Bolt") || strings.Contains(o, "Ward") || !strings.Contains(o, "needs 1 ash") {

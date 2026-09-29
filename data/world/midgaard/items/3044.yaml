@@ -1,0 +1,14 @@
+vnum: 3044
+name: a studded dog collar
+keywords: [studded, dog, collar]
+description: A studded leather dog collar lies here.
+look: |
+  Thick leather with brass studs, chewed at the buckle. A tag reads
+  FIDO. Worn round a human neck it is surprisingly bracing.
+type: armor
+slot: neck
+weight: 0
+level: 3
+value: 20
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

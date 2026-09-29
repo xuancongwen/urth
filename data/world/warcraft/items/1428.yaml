@@ -1,0 +1,16 @@
+vnum: 1428
+name: a gnoll's crooked spear
+keywords: [gnoll's, gnoll, crooked, spear]
+description: A crooked spear with a rusty head lies here.
+look: |
+  A bent pole with a spearhead lashed to it with gut. The gnolls carry
+  them and rarely bother with them. Used properly, it keeps things at
+  arm's length.
+type: weapon
+weight: 4
+level: 9
+baseline: spear
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust

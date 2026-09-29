@@ -8,8 +8,8 @@ look: |
   names and a butcher's taste for the work. When he speaks it is with
   the patience of someone who has already decided how the conversation
   ends.
-level: 8
-health: 240
+level: 11
+health: 320
 silver: 40
 stats: {strength: 13, dexterity: 12}
 attack:

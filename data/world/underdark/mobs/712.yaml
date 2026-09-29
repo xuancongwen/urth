@@ -6,7 +6,7 @@ look: |
   Glossy black, marked with a red hourglass the size of your hand. Its
   fangs are wet. It has been fed on what the priestess throws it, and
   it is used to being fed.
-level: 15
+level: 18
 flags: [assist]
 attack:
   verb: bite

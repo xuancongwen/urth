@@ -1,0 +1,14 @@
+vnum: 519
+name: a cutpurse
+keywords: [cutpurse, thief, pickpocket]
+description: A cutpurse nurses one drink in a corner, watching the mercenaries' belts.
+look: |
+  A narrow face, clean hands, and boots with the heels worn on the
+  inside from running. He says he is from Baldur's Gate and that the
+  Flaming Fist wants a word with him. He will show you the gutter
+  tricks, a heel of dirt in the eyes and gone, if you pay first.
+level: 8
+flags: [peaceful]
+teaches: [dirt_kicking]
+attack:
+  verb: stab

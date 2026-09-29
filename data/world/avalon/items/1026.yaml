@@ -1,0 +1,18 @@
+vnum: 1026
+name: a knight's flail
+keywords: [knight, knights, flail, chain]
+description: A knight's flail of chain and iron ball lies here, its haft black with age.
+look: |
+  A ball of iron studded with short spikes, on a chain from an oak
+  haft bound in steel. It swings around the rim of a shield as if the
+  shield were not there, which is why the knights who came for the
+  sword brought them.
+type: weapon
+level: 8
+baseline: flail
+weight: 5
+value: 35
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

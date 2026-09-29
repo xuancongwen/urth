@@ -1,0 +1,20 @@
+vnum: 1125
+name: a Shadow Council kris
+keywords: [shadow, council, kris, dagger, knife]
+description: A wavy black dagger lies here, its edge smoking faintly.
+look: |
+  A kris of fel iron with seven waves in the blade and a hilt of
+  polished bone. The warlocks of the Shadow Council carry them to mark
+  the circle and cut the offering. It hums at the edge of hearing, full
+  of small cruel ideas.
+type: weapon
+weight: 1
+level: 13
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

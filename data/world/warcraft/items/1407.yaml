@@ -11,4 +11,4 @@ slot: shield
 level: 10
 effects:
   - kind: block
-    params: { chance: 0.2 }
+    params: { chance: 0.16 }

@@ -5,7 +5,8 @@ description: A helm made from a great horned skull lies here.
 look: |
   The skull of some beast of the wastes, horns and all, cut and lined
   with iron and padded with hide. It is heavy, and it smells, and
-  whoever wears it walks a little taller and hits a little harder.
+  whoever wears it walks a little taller and hits a little harder, and
+  stops caring so much about the blows coming back.
 type: armor
 slot: head
 level: 16
@@ -13,3 +14,5 @@ baseline: heavy
 effects:
   - kind: stat
     params: { stat: strength, amount: 1 }
+  - kind: powerAttack
+    params: { mult: 1.06, dodge: -0.02 }

@@ -5,7 +5,9 @@ description: A dagger with a blade of black glass lies here.
 look: |
   Two shards of dragonglass knapped together into a single leaf-shaped
   blade and set in a grip of weirwood bound with gut. It is lighter than
-  steel and colder, and it seems to drink the light around it.
+  steel and colder, and it seems to drink the light around it. The old
+  stories call dragonglass frozen fire, and they are right: what it cuts
+  goes on burning, black and smokeless, long after the blade is out.
 type: weapon
 level: 12
 baseline: dagger
@@ -15,4 +17,5 @@ weapon:
   kind: pierce
   verb: stab
 effects:
-  - { kind: crit, params: { chance: 0.12, mult: 2 } }
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: ignite, params: { power: 0.07, rounds: 3, maxStacks: 2 } }

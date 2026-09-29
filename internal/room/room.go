@@ -60,6 +60,12 @@ type Door struct {
 	Name string `yaml:"name"`
 	// Closed is the initial state; open doors are the default.
 	Closed bool `yaml:"closed,omitempty"`
+	// Locked doors start locked, and so closed. Key is the vnum of the
+	// item that locks and unlocks it; without one only pick opens it.
+	// Pickproof doors cannot be picked.
+	Locked    bool `yaml:"locked,omitempty"`
+	Key       int  `yaml:"key,omitempty"`
+	Pickproof bool `yaml:"pickproof,omitempty"`
 }
 
 // Door returns the door on the exit in direction dir, or nil.
@@ -199,6 +205,9 @@ func (w *World) validate() error {
 			}
 			if d == nil || d.Name == "" {
 				return fmt.Errorf("room %d (%s): door %s needs a name", r.Vnum, r.Name, dir)
+			}
+			if d.Locked {
+				d.Closed = true
 			}
 		}
 	}

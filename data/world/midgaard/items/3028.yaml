@@ -5,7 +5,9 @@ description: A curved scimitar of watered steel lies here.
 look: |
   A long curved blade with the ripple of watered steel down its length
   and a hilt wrapped in sharkskin. It has seen more of the world than
-  Midgaard.
+  Midgaard, and Hassan fights with it the desert way: light on his feet,
+  slipping the blow, then one cut that opens a man to the bone. It is
+  cruellest to a foe who is already bleeding.
 type: weapon
 weight: 3
 level: 15
@@ -16,4 +18,6 @@ weapon:
   kind: slash
   verb: slash
 effects:
-  - { kind: crit, params: { chance: 0.05, mult: 1.5 } }
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: execute, params: { threshold: 0.3, mult: 1.25 } }

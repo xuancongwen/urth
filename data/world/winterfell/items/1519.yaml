@@ -1,0 +1,14 @@
+vnum: 1519
+name: a pair of wool-lined gloves
+keywords: [pair, wool-lined, wool, lined, gloves]
+description: A pair of wool-lined leather gloves lies frozen stiff in the lane.
+look: |
+  Plain brown leather lined with thick grey wool, the fingers worn thin
+  from rope and reins. In the North a man who loses his gloves loses
+  his fingers next, and someone is going to miss these.
+type: armor
+slot: hands
+level: 7
+baseline: light
+weight: 1
+value: 10

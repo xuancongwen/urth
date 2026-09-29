@@ -1,0 +1,13 @@
+vnum: 1432
+name: a footman's mail hauberk
+keywords: [footman's, footman, mail, hauberk]
+description: A mail hauberk under a blue lion tabard lies here.
+look: |
+  A shirt of riveted mail with a blue tabard over it, the white lion
+  faded from washing. The keep issues them by the hundred. It is honest
+  armor and it has seen honest use.
+type: armor
+slot: body
+weight: 14
+level: 10
+baseline: medium

@@ -1,0 +1,13 @@
+vnum: 319
+name: a web-torn traveller's cloak
+keywords: [web-torn, web, torn, traveller's, traveler's, cloak]
+description: A grey cloak hangs in tatters from a web above the path.
+look: |
+  Grey wool, good once, now stiff with old silk. Its owner did not get
+  much further than this. It still keeps the rain off.
+type: armor
+slot: shoulders
+weight: 1
+level: 2
+baseline: cloth
+value: 15

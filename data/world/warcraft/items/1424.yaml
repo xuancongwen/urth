@@ -1,0 +1,15 @@
+vnum: 1424
+name: a peon's wood-axe
+keywords: [peon's, peon, wood-axe, wood, axe, hatchet]
+description: A plain wood-axe with a chipped blade lies here.
+look: |
+  A woodcutter's axe with a haft worn smooth by green hands. It was made
+  to fell pine, not people. It does not know the difference.
+type: weapon
+weight: 4
+level: 8
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

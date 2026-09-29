@@ -1,0 +1,24 @@
+vnum: 530
+name: Varscona
+keywords: [varscona, scimitar, sword]
+description: A curved scimitar lies here, frost gathering along its edge.
+look: |
+  A slim scimitar of blued steel, its guard worked with snowflakes.
+  The blade is always cold, and in the heat of the Sword Coast summer
+  it sheds a thin mist. It bites with the cold of a northern winter,
+  and what it cuts moves slower afterward. The ogre on the hill took
+  it off someone who knew how to use it, and never learned how.
+type: weapon
+level: 7
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice
+effects:
+  - kind: proc
+    params: { chance: 0.5, power: 0.3, verb: "bite of frost" }
+  - kind: chill
+    params: { chance: 0.15, mult: 0.7, rounds: 2 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

@@ -1,0 +1,11 @@
+vnum: 617
+name: a pair of yeti-hide mittens
+keywords: [pair, yeti-hide, yeti, hide, mittens]
+description: A pair of shaggy white mittens lies here.
+look: |
+  Cut from yeti hide with the fur left on, and big enough to hold a
+  weapon and a fire both. Your fingers will not freeze to the haft.
+type: armor
+slot: hands
+level: 5
+baseline: light

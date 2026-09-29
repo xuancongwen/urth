@@ -1,0 +1,23 @@
+vnum: 1321
+name: the Stone of Jordan
+keywords: [stone, jordan, soj, ring]
+description: A plain gold ring set with a single dark stone lies here.
+look: |
+  A band of red gold set with one smooth stone the colour of deep water,
+  so plain you would pass it on a market stall. It is not plain. Every
+  skill you know comes quicker with it on, as if your hands had
+  practised a year overnight, and your thoughts run clear and deep.
+  Traders in the east reckon all other prices against it. Diablo kept it
+  close; even the Lord of Terror knows its worth.
+type: armor
+slot: finger
+weight: 0
+level: 24
+value: 5000
+effects:
+  - kind: cooldownCut
+    params: { rounds: 1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

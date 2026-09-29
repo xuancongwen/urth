@@ -6,8 +6,8 @@ look: |
   Armored in the same porous stone it lives in, and as wide as a door.
   It has been hit by falling ore all its life and has opinions about
   things that come down from above.
-level: 7
+level: 8
 attack:
   verb: pinch
 armor:
-  defense: 14
+  defense: 15

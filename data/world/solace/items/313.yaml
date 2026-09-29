@@ -1,0 +1,23 @@
+vnum: 313
+name: Tika's frying pan
+keywords: [tika's, tika, frying, pan, skillet]
+description: A heavy iron frying pan hangs on a hook by the hearth, blackened with years of spiced potatoes.
+look: |
+  Cast iron, long-handled, and heavier than it has any business being.
+  Tika Waylan uses it for potatoes, and for the customers who get ideas,
+  and for the one draconian who got through the door. Whoever it rings
+  off tends to stand there seeing stars for a moment, and that moment is
+  exactly when a second swing does the most good.
+type: weapon
+weight: 4
+level: 4
+baseline: mace
+value: 200
+weapon:
+  hands: 1
+  kind: blunt
+  verb: clang
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.6, rounds: 2 } }
+  - { kind: opportunist, params: { mult: 1.2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

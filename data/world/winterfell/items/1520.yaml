@@ -1,0 +1,17 @@
+vnum: 1520
+name: a wildling's stone maul
+keywords: [wildling, wildlings, stone, maul, hammer]
+description: A maul with a head of lashed stone lies half sunk in the frozen stream.
+look: |
+  A round river stone the size of a man's head, bound to a haft of
+  weirwood-root with rawhide and pitch. Beyond the Wall they call this
+  a hammer. South of it they call it a reason to wear a helm.
+type: weapon
+level: 9
+baseline: mace
+weight: 7
+value: 20
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

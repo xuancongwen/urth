@@ -1,0 +1,12 @@
+vnum: 1628
+name: a miner's helmet lamp
+keywords: [miner's, miner, helmet, lamp, light]
+description: A miner's lamp, its strap torn from a helmet, lies here.
+look: |
+  A squat lamp on a torn head-strap, the lens crusted with purple slime.
+  It belonged to a colonist who worked the claims before the zerg came.
+  It still throws a strong white beam.
+type: light
+weight: 1
+value: 20
+burn: 1200

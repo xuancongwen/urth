@@ -1,0 +1,15 @@
+vnum: 744
+name: a svirfneblin spear
+keywords: [svirfneblin, gnome, spear]
+description: A short spear with a crystal-edged head leans against the rock.
+look: |
+  A gnome's spear, short in a man's hands, with a head of grey metal
+  inlaid with a sliver of quartz along the edge. The deep gnomes guard
+  the chasm road with these, from a careful distance.
+type: weapon
+level: 13
+baseline: spear
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust

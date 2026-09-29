@@ -1,0 +1,24 @@
+vnum: 3036
+name: the sword of the ancients
+keywords: [sword, ancients, ancient, old]
+description: An ancient longsword lies across the lid of a sarcophagus, untouched by rust.
+look: |
+  Older than the city, older than the temple the city was built around.
+  The blade is bronze-coloured steel that no one in Midgaard knows how to
+  make, and the runes along it move when you are not looking straight at
+  them. The dead down here stay clear of it. Whoever wields it sees the
+  things that walk unseen, and sometimes, when it strikes, the voices of
+  the city's first kings strike with it.
+type: weapon
+weight: 5
+level: 10
+baseline: standard
+value: 800
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: wrath of the ancients } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: detectInvisible }

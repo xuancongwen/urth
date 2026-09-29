@@ -1,0 +1,14 @@
+vnum: 1227
+name: a pair of leather greaves
+keywords: [pair, leather, greaves, leggings]
+description: A pair of hardened leather greaves lies half buried in a drift.
+look: |
+  Leg-guards of boiled leather laced with rawhide, torn from someone
+  who ran from the castle and did not run fast enough. They are still
+  good.
+type: armor
+slot: legs
+level: 9
+baseline: medium
+weight: 3
+value: 18

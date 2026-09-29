@@ -1,0 +1,26 @@
+vnum: 424
+name: Sting
+keywords: [sting, elven, dagger, knife, blade, sword]
+description: A small elven blade lies here, its edge glimmering a faint blue.
+look: |
+  A knife to a Big Person and a sword to a hobbit, found in a troll-hoard
+  in the Wild and named after the Mirkwood spiders learned what it
+  could do. The blade is written with Elvish letters and it is sharp
+  beyond any work of the Shire. When enemies are near it glows a cold
+  pale blue, and nothing creeping in the dark escapes that light for
+  long. It rewards a quick hand over a strong one, and it makes its
+  bearer quick.
+type: weapon
+level: 9
+baseline: dagger
+weight: 1
+value: 500
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: finesse }
+  - { kind: detectHidden }
+  - { kind: dodge, params: { amount: 0.03 } }

@@ -1,0 +1,14 @@
+vnum: 522
+name: an ogre's studded club
+keywords: [ogre, ogres, studded, club]
+description: A club the size of a small tree lies here, studded with iron.
+look: |
+  A length of oak root with horseshoe nails hammered into the thick
+  end. It is too heavy to swing gracefully and does not need to be.
+type: weapon
+level: 7
+baseline: mace
+weapon:
+  hands: 2
+  kind: blunt
+  verb: club

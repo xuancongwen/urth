@@ -1,0 +1,11 @@
+vnum: 885
+name: an elven marine's crested helm
+keywords: [elven, elf, marine, marines, crested, helm]
+description: A slim helm with a crest of blue feathers lies here.
+look: |
+  Elven steel, close-fitting and elegant, with a crest of storm-hawk
+  feathers dyed the blue of the Tribus navy.
+type: armor
+slot: head
+level: 8
+baseline: medium

@@ -5,8 +5,13 @@ description: A torn black cloak lies in the road, and the leaves shrink from it.
 look: |
   Heavy black cloth, cold to the touch on a warm day, torn at the hem
   by a blade. It does not smell of horse, or of anything that lives.
-  Wearing it, you feel taller, and watched.
+  Wearing it, you feel taller, and watched, and the world goes a little
+  grey at the edges: things that hide from living eyes are plain to
+  you, and blows seem to pass through the folds where you were.
 type: armor
 slot: shoulders
 level: 8
 baseline: light
+effects:
+  - { kind: detectInvisible }
+  - { kind: dodge, params: { amount: 0.03 } }

@@ -1,0 +1,12 @@
+vnum: 749
+name: a drow buckler
+keywords: [drow, buckler, shield]
+description: A small black buckler with a spider boss lies here.
+look: |
+  Adamantite, no bigger than a plate, with a spider on the boss whose
+  legs wrap the rim. The drow fight close and fast and want a shield
+  that keeps up.
+type: armor
+slot: shield
+level: 15
+baseline: shield

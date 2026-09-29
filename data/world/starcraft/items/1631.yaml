@@ -1,0 +1,13 @@
+vnum: 1631
+name: a zerg-carapace spaulder
+keywords: [zerg-carapace, zerg, carapace, spaulder, pauldron]
+description: A shoulder guard of overlapping purple chitin lies here.
+look: |
+  Plates of zerg carapace laced together into a spaulder by some marine
+  who did not make it out of the tunnels. It is light and hard, and it
+  still smells of the creep.
+type: armor
+slot: shoulders
+weight: 3
+level: 20
+baseline: heavy

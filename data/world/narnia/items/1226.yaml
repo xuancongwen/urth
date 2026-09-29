@@ -1,0 +1,18 @@
+vnum: 1226
+name: a faun's double flute
+keywords: [faun, fauns, double, flute, pipe, pipes]
+description: A little double flute of reed lies on the table beside the teapot.
+look: |
+  Two reed pipes bound together, stained dark with years of playing. Mr
+  Tumnus plays it to lull the Queen's enemies to sleep, or says he was
+  meant to. Played in a fight, its tune makes a foe's arms heavy and
+  its eyes slow, and it makes whoever plays it welcome at any fire.
+type: armor
+slot: hold
+level: 5
+weight: 0
+value: 60
+rarity: uncommon
+effects:
+  - { kind: chill, params: { chance: 0.1, mult: 0.75, rounds: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

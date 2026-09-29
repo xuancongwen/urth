@@ -1,0 +1,14 @@
+vnum: 1518
+name: a northern roundshield
+keywords: [northern, roundshield, round, shield]
+description: A round shield of iron-rimmed oak, painted grey, lies here.
+look: |
+  Oak planks under a rim of iron, with a grey direwolf painted on a
+  white field and a boss hammered out of an old helm. It has been
+  repainted many times, and the wolf is a little different each time.
+type: armor
+slot: shield
+level: 8
+baseline: shield
+weight: 5
+value: 30

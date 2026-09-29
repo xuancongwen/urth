@@ -7,8 +7,8 @@ look: |
   teeth. Its scales are green shading to bronze. A barbed tail lashes
   behind it. It has made the old tower its nest and the island's sheep
   its larder.
-level: 9
-health: 240
+level: 11
+health: 290
 silver: 40
 attack:
   verb: bite

@@ -1,0 +1,14 @@
+vnum: 414
+name: a pair of Big Folk boots
+keywords: [pair, big, folk, boots, hobnailed]
+description: A pair of heavy hobnailed boots stands in the road, far too big for a hobbit.
+look: |
+  Hobnailed leather boots from the South, cracked across the toes and
+  resoled more than once. No hobbit would be seen dead in them, which
+  is exactly why the ruffians like them: they leave a print you notice.
+type: armor
+slot: feet
+level: 5
+baseline: medium
+weight: 3
+value: 20

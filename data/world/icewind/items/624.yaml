@@ -1,0 +1,10 @@
+vnum: 624
+name: a Battlehammer miner's lantern
+keywords: [battlehammer, miner, miners, lantern]
+description: A squat iron lantern hangs on a hook by the gate.
+look: |
+  Dwarven iron and thick glass, with a hood that throws its light down
+  and ahead. It burns a long time on very little oil, as dwarves do.
+type: light
+burn: 1500
+value: 20

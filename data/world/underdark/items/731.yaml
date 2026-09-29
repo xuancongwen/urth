@@ -1,0 +1,24 @@
+vnum: 731
+name: Twinkle
+keywords: [twinkle, scimitar]
+description: A slender scimitar lies here, glowing a soft and steady blue.
+look: |
+  A light scimitar with a star sapphire in the pommel, the blade giving
+  off a gentle blue glow that brightens when its bearer is angry. It
+  was made to be the second blade, the one that turns aside the blow
+  the first one missed; held in the off hand it parries, and it finds
+  the gaps. The drow wizard keeps it as a prize from a renegade.
+type: weapon
+level: 17
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: block
+    params: { chance: 0.08 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

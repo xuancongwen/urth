@@ -3,33 +3,37 @@ resets:
   # --- Backwater Station ---
   - { mob: 1603, room: 1604 }                                   # the magistrate on the bridge
   - { mob: 1600, room: 1603 }                                   # the quartermaster at his counter
+  - { mob: 1618, room: 1603 }                                   # the medic in the depot, who teaches second wind
   - { mob: 1601, room: 1625 }                                   # the chief engineer
   - { mob: 1602, room: 1606 }                                   # Scotty behind the bar
-  - { mob: 1606, room: 1605, equip: [{ item: 1600, slot: wield }, { item: 1601, slot: body }] }   # the drill sergeant
-  - { mob: 1604, room: 1605, max: 2, equip: [{ item: 1600, slot: wield }, { item: 1602, slot: head }] }   # marines at drill
+  - { mob: 1606, room: 1605, equip: [{ item: 1600, slot: wield }, { item: 1601, slot: body }, { item: 1620 }] }   # the drill sergeant, and Raynor's confiscated revolver
+  - { item: 1633, room: 1605 }                                  # a shock baton on the rack
+  - { mob: 1604, room: 1605, max: 2, equip: [{ item: 1600, slot: wield }, { item: 1602, slot: head }, { item: 1624 }] }   # marines at drill, spare greaves
   - { mob: 1604, room: 1606, max: 4, equip: [{ item: 1602, slot: head }, { item: 1614 }] }   # marines off duty, a stim in the pocket
-  - { mob: 1605, room: 1606, max: 2, equip: [{ item: 1603, slot: wield }, { item: 1604, slot: hands }] }   # firebats in the corner
+  - { mob: 1605, room: 1606, max: 2, equip: [{ item: 1603, slot: wield }, { item: 1604, slot: hands }, { item: 1629 }] }   # firebats in the corner
   - { item: 1618, room: 1606 }                                  # a bottle left on a table
   # --- the mineral field and the refinery ---
-  - { mob: 1607, room: 1608, max: 2, equip: [{ item: 1607 }] }  # SCVs, each with a chunk of crystal
+  - { mob: 1607, room: 1608, max: 2, equip: [{ item: 1607 }, { item: 1625 }] }   # SCVs, each with a chunk of crystal and goggles
   - { item: 1607, room: 1608 }
   - { mob: 1607, room: 1609, max: 3, equip: [{ item: 1608 }] }  # one at the refinery with a canister
   - { item: 1608, room: 1609 }
   # --- the badlands ---
-  - { mob: 1608, room: 1626, max: 2, equip: [{ item: 1609 }] }  # zerglings in the bunker
+  - { mob: 1608, room: 1626, max: 2, equip: [{ item: 1609 }, { item: 1626 }] }   # zerglings in the bunker, one claw loose
   - { item: 1606, room: 1626 }                                  # a dead marine's lamp
   - { mob: 1608, room: 1615, max: 4, equip: [{ item: 1609 }] }  # zerglings at the creep's edge
   # --- the zerg ---
-  - { mob: 1610, room: 1618, max: 2 }                           # infested colonists
+  - { mob: 1610, room: 1618, max: 2, equip: [{ item: 1628 }] }  # infested colonists, lamps still on their heads
   - { mob: 1608, room: 1618, max: 6, equip: [{ item: 1609 }] }
-  - { mob: 1611, room: 1619, equip: [{ item: 1609 }, { item: 1609 }] }   # the queen at the pool
+  - { mob: 1611, room: 1619, equip: [{ item: 1609 }, { item: 1609 }, { item: 1621 }] }   # the queen at the pool, keeping the Queen of Blades' shed claws
   - { mob: 1608, room: 1619, max: 7, equip: [{ item: 1609 }] }
   - { mob: 1609, room: 1621, max: 2, equip: [{ item: 1610 }, { item: 1609 }] }   # hydralisks
-  - { mob: 1612, room: 1622, max: 2, equip: [{ item: 1609 }] }  # mutalisks in the hive
+  - { mob: 1612, room: 1622, max: 2, equip: [{ item: 1609 }, { item: 1627 }] }   # mutalisks in the hive, and a spent glave wurm
   - { mob: 1613, room: 1624, equip: [{ item: 1615 }] }          # the ultralisk and its blade
-  - { mob: 1614, room: 1623, equip: [{ item: 1609 }, { item: 1609 }, { item: 1609 }] }   # the cerebrate
+  - { mob: 1614, room: 1623, equip: [{ item: 1609 }, { item: 1609 }, { item: 1609 }, { item: 1623 }] }   # the cerebrate, coiled around the Xel'Naga artifact
+  - { item: 1631, room: 1620 }                                  # a carapace spaulder left in the creep tunnels
   # --- the Protoss temple ---
-  - { mob: 1615, room: 1613, max: 2, equip: [{ item: 1611, slot: wield }, { item: 1613, slot: arms }] }   # zealot sentries
+  - { mob: 1615, room: 1613, max: 2, equip: [{ item: 1611, slot: wield }, { item: 1613, slot: arms }, { item: 1630 }] }   # zealot sentries, spare shield emitters
   - { mob: 1615, room: 1614, max: 3, equip: [{ item: 1611, slot: wield }, { item: 1613, slot: arms }] }
-  - { mob: 1617, room: 1617 }                                   # the dragoon at the warp gate
+  - { item: 1632, room: 1614 }                                  # a khaydarin ring before the altar
+  - { mob: 1617, room: 1617, equip: [{ item: 1622 }] }          # the dragoon at the warp gate, keeping Zeratul's warp blade
   - { mob: 1616, room: 1616, equip: [{ item: 1612, slot: neck }] }   # the high templar

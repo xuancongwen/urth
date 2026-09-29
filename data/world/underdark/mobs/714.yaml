@@ -1,0 +1,15 @@
+vnum: 714
+name: a drow assassin
+keywords: [drow, assassin, dark, elf]
+description: A drow in a dull grey piwafwi stands in the council's shadow, under guard.
+look: |
+  Slender, still, and hard to keep in sight even while you are looking
+  at her. She came to Blingdenstone with a contract on Belwar and left
+  it unfinished, and nobody will say why. The council keeps her where
+  they can see her. She will teach you to slip round behind a foe who
+  is busy with someone else, for coin, and she does not blink.
+level: 15
+flags: [peaceful]
+teaches: [circle]
+attack:
+  verb: stab

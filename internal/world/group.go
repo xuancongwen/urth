@@ -306,7 +306,7 @@ func (w *World) autoAssist(att, def *Character) {
 // fighting along with them.
 func (w *World) followLeader(leader *Character, from, dest *room.Room, dir string) {
 	for _, p := range w.playersIn(from) {
-		if p.following != leader || p.Fighting != nil || p.Character == leader {
+		if p.following != leader || p.Fighting != nil || p.Character == leader || p.Position != posStanding {
 			continue
 		}
 		p.Send("You follow " + output.Escape(leader.Name) + ".\n")

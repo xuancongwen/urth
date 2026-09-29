@@ -62,7 +62,10 @@
       "required": ["name"],
       "properties": {
         "name": { "type": "string", "minLength": 1, "description": "How messages call it, with its article: the oak door, the iron gate. Players may name it by any word of this." },
-        "closed": { "type": "boolean", "description": "Shut when the area resets. Open is the default." }
+        "closed": { "type": "boolean", "description": "Shut when the area resets. Open is the default." },
+        "locked": { "type": "boolean", "description": "Locked (and so shut) when the area resets. unlock needs the key; pick may open it without one." },
+        "key": { "$ref": "common.schema.json#/$defs/vnum", "description": "The item that locks and unlocks this door. Without one, only pick opens it." },
+        "pickproof": { "type": "boolean", "description": "pick cannot open this lock." }
       }
     }
   }

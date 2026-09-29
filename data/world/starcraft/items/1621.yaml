@@ -1,0 +1,24 @@
+vnum: 1621
+name: the claws of the Queen of Blades
+keywords: [claws, queen, blades, kerrigan, kerrigan's, talons]
+description: A pair of long, chitin-plated talons lies here, twitching.
+look: |
+  Long hooked talons of purple chitin, grown over the bones of a human
+  hand and shed like a snake sheds skin. They were Sarah Kerrigan's,
+  once, when the Overmind remade her. They fit over the fingers like
+  gauntlets and grip on. Bare hands in them tear like a zergling's
+  claws, every scratch carries the brood's venom, and wounds close under
+  the chitin as fast as a zerg's.
+type: armor
+slot: hands
+weight: 1
+level: 21
+baseline: light
+value: 2500
+effects:
+  - kind: unarmedMult
+    params: { mult: 1.2 }
+  - kind: envenom
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: regen
+    params: { fraction: 0.01 }

@@ -8,4 +8,4 @@ look: |
   and remembers those who do not.
 level: 14
 flags: [peaceful]
-teaches: [riposte]
+teaches: [riposte, backstab]

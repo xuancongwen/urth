@@ -1,0 +1,17 @@
+vnum: 1521
+name: a hunter's skinning knife
+keywords: [hunter, hunters, skinning, knife]
+description: A hunter's skinning knife lies here beside a gutted hare.
+look: |
+  A short curved blade of good northern steel with an antler grip,
+  kept very sharp by a hunter who has since found a reason to leave in
+  a hurry.
+type: weapon
+level: 7
+baseline: dagger
+weight: 1
+value: 15
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

@@ -6,7 +6,7 @@ look: |
   Taller than a man and wider, with fur the color of the crust and
   small black eyes deep in it. Its hands are white and end in claws.
   It is hungry, because it is always hungry.
-level: 6
+level: 5
 flags: [assist]
 attack:
   verb: claw

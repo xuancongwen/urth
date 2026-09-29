@@ -1,0 +1,17 @@
+vnum: 1221
+name: a minotaur's double axe
+keywords: [minotaur, minotaurs, double, axe, labrys]
+description: A huge double-bladed axe lies here, its haft as thick as a wrist.
+look: |
+  Two crescent blades of black iron on a haft of ice-hardened oak,
+  made for a bull-headed thing to swing at the doors of the Queen's
+  throne room. It is almost too heavy for a man. Almost.
+type: weapon
+level: 11
+baseline: axe
+weight: 9
+value: 90
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

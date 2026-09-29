@@ -1,0 +1,13 @@
+vnum: 322
+name: a dwarven buckler
+keywords: [dwarven, buckler, shield]
+description: A small round buckler of riveted steel lies on the anvil.
+look: |
+  Round, small, and riveted over an oak core, the kind of thing Flint
+  makes on a slow afternoon and then complains nobody buys.
+type: armor
+slot: shield
+weight: 4
+level: 5
+baseline: shield
+value: 90

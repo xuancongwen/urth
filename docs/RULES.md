@@ -46,6 +46,7 @@ left out; the engine then uses a quiet default.
 | `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |
 | `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, featPicks, message}` |
 | `deathRules` (optional) | every death | | `{xpFraction, xpLevelCap, corpseRounds, respawnHealth}` |
+| `pickChance` (optional) | each `pick` at a locked door | character, `{name, key}` | a number from 0 to 1, the chance one try opens the lock; 0.5 without the hook. A pickproof door never opens |
 | `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}}` |
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
@@ -62,9 +63,10 @@ left out; the engine then uses a quiet default.
 
 - Character: `{name, level, xp, stats:{}, statPoints, featPoints, silver, health,
   healthMax, mana, manaMax, speed, equipment:{slot: item}, effects:[],
-  schools:[], deity, isPlayer, fighting, group:[brief], enemies:[brief],
+  schools:[], deity, isPlayer, fighting, position, group:[brief], enemies:[brief],
   casting:{spell, rounds} or absent, cooldowns:{id: rounds},
-  room:{vnum,name,area}}`, plus for mobs `vnum`, `flags`, and
+  room:{vnum,name,area}}`, where `position` is `standing`, `resting`,
+  or `sleeping`, plus for mobs `vnum`, `flags`, and
   `mob:{vnum, flags, health, xp, attack, armor, effects}` carrying the
   prototype's resolved natural numbers. A brief is `{name, level,
   health, healthMax, isPlayer}`, so views do not recurse. `stats` is whatever the rules put
@@ -131,7 +133,7 @@ left out; the engine then uses a quiet default.
   built by the engine from the spell's `target`: single (named or the
   current target), ally (named or self), self, group (members here),
   area (everyone here not in the caster's group). A hostile cast starts
-  the fight. Access: `consume <totem>` adds its school; `sacrifice
+  the fight. Access: `brandish <totem>` adds its school; `sacrifice
   <item>` in a room whose `temple` matches the item's `sacrifice` makes
   the character that god's apostle (one god at a time).
 - Groups (4.7): `follow`, `group`, `gtell`, `assist`; followers move with
@@ -311,8 +313,14 @@ the attrition risk 2.3 wants. Session-scale goals (a level, a piece of
 gear) span a few outings; career-scale goals span many sessions.
 
 Consequences: 4.5's table is filled from these numbers. Regeneration
-(`onTick`) is tuned so resting to full between fights takes about thirty
+(`onTick`) is tuned so sleeping to full between fights takes about thirty
 seconds, long enough to be a choice and short enough not to be a chore.
+Standing out of a fight takes three times as long and resting twice as
+long (decided 2026-09-28), so stopping to rest is worth a command:
+`regenRounds` is the standing figure, `restRegen` and `sleepRegen` the
+multipliers. Resting costs movement, fighting, and casting until the
+character stands; a sleeper can do almost nothing until it wakes, and a
+fight wakes it.
 The targets are in seconds; the round counts follow from the round
 length, so a shorter round means more rounds per fight, not shorter
 fights, and more swings for 4.2's variance to average over.
@@ -881,12 +889,26 @@ the engine so that rounding does not distort low levels.
 | `dagger` | `3 * growth` | 2.0 | 0.1 | same damage per round, steadier |
 | `heavy` (maul, greataxe) | `12 * growth` | 0.5 | 0.4 | same damage per round, swingier; two hands |
 | `unarmed` | `1.5 * growth` | 1.0 | 0.2 | what a player with nothing wielded does; verb `punch` |
+| `axe` | `7.2 * growth` | 0.8 | 0.35 | +5 percent crit chance |
+| `mace` | `6.6 * growth` | 0.9 | 0.15 | ignores a quarter of the defender's armor |
+| `spear` | `5.4 * growth` | 1.1 | 0.15 | reach: +3 percent dodge while wielded |
+| `flail` | `8.4 * growth` | 0.7 | 0.5 | goes over shields: shield block does not count against it |
+| `whip` | `2.8 * growth` | 2.1 | 0.2 | one hit in ten slows the target to 75 percent for two rounds |
+| `staff` | `5.4 * growth` | 1.0 | 0.1 | two hands by default; +10 percent spell power |
+
+The families added 2026-09-28 (axe to staff) each come to about the
+standard's damage per round; what they add is a trait, kept in the
+rules' `BASELINE_TRAITS` and read from the baseline an item names.
 
 | Baseline | Total `D` at level, across all slots | Spread | Notes |
 |---|---|---|---|
 | `medium` | `3 * growth` | 0.2 | the reference: 13 percent reduction against an attacker of the same level, at every level |
 | `light` | 0.7 of medium | 0.1 | carries an intrinsic effect raising dodge |
 | `heavy` | 1.3 of medium | 0.3 | carries an intrinsic effect lowering dodge |
+| `cloth` | 0.4 of medium | 0.05 | a full set gives +5 percent dodge (each piece its slot's share) |
+| `plate` | 1.6 of medium | 0.35 | a full set gives -5 percent dodge |
+| `shield` | 0.08 of medium, per piece | 0.2 | a 10 percent block when the shield states none of its own |
+| `tower` | 0.15 of medium, per piece | 0.2 | an 18 percent block and -3 percent dodge |
 
 A set's total `D` is split across slots by fixed weights that sum to
 one (revised 2026-09-25): body 30 percent, legs 15, head 10, arms 10,
@@ -1659,9 +1681,42 @@ and nothing competes with feats for the level-up choice.
 | Rend | 3 | action, single target | 3 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
 | Riposte | 4 | passive | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
-Twin Strike is the first of a chain: Triple Strike and Quad Strike
-follow at higher levels, the last for special cases, each a further
-swing. Improvement: each use (each round in a fight, for passives) has
+**Combat skills** (approved 2026-09-28), after ROM 2.4 and its
+descendants. Each has trainers in the areas whose level band fits it,
+and all of them are sold in the balance lab.
+
+| Skill | Level | Kind | Cooldown | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|
+| Dodge | 1 | passive | | 20 | 2 gold | up to +10 percent dodge |
+| Trip | 2 | action, single | 4 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
+| Hand to Hand | 2 | passive | | 20 | 3 gold | unarmed damage, up to double |
+| Dirt Kicking | 3 | action, single | 5 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
+| Shield Block | 3 | passive | | 20 | 4 gold | up to +15 percent block, shield worn |
+| Backstab | 4 | action, single | 0 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
+| Fast Healing | 4 | passive | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
+| Enhanced Damage | 5 | passive | | 15 | 10 gold | up to +15 percent damage on swings |
+| Hamstring | 6 | action, single | 6 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
+| Disarm | 6 | action, single | 8 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
+| Feint | 7 | action, single, cannot be dodged | 5 | 25 | 7 gold | -10 percent dodge and block for three rounds |
+| Berserk | 8 | action, self | 20 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
+| Envenom | 9 | action, self | 15 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
+| Rescue | 10 | action, ally | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
+| Circle | 10 | action, single | 6 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
+| Sunder | 12 | action, single | 8 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
+| Second Wind | 12 | action, self | 30 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
+| Triple Strike | 12 | passive | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
+| Whirlwind | 15 | action, area | 10 | 20 | 25 gold | 0.8x damage to every foe fighting you |
+| Coup de Grace | 18 | action, single | 8 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
+
+Consequences (built 2026-09-28): skill targets are `single`, `area`
+(every foe fighting the user; one use, one improvement roll, one
+cooldown), `ally` (a player or group member someone is fighting;
+`taunt` in the result turns their attackers), and `none`. A result may
+carry `heal` for the user and `cooldown` to replace the skill's own for
+that use (Relentless).
+
+Twin Strike is the first of a chain: Triple Strike follows (and Quad
+Strike, if ever, for special cases), each a further swing. Improvement: each use (each round in a fight, for passives) has
 a chance to raise the rating by one to three points, the chance
 shrinking as the rating nears 100. One active skill per round.
 

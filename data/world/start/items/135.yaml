@@ -1,0 +1,9 @@
+vnum: 135
+name: a small iron key
+keywords: [small, iron, key]
+description: A small iron key hangs from a hook beside the pine door.
+look: |
+  A plain key on a loop of string, the kind that opens one door and no
+  other. Someone has scratched PINE into the bow.
+type: other
+weight: 1

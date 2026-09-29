@@ -5,7 +5,7 @@ description: A shaggy rothe crops the mushroom stalks, lowing to the others.
 look: |
   A musk-ox that never saw the sun, blind-eyed, all horn and shoulder.
   Placid until something moves too fast, and then all the others come.
-level: 9
+level: 10
 flags: [assist]
 attack:
   verb: gore

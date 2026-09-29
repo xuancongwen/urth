@@ -191,6 +191,7 @@ func (w *World) view(c *Character) map[string]any {
 		"deity":      c.Deity,
 		"isPlayer":   c.player != nil,
 		"fighting":   c.Fighting != nil,
+		"position":   positionName(c),
 		"group":      briefViews(groupOf(c)),
 		"enemies":    briefViews(w.enemiesOf(c)),
 	}

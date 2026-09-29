@@ -1,11 +1,13 @@
 vnum: 1317
 name: an archbishop's mitre
-keywords: [archbishop's, archbishop, mitre, hat]
+keywords: [archbishop's, archbishop, mitre, hat, lazarus]
 description: A tall embroidered mitre lies here, its gold thread blackened.
 look: |
   The tall hat of a prince of the Church, stitched with the cathedral's
-  arms in gold. The lining has been scorched through in the pattern of
-  a star. Whoever wore it last prayed to something that answered.
+  arms in gold. The lining has been scorched through in the pattern of a
+  star, and the star is still hot. Whoever wore it last prayed to
+  something that answered, and the answer still smoulders around the
+  wearer, singeing whatever comes close.
 type: armor
 slot: head
 weight: 1
@@ -14,3 +16,5 @@ baseline: light
 effects:
   - kind: stat
     params: { stat: intelligence, amount: 2 }
+  - kind: aura
+    params: { power: 0.12, verb: unholy starfire }

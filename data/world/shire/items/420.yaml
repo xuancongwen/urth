@@ -1,0 +1,14 @@
+vnum: 420
+name: a pair of moleskin breeches
+keywords: [pair, moleskin, breeches, trousers]
+description: A pair of moleskin breeches lies drying on the bank of the pond.
+look: |
+  Soft brown moleskin, patched at both knees and cut short in the leg
+  the way hobbits like them. Somebody went swimming in the mill-pond
+  and walked home in their shirt-tails.
+type: armor
+slot: legs
+level: 4
+baseline: light
+weight: 1
+value: 8

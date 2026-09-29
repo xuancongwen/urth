@@ -1,0 +1,13 @@
+vnum: 3046
+name: a frayed rope belt
+keywords: [frayed, rope, belt]
+description: A length of frayed rope, knotted into a belt, lies here.
+look: |
+  Hemp rope, greasy with handling, knotted at the waist. It holds your
+  trousers up and not much else.
+type: armor
+slot: belt
+weight: 0
+level: 3
+baseline: cloth
+value: 2

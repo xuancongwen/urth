@@ -1,0 +1,19 @@
+vnum: 1130
+name: a fen ray's tail-lash
+keywords: [fen, ray's, ray, tail-lash, tail, lash, whip]
+description: A long, barbed tail, cured into a whip, lies here.
+look: |
+  A fen ray's tail, cured stiff at the grip and supple at the end, with
+  the barb left on. It still weeps a little venom when it is cracked,
+  enough to make a cut throb.
+type: weapon
+weight: 2
+level: 13
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - kind: envenom
+    params: { power: 0.05, rounds: 3, maxStacks: 1 }

@@ -6,6 +6,6 @@ look: |
   A flame with no candle, drifting at the height of a lantern held by
   someone who is not there. Follow it and it leads you off the path.
   Strike at it and it strikes back, and it burns cold.
-level: 5
+level: 9
 attack:
   verb: sear

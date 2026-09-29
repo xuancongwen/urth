@@ -1,0 +1,16 @@
+vnum: 1626
+name: a zergling scythe claw
+keywords: [zergling, scythe, claw]
+description: A hooked purple claw, as long as a forearm, lies here.
+look: |
+  One of a zergling's scything foreclaws, glossy and hooked and sharp
+  enough to shave with, broken off at the joint. Held by the stump, it
+  is a quick, vicious blade.
+type: weapon
+weight: 1
+level: 17
+baseline: dagger
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

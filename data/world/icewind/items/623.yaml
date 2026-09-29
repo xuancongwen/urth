@@ -1,0 +1,14 @@
+vnum: 623
+name: a dogsled whip
+keywords: [dogsled, dog, sled, whip]
+description: A long sealskin whip lies frozen stiff on the track.
+look: |
+  Plaited sealskin with a whalebone handle. The sledders of Lonelywood
+  crack it over the dogs and never on them. Wolves are another matter.
+type: weapon
+level: 4
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

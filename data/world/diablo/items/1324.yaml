@@ -1,0 +1,27 @@
+vnum: 1324
+name: Gonnagal's Dirk
+keywords: [gonnagal's, gonnagal, dirk, dagger, knife]
+description: A long, black-bladed dirk lies here, warm as a coal.
+look: |
+  A dirk of black steel with a guard shaped like two licking flames,
+  still warm from some fire that went out a long time ago. It cuts
+  deeper than its size and the warmth in the steel wards off heat and
+  harm alike, but it sits badly in the hand, heavy at the wrong end, and
+  makes its owner clumsy. The goatmen took it off a dead hero and never
+  learned to use it.
+type: weapon
+weight: 1
+level: 18
+baseline: dagger
+value: 1200
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: damage
+    params: { mult: 1.1, weapon: true }
+  - kind: soak
+    params: { power: 0.06 }
+  - kind: stat
+    params: { stat: dexterity, amount: -2 }

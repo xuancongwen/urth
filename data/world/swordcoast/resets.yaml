@@ -14,26 +14,33 @@ resets:
   - { mob: 504, room: 506, max: 3 }   # gibberlings
   - { item: 514, room: 507 }          # the cairn's note
   - { mob: 505, room: 508 }           # the wild dog
+  - { item: 523, room: 508 }          # a monk's staff dropped on the road
   # the Coast Way and the Friendly Arm
-  - { mob: 508, room: 510, equip: [{ item: 505 }, { item: 506 }] }   # Tarnesh, with his wand and his orders
+  - { mob: 508, room: 510, equip: [{ item: 505 }, { item: 506 }, { item: 532, slot: feet }] }   # Tarnesh, with his wand, his orders, and the Boots of Speed
   - { mob: 509, room: 511 }   # Khalid and Jaheira by the fire
   - { mob: 510, room: 511 }
+  - { mob: 518, room: 511 }   # the acrobat from Baldur's Gate, who teaches dodge
   - { item: 509, room: 511 }  # the stew
-  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 109 }] }   # the bandit, vest and purse
-  - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }] }   # the hobgoblin, with a notched blade
+  - { item: 529, room: 509 }  # a traveller's cloak at the crossroads
+  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }] }   # the bandit, vest, dirk and purse
+  - { item: 535, room: 512 }          # the teamster's whip, left in the ruts
+  - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }, { item: 524, slot: head }] }   # the hobgoblin, with a notched blade and a skullcap
   # Beregost
-  - { mob: 511, room: 514 }   # Silke at the well
+  - { mob: 511, room: 514, equip: [{ item: 533, slot: wield }] }   # Silke at the well, with the Sword of Chaos
+  - { mob: 519, room: 515 }   # a cutpurse at the Burning Wizard, who teaches dirt kicking
   # the road to Nashkel
-  - { mob: 512, room: 517, max: 2 }   # xvarts
-  - { mob: 513, room: 518 }           # the ogre on the hill
+  - { mob: 512, room: 517, max: 2, equip: [{ item: 520, slot: wield }] }   # xvarts with hand axes
+  - { mob: 513, room: 518, equip: [{ item: 522, slot: wield }, { item: 530 }] }   # the ogre on the hill, its club, and Varscona it cannot use
   - { mob: 514, room: 519 }           # the Flaming Fist
   # the mines
-  - { mob: 515, room: 521, max: 4, equip: [{ item: 500, slot: wield }, { item: 512 }] }   # kobolds with swords and scales
+  - { mob: 515, room: 521, max: 4, equip: [{ item: 500, slot: wield }, { item: 525, slot: shield }, { item: 512 }] }   # kobolds with swords, shields, and scales
   - { item: 511, room: 521 }   # tainted ore lies everywhere
   - { item: 511, room: 522 }
   - { item: 511, room: 522 }
   - { item: 123, room: 522 }   # bone dust among the picks
-  - { mob: 516, room: 523, max: 2, equip: [{ item: 501, slot: wield }, { item: 512 }] }   # commandos at the shaft
-  - { mob: 517, room: 524, equip: [{ item: 502, slot: wield }, { item: 503, slot: body }, { item: 515 }] }   # Mulahey, armed, with Tazok's letter
+  - { item: 526, room: 522 }   # a dead miner's gloves
+  - { mob: 516, room: 523, max: 2, equip: [{ item: 501, slot: wield }, { item: 527, slot: feet }, { item: 512 }] }   # commandos at the shaft, iron-shod
+  - { item: 531, room: 523 }   # Spider's Bane, where its last owner fell
+  - { mob: 517, room: 524, equip: [{ item: 502, slot: wield }, { item: 503, slot: body }, { item: 528, slot: legs }, { item: 534, slot: finger1 }, { item: 515 }] }   # Mulahey, armed, ringed, with Tazok's letter
   - { item: 510, room: 524 }   # the stolen totem on the altar
   - { item: 511, room: 524 }

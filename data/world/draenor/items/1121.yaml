@@ -1,0 +1,30 @@
+vnum: 1121
+name: Frostmourne
+keywords: [frostmourne, runeblade, sword, blade]
+description: A great runeblade lies here in a drift of frost that is not melting.
+look: |
+  A broad two-handed runeblade of black-blue steel, its guard a horned
+  skull, its length carved with runes that glow the pale blue of grave
+  ice. The cold coming off it frosts the stone for a yard around. Forged
+  in the Nether before it was ever sent to Northrend, it slows what it
+  cuts to a crawl and feeds its wielder on what it takes, and it
+  whispers, always, patient and reasonable and certain, so that the hand
+  grows strong and the judgement does not. Frostmourne hungers.
+type: weapon
+weight: 10
+level: 18
+baseline: heavy
+value: 5000
+weapon:
+  hands: 2
+  kind: slash
+  verb: carve
+effects:
+  - kind: chill
+    params: { chance: 0.25, mult: 0.6, rounds: 2 }
+  - kind: leech
+    params: { fraction: 0.12 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: -2 }

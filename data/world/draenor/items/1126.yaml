@@ -1,0 +1,16 @@
+vnum: 1126
+name: a pair of infernal-rock gauntlets
+keywords: [infernal-rock, infernal, rock, gauntlets]
+description: A pair of heavy black stone gauntlets lies here, cracks glowing green.
+look: |
+  Gauntlets chipped out of an infernal's shell and lined with hide, the
+  cracks still lit faintly green from inside. They are ridiculously
+  heavy, and a fist inside them lands like a falling star.
+type: armor
+slot: hands
+weight: 6
+level: 14
+baseline: heavy
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }

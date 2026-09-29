@@ -1,0 +1,25 @@
+vnum: 426
+name: a plain gold ring
+keywords: [plain, gold, ring, one, precious]
+description: A plain gold ring lies in the black mud, and the mud does not touch it.
+look: |
+  A simple band of gold, heavier than it should be and always warm.
+  There are no letters on it until it is put in the fire, and then
+  there are, in a tongue you do not want to read aloud. Put it on and
+  the world goes grey and thin, and nothing that lives can see you.
+  But something else can: an Eye, far off, turning, and the grey
+  shapes that serve it, whose blades bite deeper on the other side.
+  It keeps its bearer from wearing out. It does not keep them from
+  wearing thin.
+type: armor
+slot: finger
+level: 10
+weight: 0
+value: 2000
+rarity: rare
+flags: [unidentified]
+effects:
+  - { kind: invisible }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: protect, params: { mult: 1.15 } }
+  - { kind: stat, params: { stat: wisdom, amount: -2 } }

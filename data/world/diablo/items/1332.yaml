@@ -1,0 +1,13 @@
+vnum: 1332
+name: a pair of blood-iron sabatons
+keywords: [blood-iron, blood, iron, sabatons, boots]
+description: A pair of dark red plate boots stands here, dripping.
+look: |
+  Plate boots of an iron that rusts red and never stops, taken from a
+  blood knight that had no need of feet it could not see. They are
+  heavy, and they do not come off easily once they are on.
+type: armor
+slot: feet
+weight: 6
+level: 21
+baseline: plate

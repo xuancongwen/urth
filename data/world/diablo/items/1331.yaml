@@ -1,0 +1,16 @@
+vnum: 1331
+name: a hell-iron flail
+keywords: [hell-iron, hell, iron, flail]
+description: A flail with a spiked black ball on a chain lies here.
+look: |
+  A black iron ball as big as a skull, spiked all over, on a length of
+  chain that clanks like a bell tower. The horned demons use them to
+  herd the damned. It swings over any shield.
+type: weapon
+weight: 10
+level: 19
+baseline: flail
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

@@ -1,0 +1,15 @@
+vnum: 615
+name: a spear of the Tribe of the Elk
+keywords: [spear, tribe, elk]
+description: A long spear with an antler crosspiece is planted in the snow.
+look: |
+  A shaft of northern ash with a broad iron head and a crosspiece of
+  elk antler lashed below it, to stop the charge of whatever it goes
+  into. The barbarians leave one at a cairn for the dead to hunt with.
+type: weapon
+level: 6
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

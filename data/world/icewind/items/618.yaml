@@ -1,0 +1,12 @@
+vnum: 618
+name: a Ten-Towns round shield
+keywords: [ten-towns, ten, towns, round, shield]
+description: A round wooden shield painted with a leaping trout lies here.
+look: |
+  Pine planks under a boss of iron, painted with the knucklehead of
+  Lonelywood. The militia of Ten-Towns carry these when the barbarians
+  come south, and the barbarians take them home as trophies.
+type: armor
+slot: shield
+level: 5
+baseline: shield

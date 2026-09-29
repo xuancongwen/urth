@@ -1,0 +1,24 @@
+vnum: 631
+name: Crenshinibon, the Crystal Shard
+keywords: [crenshinibon, crystal, shard]
+description: A long shard of clear crystal lies on the black rock, glowing from within.
+look: |
+  A shard of crystal as long as a forearm, cold and bright, with a
+  light inside it that never goes out. It talks. Not aloud, but you
+  hear it: that you are cleverer than the rest, that you deserve to be
+  obeyed, that the ones who stand against you should burn in its
+  light, and they do. It does not say what it takes in return. Akar
+  Kessell listened to it, and the mountain came down on him.
+type: other
+slot: hold
+level: 10
+flags: [unidentified]
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: "searing crystal light" }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: charisma, amount: 1 }
+  - kind: stat
+    params: { stat: wisdom, amount: -2 }

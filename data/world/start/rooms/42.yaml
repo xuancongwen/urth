@@ -2,14 +2,18 @@ vnum: 42
 name: Before a Pine Door
 description: |
   The corridor is closed off here by a door of plain pine on iron
-  hinges. A shut door hides the way beyond it: 'exits' will not show
-  it, and nobody walks through until it is opened. The wall says:
+  hinges, and the door is locked. A shut door hides the way beyond it:
+  'exits' will not show it, and nobody walks through until it is
+  opened. The wall says:
 
-    'open door' OR 'open north' OPENS IT. 'close door' SHUTS IT.
-    'look north' TELLS YOU WHAT LIES THAT WAY.
+    'look north' TELLS YOU WHAT LIES THAT WAY, AND IF IT IS LOCKED.
+    'get key', THEN 'unlock door' OR 'unlock north', THEN 'open door'.
+    'close door' SHUTS IT AGAIN, AND 'lock door' LOCKS IT, KEY IN HAND.
+    NO KEY? 'pick door' TRIES THE LOCK WITHOUT ONE. NIMBLE FINGERS
+    DO BETTER, AND SOME LOCKS WILL NOT BE PICKED AT ALL.
 exits:
   north: 43
   south: 41
 doors:
-  north: {name: the pine door, closed: true}
+  north: {name: the pine door, closed: true, locked: true, key: 135}
 flags: [safe]

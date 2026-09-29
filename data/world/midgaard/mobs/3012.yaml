@@ -5,7 +5,7 @@ description: Fido the dog is here, sniffing about for scraps.
 look: |
   A scruffy mongrel with a torn ear and a hopeful tail. He is all ribs
   and appetite.
-level: 1
+level: 3
 flags: [wander]
 attack:
   verb: bite

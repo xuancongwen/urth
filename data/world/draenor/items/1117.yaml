@@ -4,9 +4,9 @@ keywords: [mantle, fel, flame]
 description: A mantle of blackened plates wreathed in green flame lies here.
 look: |
   Plates of scorched iron riveted over something's hide, each edge
-  licked by a small green flame that does not spread. Worn, it wraps
-  the shoulders in a heat that is almost comfortable, and blades that
-  strike it come away pitted.
+  licked by a small green flame that does not spread. Worn, it wraps the
+  shoulders in a heat that is almost comfortable, and blades that strike
+  it come away pitted, and the hands on them come away burned.
 type: armor
 slot: shoulders
 level: 19
@@ -14,3 +14,5 @@ baseline: heavy
 effects:
   - kind: stat
     params: { stat: strength, amount: 1 }
+  - kind: thorns
+    params: { fraction: 0.15, verb: fel flame }

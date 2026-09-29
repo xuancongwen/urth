@@ -1,0 +1,16 @@
+vnum: 316
+name: a hobgoblin captain's whip
+keywords: [hobgoblin, captain's, captain, whip]
+description: A long knotted whip lies coiled in the dust.
+look: |
+  Braided hide with a knot at every hand's breadth and a stolen silver
+  cap on the butt. The captain carries it for show, and for the refugees.
+type: weapon
+weight: 2
+level: 3
+baseline: whip
+value: 40
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

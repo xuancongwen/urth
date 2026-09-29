@@ -7,8 +7,8 @@ look: |
   of murder and a master he is more afraid of than the god. He has been
   told to taint the iron and keep the kobolds in line, and he has done
   both, and it has not been enough for anyone.
-level: 9
-health: 220
+level: 10
+health: 240
 silver: 200
 attack:
   verb: smash

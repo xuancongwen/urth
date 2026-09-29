@@ -42,9 +42,14 @@ func init() {
 		{"scan", 3, cmdScan, false},
 		{"open", 2, cmdOpen, false},
 		{"close", 3, cmdClose, false},
+		{"lock", 3, cmdLock, false},
+		{"unlock", 2, cmdUnlock, false},
+		{"pick", 2, cmdPick, false},
 		{"say", 1, cmdSay, false},
 		{"chat", 2, cmdChat, false},
 		{"yell", 1, cmdYell, false},
+		{"tell", 1, cmdTell, false},
+		{"reply", 1, cmdReply, false},
 		{"drop", 2, cmdDrop, false},
 		{"put", 1, cmdPut, false},
 		{"give", 2, cmdGive, false},
@@ -71,10 +76,20 @@ func init() {
 		{"list", 2, cmdList, false},
 		{"buy", 2, cmdBuy, false},
 		{"sell", 3, cmdSell, false},
+		{"recall", 3, cmdRecall, false},
+		{"rest", 3, cmdRest, false},
+		{"sleep", 2, cmdSleep, false},
+		{"wake", 2, cmdWake, false},
+		{"stand", 2, cmdStand, false},
+		{"affects", 2, cmdAffects, false},
+		{"brandish", 2, cmdBrandish, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},
 		{"color", 3, cmdColor, false},
+		{"autoloot", 5, cmdAutoloot, false},
+		{"autogold", 5, cmdAutogold, false},
+		{"autosac", 5, cmdAutosac, false},
 		{"save", 2, cmdSave, false},
 		{"password", 4, cmdPassword, false},
 		{"quit", 3, cmdQuit, false},
@@ -138,10 +153,19 @@ func (w *World) dispatch(p *Player, line string) {
 	}
 	c := lookup(word, p.Admin)
 	if c == nil {
+		if p.Position != posStanding {
+			if _, ok := w.findSkill(p.Character, word); ok {
+				p.Send("You need to be on your feet for that. 'stand' first.\n")
+				return
+			}
+		}
 		if w.trySkill(p, word, args) {
 			return
 		}
 		p.Send("Huh?\n")
+		return
+	}
+	if !c.admin && !positionAllows(p, c.name) {
 		return
 	}
 	c.fn(w, p, args)
@@ -246,7 +270,7 @@ func (w *World) look(p *Player) {
 	for _, other := range w.playersIn(r) {
 		if other != p && w.canSeeChar(p.Character, other.Character) {
 			data.Players = append(data.Players, other.Name)
-			b.WriteString(output.Escape(other.Name) + " is here.\n")
+			b.WriteString(output.Escape(other.Name) + positionSuffix(other.Character) + "\n")
 		}
 	}
 	p.SendMsg(output.Message{Type: output.Room, Text: b.String(), Data: data})

@@ -5,6 +5,6 @@ description: A swarm of cider wasps boils up off the rotten apples, buzzing angr
 look: |
   Fat yellow wasps drunk on fermenting fruit, and the drink has not
   made them friendly. They move as one angry cloud.
-level: 4
+level: 5
 attack:
   verb: sting

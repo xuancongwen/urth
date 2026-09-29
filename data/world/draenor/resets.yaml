@@ -2,30 +2,34 @@ interval_seconds: 300
 resets:
   # --- the portal and the Hellfire wastes ---
   - { mob: 1101, room: 1101, max: 2 }                                                  # felhounds on the stair
-  - { mob: 1100, room: 1103, max: 3, equip: [{ item: 1104, slot: wield }, { item: 1100 }] }   # fel orc grunts, cleaver and ore
-  - { mob: 1102, room: 1104, equip: [{ item: 1100 }, { item: 1100 }] }                  # the warlock at the trough
-  - { mob: 1103, room: 1105, equip: [{ item: 1101 }, { item: 1101 }] }                  # the infernal, burning motes
+  - { mob: 1100, room: 1103, max: 3, equip: [{ item: 1104, slot: wield }, { item: 1100 }, { item: 1124 }] }   # fel orc grunts, cleaver, ore, harness
+  - { mob: 1102, room: 1104, equip: [{ item: 1100 }, { item: 1100 }, { item: 1125 }] }   # the warlock at the trough, and his kris
+  - { mob: 1103, room: 1105, equip: [{ item: 1101 }, { item: 1101 }, { item: 1126 }] }   # the infernal, burning motes and rock gauntlets
   - { item: 1100, room: 1105 }                                                          # fel iron on the crater rim
   - { item: 1101, room: 1105 }                                                          # a stray mote in the glass
   # --- the Hellfire Citadel ---
-  - { mob: 1104, room: 1108, max: 2, equip: [{ item: 1104, slot: wield }, { item: 1105, slot: shoulders }, { item: 1100 }] }   # rampart sentries
+  - { mob: 1104, room: 1108, max: 2, equip: [{ item: 1104, slot: wield }, { item: 1105, slot: shoulders }, { item: 1100 }, { item: 1127 }] }   # rampart sentries and their tower shields
   - { mob: 1105, room: 1109, equip: [{ item: 1106, slot: wield }, { item: 1107, slot: head }] }   # the warchief, axe and horned helm
   # --- Zangarmarsh ---
   - { mob: 1108, room: 1110, max: 2 }                                                  # fen rays at the marsh edge
   - { mob: 1106, room: 1111, max: 2, equip: [{ item: 1103 }] }                         # sporelings out gathering
   - { mob: 1107, room: 1112 }                                                          # Fungalo, the spore-trader
   - { item: 1103, room: 1112 }                                                         # glowcaps drying on a hut
-  - { mob: 1109, room: 1113, max: 3, equip: [{ item: 1102 }, { item: 1102 }] }          # naga myrmidons, scales
-  - { mob: 1110, room: 1114, equip: [{ item: 1108, slot: wield }, { item: 1102 }, { item: 1102 }] }   # the tidecaller and her trident
-  - { mob: 1108, room: 1115, max: 2 }                                                  # more rays in the deep bog
-  - { mob: 1111, room: 1116, equip: [{ item: 1103 }, { item: 1103 }, { item: 1103 }] }   # the bog lord, sprouting glowcaps
+  - { mob: 1109, room: 1113, max: 3, equip: [{ item: 1102 }, { item: 1102 }, { item: 1128 }] }   # naga myrmidons, scales and scimitars
+  - { item: 1133, room: 1113 }                                                          # a black coral ring in the shallows
+  - { mob: 1110, room: 1114, equip: [{ item: 1108, slot: wield }, { item: 1102 }, { item: 1102 }, { item: 1120 }] }   # the tidecaller, her trident, and her master's warglaive
+  - { mob: 1108, room: 1115, max: 2, equip: [{ item: 1130 }] }                         # more rays in the deep bog, one tail cured to a whip
+  - { mob: 1111, room: 1116, equip: [{ item: 1103 }, { item: 1103 }, { item: 1103 }, { item: 1129 }] }   # the bog lord, sprouting glowcaps, and his heartwood
   # --- Telmoran, the refuge on the cap ---
   - { mob: 1112, room: 1117 }                                                          # vindicator at the gate
   - { mob: 1113, room: 1119 }                                                          # Artificer Velaani
   - { mob: 1114, room: 1120 }                                                          # the anchorite at the shrine
+  - { mob: 1119, room: 1127 }                                                          # the blademaster at the lookout: triple, coup de grace
   # --- the edge of the Twisting Nether ---
   - { mob: 1115, room: 1122, max: 2, equip: [{ item: 1116 }] }                          # nether rays, shards in their hides
-  - { mob: 1116, room: 1126, equip: [{ item: 1116 }] }                                  # the void terror in the hollow
+  - { item: 1131, room: 1122 }                                                          # nether-silk snagged on the island's rocks
+  - { mob: 1116, room: 1126, equip: [{ item: 1116 }, { item: 1121 }] }                   # the void terror in the hollow, guarding Frostmourne
+  - { item: 1122, room: 1126 }                                                          # the Helm of Domination, waiting in the dark
   - { item: 1116, room: 1126 }                                                          # a loose shard in the dark
-  - { mob: 1118, room: 1124 }                                                          # the fel reaver on the shard
-  - { mob: 1117, room: 1125, equip: [{ item: 1115, slot: wield }, { item: 1117, slot: shoulders }, { item: 1116 }] }   # the pit lord
+  - { mob: 1118, room: 1124, equip: [{ item: 1132 }] }                                 # the fel reaver on the shard, a loose piston
+  - { mob: 1117, room: 1125, equip: [{ item: 1115, slot: wield }, { item: 1117, slot: shoulders }, { item: 1116 }, { item: 1123 }] }   # the pit lord, and Gorehowl as his trophy

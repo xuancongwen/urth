@@ -1,0 +1,22 @@
+vnum: 733
+name: the insignia of House Do'Urden
+keywords: [insignia, house, do'urden, dourden, brooch, emblem]
+description: A brooch of black adamantite set with a spider and a single garnet lies here.
+look: |
+  The house emblem every noble drow of Daermon N'a'shezbaernon wears,
+  and the key to the house's doors. It carries the old drow gifts: the
+  wearer floats a hair off the ground, light on the feet, and the eye
+  that looks through it sees what hides behind invisibility. It also
+  says, to anyone who knows, whose daughter you are.
+type: armor
+slot: neck
+level: 20
+baseline: light
+effects:
+  - kind: detectInvisible
+  - kind: dodge
+    params: { amount: 0.04 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

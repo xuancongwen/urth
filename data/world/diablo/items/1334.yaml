@@ -1,0 +1,16 @@
+vnum: 1334
+name: a pair of scribe's bracers
+keywords: [scribe's, scribe, bracers, cuffs]
+description: A pair of ink-stained black cuffs lies here.
+look: |
+  Stiff black cuffs of the kind the advocates wear to keep their sleeves
+  out of the burning ink. Some of the ink has soaked through, and some
+  of what they wrote with it has soaked into the wearer.
+type: armor
+slot: wrist
+weight: 0
+level: 20
+baseline: cloth
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

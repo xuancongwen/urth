@@ -1,30 +1,34 @@
 interval_seconds: 300
 resets:
   # --- the war camp ---
-  - { mob: 1400, room: 1406, max: 3, equip: [{ item: 1400 }] }   # peons, each hauling lumber
+  - { mob: 1400, room: 1406, max: 3, equip: [{ item: 1400 }, { item: 1424 }] }   # peons, each hauling lumber and a wood-axe
   - { item: 1400, room: 1406 }                                     # a bundle left on the stack
   - { mob: 1401, room: 1403, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
   - { mob: 1401, room: 1407, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
   - { mob: 1402, room: 1405 }                                      # Zazzik, goblin merchant
   - { mob: 1403, room: 1404 }                                      # the warchief
-  - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }] }   # warlock: robe and fel skull
+  - { mob: 1420, room: 1404 }                                      # the orc warrior by the firepit, who teaches sunder
+  - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }, { item: 1422 }] }   # warlock: robe, fel skull, and the Demon Soul
+  - { item: 1433, room: 1408 }                                     # a ritual knife on the altar
   # --- the forest and the keep ---
-  - { mob: 1419, room: 1411, max: 2 }                              # bandits in the wheat
+  - { mob: 1419, room: 1411, max: 2, equip: [{ item: 1426 }] }   # Defias bandits in the wheat
   - { mob: 1407, room: 1412 }                                      # the farmwife sells bread
-  - { mob: 1405, room: 1413, max: 2, equip: [{ item: 1406, slot: wield }, { item: 1407, slot: shield }] }
+  - { mob: 1405, room: 1413, max: 2, equip: [{ item: 1406, slot: wield }, { item: 1407, slot: shield }, { item: 1432 }] }   # footmen, a spare hauberk in the pack
   - { mob: 1406, room: 1415 }                                      # Brannoc, blacksmith merchant
   - { item: 1404, room: 1415 }                                     # a lump of ore in the smith's bin
   - { mob: 1414, room: 1416 }                                      # the lord-marshal
   - { mob: 1410, room: 1417, max: 3 }                              # forest wolves
-  - { mob: 1411, room: 1418, max: 3, equip: [{ item: 1404 }, { item: 1404 }] }   # kobolds carry ore
+  - { item: 1427, room: 1417 }                                     # a dead trapper's wolfpelt mantle
+  - { mob: 1411, room: 1418, max: 3, equip: [{ item: 1404 }, { item: 1404 }, { item: 1425 }] }   # kobolds carry ore, and you no take candle
   # --- the hills ---
-  - { mob: 1408, room: 1421, max: 4, equip: [{ item: 1403 }] }    # gnoll raiders carry paws
+  - { mob: 1408, room: 1421, max: 4, equip: [{ item: 1403 }, { item: 1428 }] }   # gnoll raiders carry paws and crooked spears
   - { mob: 1409, room: 1422, equip: [{ item: 1408, slot: wield }, { item: 1403 }, { item: 1403 }] }
-  - { mob: 1412, room: 1424, max: 3, equip: [{ item: 1409, slot: wield }] }
-  - { mob: 1413, room: 1425, equip: [{ item: 1410, slot: face }] }
+  - { mob: 1412, room: 1424, max: 3, equip: [{ item: 1409, slot: wield }, { item: 1429 }] }   # troll axethrowers, bone bracelets
+  - { mob: 1413, room: 1425, equip: [{ item: 1410, slot: face }, { item: 1423 }] }   # the witch doctor, loa mask on and the Mask of Death in the bag
   # --- the high end ---
-  - { mob: 1415, room: 1426, max: 2, equip: [{ item: 1413, slot: wield }] }
-  - { mob: 1416, room: 1427, equip: [{ item: 1412, slot: belt }] }
+  - { mob: 1415, room: 1426, max: 2, equip: [{ item: 1413, slot: wield }, { item: 1431 }] }   # ogres at the pass, hide arm wraps
+  - { mob: 1416, room: 1427, equip: [{ item: 1412, slot: belt }, { item: 1420 }] }   # Gor'thok, his girdle, and the Skull of Gul'dan
   - { mob: 1417, room: 1428, max: 3, equip: [{ item: 1405 }] }    # whelps carry a scale each
-  - { mob: 1418, room: 1429, equip: [{ item: 1405 }, { item: 1405 }, { item: 1405 }] }
+  - { mob: 1418, room: 1429, equip: [{ item: 1405 }, { item: 1405 }, { item: 1405 }, { item: 1421 }] }   # Vharaxis, scales and Quel'Serrar from her hoard
   - { item: 1405, room: 1428 }                                     # a shed scale on the scree
+  - { item: 1430, room: 1428 }                                     # a whelp-scale buckler among the rocks

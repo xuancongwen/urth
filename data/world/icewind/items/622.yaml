@@ -1,0 +1,15 @@
+vnum: 622
+name: a bear-claw necklace
+keywords: [bear-claw, bear, claw, necklace]
+description: A necklace of great curved claws lies here on a thong.
+look: |
+  Five claws from a cave bear, each as long as a finger, strung on a
+  sinew thong. The Tribe of the Bear say the beast's strength goes to
+  whoever wears them, and it seems to.
+type: armor
+slot: neck
+level: 8
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }

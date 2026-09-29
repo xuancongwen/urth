@@ -3,10 +3,11 @@ name: the Undead Crown
 keywords: [undead, crown, leoric]
 description: A crown of tarnished gold lies here, its gems dark.
 look: |
-  A king's crown, heavy, with five points and a garnet in each. The
-  gold is cold and stays cold against the brow. Worn, it feeds on the
-  wounds of others and closes your own, which is how a dead king kept
-  his court standing.
+  A king's crown, heavy, with five points and a garnet in each. The gold
+  is cold and stays cold against the brow, and the garnets brighten a
+  little every time blood is spilled near them. Worn, it drinks from the
+  wounds you give and closes your own, which is how a dead king kept his
+  court standing long after it should have fallen.
 type: armor
 slot: head
 weight: 3
@@ -16,3 +17,5 @@ value: 700
 effects:
   - kind: regen
     params: { fraction: 0.01 }
+  - kind: leech
+    params: { fraction: 0.08 }

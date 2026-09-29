@@ -4,7 +4,7 @@ keywords: [cat, alley]
 description: An alley cat watches you from a windowsill.
 look: |
   Scarred, one-eyed, and utterly unimpressed with you.
-level: 1
+level: 3
 flags: [wander]
 attack:
   verb: claw

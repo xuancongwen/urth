@@ -1,0 +1,25 @@
+vnum: 1322
+name: the Harlequin Crest
+keywords: [harlequin, crest, shako, cap, hat]
+description: A tall, plumed jester's shako lies here, absurd and faintly glowing.
+look: |
+  A tall felt shako with a brass plate and a ridiculous plume, the sort
+  of hat a court fool wears to make the king laugh. Nobody laughs at it
+  twice. It sharpens the body, the mind and the spirit together, and
+  blows that land on its wearer seem to arrive tired. Lazarus hid it
+  among his own vestments, which says something about both.
+type: armor
+slot: head
+weight: 1
+level: 21
+baseline: light
+value: 3000
+effects:
+  - kind: protect
+    params: { mult: 0.9 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

@@ -4,6 +4,7 @@ interval_seconds: 300
 resets:
   # --- the tutorial corridor (40-46), where new characters wake ---
   - { item: 114, room: 40 }   # the plaque
+  - { item: 135, room: 42 }   # the key to the pine door, on its hook
   - { item: 112, room: 43 }   # practice sword
   - { item: 113, room: 43 }   # padded vest
   - { mob: 213, room: 44, max: 3 }   # cellar rats, one more each reset up to three

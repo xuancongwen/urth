@@ -1,0 +1,19 @@
+vnum: 3040
+name: the Peacekeeper's badge
+keywords: [peacekeeper's, peacekeeper, badge, star]
+description: A silver star of office on a chain lies here.
+look: |
+  A silver star on a heavy chain, the city arms enamelled at its heart,
+  blessed at the temple altar every midsummer. Something of the old
+  sanctuary prayer clings to it: blows land softer on whoever wears it,
+  and they do not flinch. Nobody in Midgaard likes to raise a hand
+  against the badge, either.
+type: armor
+slot: neck
+weight: 1
+level: 14
+value: 700
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

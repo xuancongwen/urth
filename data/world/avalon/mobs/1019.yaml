@@ -1,0 +1,16 @@
+vnum: 1019
+name: a knight of the Round Table
+keywords: [knight, round, table, bedivere, sir]
+description: A one-handed knight keeps vigil inside the ring of stones, his shield on his knee.
+look: |
+  Sir Bedivere, who threw the sword back to the Lady and has stood
+  watch on this isle ever since. He fights one-handed and still takes
+  the blade out of a man's grip before the man knows it has gone, and
+  he has pulled more fallen companions out of a melee than he can
+  count. He will teach both, for coin, to anyone who swears to use
+  them for others.
+level: 12
+flags: [peaceful]
+teaches: [disarm, rescue]
+attack:
+  verb: slash

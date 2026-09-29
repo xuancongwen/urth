@@ -1,0 +1,27 @@
+vnum: 1528
+name: Longclaw
+keywords: [longclaw, bastard, sword, valyrian, wolf, bear]
+description: A bastard sword with a pommel of pale stone lies half buried in the snow, still in a dead hand.
+look: |
+  A hand-and-a-half sword of Valyrian steel, dark and rippled like
+  smoke, far lighter than it looks and sharper than any blade forged in
+  the last four hundred years. The pommel was once a bear and has been
+  carved anew into a wolf's head of pale stone with garnet eyes. It
+  belonged to the house that held Bear Island, and a ranger carried it
+  north. It cuts deeper than steel should, it moves like part of the
+  arm, and it is quick enough to turn a blow as well as give one.
+type: weapon
+level: 11
+baseline: standard
+weight: 3
+value: 1400
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: block, params: { chance: 0.05 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

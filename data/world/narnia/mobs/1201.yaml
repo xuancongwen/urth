@@ -7,7 +7,7 @@ look: |
   take in everything. It wears no collar, but the way it moves says it
   has a master. It speaks, when it bothers to, in a growl that knows
   exactly how frightening it is.
-level: 5
+level: 7
 flags: [wander]
 attack:
   verb: bite

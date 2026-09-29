@@ -1,0 +1,15 @@
+vnum: 742
+name: a deep-gnome's pick
+keywords: [deep-gnome, deep, gnome, svirfneblin, pick]
+description: A short, heavy pick of grey metal lies on the ledge.
+look: |
+  Svirfneblin work, the head a single wedge of hardened grey metal on
+  a stone-oak haft. It was made for rock; the gnome who dropped it here
+  learned it serves for other things.
+type: weapon
+level: 12
+baseline: axe
+weapon:
+  hands: 1
+  kind: pierce
+  verb: pick

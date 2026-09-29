@@ -1,0 +1,21 @@
+vnum: 3038
+name: the gravedigger's shovel
+keywords: [gravedigger's, gravedigger, shovel, spade]
+description: A long iron-bladed shovel, caked in clay, leans against a headstone.
+look: |
+  Ash haft, iron blade, and a lifetime of graveyard clay dried on both.
+  The gravedigger has buried half the city and knows to the inch when a
+  body is ready for the ground. With this in hand you know it too: a
+  staggering foe or one already failing gets the full swing of the blade.
+type: weapon
+weight: 7
+level: 5
+baseline: heavy
+value: 150
+weapon:
+  hands: 2
+  kind: blunt
+  verb: clang
+effects:
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: opportunist, params: { mult: 1.15 } }

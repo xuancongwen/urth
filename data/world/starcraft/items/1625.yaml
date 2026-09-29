@@ -1,0 +1,13 @@
+vnum: 1625
+name: a pair of welding goggles
+keywords: [welding, goggles, visor]
+description: A pair of scratched welding goggles lies here.
+look: |
+  Heavy tinted goggles on an elastic strap, the kind every SCV pilot
+  keeps pushed up on the forehead. The lenses are scratched, but they
+  keep grit and sparks out of your eyes.
+type: armor
+slot: face
+weight: 0
+level: 16
+baseline: light

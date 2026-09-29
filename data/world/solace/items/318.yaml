@@ -1,0 +1,13 @@
+vnum: 318
+name: a pair of hobgoblin hide leggings
+keywords: [pair, hobgoblin, hide, leggings]
+description: A pair of stiff hide leggings lies here.
+look: |
+  Badly cured hide, laced with gut, and smelling of hobgoblin. They
+  will turn a scratch.
+type: armor
+slot: legs
+weight: 3
+level: 1
+baseline: light
+value: 10

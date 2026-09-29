@@ -8,9 +8,20 @@ ridge; and, over the high pass, an ogre mound and a red drake's roost.
 Levels 8 to 16. The hub's north door (the banded door in room 8, `start`)
 opens into a timbered hollow under a horde banner (1400).
 
-Bosses: Gor'thok the two-headed ogre-mage (15, 1427) and Vharaxis the
-red drake (16, 1429). Mid bosses: the orc warlock (14, 1408), the troll
-witch doctor (14, 1425), and Grimmaw the gnoll packleader (12, 1422).
+Bosses: Gor'thok the two-headed ogre-mage (15, 1427; the Skull of
+Gul'dan) and Vharaxis the red drake (16, 1429; Quel'Serrar in her hoard).
+Mid bosses: the orc warlock (14, 1408; the Demon Soul), the troll witch
+doctor (14, 1425; the loa mask and the Mask of Death), and Grimmaw the
+gnoll packleader (12, 1422; his festering bone flail).
+
+Uniques: the Skull of Gul'dan (held; a fel-fire aura, Intelligence, sees
+the invisible, costs Wisdom), Quel'Serrar (a defender's blade: parries,
+dodge, armor), the Demon Soul (held; gouts of dragonfire and life
+drained), the Mask of Death (leech, a little more damage, costs
+Charisma). Common finds: peons' wood-axes, kobold candles, red Defias
+bandanas on the bandits, a wolfpelt mantle in the deep wood, gnoll
+spears, troll bone bracelets, a whelp-scale buckler on the scree, ogre-
+hide arm wraps, footmen's hauberks, a fel-etched knife on the altar.
 
 Safe: the hollow (1400), the great hall (1404), the goblin's tent
 (1405), the farmhouse (1412), the keep courtyard, smithy, and hall

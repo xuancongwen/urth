@@ -1,0 +1,14 @@
+vnum: 1028
+name: a pair of bronze vambraces
+keywords: [pair, bronze, vambraces, bracers]
+description: A pair of bronze arm-guards lies among the grave-goods.
+look: |
+  Two curved plates of bronze for the forearms, embossed with spirals
+  and laced with leather that has turned to black paper. They were
+  buried with a warrior to serve his king in the dark.
+type: armor
+slot: arms
+level: 12
+baseline: medium
+weight: 3
+value: 45

@@ -1,0 +1,25 @@
+vnum: 1420
+name: the Skull of Gul'dan
+keywords: [skull, gul'dan, guldan, gul'dans]
+description: A blackened skull wreathed in green fire rests here, grinning.
+look: |
+  The skull of the first warlock of the Horde, who sold his people to
+  the Burning Legion and died clawing at the Tomb of Sargeras. Green fel
+  fire burns in the sockets and pours off the bone, scorching anyone who
+  stands near the one who holds it. It fills the mind with dark
+  knowledge and lets it see what hides behind glamours, and it whispers,
+  always, so that good sense drains slowly out of the ears. The two-
+  headed ogre-mage has been listening to it for years.
+type: armor
+slot: hold
+weight: 2
+level: 15
+value: 2000
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: fel fire }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: detectInvisible
+  - kind: stat
+    params: { stat: wisdom, amount: -1 }

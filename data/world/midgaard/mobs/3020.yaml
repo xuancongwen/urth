@@ -4,6 +4,6 @@ keywords: [beggar]
 description: A beggar sits against the wall, holding out a cracked bowl.
 look: |
   Thin and filthy, wrapped in rags. His eyes follow your purse.
-level: 1
+level: 3
 attack:
   verb: scratch

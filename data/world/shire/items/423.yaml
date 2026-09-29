@@ -1,0 +1,16 @@
+vnum: 423
+name: an elven lantern of Gildor's folk
+keywords: [elven, lantern, gildor, gildors, elf]
+description: A slender lantern of pale glass hangs from a low bough, glowing like starlight.
+look: |
+  A little lamp of white glass in a cage of silver wire, left on a
+  branch where the wandering Elves made their camp in the Woody End.
+  It needs no oil, and its light is cool and clear, and in it the
+  shadows under the trees hide rather less than they did.
+type: light
+level: 8
+burn: 0
+weight: 1
+value: 90
+effects:
+  - { kind: detectHidden }

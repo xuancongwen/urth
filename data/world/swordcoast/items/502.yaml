@@ -1,10 +1,12 @@
 vnum: 502
 name: Mulahey's mace
-keywords: [mulahey, mace]
+keywords: [mulahey, mulaheys, mace]
 description: A heavy iron mace lies here, its head stained.
 look: |
-  A flanged head on a haft bound in black leather, with a symbol of
-  a skull worked into the pommel. It was used at the altar.
+  A flanged head of the same tainted iron as the mine, on a haft bound
+  in black leather, with Cyric's jawless skull worked into the pommel.
+  It was used at the altar. When it lands a black flame licks out of
+  the flanges, and it falls hardest on those already kneeling.
 type: weapon
 level: 9
 baseline: heavy
@@ -12,3 +14,8 @@ weapon:
   hands: 1
   kind: blunt
   verb: smash
+effects:
+  - kind: proc
+    params: { chance: 0.3, power: 1.0, verb: "black flame of Cyric" }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.3 }

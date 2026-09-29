@@ -1,0 +1,14 @@
+vnum: 1228
+name: a fur-trimmed hood
+keywords: [fur-trimmed, fur, trimmed, hood]
+description: A red hood trimmed with white fur lies trodden into the snow.
+look: |
+  A dwarf's red hood, lined with hare fur and trimmed at the face, long
+  enough in the tail to wrap round the neck. It keeps the snow out of
+  your eyes, which in this wood is most of the battle.
+type: armor
+slot: head
+level: 6
+baseline: cloth
+weight: 1
+value: 12

@@ -1,0 +1,26 @@
+vnum: 1122
+name: the Helm of Domination
+keywords: [helm, domination, crown, helmet]
+description: A spiked black helm rimed with frost sits here, its eye-slits glowing.
+look: |
+  A tall helm of black saronite spiked like a crown of icicles, rimed
+  inside and out with frost that burns the fingers. Ner'zhul's soul was
+  bound into it in the Nether, and something of him is still there: wear
+  it and the cold spills off you onto everything near, your mind grows
+  sharp and commanding, and nothing short of death makes you lose your
+  footing. It is waiting for a head. It is not particular whose.
+type: armor
+slot: head
+weight: 6
+level: 18
+baseline: plate
+value: 4000
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: creeping grave-frost }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: charisma, amount: 1 }
+  - kind: steady
+    params: { chance: 0.3 }

@@ -1,0 +1,14 @@
+vnum: 888
+name: an elven boarding-pike
+keywords: [elven, elf, boarding-pike, boarding, pike, spear]
+description: A long pike with a hooked head lies in a rack.
+look: |
+  Ash and elven steel, with a hook behind the point for pulling a
+  human off a dragon's back. The marines drill with them below decks.
+type: weapon
+level: 9
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

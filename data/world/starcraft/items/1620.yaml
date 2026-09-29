@@ -1,0 +1,29 @@
+vnum: 1620
+name: Raynor's revolver
+keywords: [raynor's, raynor, revolver, pistol, gun, sidearm]
+description: A long-barrelled revolver with a worn wooden grip lies here.
+look: |
+  A heavy six-shot revolver, old-fashioned even on Mar Sara, with a grip
+  worn pale by one particular hand and a marshal's star scratched into
+  the frame. Jim Raynor carried it as the law on this world before the
+  Confederacy took his badge, and Kross took his gun. It shoots true, it
+  finishes what it starts, and the man holding it stands a little
+  straighter and gets listened to.
+type: weapon
+weight: 2
+level: 19
+baseline: standard
+value: 2000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: crit
+    params: { chance: 0.07, mult: 2 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.3 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }
+  - kind: stat
+    params: { stat: charisma, amount: 1 }

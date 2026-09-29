@@ -5,8 +5,8 @@ description: The rat king heaves itself up from its nest of filth.
 look: |
   A dozen rats knotted together by their tails into one writhing, many-
   headed horror. It moves as one thing and bites as twelve.
-level: 7
-health: 170
+level: 10
+health: 225
 silver: 35
 attack:
   verb: bite

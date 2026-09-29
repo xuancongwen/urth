@@ -4,7 +4,8 @@ keywords: [ghoul's, thighbone, club, bone]
 description: A great yellowed thighbone lies here.
 look: |
   Not a human thighbone, or not an ordinary one. The knob end is worn
-  smooth by gripping.
+  smooth by gripping, and the marrow end is packed with grave rot that
+  festers in whatever it breaks.
 type: weapon
 weight: 5
 level: 9
@@ -13,3 +14,5 @@ weapon:
   hands: 1
   kind: blunt
   verb: club
+effects:
+  - { kind: envenom, params: { power: 0.06, rounds: 3, maxStacks: 1 } }

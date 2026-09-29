@@ -2,12 +2,24 @@
 
 The Shire in the last quiet days before Frodo leaves: Hobbiton, Bywater,
 the Water and the Mill, Farmer Maggot's fields, the Woody End, and the
-edge of the Old Forest. Levels 1 to 8, with the Black Rider (10) on the
-road through the Woody End and Old Man Willow (8, tough) by the
+edge of the Old Forest. Levels 1 to 10, with the Black Rider (9) on the
+road through the Woody End and Old Man Willow (10, tough) by the
 Withywindle. Reached through the west door of the Undercroft (room 6),
 which opens as an old cellar door in the bank of the Bywater Road (400).
 Hobbiton, Bywater, and Maggot's kitchen are safe. The two Old Forest rooms
 are dark.
+
+Notable items: the Black Rider wields a Morgul-knife (poison and chill)
+and wears the torn black cloak (sees the invisible); Old Man Willow keeps
+the One Ring (a plain gold ring, unidentified: invisibility, slow
+regeneration, but 15% more damage taken and -2 wisdom) and Sting
+(finesse, sees hidden things); Bilbo's mithril shirt (soak, extra
+defense) lies in the roots at 422; the ruffian on the East Road carries
+Bullroarer's club (execute) stolen from Tuckborough. Ordinary finds: a
+belt (401), party cloak (404), party ring (406), pot-lid shield (403),
+moleskin breeches (411), woodcutter's axe (408), frying pan in Maggot's
+kitchen (417), Big Folk boots on the ruffian, an elven lantern in the
+Woody End (418), and an Old Forest quarterstaff under the eaves (421).
 
 Map (x east, y south; z = 0 throughout):
 

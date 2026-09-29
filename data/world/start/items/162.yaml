@@ -10,6 +10,8 @@ slot: finger
 level: 10
 effects:
   - kind: stat
-    params: { stat: strength, amount: 6 }
+    params: { stat: strength, amount: 3 }
   - kind: stat
-    params: { stat: constitution, amount: 4 }
+    params: { stat: constitution, amount: 1 }
+  - kind: soak
+    params: { power: 0.05 }

@@ -1,10 +1,12 @@
 vnum: 1211
-name: a hunting bow of yew
-keywords: [hunting, bow, yew]
-description: A bow of pale yew and a full quiver lie here.
+name: Susan's bow
+keywords: [susan, susans, hunting, bow, yew]
+description: A bow of pale yew with ivory tips and a full quiver lie here.
 look: |
   A graceful bow with an ivory horn at each tip and a quiver of arrows
-  fletched in grey goose. It very seldom misses what it is aimed at.
+  fletched in grey goose, the gift Father Christmas meant for the
+  Gentle Queen. It very seldom misses what it is aimed at, and when it
+  finds a mark it finds the heart of it.
 type: weapon
 level: 6
 baseline: standard
@@ -13,3 +15,6 @@ weapon:
   hands: 2
   kind: pierce
   verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

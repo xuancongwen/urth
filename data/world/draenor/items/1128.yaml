@@ -1,0 +1,16 @@
+vnum: 1128
+name: a naga scimitar
+keywords: [naga, scimitar, sword, curved]
+description: A curved sword of sea-green bronze lies here.
+look: |
+  A deeply curved blade of green bronze, its hilt wrapped in sharkskin
+  for a wet grip. The myrmidons carry four of them at once. One is
+  plenty for you.
+type: weapon
+weight: 3
+level: 14
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

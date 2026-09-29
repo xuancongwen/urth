@@ -1,0 +1,25 @@
+vnum: 1032
+name: Carnwennan
+keywords: [carnwennan, white, hilt, dagger, knife]
+description: A dagger with a hilt of white bone lies here, and the shadows lean toward it.
+look: |
+  Arthur's dagger, the little white-hilt, with which he cut the Very
+  Black Witch in two in her cave at the head of the Valley of Grief.
+  Gwyn ap Nudd keeps it now, as the lord of Annwn keeps many things
+  that were lent and never returned. Whoever carries it is wrapped in a
+  little of the dark, hard to see and harder to hit, and it rewards a
+  quick hand when the enemy is already failing.
+type: weapon
+level: 11
+baseline: dagger
+weight: 1
+value: 900
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: finesse }
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }

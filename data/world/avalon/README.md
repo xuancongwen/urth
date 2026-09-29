@@ -5,8 +5,8 @@ crosses to it, the orchards and the cider house, Glastonbury Tor with
 Gwyn ap Nudd's hall hollowed under it, the reed causeway to the shrine
 of the Lady of the Lake and the Chalice Well, the sword in the stone,
 Morgan le Fay's black tower on its spit, the twilight fae wood, and the
-barrow of the old kings. Levels 4 to 12, with Morgan le Fay (12) and
-the Barrow King (12) as the bosses and Gwyn ap Nudd (11) close behind.
+barrow of the old kings. Levels 4 to 14, with Morgan le Fay (12) and
+the Barrow King (14) as the bosses and Gwyn ap Nudd (11) close behind.
 Reached through the apple-wood east door of the Hall of Far Doors (room
 7 in `start`), which opens onto the Mist-Shore (1000).
 
@@ -21,6 +21,16 @@ pinches of fae dust (from the pixies). The priestess of the Lady (1015)
 sells cider for coin, the Lady's scabbard for coin and a wyvern scale
 (from the Tor wyvern), and the charm for coin and two raven feathers
 (from Morgan's ravens).
+
+Uniques: Morgan le Fay wields the stolen Excalibur; the changeling knight
+carries Arthur's shield Pridwen; Gwyn ap Nudd keeps Carnwennan, Arthur's
+dagger; Rhongomiant, Arthur's spear, lies in the chamber of the old kings
+(1027) under the Barrow King's eye. The Lady's scabbard now keeps its
+wearer from bleeding out. Ordinary gear: eel-spears on the reed-lurkers,
+orchard gloves (1005), a cider-press mallet (1007), the hollow knight's
+flail and chausses, a briar whip (1017), a masque-mask (1021), a willow
+bracelet (1024), cloak-pins on the barrow-wights, and bronze vambraces
+(1026).
 
 Map (north is up; x east, y south; z = 0 unless noted):
 

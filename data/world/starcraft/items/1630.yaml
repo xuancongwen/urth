@@ -1,0 +1,13 @@
+vnum: 1630
+name: a plasma shield emitter
+keywords: [plasma, shield, emitter, disc]
+description: A golden disc with a humming crystal core lies here.
+look: |
+  A Protoss shield emitter the size of a buckler, meant to be worn on
+  the forearm. It throws a small shimmering plane of blue light that
+  catches blows before they land.
+type: armor
+slot: shield
+weight: 2
+level: 21
+baseline: shield

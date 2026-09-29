@@ -2,10 +2,16 @@ vnum: 45
 name: The Waiting Room
 description: |
   A round room with a bench all the way around the wall, worn smooth by
-  people waiting for their friends. The wall:
+  people waiting for their friends, and a few who have fallen asleep on
+  it. The wall:
 
     'say <words>', OR ' AND THE WORDS, SPEAKS TO THE ROOM.
+    'tell <name> <words>' SPEAKS TO ONE PLAYER, WHEREVER THEY ARE, AND
+    'reply <words>' ANSWERS THE LAST ONE WHO TOLD YOU SOMETHING.
     'chat <words>' SPEAKS TO EVERYONE IN THE WORLD. 'who' SHOWS WHO.
+    'rest' ON THE BENCH HEALS YOU TWICE AS FAST, 'sleep' THREE TIMES.
+    'stand' OR 'wake' GETS YOU UP AGAIN; YOU CANNOT WALK SITTING DOWN.
+    'affects' SHOWS WHAT SPELLS AND POISONS ARE WORKING ON YOU.
     'score' IS YOUR CHARACTER. 'train' SPENDS STAT POINTS, 'feat'
     SPENDS FEAT PICKS, AND 'skills' LISTS WHAT YOU CAN DO.
     YOU ARE SAVED AS YOU GO. 'quit' LEAVES THE GAME.

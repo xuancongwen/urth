@@ -1,0 +1,17 @@
+vnum: 3039
+name: a ring of regeneration
+keywords: [ring, regeneration, green, jade]
+description: A band of green jade glints among the gnawed bones.
+look: |
+  A ring of green jade carved as a snake eating its own tail. It feels
+  warm and faintly alive. Wounds knit under it while you watch, even in
+  the middle of a fight, which is how the rat king lived so long wearing
+  it on a claw.
+type: armor
+slot: finger
+weight: 0
+level: 10
+value: 600
+effects:
+  - { kind: regen, params: { fraction: 0.02 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

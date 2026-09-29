@@ -1,0 +1,12 @@
+vnum: 889
+name: a Geg's tool-belt
+keywords: [geg, tool-belt, tool, belt]
+description: A wide leather belt hung with small tools lies here.
+look: |
+  Heavy leather, with loops for a wrench, a spike, an oil-can, and a
+  pouch of spare bolts. It takes weight off the back, and puts it on
+  the hips.
+type: armor
+slot: belt
+level: 5
+baseline: light

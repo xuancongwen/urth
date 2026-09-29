@@ -1,0 +1,11 @@
+vnum: 527
+name: a pair of iron-shod boots
+keywords: [pair, iron-shod, iron, boots]
+description: A pair of boots with iron-plated toes lies here.
+look: |
+  Miners' boots taken off miners, with plates riveted over the toes and
+  the heels. Kobold commandos wear them stuffed with rags to fit.
+type: armor
+slot: feet
+level: 9
+baseline: heavy

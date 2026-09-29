@@ -1,0 +1,16 @@
+vnum: 321
+name: a theocrat's chain of office
+keywords: [theocrat's, theocrat, chain, office]
+description: A heavy gilt chain of office lies here.
+look: |
+  Gilt links and a medallion of a staring eye, the sign of gods the
+  Seekers made up themselves. It makes whoever wears it sound sure of
+  things, and feel it.
+type: armor
+slot: neck
+weight: 1
+level: 6
+value: 150
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

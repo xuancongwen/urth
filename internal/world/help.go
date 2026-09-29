@@ -16,25 +16,40 @@ type helpSection struct {
 }
 
 var helpSections = []helpSection{
-	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits", "scan", "open", "close"}},
+	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits", "scan", "open", "close", "lock", "unlock", "pick", "recall"}},
 	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
-	{"Combat", []string{"kill", "flee", "consider", "assist", "skills"}},
-	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
+	{"Combat", []string{"kill", "flee", "consider", "assist", "skills", "autoloot", "autogold", "autosac"}},
+	{"Magic", []string{"cast", "spells", "brandish", "consume", "sacrifice"}},
 	{"Trade", []string{"list", "buy", "sell"}},
 	{"Groups", []string{"follow", "group", "gtell"}},
-	{"Talking", []string{"say", "chat", "yell"}},
+	{"Talking", []string{"say", "tell", "reply", "chat", "yell"}},
+	{"Resting", []string{"rest", "sleep", "wake", "stand", "affects"}},
 	{"Character", []string{"score", "train", "feat", "practice", "quest", "who", "color", "save", "password", "quit"}},
 	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "copyover", "shutdown"}},
 	{"Admin", []string{"outfit", "promote", "demote", "passwd", "deny", "allow", "users"}},
 }
 
 var helpText = map[string]string{
-	"north": "north, east, south, west, up, down: walk through an exit. One letter is enough.",
-	"look":  "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. In the room listing, fixtures that cannot be taken read like the description, items you can pick up are green, and creatures are yellow. Only an unidentified item hides its numbers.",
-	"exits": "exits: list the obvious ways out of this room and where they lead. A closed door is not obvious.",
-	"scan":  "scan: who stands here with you and in each adjacent room. Nothing shows beyond a closed door or in the dark.",
-	"open":  "open <direction|door>: open a door.",
-	"close": "close <direction|door>: shut a door. A closed door blocks the way and hides the exit from both sides.",
+	"north":    "north, east, south, west, up, down: walk through an exit. One letter is enough.",
+	"look":     "look | look <thing> | look in <container> | look <direction>: the room, a character, an item and its numbers, what a container holds, or the way out in a direction and whether its door is shut. In the room listing, fixtures that cannot be taken read like the description, items you can pick up are green, and creatures are yellow. Only an unidentified item hides its numbers.",
+	"exits":    "exits: list the obvious ways out of this room and where they lead. A closed door is not obvious.",
+	"scan":     "scan: who stands here with you and in each adjacent room. Nothing shows beyond a closed door or in the dark.",
+	"open":     "open <direction|door>: open a door.",
+	"close":    "close <direction|door>: shut a door. A closed door blocks the way and hides the exit from both sides.",
+	"lock":     "lock <direction|door>: lock a closed door. You need its key, carried or held.",
+	"unlock":   "unlock <direction|door>: unlock a locked door with its key. Then 'open' it.",
+	"pick":     "pick <direction|door>: try to pick a lock without the key. Nimble hands do better; some locks cannot be picked. One try a round.",
+	"tell":     "tell <player> <message>: say something to one player, wherever they are. The first letters of a name are enough.",
+	"reply":    "reply <message>: answer whoever last sent you a tell.",
+	"rest":     "rest: sit down. Health comes back twice as fast, but you can't walk, fight, or cast until you 'stand'.",
+	"sleep":    "sleep: lie down and sleep. Health comes back three times as fast, but you can do little until you 'wake'. A fight wakes you.",
+	"wake":     "wake | wake <player>: wake up and stand, or shake a sleeping player awake.",
+	"stand":    "stand: get up from resting or sleeping.",
+	"affects":  "affects: what is acting on you: spells, poisons, and burning with the time they have left, then your permanent effects.",
+	"autoloot": "autoloot: toggle taking everything from the corpses of what you kill.",
+	"autogold": "autogold: toggle taking just the coins from the corpses of what you kill.",
+	"autosac":  "autosac: toggle sacrificing the corpses of what you kill, once they are empty, for a coin.",
+	"recall":   "recall | recall set | recall clear | recall show: recall takes you straight to your recall point, anywhere in the world, but not out of a fight. 'recall set' makes the room you stand in your recall point; 'recall clear' puts it back to where everyone starts; 'recall show' names it. 'recall tutorial' goes back to the start of the tutorial whenever you want a refresher.",
 
 	"get":       "get <item> | get all | get <item> <container> | get all <container>: pick things up, here or from a container (a corpse is a container).",
 	"drop":      "drop <item> | drop all | drop <amount> silver|gold: put things or coins down.",
@@ -61,7 +76,8 @@ var helpText = map[string]string{
 
 	"cast":      "cast <spell> [target] | cast '<spell name>' [target]: cast a spell you know. Casting takes rounds; moving always interrupts, and some spells break when you are hit. Materials are spent when you begin.",
 	"spells":    "spells: the spells you can cast, what they cost, and what is on cooldown.",
-	"consume":   "consume <totem>: consume a totem to learn its school of magic.",
+	"brandish":  "brandish <totem>: raise a totem to learn its school of magic. The totem crumbles to dust.",
+	"consume":   "consume <item>: eat or drink something. Food and drink do nothing yet; a totem is brandished, not consumed.",
 	"sacrifice": "sacrifice <thing>: offer a corpse or other item lying here to the gods; it vanishes and they leave you a coin. At a god's temple, giving up what the god wants makes you its apostle.",
 
 	"follow": "follow <player> | follow self: follow someone, moving when they move, or go your own way.",
@@ -151,6 +167,22 @@ func cmdHelp(w *World, p *Player, args string) {
 			continue
 		}
 		b.WriteString("{c}" + padRight(sec.title, 11) + "{x}" + strings.Join(names, "  ") + "\n")
+	}
+	// Anything the sections miss still shows, so help never hides a command.
+	listed := map[string]bool{"help": true}
+	for _, sec := range helpSections {
+		for _, n := range sec.names {
+			listed[n] = true
+		}
+	}
+	var other []string
+	for _, c := range commands {
+		if !listed[c.name] && (p.Admin || !c.admin) {
+			other = append(other, c.name)
+		}
+	}
+	if len(other) > 0 {
+		b.WriteString("{c}" + padRight("Other", 11) + "{x}" + strings.Join(other, "  ") + "\n")
 	}
 	var skills []string
 	for _, sk := range w.skillList() {

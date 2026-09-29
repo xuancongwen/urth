@@ -7,8 +7,8 @@ look: |
   with bronze bands, one for each fight he has won. There are a great
   many bands. He led his people through the Wall and he is not going to
   let a southron stop them now.
-level: 12
-health: 300
+level: 11
+health: 275
 silver: 70
 stats: {strength: 14, constitution: 13}
 attack:

@@ -1,0 +1,17 @@
+vnum: 1020
+name: a barbed eel-spear
+keywords: [barbed, eel-spear, eel, spear, gig]
+description: A slender spear with a barbed head lies in the reeds.
+look: |
+  A reed-lurker's fishing spear: a long willow shaft and a head of
+  three bone barbs lashed with gut. It is meant for eels. It works on
+  ankles, too.
+type: weapon
+level: 5
+baseline: spear
+weight: 3
+value: 15
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab

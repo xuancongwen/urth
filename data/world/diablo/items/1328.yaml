@@ -1,0 +1,15 @@
+vnum: 1328
+name: a pair of fiend-hide gloves
+keywords: [fiend-hide, fiend, hide, gloves]
+description: A pair of thin, leathery gloves lies here.
+look: |
+  Gloves cut from a winged fiend's wing membrane, thin as a bat's and
+  tough as harness. They are cold, and they make the hands quick.
+type: armor
+slot: hands
+weight: 1
+level: 17
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.02 }

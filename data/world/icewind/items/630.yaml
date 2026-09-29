@@ -1,0 +1,27 @@
+vnum: 630
+name: Aegis-fang
+keywords: [aegis-fang, aegis, fang, warhammer, hammer]
+description: A great warhammer of shining mithral lies here, the head etched with runes.
+look: |
+  Bruenor Battlehammer's finest work, forged for the son he chose: a
+  head of mithral and adamantite on a haft of black iron, with the
+  signs of Moradin, Clangeddin, and Dumathoin set in its face. It is
+  made to be hurled, and it comes back. It wants a strong arm and makes
+  the arm stronger, and it does not leave the hand that holds it. The
+  goblin chieftain has been using it to crack skulls, very badly.
+type: weapon
+level: 10
+baseline: heavy
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash
+effects:
+  - kind: proc
+    params: { chance: 0.25, power: 1.2, verb: "hurled hammer, spinning back to your hand" }
+  - kind: stat
+    params: { stat: strength, amount: 3 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }
+  - kind: steady
+    params: { chance: 0.3 }

@@ -1,0 +1,18 @@
+vnum: 417
+name: a cast-iron frying pan
+keywords: [cast-iron, cast, iron, frying, pan, skillet]
+description: A heavy cast-iron frying pan hangs from a hook over the hearth.
+look: |
+  Black, heavy, seasoned by a thousand breakfasts, and wide enough for
+  a dozen mushrooms and the bacon to go with them. A hobbit who has to
+  go on a long journey would pack one before a sword, and swing it
+  with more conviction. It rings like a bell on a skull.
+type: weapon
+level: 6
+baseline: mace
+weight: 4
+value: 12
+weapon:
+  hands: 1
+  kind: blunt
+  verb: clang

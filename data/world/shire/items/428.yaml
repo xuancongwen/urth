@@ -1,0 +1,24 @@
+vnum: 428
+name: Bullroarer's club
+keywords: [bullroarer, bullroarers, club, took, golf]
+description: A heavy knobbed club of old oak lies here, its head bound in iron.
+look: |
+  The Old Took's great-uncle Bullroarer was so large he could ride a
+  horse, and with this club he charged the goblins at the Battle of the
+  Green Fields and knocked their king's head clean off. It sailed a
+  hundred yards and went down a rabbit-hole, and so the game of golf
+  was invented. It was stolen from the Great Smials at Tuckborough. It
+  still knows exactly where to hit a thing that is already wobbling.
+type: weapon
+level: 5
+baseline: mace
+weight: 5
+value: 300
+rarity: rare
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club
+effects:
+  - { kind: execute, params: { threshold: 0.25, mult: 1.4 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

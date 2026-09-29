@@ -1,0 +1,15 @@
+vnum: 3043
+name: a broken bottle
+keywords: [broken, bottle]
+description: The jagged neck of a broken bottle lies here.
+look: |
+  The neck and shoulder of a firebreather bottle, broken off clean and
+  sharp. A tavern argument's favourite weapon.
+type: weapon
+weight: 1
+level: 2
+baseline: dagger
+value: 1
+weapon:
+  kind: pierce
+  verb: jab

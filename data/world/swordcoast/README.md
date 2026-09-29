@@ -1,8 +1,8 @@
 # swordcoast
 
-The Sword Coast of the first Baldur's Gate, levels 2 to 9: Candlekeep,
+The Sword Coast of the first Baldur's Gate, levels 1 to 10: Candlekeep,
 the Lion's Way, the Coast Way and the Friendly Arm, Beregost, Nashkel,
-and the Nashkel mines, where Mulahey (level 9) keeps the kobolds and the
+and the Nashkel mines, where Mulahey (level 10) keeps the kobolds and the
 tainted iron and a totem stolen from Candlekeep's vaults. The east door
 of the Undercroft (start room 6) opens into Candlekeep's undercellars,
 room 500. Candlekeep, the two inns, and Nashkel's crossroads are safe.
@@ -31,3 +31,10 @@ upper levels z=0, Mulahey's chamber z=-1.
 
     z=-1
       y=11                                  524  (Mulahey)
+
+Notable items. Uniques: Silke's Sword of Chaos (6), Tarnesh's Boots of
+Speed (6), Varscona in the ogre's pack (7), Spider's Bane at the lower
+shaft (523, 9), and Mulahey's Ring of Wizardry (10); his mace burns with
+Cyric's black flame, and Gorion's ring shields a ward near death.
+Ordinary gear is carried by the bandit, hobgoblin, xvarts, ogre, kobolds,
+and commandos, or lies along the road and in the mine.

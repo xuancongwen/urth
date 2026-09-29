@@ -1,0 +1,24 @@
+vnum: 872
+name: a hammer-arm of the Kicksey-winsey
+keywords: [hammer-arm, hammer, arm, kicksey-winsey, kicksey, winsey, whistle-clap]
+description: A great iron hammer-arm lies here, still twitching on its broken hinge.
+look: |
+  The striking arm of a whistle-clap, torn off its bell: a block of
+  iron on a jointed haft, with a steam-valve that still hisses when it
+  swings. The Kicksey-winsey made it to keep time, and it still does;
+  whatever it strikes loses its rhythm, and now and then the valve
+  spits scalding steam.
+type: weapon
+level: 3
+baseline: heavy
+weapon:
+  hands: 2
+  kind: blunt
+  verb: clang
+effects:
+  - kind: proc
+    params: { chance: 0.25, power: 1.0, verb: "gout of scalding steam" }
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

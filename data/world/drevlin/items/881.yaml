@@ -1,0 +1,14 @@
+vnum: 881
+name: a Geg's riveting spike
+keywords: [geg, riveting, spike]
+description: A long iron riveting spike lies on the gantry.
+look: |
+  A tapered spike for knocking rivets through, polished by a Geg's
+  palm. It is quick in the hand and goes in easily.
+type: weapon
+level: 3
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

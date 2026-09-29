@@ -1,0 +1,16 @@
+vnum: 1230
+name: a pair of dwarf-forged gauntlets
+keywords: [pair, dwarf-forged, dwarf, forged, gauntlets]
+description: A pair of heavy iron gauntlets lies here, knuckles studded.
+look: |
+  Black iron plates riveted over leather, the knuckles set with square
+  studs. The Queen's chief dwarf wears them to drive the reindeer and
+  anyone else who is slow. A fist in them lands like a hammer.
+type: armor
+slot: hands
+level: 9
+baseline: heavy
+weight: 3
+value: 40
+effects:
+  - { kind: unarmedMult, params: { mult: 1.1 } }

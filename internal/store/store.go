@@ -31,7 +31,14 @@ type Record struct {
 	Created   time.Time `yaml:"created"`
 	LastLogin time.Time `yaml:"last_login"`
 	Room      int       `yaml:"room"`
-	Color     bool      `yaml:"color"`
+	// Recall is the room recall returns to; 0 means the respawn room.
+	Recall int `yaml:"recall,omitempty"`
+	// After a kill: take everything from the corpse, or just its coins,
+	// and give the emptied corpse to the gods.
+	AutoLoot bool `yaml:"autoloot,omitempty"`
+	AutoGold bool `yaml:"autogold,omitempty"`
+	AutoSac  bool `yaml:"autosac,omitempty"`
+	Color    bool `yaml:"color"`
 	// Visited is every room the character has stood in, for the map.
 	Visited []int `yaml:"visited,omitempty,flow"`
 	// Sheet. Stats is free-form because the stat set is a rules decision.

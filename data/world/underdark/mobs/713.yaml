@@ -1,0 +1,16 @@
+vnum: 713
+name: a drow poisoner
+keywords: [drow, poisoner, dark, elf]
+description: A drow poisoner sits alone at the far table, measuring drops into a thimble.
+look: |
+  Obsidian skin, white hair cropped short, and fingers stained to the
+  second knuckle. She was an alchemist of a minor House until her House
+  was not a House any more, and the svirfneblin let her stay because
+  she knows every venom that comes up the Drow Road and every cure for
+  it. She will teach you to coat a blade, for coin, and watches the
+  guards the whole time.
+level: 13
+flags: [peaceful]
+teaches: [envenom]
+attack:
+  verb: stab

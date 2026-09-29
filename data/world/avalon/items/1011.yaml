@@ -5,7 +5,8 @@ description: A mantle of black raven feathers lies here, stirring in no wind.
 look: |
   Hundreds of black feathers sewn overlapping onto dark silk, so the
   mantle ripples like a living bird. Wearing it, you are harder to pin
-  down, and you are sometimes not sure where your own edges are.
+  down, and you are sometimes not sure where your own edges are. Strike
+  at it and the feathers strike back.
 type: armor
 slot: shoulders
 level: 12
@@ -14,3 +15,5 @@ weight: 2
 effects:
   - kind: dodge
     params: { amount: 0.05 }
+  - kind: thorns
+    params: { fraction: 0.1, verb: "flurry of raven beaks" }

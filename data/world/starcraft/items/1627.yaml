@@ -1,0 +1,19 @@
+vnum: 1627
+name: a glave wurm
+keywords: [glave, glaive, wurm, worm, whip]
+description: A long, segmented creature lies coiled here, not quite dead.
+look: |
+  A living glave wurm, one of the things mutalisks spit, gone sluggish
+  and stiff enough to be held by the tail. Cracked like a whip, it
+  lunges, and now and then it bounces off its target to bite again.
+type: weapon
+weight: 2
+level: 21
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - kind: proc
+    params: { chance: 0.1, power: 1.0, verb: ricocheting glave }

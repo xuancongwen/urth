@@ -1,0 +1,13 @@
+vnum: 1327
+name: a rusted monk's hauberk
+keywords: [rusted, monk's, monk, hauberk, mail]
+description: A rusted mail hauberk lies in a heap here, links clinking.
+look: |
+  A soldier's mail shirt, long in the skirt, worn over a monk's habit
+  that has rotted to threads. The rust is only on the surface. The rings
+  underneath still turn a blade.
+type: armor
+slot: body
+weight: 15
+level: 15
+baseline: medium

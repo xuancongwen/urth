@@ -4,7 +4,9 @@ keywords: [mayor's, gold, signet, ring]
 description: A heavy gold signet ring lies here.
 look: |
   Heavy gold, the city arms cut deep into the bezel. It has sealed a
-  great many things it should not have.
+  great many things it should not have, and whoever wears it seems to
+  know everyone's secrets. Trouble has a way of sliding off the hand that
+  wears it, as it always slid off the mayor.
 type: armor
 slot: finger
 weight: 0
@@ -12,3 +14,5 @@ level: 13
 value: 150
 effects:
   - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: protect, params: { mult: 0.95 } }
+  - { kind: detectHidden }

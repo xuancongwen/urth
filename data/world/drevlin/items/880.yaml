@@ -1,0 +1,15 @@
+vnum: 880
+name: a length of steam-pipe
+keywords: [length, steam-pipe, steam, pipe]
+description: A length of iron steam-pipe with a flanged end lies here.
+look: |
+  A yard of iron pipe with a bolted flange at one end, knocked loose
+  from the vats. It is warm, it is heavy, and the flange hits like a
+  mace.
+type: weapon
+level: 4
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: bash

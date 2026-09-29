@@ -1,0 +1,13 @@
+vnum: 1430
+name: a whelp-scale buckler
+keywords: [whelp-scale, whelp, scale, buckler, shield]
+description: A small round shield faced with red scales lies here.
+look: |
+  A round buckler of oak faced with soft red whelp scales, overlapped
+  like roof tiles. It is light, and it will take a lick of fire and a
+  blade or two.
+type: armor
+slot: shield
+weight: 4
+level: 12
+baseline: shield

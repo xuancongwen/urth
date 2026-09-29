@@ -1,0 +1,21 @@
+vnum: 1530
+name: the Horn of Joramun
+keywords: [horn, joramun, winter, war-horn]
+description: A huge curved horn banded in old gold lies here, cracked along its length.
+look: |
+  A horn from some beast bigger than any aurochs, eight feet from end
+  to end and banded in old gold carved with runes of the First Men.
+  The wildlings say Joramun blew it and woke giants from the earth, and
+  that when it is blown again the Wall will fall. Holding it, you feel
+  the long note waiting in it: the ground shakes under your enemies
+  every moment you stand beside them, and you stand like the Wall.
+type: armor
+slot: hold
+level: 11
+weight: 6
+value: 1200
+rarity: rare
+effects:
+  - { kind: aura, params: { power: 0.25, verb: "shuddering note of the Horn of Winter" } }
+  - { kind: steady, params: { chance: 0.25 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

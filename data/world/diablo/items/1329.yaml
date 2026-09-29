@@ -1,0 +1,13 @@
+vnum: 1329
+name: a pair of goat-hide leggings
+keywords: [goat-hide, goat, hide, leggings, trousers]
+description: A pair of shaggy leggings lies here, hung with little bells.
+look: |
+  Shaggy goat hide stitched hair-out, with a row of little brass bells
+  down each side that someone has tried to stuff with moss. They smell
+  of the warren and wear well.
+type: armor
+slot: legs
+weight: 4
+level: 18
+baseline: light

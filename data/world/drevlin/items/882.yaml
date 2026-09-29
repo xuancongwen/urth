@@ -1,0 +1,12 @@
+vnum: 882
+name: a pair of tin vambraces
+keywords: [pair, tin, vambraces, bracers]
+description: A pair of tin vambraces lies here, dented and riveted.
+look: |
+  Two tubes of tinned iron hammered to fit a Geg's forearm and riveted
+  up the side. They were made to keep a dig-claw from taking the arm
+  off, and sometimes they did.
+type: armor
+slot: arms
+level: 5
+baseline: medium

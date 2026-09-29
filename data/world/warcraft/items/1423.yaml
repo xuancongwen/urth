@@ -1,0 +1,23 @@
+vnum: 1423
+name: the Mask of Death
+keywords: [mask, death, skull, face]
+description: A grinning mask of bone and black lacquer lies here.
+look: |
+  A mask made from the front of a troll's skull, lacquered black, with
+  red glass in the sockets and the tusks filed to points. The witch
+  doctors say it was carved for a loa of death. Worn, it lets you drink
+  the life from every wound you give, and it gives your face a look that
+  makes people step back and not come near you again.
+type: armor
+slot: face
+weight: 1
+level: 14
+baseline: light
+value: 1500
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: damage
+    params: { mult: 1.05 }
+  - kind: stat
+    params: { stat: charisma, amount: -2 }

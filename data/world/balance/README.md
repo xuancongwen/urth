@@ -10,11 +10,11 @@ a mechanic can be tried without walking to where it lives.
 | 900 The Balance Range | the hub; safe; a closed door south (open, close, doors reset shut) |
 | 945 A Sunlit Shrine | the Good temple, behind the door |
 | 940 The Test Armory | one of nearly everything: weapons one- and two-handed, every armor slot, the level-2 iron set, lights, a backpack and a purse (containers), bread, bucket, candle, the common materials, wolf fangs (one loose, one in each container) |
-| 941 The Muster Room | a drillmaster (bash, twin) and a quartermaster (quests, quest points, and the herald's wares) |
+| 941 The Muster Room | a drillmaster (bash, twin, dodge, trip, hand to hand, dirt kicking, shield block, fast healing, enhanced damage, rescue, second wind) and a quartermaster (quests, quest points, and the herald's wares) |
 | 903 The Arena Gate | into the arena, and west to the colleges |
 | 910-925 the arena | fights by row, levels 1 to 3 at the gate up to the troll: dogs, crows, a beggar, assisting wolves carrying fangs, an armed bandit and guard, a bog wight, a blacksmith, a wolf pack, and dummies 905, 906, 910, 915, 920, 925; the hauberk, ring, boots, and Sundering Blade lie with their guards |
 | 926 A Dark Cell | darkness (bring a light), the salt totem, the chalice |
-| 930-936 the colleges | all eight totems (931), rare materials and the other gods' sacrifices (932), the Neutral (934) and Evil (935) temples, the beast-master (rend) and fencing master (riposte) in the yards (936) |
+| 930-936 the colleges | all eight totems (931), rare materials and the other gods' sacrifices (932), the Neutral (934) and Evil (935) temples, the beast-master (rend, hamstring, berserk, sunder, whirlwind) and fencing master (riposte, feint, disarm, backstab, circle, envenom, triple strike, coup de grace) in the yards (936); between the three lab trainers every skill that needs a trainer can be bought here |
 | 947, 948 | two unfinished rooms off the arena's southeast corner |
 
 Mobs 901 to 925 are one plain dummy per level for the simulator. Use

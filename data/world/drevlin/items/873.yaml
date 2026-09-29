@@ -1,0 +1,20 @@
+vnum: 873
+name: a cloak of dragonship sail-silk
+keywords: [cloak, dragonship, sail-silk, sail, silk]
+description: A cloak of shimmering, wing-thin silk ripples here without any wind.
+look: |
+  Cut from the wing-sail of an elven dragonship, a silk so fine the
+  Tribus elves weave it only for their captains. It moves with the air
+  and not against it: the wearer slips aside, keeps a footing on a deck
+  in the Maelstrom, and is hard to knock from the course they chose.
+type: armor
+slot: shoulders
+level: 10
+baseline: cloth
+effects:
+  - kind: dodge
+    params: { amount: 0.04 }
+  - kind: steady
+    params: { chance: 0.3 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

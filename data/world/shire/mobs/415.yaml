@@ -7,7 +7,7 @@ look: |
   branches trail in the river and its roots go out under the whole
   hollow. The song it sings is sleep, and what it does with sleepers
   it does slowly.
-level: 8
-health: 350
+level: 10
+health: 425
 attack:
   verb: grasp

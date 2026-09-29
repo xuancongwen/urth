@@ -1,0 +1,25 @@
+vnum: 1529
+name: Needle
+keywords: [needle, small, sword, smallsword, blade]
+description: A skinny little sword lies here, hidden in the straw of an empty stall.
+look: |
+  A slender blade no longer than a man's arm, made by Mikken at a
+  bastard brother's asking for a sister who would never sit still for
+  her needlework. It is too thin to hack with and was never meant to.
+  It is for quickness and the dance: stick them with the pointy end.
+  It rewards a quick hand, keeps its bearer light on their feet, and
+  finds the one place that matters.
+type: weapon
+level: 8
+baseline: dagger
+weight: 1
+value: 500
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: prick
+effects:
+  - { kind: finesse }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }

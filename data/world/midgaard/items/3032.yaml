@@ -4,7 +4,9 @@ keywords: [steel, halberd]
 description: A steel halberd lies here.
 look: |
   An axe blade, a spike, and a hook on a haft taller than a man,
-  polished bright for parade and sharp for everything else.
+  polished bright for parade and sharp for everything else. It is the
+  Peacekeeper's own. The long haft turns blows aside, and the hook takes
+  a running man's legs out from under him and leaves him floundering.
 type: weapon
 weight: 8
 level: 14
@@ -13,3 +15,6 @@ weapon:
   hands: 2
   kind: slash
   verb: cleave
+effects:
+  - { kind: block, params: { chance: 0.06 } }
+  - { kind: chill, params: { chance: 0.15, mult: 0.6, rounds: 2 } }

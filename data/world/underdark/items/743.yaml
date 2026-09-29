@@ -1,0 +1,12 @@
+vnum: 743
+name: a chitin helm
+keywords: [chitin, helm, hook, horror]
+description: A helm cut from a great plate of grey chitin lies here.
+look: |
+  The crest of a hook horror's skull, scraped out and padded with
+  rothe felt. It is heavy and it rings when struck, and it has been
+  struck.
+type: armor
+slot: head
+level: 13
+baseline: heavy

@@ -1,0 +1,15 @@
+vnum: 745
+name: a spider-silk sash
+keywords: [spider-silk, spider, silk, sash, belt]
+description: A sash of black spider silk lies here, weightless.
+look: |
+  Wound three times around the waist and knotted in the drow manner.
+  It weighs nothing, catches nothing, and makes its wearer a little
+  harder to pin down.
+type: armor
+slot: belt
+level: 16
+baseline: cloth
+effects:
+  - kind: dodge
+    params: { amount: 0.02 }

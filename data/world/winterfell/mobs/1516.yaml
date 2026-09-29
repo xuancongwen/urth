@@ -6,7 +6,7 @@ look: |
   White as the stone it lives on and as big as a hound, with too many
   eyes in a cluster like beads of frost. It has grown fat on rats and on
   the occasional boy who went down for a dare.
-level: 8
+level: 12
 flags: [assist]
 attack:
   verb: bite

@@ -64,6 +64,7 @@ func cmdGoto(w *World, p *Player, args string) {
 // teleport moves a player between rooms with the given messages.
 func (w *World) teleport(p *Player, dest *room.Room, leave, arrive string) {
 	w.stopFighting(p.Character, true)
+	standUp(p.Character)
 	if p.Room != nil {
 		w.act(leave, p.Character, nil, "", toRoom)
 	}

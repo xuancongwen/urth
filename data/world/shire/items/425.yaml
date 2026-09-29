@@ -1,0 +1,21 @@
+vnum: 425
+name: Bilbo's mithril shirt
+keywords: [bilbo, bilbos, mithril, shirt, mail, coat]
+description: A small shirt of silver rings lies tangled in the willow roots, shining like moonlight on water.
+look: |
+  A coat of mail cut for a hobbit, made of rings of true-silver so fine
+  they flow like cloth, with a belt of pearl and crystal. It weighs
+  almost nothing. It was a gift from a dwarf-king under the Mountain,
+  and it is worth more than the whole Shire and everything in it. A
+  troll's spear could drive its wearer into a wall and leave him
+  bruised, winded, and alive.
+type: armor
+slot: body
+level: 10
+baseline: light
+weight: 1
+value: 1500
+rarity: rare
+effects:
+  - { kind: defense, params: { amount: 2 } }
+  - { kind: soak, params: { power: 0.1 } }

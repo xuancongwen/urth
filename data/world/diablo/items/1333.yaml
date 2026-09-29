@@ -1,0 +1,16 @@
+vnum: 1333
+name: a succubus's barbed whip
+keywords: [succubus, succubus's, barbed, whip, lash]
+description: A long whip of red leather, barbed at the tip, lies coiled here.
+look: |
+  Red leather braided around something that might be a spine, with a
+  cluster of small barbs at the tip. It snaps like a pistol shot and
+  tangles whatever it catches.
+type: weapon
+weight: 2
+level: 20
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

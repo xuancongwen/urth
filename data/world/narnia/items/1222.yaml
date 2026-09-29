@@ -1,0 +1,17 @@
+vnum: 1222
+name: an ogre's knotted cudgel
+keywords: [ogre, ogres, knotted, cudgel, club]
+description: A knotted cudgel the length of a man lies in the trampled snow.
+look: |
+  A young tree torn up by the roots, stripped, and left with the root
+  ball on for a head. There are nails driven into it, and other things
+  that are not nails.
+type: weapon
+level: 9
+baseline: heavy
+weight: 10
+value: 30
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash

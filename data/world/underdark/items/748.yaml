@@ -1,0 +1,17 @@
+vnum: 748
+name: a spider-silk lash
+keywords: [spider-silk, spider, silk, lash, whip]
+description: A long lash of grey spider silk hangs from the web here.
+look: |
+  Web-silk braided hard and tipped with a spider's fang, still wet. It
+  tangles as it strikes, and where the fang gets in, it burns.
+type: weapon
+level: 18
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - kind: envenom
+    params: { power: 0.08, rounds: 3, maxStacks: 1 }

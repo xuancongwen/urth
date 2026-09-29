@@ -7,8 +7,8 @@ look: |
   a coat that cost more than Wombe. He has flown the Maelstrom forty
   times and means to make it forty-one, and he has never once lost a
   cask of water to a groundling.
-level: 9
-health: 220
+level: 10
+health: 240
 silver: 200
 attack:
   verb: slash

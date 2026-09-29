@@ -1,0 +1,14 @@
+vnum: 1526
+name: a sword-belt with a wolf buckle
+keywords: [sword-belt, sword, belt, wolf, buckle]
+description: A broad leather sword-belt with an iron buckle lies here.
+look: |
+  Thick grey leather, doubled and stitched, with a buckle cast as a
+  running wolf. It is the kind a Stark man-at-arms is given on the day
+  he takes service, and it is kept for longer than most of them.
+type: armor
+slot: belt
+level: 8
+baseline: medium
+weight: 2
+value: 18

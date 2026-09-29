@@ -6,7 +6,8 @@ look: |
   Griswold took the Butcher's iron, broke it, and folded it back
   together with good steel until the rot was hammered out of it. The
   shape is the same. The edge is new, and it bites deep and seeks the
-  soft places the old owner knew so well.
+  soft places the old owner knew so well; when it finds one, it opens it
+  wide, and it is merciless to anything already staggering.
 type: weapon
 weight: 12
 level: 18
@@ -19,3 +20,9 @@ weapon:
 effects:
   - kind: crit
     params: { chance: 0.08, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.3 }
+  - kind: execute
+    params: { threshold: 0.35, mult: 1.4 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

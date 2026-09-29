@@ -1,0 +1,22 @@
+vnum: 1433
+name: a fel-etched ritual knife
+keywords: [fel-etched, fel, etched, ritual, knife, dagger]
+description: A black knife etched with glowing green runes lies on the stone here.
+look: |
+  A thin black blade, its flat etched with runes that glow the same sick
+  green as the altar. The Shadow Council's warlocks bled their
+  sacrifices with knives like this. The wound it leaves smoulders, and
+  the runes teach the hand that holds it things it did not want to know.
+type: weapon
+weight: 1
+level: 14
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: ignite
+    params: { power: 0.05, rounds: 3, maxStacks: 1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

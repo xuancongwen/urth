@@ -1,0 +1,15 @@
+vnum: 747
+name: a drow wizard's robe
+keywords: [drow, wizard, wizards, robe]
+description: A robe of black silk embroidered with violet spiders lies here.
+look: |
+  Spider silk stitched with faerzress thread that glows faintly in the
+  dark, in the patterns of a house's school of wizardry. It sharpens
+  the mind that wears it.
+type: armor
+slot: body
+level: 17
+baseline: cloth
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

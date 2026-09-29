@@ -1,0 +1,25 @@
+vnum: 314
+name: Tasslehoff's hoopak
+keywords: [tasslehoff's, tasslehoff, tas, hoopak, staff, sling, kender]
+description: A forked kender staff with a leather sling strung between the tines lies here.
+look: |
+  Willow wood, a copper tip at one end and a forked sling at the other,
+  and it whistles an insulting little tune when it is swung around.
+  The captain took it off a kender he caught on the road, and the kender
+  took his purse, his ring, and his map on the way out. Whoever carries
+  it finds themselves noticing things that were hidden, stepping out of
+  the way of things without thinking, and entirely unbothered by fear.
+type: weapon
+weight: 2
+level: 3
+baseline: staff
+value: 180
+weapon:
+  hands: 2
+  kind: blunt
+  verb: whack
+effects:
+  - { kind: detectHidden }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: steady, params: { chance: 0.25 } }

@@ -1,0 +1,13 @@
+vnum: 1021
+name: a pair of orchard gloves
+keywords: [pair, orchard, gloves]
+description: A pair of green-stained gloves lies among the windfalls.
+look: |
+  Soft linen gloves, stained green at the fingertips from a season of
+  picking, with a cider-house mark sewn at the cuff.
+type: armor
+slot: hands
+level: 6
+baseline: cloth
+weight: 0
+value: 8

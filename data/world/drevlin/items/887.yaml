@@ -1,0 +1,11 @@
+vnum: 887
+name: a pair of crab-shell greaves
+keywords: [pair, crab-shell, crab, shell, greaves]
+description: A pair of greaves cut from grey crab shell lies here.
+look: |
+  Plates of a coralite crab's leg-shell, lashed together with gut. Stone
+  grows in the shell, and it is heavy, and it turns a blade.
+type: armor
+slot: legs
+level: 8
+baseline: heavy

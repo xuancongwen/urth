@@ -1,0 +1,15 @@
+vnum: 518
+name: a Baldur's Gate acrobat
+keywords: [acrobat, tumbler, baldurian]
+description: A lean acrobat from Baldur's Gate walks on her hands between the tables, collecting coppers.
+look: |
+  Motley faded to a single colour, wrist-wraps gone grey with chalk,
+  and a way of being somewhere else a moment before anything arrives.
+  She tumbled for coin on the Wide in Baldur's Gate until the iron
+  shortage emptied the purses. She will teach you to not be where the
+  blow lands, for a price.
+level: 10
+flags: [peaceful]
+teaches: [dodge]
+attack:
+  verb: kick

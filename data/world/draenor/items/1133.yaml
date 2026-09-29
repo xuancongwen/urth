@@ -1,0 +1,15 @@
+vnum: 1133
+name: a ring of black coral
+keywords: [ring, black, coral]
+description: A ring of polished black coral lies here, still wet.
+look: |
+  Black coral grown into a ring around a naga's finger and cut off it
+  afterward. It is cold as deep water and it clears the head.
+type: armor
+slot: finger
+weight: 0
+level: 14
+value: 120
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

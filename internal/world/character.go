@@ -55,6 +55,8 @@ type Character struct {
 	// Fighting is the current target. Everyone whose Fighting is this
 	// character is one of its attackers (enemiesOf).
 	Fighting *Character
+	// Position is standing (""), resting, or sleeping (position.go).
+	Position string
 	// following and group implement parties (docs/RULES.md 4.7).
 	following *Character
 	group     *Group

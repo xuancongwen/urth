@@ -1,0 +1,15 @@
+vnum: 844
+name: a Geg brawler
+keywords: [geg, brawler, fighter]
+description: A thick-armed Geg brawler cracks his knuckles over a bowl of stew.
+look: |
+  Short, broad, and knotted all over like a bolt that has been
+  tightened too often. He has knocked out every Geg in Wombe at least
+  once, and a few of them twice, and nobody minds because he buys the
+  stew after. Wrenches break, he says; fists do not. He will teach you
+  to fight with your hands, for a few coins.
+level: 6
+flags: [peaceful]
+teaches: [hand_to_hand]
+attack:
+  verb: punch

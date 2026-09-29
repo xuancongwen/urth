@@ -1,0 +1,17 @@
+vnum: 1326
+name: a tarnished wedding ring
+keywords: [tarnished, wedding, ring, band]
+description: A tarnished silver wedding band lies here.
+look: |
+  A thin silver band, worn smooth on the inside, with two sets of
+  initials scratched into it by someone in Tristram who meant it. Its
+  owner walks the undercroft still. It is a small, stubborn comfort to
+  wear.
+type: armor
+slot: finger
+weight: 0
+level: 14
+value: 40
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

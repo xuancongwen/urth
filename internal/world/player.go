@@ -42,6 +42,8 @@ type Player struct {
 	Color bool
 
 	rec *store.Record
+	// replyTo is the name of whoever last sent this player a tell.
+	replyTo string
 	// fresh marks a character created this session, which enterGame
 	// hands its sub issue gear.
 	fresh bool

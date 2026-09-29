@@ -1,0 +1,17 @@
+vnum: 3045
+name: a pair of thief's gloves
+keywords: [pair, thief's, thief, gloves]
+description: A pair of thin black gloves lies here.
+look: |
+  Supple black kid, the fingertips cut off for feel. They make your hands
+  quicker and your step a little lighter. The Thieves' Guild does not
+  sell them.
+type: armor
+slot: hands
+weight: 0
+level: 5
+baseline: light
+value: 90
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.01 } }

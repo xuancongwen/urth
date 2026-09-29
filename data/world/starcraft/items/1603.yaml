@@ -3,9 +3,10 @@ name: a Perdition flamethrower
 keywords: [perdition, flamethrower, flame, thrower, burner]
 description: A pair of twin-barrelled flamethrower arms lies here, pilot lights out.
 look: |
-  Two stubby barrels on armored forearm mounts, fed by a hose from a fuel
-  tank the size of a keg. The nozzles are crusted black. It does not so
-  much aim as disagree with everything in front of it at once.
+  Two stubby barrels on armored forearm mounts, fed by a hose from a
+  fuel tank the size of a keg. The nozzles are crusted black. It does
+  not so much aim as disagree with everything in front of it at once,
+  and what it disagrees with keeps burning afterward.
 type: weapon
 level: 18
 baseline: heavy
@@ -13,3 +14,6 @@ weapon:
   hands: 2
   kind: fire
   verb: gout
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }

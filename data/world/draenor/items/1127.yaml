@@ -1,0 +1,13 @@
+vnum: 1127
+name: a Hellfire tower shield
+keywords: [hellfire, tower, shield]
+description: A towering shield of black iron, spiked at the rim, leans here.
+look: |
+  A slab of fel iron taller than a dwarf, bolted to a frame of wasteland
+  timber and spiked around the rim. The rampart sentries plant them in
+  the crenels and fight from behind them.
+type: armor
+slot: shield
+weight: 16
+level: 14
+baseline: tower

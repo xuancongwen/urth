@@ -1,10 +1,12 @@
 vnum: 1210
-name: a silver shield with a red lion
-keywords: [silver, shield, red, lion]
+name: Peter's shield
+keywords: [peter, peters, silver, shield, red, lion]
 description: A silver shield bearing a red lion lies here.
 look: |
   A kite shield of silver-bright steel, and on it a red lion rampant,
-  the colour of a ripe strawberry at the moment you pick it.
+  the colour of a ripe strawberry at the moment you pick it. It was
+  Father Christmas's gift to the High King that was to be, and blows
+  that land on it arrive a little tired.
 type: armor
 slot: shield
 level: 7
@@ -13,3 +15,4 @@ armor:
   defense: 2
 effects:
   - { kind: block, params: { chance: 0.1 } }
+  - { kind: soak, params: { power: 0.08 } }

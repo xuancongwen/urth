@@ -1,0 +1,13 @@
+vnum: 1624
+name: a pair of neosteel greaves
+keywords: [neosteel, greaves, leg, plates]
+description: A pair of blue neosteel leg plates lies here.
+look: |
+  Armored thigh and shin plates from a marine's combat suit, the servos
+  stripped out so they can be strapped on over anything. The blue paint
+  is chipped where a zergling tried them.
+type: armor
+slot: legs
+weight: 8
+level: 16
+baseline: medium

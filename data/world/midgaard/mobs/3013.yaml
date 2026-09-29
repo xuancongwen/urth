@@ -5,7 +5,7 @@ description: A beastly fido is here, snarling over something it has found.
 look: |
   A great mangy brute of a dog with foam on its jaws and a bone clamped
   in its teeth. It has not been anyone's pet for a long time.
-level: 3
+level: 5
 flags: [wander]
 attack:
   verb: bite

@@ -6,6 +6,6 @@ look: |
   A brass arm with a hammer at the end, wrenched from its mount and
   walking on its elbow. It strikes whatever is where the bell used to
   be. Right now that is you.
-level: 4
+level: 3
 attack:
   verb: clang

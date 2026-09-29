@@ -1,0 +1,16 @@
+vnum: 1429
+name: a troll's bone bracelet
+keywords: [troll's, troll, bone, bracelet, bangle]
+description: A bracelet of little carved bones lies here.
+look: |
+  Finger bones and vertebrae strung on a thong, carved with tiny loa
+  faces. The trolls wear them for luck and for the regeneration their
+  blood already gives them, and a little of that stubbornness rubs off.
+type: armor
+slot: wrist
+weight: 0
+level: 12
+baseline: cloth
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

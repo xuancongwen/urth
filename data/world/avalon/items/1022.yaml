@@ -1,0 +1,14 @@
+vnum: 1022
+name: a pair of mail chausses
+keywords: [pair, mail, chausses, leggings]
+description: A pair of rusted mail leggings lies here.
+look: |
+  Mail leggings laced up the back, the rings rusted red but still
+  whole. They belonged to a knight who came to draw the sword and did
+  not leave, and they have been standing guard with him since.
+type: armor
+slot: legs
+level: 8
+baseline: heavy
+weight: 6
+value: 30

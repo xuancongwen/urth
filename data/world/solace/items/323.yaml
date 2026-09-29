@@ -1,0 +1,17 @@
+vnum: 323
+name: a woodcutter's axe
+keywords: [woodcutter's, woodcutter, axe]
+description: A woodcutter's axe is stuck in a round of vallenwood.
+look: |
+  A long haft and a narrow bit, used for deadfall and kindling. The
+  townsfolk never cut the living vallenwoods, and would not thank you
+  for trying.
+type: weapon
+weight: 4
+level: 2
+baseline: axe
+value: 20
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

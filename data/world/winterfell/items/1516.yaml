@@ -6,7 +6,8 @@ look: |
   A blade so thin it vanishes when seen edge-on, of something like ice
   that does not melt, shimmering blue and white. It is painful to hold
   bare-handed, and it hums faintly, like a finger run round the rim of
-  a glass.
+  a glass. Where it touches living flesh the cold goes in and stays,
+  and the limbs of the wounded grow heavy and slow.
 type: weapon
 level: 14
 baseline: standard
@@ -16,5 +17,6 @@ weapon:
   kind: slash
   verb: slice
 effects:
-  - { kind: crit, params: { chance: 0.15, mult: 2 } }
+  - { kind: crit, params: { chance: 0.10, mult: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: chill, params: { chance: 0.2, mult: 0.6, rounds: 2 } }

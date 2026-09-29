@@ -1,0 +1,19 @@
+vnum: 1129
+name: a heartwood mushroom staff
+keywords: [heartwood, mushroom, staff, stalk]
+description: A staff cut from pale, spongy stalk-wood lies here, glowing faintly blue.
+look: |
+  A length of the bog lord's own heartwood, pale and dense and faintly
+  glowing, with a little glowcap still growing at the head. It strikes
+  well enough, and in the hand it seems to steady the thoughts.
+type: weapon
+weight: 4
+level: 15
+baseline: staff
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

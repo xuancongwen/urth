@@ -1,0 +1,27 @@
+vnum: 730
+name: Icingdeath
+keywords: [icingdeath, scimitar, frost, brand]
+description: A scimitar lies among the bones, its blade rimed white and its hilt a diamond-eyed panther.
+look: |
+  A scimitar of silver-white steel with a hilt shaped as a crouching
+  panther, two diamonds for eyes. It was forged to kill fire and took
+  its name from the white dragon it lay beneath. Frost follows its edge
+  into every wound and slows what it cuts, and while it is in your
+  hand flame and harm come at you a little weaker. Its last owner laid
+  his bones here, with the elves the hook horror set in a row.
+type: weapon
+level: 14
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: chill
+    params: { chance: 0.25, mult: 0.6, rounds: 2 }
+  - kind: proc
+    params: { chance: 0.3, power: 0.6, verb: "biting frost" }
+  - kind: protect
+    params: { mult: 0.92 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

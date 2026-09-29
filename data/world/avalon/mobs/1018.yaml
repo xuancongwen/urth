@@ -8,8 +8,8 @@ look: |
   red gold on his brow, and a patience that has outlasted three
   kingdoms. He has been waiting for a worthy challenger for a very long
   time. He is not sure you are it.
-level: 12
-health: 440
+level: 14
+health: 530
 silver: 80
 stats: {strength: 16, constitution: 15}
 attack:

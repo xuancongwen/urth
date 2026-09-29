@@ -5,7 +5,8 @@ description: A tall crown of clear ice lies here and does not melt.
 look: |
   Points like icicles rise in a ring from a band of frozen water, and
   none of it drips no matter how warm your hands. It sits heavily and
-  gives the wearer a look of chilly certainty.
+  gives the wearer a look of chilly certainty. A queen who wears it does
+  not flinch, and does not fall.
 type: armor
 slot: head
 level: 9
@@ -15,3 +16,4 @@ value: 300
 rarity: rare
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: steady, params: { chance: 0.3 } }

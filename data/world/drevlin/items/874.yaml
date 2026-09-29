@@ -1,0 +1,23 @@
+vnum: 874
+name: a Sartan rune-staff
+keywords: [sartan, rune-staff, rune, staff]
+description: A staff of pale, seamless stone lies at the end of the crawl, humming.
+look: |
+  A staff of the same stone as the statue, as long as a man and
+  covered from end to end in the signs of the Sartan, the ones who
+  sundered the world and built the machine. The runes sing when
+  something strikes you and take the edge off it, and show you what
+  is hidden, and the Sartan patience seeps into the hand.
+type: weapon
+level: 9
+baseline: staff
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - kind: soak
+    params: { power: 0.08 }
+  - kind: detectHidden
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

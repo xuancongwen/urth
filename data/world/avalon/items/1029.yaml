@@ -1,0 +1,17 @@
+vnum: 1029
+name: a twisted willow bracelet
+keywords: [twisted, willow, bracelet, bangle]
+description: A little bracelet of twisted willow lies in the fairy ring.
+look: |
+  Green willow twisted into a bangle, with a pixie's knot in it that
+  will not come undone. It makes your fingers light and your feet
+  lighter, and occasionally things go missing from your neighbours.
+type: armor
+slot: wrist
+level: 10
+weight: 0
+value: 80
+rarity: uncommon
+effects:
+  - { kind: dodge, params: { amount: 0.02 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

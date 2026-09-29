@@ -1,0 +1,24 @@
+vnum: 427
+name: a Morgul-knife
+keywords: [morgul-knife, morgul, knife, blade, dagger]
+description: A long thin knife lies here, with a cold gleam on it and a notched, broken-looking point.
+look: |
+  A slender blade of some grey metal that is not steel, the edge
+  notched near the tip where a splinter is meant to break off in the
+  wound and work its way to the heart. It was made in Minas Morgul. A
+  cut from it does not bleed so much as freeze, and the cold spreads,
+  and slows, and whispers. It whispers to the hand that holds it, too.
+type: weapon
+level: 9
+baseline: dagger
+weight: 1
+value: 450
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: envenom, params: { power: 0.1, rounds: 4, maxStacks: 2 } }
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: -1 } }

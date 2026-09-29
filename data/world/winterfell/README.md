@@ -10,8 +10,8 @@ the Wall are camped and something worse has followed them. Levels 6 to
 of Far Doors, room 7 in `start`), which opens in the back of a waystone
 on the Kingsroad (1500).
 
-Bosses: the Stone King (13) in the Oldest Tomb under the crypts, the
-wildling warlord (12) in the camp, the great direwolf (11) in its den,
+Bosses: the Stone King (14) in the Oldest Tomb under the crypts, the
+wildling warlord (11) in the camp, the great direwolf (11) in its den,
 and the White Walker (14) in the Clearing of the Pale Light beyond the
 wights.
 
@@ -27,6 +27,15 @@ for 260 silver and two shards of dragonglass (wildling raiders and the
 warlord carry one each, and one lies in the deep crypts). The alewife
 (Smoking Log, 1503) sells ale and torches. The maester in the solar is a
 questmaster; the red weirwood leaf (1517) is a quest item.
+
+Uniques: Needle lies hidden in the kennels (1511); Longclaw lies in a dead
+ranger's hand among the wights (1528); the wildling warlord carries the
+Horn of Joramun; the White Walker wears its shifting mail. The dragonglass
+dagger now burns what it cuts. Ordinary gear: gloves (1504), a sword-belt
+(1506), roundshields on the gatehouse guards, a sentinel-pine staff
+(1520), a skinning knife (1523), an iron torc in the wolf den (1525), a
+stone maul (1527), Night's Watch boots (1528), fur leggings on the
+spearwife, and a bronze arm-ring on the warlord.
 
 Map (north is up; x east, y south, z up):
 

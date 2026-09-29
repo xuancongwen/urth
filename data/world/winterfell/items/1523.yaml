@@ -1,0 +1,17 @@
+vnum: 1523
+name: a sentinel-pine quarterstaff
+keywords: [sentinel-pine, sentinel, pine, quarterstaff, staff]
+description: A long staff of dark sentinel pine leans against a tree.
+look: |
+  A pole of sentinel pine, dark green-black and fragrant, straight as a
+  spear and shod in iron at both ends. The godswood keeps its own, but
+  it does not mind the windfalls being put to use.
+type: weapon
+level: 12
+baseline: staff
+weight: 3
+value: 45
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike

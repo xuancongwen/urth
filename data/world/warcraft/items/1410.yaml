@@ -5,10 +5,14 @@ description: A carved wooden mask with tusks painted white lies here.
 look: |
   A face carved from dark wood, with huge eyes rimmed in white clay and
   a pair of boar's tusks set at the mouth. Looking through the eyeholes,
-  the world seems a little further off and a little clearer.
+  the world seems a little further off and a little clearer, and things
+  that hide in it do not hide so well. The loa are watching through it
+  with you.
 type: armor
 slot: face
 level: 14
 baseline: light
 mods:
   wisdom: 1
+effects:
+  - kind: detectHidden

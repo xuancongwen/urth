@@ -61,6 +61,8 @@ func cmdKill(w *World, p *Player, args string) {
 // startFight makes att fight def, and def fight back if idle. Swing meters
 // start empty so the first round is a clean one.
 func (w *World) startFight(att, def *Character) {
+	w.wakeForFight(att)
+	w.wakeForFight(def)
 	att.Fighting = def
 	att.swing = 0
 	if def.Fighting == nil {
@@ -256,7 +258,7 @@ func (w *World) die(victim, killer *Character) {
 	victim.Send("{R}You have been KILLED!!{x}\n")
 	w.stopFighting(victim, true)
 	rules := w.deathRules()
-	w.makeCorpse(victim, rules.CorpseRounds)
+	corpse := w.makeCorpse(victim, rules.CorpseRounds)
 
 	victim.casting = nil
 	if victim.mob != nil {
@@ -271,11 +273,15 @@ func (w *World) die(victim, killer *Character) {
 					w.questKill(member.player, victim)
 				}
 			}
+			if killer.Room == room && corpse != nil {
+				w.autoLoot(killer.player, corpse)
+			}
 		}
 		return
 	}
 
 	p := victim.player
+	standUp(victim)
 	if loss := w.deathXPLoss(victim, rules); loss > 0 {
 		victim.Experience -= loss
 		victim.Send("You lose {C}" + itoa(loss) + "{x} experience points.\n")
@@ -318,9 +324,9 @@ func (w *World) deathXPLoss(c *Character, rules DeathRules) int {
 
 // makeCorpse moves everything the character carried and wore into a corpse
 // in the room. The corpse decays after rounds; its contents spill out.
-func (w *World) makeCorpse(c *Character, rounds int) {
+func (w *World) makeCorpse(c *Character, rounds int) *item.Item {
 	if c.Room == nil {
-		return
+		return nil
 	}
 	var held []*item.Item
 	for _, s := range c.equippedList() {
@@ -342,6 +348,7 @@ func (w *World) makeCorpse(c *Character, rounds int) {
 	corpse.Contents = held
 	corpse.Decay = max(rounds, 1)
 	w.contents(c.Room).items = append(w.contents(c.Room).items, corpse)
+	return corpse
 }
 
 // corpseProto builds the prototype for a corpse. Corpses have no vnum and

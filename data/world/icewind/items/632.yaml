@@ -1,0 +1,26 @@
+vnum: 632
+name: Taulmaril the Heartseeker
+keywords: [taulmaril, heartseeker, bow, longbow]
+description: A slender longbow of dark wood lies among the goblin filth, gleaming.
+look: |
+  An elven longbow, dark and supple, with a string that shines like
+  moonlight on snow. Draw it and an arrow is there, trailing silver
+  sparks, and it goes where the heart of the thing is. Up close you
+  loose it like a spear-thrust. It was waiting in the dark for a hand
+  steady enough, the way it waited for Catti-brie.
+type: weapon
+level: 8
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: crit
+    params: { chance: 0.10, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.5 }
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: "streak of silver arrow" }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

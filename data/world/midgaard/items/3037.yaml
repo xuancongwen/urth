@@ -1,0 +1,21 @@
+vnum: 3037
+name: the rat king's crown
+keywords: [rat, king's, king, crown]
+description: A lopsided crown of wire, bottle glass, and teeth lies here, reeking.
+look: |
+  Copper wire twisted round a ring of yellow incisors, set with chips of
+  bottle glass and one real garnet somebody lost down a drain. It stinks
+  beyond all washing. Whoever wears it hears what the rats hear, and
+  moves the way they move: nothing sneaks up on the king of the sewers,
+  and nothing lands a blow on him if he can scuttle aside.
+type: armor
+slot: head
+weight: 1
+level: 10
+baseline: light
+value: 400
+effects:
+  - { kind: detectHidden }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: -1 } }

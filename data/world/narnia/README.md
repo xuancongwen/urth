@@ -4,8 +4,8 @@ Narnia under the White Witch's hundred-year winter: the lamp-post in the
 Lantern Waste, Mr Tumnus's cave, the Beavers' dam and lodge, Father
 Christmas's sledge, the Witch's castle with its courtyard of statues and
 Maugrim's kennels, the thawing wood and Aslan's camp, the Stone Table
-and the Witch's war camp, and Cair Paravel on the eastern sea. Levels 2
-to 9: Maugrim (8, tough) in the kennels, and the White Witch (9, very
+and the Witch's war camp, and Cair Paravel on the eastern sea. Levels 5
+to 12: Maugrim (11, tough) in the kennels, and the White Witch (12, very
 tough) on her throne of ice. Reached through the hub's south door, the
 wardrobe (room 7 in `start`), which opens into the fir wood at 1200.
 
@@ -20,9 +20,19 @@ Merchants:
   90s; fur-lined boots for 90s plus two snow hare pelts; the red muffler
   for 40s plus one pelt (the hares of the Lantern Waste carry pelts).
 - Father Christmas (1210): fire-flower cordial 30s, marmalade roll 6s;
-  the lion-hilted longsword for 220s plus three wolf fangs; the red-lion
-  shield for 160s plus two raven feathers; the yew bow for two fangs
-  and a feather, no silver (wolves carry fangs, spy-ravens feathers).
+  Rhindon, Peter's lion-hilted sword, for 220s plus three wolf
+  fangs; Peter's red-lion shield for 160s plus two raven feathers;
+  Susan's yew bow for two fangs and a feather, no silver (wolves carry fangs, spy-ravens feathers).
+
+Uniques: the White Witch wields her wand (now chilling and petrifying)
+and carries the stone knife of the Table (execute, leech); the hag at
+the Stone Table carries a lock of Aslan's mane (regeneration, a last
+stand); the Queen's chief dwarf carries Susan's horn, stolen from the
+gifts; Reepicheep's rapier lies in the dungeon straw (1216) by the
+werewolf. Ordinary gear: Tumnus's flute (1203), a dwarf's hood (1208),
+greaves (1212), Narnian mail in Cair Paravel's hall (1227), and the
+minotaur's axe, ogre cudgels, boggle flails, dwarf bracers and
+gauntlets, and shore-crab shells on their owners.
 
 The chip of the Stone Table (1219) is a `quest` item, planted by
 questmasters and never placed by a reset.

@@ -1,0 +1,11 @@
+vnum: 884
+name: an elven marine's buckler
+keywords: [elven, elf, marine, marines, buckler, shield]
+description: A small silver-rimmed buckler lies here.
+look: |
+  Lacquered wood rimmed in silver, painted with the sigil of Tribus. It
+  is light enough to hold for a long boarding fight.
+type: armor
+slot: shield
+level: 8
+baseline: shield

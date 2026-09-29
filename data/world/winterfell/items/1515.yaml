@@ -5,7 +5,8 @@ description: A long iron sword, black with age, lies here.
 look: |
   One of the swords laid across a dead king's knees to keep his spirit
   in the stone. The iron is pitted and black and very, very cold, and it
-  has kept something in for a thousand years.
+  has kept something in for a thousand years. What it cuts, it holds
+  back, the way it held back the king.
 type: weapon
 level: 13
 baseline: standard
@@ -15,3 +16,4 @@ weapon:
   verb: cleave
 effects:
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }

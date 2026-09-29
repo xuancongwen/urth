@@ -68,6 +68,16 @@ func (w *World) validate() error {
 			}
 		}
 	}
+	for _, r := range w.Rooms.Rooms {
+		for dir, d := range r.Doors {
+			if d.Key == 0 {
+				continue
+			}
+			if _, ok := w.Items[d.Key]; !ok {
+				return fmt.Errorf("room %d (%s): door %s wants key %d, which does not exist", r.Vnum, r.Name, dir, d.Key)
+			}
+		}
+	}
 	for area, a := range w.Resets {
 		for i, r := range a.Resets {
 			where := fmt.Sprintf("area %s reset %d", area, i)

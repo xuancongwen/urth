@@ -1,0 +1,27 @@
+vnum: 311
+name: Brightblade
+keywords: [brightblade, bright, blade, sword, solamnic, two-handed]
+description: A great two-handed sword of antique make leans against the rail, its blade catching the lamplight.
+look: |
+  A Solamnic greatsword, old when Sturm's grandfather's grandfather
+  carried it, the kingfisher and the rose worked into the crossguard.
+  The knights say it will never break so long as its bearer's honour
+  holds, and it does seem heaviest in the hands just when a fight is
+  nearly lost and giving up would be easiest. Est Sularus oth Mithas is
+  cut along the fuller: my honour is my life. Sturm keeps his night
+  watch up here and leaves it by the rail when he goes down for a mug.
+type: weapon
+weight: 9
+level: 8
+baseline: heavy
+value: 600
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+sacrifice: good
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }
+  - { kind: block, params: { chance: 0.06 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

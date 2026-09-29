@@ -1,0 +1,15 @@
+vnum: 3028
+name: the fencing master
+keywords: [fencing, master, fencer, swordmaster]
+description: The fencing master circles the sand ring, flicking a blunted blade at the dummies.
+look: |
+  Thin as his blade, grey at the temples, and dressed like a courtier
+  who has taken up a trade. He never looks where he is about to strike,
+  and he takes a great deal of silver to teach you not to either. The
+  guildmaster tolerates him because her recruits come back from his
+  lessons faster.
+level: 14
+flags: [peaceful]
+teaches: [feint]
+attack:
+  verb: pierce

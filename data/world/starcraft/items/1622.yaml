@@ -1,0 +1,28 @@
+vnum: 1622
+name: Zeratul's warp blade
+keywords: [zeratul's, zeratul, warp, blade, dark]
+description: A hilt of dark metal lies here, a green blade flickering in and out beside it.
+look: |
+  The hilt of a dark templar's warp blade, curved and cold, and when it
+  wakes a blade of green-black void energy springs from it, half in this
+  world and half out of it. Zeratul left it at the warp gate for whoever
+  would come after. It finds the gap in anything and makes the gap much
+  larger, and it shows its bearer those who walk cloaked, as the dark
+  templar do.
+type: weapon
+weight: 2
+level: 22
+baseline: standard
+value: 3000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.4 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: detectInvisible

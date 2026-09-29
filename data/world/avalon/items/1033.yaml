@@ -1,0 +1,21 @@
+vnum: 1033
+name: Pridwen
+keywords: [pridwen, prydwen, shield, arthur, arthurs]
+description: A round shield lies here, painted with the image of a lady in blue.
+look: |
+  Arthur's shield, round and bossed, with the image of Holy Mary
+  painted on its inner face so that the king might look on her in
+  battle and take heart. The changeling knight took it along with a
+  real knight's face. It turns blows aside as a good shield should, and
+  those that land come softened, and it keeps a clear head behind it.
+type: armor
+slot: shield
+level: 10
+baseline: shield
+weight: 5
+value: 1000
+rarity: rare
+effects:
+  - { kind: block, params: { chance: 0.14 } }
+  - { kind: protect, params: { mult: 0.92 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

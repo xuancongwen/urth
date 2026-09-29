@@ -5,7 +5,7 @@ description: A werewolf crouches in the far corner of the dungeon, chains hangin
 look: |
   Neither man nor wolf and trying to be both at once, hunched and
   gaunt and grey. The chains were meant to hold it. They did not.
-level: 7
+level: 10
 silver: 30
 attack:
   verb: rend

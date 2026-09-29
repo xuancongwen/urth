@@ -1,0 +1,23 @@
+vnum: 315
+name: Flint's battle-axe
+keywords: [flint's, flint, battle-axe, battle, axe, dwarven]
+description: A dwarven battle-axe with a grey steel head lies here.
+look: |
+  A single broad blade of good grey steel, forge-marked by Flint
+  Fireforge himself, on a haft wrapped in worn leather. The Seekers took
+  it off him as "an instrument of the false gods" and he has not stopped
+  complaining about it since. It is as stubborn as its maker: blows seem
+  to glance off whoever holds it, and when it does bite, it bites deep.
+type: weapon
+weight: 6
+level: 6
+baseline: axe
+value: 400
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: soak, params: { power: 0.08 } }
+  - { kind: critMult, params: { amount: 0.3 } }

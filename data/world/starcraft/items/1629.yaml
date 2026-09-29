@@ -1,0 +1,13 @@
+vnum: 1629
+name: a firebat's fuel harness
+keywords: [firebat's, firebat, fuel, harness, belt]
+description: A heavy harness belt with empty fuel clips lies here.
+look: |
+  A broad armored belt with clips for fuel canisters and a hose guide,
+  scorched and patched. Firebats wear them tight. It is heavier than it
+  looks and it protects the gut.
+type: armor
+slot: belt
+weight: 4
+level: 17
+baseline: heavy

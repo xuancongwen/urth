@@ -1,0 +1,15 @@
+vnum: 327
+name: a ranger
+keywords: [ranger, qualinesti, woodsman]
+description: A weathered ranger sits with her back to the shrine's last wall, binding a cut.
+look: |
+  A half-elf in green and brown, bow unstrung beside her, a Qualinesti
+  knife at her hip and a pouch of herbs she knows by touch. She has
+  walked the Darken Wood's edge longer than the Seekers have held the
+  town, and wounds that would lay up a townsman close on her in a day.
+  She will teach you how, for coin, if you sit still and listen.
+level: 10
+flags: [peaceful]
+teaches: [fast_healing]
+attack:
+  verb: slash

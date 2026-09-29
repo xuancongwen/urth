@@ -1,0 +1,15 @@
+vnum: 416
+name: a Bree ruffian
+keywords: [ruffian, bree, bree-lander, man]
+description: A broad Bree-lander in a greasy coat takes up two stools at the end of the bar.
+look: |
+  Big for these parts, squint-eyed, and too loud, one of the Big Folk
+  from over Bree way who drifted down the East Road and found the beer
+  good and the hobbits small. The landlord wishes he would leave. He
+  will show you how to put a man on the floor with a foot behind his
+  heel, for coin, and laugh while you learn it.
+level: 6
+flags: [peaceful]
+teaches: [trip]
+attack:
+  verb: punch

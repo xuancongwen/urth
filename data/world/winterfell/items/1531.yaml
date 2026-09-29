@@ -1,0 +1,21 @@
+vnum: 1531
+name: a White Walker's shifting mail
+keywords: [white, walker, walkers, shifting, mail, armor, armour]
+description: A coat of something like armor lies here, taking on the colors of the snow around it.
+look: |
+  Plates as thin as frost on a window, overlapping like scales, so pale
+  they take on the color of whatever is near them: snow, stone, the
+  grey of the sky. It is not so much worn as haunted. Blows slide off
+  it and find you in the wrong place, and anything that strikes it
+  bare-handed leaves some of its warmth behind for good.
+type: armor
+slot: body
+level: 14
+baseline: medium
+weight: 4
+value: 1300
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: "bite of killing cold" } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

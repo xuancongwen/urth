@@ -4,7 +4,7 @@ keywords: [kobold]
 description: A kobold scuttles along the tunnel wall, a short sword too big for it in both hands.
 look: |
   Dog-faced, scaled, and cowardly by itself. It is not by itself.
-level: 3
+level: 8
 flags: [assist]
 silver: 8
 attack:

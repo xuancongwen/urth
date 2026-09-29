@@ -1,0 +1,14 @@
+vnum: 418
+name: a dented pot-lid
+keywords: [dented, pot-lid, pot, lid, shield]
+description: A dented tin pot-lid lies by the mill-wheel.
+look: |
+  A broad tin lid with a wooden knob for a handle, dented from being
+  used to beat the rats off the flour sacks. It is not a shield. It
+  does most of what a shield does, as long as nobody tells it.
+type: armor
+slot: shield
+level: 2
+baseline: shield
+weight: 2
+value: 4

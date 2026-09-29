@@ -37,3 +37,10 @@ Map (north is up; x east, y south, z up):
 valley · 616 Drizzt's cave · 620 mine gate · 621 Bruenor's hall
 622 forge · 623 upper tunnels · 624 old workings · 625 bear den
 626 broken gallery · 627 chieftain's hole · 640 bottom of the shaft
+
+Notable items. Uniques: Regis's ruby pendant on Biggrin (7), Taulmaril
+the Heartseeker in the broken gallery (626, 8), Aegis-fang in the goblin
+chieftain's hands (10), and Crenshinibon at the bottom of the shaft
+(640, 10, unidentified: it whispers, and it takes). The chieftain's
+dwarven war-belt soaks blows. Ordinary gear is carried by the yetis,
+scout, bear, and goblins, or lies on the tundra and in the mine.

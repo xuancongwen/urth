@@ -1,0 +1,15 @@
+vnum: 1519
+name: the master-at-arms
+keywords: [master-at-arms, master, arms, knight, ser]
+description: The master-at-arms watches the boys at their drills, stroking his white whiskers.
+look: |
+  A stout old knight with white whiskers that reach his jowls, a
+  castellan's chain of office, and a voice that has been shouting
+  "Again!" across this yard for thirty years. He taught the lord's sons
+  to hold a sword and will teach you to make it bite deeper, for coin,
+  if you can keep your guard up while he talks.
+level: 13
+flags: [peaceful]
+teaches: [enhanced_damage]
+attack:
+  verb: slash

@@ -5,7 +5,9 @@ description: A slender wand of white metal lies here, frost creeping out from it
 look: |
   A rod as long as your forearm, cold enough to burn the hand. Wherever
   it touches, a skin of frost forms and spreads. It was made for turning
-  living things to stone, and it has not lost the habit.
+  living things to stone, and it has not lost the habit: what it strikes
+  goes stiff and slow and grey at the edges, and a thing half turned to
+  stone breaks easily.
 type: weapon
 level: 9
 baseline: standard
@@ -18,3 +20,5 @@ weapon:
   verb: strike
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: chill, params: { chance: 0.2, mult: 0.5, rounds: 3 } }
+  - { kind: opportunist, params: { mult: 1.2 } }

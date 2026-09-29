@@ -1,0 +1,15 @@
+vnum: 521
+name: a bandit's dirk
+keywords: [bandit, bandits, dirk, dagger, knife]
+description: A long, narrow dirk lies here.
+look: |
+  A thin blade with a brass guard, sharpened on a road stone so often
+  the edge has gone wavy. Made for the space between ribs, and for
+  cutting purse strings on the Coast Way.
+type: weapon
+level: 5
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

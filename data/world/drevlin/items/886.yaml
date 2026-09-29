@@ -1,0 +1,15 @@
+vnum: 886
+name: a storm-hawk feather mantle
+keywords: [storm-hawk, storm, hawk, feather, mantle]
+description: A short mantle of grey storm-hawk feathers lies here, stirring.
+look: |
+  A hawk's worth of storm-grey feathers sewn over a collar of leather.
+  It sheds rain, and it makes its wearer a harder thing to strike in
+  the wind.
+type: armor
+slot: shoulders
+level: 7
+baseline: cloth
+effects:
+  - kind: dodge
+    params: { amount: 0.02 }

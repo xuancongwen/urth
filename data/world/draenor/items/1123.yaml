@@ -1,0 +1,27 @@
+vnum: 1123
+name: Gorehowl
+keywords: [gorehowl, axe, hellscream]
+description: A great axe with a notched and holed blade lies here, moaning in the wind.
+look: |
+  The axe of the Hellscreams: a vast two-handed blade pierced with holes
+  along its edge, so that it howls when it is swung, a scream that gets
+  into the teeth. Grom Hellscream carried it against a pit lord and won.
+  The orc who brought it here tried the same and did not, and Mograth
+  keeps it as a trophy. It rewards reckless fury, and it is terrible to
+  anything that is already bleeding.
+type: weapon
+weight: 14
+level: 20
+baseline: axe
+value: 5000
+weapon:
+  hands: 2
+  kind: slash
+  verb: hew
+effects:
+  - kind: powerAttack
+    params: { mult: 1.1, dodge: -0.04 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.35 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }

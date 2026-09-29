@@ -1,0 +1,12 @@
+vnum: 3041
+name: a bag of holding
+keywords: [bag, holding, black, velvet]
+description: A small black velvet bag lies here, looking bigger inside than out.
+look: |
+  Soft black velvet with a silver drawstring, no bigger than a purse.
+  Your whole arm goes into it, and then some. The pickpocket swears he
+  came by it honestly.
+type: container
+weight: 1
+value: 500
+capacity: 150

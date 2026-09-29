@@ -1,0 +1,15 @@
+vnum: 415
+name: a green party cloak
+keywords: [green, party, cloak]
+description: A green cloak with silver buttons has been left folded on the grass.
+look: |
+  Bottle-green wool, light as a summer evening, with silver buttons and
+  a hood lined in yellow. Someone wore it to the party of Special
+  Magnificence and did not go home in it. It moves easily, and so do
+  you.
+type: armor
+slot: shoulders
+level: 3
+baseline: cloth
+weight: 1
+value: 15

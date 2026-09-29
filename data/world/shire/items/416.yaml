@@ -1,0 +1,16 @@
+vnum: 416
+name: a woodcutter's axe
+keywords: [woodcutter, woodcutters, axe, hatchet]
+description: A woodcutter's axe is sunk in a stump by the green.
+look: |
+  A long-handled axe with a broad bit, the edge kept keen for the
+  hedgerow ash and the odd stubborn elm. The haft is carved with a
+  row of tally-notches, one for every cord of wood.
+type: weapon
+level: 4
+baseline: axe
+weight: 4
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

@@ -1,0 +1,13 @@
+vnum: 1124
+name: a fel-stained war harness
+keywords: [fel-stained, fel, stained, war, harness]
+description: A war harness of leather and iron rings, stained green, lies here.
+look: |
+  Straps of cured hide and iron rings crossing a broad chest, with a
+  boiled-leather plate over the heart. Everything the fel orcs wear goes
+  green in the end. It fits an orc and makes do on anyone else.
+type: armor
+slot: body
+weight: 10
+level: 12
+baseline: medium

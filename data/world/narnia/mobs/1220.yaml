@@ -1,0 +1,15 @@
+vnum: 1220
+name: a centaur hunter
+keywords: [centaur, hunter, archer]
+description: A centaur hunter stands a little apart from the camp, restringing a great bow.
+look: |
+  Chestnut-flanked and grey-bearded, with the stars' patience in his
+  face and a quiver of long arrows fletched with swan. He has run down
+  the Witch's wolves across half the Lantern Waste, and he brings down a
+  running thing by the leg before he brings it down at all. He will
+  teach you, for coin, in the name of the Lion.
+level: 9
+flags: [peaceful]
+teaches: [hamstring]
+attack:
+  verb: kick

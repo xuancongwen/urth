@@ -1,0 +1,16 @@
+vnum: 3042
+name: a janitor's push-broom
+keywords: [janitor's, janitor, push-broom, push, broom]
+description: A wide push-broom with worn bristles leans here.
+look: |
+  A long ash handle and a head of stiff bristles worn down on one side.
+  It has swept every cobble of Main Street and cracked a few heads.
+type: weapon
+weight: 3
+level: 2
+baseline: staff
+value: 10
+weapon:
+  hands: 2
+  kind: blunt
+  verb: sweep

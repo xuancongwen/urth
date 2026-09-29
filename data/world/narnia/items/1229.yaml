@@ -1,0 +1,14 @@
+vnum: 1229
+name: a barnacled crab-shell
+keywords: [barnacled, crab-shell, crab, shell, shield]
+description: A great blue-grey crab-shell lies upturned on the sand.
+look: |
+  The back of a giant shore crab, as wide as a cart wheel, crusted with
+  barnacles. Strapped to an arm, it makes a fine shield, and smells of
+  low tide for ever.
+type: armor
+slot: shield
+level: 9
+baseline: shield
+weight: 5
+value: 20

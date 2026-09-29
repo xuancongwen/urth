@@ -4,7 +4,9 @@ keywords: [dwarven, war-belt, belt]
 description: A wide belt of studded leather lies here.
 look: |
   Battlehammer work: thick hide, iron studs, and a buckle cast as a
-  foaming mug. Something in the wearing of it sets the shoulders back.
+  foaming mug. Something in the wearing of it sets the shoulders back,
+  and blows that land on you land like blows on a dwarf: they matter
+  a little less.
 type: armor
 slot: belt
 level: 8
@@ -12,3 +14,5 @@ baseline: medium
 effects:
   - kind: stat
     params: { stat: constitution, amount: 2 }
+  - kind: soak
+    params: { power: 0.05 }

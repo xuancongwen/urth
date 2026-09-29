@@ -2,17 +2,18 @@
 interval_seconds: 300
 resets:
   # the road
-  - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }] }   # hobgoblin soldiers
-  - { mob: 307, room: 302, equip: [{ item: 304, slot: wield }] }   # the captain, on his wagon
+  - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }, { item: 318, slot: legs }] }   # hobgoblin soldiers
+  - { mob: 307, room: 302, equip: [{ item: 316, slot: wield }, { item: 317, slot: body }, { item: 314 }] }   # the captain, his whip, his stolen doublet, and Tas's hoopak
   - { item: 310, room: 302 }   # the ledger
   - { mob: 308, room: 303, max: 2 }   # refugees
   - { item: 309, room: 303 }   # bark
   - { item: 309, room: 303 }
   # the square and the seekers
-  - { mob: 304, room: 305, max: 2, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # seeker guards
+  - { mob: 304, room: 305, max: 2, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }, { item: 320, slot: head }] }   # seeker guards
   - { mob: 312, room: 305, max: 2 }   # townsmen
   - { mob: 309, room: 306 }   # the smith
-  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }] }   # the theocrat
+  - { item: 322, room: 306 }   # a buckler of Flint's on the anvil
+  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }, { item: 321, slot: neck }, { item: 315 }] }   # the theocrat, his chain, and Flint's confiscated axe
   - { mob: 304, room: 308, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # his guard
   - { mob: 304, room: 318, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # the bridge guard
   # the inn
@@ -23,6 +24,7 @@ resets:
   - { item: 300, room: 312 }
   - { item: 301, room: 312 }
   - { item: 307, room: 313 }   # the spice jar in the kitchen
+  - { item: 313, room: 313 }   # Tika's frying pan on its hook
   - { mob: 303, room: 315 }   # Raistlin, upstairs, with Caramon never far
   - { mob: 323, room: 315 }
   - { mob: 325, room: 315 }   # Goldmoon and Riverwind, and the staff against the wall
@@ -35,8 +37,14 @@ resets:
   # the lake and the shrine
   - { item: 121, room: 307 }   # salt at the lakeshore
   - { item: 121, room: 307 }
+  - { mob: 327, room: 323 }   # the ranger at the shrine, who teaches fast healing
+  # the watch-tree and the lanes
+  - { item: 311, room: 319 }   # Brightblade, by the rail where Sturm keeps watch
+  - { item: 323, room: 304 }   # a woodcutter's axe behind the great vallenwood
   # the dark wood
   - { mob: 310, room: 321, max: 2, equip: [{ item: 308 }] }   # spiders carry venom sacs
-  - { mob: 311, room: 322 }
+  - { mob: 311, room: 322, equip: [{ item: 312 }] }   # the wood-shade keeps the Staff of Magius
+  - { item: 324, room: 322 }   # a hunter's spider-fang dagger among the bones
+  - { item: 319, room: 321 }   # a cloak in the webs
   - { item: 123, room: 322 }   # bone dust among the bones
   - { item: 124, room: 321 }   # nightshade at the wood's edge

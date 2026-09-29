@@ -1,0 +1,21 @@
+vnum: 1231
+name: Susan's horn
+keywords: [susan, susans, horn, ivory]
+description: A white ivory horn on a green baldric lies here.
+look: |
+  One of Father Christmas's gifts, taken from the Gentle Queen's pack
+  by the Witch's dwarf before it ever reached her. It is carved ivory
+  with a mouthpiece of gold, and the gift came with a promise: put it
+  to your lips and blow, and wherever you are, help of some kind will
+  come to you. Holding it, you feel help on its way, and stand your
+  ground until it gets there.
+type: armor
+slot: hold
+level: 9
+weight: 1
+value: 600
+rarity: rare
+effects:
+  - { kind: regen, params: { fraction: 0.015 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }

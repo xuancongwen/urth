@@ -1,0 +1,13 @@
+vnum: 1431
+name: a pair of ogre-hide arm wraps
+keywords: [ogre-hide, ogre, hide, arm, wraps]
+description: A pair of thick, grey-green hide wraps lies here.
+look: |
+  Strips of ogre hide as thick as a boot sole, wound around the forearms
+  and laced. They are tough enough to stop a club and stiff enough to
+  make you wish they did not have to.
+type: armor
+slot: arms
+weight: 4
+level: 13
+baseline: heavy

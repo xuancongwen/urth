@@ -1,0 +1,16 @@
+vnum: 1320
+name: a barbarian of the north
+keywords: [barbarian, harrogath, northman]
+description: A barbarian from the far north sits in the corner, two swords propped by his chair.
+look: |
+  A mountain of a man from the slopes of Mount Arreat, braided and
+  scarred and tattooed with the marks of the Ancients. He came south
+  following rumours of the Dark Wanderer and has stayed to fight what
+  crawls out of the cathedral. Surrounded, he says, is the only way a
+  barbarian should fight. He will teach you to spin through a crowd of
+  them, for coin.
+level: 20
+flags: [peaceful]
+teaches: [whirlwind]
+attack:
+  verb: cleave

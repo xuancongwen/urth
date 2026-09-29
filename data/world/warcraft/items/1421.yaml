@@ -1,0 +1,27 @@
+vnum: 1421
+name: Quel'Serrar
+keywords: [quel'serrar, quelserrar, quel, serrar, sword, blade]
+description: A slender elven blade of blue steel lies here, faintly smoking.
+look: |
+  An ancient blade of the high elves, long and narrow, its steel a deep
+  sea blue and its guard shaped like a pair of swept wings. Legend says
+  it must be tempered in a dragon's breath to wake, and this one has
+  been: the drake slept on it for a century. It is a defender's sword.
+  It turns aside blows as if it knew them in advance and makes its
+  bearer hard to hit and harder to hurt.
+type: weapon
+weight: 4
+level: 16
+baseline: standard
+value: 2000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: block
+    params: { chance: 0.07 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: defense
+    params: { amount: 3 }

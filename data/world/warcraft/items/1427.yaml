@@ -1,0 +1,13 @@
+vnum: 1427
+name: a wolfpelt mantle
+keywords: [wolfpelt, wolf, pelt, mantle]
+description: A grey wolfpelt mantle lies here, head and all.
+look: |
+  A grey wolf's pelt with the head left on, cured by a trapper who did
+  not come back out of the deep wood for it. It sits over the shoulders
+  warm and heavy, and the empty eyes watch behind you.
+type: armor
+slot: shoulders
+weight: 3
+level: 8
+baseline: light

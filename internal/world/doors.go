@@ -9,40 +9,68 @@ import (
 
 // Doors: an exit may carry a door (room.Door). A closed door blocks
 // movement and hides the exit, so look, exits, and scan show nothing in
-// that direction. Doors live on both sides of an exit and open and close
-// together. Their state is not saved; an area reset shuts what the room
-// file says is shut and opens the rest.
+// that direction. A locked door is closed and will not open until it is
+// unlocked with its key or picked. Doors live on both sides of an exit
+// and change together. Their state is not saved; an area reset puts
+// every door back the way the room file says.
 
 type doorKey struct {
 	vnum int
 	dir  string
 }
 
+// doorState is a door's state where it differs from its room file.
+type doorState struct {
+	closed, locked bool
+}
+
+// doorNow is the state of the door on r's exit dir, which must exist.
+func (w *World) doorNow(r *room.Room, dir string, d *room.Door) doorState {
+	if s, ok := w.doors[doorKey{r.Vnum, dir}]; ok {
+		return s
+	}
+	return doorState{closed: d.Closed, locked: d.Locked}
+}
+
 // doorClosed reports whether the door on r's exit dir is shut. An exit
 // without a door is never closed.
 func (w *World) doorClosed(r *room.Room, dir string) bool {
 	d := r.Door(dir)
-	if d == nil {
-		return false
-	}
-	if closed, ok := w.doors[doorKey{r.Vnum, dir}]; ok {
-		return closed
-	}
-	return d.Closed
+	return d != nil && w.doorNow(r, dir, d).closed
 }
 
-// setDoor opens or shuts the door on r's exit dir and the matching door
-// on the far side, when the far side leads back here.
-func (w *World) setDoor(r *room.Room, dir string, closed bool) {
-	w.doors[doorKey{r.Vnum, dir}] = closed
+// doorLocked reports whether the door on r's exit dir is locked.
+func (w *World) doorLocked(r *room.Room, dir string) bool {
+	d := r.Door(dir)
+	return d != nil && w.doorNow(r, dir, d).locked
+}
+
+// setDoorState sets the door on r's exit dir, and the matching door on
+// the far side when the far side leads back here.
+func (w *World) setDoorState(r *room.Room, dir string, s doorState) {
+	w.doors[doorKey{r.Vnum, dir}] = s
 	far, ok := w.content.Rooms.Get(r.Exits[dir])
 	if !ok {
 		return
 	}
 	back := room.Opposite[dir]
 	if far.Exits[back] == r.Vnum && far.Door(back) != nil {
-		w.doors[doorKey{far.Vnum, back}] = closed
+		w.doors[doorKey{far.Vnum, back}] = s
 	}
+}
+
+// setDoor opens or shuts the door on r's exit dir, both sides.
+func (w *World) setDoor(r *room.Room, dir string, closed bool) {
+	s := w.doorNow(r, dir, r.Door(dir))
+	s.closed = closed
+	w.setDoorState(r, dir, s)
+}
+
+// setLock locks or unlocks the door on r's exit dir, both sides.
+func (w *World) setLock(r *room.Room, dir string, locked bool) {
+	s := w.doorNow(r, dir, r.Door(dir))
+	s.locked = locked
+	w.setDoorState(r, dir, s)
 }
 
 // resetDoors returns every door in an area to its room-file state, along
@@ -124,6 +152,9 @@ func cmdOpen(w *World, p *Player, args string) {
 	case !w.doorClosed(p.Room, dir):
 		p.Send("It's already open.\n")
 		return
+	case w.doorLocked(p.Room, dir):
+		p.Send("It's locked.\n")
+		return
 	}
 	w.setDoor(p.Room, dir, false)
 	name := output.Escape(door.Name)
@@ -180,6 +211,8 @@ func (w *World) lookDirection(p *Player, ref string) bool {
 	case door == nil:
 		dest := w.passable(p.Room, dir)
 		p.Send("To the " + dir + " lies " + output.Escape(dest.Name) + ".\n")
+	case w.doorLocked(p.Room, dir):
+		p.Send(capitalize(output.Escape(door.Name)) + " is closed and locked.\n")
 	case w.doorClosed(p.Room, dir):
 		p.Send(capitalize(output.Escape(door.Name)) + " is closed.\n")
 	default:

@@ -1,0 +1,13 @@
+vnum: 3050
+name: a pair of cityguard's greaves
+keywords: [pair, cityguard's, cityguard, greaves]
+description: A pair of steel greaves lies here.
+look: |
+  Steel plates over the shin, laced over padded wool, stamped with the
+  city arms. Standard issue for the gate watch.
+type: armor
+slot: legs
+weight: 5
+level: 10
+baseline: medium
+value: 120

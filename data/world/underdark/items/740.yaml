@@ -1,0 +1,11 @@
+vnum: 740
+name: a rothe-hide jerkin
+keywords: [rothe-hide, rothe, hide, jerkin]
+description: A shaggy jerkin of rothe hide lies in a heap.
+look: |
+  Rothe hide with the fur turned in, laced up the side with gut. It
+  smells of the herd and keeps out the cold of the deep rock.
+type: armor
+slot: body
+level: 10
+baseline: light

@@ -1,0 +1,16 @@
+vnum: 1325
+name: a fallen one's kris
+keywords: [fallen, one's, kris, dagger, knife]
+description: A small wavy-bladed knife lies here, sticky with red paint.
+look: |
+  A short kris with a wavy blade, much too big for the hand of the
+  little demon that carried it and just right for yours. The hilt is
+  smeared with the same red the fallen paint themselves with.
+type: weapon
+weight: 1
+level: 14
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

@@ -1,0 +1,14 @@
+vnum: 1525
+name: a pair of Night's Watch boots
+keywords: [pair, night's, nights, watch, boots, black]
+description: A pair of black boots stands in the snow, with no one in them.
+look: |
+  Black leather boots, rime-white at the seams, of the kind the
+  Watch's rangers wear beyond the Wall. The man who wore them came back
+  south. He did not need boots for it.
+type: armor
+slot: feet
+level: 11
+baseline: medium
+weight: 3
+value: 30

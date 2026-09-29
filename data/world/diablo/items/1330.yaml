@@ -1,0 +1,19 @@
+vnum: 1330
+name: a magma-forged maul
+keywords: [magma-forged, magma, maul, mace, hammer]
+description: A black stone maul lies here, cracks glowing orange along its head.
+look: |
+  A head of volcanic rock bound to a haft of iron, cracked all over with
+  lines of orange light, like the demons that climb out of the river. It
+  is still hot inside. Whatever it hits comes away smoking.
+type: weapon
+weight: 9
+level: 19
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush
+effects:
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 1 }

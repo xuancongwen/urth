@@ -8,6 +8,6 @@ look: |
   ready. Try 'practice'.
 level: 15
 flags: [peaceful]
-teaches: [bash, twin]
+teaches: [bash, twin, dodge, trip, hand_to_hand, dirt_kicking, shield_block, fast_healing, enhanced_damage, rescue, second_wind]
 attack:
   verb: punch

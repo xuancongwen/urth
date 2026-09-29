@@ -12,4 +12,6 @@ level: 14
 baseline: light
 effects:
   - kind: dodge
-    params: { amount: 0.10 }
+    params: { amount: 0.05 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

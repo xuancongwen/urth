@@ -72,6 +72,9 @@ type CastResult struct {
 	Consume       []uint64           `json:"consume"`
 	Targets       []CastTargetResult `json:"targets"`
 	CasterEffects []castEffect       `json:"casterEffects"`
+	// Heal is health the caster regains once the targets are resolved
+	// (Drain).
+	Heal int `json:"heal"`
 }
 
 // spellList asks the rules which spells exist. Optional; default none.
@@ -386,6 +389,11 @@ func (w *World) resolveCastNow(c *Character, sp Spell, targets []*Character) {
 		}
 		w.applyCastTarget(c, t, sp, name, tr)
 	}
+	if r.Heal > 0 && c.Health > 0 && c.Room != nil {
+		healed := max(0, min(r.Heal, c.HealthMax-c.Health))
+		c.Health += healed
+		w.act("Your "+name+" heals you. {G}["+itoa(healed)+"]{x}", c, nil, "", toChar)
+	}
 	if r.Message != "" {
 		c.Send(output.Escape(r.Message) + "\n")
 	}
@@ -473,7 +481,38 @@ func spellView(sp Spell) map[string]any {
 	}
 }
 
-// cmdConsume: consume <totem>. Unlocks the totem's school (docs/RULES.md 6.1).
+// cmdBrandish: brandish <totem>. Raising a totem spends it: it crumbles,
+// and its school opens to the one who held it (docs/RULES.md 6.1).
+func cmdBrandish(w *World, p *Player, args string) {
+	if args == "" {
+		p.Send("Brandish what?\n")
+		return
+	}
+	found := item.Find(p.Inventory, item.ParseTarget(args))
+	if len(found) == 0 {
+		p.Send("You don't have that.\n")
+		return
+	}
+	it := found[0]
+	if it.Proto.Type != item.Totem {
+		w.actItem("You wave $p about. Nothing happens.", p.Character, nil, output.Escape(it.Name()), "", toChar)
+		return
+	}
+	school := it.Proto.School
+	p.Inventory = item.Remove(p.Inventory, it)
+	w.actItem("You brandish $p, and it crumbles to dust in your hand.", p.Character, nil, output.Escape(it.Name()), "", toChar)
+	w.actItem("$n brandishes $p, and it crumbles to dust.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
+	if p.HasSchool(school) {
+		p.Send("You already knew the ways of " + output.Escape(school) + ".\n")
+		return
+	}
+	p.Schools = append(p.Schools, school)
+	p.Send("{Y}The ways of " + output.Escape(school) + " open to you.{x}\n")
+	w.save(p)
+}
+
+// cmdConsume: consume <item>. Eating and drinking have no effect yet; a
+// totem is brandished, not consumed.
 func cmdConsume(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Consume what?\n")
@@ -484,22 +523,11 @@ func cmdConsume(w *World, p *Player, args string) {
 		p.Send("You don't have that.\n")
 		return
 	}
-	it := found[0]
-	if it.Proto.Type != item.Totem {
-		p.Send("Nothing happens.\n")
+	if found[0].Proto.Type == item.Totem {
+		p.Send("A totem is not for eating. 'brandish' it to learn its school.\n")
 		return
 	}
-	school := it.Proto.School
-	p.Inventory = item.Remove(p.Inventory, it)
-	w.actItem("You consume $p.", p.Character, nil, output.Escape(it.Name()), "", toChar)
-	w.actItem("$n consumes $p.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
-	if p.HasSchool(school) {
-		p.Send("You already knew the ways of " + output.Escape(school) + ".\n")
-		return
-	}
-	p.Schools = append(p.Schools, school)
-	p.Send("{Y}The ways of " + output.Escape(school) + " open to you.{x}\n")
-	w.save(p)
+	p.Send("Nothing happens.\n")
 }
 
 // cmdSacrifice: sacrifice <item>. At a god's temple, giving up the item the
@@ -537,6 +565,13 @@ func cmdSacrifice(w *World, p *Player, args string) {
 		p.Send("The gods do not want " + output.Escape(it.Name()) + ".\n")
 		return
 	}
+	w.sacrificeItem(p, it)
+}
+
+// sacrificeItem gives an item lying in p's room to the gods, spilling
+// anything inside it first, for a coin or a few.
+func (w *World) sacrificeItem(p *Player, it *item.Item) {
+	c := w.contents(p.Room)
 	if len(it.Contents) > 0 {
 		c.items = append(c.items, it.Contents...)
 		it.Contents = nil

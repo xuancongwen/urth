@@ -1,0 +1,15 @@
+vnum: 523
+name: a quarterstaff of Candlekeep ash
+keywords: [quarterstaff, staff, candlekeep, ash]
+description: A plain ash quarterstaff lies at the roadside.
+look: |
+  Straight grey ash, shod in brass at both ends and polished dark
+  where hands have held it. The monks of Candlekeep walk with these,
+  and not only for walking.
+type: weapon
+level: 3
+baseline: staff
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike

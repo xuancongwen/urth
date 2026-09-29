@@ -1,0 +1,15 @@
+vnum: 746
+name: a pair of drow soft boots
+keywords: [pair, drow, soft, boots]
+description: A pair of soft black boots lies here without a sound.
+look: |
+  Rothe leather soft as a glove, soled with something that does not
+  scuff on stone. Drow walk the road in these and nothing hears them.
+  Your step goes lighter in them.
+type: armor
+slot: feet
+level: 16
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

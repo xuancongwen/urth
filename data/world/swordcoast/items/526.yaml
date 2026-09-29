@@ -1,0 +1,15 @@
+vnum: 526
+name: a pair of miner's gloves
+keywords: [pair, miner, miners, gloves]
+description: A pair of heavy leather gloves lies among the picks.
+look: |
+  Thick cowhide, split at the fingers and dusted red with Nashkel ore.
+  A man worked a pick in these for years before he stopped coming up.
+  Your grip closes more surely in them.
+type: armor
+slot: hands
+level: 8
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }

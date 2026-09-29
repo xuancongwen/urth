@@ -6,7 +6,14 @@ description: |
   is a long hall where an old soldier teaches skills for coin
   ('practice') and a herald hands out work ('quest request'). A stair
   under the armory floor goes down, and from there to the rest of the
-  world. The last words on the wall are the first ones, painted larger:
+  world. Near the end, the wall still has things to say:
+
+    'recall' BRINGS YOU BACK TO THE ARMORY FROM ANYWHERE, EXCEPT OUT
+    OF A FIGHT. 'recall set' MAKES WHEREVER YOU STAND YOUR RECALL POINT.
+    A TOTEM TEACHES A SCHOOL OF MAGIC: 'brandish' IT, AND IT IS SPENT.
+    'list', 'buy', AND 'sell' TRADE WITH MERCHANTS.
+
+  The last words on the wall are the first ones, painted larger:
 
     WHEN YOU ARE LOST, TYPE 'help'.
 exits:

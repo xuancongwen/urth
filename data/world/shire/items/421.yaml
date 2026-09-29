@@ -1,0 +1,16 @@
+vnum: 421
+name: a brass party ring
+keywords: [brass, party, ring]
+description: A little brass ring glints in the trampled grass of the Party Field.
+look: |
+  A present from the pavilion, one of hundreds, each with a label in
+  Bilbo's hand: this one says "For a guest who came a long way." It is
+  only brass, but it makes you feel you ought to give a speech, and
+  that people might even listen.
+type: armor
+slot: finger
+level: 2
+weight: 0
+value: 10
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

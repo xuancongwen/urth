@@ -1,0 +1,14 @@
+vnum: 520
+name: a xvart's hand axe
+keywords: [xvart, xvarts, hand, axe]
+description: A small, chipped hand axe lies here, its haft painted blue.
+look: |
+  A hatchet's head on a haft too short for a man, daubed with the same
+  blue the xvarts paint on everything they own. Crude, but it bites.
+type: weapon
+level: 6
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

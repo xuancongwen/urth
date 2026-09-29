@@ -1,11 +1,12 @@
 vnum: 1408
 name: a gnoll bone flail
-keywords: [gnoll, bone, flail]
+keywords: [gnoll, bone, flail, grimmaw]
 description: A flail with a head of lashed bones lies here.
 look: |
   A thick staff with a length of chain at one end, and on the chain a
-  knot of thighbones bound with wire and studded with teeth. It is
-  clumsy, and it hurts.
+  knot of thighbones bound with wire and studded with teeth. The teeth
+  are filthy, and the wounds they leave go bad quickly. It is clumsy, it
+  needs a strong arm, and it hurts. Grimmaw was very proud of it.
 type: weapon
 level: 12
 baseline: heavy
@@ -13,3 +14,8 @@ weapon:
   hands: 2
   kind: blunt
   verb: flail
+effects:
+  - kind: envenom
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

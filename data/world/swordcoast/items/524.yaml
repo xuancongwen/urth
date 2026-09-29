@@ -1,0 +1,11 @@
+vnum: 524
+name: a hobgoblin's iron skullcap
+keywords: [hobgoblin, hobgoblins, iron, skullcap, cap, helm]
+description: A dented iron skullcap lies here, lined with greasy fur.
+look: |
+  A bowl of beaten iron with a strip of wolf fur inside and a notch
+  in the rim where someone's sword stopped. It smells of hobgoblin.
+type: armor
+slot: head
+level: 5
+baseline: medium

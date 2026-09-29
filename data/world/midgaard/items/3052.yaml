@@ -1,0 +1,11 @@
+vnum: 3052
+name: the big bag
+keywords: [big, bag, sack]
+description: A big patched canvas bag lies on the rubbish heap.
+look: |
+  Heavy canvas, patched a dozen times, big enough to hide a dwarf in.
+  Somebody threw it out. It will hold a good deal of anything.
+type: container
+weight: 4
+value: 40
+capacity: 100

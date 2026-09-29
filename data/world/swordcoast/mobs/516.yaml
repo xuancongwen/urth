@@ -5,7 +5,7 @@ description: A kobold commando stands guard at the shaft with a spear, and does 
 look: |
   Bigger than the others, better fed, with a leather harness and a spear
   it knows how to use. Someone trained it and someone is paying it.
-level: 5
+level: 9
 flags: [assist]
 silver: 15
 attack:

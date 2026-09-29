@@ -11,6 +11,9 @@ description: |
     'flee' RUNS FOR IT. 'score' SHOWS YOUR HEALTH, WHICH COMES BACK.
     WHAT DIES LEAVES A CORPSE: 'get all corpse' SEARCHES IT, AND
     'sacrifice corpse' GIVES IT TO THE GODS FOR A COIN.
+    TIRED OF TYPING IT? 'autoloot' TAKES EVERYTHING FROM YOUR KILLS,
+    'autogold' ONLY THEIR COINS, AND 'autosac' GIVES THE EMPTY CORPSE
+    TO THE GODS. TYPE ONE AGAIN TO TURN IT OFF.
 exits:
   north: 45
   south: 43

@@ -5,7 +5,7 @@ description: Fang circles you at a lope, low to the ground and quiet.
 look: |
   Black, with a white blaze and yellow eyes, and quieter than the other
   two, which is worse. He does not bark before he bites.
-level: 4
+level: 6
 flags: [assist]
 attack:
   verb: bite

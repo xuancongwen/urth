@@ -5,6 +5,6 @@ description: The gravedigger leans on his spade, watching you.
 look: |
   A hunched, muddy man with a lantern jaw. He does not care for visitors
   who are still walking.
-level: 4
+level: 5
 attack:
   verb: bash

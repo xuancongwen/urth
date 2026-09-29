@@ -11,6 +11,6 @@ level: 10
 baseline: light
 effects:
   - kind: dodge
-    params: { amount: 0.15 }
+    params: { amount: 0.05 }
   - kind: attacks
-    params: { amount: 1 }
+    params: { amount: 0.5 }

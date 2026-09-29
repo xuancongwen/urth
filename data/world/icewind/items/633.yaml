@@ -1,0 +1,22 @@
+vnum: 633
+name: Regis's ruby pendant
+keywords: [regis, regiss, ruby, pendant, necklace]
+description: A ruby pendant on a fine chain lies here, its facets turning slowly in the light.
+look: |
+  A deep red ruby cut in more facets than there should be room for,
+  on a fine gold chain. Look into it and you want very much to agree
+  with whoever is wearing it. It belonged to the Pasha Pook of Calimport
+  before Regis borrowed it; Biggrin took it off the halfling in a
+  hurry, and has been agreeable ever since. Those who fight its wearer
+  find their blows pulling up short.
+type: armor
+slot: neck
+level: 7
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: charisma, amount: 3 }
+  - kind: protect
+    params: { mult: 0.92 }
+  - kind: dodge
+    params: { amount: 0.03 }

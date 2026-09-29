@@ -1,0 +1,14 @@
+vnum: 535
+name: a teamster's whip
+keywords: [teamster, teamsters, whip]
+description: A long bullwhip lies coiled in the ruts.
+look: |
+  Braided oxhide with a lead-weighted handle, left behind when the
+  bandits took the wagon it drove. It cracks like a branch breaking.
+type: weapon
+level: 5
+baseline: whip
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

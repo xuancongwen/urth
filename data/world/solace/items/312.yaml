@@ -1,0 +1,26 @@
+vnum: 312
+name: the Staff of Magius
+keywords: [staff, magius, crystal, claw, dragon]
+description: A black wooden staff topped with a crystal in a golden dragon's claw lies among the roots.
+look: |
+  Plain dark wood shod in silver, and at its head a crystal globe held
+  in a small golden claw. It belonged to Magius, who fought beside Huma
+  in the Lost Battles, and the spirits of Darken Wood have kept it for a
+  very long time for a mage who has not yet come. When you speak the word
+  it knows the crystal gives a cold light. It wards whoever holds it,
+  shows what hides behind glamour, and now and then, when it strikes,
+  the air around it tears with a small arcane crack.
+type: weapon
+weight: 4
+level: 5
+baseline: staff
+value: 500
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: crackle of arcane force } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: protect, params: { mult: 0.95 } }
+  - { kind: detectInvisible }
