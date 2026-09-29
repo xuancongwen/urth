@@ -200,6 +200,7 @@ func run() error {
 	if cfg.Server.WebSocketAddr != "" {
 		ws = web.NewServer(cfg.Server.WebSocketAddr, w.Events(), logger.With("component", "web"))
 		ws.SetLimits(limits)
+		ws.SetAnalytics(cfg.Server.Analytics.ScriptURL, cfg.Server.Analytics.Attributes)
 	}
 
 	// Adopt inherited sockets before serving so restored players are known

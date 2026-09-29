@@ -6,7 +6,10 @@ import (
 	"errors"
 	"fmt"
 	"net"
+	"net/url"
 	"os"
+	"regexp"
+	"sort"
 	"time"
 
 	"gopkg.in/yaml.v3"
@@ -42,6 +45,44 @@ type Server struct {
 	AdminAddr string `yaml:"admin_addr"`
 	// Limits protect both listeners from floods (internal/limit).
 	Limits Limits `yaml:"limits"`
+	// Analytics is an optional page view tracker for the web client.
+	Analytics Analytics `yaml:"analytics"`
+}
+
+// Analytics loads a page view tracker, such as Umami or Plausible, in the
+// web client. An empty ScriptURL loads none.
+type Analytics struct {
+	// ScriptURL is the tracker's script, such as https://stats.example.com/script.js.
+	ScriptURL string `yaml:"script_url"`
+	// Attributes are the data-* attributes its script tag needs, such as
+	// data-website-id for Umami or data-domain for Plausible.
+	Attributes map[string]string `yaml:"attributes"`
+}
+
+var dataAttr = regexp.MustCompile(`^data-[a-z0-9-]+$`)
+
+func (a Analytics) validate() error {
+	if a.ScriptURL == "" {
+		if len(a.Attributes) > 0 {
+			return errors.New("server.analytics.attributes requires server.analytics.script_url")
+		}
+		return nil
+	}
+	u, err := url.Parse(a.ScriptURL)
+	if err != nil || u.Host == "" || (u.Scheme != "http" && u.Scheme != "https") || u.User != nil {
+		return fmt.Errorf("server.analytics.script_url must be an absolute http(s) URL, got %q", a.ScriptURL)
+	}
+	names := make([]string, 0, len(a.Attributes))
+	for name := range a.Attributes {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		if !dataAttr.MatchString(name) {
+			return fmt.Errorf("server.analytics.attributes must be data-* names, got %q", name)
+		}
+	}
+	return nil
 }
 
 // Limits are per-listener connection and input caps. Zero disables one.
@@ -175,6 +216,9 @@ func (c Config) Validate() error {
 		if _, _, err := net.SplitHostPort(a); err != nil {
 			return fmt.Errorf("server.admin_addr must be host:port such as 0.0.0.0:4003, got %q", a)
 		}
+	}
+	if err := c.Server.Analytics.validate(); err != nil {
+		return err
 	}
 	lim := c.Server.Limits
 	if lim.MaxConnections < 0 || lim.MaxPerIP < 0 || lim.InputLinesPerSecond < 0 || lim.InputBurst < 0 || lim.InputFloodLimit < 0 {

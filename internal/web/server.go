@@ -8,11 +8,13 @@ import (
 	"context"
 	"embed"
 	"errors"
+	"html"
 	"io/fs"
 	"log/slog"
 	"net"
 	"net/http"
 	"os"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -37,10 +39,32 @@ type Server struct {
 	mu    sync.Mutex
 	conns map[session.ID]*conn
 	gate  *limit.Gate // nil admits everything
+
+	tracker string // script element for the page view tracker, if any
 }
 
 // SetLimits installs connection and input caps. Call before Serve.
 func (s *Server) SetLimits(cfg limit.Config) { s.gate = limit.New(cfg) }
+
+// SetAnalytics loads a page view tracker script, with the given data-*
+// attributes, in the client page. Call before Serve.
+func (s *Server) SetAnalytics(scriptURL string, attrs map[string]string) {
+	if scriptURL == "" {
+		return
+	}
+	names := make([]string, 0, len(attrs))
+	for name := range attrs {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	var b strings.Builder
+	b.WriteString(`<script defer src="` + html.EscapeString(scriptURL) + `"`)
+	for _, name := range names {
+		b.WriteString(" " + html.EscapeString(name) + `="` + html.EscapeString(attrs[name]) + `"`)
+	}
+	b.WriteString("></script>")
+	s.tracker = b.String()
+}
 
 // NewServer creates a server reporting to events.
 func NewServer(addr string, events chan<- session.Event, log *slog.Logger) *Server {
@@ -89,8 +113,17 @@ func (s *Server) Serve(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
+	index, err := fs.ReadFile(pages, "index.html")
+	if err != nil {
+		return err
+	}
+	index = []byte(strings.Replace(string(index), "<!--analytics-->", s.tracker, 1))
 	mux := http.NewServeMux()
 	mux.Handle("/", http.FileServer(http.FS(pages)))
+	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		_, _ = w.Write(index)
+	})
 	mux.HandleFunc("/ws", s.handleWS)
 
 	srv := &http.Server{

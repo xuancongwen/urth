@@ -27,6 +27,13 @@ server:
     input_lines_per_second: 10
     input_burst: 20
     input_flood_limit: 200
+  # Optional page view tracker for the web client, such as a self-hosted
+  # Umami or Plausible. Empty script_url loads none; attributes are the
+  # data-* attributes its script tag needs.
+  analytics:
+    script_url: ""
+    # attributes:
+    #   data-website-id: your-umami-website-id
 
 timing:
   # World loop period. Input is processed once per tick.
