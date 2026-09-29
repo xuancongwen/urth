@@ -36,16 +36,25 @@ RESTART=1
 CHECK=1
 while [ $# -gt 0 ]; do
   case "$1" in
-    --content) CONTENT_ONLY=1; RESTART=0 ;;
-    --no-restart) RESTART=0 ;;
-    --skip-check) CHECK=0 ;;
-    -h|--help) sed -n 2,18p "$0"; exit 0 ;;
-    *) echo "unknown option: $1" >&2; exit 2 ;;
+  --content)
+    CONTENT_ONLY=1
+    RESTART=0
+    ;;
+  --no-restart) RESTART=0 ;;
+  --skip-check) CHECK=0 ;;
+  -h | --help)
+    sed -n 2,18p "$0"
+    exit 0
+    ;;
+  *)
+    echo "unknown option: $1" >&2
+    exit 2
+    ;;
   esac
   shift
 done
 
-TARGET="root@$HOST"
+TARGET="$HOST"
 CTL="${TMPDIR:-/tmp}/urth-deploy-$$.sock"
 SSH_OPTS=(-p "$SSH_PORT" -o ControlPath="$CTL")
 RSYNC_RSH="ssh -p $SSH_PORT -o ControlPath=$CTL"
