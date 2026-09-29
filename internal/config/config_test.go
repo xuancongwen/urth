@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 )
 
@@ -14,7 +15,7 @@ func TestLoadMissingFileUsesDefaults(t *testing.T) {
 	if found {
 		t.Fatal("expected found=false for missing file")
 	}
-	if cfg != Default() {
+	if !reflect.DeepEqual(cfg, Default()) {
 		t.Fatalf("expected defaults, got %+v", cfg)
 	}
 }
@@ -81,5 +82,26 @@ func TestRespawnDefaultsToStart(t *testing.T) {
 	c.World.RespawnRoom = -1
 	if err := c.Validate(); err == nil {
 		t.Fatal("a negative respawn room validated")
+	}
+}
+
+func TestAnalyticsValidation(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		a    Analytics
+		ok   bool
+	}{
+		{"none", Analytics{}, true},
+		{"umami", Analytics{ScriptURL: "https://stats.example.com/script.js", Attributes: map[string]string{"data-website-id": "abc"}}, true},
+		{"relative script", Analytics{ScriptURL: "/script.js"}, false},
+		{"attributes without a script", Analytics{Attributes: map[string]string{"data-domain": "example.com"}}, false},
+		{"not a data attribute", Analytics{ScriptURL: "https://stats.example.com/script.js", Attributes: map[string]string{"onload": "alert(1)"}}, false},
+	} {
+		c := Default()
+		c.Server.WebSocketAddr = "127.0.0.1:4001"
+		c.Server.Analytics = tc.a
+		if err := c.Validate(); (err == nil) != tc.ok {
+			t.Errorf("%s: %v", tc.name, err)
+		}
 	}
 }

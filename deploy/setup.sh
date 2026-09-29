@@ -71,6 +71,11 @@ server:
     input_lines_per_second: 10
     input_burst: 20
     input_flood_limit: 200
+  # Optional page view tracker for the web client, e.g. Umami:
+  # analytics:
+  #   script_url: https://your-umami-host/script.js
+  #   attributes:
+  #     data-website-id: your-umami-website-id
 
 timing:
   tick_ms: 100

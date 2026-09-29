@@ -54,6 +54,35 @@ func TestPageIsServed(t *testing.T) {
 	}
 }
 
+func TestAnalyticsIsConfigured(t *testing.T) {
+	get := func(s *Server) string {
+		t.Helper()
+		if err := s.Listen(); err != nil {
+			t.Fatal(err)
+		}
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		go func() { _ = s.Serve(ctx) }()
+		resp, err := http.Get("http://" + s.Addr().String() + "/")
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer resp.Body.Close()
+		body, _ := io.ReadAll(resp.Body)
+		return string(body)
+	}
+	log := slog.New(slog.NewTextHandler(io.Discard, nil))
+	if body := get(NewServer("127.0.0.1:0", nil, log)); contains([]byte(body), "<script defer") || !contains([]byte(body), "new WebSocket") {
+		t.Fatal("page without a tracker configured should load none")
+	}
+	s := NewServer("127.0.0.1:0", nil, log)
+	s.SetAnalytics("https://stats.example.com/script.js", map[string]string{"data-website-id": "abc", "data-auto-track": "a\"b"})
+	want := `<script defer src="https://stats.example.com/script.js" data-auto-track="a&#34;b" data-website-id="abc"></script>`
+	if body := get(s); !contains([]byte(body), want) {
+		t.Fatalf("tracker missing from page: %s", body[:min(len(body), 600)])
+	}
+}
+
 func TestRoundTripAndFarewell(t *testing.T) {
 	s, events, cancel, done := startServer(t)
 	defer cancel()
