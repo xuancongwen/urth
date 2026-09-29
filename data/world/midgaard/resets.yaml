@@ -45,13 +45,11 @@ resets:
   - { mob: 3024, room: 3045, max: 3, equip: [{ item: 3026 }] }   # zombies, and their grave dust
   - { mob: 3024, room: 3046, max: 3, equip: [{ item: 3026 }, { item: 3047, slot: shoulders }] }   # the mausoleum's dead still wear their shrouds
   - { mob: 3024, room: 3065, max: 3, equip: [{ item: 3026 }] }
-  - { mob: 3025, room: 3047, equip: [{ item: 3027, slot: wield }, { item: 3026 }] }   # the crypt ghoul
-  - { item: 3036, room: 3047 }   # the sword of the ancients, on the sarcophagus
+  - { mob: 3025, room: 3047, equip: [{ item: 3027, slot: wield }, { item: 3026 }, { item: 3036 }] }   # the crypt ghoul, and the sword of the ancients
   # --- the sewers ---
   - { mob: 3021, room: 3060, max: 4, equip: [{ item: 3019 }] }   # sewer rats carry hides
   - { mob: 3021, room: 3061, max: 4, equip: [{ item: 3019 }] }
   - { mob: 3021, room: 3062, max: 4, equip: [{ item: 3019 }] }
   - { item: 3049, room: 3062 }   # waders abandoned by the sewer workers
   - { mob: 3021, room: 3063, max: 4, equip: [{ item: 3019 }] }
-  - { mob: 3022, room: 3064, equip: [{ item: 3019 }, { item: 3019 }, { item: 3037, slot: head }] }   # the rat king in his crown
-  - { item: 3039, room: 3064 }   # a ring of regeneration in his hoard
+  - { mob: 3022, room: 3064, equip: [{ item: 3019 }, { item: 3019 }, { item: 3037, slot: head }, { item: 3039 }] }   # the rat king in his crown, and a ring of regeneration

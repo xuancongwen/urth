@@ -33,8 +33,8 @@ upper levels z=0, Mulahey's chamber z=-1.
       y=11                                  524  (Mulahey)
 
 Notable items. Uniques: Silke's Sword of Chaos (6), Tarnesh's Boots of
-Speed (6), Varscona in the ogre's pack (7), Spider's Bane at the lower
-shaft (523, 9), and Mulahey's Ring of Wizardry (10); his mace burns with
+Speed (6), Varscona in the ogre's pack (7), Spider's Bane also in the
+ogre's pack (9), and Mulahey's Ring of Wizardry (10); his mace burns with
 Cyric's black flame, and Gorion's ring shields a ward near death.
 Ordinary gear is carried by the bandit, hobgoblin, xvarts, ogre, kobolds,
 and commandos, or lies along the road and in the mine.

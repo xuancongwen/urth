@@ -36,9 +36,8 @@ the Gegs, Limbeck (10), the High Froman (12), Bane (8), Hugh the Hand
 Materials: coralite, machine grease, elven crystal, quicksilver.
 
 Notable items. Uniques: the whistle-clap's hammer-arm of the
-Kicksey-winsey (3), Haplo's rune-bandages on the Storm's Lip (810, 8),
-the Sartan rune-staff at the end of the crawl (817, 9), and on the
-elven captain a cloak of dragonship sail-silk and Limbeck's spectacles
-(10). The captain's coat now softens blows and the storm-goggles let you
+Kicksey-winsey (3), Haplo's rune-bandages on the coralite crab (810, 8),
+and on the elven captain a cloak of dragonship sail-silk, Limbeck's
+spectacles, and a Sartan rune-staff (10). The captain's coat now softens blows and the storm-goggles let you
 fight half-blind. Ordinary gear lies around the works or is carried by
 the storm-hawk, the crab, and the marines.

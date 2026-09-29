@@ -38,5 +38,4 @@ resets:
   - { item: 1029, room: 1024 }             # a pixie's willow bracelet
   - { mob: 1017, room: 1026, max: 2, equip: [{ item: 1024 }] }   # barrow-wights, cloak-pins at the throat
   - { item: 1028, room: 1026 }             # bronze vambraces among the grave-goods
-  - { mob: 1018, room: 1027, equip: [{ item: 1014, slot: wield }, { item: 1015, slot: head }] }   # the Barrow King
-  - { item: 1031, room: 1027 }             # Rhongomiant, kept for Arthur by the dead
+  - { mob: 1018, room: 1027, equip: [{ item: 1014, slot: wield }, { item: 1015, slot: head }, { item: 1031 }] }   # the Barrow King, and Rhongomiant

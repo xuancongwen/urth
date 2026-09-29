@@ -13,7 +13,7 @@ resets:
   # the catacombs
   - { mob: 1307, room: 1312, max: 2, equip: [{ item: 1326 }] }  # zombies shuffling in the undercroft, one still wearing a ring
   - { mob: 1308, room: 1315, max: 2, equip: [{ item: 1327 }] }  # skeletons in the ossuary, in rusted mail
-  - { mob: 1309, room: 1314, equip: [{ item: 1302, slot: wield }] }     # the Butcher and his cleaver
+  - { mob: 1309, room: 1314, equip: [{ item: 1302, slot: wield }, { item: 1324 }] }   # the Butcher and his cleaver, and Gonnagal's Dirk
   - { mob: 1310, room: 1317, equip: [{ item: 1308, slot: head }, { item: 1323 }] }   # the Skeleton King, his crown, and the Optic Amulet
   # the caves
   - { mob: 1311, room: 1318, max: 2, equip: [{ item: 1328 }] }  # winged fiends over the shaft, and gloves from their hides
@@ -21,12 +21,10 @@ resets:
   - { mob: 1313, room: 1320, max: 2, equip: [{ item: 1312 }] }  # magma demons, and the brains Pepin wants
   - { item: 1330, room: 1320 }                                  # a maul cooling on the riverbank
   - { mob: 1312, room: 1321, max: 3, equip: [{ item: 1309, slot: wield }, { item: 1329 }] }   # the goatman clan
-  - { item: 1324, room: 1321 }                                  # Gonnagal's Dirk in the clan's loot pile
   - { mob: 1314, room: 1322, max: 2, equip: [{ item: 1310 }, { item: 1331 }] }   # horned demons on the bridge, hearts and flails
   # hell
   - { mob: 1316, room: 1324, max: 2, equip: [{ item: 1310 }, { item: 1332 }] }   # blood knights on the ramparts, hearts and sabatons
   - { mob: 1315, room: 1325, max: 2, equip: [{ item: 1310 }, { item: 1333 }] }   # succubi in the blood pits, hearts and whips
-  - { item: 1320, room: 1325 }                                  # Windforce, among a dead rogue's bones
   - { mob: 1318, room: 1326, max: 2, equip: [{ item: 1334 }] }  # advocates at their lecterns, in scribe's cuffs
   - { mob: 1317, room: 1327, equip: [{ item: 1317, slot: head }, { item: 1300 }, { item: 1322 }] }   # Lazarus, mitre, a stolen potion, and the Harlequin Crest
-  - { mob: 1319, room: 1328, equip: [{ item: 1318 }, { item: 1321 }] }   # Diablo, the soulstone in his brow, and the Stone of Jordan
+  - { mob: 1319, room: 1328, equip: [{ item: 1318 }, { item: 1321 }, { item: 1320 }] }   # Diablo, the soulstone in his brow, and the Stone of Jordan, and Windforce

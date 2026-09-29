@@ -95,9 +95,9 @@ questmaster.
 | 3032 | the Peacekeeper's steel halberd: parries, the hook trips | 14 | the Peacekeeper, Market Square |
 | 3040 | the Peacekeeper's badge: sanctuary's softer blows, unflinching | 14 | the Peacekeeper |
 | 3024 | the mayor's gold signet ring: charisma, knows secrets, trouble slides off | 13 | the mayor |
-| 3036 | the sword of the ancients: the old kings' wrath, sees the unseen | 10 | lying in the Crypt (3047) |
+| 3036 | the sword of the ancients: the old kings' wrath, sees the unseen | 10 | the crypt ghoul (3047) |
 | 3037 | the rat king's crown: sees the hidden, rat-quick, stinks | 10 | the rat king, Rats' Nest |
-| 3039 | a ring of regeneration: heals even in a fight | 10 | the rat king's hoard (3064) |
+| 3039 | a ring of regeneration: heals even in a fight | 10 | the rat king (3064) |
 | 3027 | a ghoul's thighbone club: grave rot | 9 | the crypt ghoul |
 | 3038 | the gravedigger's shovel: finishes the failing and the staggered | 5 | the gravedigger |
 | 3041 | a bag of holding (holds 150) | - | the pickpocket |

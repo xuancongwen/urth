@@ -14,7 +14,7 @@ and wears the torn black cloak (sees the invisible); Old Man Willow keeps
 the One Ring (a plain gold ring, unidentified: invisibility, slow
 regeneration, but 15% more damage taken and -2 wisdom) and Sting
 (finesse, sees hidden things); Bilbo's mithril shirt (soak, extra
-defense) lies in the roots at 422; the ruffian on the East Road carries
+defense) is on the Black Rider; the ruffian on the East Road carries
 Bullroarer's club (execute) stolen from Tuckborough. Ordinary finds: a
 belt (401), party cloak (404), party ring (406), pot-lid shield (403),
 moleskin breeches (411), woodcutter's axe (408), frying pan in Maggot's

@@ -29,7 +29,6 @@ resets:
   - { mob: 1115, room: 1122, max: 2, equip: [{ item: 1116 }] }                          # nether rays, shards in their hides
   - { item: 1131, room: 1122 }                                                          # nether-silk snagged on the island's rocks
   - { mob: 1116, room: 1126, equip: [{ item: 1116 }, { item: 1121 }] }                   # the void terror in the hollow, guarding Frostmourne
-  - { item: 1122, room: 1126 }                                                          # the Helm of Domination, waiting in the dark
   - { item: 1116, room: 1126 }                                                          # a loose shard in the dark
-  - { mob: 1118, room: 1124, equip: [{ item: 1132 }] }                                 # the fel reaver on the shard, a loose piston
+  - { mob: 1118, room: 1124, equip: [{ item: 1132 }, { item: 1122 }] }   # the fel reaver on the shard, a loose piston, and the Helm of Domination
   - { mob: 1117, room: 1125, equip: [{ item: 1115, slot: wield }, { item: 1117, slot: shoulders }, { item: 1116 }, { item: 1123 }] }   # the pit lord, and Gorehowl as his trophy

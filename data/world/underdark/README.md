@@ -13,9 +13,9 @@ drow wizard 17, shrine spiders 18, drow priestess 20 (the boss; the whip,
 the signet, the insignia of House Do'Urden, the necromancy totem, and
 the offering are with her).
 
-Notable items: Icingdeath lies among the bones at the chasm floor
-(room 717, level 14); the drow wizard keeps Twinkle as a prize (17);
-Zaknafein's sword is Lolth's trophy in the antechamber (722, 19). The priestess's
+Notable items: the hook horror carries Icingdeath (715, level 14);
+the drow wizard keeps Twinkle as a prize (17); the priestess keeps
+Zaknafein's sword, the weapon of the man her house sacrificed (19). The priestess's
 snake-headed whip poisons and slows.
 
 Map (north is up; each block is one z-level):

@@ -9,9 +9,9 @@ from the cathedral stair down is dark, so buy a lantern from Ogden.
 Levels, roughly in walking order: fallen ones and zombies 14, burning
 dead skeletons 15, the Butcher 16 (boss; his cleaver), the Skeleton King
 17 (boss; the Undead Crown and the Optic Amulet), winged fiends 17,
-goatmen 18 (halberds; Gonnagal's Dirk lies in their warren), magma
+goatmen 18 (halberds), magma
 demons and horned demons 19 (demon brains, demon hearts), succubi and
-advocates 20 (Windforce lies in the blood pits), blood knights 21 (demon
+advocates 20, blood knights 21 (demon
 hearts), Archbishop Lazarus 21 (boss; the mitre and the Harlequin
 Crest), and Diablo 24 (the final boss, 3200 health, two swings a round
 and a burning touch; carries the red soulstone and the Stone of Jordan).
@@ -21,7 +21,8 @@ Optic Amulet (17; sees the hidden, soaks blows), Gonnagal's Dirk (18;
 hits harder, wards, costs Dexterity), Windforce (20; a bow that knocks
 foes back and punishes them for it), the Harlequin Crest (21; less damage
 taken, +1 to three stats), the Stone of Jordan (24; skill cooldowns a
-round shorter). Common finds: a fallen one's kris, a wedding ring on a
+round shorter). The Butcher also carries Gonnagal's Dirk, and Diablo
+Windforce. Common finds: a fallen one's kris, a wedding ring on a
 zombie, rusted hauberks, fiend-hide gloves, goat-hide leggings, a
 magma-forged maul by the river of fire, hell-iron flails, blood-iron
 sabatons, succubus whips, scribe's bracers.

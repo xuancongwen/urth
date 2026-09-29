@@ -28,8 +28,8 @@ warlord carry one each, and one lies in the deep crypts). The alewife
 (Smoking Log, 1503) sells ale and torches. The maester in the solar is a
 questmaster; the red weirwood leaf (1517) is a quest item.
 
-Uniques: Needle lies hidden in the kennels (1511); Longclaw lies in a dead
-ranger's hand among the wights (1528); the wildling warlord carries the
+Uniques: the great direwolf carries Needle (1525); the wildling spearwife
+carries Longclaw (1524); the wildling warlord carries the
 Horn of Joramun; the White Walker wears its shifting mail. The dragonglass
 dagger now burns what it cuts. Ordinary gear: gloves (1504), a sword-belt
 (1506), roundshields on the gatehouse guards, a sentinel-pine staff

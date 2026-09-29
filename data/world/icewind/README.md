@@ -39,8 +39,8 @@ valley · 616 Drizzt's cave · 620 mine gate · 621 Bruenor's hall
 626 broken gallery · 627 chieftain's hole · 640 bottom of the shaft
 
 Notable items. Uniques: Regis's ruby pendant on Biggrin (7), Taulmaril
-the Heartseeker in the broken gallery (626, 8), Aegis-fang in the goblin
-chieftain's hands (10), and Crenshinibon at the bottom of the shaft
-(640, 10, unidentified: it whispers, and it takes). The chieftain's
+the Heartseeker in the cave bear's den (625, 8), and on the goblin
+chieftain Aegis-fang and Crenshinibon (10, unidentified: it whispers,
+and it takes). The chieftain's
 dwarven war-belt soaks blows. Ordinary gear is carried by the yetis,
 scout, bear, and goblins, or lies on the tundra and in the mine.

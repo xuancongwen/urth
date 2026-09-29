@@ -46,9 +46,8 @@ resets:
   - { item: 411, room: 417, into: 413 }
   # the Woody End and the Old Forest
   - { item: 423, room: 418 }   # an elven lantern left by Gildor's folk
-  - { mob: 414, room: 419, equip: [{ item: 408, slot: shoulders }, { item: 427, slot: wield }] }   # the Black Rider, cloaked, with a Morgul-knife
+  - { mob: 414, room: 419, equip: [{ item: 408, slot: shoulders }, { item: 427, slot: wield }, { item: 425 }] }   # the Black Rider, cloaked, with a Morgul-knife, and Bilbo's mithril shirt
   - { item: 409, room: 423 }   # the gloves in the hollow
   - { item: 422, room: 421 }   # a quarterstaff under the eaves
   - { mob: 415, room: 422, equip: [{ item: 426 }, { item: 424 }] }   # Old Man Willow, who keeps what he swallows: the Ring and Sting
-  - { item: 425, room: 422 }   # Bilbo's mithril shirt in the roots
   - { item: 412, room: 422 }   # heartwood from the split trunk

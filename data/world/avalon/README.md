@@ -24,8 +24,8 @@ sells cider for coin, the Lady's scabbard for coin and a wyvern scale
 
 Uniques: Morgan le Fay wields the stolen Excalibur; the changeling knight
 carries Arthur's shield Pridwen; Gwyn ap Nudd keeps Carnwennan, Arthur's
-dagger; Rhongomiant, Arthur's spear, lies in the chamber of the old kings
-(1027) under the Barrow King's eye. The Lady's scabbard now keeps its
+dagger; the Barrow King holds Rhongomiant, Arthur's spear, in the chamber of
+the old kings (1027). The Lady's scabbard now keeps its
 wearer from bleeding out. Ordinary gear: eel-spears on the reed-lurkers,
 orchard gloves (1005), a cider-press mallet (1007), the hollow knight's
 flail and chausses, a briar whip (1017), a masque-mask (1021), a willow

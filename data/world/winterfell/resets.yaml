@@ -14,7 +14,6 @@ resets:
   - { mob: 1519, room: 1509 }   # the master-at-arms in the yard, who teaches enhanced damage
   - { mob: 1506, room: 1511 }   # the kennelmaster and his hounds
   - { mob: 1507, room: 1511, max: 3 }
-  - { item: 1529, room: 1511 }  # Needle, hidden in the straw of an empty stall
   - { mob: 1504, room: 1512 }   # the Lord in his high seat
   - { mob: 1503, room: 1513 }   # the maester, who gives out errands
   - { mob: 1505, room: 1513 }   # Old Nan, who gives out stories
@@ -31,15 +30,14 @@ resets:
   - { item: 1521, room: 1523 }  # a hunter's knife at the edge of the wood
   - { mob: 1508, room: 1524, max: 4, equip: [{ item: 1502 }] }   # grey wolves carry pelts
   - { mob: 1508, room: 1525, max: 4, equip: [{ item: 1502 }] }
-  - { mob: 1509, room: 1525, equip: [{ item: 1502 }, { item: 1502 }] }   # the direwolf, two pelts' worth
+  - { mob: 1509, room: 1525, equip: [{ item: 1502 }, { item: 1502 }, { item: 1529 }] }   # the direwolf, two pelts' worth, and Needle
   - { item: 1527, room: 1525 }  # an iron torc among the bones of the den
   - { mob: 1511, room: 1526, max: 2, equip: [{ item: 1511, slot: wield }, { item: 1503 }] }   # raiders carry dragonglass
-  - { mob: 1512, room: 1524, equip: [{ item: 1510, slot: wield }, { item: 1522, slot: legs }] }
+  - { mob: 1512, room: 1524, equip: [{ item: 1510, slot: wield }, { item: 1522, slot: legs }, { item: 1528 }] }   # Longclaw
   - { mob: 1513, room: 1526, equip: [{ item: 1512, slot: body }, { item: 1524, slot: wrist1 }, { item: 1503 }, { item: 1530 }] }   # the warlord, his bands, and the Horn of Joramun
   - { mob: 1510, room: 1527 }
   - { item: 1520, room: 1527 }  # a stone maul in the frozen stream
   # --- beyond the Wall, come south ---
   - { mob: 1514, room: 1528, max: 3 }
-  - { item: 1528, room: 1528 }  # Longclaw, in a dead ranger's hand
   - { item: 1525, room: 1528 }  # and his boots
   - { mob: 1515, room: 1529, equip: [{ item: 1516, slot: wield }, { item: 1531, slot: body }] }   # the White Walker in its shifting mail

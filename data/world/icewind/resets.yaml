@@ -34,9 +34,7 @@ resets:
   - { mob: 614, room: 622 }   # the smith
   - { item: 602, room: 623 }  # a pick in the upper tunnels
   - { item: 621, room: 624 }  # dwarven greaves in the old workings
-  - { mob: 615, room: 625, equip: [{ item: 622 }] }   # the bear, and the claws that come off it
+  - { mob: 615, room: 625, equip: [{ item: 622 }, { item: 632 }] }   # the bear, and the claws that come off it, and Taulmaril the Heartseeker
   - { mob: 616, room: 626, max: 3, equip: [{ item: 619, slot: wield }, { item: 620, slot: body }] }   # the goblin band, flails and scrap mail
-  - { item: 632, room: 626 }  # Taulmaril, among the goblin loot
-  - { mob: 617, room: 627, equip: [{ item: 603, slot: head }, { item: 609 }, { item: 630, slot: wield }] }   # the chieftain, crown, belt, and Aegis-fang
+  - { mob: 617, room: 627, equip: [{ item: 603, slot: head }, { item: 609 }, { item: 630, slot: wield }, { item: 631 }] }   # the chieftain, crown, belt, and Aegis-fang, and Crenshinibon, the Crystal Shard
   - { item: 612, room: 640 }  # cairn silver at the bottom of the shaft
-  - { item: 631, room: 640 }  # Crenshinibon, fallen from the Cairn's avalanche

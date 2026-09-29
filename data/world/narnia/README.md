@@ -28,8 +28,8 @@ Uniques: the White Witch wields her wand (now chilling and petrifying)
 and carries the stone knife of the Table (execute, leech); the hag at
 the Stone Table carries a lock of Aslan's mane (regeneration, a last
 stand); the Queen's chief dwarf carries Susan's horn, stolen from the
-gifts; Reepicheep's rapier lies in the dungeon straw (1216) by the
-werewolf. Ordinary gear: Tumnus's flute (1203), a dwarf's hood (1208),
+gifts; the werewolf in the dungeon (1216) carries Reepicheep's
+rapier. Ordinary gear: Tumnus's flute (1203), a dwarf's hood (1208),
 greaves (1212), Narnian mail in Cair Paravel's hall (1227), and the
 minotaur's axe, ogre cudgels, boggle flails, dwarf bracers and
 gauntlets, and shore-crab shells on their owners.

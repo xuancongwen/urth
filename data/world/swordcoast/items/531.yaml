@@ -1,13 +1,13 @@
 vnum: 531
 name: Spider's Bane
 keywords: [spider, spiders, spider's, bane, sword, two-handed]
-description: A great two-handed sword lies among the bones, its crossguard shaped like legs.
+description: A great two-handed sword lies here, its crossguard shaped like legs.
 look: |
   A two-handed sword of pale steel, the crossguard wrought as eight
   curled spider legs clutching the blade. Whoever carries it cannot be
   held: webs part, poisons thin in the blood, and a hand that would
-  pin you slides off. Its last owner came down the shaft looking for
-  the source of the tainted iron and got this far.
+  pin you slides off. Its last owner came looking for the source of
+  the tainted iron and never went home; an ogre has had it since.
 type: weapon
 level: 9
 baseline: heavy

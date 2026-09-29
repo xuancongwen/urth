@@ -21,16 +21,14 @@ resets:
   - { item: 742, room: 713 }                                  # a deep-gnome's pick on the descent
   - { item: 744, room: 714 }                                  # a gnome spear at the lip
   - { item: 743, room: 716 }                                  # a chitin helm on the chasm floor
-  - { item: 730, room: 717 }                                  # Icingdeath, among the bones
   - { item: 749, room: 718 }                                  # a drow buckler in the worked tunnel
-  - { mob: 703, room: 715, equip: [{ item: 705 }] }           # the hook horror, and its hook when it falls
+  - { mob: 703, room: 715, equip: [{ item: 705 }, { item: 730 }] }   # the hook horror, and its hook when it falls, and Icingdeath
   # the drow road
   - { mob: 705, room: 719, max: 2, equip: [{ item: 700, slot: wield }, { item: 702, slot: shoulders }, { item: 703, slot: body }, { item: 745, slot: belt }, { item: 746, slot: feet }, { item: 714 }] }   # the patrol, sashed and soft-shod
   - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }, { item: 747, slot: body }, { item: 731 }] }   # the wizard in the watchpost, robed, with Twinkle as a prize
   - { mob: 712, room: 721, max: 2, equip: [{ item: 715 }] }   # shrine spiders carry venom
   - { item: 748, room: 721 }                                  # a spider-silk lash in the web
-  - { item: 732, room: 722 }                                  # Zaknafein's sword, the Spider Queen's trophy
   # the shrine of Lolth
-  - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }, { item: 733, slot: neck }] }   # the priestess, whip, signet, and house insignia
+  - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }, { item: 733, slot: neck }, { item: 732 }] }   # the priestess, whip, signet, and house insignia, and Zaknafein's sword
   - { item: 709, room: 723 }                                  # the necromancy totem on the altar
   - { item: 710, room: 723 }                                  # the black-silk offering

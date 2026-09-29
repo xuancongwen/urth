@@ -9,7 +9,6 @@ resets:
   - { mob: 502, room: 502 }   # Tethtoril on the steps
   - { mob: 503, room: 504 }   # Gorion at his window
   - { item: 507, room: 504 }  # the letter, and the ring he forgot
-  - { item: 513, room: 504 }
   # the Lion's Way
   - { mob: 504, room: 506, max: 3 }   # gibberlings
   - { item: 514, room: 507 }          # the cairn's note
@@ -22,7 +21,7 @@ resets:
   - { mob: 518, room: 511 }   # the acrobat from Baldur's Gate, who teaches dodge
   - { item: 509, room: 511 }  # the stew
   - { item: 529, room: 509 }  # a traveller's cloak at the crossroads
-  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }] }   # the bandit, vest, dirk and purse
+  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }, { item: 513 }] }   # the bandit, vest, dirk and purse, and Gorion's silver ring
   - { item: 535, room: 512 }          # the teamster's whip, left in the ruts
   - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }, { item: 524, slot: head }] }   # the hobgoblin, with a notched blade and a skullcap
   # Beregost
@@ -30,7 +29,7 @@ resets:
   - { mob: 519, room: 515 }   # a cutpurse at the Burning Wizard, who teaches dirt kicking
   # the road to Nashkel
   - { mob: 512, room: 517, max: 2, equip: [{ item: 520, slot: wield }] }   # xvarts with hand axes
-  - { mob: 513, room: 518, equip: [{ item: 522, slot: wield }, { item: 530 }] }   # the ogre on the hill, its club, and Varscona it cannot use
+  - { mob: 513, room: 518, equip: [{ item: 522, slot: wield }, { item: 530 }, { item: 531 }] }   # the ogre on the hill, its club, and Varscona it cannot use, and Spider's Bane
   - { mob: 514, room: 519 }           # the Flaming Fist
   # the mines
   - { mob: 515, room: 521, max: 4, equip: [{ item: 500, slot: wield }, { item: 525, slot: shield }, { item: 512 }] }   # kobolds with swords, shields, and scales
@@ -40,7 +39,6 @@ resets:
   - { item: 123, room: 522 }   # bone dust among the picks
   - { item: 526, room: 522 }   # a dead miner's gloves
   - { mob: 516, room: 523, max: 2, equip: [{ item: 501, slot: wield }, { item: 527, slot: feet }, { item: 512 }] }   # commandos at the shaft, iron-shod
-  - { item: 531, room: 523 }   # Spider's Bane, where its last owner fell
   - { mob: 517, room: 524, equip: [{ item: 502, slot: wield }, { item: 503, slot: body }, { item: 528, slot: legs }, { item: 534, slot: finger1 }, { item: 515 }] }   # Mulahey, armed, ringed, with Tazok's letter
   - { item: 510, room: 524 }   # the stolen totem on the altar
   - { item: 511, room: 524 }

@@ -27,8 +27,7 @@ resets:
   - { item: 1227, room: 1212 }                                    # greaves in a drift below the castle
   # --- the Witch's castle ---
   - { mob: 1213, room: 1215, equip: [{ item: 1221, slot: wield }] }   # minotaur at the throne-room doors
-  - { mob: 1215, room: 1216 }                                     # werewolf in the dungeon
-  - { item: 1233, room: 1216 }                                    # Reepicheep's rapier, in a prisoner's straw
+  - { mob: 1215, room: 1216, equip: [{ item: 1233 }] }   # werewolf in the dungeon, and Reepicheep's rapier
   - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }, { item: 1234 }] }   # the Witch, wand, crown, and the stone knife
   # --- Aslan's side ---
   - { mob: 1216, room: 1220 }
