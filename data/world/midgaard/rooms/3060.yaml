@@ -1,0 +1,12 @@
+vnum: 3060
+name: The Sewer Entrance
+description: |
+  Iron rungs come down from the grating above into a vaulted brick
+  tunnel. Foul water runs ankle-deep along a channel in the floor, and
+  the walls are furred with slime. The tunnel runs east, and a narrower
+  passage leads south.
+exits:
+  east: 3061
+  south: 3065
+  up: 3033
+flags: [dark]

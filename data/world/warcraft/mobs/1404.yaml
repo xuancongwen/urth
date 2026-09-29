@@ -1,0 +1,15 @@
+vnum: 1404
+name: an orc warlock
+keywords: [orc, warlock, caster]
+description: An orc warlock chants over the altar, green fire licking at his fingers.
+look: |
+  Thinner than a grunt and older than most, with skin gone grey-green
+  and eyes that glow the same sick colour as the runes around him. He
+  wears a robe that clicks as he moves and cradles a blackened skull in
+  one hand like a pet.
+level: 14
+health: 300
+stats: {intelligence: 15}
+attack:
+  kind: fire
+  verb: sear

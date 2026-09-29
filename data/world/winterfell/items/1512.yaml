@@ -1,0 +1,12 @@
+vnum: 1512
+name: a mammoth-hide jerkin
+keywords: [mammoth-hide, mammoth, hide, jerkin]
+description: A shaggy jerkin of brown hide lies here, stiff as a board.
+look: |
+  Hide from something very large, the hair still on it in coarse brown
+  ropes, sewn with sinew into a sleeveless coat that would stop an arrow
+  and nearly stop a sword. It smells like the beast it came from.
+type: armor
+slot: body
+level: 12
+baseline: heavy

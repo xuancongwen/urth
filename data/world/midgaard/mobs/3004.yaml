@@ -1,0 +1,14 @@
+vnum: 3004
+name: the shopkeeper
+keywords: [shopkeeper, storekeeper]
+description: The shopkeeper of the general store leans on his counter, chewing a straw.
+look: |
+  A big, sleepy-looking man who has heard every haggle there is and been
+  moved by none of them.
+level: 8
+flags: [peaceful]
+trades:
+  - { item: 3004, silver: 10 }
+  - { item: 3005, silver: 45 }
+  - { item: 3006, silver: 40 }
+  - { item: 3017, silver: 50 }

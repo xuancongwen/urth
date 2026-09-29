@@ -1,0 +1,12 @@
+vnum: 1207
+name: The Deep Snowy Wood
+description: |
+  Here the trees grow thicker and taller, and their tops meet overhead
+  so that the snow falls in slow, sifting curtains through the gaps.
+  There are no birdsongs. Twice you think you see a grey shape keeping
+  pace with you between the trunks, and twice it is gone when you look
+  properly. North, the lamp-post glimmers. South, the wood opens into a
+  glade.
+exits:
+  north: 1201
+  south: 1208

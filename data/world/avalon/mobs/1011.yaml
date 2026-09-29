@@ -1,0 +1,13 @@
+vnum: 1011
+name: a hollow knight
+keywords: [hollow, knight, ghost]
+description: A knight in rusted armour grips the sword in the stone, straining, and turns to you when you come near.
+look: |
+  Armour with nothing inside it but a cold light and an old ambition.
+  He came to draw the sword and could not, and would not go, and stayed
+  until staying was all that was left of him. He will not let another
+  try while he still hopes.
+level: 8
+stats: {strength: 13}
+attack:
+  verb: strike

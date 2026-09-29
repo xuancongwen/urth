@@ -1,0 +1,8 @@
+vnum: 3045
+name: The Old Graves
+description: |
+  The stones here are so old their names have weathered away. Several
+  graves have sunk, and one or two look to have been dug out from below.
+  A low mist hangs over the grass. The path runs back west.
+exits:
+  west: 3044

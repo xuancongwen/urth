@@ -1,0 +1,11 @@
+vnum: 1018
+name: The Stone of the Sword
+description: |
+  Nine grey stones stand in a ring on a raised bank above the water,
+  leaning inward like old men over a game. In the middle sits a squat
+  block of marble with an anvil set on it, and through the anvil, into
+  the stone beneath, a sword is driven to half its length. Letters of
+  gold run round the stone's flank. The grass inside the ring is worn
+  to earth by the feet of those who have tried. The causeway is east.
+exits:
+  east: 1014

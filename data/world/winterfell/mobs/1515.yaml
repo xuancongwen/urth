@@ -1,0 +1,14 @@
+vnum: 1515
+name: a White Walker
+keywords: [white, walker, other, pale]
+description: A White Walker stands in the pale light, tall and thin as a spear of ice, holding a crystal sword.
+look: |
+  Tall, gaunt, and hard, with skin as white as milk and armor that
+  ripples with the colors of the snow around it. Its eyes are a blue
+  deeper than any living thing's, and they burn. When it moves it makes
+  no sound, and the frost spreads from its feet.
+level: 14
+health: 420
+stats: {dexterity: 15, strength: 13}
+armor:
+  defense: 6

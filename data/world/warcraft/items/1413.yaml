@@ -1,0 +1,15 @@
+vnum: 1413
+name: an ogre's knotted club
+keywords: [ogre, ogres, knotted, club]
+description: A club made from a young oak, roots and all, lies here.
+look: |
+  A whole sapling, pulled up and trimmed, with the root ball left on for
+  the business end and a few iron bolts hammered into it for good
+  measure. You need two hands. The ogre needed one.
+type: weapon
+level: 13
+baseline: heavy
+weapon:
+  hands: 2
+  kind: blunt
+  verb: club

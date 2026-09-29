@@ -1,0 +1,14 @@
+vnum: 1009
+name: a Tor wyvern
+keywords: [tor, wyvern, drake]
+description: A wyvern crouches on the ruined tower's wall, wings half-spread, hissing.
+look: |
+  Two legs, two leathery wings, and a long neck ending in a head all
+  teeth. Its scales are green shading to bronze. A barbed tail lashes
+  behind it. It has made the old tower its nest and the island's sheep
+  its larder.
+level: 9
+health: 240
+silver: 40
+attack:
+  verb: bite

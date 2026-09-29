@@ -1,0 +1,14 @@
+vnum: 1212
+name: an ogre of the Witch's army
+keywords: [ogre, army]
+description: An ogre sits among the tents, gnawing a bone as long as your arm.
+look: |
+  Nine feet of slab-muscled, warty flesh in a jerkin of stitched hides.
+  Its eyes are small and its patience is smaller.
+level: 7
+health: 190
+silver: 30
+stats: {strength: 14, intelligence: 6}
+attack:
+  verb: club
+  kind: blunt

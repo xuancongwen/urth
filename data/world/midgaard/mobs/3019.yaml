@@ -1,0 +1,11 @@
+vnum: 3019
+name: the drunk
+keywords: [drunk]
+description: A drunk sways here, singing something about a lady and a goat.
+look: |
+  Red-nosed, unshaven, and very happy. His purse is light and his breath
+  is not.
+level: 2
+flags: [wander]
+attack:
+  verb: flail

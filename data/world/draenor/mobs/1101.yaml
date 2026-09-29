@@ -1,0 +1,14 @@
+vnum: 1101
+name: a felhound
+keywords: [felhound, hound]
+description: A felhound snuffles along the ground here, tendrils twitching.
+look: |
+  A hound the size of a pony, red-scaled and spined, with two long
+  tendrils sprouting from its shoulders that quest in the air like
+  feelers. They are tasting for magic, and they have found some on
+  you. It licks its lips with a tongue like a strip of leather.
+level: 12
+flags: [wander]
+attack:
+  kind: bite
+  verb: bite

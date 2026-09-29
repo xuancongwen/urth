@@ -1,0 +1,11 @@
+vnum: 1104
+name: a fel orc rampart sentry
+keywords: [fel, orc, rampart, sentry]
+description: A fel orc sentry paces the ramparts, cleaver on his shoulder.
+look: |
+  A veteran of the citadel's wars, wearing more iron than skin, spiked
+  at the shoulder and scarred along every inch that shows. He watches
+  the plain with the patience of something that has stopped needing
+  sleep.
+level: 14
+stats: {strength: 13}

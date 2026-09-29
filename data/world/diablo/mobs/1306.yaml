@@ -1,0 +1,12 @@
+vnum: 1306
+name: a fallen one
+keywords: [fallen, one, imp, demon]
+description: A fallen one capers on the altar, gibbering and waving a little knife.
+look: |
+  Red-skinned, knee-high, and all teeth, a small demon that is brave in
+  a crowd and runs shrieking when the crowd is gone. This one has
+  smeared itself with candle wax, for reasons of its own.
+level: 14
+flags: [assist]
+attack:
+  verb: stab

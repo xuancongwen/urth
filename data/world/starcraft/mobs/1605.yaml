@@ -1,0 +1,14 @@
+vnum: 1605
+name: a firebat
+keywords: [firebat, trooper]
+description: A firebat in scorched red armor stands here, pilot lights hissing on both arms.
+look: |
+  Bigger than a marine, in heavier armor painted fire-engine red and
+  blistered black. The suit is sealed and pressurized, and the voice that
+  comes out of the speaker grille is cheerful in a way that is not
+  reassuring. The flamethrowers on both forearms flicker blue.
+level: 17
+flags: [assist]
+silver: 85
+attack:
+  verb: gout

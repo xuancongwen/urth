@@ -1,0 +1,12 @@
+vnum: 1012
+name: The Hall Under the Hill
+description: |
+  Under the Tor there is a hall that should not fit inside it, pillared
+  with living roots and lit, when it is lit at all, by nothing you can
+  find. A long table is laid for a feast no one is eating. Harp music
+  comes from everywhere. The floor is strewn with rushes, and on the
+  rushes lie great white hounds with red ears, who lift their heads as
+  one when you come down. The cleft to the open air is up.
+exits:
+  up: 1009
+flags: [dark]

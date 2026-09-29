@@ -1,0 +1,11 @@
+vnum: 1501
+name: The Kingsroad at the Edge of the Winter Town
+description: |
+  The road is packed snow over frozen ruts, wide enough for two wagons
+  and rarely asked to carry one. Low houses of timber and fieldstone
+  begin here, most of them shuttered, with woodpiles stacked to the eaves
+  against the months to come. Smoke hangs flat over the roofs. The town
+  thickens to the north; south the road runs back to the waystone.
+exits:
+  north: 1502
+  south: 1500

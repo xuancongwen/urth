@@ -1,0 +1,15 @@
+vnum: 1401
+name: an orcish war axe
+keywords: [orcish, war, axe]
+description: A heavy-bladed orcish axe lies here, notched along the edge.
+look: |
+  A crescent of black iron as broad as your hand is long, riveted to a
+  haft of ash wrapped in rawhide. The notches in the edge have been
+  ground smooth rather than out; orcs keep the history of a weapon.
+type: weapon
+level: 11
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

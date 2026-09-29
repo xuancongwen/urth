@@ -1,0 +1,11 @@
+vnum: 1416
+name: The Hall of the Keep
+description: |
+  A high hall with a hammerbeam roof, banners of blue and white along
+  both walls and a long table covered in maps weighted down with
+  daggers. The maps show the hills to the north marked in red chalk,
+  more red every week by the look of the smudges. A great window at
+  the far end looks out on the forest. The doors out are west.
+exits:
+  west: 1414
+flags: [safe]

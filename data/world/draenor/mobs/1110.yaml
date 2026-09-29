@@ -1,0 +1,14 @@
+vnum: 1110
+name: a naga tidecaller
+keywords: [naga, tidecaller]
+description: A naga tidecaller rears over the central pool, trident raised, chanting.
+look: |
+  Larger than the myrmidons, her scales darkened to the green of deep
+  water, her crest tall and crowned with coral. She sings to the
+  pistons and they answer her. Whatever lies at the bottom of the dark
+  under the pump-house, she is draining the marsh for it, and she will
+  drain you too if you stand in the way.
+level: 16
+health: 700
+silver: 180
+stats: {intelligence: 13, dexterity: 12}

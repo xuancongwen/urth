@@ -1,0 +1,10 @@
+vnum: 3018
+name: The East End of Main Street
+description: |
+  Main Street ends at the East Gate. A squat building to the north rings
+  with the clash of practice blades: the Warriors' Guild, its door
+  marked with a crossed sword and axe.
+exits:
+  north: 3027
+  east: 3041
+  west: 3017

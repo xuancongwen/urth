@@ -1,0 +1,14 @@
+vnum: 1211
+name: a withered hag
+keywords: [withered, hag, crone]
+description: A withered hag crouches by the Stone Table, running her nails along its carvings.
+look: |
+  Bent almost double, dressed in rags, with long dirty nails and a face
+  like a walnut. She mutters in a rhythm, and every few words she
+  giggles. She has been sent to prepare the table.
+level: 8
+silver: 35
+stats: {intelligence: 14}
+attack:
+  verb: rake
+  kind: slash

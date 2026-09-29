@@ -1,0 +1,10 @@
+vnum: 1228
+name: The Strand of the Eastern Sea
+description: |
+  A long pale beach curves away under a sky that goes on for ever. The
+  sea comes in green and clear, and the rocks at the tide line are
+  crusted with shells and weed and very large crabs. Far out, a line of
+  light lies along the horizon, as if the edge of the world were only a
+  little further than you could row. The dunes are west.
+exits:
+  west: 1225

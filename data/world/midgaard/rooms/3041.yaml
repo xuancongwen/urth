@@ -1,0 +1,10 @@
+vnum: 3041
+name: The East Gate of Midgaard
+description: |
+  The eastern gate is newer than the western, its stones still sharp,
+  and the city arms are carved above the arch. Guards lounge in the
+  gatehouse shade. Main Street lies west, and the east road leads away
+  from the wall.
+exits:
+  east: 3053
+  west: 3018

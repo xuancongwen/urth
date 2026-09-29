@@ -1,0 +1,11 @@
+vnum: 1619
+name: The Spawning Pool
+description: |
+  A sunken basin of thick green fluid that bubbles and heaves, fed by
+  pulsing tubes that run down into it from the walls. The light is dim
+  and the color of bile. Things move under the surface, curled and
+  growing, and on the rim wet young zerglings shake themselves free of the
+  slime and look around for something to kill. The colony is south.
+exits:
+  south: 1618
+flags: [dark]

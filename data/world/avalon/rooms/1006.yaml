@@ -1,0 +1,12 @@
+vnum: 1006
+name: The Cider House
+description: |
+  A long, low house of cob and thatch, dim and sweet with the smell of
+  pressed fruit. A great wooden press takes up one end, its screw thick
+  as a man's waist, and barrels line the walls with dates chalked on
+  their heads in a hand nobody has used for centuries. There is a
+  bench, a fire, and a counter worn smooth by elbows. The door opens
+  east onto the orchard.
+exits:
+  east: 1005
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 1116
+name: a shard of the Twisting Nether
+keywords: [shard, twisting, nether]
+description: A sliver of black crystal pulses with green light here.
+look: |
+  A sliver of the stuff between worlds, frozen solid. It pulses in time
+  with nothing you can hear. Stare into it long enough and you see
+  somewhere else, briefly, and something there sees you back.
+type: material
+material: nether shard
+rarity: rare
+value: 60

@@ -1,0 +1,11 @@
+vnum: 1415
+name: The Keep Smithy
+description: |
+  An open-fronted forge under a slate roof, with a bellows as big as a
+  cow and an anvil worn to a saddle in the middle. Finished blades hang
+  from pegs, and shields wait on a rack for their paint. A bin of dark
+  ore sits by the door with a sign propped against it: WANTED - IRON -
+  WILL PAY OR TRADE. The courtyard is south.
+exits:
+  south: 1414
+flags: [safe]

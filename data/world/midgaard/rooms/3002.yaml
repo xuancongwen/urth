@@ -1,0 +1,11 @@
+vnum: 3002
+name: The Entrance to the Clerics' Guild
+description: |
+  A narrow hall of whitewashed stone, lined with benches where the sick
+  and the pious wait their turn. A painted sun looks down from the
+  ceiling with an expression of mild disappointment. The temple lies
+  east; the guild's inner room lies west.
+exits:
+  east: 3001
+  west: 3003
+flags: [safe]

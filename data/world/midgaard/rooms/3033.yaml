@@ -1,0 +1,11 @@
+vnum: 3033
+name: Poor Alley
+description: |
+  The alley ends against the river wall, where the stink of the water
+  rises through a rusted grating in the ground. The grating has been
+  pried loose and leans aside, showing iron rungs leading down into the
+  dark. A darker passage runs west, and the alley leads back north.
+exits:
+  north: 3031
+  west: 3034
+  down: 3060

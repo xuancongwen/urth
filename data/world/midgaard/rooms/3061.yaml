@@ -1,0 +1,11 @@
+vnum: 3061
+name: The Sewers
+description: |
+  The tunnel is tall enough to stand in, just. Every sound echoes: the
+  drip of water, the scrape of claws, your own breathing. Somewhere
+  above is the bridge; you can hear cartwheels rumble over it. West and
+  east the tunnel goes on.
+exits:
+  east: 3062
+  west: 3060
+flags: [dark]

@@ -1,0 +1,10 @@
+vnum: 3024
+name: a restless zombie
+keywords: [restless, zombie]
+description: A restless zombie shambles between the stones.
+look: |
+  Grey flesh, clotted earth, and eyes like boiled eggs. It is still
+  wearing its burial clothes, and the dust of the grave sifts from them.
+level: 6
+attack:
+  verb: claw

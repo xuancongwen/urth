@@ -1,0 +1,12 @@
+vnum: 1421
+name: The Gnoll Camp
+description: |
+  Hide lean-tos crowd a hollow in the hills, and the smell reaches you
+  first: wet fur, rotting meat, and smoke. Bones are piled everywhere,
+  some gnawed and some arranged in shapes that might mean something to
+  a gnoll. A dark hole yawns in the hillside where the pack dens. The
+  ridge is west, and a goat track drops east toward an old mine.
+exits:
+  east: 1418
+  west: 1420
+  down: 1422

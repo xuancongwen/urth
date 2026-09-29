@@ -1,0 +1,9 @@
+vnum: 3022
+name: The Weaponsmith's
+description: |
+  A forge roars in the corner and blades of every length hang from the
+  walls, from bodkins to a two-handed sword taller than a man. The anvil
+  rings, and the smith does not look up. Main Street is north.
+exits:
+  north: 3011
+flags: [safe]

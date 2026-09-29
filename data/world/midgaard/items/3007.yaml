@@ -1,0 +1,10 @@
+vnum: 3007
+name: a pint of dark ale
+keywords: [pint, dark, ale]
+description: A pint of dark ale stands here, going flat.
+look: |
+  Brown as a boot and nearly as thick, with a head you could stand a
+  spoon in.
+type: other
+weight: 1
+value: 4

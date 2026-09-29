@@ -1,0 +1,11 @@
+vnum: 1609
+name: a plate of zerg carapace
+keywords: [plate, zerg, carapace, chitin]
+description: A curved plate of purple zerg carapace lies here.
+look: |
+  A shell plate torn from a zerg, glossy purple-black and lighter than it
+  looks. It is harder than neosteel along the grain. The engineers at the
+  outpost would very much like to know how, and pay for samples.
+type: other
+weight: 2
+value: 15

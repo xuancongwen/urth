@@ -1,0 +1,12 @@
+vnum: 1113
+name: The Umbrafen Pools
+description: |
+  Terraced pools of still, silver-green water, their rims built up with
+  coral and shell in a pattern too regular to be natural. Pale pipes of
+  bronze run from pool to pool and hum faintly, and the water level in
+  the lowest is dropping as you watch. Tracks in the mud are long,
+  sinuous furrows, as if something heavy dragged itself here without
+  legs. The causeway is west; the pipes lead east to a pumping-house.
+exits:
+  west: 1111
+  east: 1114

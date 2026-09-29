@@ -1,0 +1,13 @@
+vnum: 1206
+name: a dwarf sledge-hand
+keywords: [dwarf, sledge-hand, hand]
+description: A dwarf in a fur hat stamps his feet beside the sledge road, knife on his belt.
+look: |
+  Short and wide and bearded to the waist, in a fur coat and a red hood.
+  He works for the Queen because she pays in things no one else can
+  give, and he does not think too hard about what that means.
+level: 4
+flags: [wander]
+silver: 20
+attack:
+  verb: punch

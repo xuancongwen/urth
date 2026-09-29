@@ -1,0 +1,11 @@
+vnum: 1025
+name: The Barrow Mound
+description: |
+  A long barrow lies along the ridge, grassed over and ringed with
+  kerbstones carved in spirals that turn the eye inward. At its east
+  end two great uprights and a lintel frame a black doorway, and the
+  capstone that once sealed it lies cracked in the grass. Cold air
+  comes out of the dark. The wood is north.
+exits:
+  north: 1023
+  down: 1026

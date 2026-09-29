@@ -1,0 +1,12 @@
+vnum: 3031
+name: a lump of scrap iron
+keywords: [lump, scrap, iron]
+description: A rusty lump of scrap iron lies half-buried in refuse.
+look: |
+  Old iron, rusted but sound underneath. A smith could make something of
+  it.
+type: material
+material: iron
+rarity: common
+weight: 4
+value: 5

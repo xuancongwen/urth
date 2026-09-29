@@ -1,0 +1,12 @@
+vnum: 1415
+name: a steel barbute helm
+keywords: [steel, barbute, helm]
+description: A steel helm with a T-shaped face opening lies here.
+look: |
+  A close helm of good steel, forged in one piece from ore the smith
+  sorted by hand. The opening at the face is shaped like a T, and a
+  small lion is punched into the brow.
+type: armor
+slot: head
+level: 14
+baseline: medium

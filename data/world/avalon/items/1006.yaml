@@ -1,0 +1,13 @@
+vnum: 1006
+name: a wyvern scale
+keywords: [wyvern, scale]
+description: A green-bronze wyvern scale lies here.
+look: |
+  A scale the size of a hand, green shading to bronze at the edge, and
+  harder than the shield it looks like. The priestesses of the lake set
+  great store by them, though they will not say why.
+type: material
+material: wyvern scale
+rarity: rare
+weight: 1
+value: 30

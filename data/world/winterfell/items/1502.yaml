@@ -1,0 +1,11 @@
+vnum: 1502
+name: a grey wolf pelt
+keywords: [grey, wolf, pelt]
+description: A grey wolf pelt lies in a heap.
+look: |
+  Thick winter fur, grey above and cream beneath, still smelling of the
+  forest. The smith will take these; he lines things with them.
+type: material
+material: wolf pelt
+rarity: common
+value: 12

@@ -1,0 +1,12 @@
+vnum: 1002
+name: a reed-lurker
+keywords: [reed-lurker, reed, lurker]
+description: A reed-lurker hunches in the shallows, water streaming from its weedy back.
+look: |
+  Long-armed and flat-headed, with skin the brown of marsh water and
+  weed growing in its hair. It waits by the causeway for travellers
+  who step wrong, and it is very patient.
+level: 5
+flags: [assist]
+attack:
+  verb: grab

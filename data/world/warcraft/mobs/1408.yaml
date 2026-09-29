@@ -1,0 +1,13 @@
+vnum: 1408
+name: a gnoll raider
+keywords: [gnoll, raider]
+description: A gnoll raider sniffs the air, hackles up, yipping to itself.
+look: |
+  A hyena-headed thing as tall as a man, with spotted fur, yellow teeth,
+  and a crooked spear it does not bother to use when its claws will do.
+  It stinks. It knows you are there.
+level: 9
+flags: [wander]
+attack:
+  kind: claw
+  verb: claw

@@ -1,0 +1,21 @@
+vnum: 1303
+name: the Butcher's Edge
+keywords: [butcher's, butcher, edge, cleaver, reforged]
+description: A cleaver of bright, folded steel lies here, still warm from the forge.
+look: |
+  Griswold took the Butcher's iron, broke it, and folded it back
+  together with good steel until the rot was hammered out of it. The
+  shape is the same. The edge is new, and it bites deep and seeks the
+  soft places the old owner knew so well.
+type: weapon
+weight: 12
+level: 18
+baseline: heavy
+value: 900
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

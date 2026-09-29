@@ -1,0 +1,13 @@
+vnum: 1610
+name: The Badlands Road
+description: |
+  The haul road gives out here into two ruts across a plain of cracked
+  red stone. The wind never stops. A burned-out siege tank lies on its
+  side in the ditch, its turret thrown twenty paces away, and something
+  has gnawed the rubber off its treads. To the north a concrete bunker
+  hunches on a rise. The mineral field is east; west, the land climbs
+  toward a scorched mesa.
+exits:
+  east: 1608
+  north: 1626
+  west: 1611

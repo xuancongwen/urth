@@ -1,0 +1,11 @@
+vnum: 1316
+name: The Hall of Crypts
+description: |
+  Stone sarcophagi stand in two rows under a vault painted with faded
+  saints. Every lid has been pushed aside from within. At the south end
+  a pair of bronze doors, green with age and stamped with a crowned
+  lion, stands open onto a deeper tomb. The bone passage is north.
+exits:
+  north: 1313
+  south: 1317
+flags: [dark]

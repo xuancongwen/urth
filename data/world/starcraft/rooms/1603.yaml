@@ -1,0 +1,13 @@
+vnum: 1603
+name: The Supply Depot
+description: |
+  A squat, armored block that rose out of the ground on hydraulic legs and
+  can sink back into it just as fast. Inside are shelves of crates,
+  stencilled and strapped down, and a counter made from a blast door laid
+  across two drums. A requisition terminal glows green. Nobody draws a
+  weapon in the depot; the quartermaster made sure of that a long time ago.
+  The street is north, and an open bay door leads west to engineering.
+exits:
+  north: 1601
+  west: 1625
+flags: [safe]

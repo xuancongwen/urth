@@ -1,0 +1,10 @@
+vnum: 3035
+name: the Mayor's lost ledger
+keywords: [mayor's, lost, ledger, book]
+description: A leather-bound ledger lies here, its clasp broken.
+look: |
+  Columns of figures in a cramped hand, and in the margins notes about
+  who has been paid and who is owed. The mayor wants it back quietly.
+type: other
+weight: 1
+flags: [quest]

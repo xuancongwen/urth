@@ -1,0 +1,16 @@
+vnum: 1117
+name: a mantle of fel flame
+keywords: [mantle, fel, flame]
+description: A mantle of blackened plates wreathed in green flame lies here.
+look: |
+  Plates of scorched iron riveted over something's hide, each edge
+  licked by a small green flame that does not spread. Worn, it wraps
+  the shoulders in a heat that is almost comfortable, and blades that
+  strike it come away pitted.
+type: armor
+slot: shoulders
+level: 19
+baseline: heavy
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }

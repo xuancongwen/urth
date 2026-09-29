@@ -1,0 +1,12 @@
+vnum: 3002
+name: the baker
+keywords: [baker]
+description: The baker, floured to the elbows, is sliding loaves out of the oven.
+look: |
+  A round, red-faced woman with forearms like hams and a paddle she
+  wields like a halberd.
+level: 6
+flags: [peaceful]
+trades:
+  - { item: 3000, silver: 8 }
+  - { item: 3008, silver: 30 }

@@ -1,0 +1,11 @@
+vnum: 1409
+name: The Forest Road
+description: |
+  The cobbles are old and well laid, though weeds grow between them now
+  and the milestones are defaced. Oaks close in on either side, their
+  leaves bright even in the shade. A carter's wagon lies on its side in
+  the ditch, burned out, its oxen long gone. West lies the crossroads;
+  east the road runs deeper into the wood.
+exits:
+  east: 1410
+  west: 1401

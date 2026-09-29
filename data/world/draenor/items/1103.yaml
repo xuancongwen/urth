@@ -1,0 +1,10 @@
+vnum: 1103
+name: a glowcap mushroom
+keywords: [glowcap, mushroom]
+description: A small mushroom glows a soft blue here.
+look: |
+  A thumb-sized mushroom with a cap that gives off a gentle blue light.
+  The sporelings trade them like coin, eat them like bread, and seem
+  faintly offended when you ask which is which.
+type: other
+value: 6

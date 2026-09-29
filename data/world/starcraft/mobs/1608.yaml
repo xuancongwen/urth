@@ -1,0 +1,14 @@
+vnum: 1608
+name: a zergling
+keywords: [zergling, ling, zerg]
+description: A zergling crouches low on the creep, sickle claws twitching.
+look: |
+  A thing the size of a large dog, all legs and teeth and hooked scythe
+  claws, its purple carapace glistening with slime. It moves in quick,
+  jerky starts. It is not alone. Zerglings are never alone.
+level: 17
+flags: [assist]
+silver: 20
+attack:
+  kind: slash
+  verb: claw

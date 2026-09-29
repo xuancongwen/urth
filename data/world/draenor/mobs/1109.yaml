@@ -1,0 +1,15 @@
+vnum: 1109
+name: a naga myrmidon
+keywords: [naga, myrmidon]
+description: A naga myrmidon coils by the pools, blades in four hands.
+look: |
+  From the waist up something like an elf, if elves had four arms and
+  scales and a crest of fins; from the waist down a serpent's body
+  thick as a barrel and three times a man's length. She holds a curved
+  blade in each hand and watches the water level fall with deep
+  satisfaction.
+level: 14
+stats: {dexterity: 13}
+attack:
+  kind: slash
+  verb: slash

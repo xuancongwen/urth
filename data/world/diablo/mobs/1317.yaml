@@ -1,0 +1,16 @@
+vnum: 1317
+name: Archbishop Lazarus
+keywords: [archbishop, lazarus, priest]
+description: Archbishop Lazarus turns from his prie-dieu, a staff of bone raised. "Abandon your foolish quest!"
+look: |
+  A gaunt old man in the scorched robes of Tristram's archbishop, with
+  a staff topped by a horned skull. He led the village's children into
+  the dark and came back alone, and then he went back down to stay. His
+  eyes are wet with devotion. It is not to anything you would pray to.
+level: 21
+health: 900
+stats: {intelligence: 16, strength: 8}
+silver: 110
+xp: 5000
+attack:
+  verb: scorch

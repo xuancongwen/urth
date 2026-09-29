@@ -1,0 +1,13 @@
+vnum: 1203
+name: Mr Tumnus's Cave
+description: |
+  A door of reddish stone opens into a snug cave, dry and warm and lit by
+  a crackling fire. A carpet covers the floor, and there are two small
+  chairs, a dresser of blue-and-white crockery, and a bookshelf crammed
+  with titles about nymphs and wood-gods and the habits of men. A kettle
+  sings. Over the mantel hangs a portrait of an old faun with a grey
+  beard, who looks as though he disapproves of something. The only way
+  out is east, back into the cold.
+exits:
+  east: 1202
+flags: [safe]

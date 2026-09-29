@@ -1,0 +1,12 @@
+vnum: 1004
+name: The Orchard Path
+description: |
+  A grassy path runs up between rows of apple trees so old their trunks
+  have split and healed and split again. Blossom and fruit hang on the
+  same branches, which is not how apples grow anywhere else. Bees drone
+  in the white flowers. The strand is south, the heart of the orchard
+  north, and the rows to the east are littered with windfalls.
+exits:
+  south: 1003
+  north: 1005
+  east: 1007

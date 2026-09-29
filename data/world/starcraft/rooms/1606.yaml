@@ -1,0 +1,11 @@
+vnum: 1606
+name: The Last Round
+description: |
+  A bar built from a cargo container and the good intentions of whoever
+  stole the jukebox. The jukebox plays one song, loudly. Marines in half
+  their armor crowd the tables, and a pair of firebats sit in the corner
+  with their helmets off and their burners propped against the wall, the
+  pilot lights still blue. Scorch marks on the ceiling tell you how the
+  last argument ended. The door swings back west to the concourse.
+exits:
+  west: 1602

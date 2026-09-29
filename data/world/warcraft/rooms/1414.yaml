@@ -1,0 +1,14 @@
+vnum: 1414
+name: The Keep Courtyard
+description: |
+  Inside the walls the noise is of drill and trade: a sergeant barking
+  at recruits, a farrier's hammer, a well winch creaking. A lion is
+  painted on the inner face of the gatehouse, blue on white, fresh
+  enough that the paint still shines. North, a forge glows under a lean
+  to. East, steps go up to the doors of the keep's hall. The gate and
+  the bridge are west.
+exits:
+  north: 1415
+  east: 1416
+  west: 1413
+flags: [safe]

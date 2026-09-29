@@ -1,0 +1,11 @@
+vnum: 1213
+name: The Gate of the Witch's Castle
+description: |
+  A low arch pierces the wall under the spires, and the gate beneath it
+  stands open, as if the castle has no need to fear anyone who might
+  walk in. Moonlight glitters on the walls though there is no moon. The
+  air is so still that your breath hangs in front of you. West, past the
+  arch, lies a courtyard. The hill road runs east.
+exits:
+  east: 1212
+  west: 1214

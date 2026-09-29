@@ -1,0 +1,15 @@
+vnum: 1400
+name: Under the Horde Banner
+description: |
+  The banded door opens onto a hollow of red earth roofed with lashed
+  timber, like the mouth of a sapper's tunnel. A ragged banner hangs
+  from the crossbeam, black cloth daubed with a clenched fist in dried
+  red. Drums carry down the slope from somewhere north, slow and steady,
+  and the air smells of pine smoke and turned soil. The door behind
+  you, south, is the only thing here that looks as if it belongs to
+  another world.
+exits:
+  north: 1401
+  south: 8
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

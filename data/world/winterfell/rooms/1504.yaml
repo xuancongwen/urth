@@ -1,0 +1,11 @@
+vnum: 1504
+name: A Lane Through the Winter Town
+description: |
+  The lane runs between shuttered cottages whose doors are painted with
+  a grey wolf, badly, for luck or for loyalty. The houses give out to the
+  east where the snow lies unbroken to a black wall of trees. Hunters'
+  tracks and the tracks of something with four feet and a long stride
+  lead that way. The square is west.
+exits:
+  west: 1502
+  east: 1523

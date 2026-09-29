@@ -126,10 +126,16 @@ func Lint(w *World, startRoom int) []Problem {
 		for _, s := range m.Sells {
 			placedItem[s.Item] = true // a quest vendor's stock
 		}
+		for _, t := range m.Trades {
+			placedItem[t.Item] = true // a merchant's stock
+		}
 	}
 	for _, p := range w.Items {
 		if p.HasFlag("quest") {
 			continue // handed out by the quest system, never by a reset
+		}
+		if p.HasFlag("newbie") {
+			continue // sub issue gear, handed to new characters
 		}
 		if !placedItem[p.Vnum] && !w.Rooms.Areas[p.Area].Detached {
 			add(Problem{Level: Warn, Area: p.Area, Kind: "unplaced", File: p.File, Vnum: p.Vnum,

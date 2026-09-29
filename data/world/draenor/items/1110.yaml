@@ -1,0 +1,11 @@
+vnum: 1110
+name: a glowing spore-sack
+keywords: [glowing, spore-sack, spore, sack]
+description: A leathery sack glows a soft blue on the ground.
+look: |
+  A dried fungal bladder stuffed with living spores that glow when
+  shaken. The sporelings carry them on sticks at night. The light is
+  cool and blue and lasts a long while before the spores go to sleep.
+type: light
+burn: 900
+value: 15

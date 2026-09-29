@@ -1,0 +1,12 @@
+vnum: 1524
+name: A Hunter's Trail in the Wolfswood
+description: |
+  A narrow trail winds between pines whose lower branches are dead and
+  grey. Somewhere a branch lets go of its snow with a soft sound, and
+  then there is nothing but the creak of trees and, far off, a howl
+  answered by another. Tracks lead east into a thicket; the trail
+  climbs north toward smoke; the town is back west.
+exits:
+  west: 1523
+  east: 1525
+  north: 1526

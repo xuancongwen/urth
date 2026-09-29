@@ -1,0 +1,11 @@
+vnum: 1523
+name: The Edge of the Wolfswood
+description: |
+  The last cottage of the winter town is behind you and the first trees
+  of the Wolfswood rise ahead, tall and black and close together. Snow
+  lies deep between them, unmarked except by animal tracks and one set
+  of boots going in and not coming out. The town is west; the forest
+  runs east.
+exits:
+  west: 1504
+  east: 1524

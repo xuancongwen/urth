@@ -1,0 +1,10 @@
+vnum: 1403
+name: a gnoll paw
+keywords: [gnoll, paw]
+description: A severed gnoll paw lies here, claws curled.
+look: |
+  A hairy, leathery paw with blunt black claws, taken at the wrist. The
+  keep pays a bounty on these, and a certain goblin pays better.
+type: other
+weight: 1
+value: 6

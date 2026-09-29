@@ -1,0 +1,16 @@
+vnum: 1011
+name: a mantle of raven feathers
+keywords: [mantle, raven, feathers]
+description: A mantle of black raven feathers lies here, stirring in no wind.
+look: |
+  Hundreds of black feathers sewn overlapping onto dark silk, so the
+  mantle ripples like a living bird. Wearing it, you are harder to pin
+  down, and you are sometimes not sure where your own edges are.
+type: armor
+slot: shoulders
+level: 12
+baseline: light
+weight: 2
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

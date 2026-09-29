@@ -1,0 +1,16 @@
+vnum: 1301
+name: Tristram Square
+description: |
+  The heart of the village is a square of trodden mud around a stone
+  fountain whose water runs cold and faintly metallic. A few benches, a
+  notice board papered over with the names of the missing, and a well
+  bucket nobody has bothered to raise. The Rising Sun's lamplight
+  spills from the west, and the ring of a hammer comes from the smithy
+  to the east. The north road leaves the village; a lane runs south
+  toward the stream and, beyond it, the cathedral.
+exits:
+  north: 1300
+  west: 1302
+  east: 1303
+  south: 1304
+flags: [safe]

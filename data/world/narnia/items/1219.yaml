@@ -1,0 +1,11 @@
+vnum: 1219
+name: a chip of the Stone Table
+keywords: [chip, stone, table, shard]
+description: A grey chip of carved stone lies here.
+look: |
+  A flake of old grey stone, one face cut with part of a figure too
+  worn to read. It is warm, which stone should not be, and heavier
+  than it looks.
+type: other
+weight: 1
+flags: [quest]

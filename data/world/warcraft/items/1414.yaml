@@ -1,0 +1,15 @@
+vnum: 1414
+name: a dragonscale breastplate
+keywords: [dragonscale, dragon, scale, breastplate]
+description: A breastplate of overlapping red scales lies here, faintly warm.
+look: |
+  Red dragon scales riveted in overlapping rows onto a steel backing,
+  each one laid by hand so the edges shed a blow downward. It is lighter
+  than it looks and warmer than it should be, and fire slides off it
+  like rain off slate.
+type: armor
+slot: body
+level: 16
+baseline: heavy
+value: 900
+rarity: rare

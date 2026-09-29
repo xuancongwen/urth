@@ -1,0 +1,15 @@
+vnum: 1500
+name: A Waystone on the Kingsroad
+description: |
+  A standing stone taller than a man leans at the side of a frozen road,
+  its face worn smooth by wind and weather. Set into the back of it, where
+  no door has any business being, is a narrow grey door furred with frost,
+  and through it, south, a round hall of pale stone. The road runs north
+  between snowbanks toward a haze of chimney smoke and, above the smoke,
+  the dark line of a great wall. Someone has left a sprig of pine on top
+  of the stone, as people do here for luck.
+exits:
+  north: 1501
+  south: 7
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

@@ -1,0 +1,12 @@
+vnum: 3025
+name: The Common Square
+description: |
+  A shabbier square than the market to the north, where laundry hangs
+  from windows and children play knucklebones in the gutter. The Town
+  Hall's steps rise to the east, a crooked alley slinks off to the west,
+  and the lane south leads down to the river bridge.
+exits:
+  north: 3014
+  east: 3036
+  south: 3042
+  west: 3031

@@ -1,0 +1,12 @@
+vnum: 1314
+name: a horned demon
+keywords: [horned, demon, bull]
+description: A horned demon paws at the bridge, head down, ready to charge.
+look: |
+  A bull that walks upright, black-hided, with horns like scythes and a
+  chest like a keg. It guards the bridge by the simple method of
+  charging whatever stands on it.
+level: 19
+stats: {strength: 15, constitution: 13}
+attack:
+  verb: gore

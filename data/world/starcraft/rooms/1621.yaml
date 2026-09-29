@@ -1,0 +1,10 @@
+vnum: 1621
+name: The Hydralisk Den
+description: |
+  A cave of wet chitin plates, shaped like the inside of a skull. The
+  floor is littered with shed spines as long as your forearm, and the
+  walls are pocked with holes from which long heads sometimes emerge,
+  hooded and hissing, before withdrawing. The only way out is north.
+exits:
+  north: 1620
+flags: [dark]

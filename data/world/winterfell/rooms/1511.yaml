@@ -1,0 +1,11 @@
+vnum: 1511
+name: The Kennels
+description: |
+  A long stone barn loud with hounds, straw underfoot and the smell of
+  dog and meat over everything. The runs are fenced with iron and the
+  gates are latched high, where a clever dog cannot reach. One pen at
+  the end stands empty, its bars bent outward. North a door lets onto a
+  warmer, wetter air; the yard is west.
+exits:
+  west: 1509
+  north: 1519

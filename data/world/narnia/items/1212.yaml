@@ -1,0 +1,16 @@
+vnum: 1212
+name: a red woollen muffler
+keywords: [red, woollen, muffler, scarf]
+description: A long red muffler has been left draped over a chair.
+look: |
+  A faun's muffler, knitted by someone patient, long enough to wind
+  round the neck three times and still hang to the knees. It keeps the
+  cold out wonderfully and makes you feel you ought to offer someone
+  tea.
+type: armor
+slot: neck
+level: 3
+weight: 1
+value: 25
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

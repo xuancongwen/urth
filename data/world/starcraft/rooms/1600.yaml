@@ -1,0 +1,14 @@
+vnum: 1600
+name: The Pressure Hatch
+description: |
+  A steel hatch the height of two men swings on hydraulic arms, and past
+  it the air changes: dry, gritty, tasting of rust and hot ceramite. You
+  stand on a scorched landing pad of interlocking plates, each stencilled
+  with a yellow number. Beyond the pad's rim an orange sky presses down
+  on a desert of broken mesas. A floodlight on a pylon buzzes and blinks
+  even at noon. The hatch leads back east into the quiet of the Deeper
+  Hall; the outpost's main drag runs off to the west.
+exits:
+  east: 8
+  west: 1601
+position: {x: 0, y: 0, z: 0}

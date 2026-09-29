@@ -1,0 +1,10 @@
+vnum: 1325
+name: The Blood Pits
+description: |
+  A sunken court of tiered pools, each one full to the brim with blood
+  that steams and never clots. Chains hang over them from iron gibbets.
+  Something beautiful and winged bathes in the nearest pool and does not
+  hurry to stop. The steps climb east to the ramparts.
+exits:
+  east: 1324
+flags: [dark]

@@ -1,0 +1,14 @@
+vnum: 1000
+name: The Mist-Shore
+description: |
+  White mist lies on the water so thick that the lake has no far side,
+  only a paleness that goes on until it stops. Wet shingle crunches
+  underfoot, and the smell of apples comes from nowhere you can see. A
+  door of grey apple-wood stands upright in the shingle to the west,
+  frameless, with the quiet of a stone hall behind it. Eastward a row of
+  old posts walks out into the mist toward a landing.
+exits:
+  west: 7
+  east: 1001
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

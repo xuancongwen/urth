@@ -1,0 +1,10 @@
+vnum: 3021
+name: The Armoury
+description: |
+  Racks of mail shirts, helms on wooden heads, and shields hung like
+  shingles cover the walls. A workbench at the back holds rivets, awls,
+  and a half-finished gauntlet. The door north leads back to Main
+  Street.
+exits:
+  north: 3012
+flags: [safe]

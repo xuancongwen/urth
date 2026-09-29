@@ -1,0 +1,19 @@
+vnum: 1315
+name: a ring of the dark eye
+keywords: [ring, dark, eye]
+description: A thin iron ring set with a black stone lies here.
+look: |
+  Plain iron and a single stone that looks like a pupil and moves like
+  one. Adria grew it from a black mushroom and something she will not
+  name. The world is a little sharper with it on, and a little less
+  friendly.
+type: armor
+slot: finger
+weight: 0
+level: 18
+value: 450
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

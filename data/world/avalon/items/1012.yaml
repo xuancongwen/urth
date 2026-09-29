@@ -1,0 +1,12 @@
+vnum: 1012
+name: a wisp-light in a glass
+keywords: [wisp-light, wisp, light, glass]
+description: A small greenish light glows inside a glass jar here.
+look: |
+  A pale green flame no bigger than a thumb, stoppered in a jar of
+  bubbled glass. It gives light without heat, and it leans, always,
+  toward the nearest water.
+type: light
+burn: 900
+weight: 1
+value: 25

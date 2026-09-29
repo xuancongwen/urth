@@ -1,0 +1,13 @@
+vnum: 1516
+name: The Row of the Kings of Winter
+description: |
+  The ceiling drops and the pillars crowd closer. The statues here wear
+  crowns, simple bronze circlets cut with runes, and their faces grow
+  longer and harder the farther you walk, as if the sculptors were
+  remembering less and less. The iron swords on their laps have rusted
+  to red lace. Webs thick as sailcloth hang between the pillars. The
+  passage runs on north and back south.
+exits:
+  south: 1515
+  north: 1517
+flags: [dark]

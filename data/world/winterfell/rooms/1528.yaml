@@ -1,0 +1,12 @@
+vnum: 1528
+name: The Frozen Hollow
+description: |
+  Every tree in the hollow is rimed white to the top, though no snow has
+  fallen for days, and the silence is total: no bird, no wind, no drip.
+  Shapes stand among the trunks that you took at first for stumps. They
+  are not stumps. Their eyes are blue. The stream bed runs back south,
+  and to the east the frost thickens toward a clearing lit by a light
+  that is not the sun.
+exits:
+  south: 1527
+  east: 1529

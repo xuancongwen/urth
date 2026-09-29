@@ -60,6 +60,13 @@ func (w *World) validate() error {
 				return fmt.Errorf("mob %d (%s): sells item %d, which does not exist", m.Vnum, m.Name, s.Item)
 			}
 		}
+		for _, t := range m.Trades {
+			for _, v := range append([]int{t.Item}, t.Items...) {
+				if _, ok := w.Items[v]; !ok {
+					return fmt.Errorf("mob %d (%s): trades item %d, which does not exist", m.Vnum, m.Name, v)
+				}
+			}
+		}
 	}
 	for area, a := range w.Resets {
 		for i, r := range a.Resets {

@@ -1,0 +1,12 @@
+vnum: 1120
+name: The Shrine of the Resting Light
+description: |
+  A round room with no roof, open to the sky, and the burning sky does
+  not seem to reach in. In the centre a crystal as tall as two men turns
+  slowly in the air with nothing holding it, and gives off a light that
+  is warm the way a hand on the shoulder is warm. Draenei kneel around
+  it in silence. The pain in your body goes quiet here. The plaza is
+  south.
+exits:
+  south: 1118
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 1419
+name: a gnollhide jerkin
+keywords: [gnollhide, gnoll, hide, jerkin]
+description: A jerkin of stitched gnoll hide lies here.
+look: |
+  Patches of spotted hide stitched together with gut and trimmed with
+  brass rivets. It smells faintly, and permanently, of wet dog, but it
+  moves with you and turns a blade better than you would expect.
+type: armor
+slot: body
+level: 12
+baseline: light

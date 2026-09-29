@@ -1,0 +1,13 @@
+vnum: 1509
+name: a great direwolf
+keywords: [great, direwolf, wolf]
+description: A direwolf the size of a pony rises from the den, lips peeled back from its teeth.
+look: |
+  Grey-black and enormous, with a head as big as a barrel and a ruff of
+  fur thick enough to turn a knife. Direwolves are meant to be gone from
+  south of the Wall. Nobody told this one.
+level: 11
+health: 260
+attack:
+  verb: bite
+  kind: bite

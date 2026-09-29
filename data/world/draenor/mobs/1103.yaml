@@ -1,0 +1,15 @@
+vnum: 1103
+name: a smoldering infernal
+keywords: [smoldering, infernal, golem]
+description: A smoldering infernal stands in the crater, green fire leaking from its joints.
+look: |
+  What fell here was not a star. It is a giant of black rock, roughly
+  man-shaped, its joints cracked open on fire, its eyes two holes
+  burning green. It does not think. It was thrown at this world to
+  break things, and it is still doing that, slowly.
+level: 14
+health: 500
+stats: {strength: 14, dexterity: 7}
+attack:
+  kind: blunt
+  verb: pound

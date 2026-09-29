@@ -1,0 +1,11 @@
+vnum: 1612
+name: The Canyon of Echoes
+description: |
+  The canyon walls close in, smooth as poured glass where some ancient
+  heat ran them molten. Your footsteps come back to you a moment late,
+  and sometimes, faintly, with words in them that you did not say. Pale
+  gold monoliths stand at intervals along the floor, each carved with a
+  single eye. The mesa is north; the canyon opens south.
+exits:
+  north: 1611
+  south: 1613

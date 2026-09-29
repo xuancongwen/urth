@@ -1,0 +1,13 @@
+vnum: 3014
+name: The Market Square
+description: |
+  The heart of Midgaard: a broad square packed with stalls, awnings,
+  hawkers, pickpockets, and the smell of everything at once. A stone
+  well with a copper roof stands in the middle. Temple Square lies
+  north, Main Street runs east and west, and a wide lane leads south to
+  the Common Square.
+exits:
+  north: 3005
+  east: 3015
+  south: 3025
+  west: 3013

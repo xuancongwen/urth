@@ -1,0 +1,16 @@
+vnum: 1317
+name: an archbishop's mitre
+keywords: [archbishop's, archbishop, mitre, hat]
+description: A tall embroidered mitre lies here, its gold thread blackened.
+look: |
+  The tall hat of a prince of the Church, stitched with the cathedral's
+  arms in gold. The lining has been scorched through in the pattern of
+  a star. Whoever wore it last prayed to something that answered.
+type: armor
+slot: head
+weight: 1
+level: 21
+baseline: light
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }

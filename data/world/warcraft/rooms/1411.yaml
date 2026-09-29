@@ -1,0 +1,11 @@
+vnum: 1411
+name: The Wheat Fields
+description: |
+  Wheat stands tall and yellow on both sides of a cart track, and
+  scarecrows in old tabards keep watch over it. Part of one field has
+  been trampled flat in a wide track, as if by many running feet, and
+  a stretch of fence is broken. The farmhouse is east, smoke rising
+  from its chimney. The forest road lies north.
+exits:
+  north: 1410
+  east: 1412

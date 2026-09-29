@@ -1,0 +1,16 @@
+vnum: 1313
+name: a magma demon
+keywords: [magma, demon]
+description: A magma demon heaves itself out of the fire river, dripping flame.
+look: |
+  A hunched brute of cooling rock, cracked all over with lines of
+  orange light, that climbs out of the river and back into it the way a
+  man walks in and out of a warm bath. Its skull is split open along
+  the top, and something grey and wet pulses inside.
+level: 19
+stats: {strength: 14}
+attack:
+  verb: burn
+effects:
+  - kind: dot
+    params: { damage: 4 }

@@ -1,0 +1,12 @@
+vnum: 1225
+name: The Dunes Below Cair Paravel
+description: |
+  Sand dunes tufted with sea-grass slope down to the river mouth, and
+  the air tastes of salt. North, on a low hill above the shore, stands a
+  castle of pale stone with many towers, its windows all facing the sea.
+  East, the strand runs along the water's edge. West the river valley
+  goes back inland.
+exits:
+  west: 1224
+  north: 1226
+  east: 1228

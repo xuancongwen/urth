@@ -1,0 +1,20 @@
+vnum: 1314
+name: the witch's staff
+keywords: [witch's, witch, staff, adria]
+description: A crooked black staff lies here, crackling faintly.
+look: |
+  Blackthorn, bent in three places, with a demon's heart bound into the
+  head in a cage of silver wire. It is still beating. It hits like a
+  staff and thinks like a sorcerer, and it does not care for you.
+type: weapon
+weight: 5
+level: 20
+baseline: standard
+value: 1200
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smite
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }

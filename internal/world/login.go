@@ -166,6 +166,7 @@ func (w *World) loginConfirmPassword(p *Player, line string) {
 			if rec.Admin {
 				p.Send("{Y}You are the first character on this server and have been made an admin.{x}\n")
 			}
+			p.fresh = true
 			w.enterGame(p, rec)
 		})
 	}()
@@ -213,6 +214,13 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	w.loadCharacterItems(p)
 	w.loadSheet(p)
 	w.resumeQuest(p)
+	if p.fresh {
+		p.fresh = false
+		if worn, packed := w.outfit(p.Character, newbieFlag); len(worn)+len(packed) > 0 {
+			w.recalc(p.Character)
+			p.Send("{Y}A quartermaster's clerk presses a bundle of sub issue gear into your arms and helps you into it.{x}\n")
+		}
+	}
 
 	room, ok := w.content.Rooms.Get(rec.Room)
 	if !ok {

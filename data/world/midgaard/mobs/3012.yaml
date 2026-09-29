@@ -1,0 +1,11 @@
+vnum: 3012
+name: Fido
+keywords: [fido, dog, mongrel]
+description: Fido the dog is here, sniffing about for scraps.
+look: |
+  A scruffy mongrel with a torn ear and a hopeful tail. He is all ribs
+  and appetite.
+level: 1
+flags: [wander]
+attack:
+  verb: bite

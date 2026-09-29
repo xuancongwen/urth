@@ -1,0 +1,12 @@
+vnum: 3016
+name: a cityguard's chain mail
+keywords: [cityguard's, chain, mail]
+description: A shirt of chain mail lies here in a heap.
+look: |
+  Riveted rings over a padded coat, with the city arms on a tabard sewn
+  to the front.
+type: armor
+slot: body
+weight: 12
+level: 10
+baseline: medium

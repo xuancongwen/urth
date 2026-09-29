@@ -1,0 +1,16 @@
+vnum: 1418
+name: Vharaxis the red drake
+keywords: [vharaxis, red, drake, dragon]
+description: Vharaxis the red drake lies coiled on her nest, one golden eye open.
+look: |
+  A drake the length of a longship, red as a forge coal, her belly
+  armoured in plates the colour of old blood. Smoke leaks from between
+  her teeth with every breath. She has watched the orcs and the humans
+  bleed each other for years from up here, and has eaten whoever came
+  up the scree in the meantime.
+level: 16
+health: 620
+stats: {strength: 16, constitution: 15}
+attack:
+  kind: fire
+  verb: burn

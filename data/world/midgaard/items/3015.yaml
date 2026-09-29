@@ -1,0 +1,11 @@
+vnum: 3015
+name: a pair of leather boots
+keywords: [pair, leather, boots]
+description: A pair of leather boots stands here.
+look: |
+  Sturdy, hobnailed, and already broken in by someone else.
+type: armor
+slot: feet
+weight: 2
+level: 3
+baseline: light

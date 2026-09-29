@@ -1,0 +1,20 @@
+vnum: 1516
+name: a pale crystal sword
+keywords: [pale, crystal, sword, ice]
+description: A sword of translucent pale crystal lies here, smoking with cold.
+look: |
+  A blade so thin it vanishes when seen edge-on, of something like ice
+  that does not melt, shimmering blue and white. It is painful to hold
+  bare-handed, and it hums faintly, like a finger run round the rim of
+  a glass.
+type: weapon
+level: 14
+baseline: standard
+value: 700
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice
+effects:
+  - { kind: crit, params: { chance: 0.15, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

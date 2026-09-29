@@ -1,0 +1,10 @@
+vnum: 1229
+name: The Dwarf Camp in the Frozen Fen
+description: |
+  Reeds poke through the ice of a frozen fen, and on a hummock of solid
+  ground a handful of squat tents cluster round a fire. Axes lean
+  against a sledge. The dwarves who camp here serve the Queen, and they
+  have painted her mark on the tent flaps so that no one could mistake
+  whose side they have chosen. The path climbs north to the hills.
+exits:
+  north: 1212

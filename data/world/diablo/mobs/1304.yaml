@@ -1,0 +1,18 @@
+vnum: 1304
+name: Adria the witch
+keywords: [adria, witch]
+description: Adria stirs her cauldron, watching you through the steam with pale eyes.
+look: |
+  A tall woman of no particular age, dark-haired, in layered black
+  shawls hung with charms. Her eyes are very pale and do not blink
+  often enough. She came to Tristram a year ago, around the time the
+  trouble began, and nobody remembers giving her the hut. She buys what
+  comes out of the dark, especially the parts that are still moving.
+level: 22
+flags: [peaceful]
+attack:
+  verb: curse
+trades:
+  - { item: 1315, silver: 200, items: [1311] }
+  - { item: 1314, silver: 500, items: [1310, 1310] }
+  - { item: 1319, items: [1318, 1310, 1310] }

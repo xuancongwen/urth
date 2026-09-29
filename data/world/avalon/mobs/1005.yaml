@@ -1,0 +1,21 @@
+vnum: 1005
+name: Mabyn the cider-wife
+keywords: [mabyn, cider-wife, cider, wife]
+description: Mabyn the cider-wife wipes down her counter, humming, with sleeves rolled to the elbow.
+look: |
+  A broad, apple-cheeked woman of no particular age, with forearms
+  like a blacksmith's from working the press. She will sell you fruit
+  and cider for coin, and better things if you bring her hides from the
+  boars that plague her windfalls. She says she has been pressing
+  cider on the isle since before the priestesses came. She laughs when
+  she says it.
+level: 10
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1000, silver: 5 }
+  - { item: 1001, silver: 15 }
+  - { item: 1012, silver: 30 }
+  - { item: 1018, silver: 90, items: [1002, 1002] }
+  - { item: 1019, silver: 40, items: [1013, 1013] }

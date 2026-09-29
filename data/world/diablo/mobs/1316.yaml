@@ -1,0 +1,13 @@
+vnum: 1316
+name: a blood knight
+keywords: [blood, knight, demon]
+description: A blood knight paces the ramparts, its armor steaming.
+look: |
+  A knight in plate of dark red, taller than any man, with a helm that
+  has no eye-slits because there is nothing behind it that needs to see.
+  Blood runs from the joints of the armor and does not stop.
+level: 21
+flags: [assist]
+stats: {strength: 14, constitution: 14}
+attack:
+  verb: slash

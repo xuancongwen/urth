@@ -1,0 +1,12 @@
+vnum: 1327
+name: The Archbishop's Sanctum
+description: |
+  A cell furnished like a bishop's study: a desk, a prie-dieu, a shelf
+  of breviaries, all of it upholstered in skin. A robe with the
+  cathedral's arms hangs on a hook. In the floor, a round hole with
+  smooth walls drops straight down, and from it rises a heat that makes
+  the candles lean away. The hall is north.
+exits:
+  north: 1326
+  down: 1328
+flags: [dark]

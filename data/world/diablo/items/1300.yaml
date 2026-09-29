@@ -1,0 +1,11 @@
+vnum: 1300
+name: a red healing potion
+keywords: [red, healing, potion, vial]
+description: A small stoppered vial of red liquid lies here.
+look: |
+  Pepin's own brew, thick and red as cordial, with a smell of iron and
+  mint. The wax on the stopper bears his thumbprint. It tastes worse
+  than it looks and works better than it has any right to.
+type: other
+weight: 1
+value: 20

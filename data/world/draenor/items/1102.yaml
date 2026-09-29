@@ -1,0 +1,12 @@
+vnum: 1102
+name: a naga scale
+keywords: [naga, scale]
+description: A large iridescent scale lies here, glinting green and gold.
+look: |
+  A single scale as broad as your palm, hard as horn and slick as
+  glass, shading from sea-green to gold as you turn it. The draenei
+  make armour of these and do not ask how they were come by.
+type: material
+material: naga scale
+rarity: common
+value: 10

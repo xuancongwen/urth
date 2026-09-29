@@ -42,6 +42,9 @@ type Player struct {
 	Color bool
 
 	rec *store.Record
+	// fresh marks a character created this session, which enterGame
+	// hands its sub issue gear.
+	fresh bool
 	// visited is the set of room vnums this character has seen, for the
 	// map; saved with the record.
 	visited map[int]bool

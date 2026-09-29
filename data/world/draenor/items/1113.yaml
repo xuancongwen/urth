@@ -1,0 +1,10 @@
+vnum: 1113
+name: a draenei healing crystal
+keywords: [draenei, healing, crystal]
+description: A small pink crystal glows faintly here.
+look: |
+  A finger-length of rose crystal, cut on six sides. Held tight in the
+  fist it gives off a gentle warmth, and the draenei swear by it for
+  cuts, burns, and grief.
+type: other
+value: 30

@@ -20,6 +20,7 @@ var helpSections = []helpSection{
 	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
 	{"Combat", []string{"kill", "flee", "consider", "assist", "skills"}},
 	{"Magic", []string{"cast", "spells", "consume", "sacrifice"}},
+	{"Trade", []string{"list", "buy", "sell"}},
 	{"Groups", []string{"follow", "group", "gtell"}},
 	{"Talking", []string{"say", "chat", "yell"}},
 	{"Character", []string{"score", "train", "feat", "practice", "quest", "who", "color", "save", "password", "quit"}},
@@ -45,6 +46,10 @@ var helpText = map[string]string{
 	"remove":    "remove <item>: take off something worn, wielded, or held.",
 	"inventory": "inventory: what you carry.",
 	"equipment": "equipment: what you wear, wield, and hold.",
+
+	"list": "list: what the merchant here sells and its price. Some wares cost silver, some cost other goods, some both.",
+	"buy":  "buy <item>: trade a merchant its price for an item: silver, the goods it asks for from your inventory, or both.",
+	"sell": "sell <item>: sell an item from your inventory to the merchant here for half its value. A weapon or armor with no stated value is worth ten silver a level.",
 
 	"kill":     "kill <target>: attack. While fighting, kill <other> switches your target. Nobody can fight in a safe room.",
 	"flee":     "flee: run through a random exit to end a fight.",

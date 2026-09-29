@@ -1,0 +1,12 @@
+vnum: 1526
+name: A Wildling Camp
+description: |
+  A clearing with a fire burning too high for anyone who wanted to stay
+  hidden, and lean-tos of hide and pine boughs around it. Spears lean
+  against a tree. Whoever made this camp came over the Wall, or under
+  it, and does not mean to go back; they have the look of people who
+  are running from something worse than soldiers. The trail goes south
+  and a frozen stream glints north.
+exits:
+  south: 1524
+  north: 1527

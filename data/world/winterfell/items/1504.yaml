@@ -1,0 +1,18 @@
+vnum: 1504
+name: a dragonglass dagger
+keywords: [dragonglass, dagger, obsidian]
+description: A dagger with a blade of black glass lies here.
+look: |
+  Two shards of dragonglass knapped together into a single leaf-shaped
+  blade and set in a grip of weirwood bound with gut. It is lighter than
+  steel and colder, and it seems to drink the light around it.
+type: weapon
+level: 12
+baseline: dagger
+value: 520
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: crit, params: { chance: 0.12, mult: 2 } }

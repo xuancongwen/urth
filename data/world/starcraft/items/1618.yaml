@@ -1,0 +1,11 @@
+vnum: 1618
+name: a bottle of Mar Sara whiskey
+keywords: [bottle, mar, sara, whiskey]
+description: A dusty bottle of amber whiskey stands here.
+look: |
+  Distilled somewhere on Mar Sara from something that grows here, which
+  is itself a mystery. The label shows a smiling miner and the words
+  SMOOTH AS SAND. It is not.
+type: other
+weight: 1
+value: 8

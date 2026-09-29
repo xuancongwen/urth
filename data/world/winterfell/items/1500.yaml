@@ -1,0 +1,15 @@
+vnum: 1500
+name: a Winterfell guard's longsword
+keywords: [winterfell, guard, longsword, sword]
+description: A plain longsword with a grey-wrapped grip lies here.
+look: |
+  Castle-issue steel, straight and unadorned, the grip wound with grey
+  leather and the pommel stamped with a running wolf. It has been kept
+  sharp by someone who was told to and did.
+type: weapon
+level: 8
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

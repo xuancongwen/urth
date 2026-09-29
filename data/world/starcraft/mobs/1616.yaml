@@ -1,0 +1,18 @@
+vnum: 1616
+name: the high templar
+keywords: [high, templar, protoss, mystic]
+description: The high templar floats a hand's breadth above the floor, robes stirring in no wind.
+look: |
+  An ancient Protoss in long robes of violet and gold, legs folded,
+  drifting above the floor. Blue lightning crawls lazily between the
+  fingertips of her long hands. Her eyes are closed. She sees you
+  perfectly. She is deciding whether you are worth the effort.
+level: 23
+health: 1100
+silver: 200
+attack:
+  kind: psionic
+  verb: psionic storm
+effects:
+  - kind: proc
+    params: { verb: arc of psionic lightning, chance: 0.2, power: 1.0 }

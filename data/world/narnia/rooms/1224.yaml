@@ -1,0 +1,11 @@
+vnum: 1224
+name: Where the River Widens
+description: |
+  The river that you walked on further inland runs free here, brown and
+  swollen with meltwater, pushing chunks of ice toward the sea. Willows
+  lean over the water and put out their first yellow catkins. East, the
+  valley opens and gulls wheel over a line of sand. West is the camp on
+  the hill.
+exits:
+  west: 1220
+  east: 1225

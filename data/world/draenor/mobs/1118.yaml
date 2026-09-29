@@ -1,0 +1,18 @@
+vnum: 1118
+name: a fel reaver
+keywords: [fel, reaver, construct, machine]
+description: A fel reaver stomps across the shard, its engine roaring green.
+look: |
+  A walking siege engine of black iron three storeys tall, legs like
+  towers, fists like battering rams, the fel furnace in its chest
+  roaring so loud it drowns out the void. It has no pilot and no mind,
+  only an order to destroy whatever moves, and it takes that order very
+  seriously.
+level: 19
+health: 1100
+stats: {strength: 16, dexterity: 7}
+attack:
+  kind: blunt
+  verb: crush
+armor:
+  defense: 14

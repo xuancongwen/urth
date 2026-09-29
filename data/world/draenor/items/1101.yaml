@@ -1,0 +1,12 @@
+vnum: 1101
+name: a mote of fire
+keywords: [mote, fire]
+description: A tiny flame hovers above the ground here, burning nothing.
+look: |
+  A spark the size of a plum, burning without fuel, that bobs after
+  your hand like a pet. It is not hot unless it wants to be. Crafters
+  cage these in crystal and they burn for years.
+type: material
+material: mote of fire
+rarity: uncommon
+value: 15

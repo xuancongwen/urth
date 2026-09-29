@@ -1,0 +1,16 @@
+vnum: 3018
+name: a bronze-bound shield
+keywords: [bronze-bound, bronze, shield]
+description: A bronze-bound shield lies here.
+look: |
+  Oak faced in stitched rat hide and rimmed in bronze. The armourer is
+  proud of the hide: it is tougher than it has any right to be.
+type: armor
+slot: shield
+weight: 6
+level: 8
+value: 180
+armor:
+  defense: 1.5
+effects:
+  - { kind: block, params: { chance: 0.08 } }

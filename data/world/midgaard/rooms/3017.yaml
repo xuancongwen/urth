@@ -1,0 +1,10 @@
+vnum: 3017
+name: Main Street
+description: |
+  The buildings here are of dressed stone and the doors have brass
+  knockers. To the north, pillars flank the entrance of the Bank of
+  Midgaard, and a guard on its steps watches everyone who goes by.
+exits:
+  north: 3026
+  east: 3018
+  west: 3016

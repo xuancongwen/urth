@@ -1,0 +1,11 @@
+vnum: 1427
+name: The Ogre Mound
+description: |
+  A great barrow of piled stones and earth, hollowed out and roofed with
+  the ribs of some beast. Inside it is a den: a firepit, a heap of furs,
+  and gnawed bones the size of fence posts. Crude glyphs are scrawled on
+  the walls in soot, some of them surprisingly neat. East, a scree slope
+  climbs toward the smoking peak. South, the pass.
+exits:
+  east: 1428
+  south: 1426

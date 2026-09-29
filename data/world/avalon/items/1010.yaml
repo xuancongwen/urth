@@ -1,0 +1,19 @@
+vnum: 1010
+name: Morgan's moonstone ring
+keywords: [morgan, moonstone, ring]
+description: A silver ring set with a milky moonstone lies here.
+look: |
+  A thin band of silver holding a moonstone that clouds and clears as
+  you watch it, like breath on a window. Things at the edge of your
+  sight seem slower while you wear it, and a little more obvious.
+type: armor
+slot: finger
+level: 12
+weight: 0
+value: 400
+rarity: rare
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: dodge
+    params: { amount: 0.04 }

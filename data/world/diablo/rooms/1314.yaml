@@ -1,0 +1,11 @@
+vnum: 1314
+name: The Butcher's Chamber
+description: |
+  The floor is sticky and the walls are hung with hooks, and there are
+  things on the hooks. A trestle table runs down the middle, grooved and
+  stained black, with a trough under it. Somebody has been working here
+  a long time, carefully, and has enjoyed it. The only door is west, back
+  to the bone passage.
+exits:
+  west: 1313
+flags: [dark]

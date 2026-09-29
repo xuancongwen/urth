@@ -1,0 +1,10 @@
+vnum: 1001
+name: The Barge Landing
+description: |
+  A jetty of black oak, slick with weed, runs out over still water. At
+  its end a long flat barge waits, hung with dark cloth, its prow carved
+  into the head of a swan with its neck bent low. No rope ties it. It
+  does not drift. The shore is west, and the barge lies east.
+exits:
+  west: 1000
+  east: 1002

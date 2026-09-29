@@ -1,0 +1,16 @@
+vnum: 1514
+name: a bronze crown of the Kings of Winter
+keywords: [bronze, crown, kings, winter, circlet]
+description: A circlet of dark bronze cut with runes lies here.
+look: |
+  A band of bronze gone green-black with age, with nine iron spikes set
+  in it like swords. The runes are the old tongue of the First Men and
+  no one alive can read them all. It is heavier than it looks, and the
+  weight settles something in the wearer.
+type: armor
+slot: head
+level: 13
+baseline: heavy
+value: 400
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }

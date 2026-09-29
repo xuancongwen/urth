@@ -1,0 +1,13 @@
+vnum: 1519
+name: The Glass Gardens
+description: |
+  Walls and roof of thick, leaded glass trap the heat of the springs, and
+  inside it is summer. Lemon trees and pomegranates grow in tubs, beans
+  climb string trellises, and in one bed along the south wall a thicket
+  of pale blue roses blooms against the frosted panes. Condensation drips
+  from the lead. Doors lead west to the hall, south to the kennels, and
+  east out into the godswood.
+exits:
+  west: 1512
+  south: 1511
+  east: 1520

@@ -1,0 +1,13 @@
+vnum: 1403
+name: The Muster Yard
+description: |
+  A trampled square of mud inside the palisade, ringed by hide tents
+  and cookfires. Weapon racks stand in rows, and a whetstone wheel
+  squeals as someone turns it. The great hall squats to the north under
+  a roof of tarred planks. West, a tent flap painted with a grinning
+  goblin face. South, the thud of axes on wood from the lumber yard.
+exits:
+  north: 1404
+  east: 1402
+  south: 1406
+  west: 1405

@@ -1,0 +1,9 @@
+vnum: 3016
+name: the sorcerer
+keywords: [sorcerer, mage, guildmaster]
+description: The sorcerer stares out of the window, lost in thought.
+look: |
+  The head of the Mages' Guild: gaunt, grey-bearded, with ink on his
+  cuffs and a faint smell of lightning about him.
+level: 14
+flags: [peaceful]

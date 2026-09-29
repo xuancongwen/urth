@@ -1,0 +1,14 @@
+vnum: 1514
+name: The First Keep
+description: |
+  The oldest tower in Winterfell is a squat, round thing of undressed
+  stone, abandoned for anything but storage and ghosts. Gargoyles lean
+  out from its broken parapet above. Inside it smells of damp and cold
+  ash, and a wide stair drops into the ground behind an iron door, the
+  way to the crypts where the Kings of Winter lie. The great hall is
+  east.
+exits:
+  east: 1512
+  down: 1515
+doors:
+  down: {name: the iron crypt door, closed: true}

@@ -1,0 +1,11 @@
+vnum: 3003
+name: The Clerics' Inner Sanctum
+description: |
+  Shelves of prayer books, jars of herbs, and a long table scarred with
+  knife marks where bandages are cut. A small brazier burns something
+  that smells of cedar. This is where the clerics of Midgaard rest,
+  study, and argue about doctrine over thin beer. The only way out is
+  east.
+exits:
+  east: 3002
+flags: [safe]

@@ -128,3 +128,20 @@ func TestOutfitBalance(t *testing.T) {
 		t.Errorf("+20 fight: %d of %d won; the set should not beat everything", far.AWins, far.Fights)
 	}
 }
+
+// A new character starts wearing the sub issue gear; one who signs in
+// again gets none.
+func TestNewbieGear(t *testing.T) {
+	w := testWorld(t)
+	w.content.Items[10].Flags = append(w.content.Items[10].Flags, newbieFlag)
+	w.content.Items[11].Flags = append(w.content.Items[11].Flags, newbieFlag)
+	login(t, w, 1, "Bob")
+	p := w.players[1]
+	if p.Equipment["wield"] == nil || p.Equipment["wield"].Proto.Vnum != 10 ||
+		p.Equipment["head"] == nil || p.Equipment["head"].Proto.Vnum != 11 {
+		t.Fatalf("not equipped: %v", p.Equipment)
+	}
+	if price := sellPrice(p.Equipment["wield"]); price != 0 {
+		t.Fatalf("sub issue sells for %d", price)
+	}
+}

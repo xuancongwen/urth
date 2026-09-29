@@ -1,0 +1,12 @@
+vnum: 1507
+name: a steel halfhelm
+keywords: [steel, halfhelm, helm]
+description: A round steel halfhelm lies here.
+look: |
+  A plain round cap of steel with a nasal bar and a lining of felt. It
+  is the kind of helm a sensible man wears when he expects to be hit by
+  a sensible man.
+type: armor
+slot: head
+level: 9
+baseline: medium

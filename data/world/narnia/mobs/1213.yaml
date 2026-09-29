@@ -1,0 +1,15 @@
+vnum: 1213
+name: a minotaur guard
+keywords: [minotaur, guard, bull]
+description: A minotaur guard stands between the ice pillars, breath steaming from its nostrils.
+look: |
+  A man's body, massive and hairy, with a bull's head and a pair of
+  horns tipped with iron. It guards the doors to the throne room and
+  does not look as though it has ever been tired.
+level: 8
+health: 220
+silver: 40
+stats: {strength: 14}
+attack:
+  verb: gore
+  kind: pierce

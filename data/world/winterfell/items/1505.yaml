@@ -1,0 +1,14 @@
+vnum: 1505
+name: a wolf-pelt cloak
+keywords: [wolf-pelt, wolf, pelt, cloak]
+description: A heavy cloak of grey wolf fur lies here.
+look: |
+  Two pelts sewn together at the spine and lined with wool, with a
+  clasp of iron shaped like a wolf's head. The fur still bristles when
+  the wind comes up, as if it remembers.
+type: armor
+slot: shoulders
+level: 10
+baseline: medium
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

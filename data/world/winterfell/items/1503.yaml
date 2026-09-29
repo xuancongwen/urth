@@ -1,0 +1,12 @@
+vnum: 1503
+name: a shard of dragonglass
+keywords: [shard, dragonglass, obsidian, glass]
+description: A shard of black glass glitters here.
+look: |
+  Black volcanic glass, glossy as a wet eye, with edges that would part
+  a hair. The maesters call it obsidian. The old stories call it frozen
+  fire, and say the cold things fear it.
+type: material
+material: dragonglass
+rarity: rare
+value: 40

@@ -1,0 +1,15 @@
+vnum: 3027
+name: a ghoul's thighbone club
+keywords: [ghoul's, thighbone, club, bone]
+description: A great yellowed thighbone lies here.
+look: |
+  Not a human thighbone, or not an ordinary one. The knob end is worn
+  smooth by gripping.
+type: weapon
+weight: 5
+level: 9
+baseline: standard
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

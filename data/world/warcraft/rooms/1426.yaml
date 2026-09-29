@@ -1,0 +1,11 @@
+vnum: 1426
+name: The High Pass
+description: |
+  The trail climbs into a gap between grey peaks, cold even in the sun.
+  Enormous footprints are pressed into the snowmelt mud, each longer
+  than your arm, and a boulder the size of a cart has been rolled across
+  half the path and left there. North, smoke rises from a mound of
+  earth and stones. South, the ridge.
+exits:
+  north: 1427
+  south: 1420

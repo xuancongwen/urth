@@ -1,0 +1,20 @@
+vnum: 1205
+name: Father Christmas
+keywords: [father, christmas]
+description: Father Christmas stands beside his sledge, sorting through a sack of parcels.
+look: |
+  Huge and glad and real, in a bright red robe with a hood lined with
+  fur and a white beard that falls like a waterfall down his chest.
+  He is not jolly the way pictures make him; he is solemn and happy at
+  once, and his gifts are tools, not toys. He will part with them for
+  proof that you have done some good against the wolves.
+level: 9
+flags: [peaceful]
+attack:
+  verb: cuff
+trades:
+  - { item: 1208, silver: 30 }
+  - { item: 1216, silver: 6 }
+  - { item: 1209, silver: 220, items: [1201, 1201, 1201] }
+  - { item: 1210, silver: 160, items: [1202, 1202] }
+  - { item: 1211, items: [1201, 1201, 1202] }

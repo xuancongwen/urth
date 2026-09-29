@@ -1,0 +1,15 @@
+vnum: 3005
+name: the armourer
+keywords: [armourer, armorer]
+description: The armourer is hammering a dent out of a breastplate.
+look: |
+  A broad dwarf-sized man, though no dwarf, with a burn-scarred leather
+  apron and a beard singed short. He looks at you the way a tailor does,
+  measuring.
+level: 12
+flags: [peaceful]
+trades:
+  - { item: 3014, silver: 75 }
+  - { item: 3015, silver: 45 }
+  - { item: 3020, silver: 150 }
+  - { item: 3018, silver: 150, items: [3019, 3019] }

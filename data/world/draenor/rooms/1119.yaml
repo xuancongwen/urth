@@ -1,0 +1,13 @@
+vnum: 1119
+name: The Artificer's Workshop
+description: |
+  Shelves of crystal in every stage of making: raw shards the size of a
+  thumb, cut prisms, finished pieces set in silver that hum when you
+  pass. A bench runs the length of the room under a skylight, cluttered
+  with tongs and lenses and a half-built lantern. Bins by the door are
+  labelled, in a flowing script and then again in rough common, for fel
+  iron, fire motes, and naga scale, and the bins are nearly empty. The
+  plaza is west.
+exits:
+  west: 1118
+flags: [safe]

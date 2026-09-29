@@ -1,0 +1,34 @@
+interval_seconds: 300
+resets:
+  # --- the crossing ---
+  - { mob: 1000, room: 1001 }              # the barge-woman at the landing
+  - { mob: 1001, room: 1002, max: 2 }      # mist sprites over the water
+  # --- the orchards ---
+  - { item: 1000, room: 1004 }             # golden apples in the grass
+  - { item: 1000, room: 1005 }
+  - { mob: 1005, room: 1006 }              # Mabyn, the cider-wife (merchant)
+  - { item: 1001, room: 1006 }             # a flask left on the bench
+  - { mob: 1003, room: 1007, max: 2 }      # cider wasps in the windfalls
+  - { mob: 1004, room: 1007, max: 3, equip: [{ item: 1002 }] }   # boars carry hides for Mabyn
+  - { mob: 1004, room: 1008, max: 3, equip: [{ item: 1002 }] }
+  - { mob: 1006, room: 1008, equip: [{ item: 1003, slot: wield }] }   # the warden and its staff
+  # --- the Tor ---
+  - { mob: 1009, room: 1011, equip: [{ item: 1006 }] }   # the wyvern, and a scale for the priestess
+  - { mob: 1007, room: 1012, max: 2 }      # the hounds of Annwn
+  - { mob: 1008, room: 1012, equip: [{ item: 1004, slot: neck }, { item: 1005, slot: wield }] }   # Gwyn
+  # --- the lake ---
+  - { mob: 1002, room: 1013, max: 2 }      # reed-lurkers in the marsh
+  - { mob: 1010, room: 1015 }              # the priestess (merchant)
+  - { item: 1016, room: 1018 }             # the sword in the stone
+  - { mob: 1011, room: 1018, equip: [{ item: 1007, slot: head }] }   # the hollow knight
+  # --- Morgan's tower ---
+  - { mob: 1012, room: 1017, max: 4, equip: [{ item: 1008 }] }   # ravens carry feathers
+  - { mob: 1012, room: 1020, max: 4, equip: [{ item: 1008 }] }
+  - { mob: 1013, room: 1021, equip: [{ item: 1009, slot: body }] }   # the changeling knight
+  - { mob: 1014, room: 1028, equip: [{ item: 1010, slot: finger1 }, { item: 1011, slot: shoulders }] }   # Morgan
+  # --- the fae wood and the barrow ---
+  - { mob: 1015, room: 1022, max: 2, equip: [{ item: 1012 }] }   # wisps carry their lights
+  - { mob: 1015, room: 1023, max: 2, equip: [{ item: 1012 }] }
+  - { mob: 1016, room: 1024, max: 3, equip: [{ item: 1013 }] }   # pixies carry fae dust
+  - { mob: 1017, room: 1026, max: 2 }      # barrow-wights
+  - { mob: 1018, room: 1027, equip: [{ item: 1014, slot: wield }, { item: 1015, slot: head }] }   # the Barrow King

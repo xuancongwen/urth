@@ -1,0 +1,24 @@
+vnum: 1319
+name: Diablo, the Lord of Terror
+keywords: [diablo, lord, terror, demon]
+description: Diablo rises to his full height in the burning star, and the floor shakes. "Not even death can save you from me."
+look: |
+  Twice the height of a man, red-hided and spined along the back like a
+  dragon, with a skull crowned in horns and a jaw full of teeth like
+  broken glass. Lightning crawls over his hands. The soulstone that
+  held him burns red in his brow, and behind the monster there is
+  something worse: a small, cold, delighted intelligence looking at you
+  through a borrowed face. He is the Lord of Terror, and he is not
+  afraid of anything, least of all you.
+level: 24
+health: 3200
+stats: {strength: 16, constitution: 16, intelligence: 16, dexterity: 12}
+silver: 400
+xp: 15000
+attack:
+  verb: rend
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: dot
+    params: { damage: 6 }

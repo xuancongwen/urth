@@ -1,0 +1,13 @@
+vnum: 1315
+name: a succubus
+keywords: [succubus, demon, winged]
+description: A succubus rises from the blood pool, smiling, wings unfolding.
+look: |
+  Beautiful the way a burning house is beautiful. Her wings are the
+  red of the pools, and her smile shows too many teeth. She gathers a
+  ball of blood-light between her hands and waits to see what you do.
+level: 20
+flags: [assist]
+stats: {intelligence: 15}
+attack:
+  verb: blast

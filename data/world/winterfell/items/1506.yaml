@@ -1,0 +1,15 @@
+vnum: 1506
+name: a castle-forged longsword
+keywords: [castle-forged, castle, forged, longsword, sword]
+description: A fine longsword with a ringing blade lies here.
+look: |
+  Better steel than the guards carry, folded and quenched with care, the
+  blade bright with a faint grey ripple. Mikken's mark is on the tang,
+  and he will not put it on anything that bends.
+type: weapon
+level: 10
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

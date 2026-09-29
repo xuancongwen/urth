@@ -1,0 +1,10 @@
+vnum: 1407
+name: The Grunt Barracks
+description: |
+  A longhouse of green timber that has warped as it dried, so daylight
+  comes in stripes through the walls. Sleeping furs lie in heaps, and
+  a trough of something brown steams at one end. Grunts rest here
+  between raids, which is to say they sharpen things and argue. The
+  door is east.
+exits:
+  east: 1406

@@ -1,0 +1,14 @@
+vnum: 3009
+name: the Peacekeeper
+keywords: [peacekeeper, captain]
+description: The Peacekeeper stands head and shoulders above the crowd, halberd grounded, keeping order.
+look: |
+  The captain of Midgaard's watch, a giant of a woman in polished plate,
+  with a halberd she can use one-handed if she has to. Trouble tends to
+  stop when she turns to look at it.
+level: 14
+health: 380
+silver: 70
+stats: { strength: 15 }
+attack:
+  verb: cleave

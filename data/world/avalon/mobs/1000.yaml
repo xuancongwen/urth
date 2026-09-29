@@ -1,0 +1,13 @@
+vnum: 1000
+name: the barge-woman
+keywords: [barge-woman, barge, woman, queen]
+description: A tall woman in black stands at the barge's prow, veiled, with a crown of pale gold on her hair.
+look: |
+  One of the three queens who carry the dying over the water, or
+  someone who has taken up the work. She does not speak. When you step
+  aboard she inclines her head, as though you were expected, and as
+  though that were not entirely good news.
+level: 10
+flags: [peaceful]
+attack:
+  verb: strike

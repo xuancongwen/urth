@@ -1,0 +1,13 @@
+vnum: 1310
+name: The Ruined Nave
+description: |
+  Pews lie overturned and split for firewood nobody came back to burn.
+  The high windows let in a grey light that does not reach the floor,
+  where something has dragged long dark smears toward the east end. A
+  square of flagstones has been levered up near the pulpit and a stair
+  goes down into the dark, rough-cut, much older than the building above
+  it. The doors are north; the chancel is east.
+exits:
+  north: 1309
+  east: 1311
+  down: 1312

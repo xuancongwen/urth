@@ -1,0 +1,9 @@
+vnum: 3015
+name: Main Street
+description: |
+  East of the market the street widens again. The back wall of the
+  Grunting Boar rises to the north, and you can hear singing through it,
+  mostly out of tune. Main Street runs east and west.
+exits:
+  east: 3016
+  west: 3014

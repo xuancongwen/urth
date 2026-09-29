@@ -1,0 +1,12 @@
+vnum: 1611
+name: The Scorched Mesa
+description: |
+  A flat-topped mesa, blackened as if something enormous once breathed on
+  it from orbit. From up here you can see the whole of it: the outpost's
+  lights to the east, small and brave; a canyon that cuts south toward a
+  glint of gold; and to the west, a stain across the desert, purple and
+  wet-looking, that seems to have moved since you last looked.
+exits:
+  east: 1610
+  south: 1612
+  west: 1615

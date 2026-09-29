@@ -50,6 +50,10 @@ type Proto struct {
 	// Sells lists what this mob exchanges for quest points (docs/RULES.md
 	// 7.6). A mob flagged "questmaster" gives quests out.
 	Sells []Sale `yaml:"sells,omitempty"`
+	// Trades makes the mob a merchant: each entry is an item it hands
+	// over for silver, other items, or both. A merchant also buys what
+	// players sell it, for half the item's value.
+	Trades []Trade `yaml:"trades,omitempty"`
 	// Effects every instance carries (a poisonous bite, thick hide).
 	Effects []effect.Spec `yaml:"effects,omitempty"`
 	// Resolved is what the game uses: stated values with the baseline
@@ -65,6 +69,14 @@ type Proto struct {
 type Sale struct {
 	Item   int `yaml:"item"`
 	Points int `yaml:"points"`
+}
+
+// Trade is one item a merchant offers and what it asks for it: silver,
+// items (a vnum listed twice is asked for twice), or both.
+type Trade struct {
+	Item   int   `yaml:"item"`
+	Silver int   `yaml:"silver,omitempty"`
+	Items  []int `yaml:"items,omitempty"`
 }
 
 // Resolved is a mob's numbers after the baseline has been applied.
@@ -142,6 +154,11 @@ func LoadArea(dir, area string, protos map[int]*Proto) error {
 		}
 		if p.Level <= 0 {
 			p.Level = 1
+		}
+		for i, t := range p.Trades {
+			if t.Silver < 0 || (t.Silver == 0 && len(t.Items) == 0) {
+				return fmt.Errorf("%s: mob %d: trade %d asks for nothing", f, p.Vnum, i)
+			}
 		}
 		for i, e := range p.Effects {
 			if e.Kind == "" {

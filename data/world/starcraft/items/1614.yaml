@@ -1,0 +1,11 @@
+vnum: 1614
+name: a stimpack
+keywords: [stimpack, stim, pack, injector]
+description: A spring-loaded injector of red fluid lies here.
+look: |
+  A combat stimulant in a disposable injector. The label warns of
+  tremors, paranoia, and heart failure, and a marine has written under it
+  in marker: WORTH IT.
+type: other
+weight: 1
+value: 25

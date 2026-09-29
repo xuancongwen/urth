@@ -1,0 +1,12 @@
+vnum: 1615
+name: The Edge of the Creep
+description: |
+  Here the red desert ends at a line as sharp as a tide mark, and past it
+  the ground is covered in creep: a living purple carpet, slick and
+  faintly warm, that flexes underfoot and sucks at your boots. Veins
+  pulse beneath its surface. Small things scuttle at the edges of your
+  vision. The mesa is east; the creep rolls on west toward the ruins of a
+  colony.
+exits:
+  east: 1611
+  west: 1618

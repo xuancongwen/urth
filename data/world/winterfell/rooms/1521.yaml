@@ -1,0 +1,11 @@
+vnum: 1521
+name: The Heart Tree
+description: |
+  A weirwood stands beside a black pool, its bark white as bone and its
+  leaves dark red, like a thousand small hands. A face is carved into
+  the trunk, long and sorrowful, and red sap has run from the eyes and
+  dried there. It is very quiet. Whatever you came in carrying, anger or
+  fear, is harder to hold on to here. The path runs south.
+exits:
+  south: 1520
+flags: [safe]

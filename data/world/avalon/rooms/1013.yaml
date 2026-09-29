@@ -1,0 +1,11 @@
+vnum: 1013
+name: The Reed Marsh
+description: |
+  The causeway stones run between reeds taller than a rider, and the
+  water on either side is brown and still and deeper than it looks.
+  Frogs go quiet as you pass. Every so often the reeds rustle against
+  the wind, and something slides off the stones ahead of you. The strand
+  is north. South, the reeds thin out toward open water.
+exits:
+  north: 1003
+  south: 1014

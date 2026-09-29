@@ -1,0 +1,23 @@
+vnum: 8
+name: The Deeper Hall
+description: |
+  The bottom of the spiral stair, and the end of it. The air down here
+  is hot and restless, and the four doors in these walls do not match
+  anything built by hands on Urth. North, a door of banded timber under
+  a crude horde banner, drums beyond it. East, a slab of green-veined
+  stone that glows faintly, as if lit from the far side by a burning
+  sky. South, a door of blackened iron, warm to the touch, with a smell
+  of brimstone at its seams. West, a hatch of riveted steel with a
+  pressure seal and a stencilled warning in a language of numbers.
+exits:
+  up: 7
+  north: 1400
+  east: 1100
+  south: 1300
+  west: 1600
+flags: [safe]
+doors:
+  north: {name: the banded door}
+  east: {name: the green stone slab}
+  south: {name: the black iron door}
+  west: {name: the steel hatch}

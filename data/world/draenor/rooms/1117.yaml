@@ -1,0 +1,13 @@
+vnum: 1117
+name: The Lift Landing
+description: |
+  The platform clanks to a halt on the top of the cap, and the world
+  opens: a plain of blue-grey mushroom flesh, gently domed, and on it a
+  town of curving purple walls and violet-glass lamps. A gate of worked
+  crystal stands open to the east, and a tall figure in blue-plated
+  armour stands in it with a hammer, looking you over without hurry.
+  The lift goes back down into the dark.
+exits:
+  down: 1116
+  east: 1118
+flags: [safe]

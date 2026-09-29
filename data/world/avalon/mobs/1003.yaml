@@ -1,0 +1,10 @@
+vnum: 1003
+name: a swarm of cider wasps
+keywords: [swarm, cider, wasps, wasp]
+description: A swarm of cider wasps boils up off the rotten apples, buzzing angrily.
+look: |
+  Fat yellow wasps drunk on fermenting fruit, and the drink has not
+  made them friendly. They move as one angry cloud.
+level: 4
+attack:
+  verb: sting

@@ -1,0 +1,10 @@
+vnum: 1513
+name: a blue winter rose
+keywords: [blue, winter, rose, flower]
+description: A pale blue rose lies here, frost on its petals.
+look: |
+  A rose the color of a winter sky, grown under glass in the heat of the
+  springs. They bloom nowhere else in the North, and a man who gives one
+  away is generally understood to mean something by it.
+type: other
+value: 30

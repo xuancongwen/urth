@@ -1,0 +1,15 @@
+vnum: 1420
+name: The Contested Ridge
+description: |
+  A long spine of red rock with a view in every direction: the forest
+  green to the southeast, the smoke of the orc camp to the southwest,
+  and to the north, grey mountains with a darker peak among them that
+  smokes on its own. Cairns of stones mark where the fallen of both
+  sides were buried, and they are many. Trails lead east to a gnoll
+  camp, west along the ridge to trollish drumming, north to the high
+  pass, and south back down the hills.
+exits:
+  north: 1426
+  east: 1421
+  south: 1419
+  west: 1423

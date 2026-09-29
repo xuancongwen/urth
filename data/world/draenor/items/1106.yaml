@@ -1,0 +1,17 @@
+vnum: 1106
+name: the Warchief's executioner axe
+keywords: [warchief, warchief's, executioner, axe]
+description: A great two-handed axe of glowing fel iron lies here.
+look: |
+  A crescent blade as wide as a shield, on a haft of blackened wood
+  bound in iron. The green in the metal pulses when you lift it, and
+  the axe seems to lean toward the nearest living thing. Every clan
+  the warchief broke is notched into the haft.
+type: weapon
+level: 16
+baseline: heavy
+value: 700
+weapon:
+  hands: 2
+  kind: slash
+  verb: hew

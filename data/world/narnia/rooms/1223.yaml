@@ -1,0 +1,10 @@
+vnum: 1223
+name: The Witch's War Camp
+description: |
+  A ring of black tents crouches in a hollow below the ridge, guy ropes
+  stiff with frost. Spears are stacked in bundles and a cauldron hangs
+  over a fire that gives no warmth. The ground is scattered with bones
+  and shards of pottery. Whatever gathers here gathers for a war, and
+  the smell of it is ogre and hag and wolf. The ridge is west.
+exits:
+  west: 1221

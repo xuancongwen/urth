@@ -1,0 +1,9 @@
+vnum: 1017
+name: The Nightshade Garden
+description: |
+  A walled garden at the tower's foot, laid out with care and planted
+  with nothing kind: nightshade, hemlock, foxglove, monkshood, and a
+  pale creeping thing with no name. Everything is in flower at once.
+  Ravens sit along the wall and watch the gate. The tower is north.
+exits:
+  north: 1020

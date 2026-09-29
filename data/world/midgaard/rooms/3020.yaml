@@ -1,0 +1,9 @@
+vnum: 3020
+name: The General Store
+description: |
+  A cluttered room where everything an adventurer might need hangs from
+  hooks or sits in heaps: rope, lanterns, packs, flint and steel, and a
+  pile of shovels nobody ever buys. The door out is south.
+exits:
+  south: 3010
+flags: [safe]

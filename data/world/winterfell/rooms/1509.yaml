@@ -1,0 +1,14 @@
+vnum: 1509
+name: The Great Yard of Winterfell
+description: |
+  A broad yard of packed earth and flagstone, busy with grooms, men-at-
+  arms, and children who ought to be somewhere else. The castle closes
+  around it on every side: the forge west, ringing; the kennels east,
+  barking; and north the long bulk of the Great Keep with the doors of
+  its hall standing open. Steam drifts from grates in the ground where
+  hot water runs beneath, and the snow never settles near them.
+exits:
+  north: 1512
+  south: 1508
+  west: 1510
+  east: 1511

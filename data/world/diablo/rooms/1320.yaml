@@ -1,0 +1,13 @@
+vnum: 1320
+name: The River of Fire
+description: |
+  A channel of molten rock slides through the cavern with a sound like
+  breathing, lighting the ceiling a dull red and doing nothing for the
+  corners. The heat is a hand pressed flat against your face. A ledge
+  runs along the bank. East, crude hide curtains hang over a side cave;
+  north is the grotto; south, the ledge narrows toward a chasm.
+exits:
+  north: 1319
+  east: 1321
+  south: 1322
+flags: [dark]

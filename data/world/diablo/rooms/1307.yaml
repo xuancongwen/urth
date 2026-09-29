@@ -1,0 +1,11 @@
+vnum: 1307
+name: The Witch's Hut
+description: |
+  Inside, the hut is larger than it looked from the bridge, and nobody
+  in Tristram talks about that. Shelves climb into the dark under the
+  roof, crowded with skulls, feathered bundles, sealed pots and books
+  bound in leather that is not calf. A cauldron simmers with nothing
+  under it. The door opens west onto the stream.
+exits:
+  west: 1306
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 3054
+name: By the Temple Altar
+description: |
+  A great block of white marble stands here, worn smooth at the edges by
+  a thousand years of hands laid on it in thanks or in grief. Candles
+  burn in rows along its foot and nobody seems to tend them, yet they
+  never gutter. The air is still and faintly sweet. The nave of the
+  temple opens to the south.
+exits:
+  south: 3001
+flags: [safe]

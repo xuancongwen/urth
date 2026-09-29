@@ -1,0 +1,11 @@
+vnum: 1218
+name: The Throne of the White Queen
+description: |
+  A dais of white stone rises at the end of a chamber so cold that the
+  air itself glitters. Upon it stands a throne carved from a single
+  block of ice, and behind it hang banners the colour of frost. There
+  is no fire and no warmth, and there never has been. Every sound you
+  make comes back to you a little sharper than you made it. The great
+  hall is south.
+exits:
+  south: 1215

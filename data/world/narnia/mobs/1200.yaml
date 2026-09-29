@@ -1,0 +1,14 @@
+vnum: 1200
+name: Mr Tumnus
+keywords: [tumnus, faun, mr]
+description: Mr Tumnus the faun sits by his fire with a book, looking up nervously every time the wind moves the door.
+look: |
+  Goat's legs covered in glossy black hair, a man's body in a brown
+  jacket, a red muffler, curly hair with two little horns in it, and a
+  face that is kind and extremely worried. He is plainly deciding
+  whether to be your friend or to report you, and plainly hoping it will
+  be the first.
+level: 3
+flags: [peaceful]
+attack:
+  verb: kick

@@ -1,0 +1,15 @@
+vnum: 3012
+name: a war hammer
+keywords: [war, hammer]
+description: A war hammer lies here.
+look: |
+  An iron head, flat on one face and spiked on the other, on an ash
+  haft.
+type: weapon
+weight: 5
+level: 5
+baseline: standard
+weapon:
+  hands: 1
+  kind: blunt
+  verb: pound

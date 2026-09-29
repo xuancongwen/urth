@@ -1,0 +1,14 @@
+vnum: 1300
+name: The North Road into Tristram
+description: |
+  Beyond the black iron door the world tilts, and you are standing on a
+  rutted cart road under a low grey sky that has not seen a clean sun in
+  a long while. Crows sit in a row on a split-rail fence and watch you
+  without interest. South, the road runs down into a huddle of thatched
+  roofs and chimney smoke: a village, small and frightened, gathered
+  around a well. The door behind you, north, stands in the face of a
+  hillock where no door has any business being.
+exits:
+  north: 8
+  south: 1301
+position: {x: 0, y: 0, z: 0}

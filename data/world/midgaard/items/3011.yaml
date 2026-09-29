@@ -1,0 +1,15 @@
+vnum: 3011
+name: a cityguard's long sword
+keywords: [cityguard's, long, sword]
+description: A long sword with the city arms on its pommel lies here.
+look: |
+  Issued steel, well kept, with Midgaard's arms stamped on the pommel.
+  The guard who lost it will be in trouble.
+type: weapon
+weight: 4
+level: 10
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

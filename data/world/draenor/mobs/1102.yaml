@@ -1,0 +1,14 @@
+vnum: 1102
+name: a fel orc warlock
+keywords: [fel, orc, warlock]
+description: A fel orc warlock stirs the steaming trough, muttering.
+look: |
+  Thinner than the grunts and far more dangerous, wrapped in robes
+  stitched with glyphs that hurt to follow. Green fire crawls between
+  his fingers. He keeps the trough full, and he does not drink from it
+  himself; he does not need to any more.
+level: 13
+stats: {intelligence: 14, strength: 9}
+attack:
+  kind: fire
+  verb: sear

@@ -1,0 +1,17 @@
+vnum: 3001
+name: The Temple of Midgaard
+description: |
+  You stand beneath the high vault of Midgaard's oldest temple. Pillars
+  of pale stone rise into a gloom of carved stars, and the floor is
+  patterned with the names of those buried under it. North, a step rises
+  to the altar. South, great bronze doors stand open on the square and
+  the noise of the city. West, a quieter arch leads to the halls of the
+  clerics, and east an iron-studded oak door leads away from Midgaard
+  altogether.
+exits:
+  north: 3054
+  east: 7
+  south: 3005
+  west: 3002
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

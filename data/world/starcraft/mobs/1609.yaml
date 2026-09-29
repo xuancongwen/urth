@@ -1,0 +1,15 @@
+vnum: 1609
+name: a hydralisk
+keywords: [hydralisk, hydra, zerg]
+description: A hydralisk rears up on its serpentine tail, its hood flaring with spines.
+look: |
+  Twice the height of a man when it rears, a serpentine body plated in
+  chitin, with scything forelimbs and a flared hood bristling with needle
+  spines it can hurl like javelins. Its mouth is a vertical slit full of
+  teeth. It hisses constantly, like a leaking valve.
+level: 20
+flags: [assist]
+silver: 30
+attack:
+  kind: pierce
+  verb: spine

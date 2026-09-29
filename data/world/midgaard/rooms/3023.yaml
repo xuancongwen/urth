@@ -1,0 +1,10 @@
+vnum: 3023
+name: The Magic Shop
+description: |
+  Dim, close, and smelling of candle wax and something like burnt sugar.
+  Shelves are crowded with stoppered jars, feathers, crystals, and small
+  boxes you are warned not to open. A curtain of beads clicks behind the
+  counter. Main Street lies north.
+exits:
+  north: 3010
+flags: [safe]

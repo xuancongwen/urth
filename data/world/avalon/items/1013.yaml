@@ -1,0 +1,13 @@
+vnum: 1013
+name: a pinch of fae dust
+keywords: [pinch, fae, dust]
+description: A pinch of glittering dust sparkles on the ground.
+look: |
+  A little heap of dust that glitters every colour at once and never
+  quite settles. It makes your fingers tingle. It is almost certainly
+  someone's wings.
+type: material
+material: fae dust
+rarity: uncommon
+weight: 0
+value: 8

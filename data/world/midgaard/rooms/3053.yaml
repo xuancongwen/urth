@@ -1,0 +1,9 @@
+vnum: 3053
+name: Outside the East Gate
+description: |
+  A paved road leads east from the gate between low stone walls, toward
+  farms and distant hills. A milestone reads MIDGAARD 0 on one face and
+  something long since chiselled away on the other. The road is closed
+  by a barrier of sawhorses; the gate is back west.
+exits:
+  west: 3041

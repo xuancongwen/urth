@@ -1,0 +1,11 @@
+vnum: 1016
+name: The Chalice Well
+description: |
+  A spring rises in a stone basin shaped like a pair of interlocking
+  circles, and its water runs red over the stones, staining them the
+  colour of rust or of wine. It tastes of iron and is very cold. Yew
+  trees crowd around it, and pilgrims have tied strips of cloth to
+  their branches. The shrine is west.
+exits:
+  west: 1015
+flags: [safe]

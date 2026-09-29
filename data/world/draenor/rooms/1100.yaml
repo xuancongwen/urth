@@ -1,0 +1,14 @@
+vnum: 1100
+name: The Far Side of the Portal
+description: |
+  You step through green-veined stone and out under a sky that is on
+  fire. Not sunset: fire, a slow red churning from one horizon to the
+  other, with black rocks drifting in it like ash over a hearth. Behind
+  you the slab stands alone on a shelf of cracked basalt, humming, the
+  only cool thing in sight. The ground to the east falls away in a
+  great ruined stair toward a plain the colour of old blood. The door
+  back to the Deeper Hall is west.
+exits:
+  west: 8
+  east: 1101
+position: {x: 0, y: 0, z: 0}

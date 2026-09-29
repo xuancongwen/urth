@@ -1,0 +1,12 @@
+vnum: 1318
+name: a red soulstone
+keywords: [red, soulstone, stone, soul]
+description: A blood-red crystal lies here, pulsing with a light of its own.
+look: |
+  A shard of red crystal the length of a finger, faceted by no jeweller.
+  Inside it something turns over and over, looking for a way out. It is
+  warm, and it whispers when you are not listening. Adria would give a
+  great deal to hold it; so would the thing inside.
+type: other
+weight: 1
+value: 2000

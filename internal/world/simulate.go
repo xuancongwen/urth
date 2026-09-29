@@ -172,7 +172,7 @@ func (w *World) simOutfitter(level int) *Character {
 		c.Stats[k] = v
 	}
 	c.Experience = w.xpToLevel(level)
-	w.outfit(c)
+	w.outfit(c, outfitFlag)
 	w.recalc(c)
 	c.Health, c.Mana = c.HealthMax, c.ManaMax
 	return c

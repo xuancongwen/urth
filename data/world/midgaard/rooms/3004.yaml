@@ -1,0 +1,11 @@
+vnum: 3004
+name: The Entrance to the Mages' Guild
+description: |
+  The floor here is tiled in a pattern that seems to shift when you are
+  not looking straight at it. A spiral stair climbs to the tower above,
+  and a smell of ozone and old paper drifts down it. Temple Square is
+  back through the door to the east.
+exits:
+  east: 3005
+  up: 3008
+flags: [safe]

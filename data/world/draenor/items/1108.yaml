@@ -1,0 +1,15 @@
+vnum: 1108
+name: a coilfang trident
+keywords: [coilfang, trident]
+description: A three-pronged trident of green bronze lies here, dripping.
+look: |
+  Green bronze worked with waves and coiling serpents, the three tines
+  barbed on the inside so they hold what they catch. The shaft is
+  always wet, however long it has been out of the water.
+type: weapon
+level: 15
+baseline: standard
+weapon:
+  hands: 1
+  kind: pierce
+  verb: spear

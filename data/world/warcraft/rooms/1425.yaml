@@ -1,0 +1,10 @@
+vnum: 1425
+name: The Loa Shrine
+description: |
+  A cleft in the rock, hung with masks. Each is carved from a different
+  wood and painted with a different face, and all of them are watching
+  the same spot: a flat stone where offerings of blood and fruit sit
+  among candle stubs. The air is thick with incense and something
+  sweeter. The camp is south.
+exits:
+  south: 1424

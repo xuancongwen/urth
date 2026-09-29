@@ -1,0 +1,15 @@
+vnum: 1307
+name: a tower shield
+keywords: [tower, shield]
+description: A tall iron-rimmed shield leans here.
+look: |
+  Oak planks faced with hide and bound in iron, tall enough to crouch
+  behind. The front has been painted with the three-towered arms of
+  Khanduras, most of which has since been scraped off by claws.
+type: armor
+slot: shield
+weight: 12
+level: 16
+effects:
+  - kind: block
+    params: { chance: 0.12 }

@@ -1,0 +1,15 @@
+vnum: 1407
+name: Goodwife Maddy Fenn
+keywords: [goodwife, maddy, fenn, farmer, farmwife]
+description: Goodwife Fenn kneads dough at the table, flour to the elbows.
+look: |
+  A sturdy woman with a red face and a voice that could carry across
+  three fields. Her husband is with the militia, her eldest is with the
+  keep, and the gnolls have been at her fence again. She sells bread to
+  whoever comes, and asks after the hills.
+level: 8
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1416, silver: 5 }

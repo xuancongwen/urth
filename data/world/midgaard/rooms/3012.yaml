@@ -1,0 +1,12 @@
+vnum: 3012
+name: Main Street
+description: |
+  The scent of fresh bread from the bakery to the north does battle with
+  the scent of the street itself, and mostly wins. South, a heavy door
+  hung with a painted breastplate leads into the armourer's shop. Main
+  Street runs east and west.
+exits:
+  north: 3009
+  east: 3013
+  south: 3021
+  west: 3011

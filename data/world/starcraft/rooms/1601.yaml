@@ -1,0 +1,14 @@
+vnum: 1601
+name: The Main Drag
+description: |
+  One street of packed grit between prefabricated walls, and that is the
+  whole town. Cables sag between the rooftops, dripping condensation, and
+  a painted sign bolted to a lamp post reads WELCOME TO BACKWATER STATION,
+  POP. 312, with the 3 crossed out and a 2 written over it. The command
+  center looms to the north. The supply depot squats to the south, and the
+  street runs west to the perimeter gate and east to the landing pad.
+exits:
+  east: 1600
+  north: 1602
+  south: 1603
+  west: 1607

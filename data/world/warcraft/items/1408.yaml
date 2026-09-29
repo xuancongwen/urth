@@ -1,0 +1,15 @@
+vnum: 1408
+name: a gnoll bone flail
+keywords: [gnoll, bone, flail]
+description: A flail with a head of lashed bones lies here.
+look: |
+  A thick staff with a length of chain at one end, and on the chain a
+  knot of thighbones bound with wire and studded with teeth. It is
+  clumsy, and it hurts.
+type: weapon
+level: 12
+baseline: heavy
+weapon:
+  hands: 2
+  kind: blunt
+  verb: flail

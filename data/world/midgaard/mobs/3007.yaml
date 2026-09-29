@@ -1,0 +1,12 @@
+vnum: 3007
+name: the bartender
+keywords: [bartender, barkeep]
+description: The bartender wipes the bar with a rag that makes it dirtier.
+look: |
+  A cheerful, one-eared man who knows every rumour in Midgaard and will
+  sell you most of them with your ale.
+level: 10
+flags: [peaceful]
+trades:
+  - { item: 3007, silver: 6 }
+  - { item: 3008, silver: 30 }

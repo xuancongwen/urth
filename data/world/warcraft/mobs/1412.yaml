@@ -1,0 +1,12 @@
+vnum: 1412
+name: a troll axethrower
+keywords: [troll, axethrower, thrower]
+description: A troll axethrower sways on long legs, tossing an axe from hand to hand.
+look: |
+  Blue-skinned and lanky, with tusks curling up past the nose and a red
+  crest of hair tied back with a thong. Trolls heal almost as fast as
+  they are hurt, and this one grins as if it knows.
+level: 12
+stats: {dexterity: 14}
+attack:
+  verb: slash

@@ -1,0 +1,22 @@
+vnum: 1600
+name: Quartermaster Hollis
+keywords: [quartermaster, hollis, sergeant]
+description: Quartermaster Hollis leans on the counter, tapping a stylus against a requisition pad.
+look: |
+  A barrel-chested veteran with one bionic arm, its casing scratched and
+  its fingers clicking faintly when idle. He has outfitted three wars'
+  worth of marines and buried a good share of them. He will sell to
+  anyone with coin, and he pays better in kind: bring him minerals and
+  gas from the field and he will find you the good armor from the back.
+  Type 'list' to see what he has.
+level: 20
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1605, silver: 80 }
+  - { item: 1606, silver: 25 }
+  - { item: 1614, silver: 30 }
+  - { item: 1602, silver: 340 }
+  - { item: 1600, silver: 425 }
+  - { item: 1601, silver: 300, items: [1607, 1607, 1608] }

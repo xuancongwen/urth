@@ -1,0 +1,18 @@
+vnum: 1113
+name: Artificer Velaani
+keywords: [artificer, velaani, draenei]
+description: Artificer Velaani bends over her bench, a lens screwed into one eye.
+look: |
+  A draenei woman in a leather apron over robes of faded violet, her
+  horns capped with silver and her fingers stained in six colours. She
+  talks to the crystals while she cuts them, and sometimes they seem
+  to answer. Her bins are empty and her prices say so: bring her fel
+  iron, fire, or scales and she will make you something worth having.
+level: 16
+flags: [peaceful]
+trades:
+  - { item: 1113, silver: 30 }
+  - { item: 1118, silver: 70 }
+  - { item: 1111, silver: 350, items: [1100, 1100] }
+  - { item: 1112, silver: 300, items: [1101, 1101] }
+  - { item: 1109, silver: 250, items: [1102, 1102, 1102] }

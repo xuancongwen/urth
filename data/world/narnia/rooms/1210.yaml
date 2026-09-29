@@ -1,0 +1,12 @@
+vnum: 1210
+name: A Clearing with a Sledge in It
+description: |
+  A sledge painted red and gold stands in a clearing, harnessed to
+  reindeer whose bridles are hung with bells. Its back is heaped with
+  sacks and parcels. The snow around it has gone soft and grainy, and
+  the air smells, impossibly, of woodsmoke and oranges. Where the sledge
+  stands, it feels as though the winter has been told it may not come
+  any closer. The river runs back west.
+exits:
+  west: 1209
+flags: [safe]

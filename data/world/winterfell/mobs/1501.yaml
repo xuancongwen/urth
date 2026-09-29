@@ -1,0 +1,16 @@
+vnum: 1501
+name: the alewife
+keywords: [alewife, woman, keeper]
+description: The alewife of the Smoking Log stirs a cauldron of ale by the hearth.
+look: |
+  A broad, red-cheeked woman with flour on her sleeves and a ladle she
+  uses for serving, stirring, and settling arguments. She knows the name
+  of every hunter who has gone into the Wolfswood this winter, and how
+  many came back.
+level: 8
+flags: [peaceful]
+attack:
+  verb: swat
+trades:
+  - { item: 1508, silver: 6 }
+  - { item: 1509, silver: 12 }

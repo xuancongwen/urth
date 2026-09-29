@@ -1,0 +1,11 @@
+vnum: 1019
+name: The Shingle Spit
+description: |
+  A narrow bar of shingle runs east from the strand out into the lake,
+  with water lapping on both sides. Nothing grows on it. The apples
+  that roll down here from the orchard are black and shrivelled, and
+  the gulls will not touch them. The strand is west; the spit ends at a
+  black tower east.
+exits:
+  west: 1003
+  east: 1020

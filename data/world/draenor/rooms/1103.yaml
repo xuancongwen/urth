@@ -1,0 +1,13 @@
+vnum: 1103
+name: The Red Wastes
+description: |
+  Nothing grows here and nothing has for a long time. The earth is baked
+  into ridges like the skin on cooling iron, and the bones in the
+  hollows are too big to belong to anything you know. Clawed tracks
+  circle and cross, hunting tracks, fresh. North, drums and a smear of
+  smoke mark a war camp. East the ground drops into a crater. The foot
+  of the stair is south.
+exits:
+  south: 1102
+  north: 1104
+  east: 1105

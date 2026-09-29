@@ -1,0 +1,11 @@
+vnum: 1428
+name: The Black Scree
+description: |
+  A slope of loose black rock, warm underfoot, that slides and ticks as
+  you climb. Vents in the mountainside breathe out shimmering air and
+  a stink of sulphur. Shed scales, red as rust, glint among the stones.
+  Above, a ledge juts from the peak with a great nest of blackened
+  timber upon it. The mound lies west.
+exits:
+  up: 1429
+  west: 1427

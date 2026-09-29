@@ -1,0 +1,13 @@
+vnum: 1016
+name: a pixie trickster
+keywords: [pixie, trickster, fae]
+description: A pixie trickster no taller than your hand darts about the ring, giggling.
+look: |
+  A tiny person with wings like a dragonfly's and a face full of
+  mischief. It wears a thimble for a hat. It has already stolen
+  something from you, you are fairly sure, though you cannot say what.
+level: 4
+flags: [assist]
+stats: {dexterity: 15, strength: 6}
+attack:
+  verb: pinch

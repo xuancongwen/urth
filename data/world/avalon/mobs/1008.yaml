@@ -1,0 +1,16 @@
+vnum: 1008
+name: Gwyn ap Nudd
+keywords: [gwyn, nudd, fae, king, huntsman]
+description: Gwyn ap Nudd, lord of the hollow hill, lounges at the head of the empty feast.
+look: |
+  Tall and slender and very beautiful, in green and grey, with a face
+  like a young man's and eyes like a very old one's. A silver horn hangs
+  at his breast and a spear leans against his chair. He rides out with
+  his hounds on stormy nights to gather souls, and he regards you with
+  the polite interest of a hunter who has not yet decided.
+level: 11
+health: 320
+silver: 70
+stats: {dexterity: 14, charisma: 16}
+attack:
+  verb: strike

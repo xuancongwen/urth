@@ -1,0 +1,10 @@
+vnum: 1617
+name: The Warp Gate Chamber
+description: |
+  A ring of gold and crystal stands in the middle of the floor, and the
+  space inside it is not quite the same space as the rest of the room: it
+  ripples like heat over a road and shows, now and then, a glimpse of
+  green skies and a city of spires. Pylons at the corners throw a steady
+  power field. The nave is west.
+exits:
+  west: 1614

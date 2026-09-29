@@ -1,0 +1,11 @@
+vnum: 1011
+name: The Summit of the Tor
+description: |
+  A roofless tower of grey stone stands alone on the crown of the hill,
+  all that is left of a church that the wind took piece by piece. The
+  wind is still at it. From here the whole isle lies open: the orchards,
+  the reeds, the black tower on its spit, and the dark wood to the east.
+  Gnawed bones and a great untidy nest of branches fill the tower's
+  doorway. The terraces wind down.
+exits:
+  down: 1010

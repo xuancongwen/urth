@@ -1,0 +1,15 @@
+vnum: 1617
+name: a dragoon
+keywords: [dragoon, walker, protoss]
+description: A dragoon stalks on four spindly legs, its phase disruptor glowing.
+look: |
+  A four-legged walker of gold and blue plate, its body a sealed tank of
+  fluid in which floats the broken body of a fallen zealot who chose to go
+  on fighting. A phase disruptor on its back crackles with gathered light.
+level: 22
+flags: [assist]
+health: 750
+silver: 100
+attack:
+  kind: blast
+  verb: phase blast

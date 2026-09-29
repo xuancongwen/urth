@@ -1,0 +1,11 @@
+vnum: 1002
+name: Aboard the Barge
+description: |
+  The barge moves without oar or pole, and the water makes no sound
+  against its sides. Mist closes behind and opens ahead, and in it
+  there are shapes that might be islands, or women standing on the
+  water, or nothing at all. Cold drops gather on the black cloth. The
+  landing lies west; ahead, east, the mist is turning gold.
+exits:
+  west: 1001
+  east: 1003

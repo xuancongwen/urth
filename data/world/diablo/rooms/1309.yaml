@@ -1,0 +1,12 @@
+vnum: 1309
+name: The Cathedral Steps
+description: |
+  The cathedral rises out of the graveyard like something drowned and
+  surfacing: grey stone blackened by an old fire, a bell tower with no
+  bell, windows whose glass lies in coloured shards in the grass. The
+  great doors hang open, one of them off its hinges. A cold draught
+  breathes out of them, steady as a sleeper. The graveyard climbs back
+  north to the village.
+exits:
+  north: 1308
+  south: 1310

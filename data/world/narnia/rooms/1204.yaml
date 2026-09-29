@@ -1,0 +1,11 @@
+vnum: 1204
+name: The Bank of a Frozen Stream
+description: |
+  The ground falls away to a stream locked in ice, with a hollow
+  gurgling somewhere beneath the surface. Icicles hang like teeth from
+  the overhanging roots. A black bird watches from a branch and does not
+  fly when you look at it. The lamp-post glows west; downstream, east,
+  the ice widens and something like a wall has been built across it.
+exits:
+  west: 1201
+  east: 1205

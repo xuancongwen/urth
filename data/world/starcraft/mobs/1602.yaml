@@ -1,0 +1,16 @@
+vnum: 1602
+name: Scotty the bartender
+keywords: [scotty, bartender, barkeep]
+description: Scotty the bartender polishes a glass that will never be clean.
+look: |
+  A lanky man with a drooping mustache and a shotgun under the bar that
+  everybody knows about. He has heard every war story twice and believes
+  none of them. He sells whiskey, and, under the counter, stimpacks, and
+  he asks no questions about either. Type 'list' to see his stock.
+level: 18
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1618, silver: 8 }
+  - { item: 1614, silver: 35 }

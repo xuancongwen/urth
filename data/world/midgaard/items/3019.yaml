@@ -1,0 +1,12 @@
+vnum: 3019
+name: a sewer rat hide
+keywords: [sewer, rat, hide]
+description: A mangy rat hide lies here.
+look: |
+  Greasy, grey, and surprisingly tough. The armourer on Main Street pays
+  for these, or makes things from them.
+type: material
+material: rat hide
+rarity: common
+weight: 1
+value: 3

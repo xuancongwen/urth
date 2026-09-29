@@ -1,0 +1,16 @@
+vnum: 3013
+name: a fine steel broadsword
+keywords: [fine, steel, broadsword, sword]
+description: A fine steel broadsword lies here.
+look: |
+  Folded steel with a blue sheen, balanced a hand above the guard. The
+  weaponsmith's mark is a tiny anvil near the hilt.
+type: weapon
+weight: 4
+level: 9
+baseline: standard
+value: 220
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

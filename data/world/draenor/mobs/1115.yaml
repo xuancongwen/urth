@@ -1,0 +1,14 @@
+vnum: 1115
+name: a nether ray
+keywords: [nether, ray]
+description: A nether ray wheels in the void just off the edge, fins rippling violet.
+look: |
+  A cousin of the marsh rays, but wider, darker, and translucent at the
+  fin-edges, so the void shows through it. It swims in the nothing as
+  if it were water. Small shards of black crystal are lodged in its
+  hide where it has scraped the islands.
+level: 17
+flags: [wander]
+attack:
+  kind: pierce
+  verb: sting

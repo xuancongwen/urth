@@ -1,0 +1,14 @@
+vnum: 1409
+name: Grimmaw the gnoll packleader
+keywords: [grimmaw, gnoll, packleader, leader]
+description: Grimmaw the gnoll packleader crouches on a pile of loot, flail across his knees.
+look: |
+  Twice the bulk of the raiders above, with a ragged mane dyed red and
+  a collar of human finger-bones. His flail has put down footmen and
+  farmers alike, and the pack follows him because of it.
+level: 12
+health: 240
+stats: {strength: 14}
+attack:
+  kind: bite
+  verb: bite

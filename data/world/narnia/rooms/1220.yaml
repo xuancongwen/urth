@@ -1,0 +1,13 @@
+vnum: 1220
+name: The Camp on the Green Hill
+description: |
+  On an open hilltop where the grass has already come back, a pavilion
+  of yellow silk stands with its banner flying: a red lion rampant.
+  Around it wait creatures of every shape, dryads and naiads, centaurs,
+  a unicorn, a bull with the head of a man, all of them quiet and all of
+  them glad. The air is warm enough to take off a cloak. The melting
+  wood is west, and a river valley runs east toward the sea.
+exits:
+  west: 1219
+  east: 1224
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 3026
+name: a pinch of grave dust
+keywords: [pinch, grave, dust]
+description: A pinch of grey grave dust lies here.
+look: |
+  Fine, grey, and cold to the touch. The wizard on Main Street has a use
+  for it.
+type: material
+material: grave dust
+rarity: common
+weight: 0
+value: 4

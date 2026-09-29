@@ -1,0 +1,19 @@
+vnum: 3028
+name: Hassan's scimitar
+keywords: [hassan's, scimitar]
+description: A curved scimitar of watered steel lies here.
+look: |
+  A long curved blade with the ripple of watered steel down its length
+  and a hilt wrapped in sharkskin. It has seen more of the world than
+  Midgaard.
+type: weapon
+weight: 3
+level: 15
+baseline: standard
+value: 300
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.05, mult: 1.5 } }

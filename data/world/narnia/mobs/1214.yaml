@@ -1,0 +1,18 @@
+vnum: 1214
+name: the White Witch
+keywords: [white, witch, jadis, queen]
+description: The White Witch sits upon her throne of ice, very tall and very still, watching you come.
+look: |
+  Taller than any woman you have seen, dressed in white fur to the
+  throat, with a golden crown and a long straight wand. Her face is
+  white as snow or paper, all but her mouth, which is very red. It is a
+  beautiful face, and proud and cold and stern, and it does not look as
+  though it has ever changed its mind about anything.
+level: 9
+health: 380
+xp: 900
+silver: 60
+stats: {intelligence: 16, wisdom: 14, constitution: 13}
+attack:
+  verb: strike
+  kind: cold

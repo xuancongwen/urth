@@ -1,0 +1,11 @@
+vnum: 1419
+name: The Red Foothills
+description: |
+  The ground rises in folds of rust-coloured earth, bare except for dry
+  grass and knots of thornbush. A burned watchtower stands on one knoll,
+  its stones blackened. Arrowheads lie in the dust, some with the
+  fletching still on. The trail climbs north toward the ridge and falls
+  south to the crossroads.
+exits:
+  north: 1420
+  south: 1401

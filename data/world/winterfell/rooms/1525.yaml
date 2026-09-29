@@ -1,0 +1,10 @@
+vnum: 1525
+name: A Wolf Den Under the Roots
+description: |
+  A great fallen pine has torn up a wall of earth and roots, and under
+  it is a hollow that smells of musk and blood. Bones are scattered in
+  the trampled snow: deer, mostly, and a boot with nothing in it. Grey
+  fur clings to the roots at the height of a man's chest. The trail is
+  west.
+exits:
+  west: 1524

@@ -1,0 +1,12 @@
+vnum: 1510
+name: a shadowcat
+keywords: [shadowcat, cat]
+description: A shadowcat crouches on a branch above the stream, striped black and white like broken ice.
+look: |
+  A mountain cat as long as a man, its coat striped in black and white
+  so it melts into snow and shadow alike. Its tail twitches. It has been
+  following you for some time.
+level: 9
+attack:
+  verb: claw
+  kind: claw

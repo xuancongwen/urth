@@ -1,0 +1,13 @@
+vnum: 1620
+name: The Creep Tunnels
+description: |
+  A tunnel of ribbed flesh, round as a throat, dripping. It breathes: the
+  walls swell and ease with a slow rhythm, and a warm damp wind comes and
+  goes. There is no light at all. Side passages branch off and close up
+  again behind you. The tunnel leads east back to the colony, south into a
+  den, and west deeper into the hive.
+exits:
+  east: 1618
+  south: 1621
+  west: 1622
+flags: [dark]

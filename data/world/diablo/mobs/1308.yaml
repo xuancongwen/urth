@@ -1,0 +1,12 @@
+vnum: 1308
+name: a burning dead skeleton
+keywords: [burning, dead, skeleton]
+description: A skeleton in rusted mail stands among the bones, blue fire in its eye sockets.
+look: |
+  A monk's bones in a soldier's mail, bound together by a cold blue fire
+  that runs along the joints. It holds a notched sword the way it held
+  a psalter, without thinking about it.
+level: 15
+flags: [assist]
+attack:
+  verb: slash

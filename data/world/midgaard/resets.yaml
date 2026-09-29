@@ -1,0 +1,50 @@
+interval_seconds: 300
+resets:
+  # --- the temple and the guilds ---
+  - { mob: 3015, room: 3003 }   # the high priest, in the clerics' sanctum
+  - { mob: 3016, room: 3008 }   # the sorcerer, up the tower
+  - { mob: 3026, room: 3028 }   # the warrior guildmaster
+  - { mob: 3017, room: 3051 }   # the master thief, in the den
+  # --- the shops of Main Street ---
+  - { mob: 3002, room: 3009 }   # the baker
+  - { mob: 3003, room: 3019 }   # the grocer
+  - { mob: 3004, room: 3020 }   # the general store
+  - { mob: 3005, room: 3021 }   # the armourer
+  - { mob: 3006, room: 3022 }   # the weaponsmith
+  - { mob: 3001, room: 3023 }   # the wizard's magic shop
+  - { mob: 3018, room: 3026 }   # the banker
+  # --- the Grunting Boar ---
+  - { mob: 3007, room: 3007 }   # the bartender
+  - { mob: 3000, room: 3007, equip: [{ item: 3028, slot: wield }] }   # Hassan and his scimitar
+  - { mob: 3019, room: 3006, equip: [{ item: 3007 }] }                # the drunk, and his pint
+  # --- the watch: guards at both gates and on Main Street ---
+  - { mob: 3008, room: 3040, max: 4, equip: [{ item: 3011, slot: wield }, { item: 3016, slot: body }, { item: 3020, slot: head }] }
+  - { mob: 3008, room: 3041, max: 4, equip: [{ item: 3011, slot: wield }, { item: 3016, slot: body }, { item: 3020, slot: head }] }
+  - { mob: 3008, room: 3013, max: 4, equip: [{ item: 3011, slot: wield }, { item: 3016, slot: body }] }
+  - { mob: 3008, room: 3017, max: 4, equip: [{ item: 3011, slot: wield }, { item: 3016, slot: body }] }
+  - { mob: 3009, room: 3014, equip: [{ item: 3032, slot: wield }, { item: 3016, slot: body }, { item: 3020, slot: head }] }   # the Peacekeeper
+  # --- townsfolk and strays ---
+  - { mob: 3010, room: 3037, equip: [{ item: 3024, slot: finger1 }] }   # the mayor and his signet
+  - { mob: 3011, room: 3014 }   # the janitor
+  - { mob: 3011, room: 3025 }
+  - { mob: 3012, room: 3025, max: 2 }   # Fido
+  - { mob: 3012, room: 3016, max: 2 }
+  - { mob: 3014, room: 3031 }   # the alley cat
+  - { mob: 3020, room: 3031 }   # the beggar
+  - { mob: 3027, room: 3034, equip: [{ item: 3009, slot: wield }] }   # the pickpocket
+  # --- the river and the dump ---
+  - { mob: 3013, room: 3049, max: 2, equip: [{ item: 3029 }] }   # beastly fidos, and their bones
+  - { mob: 3013, room: 3048, max: 2, equip: [{ item: 3029 }] }
+  - { item: 3031, room: 3049 }   # scrap iron in the dump, for the weaponsmith
+  # --- the graveyard ---
+  - { mob: 3023, room: 3044 }   # the gravedigger
+  - { mob: 3024, room: 3045, max: 3, equip: [{ item: 3026 }] }   # zombies, and their grave dust
+  - { mob: 3024, room: 3046, max: 3, equip: [{ item: 3026 }] }
+  - { mob: 3024, room: 3065, max: 3, equip: [{ item: 3026 }] }
+  - { mob: 3025, room: 3047, equip: [{ item: 3027, slot: wield }, { item: 3026 }] }   # the crypt ghoul
+  # --- the sewers ---
+  - { mob: 3021, room: 3060, max: 4, equip: [{ item: 3019 }] }   # sewer rats carry hides
+  - { mob: 3021, room: 3061, max: 4, equip: [{ item: 3019 }] }
+  - { mob: 3021, room: 3062, max: 4, equip: [{ item: 3019 }] }
+  - { mob: 3021, room: 3063, max: 4, equip: [{ item: 3019 }] }
+  - { mob: 3022, room: 3064, equip: [{ item: 3019 }, { item: 3019 }] }   # the rat king

@@ -1,0 +1,20 @@
+vnum: 1615
+name: an ultralisk kaiser blade
+keywords: [ultralisk, kaiser, blade, scythe]
+description: A monstrous curved blade of bone lies here, longer than a man is tall.
+look: |
+  One of the two great scything blades an ultralisk carries at its
+  shoulders, hacked free at the root. It is bone harder than any metal,
+  edged like obsidian, and so heavy that swinging it is less a matter of
+  aiming than of committing.
+type: weapon
+level: 24
+baseline: heavy
+value: 900
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2.0 }

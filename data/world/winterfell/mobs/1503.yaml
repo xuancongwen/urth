@@ -1,0 +1,13 @@
+vnum: 1503
+name: the maester of Winterfell
+keywords: [maester, scholar, old]
+description: The maester of Winterfell sits by the fire in the solar, a chain of many metals about his neck.
+look: |
+  A small grey man with a large nose and larger patience, his chain of
+  office clinking softly when he turns a page. He keeps the ravens, the
+  books, and the lord's children in order, and has errands for anyone
+  who looks capable of running them.
+level: 10
+flags: [peaceful, questmaster]
+attack:
+  verb: punch

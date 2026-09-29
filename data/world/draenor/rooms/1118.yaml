@@ -1,0 +1,17 @@
+vnum: 1118
+name: Telmoran, the Refuge on the Cap
+description: |
+  A small plaza in a small town, built by people who once had a great
+  city and lost it. The walls curve like shells; the lamps are crystal
+  and never flicker; the people are tall and blue-skinned and hoofed,
+  with tendrils at their jaws, and they speak softly, as if there is
+  someone they do not want to wake. Refugees sleep under awnings. North
+  a shrine glows white. East, an artificer's workshop rings with small
+  hammers. West is the lift, and a narrow walk leads south to a
+  lookout.
+exits:
+  west: 1117
+  north: 1120
+  east: 1119
+  south: 1127
+flags: [safe]

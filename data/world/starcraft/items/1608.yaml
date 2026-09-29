@@ -1,0 +1,12 @@
+vnum: 1608
+name: a canister of vespene gas
+keywords: [canister, vespene, gas]
+description: A pressurized canister of green vespene gas lies here.
+look: |
+  A dented steel canister with a pressure gauge and a hazard stripe.
+  Through the sight glass the gas swirls green and heavy. It fuels every
+  engine and reactor in the sector, and it smells awful even through
+  the valve.
+type: other
+weight: 5
+value: 20

@@ -1,0 +1,13 @@
+vnum: 3025
+name: the crypt ghoul
+keywords: [crypt, ghoul]
+description: A crypt ghoul crouches among the bones, gnawing.
+look: |
+  Hairless and grey, long in the arm and the tooth, with a grin that
+  splits its face. It has been living under the graveyard a long time,
+  and eating well.
+level: 9
+health: 230
+silver: 45
+attack:
+  verb: rake

@@ -1,0 +1,17 @@
+vnum: 1202
+name: Maugrim
+keywords: [maugrim, wolf, captain, chief]
+description: Maugrim, captain of the Witch's secret police, stands over the straw with his hackles up.
+look: |
+  The biggest wolf you have ever seen, grey going to silver, with a
+  scarred muzzle and a heavy iron collar. He has a clerk's memory for
+  names and a butcher's taste for the work. When he speaks it is with
+  the patience of someone who has already decided how the conversation
+  ends.
+level: 8
+health: 240
+silver: 40
+stats: {strength: 13, dexterity: 12}
+attack:
+  verb: savage
+  kind: pierce

@@ -1,0 +1,20 @@
+vnum: 1014
+name: a bronze leaf-blade
+keywords: [bronze, leaf-blade, blade, sword]
+description: A long sword of green-gold bronze lies here.
+look: |
+  A sword from before iron: bronze, cast in a mould, shaped like a
+  willow leaf and ground to an edge that has not dulled in three
+  thousand years. The hilt is bound in gold wire. It is cold as the
+  barrow it came from, and anything it cuts feels that cold.
+type: weapon
+level: 12
+baseline: standard
+weight: 4
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: chill
+    params: { chance: 0.15, mult: 0.7, rounds: 2 }

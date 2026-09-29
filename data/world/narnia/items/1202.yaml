@@ -1,0 +1,12 @@
+vnum: 1202
+name: a glossy raven feather
+keywords: [glossy, raven, feather]
+description: A long black feather lies on the snow.
+look: |
+  A flight feather from one of the Witch's spy-birds, blue-black and
+  oily. Held to the light, it seems to hold a little of the dark in it.
+type: material
+material: raven feather
+rarity: uncommon
+weight: 0
+value: 8

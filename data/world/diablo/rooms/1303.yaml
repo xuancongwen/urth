@@ -1,0 +1,12 @@
+vnum: 1303
+name: Griswold's Smithy
+description: |
+  An open-fronted forge under a sagging roof, hot as a summer noon. Blades
+  hang from pegs along the back wall and a rack of half-finished mail
+  shirts leans against the bellows. The anvil is dented in the middle
+  from thirty years of the same stroke. Scraps of odd metal, some of it
+  still smoking faintly in a way iron should not, sit in a bucket by the
+  quench. The square is west.
+exits:
+  west: 1301
+flags: [safe]

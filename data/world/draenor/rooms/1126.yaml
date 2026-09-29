@@ -1,0 +1,12 @@
+vnum: 1126
+name: The Hollow of Whispers
+description: |
+  A cleft running deep into the crystal, where the pulsing light does
+  not reach and the dark is total. The walls are smooth and very cold.
+  Voices come out of them, not loud, never quite words, and they know
+  your name, or pretend to. Loose shards crunch underfoot, and some of
+  them glow faintly with a light that is less than light. The way out
+  is south.
+exits:
+  south: 1124
+flags: [dark]

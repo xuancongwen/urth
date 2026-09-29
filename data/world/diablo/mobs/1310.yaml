@@ -1,0 +1,19 @@
+vnum: 1310
+name: the Skeleton King
+keywords: [skeleton, king, leoric]
+description: The Skeleton King rises from his throne. "The warmth of life has entered my tomb!"
+look: |
+  Leoric, who was a good king and then a mad one, and then a dead one,
+  and is now this: bones in a king's mail and a king's crown, with a
+  sword as long as he is tall. Red light burns where his eyes were. He
+  is bitter, and he is proud, and he does not stay down.
+level: 17
+health: 800
+stats: {strength: 14}
+silver: 100
+xp: 3500
+attack:
+  verb: slash
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }

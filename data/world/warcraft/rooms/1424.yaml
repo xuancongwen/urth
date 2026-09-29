@@ -1,0 +1,10 @@
+vnum: 1424
+name: The Troll Camp
+description: |
+  Huts of hide and bent saplings stand on stilts around a fire pit
+  full of glowing coals. Throwing axes are stuck in a practice post,
+  thick as porcupine quills. A path of flat stones leads north to a
+  shrine in a cleft of the rock. The trail back to the ridge runs east.
+exits:
+  north: 1425
+  east: 1423

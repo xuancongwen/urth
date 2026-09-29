@@ -1,0 +1,11 @@
+vnum: 1429
+name: The Dragon Roost
+description: |
+  A ledge high on the smoking peak, wide as a town square and scattered
+  with the wreckage of a hundred meals: cart wheels, armour, the charred
+  ribs of cattle. The nest at its centre is built of whole trees. From
+  up here the whole land lies spread below, forest and hills and the
+  far smudge of the war camp, and you understand why something would
+  want to sit here and own it all. The scree drops down.
+exits:
+  down: 1428

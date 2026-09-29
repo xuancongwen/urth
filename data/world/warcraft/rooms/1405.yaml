@@ -1,0 +1,11 @@
+vnum: 1405
+name: The Goblin's Tent
+description: |
+  Inside, the tent is a warehouse. Crates are stacked to the ridgepole,
+  labelled in a scrawl that is half numbers and half threats. A set of
+  brass scales sits on an upturned barrel, and a sign nailed to the
+  tent pole reads, in three languages, NO FIGHTING - NO CREDIT - NO
+  REFUNDS. The only way out is east, to the yard.
+exits:
+  east: 1403
+flags: [safe]

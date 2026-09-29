@@ -1,0 +1,9 @@
+vnum: 3026
+name: The Bank of Midgaard
+description: |
+  A hushed hall of marble, with a counter behind brass bars and a vault
+  door the size of a cartwheel set into the back wall. Clerks scratch at
+  ledgers. Even the dust looks audited. Main Street is south.
+exits:
+  south: 3017
+flags: [safe]

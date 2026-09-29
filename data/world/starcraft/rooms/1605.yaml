@@ -1,0 +1,12 @@
+vnum: 1605
+name: The Barracks
+description: |
+  Rows of bunks, each with a footlocker and a pinned-up picture of somewhere
+  greener. At the far end a rack of power armor hangs open like a row of
+  shucked shells, cables trailing from the spines. The air smells of gun
+  oil and sweat and the sharp chemical ghost of stimpacks. A painted line
+  on the floor marks the drill square. The concourse is east; a side door
+  lets out south onto the perimeter.
+exits:
+  east: 1602
+  south: 1607

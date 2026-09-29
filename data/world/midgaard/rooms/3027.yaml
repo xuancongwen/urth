@@ -1,0 +1,11 @@
+vnum: 3027
+name: The Entrance to the Warriors' Guild
+description: |
+  A bare hall with a sanded floor and racks of wooden practice weapons.
+  A banner shows a sword and an axe crossed over a shield, and under it
+  someone has scratched a tally of broken noses. The training hall is
+  north; Main Street is south.
+exits:
+  north: 3028
+  south: 3018
+flags: [safe]

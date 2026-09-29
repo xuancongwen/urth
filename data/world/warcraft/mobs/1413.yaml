@@ -1,0 +1,14 @@
+vnum: 1413
+name: a troll witch doctor
+keywords: [troll, witch, doctor, shaman]
+description: A troll witch doctor dances before the shrine, rattling a gourd.
+look: |
+  Old for a troll, bent and bony, in a carved mask with tusks painted
+  white and a skirt of feathers and teeth. The rattle in its hand never
+  stops, and the candles on the shrine lean toward it when it moves.
+level: 14
+health: 260
+stats: {wisdom: 15}
+attack:
+  kind: blunt
+  verb: whack

@@ -1,0 +1,12 @@
+vnum: 1417
+name: a goblin lantern
+keywords: [goblin, lantern]
+description: A lantern of dented brass and green glass sits here, hissing.
+look: |
+  A brass lantern with a green glass chimney and a clockwork pump on the
+  side that hisses when you wind it. The label on the bottom reads
+  GUARANTEED*, and the asterisk is not explained anywhere.
+type: light
+slot: light
+weight: 2
+value: 25

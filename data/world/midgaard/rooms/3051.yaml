@@ -1,0 +1,10 @@
+vnum: 3051
+name: The Thieves' Den
+description: |
+  A cellar-like room lit by a single shaded lamp, with a table for
+  cards, a rack of lockpicks, and a strongbox chained to the floor with
+  more chain than seems reasonable. Everyone here is watching the door.
+  The way out is east.
+exits:
+  east: 3050
+flags: [safe]

@@ -1,0 +1,14 @@
+vnum: 1411
+name: a bone-trimmed warlock's robe
+keywords: [bone, trimmed, warlock, warlocks, robe]
+description: A black robe hemmed with little bones lies in a heap here.
+look: |
+  Heavy black cloth, sewn with rows of finger bones along the hem and
+  the cuffs, so that it clicks when it moves. The inside is stitched
+  with runes in green thread that is not quite thread.
+type: armor
+slot: body
+level: 14
+baseline: light
+mods:
+  intelligence: 1

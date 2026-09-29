@@ -1,0 +1,13 @@
+vnum: 1212
+name: The Hills Below the Castle
+description: |
+  The road climbs through bare, cold hills. Up ahead, west, a small
+  castle rises on the last slope, all towers and needle-sharp spires,
+  and it is not made of glass after all but of ice, or of something
+  that has learned from ice how to be cold. A path branches south into
+  a frozen fen where smoke from a cookfire rises. The road runs east
+  back toward the wood.
+exits:
+  east: 1211
+  west: 1213
+  south: 1229

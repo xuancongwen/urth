@@ -1,0 +1,11 @@
+vnum: 1217
+name: The Wolf Kennels
+description: |
+  A long, low shed of stone and ice against the castle wall, where the
+  Queen's wolves sleep between hunts. Gnawed bones are scattered in the
+  straw. The walls are scored with claw marks at a height that would
+  alarm any sensible person. A wide iron collar hangs on a hook by the
+  door, empty. The courtyard is north.
+exits:
+  north: 1214
+flags: [dark]

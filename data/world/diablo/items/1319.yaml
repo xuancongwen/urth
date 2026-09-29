@@ -1,0 +1,20 @@
+vnum: 1319
+name: Arkaine's Valor
+keywords: [arkaine's, arkaine, valor, armor]
+description: A suit of burnished red-gold armor lies here, humming.
+look: |
+  Plate of a warm red gold, light as boiled leather, the chest worked
+  with a winged figure holding a sword. It belonged to a hero before
+  there was a Tristram, and it remembers. Adria knows where it was
+  buried, and what she wants for it.
+type: armor
+slot: body
+weight: 10
+level: 22
+baseline: medium
+value: 3000
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 2 }
+  - kind: protect
+    params: { mult: 0.9 }

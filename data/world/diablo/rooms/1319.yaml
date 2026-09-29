@@ -1,0 +1,11 @@
+vnum: 1319
+name: The Fungus Grotto
+description: |
+  Pale caps as big as shields crowd the floor of a wet grotto, and
+  between them smaller growths in black and violet. Spores hang in the
+  air and settle on your sleeves like ash. The path comes in from the
+  west and goes on south, where the rock glows an angry orange.
+exits:
+  west: 1318
+  south: 1320
+flags: [dark]

@@ -1,0 +1,11 @@
+vnum: 1305
+name: Pepin's Cottage
+description: |
+  Every flat surface in the healer's front room is covered in jars,
+  mortars, rolled bandages, and bottles that glow a soft red. Two narrow
+  cots stand against the wall with fresh linen on them, waiting for
+  whoever comes back from the cathedral next. It smells of camphor and
+  boiled cloth. The lane is east.
+exits:
+  east: 1304
+flags: [safe]

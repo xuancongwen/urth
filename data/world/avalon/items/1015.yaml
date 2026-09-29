@@ -1,0 +1,18 @@
+vnum: 1015
+name: the crown of the old kings
+keywords: [crown, old, kings, circlet]
+description: A plain circlet of red gold lies here.
+look: |
+  A band of red gold, unadorned, hammered thin and worn smooth by the
+  brows of kings whose names were never written down. It weighs almost
+  nothing. Put it on and you feel you could stand a long time against
+  something that would not stop.
+type: armor
+slot: head
+level: 12
+baseline: medium
+weight: 1
+value: 350
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

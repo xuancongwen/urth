@@ -1,0 +1,12 @@
+vnum: 1123
+name: The High Chain
+description: |
+  A bridge of chain links as big as a man's torso, strung between two
+  islands and hung with the frayed remains of planks. The void is on
+  every side and the wind that comes up out of it is cold, the first
+  cold thing on this world, and it whispers. Below, the lower island
+  turns slowly. The chain runs east to a shard of black crystal that
+  hangs in the sky, pulsing.
+exits:
+  down: 1122
+  east: 1124

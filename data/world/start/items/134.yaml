@@ -1,0 +1,10 @@
+vnum: 134
+name: a sub issue torch
+keywords: [sub, issue, torch]
+description: A sub issue torch has been left here.
+look: |
+  A stout torch of tarred rushes bound to an ash handle. It is meant to
+  see a new adventurer through their first few dark cellars.
+type: light
+burn: 1200
+flags: [newbie]

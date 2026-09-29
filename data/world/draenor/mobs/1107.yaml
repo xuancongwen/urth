@@ -1,0 +1,18 @@
+vnum: 1107
+name: Fungalo the spore-trader
+keywords: [fungalo, spore-trader, trader, sporeling]
+description: Fungalo the spore-trader sits on an upturned cap, surrounded by baskets.
+look: |
+  An older sporeling, wider than the rest and very pleased about it,
+  whose head-fronds have gone a deep contented purple. He has learned
+  enough of your tongue to haggle and no more. Baskets of glowcaps,
+  bundles of dried spore-sacks, and a pair of odd boots crowd around
+  him. He is particularly fond of naga scales; the naga are not fond
+  of sporelings.
+level: 13
+flags: [peaceful]
+trades:
+  - { item: 1103, silver: 8 }
+  - { item: 1110, silver: 20 }
+  - { item: 1113, items: [1103, 1103, 1103, 1103] }
+  - { item: 1114, silver: 180, items: [1102, 1102] }

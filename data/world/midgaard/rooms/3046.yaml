@@ -1,0 +1,10 @@
+vnum: 3046
+name: The Mausoleum
+description: |
+  A squat stone tomb with a broken door stands at the west end of the
+  graveyard. Inside, a stair descends into the dark, and a cold draught
+  breathes up it smelling of earth and old water. The graveyard path
+  leads east.
+exits:
+  east: 3044
+  down: 3047

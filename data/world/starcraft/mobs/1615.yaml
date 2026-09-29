@@ -1,0 +1,15 @@
+vnum: 1615
+name: a zealot
+keywords: [zealot, protoss, warrior, templar]
+description: A zealot stands in perfect stillness, psi blades humming at his wrists.
+look: |
+  Tall and lean, with long grey-blue skin, a narrow mouthless face, and
+  eyes that glow like coals. He wears gold armor over his shoulders and a
+  shimmering plasma shield around the whole of him. He does not speak
+  aloud, but you hear him anyway: En Taro Adun.
+level: 21
+flags: [assist]
+silver: 80
+attack:
+  kind: slash
+  verb: slice

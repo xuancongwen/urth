@@ -1,0 +1,13 @@
+vnum: 1008
+name: a raven feather
+keywords: [raven, feather]
+description: A glossy black raven feather lies here.
+look: |
+  Long and black, with a sheen of blue and purple when the light moves
+  over it. Hedge-witches want them. So, you suspect, does the lady of
+  the black tower, who has more than enough already.
+type: material
+material: raven feather
+rarity: common
+weight: 0
+value: 6

@@ -1,0 +1,19 @@
+vnum: 1614
+name: the cerebrate
+keywords: [cerebrate, zerg, brain, overmind]
+description: The cerebrate lies in its cradle of sinew, lobes pulsing with a slow violet light.
+look: |
+  A huge armored grub, wider than a wagon, its body ringed with plates and
+  crowned with glistening lobes of brain tissue. It cannot move and has
+  never needed to. It commands a brood of thousands, and every one of
+  them will come when it calls. When it turns its mind on you, your
+  knees buckle.
+level: 24
+health: 1600
+silver: 400
+attack:
+  kind: psionic
+  verb: mind-lash
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }

@@ -1,0 +1,17 @@
+vnum: 1612
+name: a khaydarin amulet
+keywords: [khaydarin, amulet, crystal]
+description: A pendant of pale yellow crystal glows softly here.
+look: |
+  A shard of khaydarin crystal on a chain of woven gold. It is warm, and
+  when you hold it the noise in your own head grows orderly and quiet, as
+  if someone older and calmer had begun thinking alongside you.
+type: armor
+slot: neck
+level: 23
+value: 400
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 3 }

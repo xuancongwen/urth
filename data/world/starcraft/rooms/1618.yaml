@@ -1,0 +1,14 @@
+vnum: 1618
+name: The Infested Colony
+description: |
+  This was a farming colony once. The prefab houses still stand, but the
+  creep has climbed their walls and grown through their windows, and pods
+  like swollen sacs hang from the eaves. A child's bicycle lies half
+  swallowed in the purple. From inside one house comes a sound like
+  someone trying to speak with a mouthful of wet cloth. A pit steams to the
+  north, a tunnel mouth yawns to the west, and the edge of the creep is
+  east.
+exits:
+  east: 1615
+  north: 1619
+  west: 1620

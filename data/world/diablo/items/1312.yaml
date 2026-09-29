@@ -1,0 +1,11 @@
+vnum: 1312
+name: a demon's brain
+keywords: [demon, demon's, brain]
+description: A grey, fist-sized brain lies here, twitching.
+look: |
+  Grey-green, ridged, and hot, it still twitches when it is touched, as
+  if trying to finish a thought. Pepin has theories about these. He
+  would very much like to test them.
+type: other
+weight: 1
+value: 40

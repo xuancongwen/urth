@@ -1,0 +1,11 @@
+vnum: 1302
+name: The Rising Sun Inn
+description: |
+  A long low taproom with a fire that is kept high whatever the season,
+  as though warmth alone might hold something back. The tables are
+  scarred, the benches mostly empty, and the barrel taps polished by
+  more hands than drink these days. A board over the hearth carries a
+  painted sun, its gilt flaking. The square is back out the door, east.
+exits:
+  east: 1301
+flags: [safe]

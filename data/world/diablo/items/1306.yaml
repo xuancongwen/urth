@@ -1,0 +1,13 @@
+vnum: 1306
+name: a full helm
+keywords: [full, helm, helmet]
+description: A steel full helm lies here, its visor raised.
+look: |
+  A closed helmet with a narrow eye-slit and breathing holes punched in
+  a pattern like a cross. Inside it smells of oil and someone else's
+  fear.
+type: armor
+slot: head
+weight: 5
+level: 15
+baseline: medium

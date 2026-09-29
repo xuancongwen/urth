@@ -1,0 +1,12 @@
+vnum: 1602
+name: a marine's combat helmet
+keywords: [marine, marines, combat, helmet, helm]
+description: A marine's helmet with a gold visor lies here.
+look: |
+  A domed neosteel helmet with a reflective gold visor and a rebreather
+  under the chin. The heads-up display flickers faintly when you hold it
+  close, still counting ammunition for a rifle that is not there.
+type: armor
+slot: head
+level: 17
+baseline: medium

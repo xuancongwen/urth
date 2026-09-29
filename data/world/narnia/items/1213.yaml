@@ -1,0 +1,13 @@
+vnum: 1213
+name: a hooded winter cloak
+keywords: [hooded, winter, cloak]
+description: A heavy hooded cloak lies folded here.
+look: |
+  Thick grey wool with a lining of rabbit fur and a hood that closes
+  almost to the nose. Mrs Beaver insists it is the only sensible thing
+  to wear in this weather, and she is right.
+type: armor
+slot: shoulders
+level: 3
+baseline: light
+weight: 3

@@ -1,0 +1,12 @@
+vnum: 1104
+name: The Bloodmaw War Camp
+description: |
+  Hide tents stretched on frames of iron and bone, a ring of spikes, and
+  in the middle a great drum made from something's ribcage. The orcs
+  here are the wrong colour: their skin has gone the green-black of a
+  bruise, their eyes glow faintly, and they smell of sulphur rather
+  than sweat. A trough of dark liquid by the drum steams on its own.
+  Whatever they drank from it, they drank it willingly. The only way
+  out is south.
+exits:
+  south: 1103

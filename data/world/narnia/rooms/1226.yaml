@@ -1,0 +1,10 @@
+vnum: 1226
+name: The Gate of Cair Paravel
+description: |
+  Wide doors of polished oak, studded with bronze peacocks, stand open
+  on a flagged court. The stones here are warm in the sun and the gulls
+  cry overhead. Stairs of white marble climb up into the castle, and the
+  path back down to the dunes runs south.
+exits:
+  south: 1225
+  up: 1227

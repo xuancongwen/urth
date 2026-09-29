@@ -1,0 +1,10 @@
+vnum: 1416
+name: a round of farmhouse bread
+keywords: [round, farmhouse, bread, loaf]
+description: A round loaf of brown bread lies here.
+look: |
+  A dense loaf, crusty and still faintly warm, scored with a cross on
+  top. It smells of the kitchen it came from.
+type: other
+weight: 1
+value: 5

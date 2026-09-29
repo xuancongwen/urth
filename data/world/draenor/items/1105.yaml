@@ -1,0 +1,12 @@
+vnum: 1105
+name: a spiked fel iron pauldron
+keywords: [spiked, fel, iron, pauldron]
+description: A heavy spiked pauldron of black iron lies here.
+look: |
+  A shoulder-guard like a great beetle's shell, bolted with three
+  spikes as long as fingers. It was made to be worn by something
+  larger than you, and it will still do its job on you.
+type: armor
+slot: shoulders
+level: 14
+baseline: heavy

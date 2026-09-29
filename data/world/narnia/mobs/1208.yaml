@@ -1,0 +1,11 @@
+vnum: 1208
+name: a snow hare
+keywords: [snow, hare]
+description: A snow hare crouches in the drifts, invisible until it moves.
+look: |
+  White all over but for the black tips of its ears. It is not one of
+  the talking kind, or if it is, it has nothing to say to you.
+level: 2
+flags: [wander]
+attack:
+  verb: bite

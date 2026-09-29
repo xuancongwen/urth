@@ -1,0 +1,13 @@
+vnum: 1009
+name: The Foot of the Tor
+description: |
+  The orchard ends at the foot of a steep green hill, ridged all the way
+  round with terraces like the whorls of a shell. A path winds up the
+  first of them. At the base of the slope a cleft in the turf, framed
+  by two leaning stones, breathes out air that is warmer than it ought
+  to be and carries, very faintly, the sound of a harp. The orchard lies
+  south.
+exits:
+  south: 1005
+  up: 1010
+  down: 1012

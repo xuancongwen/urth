@@ -1,0 +1,14 @@
+vnum: 1415
+name: a hulking ogre
+keywords: [hulking, ogre]
+description: A hulking ogre squats in the mud, gnawing a haunch of something.
+look: |
+  Ten feet of grey-green muscle and fat, with one small eye squinting
+  from under a heavy brow and a jaw that could take a sheep in two
+  bites. It is not clever. It does not need to be.
+level: 13
+health: 280
+stats: {strength: 15, intelligence: 6}
+attack:
+  kind: blunt
+  verb: pound

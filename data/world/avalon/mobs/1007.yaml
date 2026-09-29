@@ -1,0 +1,12 @@
+vnum: 1007
+name: a hound of Annwn
+keywords: [hound, annwn, white]
+description: A great white hound with blood-red ears rises from the rushes, growling low.
+look: |
+  Taller at the shoulder than a wolf and whiter than new milk, save for
+  the ears, which are the red of a fresh wound. Its eyes shine in the
+  dark. It hunts for a master who does not need to call it twice.
+level: 8
+flags: [assist]
+attack:
+  verb: bite

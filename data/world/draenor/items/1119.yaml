@@ -1,0 +1,10 @@
+vnum: 1119
+name: a draenei prayer bead
+keywords: [draenei, prayer, bead]
+description: A single bead of violet crystal lies here, strung on a broken thread.
+look: |
+  One bead from a string of a hundred, cut from violet crystal and worn
+  smooth by fingers. Some draenei in the refuge counts to ninety-nine
+  every night now, and loses count, and weeps.
+type: other
+flags: [quest]

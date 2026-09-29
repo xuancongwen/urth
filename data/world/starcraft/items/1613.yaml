@@ -1,0 +1,12 @@
+vnum: 1613
+name: a pair of zealot vambraces
+keywords: [zealot, vambraces, bracers]
+description: A pair of gold-plated vambraces lies here.
+look: |
+  Long curved guards of gold-bronze, sized for a Protoss forearm and
+  engraved with the sigil of the Templar caste. They are lighter than
+  they look and ring like a bell when struck.
+type: armor
+slot: arms
+level: 21
+baseline: medium

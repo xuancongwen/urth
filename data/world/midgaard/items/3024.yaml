@@ -1,0 +1,14 @@
+vnum: 3024
+name: the mayor's gold signet ring
+keywords: [mayor's, gold, signet, ring]
+description: A heavy gold signet ring lies here.
+look: |
+  Heavy gold, the city arms cut deep into the bezel. It has sealed a
+  great many things it should not have.
+type: armor
+slot: finger
+weight: 0
+level: 13
+value: 150
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 2 } }

@@ -1,0 +1,15 @@
+vnum: 1412
+name: an ogre-mage's iron girdle
+keywords: [ogre, mage, ogremage, iron, girdle, belt]
+description: A great belt of iron links, big enough to fit a barrel, lies here.
+look: |
+  A belt of heavy iron links around a plate stamped with two faces, one
+  scowling and one sneering. It was made for a waist twice yours; the
+  buckle has been cut new holes by someone patient.
+type: armor
+slot: belt
+level: 16
+baseline: heavy
+value: 400
+mods:
+  strength: 1

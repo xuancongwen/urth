@@ -1,0 +1,20 @@
+vnum: 1204
+name: Mrs Beaver
+keywords: [beaver, mrs, merchant]
+description: Mrs Beaver bustles between the stove and the shelves, packing provisions into bundles.
+look: |
+  A kindly old beaver in an apron, with her sewing glasses pushed up on
+  her forehead. She keeps the lodge stocked for whoever needs to cross
+  the wood in a hurry, and she will not let anyone leave without
+  something warm to wear and something to eat. She will also take your
+  hare pelts and turn them into boots, if you ask nicely.
+level: 4
+flags: [peaceful]
+attack:
+  verb: bite
+trades:
+  - { item: 1200, silver: 25 }
+  - { item: 1216, silver: 8 }
+  - { item: 1213, silver: 90 }
+  - { item: 1214, silver: 90, items: [1218, 1218] }
+  - { item: 1212, silver: 40, items: [1218] }

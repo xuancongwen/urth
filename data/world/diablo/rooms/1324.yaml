@@ -1,0 +1,13 @@
+vnum: 1324
+name: The Ramparts of Hell
+description: |
+  A wide wall-walk along battlements of glassy black stone, each merlon
+  topped with a spike and each spike occupied. Below, on either side,
+  the ground falls away into pits of fire. West, steps drop into a
+  sunken court that smells of copper; east, an archway gapes on a hall
+  marked with a burning star. The threshold is north.
+exits:
+  north: 1323
+  west: 1325
+  east: 1326
+flags: [dark]

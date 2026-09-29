@@ -1,0 +1,14 @@
+vnum: 3030
+name: an amulet of warding
+keywords: [amulet, warding]
+description: A pewter amulet lies here.
+look: |
+  A pewter disc on a chain, etched with a closed eye. Grave dust is
+  packed into the lines of the etching.
+type: armor
+slot: neck
+weight: 0
+level: 8
+value: 200
+effects:
+  - { kind: protect, params: { mult: 0.95 } }

@@ -1,0 +1,12 @@
+vnum: 1505
+name: The Outer Gate of Winterfell
+description: |
+  The outer wall rises eighty feet overhead, grey granite streaked with
+  rime, and the gate is set deep in it under a stone arch carved with
+  the heads of wolves worn almost faceless by the centuries. The gate
+  stands open by day. A drawbridge crosses a moat that is frozen hard
+  enough to walk on. North lies the space between the walls; south, the
+  winter town.
+exits:
+  north: 1506
+  south: 1502

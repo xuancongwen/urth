@@ -1,0 +1,9 @@
+vnum: 3002
+name: a waterskin
+keywords: [waterskin, water, skin]
+description: A leather waterskin lies here.
+look: |
+  A goat's skin, sewn tight and sealed with pitch, sloshing pleasantly.
+type: other
+weight: 2
+value: 10

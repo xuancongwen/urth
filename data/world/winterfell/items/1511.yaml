@@ -1,0 +1,15 @@
+vnum: 1511
+name: a bronze-headed wildling axe
+keywords: [bronze-headed, bronze, wildling, axe]
+description: A crude axe with a bronze head lies here.
+look: |
+  A wedge of old bronze lashed to a crooked haft with rawhide. Beyond
+  the Wall iron is dear and bronze is what your grandfather left you,
+  and it still takes a head off.
+type: weapon
+level: 9
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

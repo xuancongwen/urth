@@ -1,0 +1,10 @@
+vnum: 3036
+name: The Town Hall
+description: |
+  A tall hall with a gallery, a painted ceiling of Midgaard's founding,
+  and petitioners waiting on long benches with the patience of the
+  damned. A door to the east bears a brass plate: MAYOR. The Common
+  Square is west.
+exits:
+  east: 3037
+  west: 3025

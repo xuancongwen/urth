@@ -1,0 +1,11 @@
+vnum: 3026
+name: the warrior guildmaster
+keywords: [warrior, guildmaster]
+description: The warrior guildmaster sits on the dais, watching the ring.
+look: |
+  A broad-shouldered veteran with a flattened nose and a voice that
+  carries across a battlefield. She teaches for coin, and she hits hard
+  while she does it.
+level: 14
+flags: [peaceful]
+teaches: [bash, twin]

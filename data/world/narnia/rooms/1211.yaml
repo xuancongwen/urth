@@ -1,0 +1,11 @@
+vnum: 1211
+name: The Sledge Road
+description: |
+  Two deep runner-tracks cut across the snow here, straight as a ruler,
+  and hoof-marks of something with a long stride run between them. The
+  road runs west toward a range of low hills, where a greyish shape
+  catches the light like a thing made of glass. East, it returns to the
+  trampled glade.
+exits:
+  east: 1208
+  west: 1212

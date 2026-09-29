@@ -1,0 +1,30 @@
+interval_seconds: 300
+resets:
+  # --- the war camp ---
+  - { mob: 1400, room: 1406, max: 3, equip: [{ item: 1400 }] }   # peons, each hauling lumber
+  - { item: 1400, room: 1406 }                                     # a bundle left on the stack
+  - { mob: 1401, room: 1403, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
+  - { mob: 1401, room: 1407, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
+  - { mob: 1402, room: 1405 }                                      # Zazzik, goblin merchant
+  - { mob: 1403, room: 1404 }                                      # the warchief
+  - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }] }   # warlock: robe and fel skull
+  # --- the forest and the keep ---
+  - { mob: 1419, room: 1411, max: 2 }                              # bandits in the wheat
+  - { mob: 1407, room: 1412 }                                      # the farmwife sells bread
+  - { mob: 1405, room: 1413, max: 2, equip: [{ item: 1406, slot: wield }, { item: 1407, slot: shield }] }
+  - { mob: 1406, room: 1415 }                                      # Brannoc, blacksmith merchant
+  - { item: 1404, room: 1415 }                                     # a lump of ore in the smith's bin
+  - { mob: 1414, room: 1416 }                                      # the lord-marshal
+  - { mob: 1410, room: 1417, max: 3 }                              # forest wolves
+  - { mob: 1411, room: 1418, max: 3, equip: [{ item: 1404 }, { item: 1404 }] }   # kobolds carry ore
+  # --- the hills ---
+  - { mob: 1408, room: 1421, max: 4, equip: [{ item: 1403 }] }    # gnoll raiders carry paws
+  - { mob: 1409, room: 1422, equip: [{ item: 1408, slot: wield }, { item: 1403 }, { item: 1403 }] }
+  - { mob: 1412, room: 1424, max: 3, equip: [{ item: 1409, slot: wield }] }
+  - { mob: 1413, room: 1425, equip: [{ item: 1410, slot: face }] }
+  # --- the high end ---
+  - { mob: 1415, room: 1426, max: 2, equip: [{ item: 1413, slot: wield }] }
+  - { mob: 1416, room: 1427, equip: [{ item: 1412, slot: belt }] }
+  - { mob: 1417, room: 1428, max: 3, equip: [{ item: 1405 }] }    # whelps carry a scale each
+  - { mob: 1418, room: 1429, equip: [{ item: 1405 }, { item: 1405 }, { item: 1405 }] }
+  - { item: 1405, room: 1428 }                                     # a shed scale on the scree

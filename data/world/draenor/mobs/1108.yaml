@@ -1,0 +1,14 @@
+vnum: 1108
+name: a fen ray
+keywords: [fen, ray]
+description: A fen ray glides a hand's height above the water, tail lashing.
+look: |
+  A flat, leathery creature as wide as a cart, gliding on the damp air
+  like a skate in water. Its underside glows faintly, and its long
+  tail ends in a barb that drips. It has no eyes you can find, and it
+  does not need them to find you.
+level: 13
+flags: [wander]
+attack:
+  kind: pierce
+  verb: sting

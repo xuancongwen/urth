@@ -1,0 +1,11 @@
+vnum: 1412
+name: The Farmhouse Kitchen
+description: |
+  A stone farmhouse with a thatched roof and a kitchen that smells of
+  bread. Hams hang from the beams, a kettle sits at the hearth, and a
+  wooden sword that some child has outgrown hangs over the door as a
+  charm. A crossbow stands loaded in the corner, which says something
+  about the times. The fields are west.
+exits:
+  west: 1411
+flags: [safe]

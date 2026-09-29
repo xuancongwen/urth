@@ -1,0 +1,10 @@
+vnum: 1311
+name: The Desecrated Chancel
+description: |
+  The altar has been overturned and something written across its face in
+  a brown that was once red. Candles in their dozens have melted into a
+  single yellow crust. Small clawed prints run through the wax in every
+  direction, and there is a smell of wet fur and sulphur. The nave is
+  west.
+exits:
+  west: 1310

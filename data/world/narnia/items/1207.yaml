@@ -1,0 +1,17 @@
+vnum: 1207
+name: a crown of ice
+keywords: [crown, ice]
+description: A tall crown of clear ice lies here and does not melt.
+look: |
+  Points like icicles rise in a ring from a band of frozen water, and
+  none of it drips no matter how warm your hands. It sits heavily and
+  gives the wearer a look of chilly certainty.
+type: armor
+slot: head
+level: 9
+baseline: medium
+weight: 2
+value: 300
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

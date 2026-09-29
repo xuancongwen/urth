@@ -1,0 +1,9 @@
+vnum: 3043
+name: The Graveyard Gate
+description: |
+  South of the bridge a rusted iron gate stands open in a mossy wall.
+  Yew trees crowd behind it, and beyond them rows of stones lean at
+  tired angles. The bridge lies north and the graveyard south.
+exits:
+  north: 3042
+  south: 3044

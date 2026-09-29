@@ -1,0 +1,16 @@
+vnum: 1117
+name: Mograth the Unmade
+keywords: [mograth, unmade, pit, lord, demon]
+description: Mograth the Unmade looms at the edge of the pinnacle, a glaive of green fire in his fists.
+look: |
+  A pit lord: a demon the size of a house, with the body of a bloated
+  beast on four thick legs and above it a torso like a mountain,
+  horned, tusked, and wreathed in green flame. Tentacles hang from his
+  jaw and move on their own. He broke this world and rode the pieces
+  out into the Nether, and he is only sorry there is not more of it to
+  break. He looks at you as a man looks at the last crumb on a plate.
+level: 20
+health: 1500
+silver: 500
+xp: 900
+stats: {strength: 16, constitution: 16, dexterity: 9}

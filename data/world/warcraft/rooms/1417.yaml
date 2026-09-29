@@ -1,0 +1,11 @@
+vnum: 1417
+name: The Deep Wood
+description: |
+  The oaks here are old and very large, and the undergrowth grows thick
+  between them. Tracks in the soft ground are mostly paws, and the
+  bones of a deer lie gnawed clean beside the path. Somewhere a wolf
+  calls and another answers. The path winds north toward a hillside
+  and south back to the glade.
+exits:
+  north: 1418
+  south: 1410

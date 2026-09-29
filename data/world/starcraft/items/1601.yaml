@@ -1,0 +1,13 @@
+vnum: 1601
+name: a CMC-300 powered combat suit
+keywords: [cmc-300, cmc, powered, combat, suit, armor, armour]
+description: A hulking suit of blue powered armor stands here, open down the front.
+look: |
+  Neosteel plate over a servo frame, big enough that you climb in rather
+  than put it on. The shoulder pauldrons are painted with a unit number and
+  a grinning skull. Inside, the padding still holds the shape of its last
+  wearer.
+type: armor
+slot: body
+level: 18
+baseline: heavy

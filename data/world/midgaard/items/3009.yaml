@@ -1,0 +1,13 @@
+vnum: 3009
+name: a small dagger
+keywords: [small, dagger]
+description: A small dagger lies here.
+look: |
+  A plain, sharp blade a hand long, easy to hide and easier to use.
+type: weapon
+weight: 1
+level: 2
+baseline: dagger
+weapon:
+  kind: pierce
+  verb: stab

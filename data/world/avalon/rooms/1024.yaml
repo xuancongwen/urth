@@ -1,0 +1,10 @@
+vnum: 1024
+name: The Fairy Ring
+description: |
+  A clearing carpeted in soft grass, with a perfect ring of white-capped
+  mushrooms at its centre. Inside the ring the grass is trampled flat
+  by small feet in patterns that almost make sense. Thimbles, buttons,
+  and a single silver spoon lie scattered as if dropped mid-dance. The
+  only way out is south into the dark wood.
+exits:
+  south: 1023

@@ -1,0 +1,13 @@
+vnum: 1504
+name: the Lord of Winterfell
+keywords: [lord, winterfell, stark]
+description: The Lord of Winterfell sits in the high seat, listening to a petitioner with a face like the weather.
+look: |
+  A long-faced man in grey wool and fur, a greatsword propped against
+  the arm of his chair. He says little and hears everything. The North
+  is his, and he carries it the way a man carries a heavy coat: without
+  complaint, and without ever quite taking it off.
+level: 14
+flags: [peaceful]
+attack:
+  verb: strike

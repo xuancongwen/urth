@@ -1,0 +1,13 @@
+vnum: 1215
+name: a dwarf's studded jerkin
+keywords: [dwarf, dwarfs, studded, jerkin]
+description: A short leather jerkin set with iron studs lies here.
+look: |
+  Cut short and broad for a dwarf, but a human can wear it if they do
+  not mind showing their belly. The studs are iron and the stitching is
+  tight.
+type: armor
+slot: body
+level: 5
+baseline: medium
+weight: 6

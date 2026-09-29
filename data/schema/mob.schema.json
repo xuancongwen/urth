@@ -39,6 +39,21 @@
       },
       "description": "What this quest vendor exchanges for quest points (docs/RULES.md 7.6). A mob flagged questmaster gives quests out."
     },
+    "trades": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item"],
+        "properties": {
+          "item": { "$ref": "common.schema.json#/$defs/vnum", "description": "The item prototype the merchant hands over." },
+          "silver": { "type": "integer", "minimum": 0, "description": "Silver asked for it." },
+          "items": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/vnum" }, "description": "Items asked for it, by vnum; list a vnum twice to ask for two." }
+        },
+        "anyOf": [{ "required": ["silver"] }, { "required": ["items"] }]
+      },
+      "description": "Makes this mob a merchant: list, buy, and sell work in its room. Each trade gives an item for silver, items, or both. A merchant buys anything with a value for half of it."
+    },
     "effects": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/effect" } }
   }
 }

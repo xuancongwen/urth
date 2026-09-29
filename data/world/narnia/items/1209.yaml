@@ -1,0 +1,16 @@
+vnum: 1209
+name: a lion-hilted longsword
+keywords: [lion-hilted, lion, longsword, sword]
+description: A longsword with a golden lion on its hilt rests here.
+look: |
+  A straight, bright blade, well balanced and a little long for most
+  hands. On the cross-guard a lion is worked in gold, rampant, as if it
+  were about to leap. It feels like a gift given in earnest.
+type: weapon
+level: 8
+baseline: standard
+weight: 4
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

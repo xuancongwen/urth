@@ -1,0 +1,15 @@
+vnum: 1513
+name: a wildling warlord
+keywords: [wildling, warlord, chief, free, folk]
+description: A wildling warlord in a mammoth-hide coat stands over the fire, arms folded.
+look: |
+  A mountain of a man in a coat of shaggy brown hide, his arms ringed
+  with bronze bands, one for each fight he has won. There are a great
+  many bands. He led his people through the Wall and he is not going to
+  let a southron stop them now.
+level: 12
+health: 300
+silver: 70
+stats: {strength: 14, constitution: 13}
+attack:
+  verb: pummel

@@ -1,0 +1,15 @@
+vnum: 1416
+name: Gor'thok the two-headed ogre-mage
+keywords: [gorthok, two-headed, ogre, mage, ogremage]
+description: A two-headed ogre-mage looms over the firepit, both heads arguing.
+look: |
+  Taller than the other ogres and blue-skinned, with two heads on one
+  great pair of shoulders. The left head scowls, the right sneers, and
+  both of them are clever, which is what makes this one dangerous. Runes
+  crawl over its arms, and an iron girdle clinks at its waist.
+level: 15
+health: 480
+stats: {strength: 15, intelligence: 14}
+attack:
+  kind: blunt
+  verb: smash

@@ -1,0 +1,14 @@
+vnum: 1407
+name: a lion-painted kite shield
+keywords: [lion, painted, kite, shield]
+description: A kite shield painted with a blue lion leans here.
+look: |
+  A long shield of oak faced with leather and rimmed with steel. The
+  lion on its face is blue on white, and fresh; the scars across it
+  are fresher.
+type: armor
+slot: shield
+level: 10
+effects:
+  - kind: block
+    params: { chance: 0.2 }

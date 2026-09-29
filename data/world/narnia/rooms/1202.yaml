@@ -1,0 +1,10 @@
+vnum: 1202
+name: A Path Between Snow-Laden Firs
+description: |
+  The hoofprints wind between the trees and down into a little valley
+  of rocks and hollows. A snow hare has left its own neat tracks across
+  them. Somewhere below, west, a thread of chimney smoke climbs into the
+  grey sky. The lamp-post's glow is still visible back east.
+exits:
+  east: 1201
+  west: 1203

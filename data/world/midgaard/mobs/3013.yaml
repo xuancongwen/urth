@@ -1,0 +1,11 @@
+vnum: 3013
+name: the beastly fido
+keywords: [beastly, fido, dog]
+description: A beastly fido is here, snarling over something it has found.
+look: |
+  A great mangy brute of a dog with foam on its jaws and a bone clamped
+  in its teeth. It has not been anyone's pet for a long time.
+level: 3
+flags: [wander]
+attack:
+  verb: bite

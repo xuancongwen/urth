@@ -1,0 +1,12 @@
+vnum: 1510
+name: The Castle Forge
+description: |
+  Heat, first, like a hand on the face, and then the noise: hammer on
+  steel, bellows, the hiss of the quench. The forge is a stone cave
+  open to the yard, with racks of blades and mail along its walls and a
+  great anvil worn into a saddle by generations of work. Everything here
+  is for sale, the smith will tell you, and some of it is for trade.
+  The yard is east.
+exits:
+  east: 1509
+flags: [safe]

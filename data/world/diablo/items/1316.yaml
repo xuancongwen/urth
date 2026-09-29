@@ -1,0 +1,20 @@
+vnum: 1316
+name: a ring of the zodiac
+keywords: [ring, zodiac]
+description: A gold ring engraved with the twelve houses lies here.
+look: |
+  Heavy gold, the twelve houses of the heavens engraved around it so
+  finely they need a glass to read. Wirt will not say where he got it,
+  and you would not believe him if he did.
+type: armor
+slot: finger
+weight: 0
+level: 20
+value: 1400
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

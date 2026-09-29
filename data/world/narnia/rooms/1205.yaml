@@ -1,0 +1,13 @@
+vnum: 1205
+name: The Beavers' Dam
+description: |
+  A dam of woven sticks and packed mud spans the frozen river, broad
+  enough to walk along, and on the far side the frozen water stands in
+  a smooth sheet above the level of the river below it. In the middle
+  sits a mound like a large beehive with a hole in the top and a trickle
+  of smoke rising from it. A trapdoor of fitted sticks leads down into
+  it. The river runs on east, west is the stream bank.
+exits:
+  west: 1204
+  east: 1209
+  down: 1206

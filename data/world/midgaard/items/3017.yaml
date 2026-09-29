@@ -1,0 +1,12 @@
+vnum: 3017
+name: a wooden shield
+keywords: [wooden, shield]
+description: A wooden shield lies here.
+look: |
+  Planks of lime wood, rimmed in rawhide. It will stop a blow or two.
+type: armor
+slot: shield
+weight: 4
+level: 2
+armor:
+  defense: 0.5

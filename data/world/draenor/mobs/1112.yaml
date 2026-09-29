@@ -1,0 +1,14 @@
+vnum: 1112
+name: a draenei vindicator
+keywords: [draenei, vindicator, guard]
+description: A draenei vindicator stands watch, hammer grounded, blue armour gleaming.
+look: |
+  Tall even for a draenei, hoofed and tailed, the tendrils at his jaw
+  braided with silver. His armour is blue plate chased with violet
+  crystal and his hammer has a head like a small anvil. His people have
+  run for twenty-five thousand years. He has stopped here.
+level: 17
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: hammer

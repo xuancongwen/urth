@@ -1,0 +1,14 @@
+vnum: 1401
+name: The Waystone Crossroads
+description: |
+  Four roads meet at a standing stone scarred by axes and scorched by
+  fire. Someone has carved a lion's head into its east face; someone
+  else has chiselled most of it away. West, a rutted track runs to a
+  palisade of sharpened logs where the drums are loudest. East, a
+  cobbled road goes under the eaves of a green forest. North, the land
+  climbs into red hills. South, the timbered hollow and the banded door.
+exits:
+  north: 1419
+  east: 1409
+  south: 1400
+  west: 1402

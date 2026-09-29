@@ -1,0 +1,13 @@
+vnum: 1603
+name: Magistrate Tarran
+keywords: [magistrate, tarran, commander]
+description: Magistrate Tarran studies the tactical table with his hands clasped behind his back.
+look: |
+  The colonial magistrate of Backwater Station, in a Confederate officer's
+  coat a size too large for him, with the weary look of a man who asked
+  for reinforcements a month ago and was sent a form. He watches the red
+  contacts crawl across the map and does not say what he is thinking.
+level: 22
+flags: [peaceful]
+attack:
+  verb: punch

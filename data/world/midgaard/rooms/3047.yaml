@@ -1,0 +1,11 @@
+vnum: 3047
+name: The Crypt
+description: |
+  A low vault beneath the mausoleum, its niches filled with bones and
+  its floor with worse. Someone, or something, has been sorting the
+  bones into piles. A stair climbs up to the graveyard, and a hole in
+  the north wall has been dug through to the sewers.
+exits:
+  north: 3065
+  up: 3046
+flags: [dark]

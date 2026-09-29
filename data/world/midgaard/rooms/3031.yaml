@@ -1,0 +1,10 @@
+vnum: 3031
+name: Poor Alley
+description: |
+  The alley is barely wide enough for two to pass, and the gutter down
+  its middle runs with something best not examined. Ragged shutters,
+  broken crates, and hollow-eyed faces in doorways. The Common Square is
+  east, and the alley twists south toward the river.
+exits:
+  east: 3025
+  south: 3033

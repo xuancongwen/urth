@@ -1,0 +1,13 @@
+vnum: 3005
+name: The Temple Square
+description: |
+  A wide square paved in grey flagstones, with the temple's bronze doors
+  to the north and the bustle of the market to the south. Pigeons own
+  the steps. To the west, a doorway beneath a carved crescent moon marks
+  the Mages' Guild, and to the east hangs the painted sign of a wild
+  boar, snout up, grinning.
+exits:
+  north: 3001
+  east: 3006
+  south: 3014
+  west: 3004

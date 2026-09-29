@@ -1,0 +1,14 @@
+vnum: 1300
+name: Deckard Cain
+keywords: [deckard, cain, elder, sage, old]
+description: Deckard Cain leans on his staff by the fountain, murmuring to himself.
+look: |
+  An old man with a white beard and a scholar's stoop, dressed in robes
+  that were blue once. He carries a staff he does not need and a book
+  he never opens, because he has it by heart. He is the last of an old
+  order of keepers, and he knows exactly what is under the cathedral.
+  He would be glad to tell you. At length.
+level: 20
+flags: [peaceful]
+attack:
+  verb: rap

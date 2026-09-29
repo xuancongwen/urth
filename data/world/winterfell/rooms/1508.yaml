@@ -1,0 +1,11 @@
+vnum: 1508
+name: The Inner Gatehouse
+description: |
+  A vaulted passage through the inner wall, long enough that the light
+  at either end looks small. Murder holes pock the ceiling and a
+  portcullis hangs raised in its grooves, teeth rusted white with frost.
+  The stone is warmer here than it has any right to be. The great yard
+  is north; the way out lies south.
+exits:
+  north: 1509
+  south: 1506

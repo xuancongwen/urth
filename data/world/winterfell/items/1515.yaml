@@ -1,0 +1,17 @@
+vnum: 1515
+name: an iron tomb-sword
+keywords: [iron, tomb-sword, tomb, sword]
+description: A long iron sword, black with age, lies here.
+look: |
+  One of the swords laid across a dead king's knees to keep his spirit
+  in the stone. The iron is pitted and black and very, very cold, and it
+  has kept something in for a thousand years.
+type: weapon
+level: 13
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }

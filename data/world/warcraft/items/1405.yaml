@@ -1,0 +1,12 @@
+vnum: 1405
+name: a red dragon scale
+keywords: [red, dragon, scale]
+description: A red dragon scale, big as a hand, lies here glinting.
+look: |
+  A curved plate of horn, rust red shading to black at the root and
+  warm to the touch long after it has been shed. It turns a knife
+  without a scratch. Armourers dream about these.
+type: other
+weight: 1
+value: 40
+rarity: uncommon

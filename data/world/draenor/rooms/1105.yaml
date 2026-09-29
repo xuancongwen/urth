@@ -1,0 +1,12 @@
+vnum: 1105
+name: The Crater of the Fallen Star
+description: |
+  Something fell here, burning, and it is still burning. The crater's
+  floor is glass, cracked and smoking, and at its heart lies a heap of
+  black stone pocked with pits of white fire. Around the rim, shards of
+  green-shot ore jut out of the rock where the impact threw them up. The
+  heat makes the air bend. The wastes are west; a slope of loose scree
+  climbs south to the citadel road.
+exits:
+  west: 1103
+  south: 1106

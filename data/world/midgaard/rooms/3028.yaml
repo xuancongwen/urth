@@ -1,0 +1,9 @@
+vnum: 3028
+name: The Warriors' Training Hall
+description: |
+  Straw dummies hacked to rags, a ring of sand, and benches where
+  bruised recruits nurse their pride. The guildmaster's chair stands on
+  a low dais, facing the ring. The way out is south.
+exits:
+  south: 3027
+flags: [safe]

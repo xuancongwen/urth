@@ -1,0 +1,20 @@
+vnum: 1500
+name: Mikken the smith
+keywords: [mikken, smith, blacksmith]
+description: Mikken the smith works a glowing bar on the anvil, sleeves rolled to the shoulder.
+look: |
+  A thick-armed man with a burn-scarred leather apron and a beard singed
+  short at the edges. He talks while he hammers and does not stop either
+  for long. Coin buys steel from him; pelts and dragonglass buy the good
+  work, because he cannot get them himself.
+level: 12
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1506, silver: 320 }
+  - { item: 1507, silver: 220 }
+  - { item: 1501, silver: 150 }
+  - { item: 1509, silver: 12 }
+  - { item: 1505, silver: 180, items: [1502, 1502] }
+  - { item: 1504, silver: 260, items: [1503, 1503] }

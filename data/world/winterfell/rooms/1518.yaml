@@ -1,0 +1,11 @@
+vnum: 1518
+name: The Oldest Tomb
+description: |
+  A round chamber under the crypts, cut before anyone thought to carve
+  statues, and the throne in it is empty. The stone wolf at its foot has
+  been broken in half. The air is so cold it hurts the teeth, and your
+  breath does not rise but falls, curling along the floor toward the
+  throne. The cleft climbs back up.
+exits:
+  up: 1517
+flags: [dark]

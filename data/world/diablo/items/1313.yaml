@@ -1,0 +1,18 @@
+vnum: 1313
+name: an amulet of mending
+keywords: [amulet, mending, charm]
+description: A small silver amulet on a leather thong lies here.
+look: |
+  A hollow silver bead the size of an acorn, sealed with wax, and filled
+  with something Pepin distilled from a demon's thinking. It is warm,
+  and while it is worn, cuts close faster than they should.
+type: armor
+slot: neck
+weight: 1
+level: 18
+value: 500
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

@@ -1,0 +1,12 @@
+vnum: 1301
+name: a brass lantern
+keywords: [brass, lantern, lamp]
+description: A dented brass lantern sits here, its wick trimmed.
+look: |
+  A tavern lantern with a hook for the belt and a shutter for when you
+  would rather not be seen. Ogden fills them himself and swears they
+  burn a night and a day. He has not been down the cathedral to check.
+type: light
+weight: 2
+value: 25
+burn: 1500

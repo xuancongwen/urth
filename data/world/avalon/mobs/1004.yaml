@@ -1,0 +1,11 @@
+vnum: 1004
+name: a windfall boar
+keywords: [windfall, boar, pig]
+description: A huge boar roots through the fallen apples, tusks yellow with pulp.
+look: |
+  Grey-bristled and heavy in the shoulder, and half drunk on the
+  windfalls, which does not make it slower. Its tusks curve up past its
+  snout, and its little eyes have fixed on you.
+level: 6
+attack:
+  verb: gore

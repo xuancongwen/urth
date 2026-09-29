@@ -1,0 +1,15 @@
+vnum: 1622
+name: The Hive Cluster
+description: |
+  The tunnel opens into a cathedral of living tissue. Great pillars of
+  bone rise into darkness, sheathed in muscle that flexes as you pass.
+  Everything here is connected to everything else by cords and veins, and
+  all of it is pulsing toward the same rhythm, faster than a heartbeat and
+  impossible to ignore. A cavern opens to the north, where something huge
+  shifts its weight. A shaft of glistening sinew descends into the dark,
+  and the tunnels are east.
+exits:
+  east: 1620
+  north: 1624
+  down: 1623
+flags: [dark]

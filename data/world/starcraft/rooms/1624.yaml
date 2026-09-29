@@ -1,0 +1,11 @@
+vnum: 1624
+name: The Ultralisk Cavern
+description: |
+  A cavern big enough to hide a starship, its floor churned into a mire of
+  creep and broken rock. The ceiling is gouged with long curved scars, as
+  if something had tried to carve its way out upward. Bones are heaped
+  against the walls, some of them from things that were very large, and
+  some of them wearing armor. The hive is south.
+exits:
+  south: 1622
+flags: [dark]

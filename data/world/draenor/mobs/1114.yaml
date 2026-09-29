@@ -1,0 +1,12 @@
+vnum: 1114
+name: an anchorite of the Resting Light
+keywords: [anchorite, draenei, priest]
+description: A draenei anchorite kneels before the turning crystal, lips moving.
+look: |
+  Old, even for her people, her skin gone pale lavender and her
+  tendrils white. She has not looked up from the crystal in a long
+  time and does not look up now, but she knows you are there, and she
+  says a word of blessing in your direction without breaking her
+  prayer.
+level: 15
+flags: [peaceful]

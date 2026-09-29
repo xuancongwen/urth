@@ -1,0 +1,10 @@
+vnum: 1315
+name: The Ossuary
+description: |
+  A long vault stacked to the ceiling with the sorted bones of a
+  thousand monks: skulls on one side, long bones on the other, the small
+  bones in heaps like dry rice. Some of the stacks have fallen. Some of
+  them have stood up. The passage is east.
+exits:
+  east: 1313
+flags: [dark]

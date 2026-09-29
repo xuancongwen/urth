@@ -1,0 +1,11 @@
+vnum: 1222
+name: The Stone Table
+description: |
+  A great slab of grey stone rests on four upright stones at the top of
+  the hill, very old and cut all over with lines and figures, like the
+  letters of a language no one speaks any more. The wind here always
+  seems to come from the east. Whatever happens at this table is meant
+  to be remembered, and the stones have not forgotten anything yet. The
+  ridge runs north, back down.
+exits:
+  north: 1221

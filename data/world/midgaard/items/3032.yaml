@@ -1,0 +1,15 @@
+vnum: 3032
+name: a steel halberd
+keywords: [steel, halberd]
+description: A steel halberd lies here.
+look: |
+  An axe blade, a spike, and a hook on a haft taller than a man,
+  polished bright for parade and sharp for everything else.
+type: weapon
+weight: 8
+level: 14
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

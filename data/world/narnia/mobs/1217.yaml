@@ -1,0 +1,12 @@
+vnum: 1217
+name: a centaur sentry
+keywords: [centaur, sentry]
+description: A centaur sentry paces the edge of the camp, bow in hand, watching the wood.
+look: |
+  A horse from the waist down, bay-coated and glossy, and a stern man
+  from the waist up, with a beard like a river and eyes that have read
+  the stars. He nods to you gravely and goes on watching.
+level: 7
+flags: [peaceful]
+attack:
+  verb: kick

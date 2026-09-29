@@ -1,0 +1,9 @@
+vnum: 3037
+name: The Mayor's Office
+description: |
+  A comfortable room with a thick rug, a desk buried in petitions, and a
+  sideboard of decanters much better tended than the petitions. A
+  portrait of the mayor, rather younger and thinner, hangs over the
+  fireplace. The Town Hall is west.
+exits:
+  west: 3036

@@ -1,0 +1,12 @@
+vnum: 1501
+name: a boiled-leather jerkin
+keywords: [boiled-leather, boiled, leather, jerkin]
+description: A jerkin of boiled leather, badged with a grey wolf, lies here.
+look: |
+  Stiff brown leather boiled in wax and shaped over a form, with a grey
+  wolf stitched on the breast. It is not steel, but it is warm, and
+  warmth is the first armor in the North.
+type: armor
+slot: body
+level: 7
+baseline: medium

@@ -1,0 +1,13 @@
+vnum: 1216
+name: Aslan
+keywords: [aslan, lion, great]
+description: A great golden lion stands before the pavilion, and the air around him is warm.
+look: |
+  You cannot look at him for long, and you cannot look away. He is
+  larger than a lion ought to be and his mane is the colour of the sun,
+  and when his eyes meet yours they are good and terrible at once. The
+  snow is melting because he is here.
+level: 9
+flags: [peaceful]
+attack:
+  verb: swipe

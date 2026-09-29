@@ -1,0 +1,9 @@
+vnum: 3052
+name: Outside the West Gate
+description: |
+  The cobbles give out into a rutted dirt road that runs west between
+  hedges and fields. A few carts are drawn up by the verge, waiting on
+  the guards' pleasure. The road beyond is washed out where the river
+  flooded last spring, and nobody has yet mended it. The gate is east.
+exits:
+  east: 3040

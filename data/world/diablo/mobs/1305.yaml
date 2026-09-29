@@ -1,0 +1,16 @@
+vnum: 1305
+name: Wirt
+keywords: [wirt, boy, peg-leg]
+description: Wirt sits on an upturned crate, peg leg stuck out, eyeing your purse.
+look: |
+  A thin boy of perhaps twelve with a sneer older than he is and a
+  wooden leg where the goatmen took his real one. He has goods nobody
+  else in Tristram has, and prices nobody else in Tristram would dare.
+  Do not ask where he gets them. He will tell you it is none of your
+  business, and he will be right.
+level: 8
+flags: [peaceful]
+attack:
+  verb: kick
+trades:
+  - { item: 1316, silver: 1500 }

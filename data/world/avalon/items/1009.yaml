@@ -1,0 +1,13 @@
+vnum: 1009
+name: a hauberk of blackened mail
+keywords: [hauberk, blackened, mail]
+description: A hauberk of blackened mail lies coiled here like a sleeping snake.
+look: |
+  Fine rings, each one riveted shut, blackened in oil and fire so they
+  give back no light at all. It is long enough to reach the knee, and
+  heavier than it looks.
+type: armor
+slot: body
+level: 10
+baseline: heavy
+weight: 14

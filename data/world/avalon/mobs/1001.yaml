@@ -1,0 +1,11 @@
+vnum: 1001
+name: a mist sprite
+keywords: [mist, sprite]
+description: A mist sprite coils over the water beside the barge, all eyes and trailing hair.
+look: |
+  A shape made of the lake's fog, pulled together into something like
+  a girl with long wet hair and no feet. It is curious about you. Its
+  curiosity feels a great deal like cold hands.
+level: 4
+attack:
+  verb: chill

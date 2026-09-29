@@ -1,0 +1,11 @@
+vnum: 1218
+name: a snow hare's pelt
+keywords: [snow, hare, hares, pelt, fur]
+description: A soft white pelt lies on the ground.
+look: |
+  The winter coat of a snow hare, white as the drifts and very warm.
+  Bootmakers and cloakmakers both want them.
+type: material
+material: hare fur
+weight: 0
+value: 4

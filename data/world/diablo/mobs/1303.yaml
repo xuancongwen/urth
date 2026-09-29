@@ -1,0 +1,17 @@
+vnum: 1303
+name: Pepin the healer
+keywords: [pepin, healer]
+description: Pepin sorts vials on his shelves, peering at each against the light.
+look: |
+  A small, tidy, anxious man with ink on his fingers and spectacles on a
+  ribbon. He has sewn up half the village and buried the other half,
+  and he has not slept properly since the Butcher came. He sells what
+  he brews, and he would like, if it is not too much trouble, a demon's
+  brain.
+level: 14
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 1300, silver: 25 }
+  - { item: 1313, silver: 120, items: [1312] }

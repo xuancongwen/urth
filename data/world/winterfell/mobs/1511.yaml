@@ -1,0 +1,13 @@
+vnum: 1511
+name: a wildling raider
+keywords: [wildling, raider, free, folk]
+description: A wildling raider in patched furs crouches by the fire, bronze axe across his knees.
+look: |
+  Wild-bearded and wind-burned, dressed in skins of a dozen animals and
+  carrying a bronze axe. A pouch at his belt clicks with black glass
+  when he moves. He came south of the Wall because the north of it is no
+  longer safe, and he will kill you rather than go back.
+level: 9
+silver: 45
+attack:
+  verb: hack

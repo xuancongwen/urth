@@ -1,0 +1,15 @@
+vnum: 1313
+name: The Bone Passage
+description: |
+  The walls of this passage are built of bones, skulls set in rows
+  between courses of thighbones, the whole of it mortared with lime gone
+  yellow. Some of the jaws hang open. A heavy wooden door to the east is
+  scored deep with cleaver marks and stands ajar; from beyond it comes a
+  thick sweet stink. West opens into a wider vault. The passage runs on
+  south, and back north to the stair.
+exits:
+  north: 1312
+  east: 1314
+  west: 1315
+  south: 1316
+flags: [dark]

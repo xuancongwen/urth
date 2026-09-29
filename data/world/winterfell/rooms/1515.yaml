@@ -1,0 +1,13 @@
+vnum: 1515
+name: The Foot of the Crypt Stair
+description: |
+  The stair ends in a vaulted passage that runs north into the dark,
+  cold and dry and still. Granite pillars march away in pairs, and
+  between each pair a stone lord sits on a stone throne with a stone
+  wolf curled at his feet and an iron sword laid across his knees, to
+  keep him in his tomb. The first faces are recent and grieving. The
+  stair climbs back up to the light.
+exits:
+  up: 1514
+  north: 1516
+flags: [dark]

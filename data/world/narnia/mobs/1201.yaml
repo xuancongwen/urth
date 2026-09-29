@@ -1,0 +1,14 @@
+vnum: 1201
+name: a grey wolf of the secret police
+keywords: [grey, wolf, secret, police]
+description: A grey wolf of the Queen's secret police lopes through the snow, nose down.
+look: |
+  Lean and rangy and very large, with a thick winter ruff and eyes that
+  take in everything. It wears no collar, but the way it moves says it
+  has a master. It speaks, when it bothers to, in a growl that knows
+  exactly how frightening it is.
+level: 5
+flags: [wander]
+attack:
+  verb: bite
+  kind: pierce

@@ -1,0 +1,12 @@
+vnum: 1623
+name: The Cerebrate's Chamber
+description: |
+  At the bottom of the shaft, in a chamber lined with pulsing membranes,
+  the cerebrate lies in a cradle of sinew: a vast grub-like mass, armored
+  in plates and crowned with glistening lobes. It has no eyes and needs
+  none. Its thoughts beat against yours like surf against a sea wall, and
+  every zerg in the badlands moves to that surf. The shaft climbs back up
+  to the hive.
+exits:
+  up: 1622
+flags: [dark]

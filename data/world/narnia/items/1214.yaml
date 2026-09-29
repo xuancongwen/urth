@@ -1,0 +1,12 @@
+vnum: 1214
+name: a pair of fur-lined boots
+keywords: [fur-lined, fur, boots]
+description: A pair of fur-lined boots stands here.
+look: |
+  Stout leather boots with the fur of snow hares sewn inside, soles
+  greased against the wet. Your toes will thank you.
+type: armor
+slot: feet
+level: 5
+baseline: light
+weight: 2

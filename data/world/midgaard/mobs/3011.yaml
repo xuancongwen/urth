@@ -1,0 +1,11 @@
+vnum: 3011
+name: the janitor
+keywords: [janitor]
+description: A janitor is sweeping up the rubbish, muttering.
+look: |
+  A bent old man with a broom and a sack. He picks up everything, and
+  what goes into the sack does not come out.
+level: 2
+flags: [wander]
+attack:
+  verb: whack

@@ -1,0 +1,14 @@
+vnum: 1124
+name: The Nether Shard
+description: |
+  An island not of rock but of crystal, black and green and faceted,
+  pulsing with light like a slow heartbeat. Its surface is scarred by
+  footprints the size of wagons and pitted with scorch marks from
+  weapons that fire more than arrows. North, a cleft in the crystal
+  opens into darkness. Above, at the very top of the shard, a platform
+  of iron and bone has been built, and something up there is roaring.
+  The high chain runs west.
+exits:
+  west: 1123
+  north: 1126
+  up: 1125

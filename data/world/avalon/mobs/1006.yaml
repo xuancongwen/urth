@@ -1,0 +1,13 @@
+vnum: 1006
+name: an orchard warden
+keywords: [orchard, warden, green, man]
+description: What you took for an apple tree takes a slow step toward you, leaves rustling.
+look: |
+  A thing of bark and bough in the rough shape of a man, with moss for
+  a beard and two knots for eyes. Apple blossom grows in its hair. It
+  tends the wild rows, and it does not care for strangers among them.
+  It carries a staff cut from its own kind.
+level: 7
+stats: {strength: 13, dexterity: 8}
+attack:
+  verb: lash

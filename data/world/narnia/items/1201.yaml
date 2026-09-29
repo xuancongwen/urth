@@ -1,0 +1,12 @@
+vnum: 1201
+name: a grey wolf's fang
+keywords: [grey, wolf, fang, tooth]
+description: A long curved fang lies in the snow.
+look: |
+  A yellowed canine as long as your finger, taken from one of the
+  Queen's wolves. In the sledge-sheds of Narnia a fang like this is
+  proof that one fewer of them is hunting.
+type: material
+material: wolf fang
+weight: 0
+value: 6

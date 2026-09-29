@@ -1,0 +1,10 @@
+vnum: 1028
+name: Morgan's Solar
+description: |
+  The top of the tower is one round chamber, bright with windows on
+  every side, though from outside the tower had none. A loom stands by
+  one window, a scrying bowl of black water by another, and shelves of
+  jars and bones and books line the walls between. The view shows the
+  whole isle, and a few places that are not on it. The stair goes down.
+exits:
+  down: 1021

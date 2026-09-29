@@ -1,0 +1,9 @@
+vnum: 3049
+name: The City Dump
+description: |
+  Heaps of broken pottery, rotten cabbage, old boots, and bones slope
+  down into the river. Gulls wheel and scream overhead. Scavengers of
+  every kind pick through the refuse, some of them on two legs. The
+  riverbank path leads back west.
+exits:
+  west: 3048

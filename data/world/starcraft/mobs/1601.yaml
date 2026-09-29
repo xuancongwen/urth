@@ -1,0 +1,19 @@
+vnum: 1601
+name: Chief Engineer Vasquez
+keywords: [chief, engineer, vasquez]
+description: Chief Engineer Vasquez is elbow-deep in a gantry, swearing at a servo.
+look: |
+  A small, wiry woman in a grease-black jumpsuit, a welding visor pushed
+  up on her forehead and a fusion cutter holstered at her hip like a
+  sidearm. She is building better armor from the parts of the things that
+  keep killing the marines, and she is always short of parts. Bring her
+  carapace, minerals, and gas, and a little coin for her trouble, and she
+  will build you something. Type 'list' to see what.
+level: 20
+flags: [peaceful]
+attack:
+  verb: whack
+trades:
+  - { item: 1616, silver: 400, items: [1609, 1609, 1609] }
+  - { item: 1617, silver: 450, items: [1607, 1607, 1608, 1608] }
+  - { item: 1606, items: [1607, 1607] }

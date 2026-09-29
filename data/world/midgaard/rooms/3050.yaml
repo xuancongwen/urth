@@ -1,0 +1,10 @@
+vnum: 3050
+name: The Entrance to the Thieves' Guild
+description: |
+  A cramped vestibule behind the unmarked door. Coats hang on pegs, and
+  the pockets of every one of them have been turned out. A curtain to
+  the west hides the guild's den. The dark alley lies east.
+exits:
+  east: 3034
+  west: 3051
+flags: [safe]

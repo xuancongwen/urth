@@ -1,0 +1,13 @@
+vnum: 1106
+name: a wandering sporeling
+keywords: [wandering, sporeling]
+description: A small sporeling toddles through the mud, humming to itself.
+look: |
+  Knee-high, soft-skinned, and roughly shaped like a person made of
+  mushroom. The fronds on its head glow brighter when it notices you,
+  and it chirps a question you do not understand. It is out gathering,
+  and a little lost, and not worried about it.
+level: 12
+flags: [peaceful, wander]
+attack:
+  verb: slap

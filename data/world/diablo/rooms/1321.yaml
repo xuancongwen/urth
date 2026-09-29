@@ -1,0 +1,10 @@
+vnum: 1321
+name: The Goatmen's Warren
+description: |
+  Hides, bones, and dung make up most of this cave, and the rest is
+  clan totems of horn and braided hair. Cookfires smoulder in rings of
+  stone. Whatever lives here lives in a band, and bleats to itself in
+  something almost like words. The hide curtain is west.
+exits:
+  west: 1320
+flags: [dark]

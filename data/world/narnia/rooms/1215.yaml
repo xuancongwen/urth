@@ -1,0 +1,11 @@
+vnum: 1215
+name: The Great Hall of Ice
+description: |
+  A long hall of pillars, each carved from a single column of blue ice.
+  Frost-ferns grow across the floor and up the walls in slow patterns,
+  and the whole room hums faintly, like a finger drawn round the rim of
+  a glass. The ceiling is lost in a cold mist. A pair of doors stands
+  at the north end, taller than they need to be. The courtyard is south.
+exits:
+  south: 1214
+  north: 1218

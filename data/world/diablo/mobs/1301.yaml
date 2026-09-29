@@ -1,0 +1,17 @@
+vnum: 1301
+name: Ogden the innkeeper
+keywords: [ogden, innkeeper, keeper, host]
+description: Ogden polishes a mug behind the bar and nods at you warily.
+look: |
+  A thick-waisted man with forearms like hams and a worried pucker
+  between his eyes that has not left in months. He keeps the Rising Sun
+  open because someone should, and sells lanterns and his wife's
+  potions to the fools who go down into the cathedral, and he is always
+  a little surprised to see them again.
+level: 12
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1301, silver: 30 }
+  - { item: 1300, silver: 30 }

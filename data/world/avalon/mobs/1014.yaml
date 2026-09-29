@@ -1,0 +1,16 @@
+vnum: 1014
+name: Morgan le Fay
+keywords: [morgan, fay, sorceress, enchantress]
+description: Morgan le Fay turns from her scrying bowl, and smiles as if she had been waiting.
+look: |
+  Dark-haired and pale, in a gown the colour of a raven's wing that
+  shows purple when she moves. She is a queen and a healer and a
+  sorceress, sister to a king and no friend to him. Her eyes are grey
+  and very steady. A mantle of feathers rustles at her shoulders
+  without any wind to stir it.
+level: 12
+health: 420
+silver: 90
+stats: {intelligence: 18, dexterity: 13, wisdom: 14}
+attack:
+  verb: curse

@@ -1,0 +1,15 @@
+vnum: 1617
+name: a vespene-charged gauss rifle
+keywords: [vespene-charged, vespene, charged, gauss, rifle]
+description: A gauss rifle with green-glowing coils lies here.
+look: |
+  A C-14 rebuilt by the outpost's engineers: new coils wound with mineral
+  filament and a vespene cell clipped under the barrel to drive them. The
+  spikes leave the rails glowing and the air behind them smells scorched.
+type: weapon
+level: 22
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: burst

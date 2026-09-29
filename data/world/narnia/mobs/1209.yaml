@@ -1,0 +1,12 @@
+vnum: 1209
+name: a spy-raven
+keywords: [spy-raven, spy, raven, bird]
+description: A big black raven watches from a branch, head cocked.
+look: |
+  Glossy and heavy-beaked, with an eye like a drop of ink. It is
+  counting you. When it has finished counting it will fly off to tell
+  someone the number.
+level: 3
+attack:
+  verb: peck
+  kind: pierce

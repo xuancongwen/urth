@@ -1,0 +1,18 @@
+vnum: 1406
+name: Brannoc the blacksmith
+keywords: [brannoc, blacksmith, smith, merchant]
+description: Brannoc the blacksmith hammers at a glowing blade, sparks flying.
+look: |
+  A broad, bald man with forearms like hams and a leather apron black
+  with scale. He works iron for the keep and does not much care who
+  pays so long as they pay. He is always short of ore, and he has
+  heard there are dragons in the mountains. Type list to see his wares.
+level: 14
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1406, silver: 200 }
+  - { item: 1407, silver: 180 }
+  - { item: 1415, silver: 350, items: [1404, 1404] }
+  - { item: 1414, silver: 600, items: [1405, 1405, 1405] }

@@ -1,0 +1,15 @@
+vnum: 1107
+name: a horned skull helm
+keywords: [horned, skull, helm]
+description: A helm made from a great horned skull lies here.
+look: |
+  The skull of some beast of the wastes, horns and all, cut and lined
+  with iron and padded with hide. It is heavy, and it smells, and
+  whoever wears it walks a little taller and hits a little harder.
+type: armor
+slot: head
+level: 16
+baseline: heavy
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 1 }

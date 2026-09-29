@@ -1,0 +1,11 @@
+vnum: 3042
+name: The Bridge over the River
+description: |
+  An old stone bridge arches over the slow brown river that runs along
+  Midgaard's southern edge. Barges pass beneath, poled by men with
+  opinions about the weather. The Common Square lies north, the far bank
+  and the graveyard south, and a muddy path runs east along the bank.
+exits:
+  north: 3025
+  east: 3048
+  south: 3043

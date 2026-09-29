@@ -1,0 +1,13 @@
+vnum: 1505
+name: Old Nan
+keywords: [old, nan, crone, nurse]
+description: Old Nan sits by the solar fire, knitting, and tells a story to no one in particular.
+look: |
+  So old and small she seems mostly made of shawls. Her eyes are milky
+  and her needles never stop. If you sit, she will tell you of the Long
+  Night, and the cold things that walked in it, and she will not tell it
+  as if it were a story.
+level: 6
+flags: [peaceful]
+attack:
+  verb: poke

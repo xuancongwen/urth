@@ -1,0 +1,12 @@
+vnum: 1408
+name: The Warlock's Altar
+description: |
+  A pit room behind the great hall, dug down into the clay and lined
+  with black stone that was carried here from somewhere else. There is
+  no torch. An altar squats at the far end, carved with runes that
+  glow a sick green when you are not looking at them directly. The
+  floor around it is scorched in the shape of a circle, and the smell
+  is brimstone and burnt hair. East, the leather curtain and the hall.
+exits:
+  east: 1404
+flags: [dark]

@@ -1,0 +1,37 @@
+interval_seconds: 300
+resets:
+  # --- the Lantern Waste ---
+  - { mob: 1208, room: 1202, max: 3, equip: [{ item: 1218 }] }   # snow hares carry their pelts
+  - { mob: 1208, room: 1207, max: 3, equip: [{ item: 1218 }] }
+  - { mob: 1200, room: 1203 }                                     # Mr Tumnus at home
+  - { item: 1212, room: 1203 }                                    # his muffler, over a chair
+  - { mob: 1209, room: 1204, max: 3, equip: [{ item: 1202 }] }    # spy-ravens drop feathers
+  - { mob: 1209, room: 1209, max: 3, equip: [{ item: 1202 }] }
+  # --- the Beavers ---
+  - { mob: 1203, room: 1206 }
+  - { mob: 1204, room: 1206 }                                     # Mrs Beaver, merchant
+  - { item: 1216, room: 1206 }                                    # a roll left cooling
+  # --- Father Christmas ---
+  - { mob: 1205, room: 1210 }                                     # merchant: gifts for wolf fangs
+  # --- the Witch's wolves ---
+  - { mob: 1201, room: 1207, max: 4, equip: [{ item: 1201 }] }    # wolves carry fangs
+  - { mob: 1201, room: 1208, max: 4, equip: [{ item: 1201 }] }
+  - { mob: 1201, room: 1217, max: 4, equip: [{ item: 1201 }] }
+  - { mob: 1202, room: 1217, equip: [{ item: 1205, slot: neck }, { item: 1201 }] }   # Maugrim
+  # --- the dwarves ---
+  - { mob: 1206, room: 1211, max: 2, equip: [{ item: 1203, slot: wield }] }
+  - { mob: 1219, room: 1229, max: 3, equip: [{ item: 1215, slot: body }] }
+  - { mob: 1207, room: 1213, equip: [{ item: 1204, slot: wield }, { item: 1217 }] }
+  # --- the Witch's castle ---
+  - { mob: 1213, room: 1215 }                                     # minotaur at the throne-room doors
+  - { mob: 1215, room: 1216 }                                     # werewolf in the dungeon
+  - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }] }
+  # --- Aslan's side ---
+  - { mob: 1216, room: 1220 }
+  - { mob: 1217, room: 1220, max: 2 }
+  # --- the Stone Table and the war camp ---
+  - { mob: 1211, room: 1222 }
+  - { mob: 1212, room: 1223, max: 2 }
+  - { mob: 1210, room: 1223, max: 3 }
+  # --- the coast ---
+  - { mob: 1218, room: 1228, max: 2 }

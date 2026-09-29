@@ -1,0 +1,12 @@
+vnum: 1026
+name: The Barrow Passage
+description: |
+  A passage of fitted stone slabs slopes down into the hill, so low you
+  must stoop. Niches in the walls hold bones laid out neatly, skulls at
+  one end, with bronze pins and amber beads among them. The dust here
+  has not been disturbed in centuries, except by the footprints that
+  come up out of the dark and go back down again. Daylight is up.
+exits:
+  up: 1025
+  down: 1027
+flags: [dark]

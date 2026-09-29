@@ -1,0 +1,13 @@
+vnum: 1106
+name: The Citadel Road
+description: |
+  Dressed stone, laid by builders who meant it to last, and it has,
+  though the carts that use it now have iron-shod wheels and leave deep
+  grooves. Siege engines lie broken in the ditches, too heavy to salvage
+  and too big to burn. East the citadel fills half the sky, all ramps
+  and spikes and chains. The foot of the stair is west, and the scree to
+  the crater climbs north.
+exits:
+  west: 1102
+  north: 1105
+  east: 1107

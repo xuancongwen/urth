@@ -1,0 +1,12 @@
+vnum: 1317
+name: The Tomb of the King
+description: |
+  A round chamber with a throne of carved stone set on a dais, and
+  before it a bier where a king should be lying and is not. Rusted
+  banners bearing the crowned lion hang in rags. Behind the throne a
+  crack in the floor has been widened into a rough shaft that breathes
+  warm air up from far below. The crypts are north.
+exits:
+  north: 1316
+  down: 1318
+flags: [dark]

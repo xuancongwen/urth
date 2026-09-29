@@ -1,0 +1,12 @@
+vnum: 1027
+name: The Chamber of the Old Kings
+description: |
+  The passage opens into a corbelled chamber, its roof a beehive of
+  overlapping stones. Stone biers stand around the walls, and on each
+  lies a shape in rotted furs with a bronze blade on its breast. All
+  but one are still. At the centre, on a throne cut from a single
+  block, sits a king older than any name the isle remembers. The
+  passage climbs back up.
+exits:
+  up: 1026
+flags: [dark]

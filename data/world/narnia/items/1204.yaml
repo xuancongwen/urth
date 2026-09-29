@@ -1,0 +1,16 @@
+vnum: 1204
+name: a sledge-driver's whip
+keywords: [sledge-driver, sledge, driver, whip]
+description: A long whip with a silver-tipped lash lies coiled here.
+look: |
+  Braided black leather, a stock of polished bone, and a small silver
+  weight at the end of the lash. It has been used on reindeer. It has
+  been used on other things, too.
+type: weapon
+level: 6
+baseline: standard
+weight: 2
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

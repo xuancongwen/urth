@@ -94,10 +94,14 @@ func cmdCopyover(w *World, p *Player, _ string) {
 // adds a piece by giving it the flag.
 const outfitFlag = "outfit"
 
+// newbieFlag marks the sub issue gear every new character starts with
+// (data/world/start, items 130 to 134), as ROM's outfit did.
+const newbieFlag = "newbie"
+
 // cmdOutfit: outfit. Creates one of every item flagged "outfit" and puts
 // each on where a slot is free; the rest go in the pack.
 func cmdOutfit(w *World, p *Player, _ string) {
-	worn, packed := w.outfit(p.Character)
+	worn, packed := w.outfit(p.Character, outfitFlag)
 	if len(worn)+len(packed) == 0 {
 		p.Send("No items are flagged " + outfitFlag + ".\n")
 		return
@@ -123,13 +127,13 @@ func cmdOutfit(w *World, p *Player, _ string) {
 	w.save(p)
 }
 
-// outfit creates the outfit set for c, in vnum order, and equips each
-// piece in the first free position its slot allows. It returns what it
-// put on and what it left in the inventory.
-func (w *World) outfit(c *Character) (worn, packed []*item.Item) {
+// outfit creates every item flagged flag for c, in vnum order, and
+// equips each piece in the first free position its slot allows. It
+// returns what it put on and what it left in the inventory.
+func (w *World) outfit(c *Character, flag string) (worn, packed []*item.Item) {
 	var protos []*item.Proto
 	for _, p := range w.content.Items {
-		if p.HasFlag(outfitFlag) {
+		if p.HasFlag(flag) {
 			protos = append(protos, p)
 		}
 	}

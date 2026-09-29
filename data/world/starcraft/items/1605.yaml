@@ -1,0 +1,12 @@
+vnum: 1605
+name: a marine's field pack
+keywords: [marine, marines, field, pack, backpack]
+description: A khaki field pack with a dozen pockets lies here.
+look: |
+  Heavy canvas with neosteel buckles and a Confederate eagle stencilled
+  on the flap. It has a pocket for everything a marine needs and three
+  more for the things a marine is not supposed to have.
+type: container
+capacity: 60
+weight: 3
+value: 80

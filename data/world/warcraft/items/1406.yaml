@@ -1,0 +1,15 @@
+vnum: 1406
+name: a footman's longsword
+keywords: [footman, footmans, longsword, sword]
+description: A plain steel longsword lies here.
+look: |
+  A straight blade with a wire-wrapped grip and a lion stamped on the
+  crossguard, made by the hundred in the keep's forge. There is nothing
+  special about it, which is the point: it will not break.
+type: weapon
+level: 10
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,11 @@
+vnum: 1509
+name: a pitch-soaked torch
+keywords: [pitch-soaked, pitch, torch]
+description: A pitch-soaked torch lies here.
+look: |
+  A length of pine wrapped in rags and dipped in pitch. It smokes and it
+  stinks, and it burns long enough to see the Kings of Winter and come
+  back out again.
+type: light
+burn: 900
+value: 10

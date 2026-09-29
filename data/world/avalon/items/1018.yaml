@@ -1,0 +1,13 @@
+vnum: 1018
+name: a boar-hide jerkin
+keywords: [boar-hide, boar, hide, jerkin]
+description: A jerkin of bristly boar hide lies here.
+look: |
+  Two boar hides, tanned stiff, cut and laced into a sleeveless jerkin
+  with the bristles turned outward. It smells faintly of cider, and it
+  will turn a blade that comes at it carelessly.
+type: armor
+slot: body
+level: 6
+baseline: light
+weight: 6

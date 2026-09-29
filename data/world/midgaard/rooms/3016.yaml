@@ -1,0 +1,9 @@
+vnum: 3016
+name: Main Street
+description: |
+  A lamp-post stands here, its glass cracked, and a notice board is
+  plastered with bills: lost dogs, wanted thieves, a reward for rats
+  brought out of the sewers. Main Street continues east and west.
+exits:
+  east: 3017
+  west: 3015

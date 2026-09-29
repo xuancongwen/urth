@@ -1,0 +1,12 @@
+vnum: 1520
+name: A Path in the Godswood
+description: |
+  Three acres of old forest left standing inside the castle walls, dark
+  with sentinel pine and soldier oak and ironwood. The path is soft with
+  needles and there is no wind here at all. Steam threads between the
+  trunks from somewhere east, and north the trees open around a pale
+  shape. The glass gardens glitter back to the west.
+exits:
+  west: 1519
+  north: 1521
+  east: 1522

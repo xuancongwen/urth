@@ -1,0 +1,13 @@
+vnum: 1007
+name: a dented great helm
+keywords: [dented, great, helm]
+description: A dented great helm lies on its side here.
+look: |
+  A barrel of riveted iron with a cross-shaped slit for the eyes, dented
+  on the crown where something struck it very hard a very long time ago.
+  It smells of old sweat and older rain.
+type: armor
+slot: head
+level: 8
+baseline: heavy
+weight: 6

@@ -1,0 +1,14 @@
+vnum: 1003
+name: The Apple Strand
+description: |
+  The barge's prow grinds on a beach of pale sand strewn with fallen
+  apples, red and gold, more than anyone could gather. The mist lifts
+  here as if it were a curtain someone had pulled aside. A path climbs
+  north between apple trees, a causeway of flat stones runs south into
+  the reeds, and a shingle track bends east toward a dark tower on a
+  spit of rock. The barge waits to the west.
+exits:
+  west: 1002
+  north: 1004
+  south: 1013
+  east: 1019

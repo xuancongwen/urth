@@ -1,0 +1,10 @@
+vnum: 1609
+name: The Vespene Refinery
+description: |
+  A refinery has been built straight over a vespene geyser like a lid on
+  a pot, and it is not quite a good enough lid. Green gas vents from its
+  seams in lazy plumes that smell of rotten eggs and burnt sugar. Pressure
+  gauges shudder in the red. Racks of filled canisters wait for a haul
+  crawler that is late. The mineral field is south.
+exits:
+  south: 1608

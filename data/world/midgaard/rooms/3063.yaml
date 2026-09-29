@@ -1,0 +1,10 @@
+vnum: 3063
+name: The Sewers
+description: |
+  The brickwork is older here, rounded and green. The water is deeper
+  and colder, and the channel east ends in a great arched culvert choked
+  with filth. The tunnel runs north.
+exits:
+  north: 3062
+  east: 3064
+flags: [dark]

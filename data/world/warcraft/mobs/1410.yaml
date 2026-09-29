@@ -1,0 +1,13 @@
+vnum: 1410
+name: a grey forest wolf
+keywords: [grey, forest, wolf]
+description: A grey forest wolf pads between the trees, head low.
+look: |
+  Lean and long-legged, grey with a darker saddle, and bold in a way
+  wolves should not be. The fighting in the hills has fed the packs
+  well.
+level: 8
+flags: [wander]
+attack:
+  kind: bite
+  verb: bite

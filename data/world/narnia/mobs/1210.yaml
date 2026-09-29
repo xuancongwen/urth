@@ -1,0 +1,14 @@
+vnum: 1210
+name: a boggle of the Witch's host
+keywords: [boggle, host]
+description: A boggle hunches by the cauldron, picking its teeth with a splinter.
+look: |
+  Knobbly, grey-green, about the size of a child and a great deal less
+  pleasant. It has joined the Queen's host for the promise of the
+  spoils, and it wants you to know it is not afraid of you.
+level: 6
+flags: [wander]
+silver: 20
+attack:
+  verb: claw
+  kind: slash

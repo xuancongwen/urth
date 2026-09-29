@@ -1,0 +1,18 @@
+vnum: 1004
+name: a silver hunting horn
+keywords: [silver, hunting, horn]
+description: A silver hunting horn on a green baldric lies here.
+look: |
+  A curved horn of white silver, chased with running hounds, hung on a
+  baldric of green silk. Blown, it would be heard in places that are
+  not quite this world. Wearing it, you stand straighter.
+type: armor
+slot: neck
+level: 11
+weight: 2
+value: 220
+effects:
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }

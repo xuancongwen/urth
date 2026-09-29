@@ -1,0 +1,14 @@
+vnum: 1610
+name: an infested colonist
+keywords: [infested, colonist, terran]
+description: An infested colonist shambles here, its body swollen and pulsing.
+look: |
+  It was a person. It still wears the rags of a farmer's coveralls. But
+  its skin has gone grey and knotted with purple growths, one arm has
+  become a hooked claw, and its belly is swollen tight with something that
+  moves. It mumbles to itself in a voice that is almost words.
+level: 18
+silver: 40
+attack:
+  kind: slash
+  verb: claw

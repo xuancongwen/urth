@@ -1,0 +1,12 @@
+vnum: 3004
+name: a torch
+keywords: [torch]
+description: A pitch-soaked torch lies here.
+look: |
+  A stout stick wrapped in pitch-soaked rag. It burns smoky and bright
+  for a while.
+type: light
+slot: light
+weight: 1
+value: 8
+burn: 600

@@ -1,0 +1,12 @@
+vnum: 1122
+name: A Floating Island
+description: |
+  An island of red rock the size of a village green, drifting, tilted,
+  its underside a tangle of roots and dangling stone. Everything sways a
+  little. A waterfall pours off the south edge and breaks into mist long
+  before it lands on anything. Broad, finned shapes wheel in the void
+  around the island, curious. The chain bridge sags back west to the
+  rim; another, steeper, climbs to a higher rock above.
+exits:
+  west: 1121
+  up: 1123

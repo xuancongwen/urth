@@ -1,0 +1,13 @@
+vnum: 1206
+name: Inside the Beavers' Lodge
+description: |
+  One round room, low and wonderfully warm. Hams hang from the rafters
+  beside strings of onions, and there are bunks built into the wall like
+  berths on a ship. A sewing machine sits in the corner under a lamp,
+  and a pot on the fire smells of potatoes and something fried. Every
+  surface that is not in use is full of jars. A ladder leads up to the
+  dam.
+exits:
+  up: 1205
+flags: [safe]
+position: {x: 2, y: 1, z: -1}

@@ -1,0 +1,12 @@
+vnum: 1518
+name: a gardener
+keywords: [gardener, glass, garden]
+description: A gardener in shirtsleeves tends the blue roses, sweating in the warm air.
+look: |
+  A stooped man with dirt to the elbows and a clay pipe clenched unlit
+  in his teeth. He is the only man in Winterfell who does not own a
+  cloak and does not want one. He is very protective of the roses.
+level: 6
+flags: [peaceful]
+attack:
+  verb: punch

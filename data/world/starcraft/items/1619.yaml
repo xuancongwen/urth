@@ -1,0 +1,11 @@
+vnum: 1619
+name: a scorched set of dog tags
+keywords: [scorched, dog, tags, dogtags]
+description: A pair of blackened dog tags on a chain lies here.
+look: |
+  Two neosteel tags on a bead chain, the stamped name half melted away.
+  The last surviving line reads ALPHA SQUADRON. Somebody at the outpost
+  has been waiting a long time to know what happened to the one who wore
+  them.
+type: other
+flags: [quest]

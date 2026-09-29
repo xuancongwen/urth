@@ -1,0 +1,14 @@
+vnum: 3001
+name: the wizard
+keywords: [wizard, shopkeeper]
+description: The wizard peers at you over half-moon spectacles from behind the counter.
+look: |
+  A stooped old man in a robe embroidered with stars, most of them
+  coming unstitched. His fingers are stained a dozen colours, and one of
+  his eyebrows is missing.
+level: 12
+flags: [peaceful]
+trades:
+  - { item: 3023, silver: 180 }
+  - { item: 3030, silver: 120, items: [3026, 3026] }
+  - { item: 3033, items: [3029, 3029] }

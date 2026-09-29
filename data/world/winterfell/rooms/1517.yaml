@@ -1,0 +1,12 @@
+vnum: 1517
+name: The Deep Crypts
+description: |
+  Here the tombs are so old the names have gone from them. The pillars
+  are rough and the thrones are half-sunk into the floor, and some of the
+  statues have no swords at all. Something has scraped at the floor of
+  one tomb from the inside. A cleft in the rock beside it drops lower,
+  into a colder dark. The passage leads back south.
+exits:
+  south: 1516
+  down: 1518
+flags: [dark]

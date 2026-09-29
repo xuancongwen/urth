@@ -1,0 +1,11 @@
+vnum: 1015
+name: a will-o'-the-wisp
+keywords: [will-o-the-wisp, wisp, light]
+description: A pale green light bobs between the trees, just out of reach.
+look: |
+  A flame with no candle, drifting at the height of a lantern held by
+  someone who is not there. Follow it and it leads you off the path.
+  Strike at it and it strikes back, and it burns cold.
+level: 5
+attack:
+  verb: sear

@@ -1,0 +1,11 @@
+vnum: 1607
+name: a chunk of blue mineral crystal
+keywords: [chunk, blue, mineral, minerals, crystal]
+description: A chunk of glowing blue crystal lies here.
+look: |
+  A heavy, faceted wedge of mineral crystal hacked from a field cluster.
+  It glows faintly and hums when you tap it. The outpost runs on this
+  stuff: refined, it becomes armor plate, gun rails, and whole buildings.
+type: other
+weight: 4
+value: 12

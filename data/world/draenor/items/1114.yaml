@@ -1,0 +1,15 @@
+vnum: 1114
+name: a pair of marshwalker boots
+keywords: [marshwalker, boots]
+description: A pair of soft, spongy boots lies here.
+look: |
+  Boots grown rather than stitched, from a leathery fungus that keeps
+  water out and grips wet stone like a frog's foot. A single naga scale
+  is sewn into each heel, for luck or for strength.
+type: armor
+slot: feet
+level: 13
+baseline: light
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

@@ -1,0 +1,10 @@
+vnum: 3015
+name: the high priest
+keywords: [high, priest, cleric, guildmaster]
+description: The high priest of Midgaard sits reading by the brazier.
+look: |
+  An old woman in plain white, with a face lined by kindness and a very
+  direct gaze. She has buried a great many adventurers and healed rather
+  more.
+level: 14
+flags: [peaceful]

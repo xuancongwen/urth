@@ -1,0 +1,10 @@
+vnum: 3008
+name: a bottle of firebreather
+keywords: [bottle, firebreather]
+description: A bottle of firebreather has been left here.
+look: |
+  A squat green bottle. The label shows a dragon, and the dragon looks
+  unwell.
+type: other
+weight: 1
+value: 20

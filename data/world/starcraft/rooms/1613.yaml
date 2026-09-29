@@ -1,0 +1,11 @@
+vnum: 1613
+name: The Temple Steps
+description: |
+  A stair of gold-veined stone climbs to a temple that looks less built
+  than grown, all sweeping curves and blades of crystal that catch the
+  sunset and hold it. Blue light pulses slowly in channels along the
+  steps, like a heartbeat. Zealot sentries stand at the top in still,
+  perfect silence. The canyon is north; the temple doors are south.
+exits:
+  north: 1612
+  south: 1614

@@ -1,0 +1,9 @@
+vnum: 3000
+name: a loaf of bread
+keywords: [loaf, bread]
+description: A crusty loaf of bread sits here.
+look: |
+  Still faintly warm, with a crackling crust dusted in flour.
+type: other
+weight: 1
+value: 5

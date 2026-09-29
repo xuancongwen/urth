@@ -1,0 +1,12 @@
+vnum: 1318
+name: The Cave Landing
+description: |
+  The shaft opens onto a shelf of natural rock above a cavern too large
+  for any light to find its walls. Water drips somewhere with a slow
+  patience. Scratches on the stone around the shaft mouth say that
+  something climbs up and down it often, on more than two legs. A path
+  picks its way east along the shelf.
+exits:
+  up: 1317
+  east: 1319
+flags: [dark]

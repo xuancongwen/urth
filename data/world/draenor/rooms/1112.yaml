@@ -1,0 +1,13 @@
+vnum: 1112
+name: The Sporeling Village
+description: |
+  A dozen huts grown rather than built, each a hollowed mushroom cap
+  upended on a short stalk, doors curtained with woven moss. The people
+  here are knee-high and walk on stubby legs, and the fronds on their
+  heads glow softly when they talk, which is often, in a chirping that
+  sounds like laughter. They have decided you are harmless. Nobody
+  fights here, by some understanding older than you. The causeway is
+  east.
+exits:
+  east: 1111
+flags: [safe]

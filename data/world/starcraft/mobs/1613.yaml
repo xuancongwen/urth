@@ -1,0 +1,20 @@
+vnum: 1613
+name: the ultralisk
+keywords: [ultralisk, ultra, zerg, beast]
+description: The ultralisk lowers its massive head and paws the creep, kaiser blades raised.
+look: |
+  A living siege engine the size of a house, armored in overlapping plates
+  thick as a bunker wall, with a tiny, bony head sunk between two enormous
+  scything blades that curve from its shoulders. The ground shakes when it
+  shifts. There is nothing in its eyes at all, only the cerebrate's will.
+level: 24
+health: 1800
+silver: 250
+armor:
+  defense: 14
+attack:
+  kind: slash
+  verb: gore
+effects:
+  - kind: soak
+    params: { power: 0.15 }

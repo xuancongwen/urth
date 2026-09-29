@@ -1,0 +1,16 @@
+vnum: 1611
+name: a psi blade gauntlet
+keywords: [psi, blade, gauntlet, psiblade]
+description: A golden gauntlet set with a pale crystal lies here, dormant.
+look: |
+  A gauntlet of gold-bronze alloy fitted to a long, three-fingered hand, a
+  khaydarin crystal set in the back of the wrist. Close your hand and focus,
+  and a blade of blue psionic energy sings out from the crystal, bright
+  enough to cut shadows.
+type: weapon
+level: 21
+baseline: dagger
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice

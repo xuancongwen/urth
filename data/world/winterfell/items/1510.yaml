@@ -1,0 +1,15 @@
+vnum: 1510
+name: a boar spear
+keywords: [boar, spear]
+description: A long boar spear with a crossbar lies here.
+look: |
+  An ash shaft taller than a man, a broad iron head, and a crossbar
+  below it so the boar cannot run up the shaft to reach you. It works
+  on things that are not boars as well.
+type: weapon
+level: 10
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

@@ -1,0 +1,13 @@
+vnum: 1219
+name: A Wood Where the Snow Is Melting
+description: |
+  Water is dripping from every branch. The snow has gone heavy and grey,
+  sliding off the firs in soft thumps, and here and there a patch of
+  green moss shows through. A stream you did not hear before is running
+  somewhere near, loud and cheerful. Birds are singing. North is the
+  glade; east, a hillside with coloured pavilions; south, a long rise
+  crowned by grey stones.
+exits:
+  north: 1208
+  east: 1220
+  south: 1221

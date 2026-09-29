@@ -1,0 +1,12 @@
+vnum: 1121
+name: The Broken Rim
+description: |
+  Behind the citadel the world ends. The rock simply stops in a ragged
+  edge, and beyond it there is no ground below, only a violet-black
+  gulf streaked with green light, and in it, rising and sinking like
+  corks, islands of torn earth trailing roots and rivers that fall into
+  nothing. A bridge of chain and planks sags out to the nearest one,
+  east. The small door back into the warchief's hall is west.
+exits:
+  west: 1109
+  east: 1122

@@ -1,0 +1,15 @@
+vnum: 3033
+name: a fido-bone charm
+keywords: [fido-bone, fido, bone, charm]
+description: A little charm of carved bone lies here.
+look: |
+  Two gnawed bones carved and lashed into the shape of a running dog.
+  The wizard claims it makes you quicker on your feet. It certainly
+  smells like it might.
+type: armor
+slot: hold
+weight: 0
+level: 3
+value: 30
+effects:
+  - { kind: dodge, params: { amount: 0.02 } }

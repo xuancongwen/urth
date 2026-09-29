@@ -7,12 +7,15 @@ description: |
   green smell of turned earth and pipe-smoke. East, salt and the cry of
   gulls. North, a cold that stings the nose. South, hot iron, oil, and
   a rumbling under the feet like a machine the size of a country.
+  In the middle of the floor a spiral stair goes down, and from below
+  comes a draught that smells of a great many places at once.
 exits:
   up: 5
   west: 400
   east: 500
   north: 600
   south: 800
+  down: 7
 flags: [safe]
 doors:
   west: {name: the green-wood door}

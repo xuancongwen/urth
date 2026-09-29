@@ -1,0 +1,15 @@
+vnum: 1612
+name: a mutalisk
+keywords: [mutalisk, muta, zerg, flyer]
+description: A mutalisk hangs from the ceiling of bone, wings folded like a bat's.
+look: |
+  A flying horror with a long whip of a tail and a mouth that spits living
+  glaive-worms, which ricochet from one target to the next. Its wings are
+  membranes stretched between spines, and when it unfolds them it fills
+  half the chamber.
+level: 21
+flags: [assist]
+silver: 50
+attack:
+  kind: pierce
+  verb: glaive

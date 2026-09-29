@@ -1,0 +1,19 @@
+vnum: 1402
+name: Zazzik the goblin trader
+keywords: [zazzik, goblin, trader, merchant]
+description: Zazzik the goblin trader perches on a crate, counting coins twice.
+look: |
+  A goblin in a waistcoat with too many pockets and a pair of brass
+  goggles pushed up on his bald head. He will sell to the Horde, to the
+  Alliance, to you, and to anyone else, and he does not see why any of
+  them should mind. Type list to see what he has.
+level: 12
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 1417, silver: 25 }
+  - { item: 1401, silver: 240 }
+  - { item: 1402, silver: 260 }
+  - { item: 1419, silver: 150, items: [1403, 1403, 1403] }
+  - { item: 1409, items: [1400, 1400, 1403, 1403] }

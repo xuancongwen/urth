@@ -209,7 +209,7 @@ what is in the room; the input bar completes command names on Tab.
   start again. After a copyover the page keeps its reconnect token, so
   a Connect within the token's two minutes resumes the session without
   a login. Password prompts switch the box to a password field.
-- **Idle** sessions are hung up by the client: fifteen minutes without
+- **Idle** sessions are hung up by the client: two hours without
   a command, with a warning in the log a minute before. Output arriving
   does not count. The limit is `idleLimit` in `static/index.html`.
 - On a phone the side panel is a drawer behind the **map** button.

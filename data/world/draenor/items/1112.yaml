@@ -1,0 +1,18 @@
+vnum: 1112
+name: a pendant of the resting light
+keywords: [pendant, resting, light, crystal]
+description: A crystal pendant on a silver chain glows warmly here.
+look: |
+  A teardrop of clear crystal with a caged mote of fire at its heart,
+  set in silver. The fire burns white rather than red inside it, and
+  the warmth it gives settles behind the breastbone and stays.
+type: armor
+slot: neck
+level: 16
+baseline: light
+value: 450
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

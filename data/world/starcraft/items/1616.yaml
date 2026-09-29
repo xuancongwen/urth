@@ -1,0 +1,13 @@
+vnum: 1616
+name: a chitin-laced flak vest
+keywords: [chitin, chitin-laced, flak, vest]
+description: A flak vest plated with overlapping purple scales lies here.
+look: |
+  The engineering bay's answer to the zerg: a neosteel flak vest with
+  plates of zerg carapace riveted over it like the scales of a fish. It
+  is lighter than a combat suit and, along the grain of the chitin,
+  harder to get through.
+type: armor
+slot: body
+level: 21
+baseline: heavy

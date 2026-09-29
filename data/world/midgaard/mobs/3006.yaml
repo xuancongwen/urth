@@ -1,0 +1,14 @@
+vnum: 3006
+name: the weaponsmith
+keywords: [weaponsmith, smith]
+description: The weaponsmith is working at the anvil, sparks jumping at every blow.
+look: |
+  Tall, bald, and silent, with arms roped with muscle and a leather
+  patch over one eye. When she talks, it is about steel.
+level: 12
+flags: [peaceful]
+trades:
+  - { item: 3009, silver: 50 }
+  - { item: 3010, silver: 90 }
+  - { item: 3012, silver: 150 }
+  - { item: 3013, silver: 180, items: [3031] }

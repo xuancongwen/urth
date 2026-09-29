@@ -1,0 +1,14 @@
+vnum: 1100
+name: a fel orc grunt
+keywords: [fel, orc, grunt]
+description: A fel orc grunt prowls here, green-black skin steaming faintly.
+look: |
+  An orc, once, and still built like one: broad, tusked, heavy in the
+  shoulder. But his skin has gone the colour of a week-old bruise, his
+  eyes are lamps of dull red, and the veins on his arms stand out green.
+  He does not seem to feel the heat, or much of anything. He grins at
+  you like a dog that has been told to.
+level: 12
+flags: [wander]
+attack:
+  verb: slash

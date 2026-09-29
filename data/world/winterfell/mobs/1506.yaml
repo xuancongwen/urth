@@ -1,0 +1,13 @@
+vnum: 1506
+name: the kennelmaster
+keywords: [kennelmaster, master, houndsman]
+description: The kennelmaster forks fresh straw into a run, three hounds at his heels.
+look: |
+  A lean man with bitten hands and a voice pitched to carry over
+  barking. He has kept dogs his whole life and prefers them, mostly, to
+  people. He will tell you the empty pen at the end is none of your
+  business.
+level: 9
+flags: [peaceful]
+attack:
+  verb: punch

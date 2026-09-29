@@ -1,0 +1,13 @@
+vnum: 1208
+name: A Trampled Glade
+description: |
+  The snow in this glade is churned by paws, dozens of them, going round
+  and round as though something paced here for hours waiting for orders.
+  A notice has been nailed to a tree trunk, its lettering sharp and
+  spiky, forbidding all Narnians to harbour spies on pain of the Queen's
+  displeasure. A sledge road runs west, the wood goes north, and south
+  the trees drip in a way they have not dripped before.
+exits:
+  north: 1207
+  west: 1211
+  south: 1219

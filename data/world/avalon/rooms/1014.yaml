@@ -1,0 +1,12 @@
+vnum: 1014
+name: The Lady's Causeway
+description: |
+  The causeway runs out onto the open mere, just above the water, so
+  that every step sends rings out across a surface flat as polished
+  pewter. The mist hangs back as if it had been asked to. South, the
+  stones end at a shrine on a little island; west, a raised bank leads
+  to a ring of standing stones. The reeds are north.
+exits:
+  north: 1013
+  south: 1015
+  west: 1018

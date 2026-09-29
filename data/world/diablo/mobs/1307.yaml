@@ -1,0 +1,13 @@
+vnum: 1307
+name: a shambling zombie
+keywords: [shambling, zombie, corpse]
+description: A zombie in a torn villager's smock shuffles toward you, groaning.
+look: |
+  It was someone from Tristram once; the smock and the wedding ring say
+  so. Now it is grey and swollen and very strong, and it wants what you
+  have, which is warmth.
+level: 14
+flags: [wander]
+stats: {strength: 13, dexterity: 6}
+attack:
+  verb: claw

@@ -1,0 +1,15 @@
+vnum: 1610
+name: a hydralisk needle spine
+keywords: [hydralisk, needle, spine]
+description: A long, barbed bone spine lies here.
+look: |
+  One of the spines a hydralisk hurls from the plates of its hood, as long
+  as a short sword and tipped with a barb that curves back. Held by the
+  thick end, it makes a vicious stabbing blade.
+type: weapon
+level: 20
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

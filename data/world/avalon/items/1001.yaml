@@ -1,0 +1,11 @@
+vnum: 1001
+name: a stoneware flask of Avalon cider
+keywords: [stoneware, flask, avalon, cider]
+description: A stoneware flask of cider stands here, sweating.
+look: |
+  A brown flask stoppered with wax, heavy with cider pressed from the
+  isle's apples. It is clear and pale and much stronger than it tastes,
+  which is a lesson most visitors learn only once.
+type: other
+weight: 2
+value: 15

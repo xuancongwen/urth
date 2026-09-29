@@ -1,0 +1,12 @@
+vnum: 3005
+name: a brass lantern
+keywords: [brass, lantern]
+description: A brass lantern stands here.
+look: |
+  A hooded lantern of brass and horn with a good wick and a deep oil
+  well.
+type: light
+slot: light
+weight: 2
+value: 30
+burn: 2400

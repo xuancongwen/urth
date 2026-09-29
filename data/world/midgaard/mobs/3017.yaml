@@ -1,0 +1,11 @@
+vnum: 3017
+name: the master thief
+keywords: [master, thief, guildmaster]
+description: The master thief shuffles a deck of cards and does not look at you.
+look: |
+  A slight, pleasant-faced man with quick hands and a forgettable face,
+  which is the point. He teaches the guild's tricks to those who pay,
+  and remembers those who do not.
+level: 14
+flags: [peaceful]
+teaches: [riposte]

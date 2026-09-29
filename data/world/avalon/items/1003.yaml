@@ -1,0 +1,16 @@
+vnum: 1003
+name: an applewood staff
+keywords: [applewood, staff]
+description: A staff of knotted applewood lies here.
+look: |
+  A length of old apple bough, still bearing a few green leaves where
+  it forks at the top. It has been cut from a living tree and has not
+  entirely noticed. It is heavy, and hard as iron.
+type: weapon
+level: 7
+baseline: standard
+weight: 5
+weapon:
+  hands: 2
+  kind: blunt
+  verb: crack

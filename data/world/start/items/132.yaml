@@ -1,0 +1,13 @@
+vnum: 132
+name: a sub issue vest
+keywords: [sub, issue, vest]
+description: A sub issue vest has been left here in a heap.
+look: |
+  Boiled leather over quilted linen, laced at the sides, with the
+  quartermaster's mark burned into the collar. It fits nobody well and
+  everybody well enough.
+type: armor
+slot: body
+level: 1
+baseline: light
+flags: [newbie]

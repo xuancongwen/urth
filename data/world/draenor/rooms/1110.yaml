@@ -1,0 +1,13 @@
+vnum: 1110
+name: The Edge of the Marsh
+description: |
+  The red hardpan softens into mud, then into moss, then into water, all
+  in the space of a hundred paces. The air turns cool and heavy and
+  smells of rot and something sweet. Ahead stand mushrooms, and they are
+  not small: stalks like tower foundations, caps that blot out the
+  burning sky and throw a blue twilight under them. Tiny lights drift
+  between them. The wastes are north; a causeway of spongy growth leads
+  south.
+exits:
+  north: 1102
+  south: 1111

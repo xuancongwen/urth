@@ -1,0 +1,9 @@
+vnum: 3019
+name: The Grocer's
+description: |
+  Barrels of dried beans, strings of sausages from the rafters, crocks
+  of pickles, and a counter with a set of brass scales the grocer swears
+  are honest. Main Street is south.
+exits:
+  south: 3011
+flags: [safe]

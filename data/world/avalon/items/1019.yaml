@@ -1,0 +1,18 @@
+vnum: 1019
+name: an apple-blossom charm
+keywords: [apple-blossom, apple, blossom, charm]
+description: A charm of pressed apple-blossom in clear resin lies here.
+look: |
+  A sprig of white blossom set in a drop of resin and hung on a thread
+  of green, dusted with something that glitters. It keeps the smell of
+  the orchard in spring, and a clear head with it.
+type: armor
+slot: neck
+level: 5
+weight: 0
+value: 70
+effects:
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

@@ -1,0 +1,11 @@
+vnum: 1217
+name: a box of enchanted Turkish delight
+keywords: [box, enchanted, turkish, delight]
+description: A round green-ribboned box sits here, smelling of rosewater.
+look: |
+  A round box tied with green silk, full of cubes of Turkish delight
+  dusted with sugar. Each piece is sweet and light and delicious, and
+  whoever eats one wants nothing in the world so much as the next.
+type: other
+weight: 1
+value: 25

@@ -1,0 +1,12 @@
+vnum: 3010
+name: The West End of Main Street
+description: |
+  Main Street is narrower at this end, the houses leaning together over
+  it. A general store stands to the north, its door propped open with a
+  barrel of nails, and to the south a door painted with stars marks the
+  magic shop. The West Gate is just west.
+exits:
+  north: 3020
+  east: 3011
+  south: 3023
+  west: 3040

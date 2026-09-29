@@ -1,0 +1,12 @@
+vnum: 1020
+name: The Foot of the Black Tower
+description: |
+  The tower rises from the end of the spit, smooth and black and
+  without seams, as though it had been poured rather than built. Its
+  only door stands open on a stair that climbs inside the wall. The
+  air here is still and smells faintly of crushed leaves. A gate in a
+  low wall leads south into a garden. The spit runs back west.
+exits:
+  west: 1019
+  south: 1017
+  up: 1021

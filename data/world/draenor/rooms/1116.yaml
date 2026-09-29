@@ -1,0 +1,12 @@
+vnum: 1116
+name: The Foot of the Great Stalk
+description: |
+  A mushroom stalk as broad as a keep rises out of the bog here, pale
+  and ridged like the trunk of an old tree, and disappears upward into a
+  cap you cannot see the edge of. Someone has built a lift against it:
+  a platform of purple wood on chains, with a crystal set in the frame
+  that glows when you touch it. The roots of the stalk have been torn
+  up and gnawed. The bog is north.
+exits:
+  north: 1115
+  up: 1117

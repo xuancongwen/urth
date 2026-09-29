@@ -1,0 +1,12 @@
+vnum: 1101
+name: The Stair of Broken Kings
+description: |
+  A stair wide enough for an army, and armies have used it: every step
+  is scored by boots and iron wheels and stained in places no rain has
+  come to wash. Statues flanked it once. Their feet remain, each pair
+  taller than a man, and nothing above the ankle. Hot wind comes up from
+  the plain carrying grit and the smell of scorched iron. The shelf and
+  the portal slab are west; the stair runs down to the east.
+exits:
+  west: 1100
+  east: 1102

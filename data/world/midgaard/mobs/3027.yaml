@@ -1,0 +1,10 @@
+vnum: 3027
+name: a pickpocket
+keywords: [pickpocket, thief]
+description: A pickpocket lurks in the shadows, eyeing your purse.
+look: |
+  Young, quick, and dressed in grey. There is a dagger in his hand that
+  he does not bother to hide.
+level: 5
+flags: [wander]
+silver: 40

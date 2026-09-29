@@ -1,0 +1,11 @@
+vnum: 1404
+name: a lump of iron ore
+keywords: [lump, iron, ore]
+description: A lump of dark iron ore lies here.
+look: |
+  A fist-sized rock, heavy for its size, streaked with rust red where
+  the air has got at it. Kobolds dig it without knowing what it is for;
+  smiths know.
+type: other
+weight: 3
+value: 8

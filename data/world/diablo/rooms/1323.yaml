@@ -1,0 +1,12 @@
+vnum: 1323
+name: The Threshold of Hell
+description: |
+  The stair ends and the world ends with it. The ground is dark and
+  ribbed like the roof of a mouth, the air is thick with ash, and the
+  sky, if it is a sky, is a slow boil of red. Screams carry from very
+  far away, not in pain but in chorus. The stair climbs up; ahead,
+  south, a wall of fused black stone rises with battlements along it.
+exits:
+  up: 1322
+  south: 1324
+flags: [dark]

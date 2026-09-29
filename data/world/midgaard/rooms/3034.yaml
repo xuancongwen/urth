@@ -1,0 +1,10 @@
+vnum: 3034
+name: Dark Alley
+description: |
+  No lamp has ever been lit here. The walls drip and the cobbles are
+  slick. Something moves in the shadows at the far end and is still. A
+  low door to the west has no handle on the outside, only a keyhole worn
+  bright with use. The alley opens east.
+exits:
+  east: 3033
+  west: 3050

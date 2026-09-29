@@ -1,0 +1,15 @@
+vnum: 1502
+name: The Winter Town Square
+description: |
+  A square of trampled snow with a well at its heart, the well capped
+  with a wooden lid and the lid weighted with a stone so the ice will
+  not split it. A few stalls stand empty; in the cold months the town
+  fills with folk from the hills who come to shelter under the castle,
+  and in the warm ones it is half abandoned. Warm light and a smell of
+  woodsmoke and ale spill from a doorway west. A lane runs east toward
+  the trees, and north the road climbs to the gates of Winterfell.
+exits:
+  north: 1505
+  south: 1501
+  west: 1503
+  east: 1504

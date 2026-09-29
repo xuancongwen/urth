@@ -1,0 +1,15 @@
+vnum: 1111
+name: a bog lord
+keywords: [bog, lord, giant]
+description: A bog lord, huge and dripping, gnaws at the roots of the great stalk.
+look: |
+  A giant of living fungus and marsh-mud, twice your height, lumpy and
+  ridged, with little glowcaps sprouting all over its back like warts.
+  It has been eating the roots of the great stalk for some time. It
+  does not like being interrupted.
+level: 15
+health: 600
+stats: {strength: 14, dexterity: 8}
+attack:
+  kind: blunt
+  verb: smash

@@ -1,0 +1,16 @@
+vnum: 1611
+name: a zerg queen
+keywords: [zerg, queen]
+description: A zerg queen tends the spawning pool, her crested head swaying.
+look: |
+  A tall, stooped creature with a crest of fanned chitin and two pairs of
+  arms, the upper pair ending in hooked talons. She tends the pool the way
+  a gardener tends a bed, reaching into the slime to turn the growing
+  things. She is in no hurry to kill you. She is certain she will.
+level: 21
+flags: [assist]
+health: 600
+silver: 60
+attack:
+  kind: pierce
+  verb: talon

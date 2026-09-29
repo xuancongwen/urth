@@ -1,0 +1,16 @@
+vnum: 130
+name: a sub issue sword
+keywords: [sub, issue, sword]
+description: A sub issue sword has been left here.
+look: |
+  A plain short sword, stamped with a quartermaster's mark on the ricasso
+  and issued, like a thousand others, to someone just starting out. The
+  edge is honest if not keen.
+type: weapon
+level: 1
+baseline: standard
+flags: [newbie]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

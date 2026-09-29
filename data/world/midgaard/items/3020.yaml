@@ -1,0 +1,11 @@
+vnum: 3020
+name: an iron helm
+keywords: [iron, helm]
+description: An iron helm lies here.
+look: |
+  A round cap of iron with a nasal bar and a leather lining.
+type: armor
+slot: head
+weight: 3
+level: 8
+baseline: medium

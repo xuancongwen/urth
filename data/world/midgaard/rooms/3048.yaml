@@ -1,0 +1,10 @@
+vnum: 3048
+name: The Riverbank
+description: |
+  A trampled path along the water, reeds on one side and the backs of
+  houses on the other. Washerwomen have left their paddles on a flat
+  rock. The smell grows worse to the east, where the city throws what it
+  no longer wants. The bridge is west.
+exits:
+  east: 3049
+  west: 3042

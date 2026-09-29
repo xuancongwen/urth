@@ -1,0 +1,13 @@
+vnum: 1008
+name: The Gnarled Rows
+description: |
+  The trees grow wild here, unpruned for an age, their limbs knotted
+  together overhead into a green roof. Mistletoe hangs in pale balls
+  from the high branches. The bark of one trunk has the look of a face
+  if you glance at it sideways, and the look of a trunk when you stare.
+  The orchard's heart is west and the windfall rows south. Eastward,
+  past the last apple tree, the light turns the colour of dusk.
+exits:
+  west: 1005
+  south: 1007
+  east: 1022

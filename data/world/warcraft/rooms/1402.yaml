@@ -1,0 +1,11 @@
+vnum: 1402
+name: The War Camp Gate
+description: |
+  A gate of whole trunks, bound with chain and hung with the skulls of
+  animals and one or two that are not animals. The ground before it is
+  churned to a paste by boots and wagon wheels. Watch platforms lean out
+  over the palisade on either side, empty for now. The camp lies west;
+  the crossroads is back east.
+exits:
+  east: 1401
+  west: 1403

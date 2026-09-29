@@ -1,0 +1,10 @@
+vnum: 1508
+name: a horn of mulled ale
+keywords: [horn, mulled, ale]
+description: A drinking horn of mulled ale steams here.
+look: |
+  Brown ale heated with honey and a crust of nutmeg, served in a cow's
+  horn that has been drunk from by half the North. It warms you from the
+  inside out and slows you down slightly.
+type: other
+value: 6

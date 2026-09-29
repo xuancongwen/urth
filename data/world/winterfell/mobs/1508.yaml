@@ -1,0 +1,13 @@
+vnum: 1508
+name: a grey wolf
+keywords: [grey, wolf]
+description: A grey wolf watches you from between the trees, head low.
+look: |
+  Lean from the winter, grey as the trunks it hides among, with yellow
+  eyes that never leave you. Where there is one there are more; you
+  just have not seen them yet.
+level: 7
+flags: [assist]
+attack:
+  verb: bite
+  kind: bite

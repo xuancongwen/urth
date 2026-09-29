@@ -1,0 +1,15 @@
+vnum: 1102
+name: The Foot of the Stair
+description: |
+  The stair ends on a plain of red hardpan split into plates by cracks a
+  hand wide, and from some of the cracks a thin green smoke leaks and
+  hangs. Three ways lead off. North the wastes rise toward a camp whose
+  banners are the colour of a bruise. East a road of dressed stone,
+  still mostly whole, runs toward a black citadel squatting against the
+  sky. South the air turns wet and blue, and something enormous and
+  soft-looking rises on the horizon.
+exits:
+  west: 1101
+  north: 1103
+  east: 1106
+  south: 1110

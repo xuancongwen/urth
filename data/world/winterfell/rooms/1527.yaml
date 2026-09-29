@@ -1,0 +1,11 @@
+vnum: 1527
+name: A Frozen Stream
+description: |
+  A stream runs under a skin of ice, black water moving beneath it like
+  something breathing. The banks are steep and slick. The trees here
+  are older and closer and grow in twisted shapes, and a shadow moves
+  along a branch overhead where no shadow should be. The camp is south;
+  the stream bed runs north into a hollow where the cold gets worse.
+exits:
+  south: 1526
+  north: 1528

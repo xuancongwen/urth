@@ -1,0 +1,11 @@
+vnum: 1529
+name: The Clearing of the Pale Light
+description: |
+  A ring of dead weirwoods, their faces scored away with some blade,
+  stands about a clearing where the snow glows faintly blue. The cold
+  is a living thing here; it creeps into boots and sleeves and settles
+  in the joints. Frost-ferns grow across the air itself and shatter as
+  you move. Something tall stands at the centre, very still, as if it
+  has been waiting a long time and does not mind. The hollow is west.
+exits:
+  west: 1528

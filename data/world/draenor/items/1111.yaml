@@ -1,0 +1,20 @@
+vnum: 1111
+name: a crystal-forged blade
+keywords: [crystal-forged, crystal, blade, sword]
+description: A long blade of fel iron edged in violet crystal lies here.
+look: |
+  Fel iron at its heart, cleansed somehow of its hunger, with an edge of
+  violet crystal grown onto it rather than fitted. It rings faintly
+  when drawn. The draenei artificer's mark is cut small into the guard:
+  an eye inside a star.
+type: weapon
+level: 16
+baseline: standard
+value: 500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.05, mult: 2 }

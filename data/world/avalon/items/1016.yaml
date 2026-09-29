@@ -1,0 +1,12 @@
+vnum: 1016
+name: the sword in the stone
+keywords: [sword, stone, anvil, hilt]
+description: A sword stands driven through an anvil into a block of marble, its hilt waiting for a hand.
+look: |
+  A plain cross-hilted sword, not grand, its grip wound in worn leather.
+  The letters round the stone say that whoever draws it out is rightwise
+  king born of all the land. You take hold of the hilt. It does not
+  move, not even a little, and you have the sense that it is not
+  refusing you so much as waiting for someone else.
+type: other
+flags: [nopickup]

@@ -1,0 +1,11 @@
+vnum: 1114
+name: The Coilfang Pump-House
+description: |
+  A dome of green bronze half-sunk in the marsh, its insides a shrine
+  and a machine at once. Great pistons rise and fall around a central
+  pool, sucking the marsh dry into the dark beneath, and around the
+  pool stand altars to a sea that is not here. The floor is wet and
+  scaled with shed skin. Whoever keeps this place wants the water, all
+  of it, and does not care what dies in the dry. The pools are west.
+exits:
+  west: 1113

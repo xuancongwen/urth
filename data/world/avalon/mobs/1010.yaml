@@ -1,0 +1,18 @@
+vnum: 1010
+name: a priestess of the Lady
+keywords: [priestess, lady, nimue]
+description: A priestess of the Lady in blue-grey robes tends the floating candles.
+look: |
+  Young or old, it is hard to say, with a crescent painted in blue on
+  her brow and wet hems from wading among the candles. She keeps the
+  shrine and speaks for the Lady, who does not speak for herself. She
+  will trade the Lady's blessings for coin, and for things from the
+  isle that the Lady finds pleasing.
+level: 12
+flags: [peaceful]
+attack:
+  verb: strike
+trades:
+  - { item: 1001, silver: 20 }
+  - { item: 1017, silver: 250, items: [1006] }
+  - { item: 1019, silver: 60, items: [1008, 1008] }

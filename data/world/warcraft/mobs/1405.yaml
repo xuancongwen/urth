@@ -1,0 +1,11 @@
+vnum: 1405
+name: a footman
+keywords: [footman, soldier, guard, human]
+description: A footman in blue and white stands watch, shield up.
+look: |
+  A young man in mail under a blue tabard with a white lion, his kite
+  shield scuffed and his sword well kept. He has the jumpy steadiness
+  of someone who has seen one battle and expects another any minute.
+level: 10
+attack:
+  verb: punch

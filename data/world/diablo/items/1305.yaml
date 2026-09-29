@@ -1,0 +1,13 @@
+vnum: 1305
+name: a gothic breastplate
+keywords: [gothic, breastplate, plate]
+description: A heavy fluted breastplate stands propped against the wall.
+look: |
+  Fluted steel over a padded jack, with a skirt of lames at the waist.
+  Griswold's grandfather made the pattern; Griswold made the plate. It
+  will turn a claw and slow you down doing it.
+type: armor
+slot: body
+weight: 18
+level: 16
+baseline: heavy

@@ -1,0 +1,12 @@
+vnum: 1002
+name: a bristly boar hide
+keywords: [bristly, boar, hide]
+description: A bristly boar hide lies here in a stiff heap.
+look: |
+  Thick grey-brown hide, bristles on one side and fat on the other,
+  still smelling of rotten apples. Tanned, it would turn a blade.
+type: material
+material: boar hide
+rarity: common
+weight: 4
+value: 10

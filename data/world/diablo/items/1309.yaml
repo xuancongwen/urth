@@ -1,0 +1,16 @@
+vnum: 1309
+name: a goatman's halberd
+keywords: [goatman, goatman's, halberd, polearm]
+description: A crude halberd with a hooked blade lies here.
+look: |
+  A long haft of dark cave wood topped with a blade beaten from scrap,
+  hooked at the back for pulling a man down. Hair and bells are tied
+  under the head, clan marks of some kind.
+type: weapon
+weight: 10
+level: 18
+baseline: standard
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

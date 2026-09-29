@@ -1,0 +1,13 @@
+vnum: 1607
+name: The Perimeter Gate
+description: |
+  Two missile turrets stand on either side of a gate of welded plate, their
+  launchers turning slowly, patiently, to follow something only they can
+  see. Sandbags are stacked chest high around a bunker slit. Beyond the
+  gate the ground turns red and rough, and a haul road runs west toward
+  the mineral field. The main drag is east, and the barracks' side door
+  opens to the north.
+exits:
+  east: 1601
+  north: 1605
+  west: 1608

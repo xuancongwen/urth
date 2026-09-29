@@ -1,0 +1,12 @@
+vnum: 1208
+name: a diamond vial of fire-flower cordial
+keywords: [diamond, vial, fire-flower, cordial]
+description: A tiny vial that looks like diamond glitters here.
+look: |
+  A little bottle cut from something clear and hard, holding a few
+  drops of a cordial made from the juice of fire-flowers that grow in
+  the mountains of the sun. It is said a single drop mends almost
+  anything.
+type: other
+weight: 0
+value: 30

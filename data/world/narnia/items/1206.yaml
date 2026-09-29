@@ -1,0 +1,20 @@
+vnum: 1206
+name: the White Witch's wand
+keywords: [white, witch, witchs, wand]
+description: A slender wand of white metal lies here, frost creeping out from it across the ground.
+look: |
+  A rod as long as your forearm, cold enough to burn the hand. Wherever
+  it touches, a skin of frost forms and spreads. It was made for turning
+  living things to stone, and it has not lost the habit.
+type: weapon
+level: 9
+baseline: standard
+weight: 1
+value: 450
+rarity: rare
+weapon:
+  hands: 1
+  kind: cold
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

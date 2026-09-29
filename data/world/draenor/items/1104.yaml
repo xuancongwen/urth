@@ -1,0 +1,16 @@
+vnum: 1104
+name: a fel orc cleaver
+keywords: [fel, orc, cleaver]
+description: A broad, notched cleaver of black iron lies here.
+look: |
+  More butcher's tool than sword: a slab of fel iron with one edge
+  ground sharp and a grip wrapped in cured hide. The green in the metal
+  glows brighter when it is swung. It has done a great deal of both
+  butchering and war and does not seem to tell them apart.
+type: weapon
+level: 13
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave

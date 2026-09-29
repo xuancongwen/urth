@@ -1,0 +1,14 @@
+vnum: 1013
+name: a changeling knight
+keywords: [changeling, knight, black]
+description: A knight in black mail blocks the stair, visor down, sword drawn.
+look: |
+  He wears the arms of a real knight, stolen along with that knight's
+  face. Under the visor the face shifts when you are not looking. He
+  serves the lady of the tower because she made him, and he has never
+  had a reason to be anything but loyal.
+level: 10
+silver: 50
+stats: {strength: 13, constitution: 12}
+attack:
+  verb: slash

@@ -1,0 +1,15 @@
+vnum: 1201
+name: The Lamp-Post in the Wood
+description: |
+  An iron lamp-post stands alone in a small clearing, burning steadily
+  as though some lamplighter came by at dusk, though no dusk has fallen
+  here in a hundred years. Its light makes a warm circle on the snow and
+  turns the falling flakes to sparks. Paths lead away between the firs:
+  north toward the wardrobe, west along a line of little hoofprints,
+  east to the sound of water labouring under ice, and south into the
+  deep wood.
+exits:
+  north: 1200
+  west: 1202
+  east: 1204
+  south: 1207

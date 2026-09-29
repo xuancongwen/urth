@@ -1,0 +1,13 @@
+vnum: 1614
+name: The Temple Nave
+description: |
+  Inside, the temple is vast and very quiet. Pillars of crystal rise into
+  a vault lit from within, and the air hums at the edge of hearing, a
+  chord sung by a choir you cannot see. Every thought you have seems to
+  echo slightly, as though someone else were listening to it. A ramp of
+  light descends into the sanctum below. An arch east shimmers with a
+  standing blue field, and the steps are north.
+exits:
+  north: 1613
+  east: 1617
+  down: 1616

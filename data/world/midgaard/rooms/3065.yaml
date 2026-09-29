@@ -1,0 +1,11 @@
+vnum: 3065
+name: A Collapsed Tunnel
+description: |
+  Part of the ceiling has come down here, and the passage squeezes
+  between fallen bricks and black earth. Roots hang through the gap. The
+  air tastes of the grave. The tunnel leads north, and south it breaks
+  into a stone-lined room.
+exits:
+  north: 3060
+  south: 3047
+flags: [dark]

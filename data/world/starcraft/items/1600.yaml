@@ -1,0 +1,16 @@
+vnum: 1600
+name: a C-14 gauss rifle
+keywords: [c-14, c14, gauss, rifle, impaler]
+description: A long, boxy gauss rifle lies here, its coils still warm.
+look: |
+  The standard-issue rifle of the Confederate Marine Corps: a heavy frame
+  of coils and rails that throws eight-millimetre spikes at a speed that
+  makes the air crack. Someone has scratched a tally into the stock, and
+  run out of room.
+type: weapon
+level: 17
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: burst

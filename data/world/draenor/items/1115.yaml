@@ -1,0 +1,20 @@
+vnum: 1115
+name: the glaive of the Unmade
+keywords: [glaive, unmade, fel]
+description: A towering glaive of black iron and green flame lies here, still burning.
+look: |
+  Taller than you, and heavier than it looks, which is saying a great
+  deal. The blade is a jagged crescent of fel iron wreathed in green
+  fire that does not go out and does not burn the hand that holds it,
+  quite. It has cut worlds. It would like to cut another.
+type: weapon
+level: 20
+baseline: heavy
+value: 1200
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

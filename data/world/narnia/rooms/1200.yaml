@@ -1,0 +1,14 @@
+vnum: 1200
+name: Among the Fir Trees, Behind the Wardrobe
+description: |
+  Fur coats brush your shoulders one moment and fir needles the next.
+  Snow creaks underfoot, deep and new, and the cold bites at the back of
+  your throat. Dark trees crowd close on every side, each branch bowed
+  under a white load. North, a narrow gap between two trunks shows the
+  inside of a wardrobe door, absurd and ordinary. South, a faint yellow
+  glow hangs among the trees where no light has any right to be.
+exits:
+  north: 7
+  south: 1201
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

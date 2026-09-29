@@ -1,0 +1,10 @@
+vnum: 1616
+name: The Sanctum of the Khala
+description: |
+  A round chamber with no corners, the walls carved all over with the
+  flowing script of the Protoss. In the center a pool of light hangs in the
+  air, not resting on anything. The pressure of a mind far older and
+  stronger than yours fills the room like deep water. You feel it notice
+  you, weigh you, and wait. The ramp climbs back up to the nave.
+exits:
+  up: 1614

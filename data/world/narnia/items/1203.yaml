@@ -1,0 +1,16 @@
+vnum: 1203
+name: a dwarf's skinning knife
+keywords: [dwarf, dwarfs, skinning, knife]
+description: A short, heavy-backed knife lies here.
+look: |
+  A broad little blade with a horn handle worn smooth by a dwarf's
+  grip. It is meant for skinning and for cutting harness, and it does
+  both kinds of work with the same indifference.
+type: weapon
+level: 4
+baseline: dagger
+weight: 1
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

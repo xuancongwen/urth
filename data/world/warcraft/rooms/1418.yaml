@@ -1,0 +1,13 @@
+vnum: 1418
+name: The Old Copper Delve
+description: |
+  A mine mouth in the hillside, shored with timber that has gone soft
+  and black. Rails run a little way in and stop at a cart tipped on
+  its side. Kobold candles gutter on the rocks, stuck there with their
+  own wax, and give almost no light. Picks ring faintly from deeper in.
+  The forest path is south; a goat track climbs west toward smoke and
+  the barking of gnolls.
+exits:
+  south: 1417
+  west: 1421
+flags: [dark]

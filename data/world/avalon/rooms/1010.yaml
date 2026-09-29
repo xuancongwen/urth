@@ -1,0 +1,11 @@
+vnum: 1010
+name: The Terraces of the Tor
+description: |
+  The path goes round the hill rather than up it, terrace after
+  terrace, and more than once you find yourself somewhere you have
+  already been. Sheep have worn the ledges bare. Below, the orchard is a
+  green sea and the lake a white one. The way continues up toward a
+  stone tower on the crown of the hill, and down to the hill's foot.
+exits:
+  down: 1009
+  up: 1011

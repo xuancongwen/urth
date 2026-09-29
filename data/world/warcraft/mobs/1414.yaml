@@ -1,0 +1,13 @@
+vnum: 1414
+name: Lord-Marshal Aldous Varne
+keywords: [lord, marshal, aldous, varne]
+description: Lord-Marshal Aldous Varne studies the maps, one hand on his sword hilt.
+look: |
+  A tall grey-bearded knight in polished plate, the blue lion enamelled
+  on his breastplate. He has held this keep through two sieges, and he
+  counts the red chalk on the maps every evening. He does not like the
+  count.
+level: 20
+flags: [peaceful]
+attack:
+  verb: strike

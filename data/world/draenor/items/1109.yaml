@@ -1,0 +1,13 @@
+vnum: 1109
+name: a vest of naga scale
+keywords: [vest, naga, scale, scalemail]
+description: A vest of overlapping green-gold scales lies here.
+look: |
+  Naga scales stitched onto soft leather in overlapping rows, each
+  pierced and wired with silver by a patient hand. It shimmers like a
+  fish in shallow water and turns a blade better than it has any right
+  to.
+type: armor
+slot: body
+level: 15
+baseline: medium

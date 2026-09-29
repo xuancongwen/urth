@@ -1,0 +1,9 @@
+vnum: 3064
+name: The Rats' Nest
+description: |
+  A domed chamber heaped with rags, straw, and the spoil of the city
+  above, all of it shifting and squeaking. Hundreds of small eyes catch
+  whatever light you bring. The culvert leads back west.
+exits:
+  west: 3063
+flags: [dark]

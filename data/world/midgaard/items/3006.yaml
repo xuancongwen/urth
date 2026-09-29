@@ -1,0 +1,10 @@
+vnum: 3006
+name: a leather backpack
+keywords: [leather, backpack, pack]
+description: A leather backpack lies here.
+look: |
+  Stiff new leather, brass buckles, and more pockets than anyone needs.
+type: container
+weight: 3
+value: 25
+capacity: 50

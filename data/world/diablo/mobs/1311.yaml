@@ -1,0 +1,11 @@
+vnum: 1311
+name: a winged fiend
+keywords: [winged, fiend, bat, demon]
+description: A winged fiend drops from the dark overhead, shrieking.
+look: |
+  A leathery thing with a bat's wings, a dog's snout, and claws like
+  hooks, that hangs in the dark above the shaft and falls on whatever
+  comes out of it.
+level: 17
+attack:
+  verb: rake

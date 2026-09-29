@@ -1,0 +1,12 @@
+vnum: 1125
+name: The Pinnacle of the Nether
+description: |
+  The top of the shard, and the top of this broken world. A platform of
+  iron plates bolted to the crystal, ringed with spikes, and littered
+  with the armour of those who climbed here before you. Beyond the edge
+  the Twisting Nether boils in every direction, green and violet and
+  black, and in the churn you can see other worlds, small as coins,
+  going by. A creature of hooves and horns and burning flesh stands
+  here like it owns all of them. The only way is down.
+exits:
+  down: 1124

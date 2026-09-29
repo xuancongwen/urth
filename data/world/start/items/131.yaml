@@ -1,0 +1,16 @@
+vnum: 131
+name: a sub issue dagger
+keywords: [sub, issue, dagger]
+description: A sub issue dagger has been left here.
+look: |
+  A leaf-shaped blade with a wire-wrapped grip and the same quartermaster's
+  mark as every other piece of sub issue gear. Good for a quick jab, or
+  for cutting bread.
+type: weapon
+level: 1
+baseline: light
+flags: [newbie]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

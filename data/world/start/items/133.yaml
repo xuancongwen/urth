@@ -1,0 +1,14 @@
+vnum: 133
+name: a sub issue shield
+keywords: [sub, issue, shield]
+description: A sub issue shield has been left here.
+look: |
+  A round shield of layered wood with an iron boss, painted a plain dull
+  blue and stamped with the quartermaster's mark on the inside.
+type: armor
+slot: shield
+level: 1
+flags: [newbie]
+effects:
+  - kind: block
+    params: { chance: 0.10 }

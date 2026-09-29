@@ -1,0 +1,12 @@
+vnum: 1318
+name: an advocate
+keywords: [advocate, mage, demon]
+description: An advocate stands at a lectern, reading aloud in a voice like cracking glass.
+look: |
+  A robed thing with a narrow horned face and too many fingers, one of
+  the scribes of hell. It reads from the burning books, and where it
+  points, the air catches fire.
+level: 20
+stats: {intelligence: 15}
+attack:
+  verb: scorch

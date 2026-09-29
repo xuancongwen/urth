@@ -1,0 +1,10 @@
+vnum: 3044
+name: The Graveyard
+description: |
+  Graves in untidy rows, some with fresh flowers, most with none. A
+  spade stands upright in a mound of new earth. Paths wind off to the
+  east and west between the stones, and the gate is north.
+exits:
+  north: 3043
+  east: 3045
+  west: 3046

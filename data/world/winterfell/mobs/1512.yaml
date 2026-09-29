@@ -1,0 +1,13 @@
+vnum: 1512
+name: a wildling spearwife
+keywords: [wildling, spearwife, woman, free, folk]
+description: A wildling spearwife leans on a boar spear, watching the trail with narrow eyes.
+look: |
+  A tall woman with red hair in a single braid and a face burned by the
+  wind. She holds her spear the way other people hold a walking stick,
+  without thinking, and she is plainly better with it than you are with
+  whatever you are holding.
+level: 10
+silver: 50
+attack:
+  verb: thrust

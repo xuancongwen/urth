@@ -1,0 +1,9 @@
+vnum: 3029
+name: a gnawed bone
+keywords: [gnawed, bone]
+description: A gnawed bone lies here, glistening.
+look: |
+  Chewed down to the marrow by something with more jaw than sense.
+type: other
+weight: 1
+value: 1

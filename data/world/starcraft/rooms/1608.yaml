@@ -1,0 +1,13 @@
+vnum: 1608
+name: The Mineral Field
+description: |
+  Blue crystal breaks from the red ground here in clusters as tall as a
+  man, faceted and faintly luminous, humming when the wind crosses them.
+  The nearest clusters have been hacked down to stumps by mining lasers,
+  and the stumps leak a glittering dust. Tracks of heavy treads crisscross
+  the grit. A pipeline climbs north toward a refinery, the gate is east,
+  and the haul road goes on west into the badlands.
+exits:
+  east: 1607
+  north: 1609
+  west: 1610

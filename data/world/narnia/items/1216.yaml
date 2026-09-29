@@ -1,0 +1,11 @@
+vnum: 1216
+name: a sticky marmalade roll
+keywords: [sticky, marmalade, roll]
+description: A sticky marmalade roll sits here, still warm.
+look: |
+  A great golden spiral of pastry oozing orange marmalade. Mrs Beaver
+  bakes a dozen of these whenever anyone is in danger, on the theory
+  that danger is worse on an empty stomach.
+type: other
+weight: 0
+value: 6

@@ -1,0 +1,11 @@
+vnum: 1000
+name: a golden Avalon apple
+keywords: [golden, avalon, apple]
+description: A small golden apple lies in the grass.
+look: |
+  No bigger than a hen's egg, with skin like old gold leaf and a smell
+  of honey. They say one bite of an Avalon apple is worth a night's
+  sleep. They say a great many things on the isle.
+type: other
+weight: 1
+value: 5

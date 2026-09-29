@@ -1,0 +1,13 @@
+vnum: 1516
+name: a crypt spider
+keywords: [crypt, spider]
+description: A pale crypt spider hangs in its web between two kings, legs folded.
+look: |
+  White as the stone it lives on and as big as a hound, with too many
+  eyes in a cluster like beads of frost. It has grown fat on rats and on
+  the occasional boy who went down for a dare.
+level: 8
+flags: [assist]
+attack:
+  verb: bite
+  kind: bite

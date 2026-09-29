@@ -1,0 +1,15 @@
+vnum: 1111
+name: The Mushroom Causeway
+description: |
+  A ridge of fungus a cart's width across, springy underfoot and faintly
+  luminous where you step. Water lies black and still on both sides,
+  and things move under it without breaking the surface. West, round
+  huts of dried caps cluster on the shore, and small figures watch you
+  from their doorways. East the water opens into pools edged with
+  worked coral. The causeway runs on south into deeper bog, and back
+  north to dry ground.
+exits:
+  north: 1110
+  west: 1112
+  east: 1113
+  south: 1115

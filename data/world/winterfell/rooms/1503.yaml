@@ -1,0 +1,11 @@
+vnum: 1503
+name: The Smoking Log
+description: |
+  A long, low alehouse with a fire at either end and benches black with
+  years of elbows. The chimney draws badly, which is how the place got
+  its name, and a blue haze sits under the rafters where the hams hang.
+  Nobody minds. It is warm, the ale is mulled, and the talk is of wolves,
+  weather, and what the rangers say about the far side of the Wall.
+exits:
+  east: 1502
+flags: [safe]

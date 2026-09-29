@@ -1,0 +1,13 @@
+vnum: 3010
+name: the mayor
+keywords: [mayor]
+description: The mayor of Midgaard strolls about, nodding to everyone as though they had voted for him.
+look: |
+  A plump man in a fur-trimmed robe, with a gold chain of office and a
+  smile that does not reach his eyes. He has been mayor for longer than
+  anyone can remember, and nobody can remember an election.
+level: 13
+flags: [wander]
+silver: 120
+attack:
+  verb: slap

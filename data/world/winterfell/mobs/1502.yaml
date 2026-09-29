@@ -1,0 +1,13 @@
+vnum: 1502
+name: a Winterfell guardsman
+keywords: [winterfell, guardsman, guard, soldier]
+description: A Winterfell guardsman in a grey cloak stands watch, stamping his feet against the cold.
+look: |
+  A square-built northman with frost in his beard and a grey wolf on his
+  jerkin. He watches the road with the patience of a man who has watched
+  it every day of his life and expects to go on doing so.
+level: 8
+silver: 40
+flags: [assist]
+attack:
+  verb: strike

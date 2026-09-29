@@ -1,0 +1,10 @@
+vnum: 3062
+name: The Sewers
+description: |
+  Two channels meet here in a churning pool, and the tunnel bends south.
+  Gnawed bones are heaped against the wall, too many of them to be only
+  rats'. The tunnel runs west and south.
+exits:
+  south: 3063
+  west: 3061
+flags: [dark]

@@ -1,0 +1,11 @@
+vnum: 1108
+name: The Ramparts
+description: |
+  A walk of black flagstones along the top of the wall, wide enough for
+  four abreast and open to the burning sky. From up here you can see
+  the whole ruined plain, the war camp's smoke, the blue haze of the
+  marsh to the south, and, far to the east beyond the citadel, the place
+  where the land simply stops and the sky continues underneath it. The
+  iron ramp goes back down to the gate.
+exits:
+  down: 1107

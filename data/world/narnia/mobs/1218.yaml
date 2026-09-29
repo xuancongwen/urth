@@ -1,0 +1,14 @@
+vnum: 1218
+name: a giant shore crab
+keywords: [giant, shore, crab]
+description: A giant shore crab sidles among the rocks at the tide line, claws raised.
+look: |
+  As wide as a cart wheel, blue-grey and barnacled, with one claw much
+  larger than the other. It regards you with eyes on stalks and clacks
+  slowly, as if keeping time.
+level: 5
+armor:
+  defense: 4
+attack:
+  verb: pinch
+  kind: blunt

@@ -1,0 +1,10 @@
+vnum: 3008
+name: The Mages' Tower Study
+description: |
+  A round room at the top of the tower, crowded with astrolabes, stuffed
+  owls, and stacks of books that lean against each other like drunks.
+  Scorch marks on the ceiling record past experiments. Tall windows look
+  out over the rooftops of Midgaard. The stair goes back down.
+exits:
+  down: 3004
+flags: [safe]

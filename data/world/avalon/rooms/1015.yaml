@@ -1,0 +1,14 @@
+vnum: 1015
+name: The Shrine of the Lady of the Lake
+description: |
+  A round shrine of white stone, open on the side that faces the water.
+  There is no altar; the lake is the altar. Candles float on it in
+  little boats of bark. Out past the last of them, if you stand very
+  still, you can see an arm in white samite rise from the water, holding
+  up a sword whose blade catches a light that is not in the sky, and
+  sink again. The causeway is north, and a path goes east to a well.
+exits:
+  north: 1014
+  east: 1016
+flags: [safe]
+temple: good

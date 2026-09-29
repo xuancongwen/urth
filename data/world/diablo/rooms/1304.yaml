@@ -1,0 +1,13 @@
+vnum: 1304
+name: The Lane by the Stream
+description: |
+  A muddy lane between leaning cottages, most of them shuttered and some
+  of them empty for good. A stream chuckles along a stony bed to the
+  east, crossed by a plank footbridge. West, a cottage with clean
+  windows and a bundle of drying herbs over the door. The square is
+  north; south, the lane narrows toward the old graveyard wall.
+exits:
+  north: 1301
+  west: 1305
+  east: 1306
+  south: 1308

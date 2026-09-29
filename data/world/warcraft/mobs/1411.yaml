@@ -1,0 +1,12 @@
+vnum: 1411
+name: a kobold tunneler
+keywords: [kobold, tunneler, miner]
+description: A kobold tunneler chips at the rock, a candle on its head.
+look: |
+  Rat-faced and knee-high, in a leather cap with a candle stuck to the
+  top of it. It mutters "no take candle" to itself as it works, over and
+  over, like a prayer. A sack of ore hangs from its belt.
+level: 9
+attack:
+  kind: pierce
+  verb: stab

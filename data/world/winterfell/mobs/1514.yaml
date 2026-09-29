@@ -1,0 +1,13 @@
+vnum: 1514
+name: a wight
+keywords: [wight, dead, corpse]
+description: A wight stands among the frozen trees, blue eyes burning in a dead face.
+look: |
+  It was a man once, a ranger by the scraps of black cloth still on it.
+  The flesh has gone grey and the hands black, and the eyes are the
+  bright, empty blue of a winter sky. It does not breathe. It does not
+  stop.
+level: 11
+attack:
+  verb: claw
+  kind: claw

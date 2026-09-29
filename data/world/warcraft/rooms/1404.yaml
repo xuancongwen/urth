@@ -1,0 +1,14 @@
+vnum: 1404
+name: The Great Hall of the Horde
+description: |
+  A long hall of rough beams, the roof held up by tree trunks carved
+  with the marks of a dozen clans. A firepit runs down the middle, and
+  the smoke finds its own way out through a hole in the ridge. Trophies
+  line the walls: shields with lions on them, a broken standard, the
+  horned skull of something enormous. A low doorway in the west wall
+  is hung with black leather, and the heat that leaks past it is not
+  from any fire you can see.
+exits:
+  south: 1403
+  west: 1408
+flags: [safe]

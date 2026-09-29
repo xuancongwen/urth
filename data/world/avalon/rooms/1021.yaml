@@ -1,0 +1,11 @@
+vnum: 1021
+name: The Tower Stair
+description: |
+  The stair winds up inside the tower's wall, lit by slits too narrow
+  for an arrow. Tapestries hang in the landings, and in each of them a
+  knight rides toward a castle he never reaches; look away and back, and
+  he has ridden a little further. The stair goes up to the tower's top
+  and down to its door.
+exits:
+  down: 1020
+  up: 1028

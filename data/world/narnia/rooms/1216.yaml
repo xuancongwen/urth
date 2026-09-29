@@ -1,0 +1,12 @@
+vnum: 1216
+name: The Dungeon Under the Castle
+description: |
+  The stair ends in a vaulted cellar where the ice has never been cut
+  back, and chains hang from rings in the rock. The cold down here is a
+  wet cold, and it smells of old straw and animals that have been afraid
+  for a long time. Something breathes in the far corner. The stair goes
+  back up to the courtyard.
+exits:
+  up: 1214
+flags: [dark]
+position: {x: -4, y: 3, z: -1}

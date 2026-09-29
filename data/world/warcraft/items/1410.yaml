@@ -1,0 +1,14 @@
+vnum: 1410
+name: a painted loa mask
+keywords: [painted, loa, mask]
+description: A carved wooden mask with tusks painted white lies here.
+look: |
+  A face carved from dark wood, with huge eyes rimmed in white clay and
+  a pair of boar's tusks set at the mouth. Looking through the eyeholes,
+  the world seems a little further off and a little clearer.
+type: armor
+slot: face
+level: 14
+baseline: light
+mods:
+  wisdom: 1

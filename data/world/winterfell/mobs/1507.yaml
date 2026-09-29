@@ -1,0 +1,12 @@
+vnum: 1507
+name: a castle hound
+keywords: [castle, hound, dog]
+description: A castle hound, all ribs and jaw, bays at you through the bars.
+look: |
+  A big rough-coated hunting dog bred for boar and bear, with a bad
+  temper and a worse bite. It does not know you. It would like to.
+level: 6
+flags: [assist]
+attack:
+  verb: bite
+  kind: bite

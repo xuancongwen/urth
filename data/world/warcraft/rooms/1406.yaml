@@ -1,0 +1,12 @@
+vnum: 1406
+name: The Lumber Yard
+description: |
+  Stumps stand everywhere, and the stripped trunks of pines lie in
+  stacks higher than a man. Wood chips carpet the ground ankle deep.
+  Peons trudge back and forth under loads that would bow a mule, and a
+  pile of axes with split hafts waits by a chopping block for someone
+  to care about them. The yard opens north onto the muster ground and
+  west onto the barracks.
+exits:
+  north: 1403
+  west: 1407

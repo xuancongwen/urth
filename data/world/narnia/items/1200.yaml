@@ -1,0 +1,12 @@
+vnum: 1200
+name: a beaver-made storm lantern
+keywords: [storm, lantern, beaver-made]
+description: A squat storm lantern with a horn window sits here.
+look: |
+  A tin lantern with panes of scraped horn and a wick trimmed very
+  neatly, the handle wrapped in plaited reed by someone with clever
+  teeth. It smells faintly of fish oil.
+type: light
+burn: 2000
+weight: 2
+value: 20

@@ -1,0 +1,11 @@
+vnum: 1422
+name: The Gnoll Den
+description: |
+  A burrow dug and clawed out of the red clay, low enough that you
+  stoop, and choked with a musk that stings the eyes. Stolen things lie
+  in heaps: a milk churn, a plough blade, a footman's helmet with the
+  plume chewed off. Something large breathes in the dark at the back.
+  The only way out is up.
+exits:
+  up: 1421
+flags: [dark]

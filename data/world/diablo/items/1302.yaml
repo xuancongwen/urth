@@ -1,0 +1,17 @@
+vnum: 1302
+name: the Butcher's cleaver
+keywords: [butcher, butcher's, cleaver]
+description: A huge cleaver lies here in a pool of something dark.
+look: |
+  A slab of iron as long as a child, edged on one side and blunt as a
+  door on the other, with a handle wrapped in rotten leather. The blade
+  is notched from bone and has never once been cleaned. It is heavy
+  enough to do the work with its own weight.
+type: weapon
+weight: 14
+level: 16
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

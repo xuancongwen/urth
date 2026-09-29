@@ -1,0 +1,9 @@
+vnum: 3018
+name: the banker
+keywords: [banker]
+description: The banker sits behind the brass bars, counting.
+look: |
+  A dry, spotless man with an abacus and ink-stained fingers. He has
+  never smiled on the premises.
+level: 10
+flags: [peaceful]

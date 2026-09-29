@@ -1,0 +1,16 @@
+vnum: 1512
+name: The Great Hall
+description: |
+  Long trestle tables run the length of a hall that could seat a small
+  army, and has. The walls are hung with banners grey as smoke, and the
+  heat that comes up through the floor from the springs below makes it
+  the warmest room in the North. At the far end, on a dais, a high seat
+  of dark wood. Doors lead east toward the gardens and west to an older
+  keep; a stair behind the dais climbs to the lord's rooms. The yard is
+  south.
+exits:
+  south: 1509
+  east: 1519
+  west: 1514
+  up: 1513
+flags: [safe]

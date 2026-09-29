@@ -1,0 +1,10 @@
+vnum: 3040
+name: The West Gate of Midgaard
+description: |
+  The city wall is thick here, and the gate passage runs through it like
+  a short tunnel, iron portcullis raised overhead. Arrow slits look down
+  from both sides. Main Street runs east into the city, and the open
+  road lies west.
+exits:
+  east: 3010
+  west: 3052

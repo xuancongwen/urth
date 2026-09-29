@@ -1,0 +1,18 @@
+vnum: 1205
+name: Maugrim's iron collar
+keywords: [maugrim, maugrims, iron, collar]
+description: A wide collar of black iron, studded with spikes, lies here.
+look: |
+  Too big for any ordinary dog. The Queen's mark is punched into the
+  iron, and inside, where it pressed against the fur, it is worn bright.
+  Whoever wears it carries a little of the captain's savagery.
+type: armor
+slot: neck
+level: 8
+armor:
+  defense: 1
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+weight: 3
+value: 180
+rarity: rare

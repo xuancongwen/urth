@@ -1,0 +1,13 @@
+vnum: 1100
+name: a chunk of fel iron
+keywords: [chunk, fel, iron, ore]
+description: A chunk of black ore shot with green veins lies here.
+look: |
+  Heavy for its size and warm to the touch, the green in it faintly
+  bright even in daylight. Smiths who work it swear it fights the
+  hammer. It takes an edge that does not dull, and it never quite
+  cools.
+type: material
+material: fel iron
+rarity: common
+value: 12

@@ -1,0 +1,10 @@
+vnum: 1118
+name: a crystal lantern
+keywords: [crystal, lantern]
+description: A lantern of silver and violet crystal glows here.
+look: |
+  A cage of silver wire around a cut crystal, with a tiny mote of fire
+  sealed inside. It throws a clean white light, and it does not go out.
+type: light
+burn: 0
+value: 60

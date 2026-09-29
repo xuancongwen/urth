@@ -1,0 +1,10 @@
+vnum: 3013
+name: Main Street
+description: |
+  Here Main Street opens toward the market square to the east. The
+  shopfronts are prosperous and freshly painted, and a public trough
+  stands against a wall for horses and thirsty dogs. The street runs on
+  to the west.
+exits:
+  east: 3014
+  west: 3012

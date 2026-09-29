@@ -1,0 +1,13 @@
+vnum: 1023
+name: The Twilight Wood
+description: |
+  The trees close in overhead and the dusk becomes night. Roots cross
+  the path like the knuckles of buried hands. Somewhere laughter starts
+  and stops, too high for a man and too long for a bird. A clearing
+  opens to the north, silver with moonlight; south, the ground rises to
+  a long grassy mound. The wood's edge is west.
+exits:
+  west: 1022
+  north: 1024
+  south: 1025
+flags: [dark]

@@ -1,0 +1,13 @@
+vnum: 1401
+name: an orc grunt
+keywords: [orc, grunt, warrior]
+description: An orc grunt leans on his axe, watching you with small red eyes.
+look: |
+  Green-skinned, tusked, and broad enough to block a doorway, in a
+  harness of leather and a single spiked pauldron. His axe has seen
+  use, and so has he: scars cross his arms like the marks on a tally
+  stick.
+level: 11
+stats: {strength: 13}
+attack:
+  verb: punch

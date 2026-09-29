@@ -1,0 +1,11 @@
+vnum: 1326
+name: The Hall of the Burning Star
+description: |
+  A pentagram is inlaid into the floor of this hall in a metal that
+  runs liquid in its grooves and never cools. Lecterns of bone hold
+  open books whose pages turn on their own. The arch to the ramparts is
+  west; south, a narrow door leads into a private sanctum.
+exits:
+  west: 1324
+  south: 1327
+flags: [dark]

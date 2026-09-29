@@ -1684,8 +1684,18 @@ unit. Death puts the wallet in the corpse with everything else (4.6).
 
 Sources: mobs carry coin, about five silver per level with a wide
 spread from the rules' `moneyFor` hook, or a stated amount on the
-prototype. Sinks: trainers (7.4). Open: shops, which are deferred past
-milestone 8 in `MILESTONES.md`, and whether anything else costs coin.
+prototype. Sinks: trainers (7.4) and merchants. Open: whether anything
+else costs coin.
+
+Merchants (decided 2026-09-28): a mob with a `trades` list sells each
+listed item for a stated price in silver, in items taken from the
+buyer's inventory, or both, so a smith can ask coin and three pelts
+for a better shield. The prices are the builder's, stated on the
+prototype; nothing is haggled and stock never runs out. A merchant
+buys anything with a value for half of it, a weapon or armor without
+a stated value counting ten silver a level (about two of its level's
+purses), and nothing flagged `quest` or `newbie`. What it buys is
+destroyed, not resold.
 
 ### 7.6 Quests
 

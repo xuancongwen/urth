@@ -1,0 +1,16 @@
+vnum: 1309
+name: the Butcher
+keywords: [butcher, demon]
+description: The Butcher stands over his table, cleaver raised. "Ah... fresh meat!"
+look: |
+  A huge, bloated demon in a stained leather apron, wide as a doorway,
+  with a face like a skinned pig and small pleased eyes. He has been
+  waiting for someone new. He swings the cleaver with a butcher's
+  economy, and he is very, very fast for his size.
+level: 16
+health: 750
+stats: {strength: 15, constitution: 14}
+silver: 90
+xp: 3000
+attack:
+  verb: cleave

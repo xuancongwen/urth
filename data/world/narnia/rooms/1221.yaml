@@ -1,0 +1,12 @@
+vnum: 1221
+name: The Long Slope Up to the Table
+description: |
+  A long, bare ridge climbs south, its grass flattened by the passage of
+  many feet and hooves and claws, not all of them friendly. Trampled
+  torches lie in the grass. East, a ring of dark tents stands in a
+  hollow. North, the wood is thawing. South, at the top of the ridge,
+  something grey and heavy waits.
+exits:
+  north: 1219
+  south: 1222
+  east: 1223

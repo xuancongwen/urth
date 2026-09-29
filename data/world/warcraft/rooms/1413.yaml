@@ -1,0 +1,11 @@
+vnum: 1413
+name: Before the Keep Gate
+description: |
+  The forest gives way to cleared ground, and on a low rise stands a
+  keep of pale grey stone with blue pennants on its towers. The
+  drawbridge is down across a moat of green water. Arrow slits watch
+  the approach, and the ground before the gate is kept bare of cover.
+  The keep lies east across the bridge; the wood lies west.
+exits:
+  east: 1414
+  west: 1410

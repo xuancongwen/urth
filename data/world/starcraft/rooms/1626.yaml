@@ -1,0 +1,12 @@
+vnum: 1626
+name: The Overrun Bunker
+description: |
+  The bunker's door has been peeled open from outside like a ration tin.
+  Inside it is black and stinking, the firing slits clogged with a
+  glistening purple membrane, and spent gauss casings crunch underfoot
+  like gravel. Deep claw marks score the walls in fans of four. Whoever
+  held this place held it for a long time, and then did not. The road is
+  south.
+exits:
+  south: 1610
+flags: [dark]

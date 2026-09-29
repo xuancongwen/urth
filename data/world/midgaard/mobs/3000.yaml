@@ -1,0 +1,15 @@
+vnum: 3000
+name: Hassan
+keywords: [hassan, swordsman, sellsword]
+description: Hassan sits alone at the end of the bar, a cup of black coffee untouched in front of him.
+look: |
+  A lean, dark man past his prime but not past his skill, with a
+  scimitar across his knees and a face like old leather. He came to
+  Midgaard a long time ago from somewhere much hotter, and he has killed
+  more men than he can remember. He would rather be left alone.
+level: 15
+health: 420
+silver: 90
+stats: { strength: 14, dexterity: 14 }
+attack:
+  verb: slash

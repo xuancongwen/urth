@@ -374,7 +374,7 @@
   var conn = $('conn'), main = $('main');
   // The client hangs up after this long without a command, with a warning
   // a minute before. Output does not count as activity.
-  var idleLimit = 15 * 60 * 1000, idleWarn = 60 * 1000, lastActive = 0, idleWarned = false, idleTimer = null;
+  var idleLimit = 2 * 60 * 60 * 1000, idleWarn = 60 * 1000, lastActive = 0, idleWarned = false, idleTimer = null;
 
   function setConnected(on) {
     input.classList.toggle('offline', !on);

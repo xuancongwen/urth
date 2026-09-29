@@ -1,0 +1,12 @@
+vnum: 1400
+name: an orc peon
+keywords: [orc, peon, worker]
+description: An orc peon staggers past under a load of logs, muttering.
+look: |
+  Stooped and wiry, with a torn loincloth and calluses like horn on
+  his shoulders. He has the look of someone who has been told to work
+  and has decided that complaining counts as work.
+level: 8
+flags: [wander]
+attack:
+  verb: punch

@@ -1,0 +1,10 @@
+vnum: 1400
+name: a bundle of lumber
+keywords: [bundle, lumber, wood, logs]
+description: A bundle of split pine logs, lashed with rope, lies here.
+look: |
+  Six lengths of pine, split and bound for carrying on a back. The rope
+  is knotted in a way no one bothered to teach; it just works.
+type: other
+weight: 12
+value: 4

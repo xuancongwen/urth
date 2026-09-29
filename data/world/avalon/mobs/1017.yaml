@@ -1,0 +1,12 @@
+vnum: 1017
+name: a barrow-wight
+keywords: [barrow-wight, barrow, wight]
+description: A barrow-wight rises from a burial niche, bones rattling in rotted furs.
+look: |
+  What is left of a warrior who was buried with his king to serve him
+  in the dark, and has not stopped. A bronze pin still holds his cloak.
+  His eyes are two cold points of light, and his hand is colder.
+level: 9
+silver: 35
+attack:
+  verb: claw

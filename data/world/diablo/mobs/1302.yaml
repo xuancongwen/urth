@@ -1,0 +1,20 @@
+vnum: 1302
+name: Griswold the blacksmith
+keywords: [griswold, blacksmith, smith]
+description: Griswold hammers at a glowing blade on his anvil, whistling tunelessly.
+look: |
+  A barrel of a man with a leather apron, a beard singed short, and a
+  laugh that fills the smithy. He limps from an old wound he got going
+  down after his friends, and has not gone down again. He will sell you
+  a blade, fix the one you have, and make something fine out of any
+  interesting metal you drag up from below.
+level: 18
+flags: [peaceful]
+attack:
+  verb: hammer
+trades:
+  - { item: 1304, silver: 380 }
+  - { item: 1306, silver: 320 }
+  - { item: 1305, silver: 520 }
+  - { item: 1307, silver: 450 }
+  - { item: 1303, silver: 300, items: [1302] }

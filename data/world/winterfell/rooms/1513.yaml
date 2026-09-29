@@ -1,0 +1,11 @@
+vnum: 1513
+name: The Lord's Solar
+description: |
+  A snug room above the hall, walled in books and furs, with a window of
+  thick greenish glass that turns the snow outside into something seen
+  underwater. A fire burns low. A chair by it has been sat in so long it
+  holds the shape of the sitter. Maps of the North cover a table, their
+  corners pinned with a knife, a cup, and a candle stub. The stair goes
+  down to the hall.
+exits:
+  down: 1512

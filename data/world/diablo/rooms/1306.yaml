@@ -1,0 +1,11 @@
+vnum: 1306
+name: The Footbridge
+description: |
+  Three planks lashed together and a rope for a rail span the stream.
+  The water below is clear enough to see the stones and cold enough to
+  ache the eyes. On the far bank, east, a crooked hut squats among
+  willows with smoke the wrong color curling from its chimney. The
+  village lane is back west.
+exits:
+  west: 1304
+  east: 1307

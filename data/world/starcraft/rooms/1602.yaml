@@ -1,0 +1,15 @@
+vnum: 1602
+name: The Command Center Concourse
+description: |
+  The ground floor of the command center, a hangar of scuffed deck plate
+  under ribbed girders. The whole building was flown here on its own
+  thrusters and set down like a boot on a beetle, and the landing struts
+  still show through the floor, scorched black. Duty rosters flicker on a
+  cracked monitor. A lift goes up to the bridge; a swinging door to the
+  east lets out music and shouting; the barracks are through a bulkhead to
+  the west, and the street is south.
+exits:
+  south: 1601
+  west: 1605
+  east: 1606
+  up: 1604

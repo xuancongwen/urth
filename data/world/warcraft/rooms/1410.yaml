@@ -1,0 +1,13 @@
+vnum: 1410
+name: Under the Green Eaves
+description: |
+  A glade where the road forks under a canopy of oak and elm, the light
+  coming down green and golden. Birds argue overhead. A post carries
+  three wooden arrows: east to the keep, south to the farms, and north,
+  with a skull scratched beside it by some helpful traveller, into the
+  deep wood. The road back to the crossroads goes west.
+exits:
+  north: 1417
+  east: 1413
+  south: 1411
+  west: 1409

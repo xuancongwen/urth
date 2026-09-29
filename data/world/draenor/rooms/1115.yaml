@@ -1,0 +1,13 @@
+vnum: 1115
+name: The Deep Bog
+description: |
+  Here the caps overhead grow so thick and close that the burning sky
+  is gone entirely, and so is the blue glow; it is black, wet, and
+  loud with dripping. The causeway sinks to a line of stepping-stones
+  that shift under your weight. Something wide and flat glides through
+  the air overhead with a sound like a sail. Dry ground is north,
+  somewhere; a vast pale stalk rises out of the dark to the south.
+exits:
+  north: 1111
+  south: 1116
+flags: [dark]

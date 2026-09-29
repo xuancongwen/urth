@@ -1,0 +1,11 @@
+vnum: 1022
+name: The Edge of the Fae Wood
+description: |
+  Past the last apple tree the orchard gives way to a wood of oak and
+  hazel and thorn, and the hour gives way with it. It was morning in
+  the orchard. Here it is dusk, and has been for a long time. Small
+  lights drift between the trunks at head height. The orchard is west;
+  the wood goes deeper east.
+exits:
+  west: 1008
+  east: 1023

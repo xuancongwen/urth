@@ -1,0 +1,10 @@
+vnum: 3003
+name: a packet of trail rations
+keywords: [packet, trail, rations]
+description: A packet of trail rations lies here.
+look: |
+  Hard biscuit, dried meat, and a twist of salt, wrapped in waxed cloth.
+  It will keep for a month and taste like it.
+type: other
+weight: 1
+value: 12

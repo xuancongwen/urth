@@ -1,0 +1,16 @@
+vnum: 1304
+name: a Tristram broadsword
+keywords: [tristram, broadsword, sword]
+description: A plain, well-made broadsword rests here.
+look: |
+  Griswold's everyday work: a straight blade with a fuller down its
+  length, a leather grip, and a simple crossguard. Nothing about it is
+  special except that it will not break when you need it.
+type: weapon
+weight: 6
+level: 15
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

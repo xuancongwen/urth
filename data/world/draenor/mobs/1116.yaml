@@ -1,0 +1,14 @@
+vnum: 1116
+name: a void terror
+keywords: [void, terror, voidwalker]
+description: A void terror drifts in the dark, a hole in the shape of a giant.
+look: |
+  You see it only as an absence: a great hunched shape of purple-black
+  nothing, bound at the wrists by glowing bracers, with two eyes like
+  distant stars. It hums the same not-quite-words as the walls. It is
+  very hungry, and it is made of hunger.
+level: 18
+health: 650
+attack:
+  kind: cold
+  verb: drain

@@ -1,0 +1,10 @@
+vnum: 3009
+name: The Bakery
+description: |
+  Warm, floury, and heavenly. Racks of loaves cool along the walls, and
+  the great brick oven at the back glows through its iron door. A cat
+  asleep on a sack of flour opens one eye at you. Main Street is back
+  south.
+exits:
+  south: 3012
+flags: [safe]

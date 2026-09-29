@@ -1,0 +1,11 @@
+vnum: 1507
+name: The Battlements of the Outer Wall
+description: |
+  Wind comes over the merlons hard enough to lean on. From up here the
+  winter town is a scatter of smoke and snow-roofs to the south, and the
+  Wolfswood a dark tide to the east that runs, as far as sight goes, to
+  the white hills and whatever lies past them. Northward, over the
+  inner wall, rise the towers and roofs of the castle and a wisp of
+  steam from the gardens. The stair goes down.
+exits:
+  down: 1506

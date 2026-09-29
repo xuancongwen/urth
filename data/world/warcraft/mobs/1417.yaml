@@ -1,0 +1,11 @@
+vnum: 1417
+name: a red dragon whelp
+keywords: [red, dragon, whelp, dragonling]
+description: A red dragon whelp hisses from a warm vent, smoke curling from its nostrils.
+look: |
+  Dog-sized, all neck and wings, with scales still soft at the edges
+  and a temper already fully grown. It spits sparks when it hisses.
+level: 12
+attack:
+  kind: fire
+  verb: scorch

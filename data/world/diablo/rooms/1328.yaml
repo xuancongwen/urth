@@ -1,0 +1,12 @@
+vnum: 1328
+name: The Chaos Sanctuary
+description: |
+  A vast round floor of black glass under a ceiling lost in smoke, and
+  on it, marked out in fire, four seals and a star. Lightning with no
+  storm walks the edges of the room. Pillars of stone rise at the points
+  of the star, and on each one a figure has been nailed in the shape of
+  a prayer. The air is so hot it hums. The only way out is up, back
+  through the hole in the roof. The Lord of Terror is at home.
+exits:
+  up: 1327
+flags: [dark]

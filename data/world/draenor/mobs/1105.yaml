@@ -1,0 +1,15 @@
+vnum: 1105
+name: Warchief Gorvash the Burned
+keywords: [warchief, gorvash, burned, orc]
+description: Warchief Gorvash the Burned lounges on a throne of blades, an axe across his knees.
+look: |
+  Bigger than any orc has a right to be, and scarred all down one side
+  where fire once took him and he did not die. The fel has soaked him
+  to the bone; his blood hisses where it drips. He wears the skull of
+  some horned beast of the wastes for a helm, and when he stands the
+  whole hall quiets. He has been waiting for someone worth standing up
+  for.
+level: 16
+health: 850
+silver: 250
+stats: {strength: 15, constitution: 14}

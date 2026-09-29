@@ -1,0 +1,13 @@
+vnum: 1227
+name: The Great Hall of Cair Paravel
+description: |
+  A long hall with an ivory roof and a western wall hung with peacock
+  feathers, and an eastern door open straight onto the sea. Four thrones
+  stand on the dais, two larger and two smaller, all of them empty and
+  waiting. Sunlight moves on the floor with the reflection of the waves.
+  It is the kind of room that makes you stand up straighter. The stairs
+  go down to the gate.
+exits:
+  down: 1226
+flags: [safe]
+position: {x: 3, y: 3, z: 1}

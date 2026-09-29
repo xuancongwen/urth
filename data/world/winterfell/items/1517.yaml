@@ -1,0 +1,10 @@
+vnum: 1517
+name: a red weirwood leaf
+keywords: [red, weirwood, leaf]
+description: A single red leaf, shaped like a hand, lies on the ground.
+look: |
+  Five-fingered and dark red, like a small bloody hand, and it has not
+  withered though it has clearly fallen some time ago. Someone asked for
+  this. It is not the kind of thing you find by accident.
+type: other
+flags: [quest]

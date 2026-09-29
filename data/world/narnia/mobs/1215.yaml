@@ -1,0 +1,12 @@
+vnum: 1215
+name: a werewolf
+keywords: [werewolf, wolf]
+description: A werewolf crouches in the far corner of the dungeon, chains hanging loose from its wrists.
+look: |
+  Neither man nor wolf and trying to be both at once, hunched and
+  gaunt and grey. The chains were meant to hold it. They did not.
+level: 7
+silver: 30
+attack:
+  verb: rend
+  kind: slash

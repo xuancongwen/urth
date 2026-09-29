@@ -1,0 +1,14 @@
+vnum: 1604
+name: a Confederate marine
+keywords: [confederate, marine, soldier]
+description: A Confederate marine in blue powered armor stands here, rifle at the ready.
+look: |
+  A marine in full powered armor, the visor down, the rifle held across
+  the chest in a way that says they have practiced it until it stopped
+  being a choice. The shoulder plate is stencilled with a unit number and
+  a slogan about hell. Under the visor you glimpse a very young face.
+level: 16
+flags: [assist]
+silver: 80
+attack:
+  verb: burst

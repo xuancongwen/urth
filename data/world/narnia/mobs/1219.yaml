@@ -1,0 +1,13 @@
+vnum: 1219
+name: a dwarf of the Queen's service
+keywords: [dwarf, queens, service, warrior]
+description: A dwarf of the Queen's service sits by the fen fire, sharpening a hatchet.
+look: |
+  Bristle-bearded and barrel-chested in a studded jerkin, with the
+  Queen's mark painted on his hood. He has chosen his side and does not
+  care to hear arguments about it.
+level: 5
+silver: 25
+attack:
+  verb: hack
+  kind: slash

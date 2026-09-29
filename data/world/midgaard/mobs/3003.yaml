@@ -1,0 +1,11 @@
+vnum: 3003
+name: the grocer
+keywords: [grocer]
+description: The grocer stands behind his scales, polishing an apple on his apron.
+look: |
+  A thin, anxious man who counts everything twice, including your coins.
+level: 6
+flags: [peaceful]
+trades:
+  - { item: 3002, silver: 15 }
+  - { item: 3003, silver: 20 }

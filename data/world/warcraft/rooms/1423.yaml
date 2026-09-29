@@ -1,0 +1,11 @@
+vnum: 1423
+name: The Troll Trail
+description: |
+  The ridge narrows here into a path between leaning slabs of rock,
+  and someone has hung strings of bones and feathers from the heights
+  so that they clatter in the wind. Voodoo marks are daubed on the
+  stones in white clay, grinning faces with tusks. Drums sound from the
+  west. The ridge opens out again to the east.
+exits:
+  east: 1420
+  west: 1424

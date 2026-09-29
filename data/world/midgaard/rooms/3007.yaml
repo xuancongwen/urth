@@ -1,0 +1,10 @@
+vnum: 3007
+name: The Bar of the Grunting Boar
+description: |
+  A long oak bar, dark with spilt ale, runs the length of this smoky
+  room. Barrels are racked behind it, and above them hangs the stuffed
+  head of an enormous boar with one tusk missing. Adventurers come here
+  to boast, and to hear who has not come back. The inn's common room is
+  west.
+exits:
+  west: 3006

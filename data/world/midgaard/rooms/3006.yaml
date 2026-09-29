@@ -1,0 +1,11 @@
+vnum: 3006
+name: The Grunting Boar Inn
+description: |
+  The common room of the Grunting Boar is low, warm, and loud. A fire
+  roars in a hearth big enough to roast the inn's namesake, and the
+  tables are carved with generations of initials. Temple Square lies to
+  the west; the bar itself is through a wide arch to the east.
+exits:
+  east: 3007
+  west: 3005
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 1418
+name: a fel-scorched skull
+keywords: [fel, scorched, skull, totem]
+description: A skull blackened by green fire rests here, its sockets glowing.
+look: |
+  An orc's skull, burned black and then carved over every inch with
+  tiny runes. The eye sockets hold a flicker of green light, like
+  embers seen through smoke. Hold it, and you feel the fire that did
+  this waiting to be asked.
+type: totem
+school: evocation

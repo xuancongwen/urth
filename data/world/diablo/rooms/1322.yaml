@@ -1,0 +1,11 @@
+vnum: 1322
+name: The Chasm Bridge
+description: |
+  A bridge of a single slab of rock arches over a chasm whose bottom is
+  a faint red glow. At the far end the rock has been cut, by no mortal
+  mason, into a stair that spirals downward, each step carved with a
+  sigil that hurts to read. The river of fire is back north.
+exits:
+  north: 1320
+  down: 1323
+flags: [dark]

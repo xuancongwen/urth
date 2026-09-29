@@ -1,0 +1,24 @@
+vnum: 7
+name: The Hall of Far Doors
+description: |
+  The spiral stair lets out into a round hall of pale stone, much larger
+  than the Undercroft above and much quieter. Four more doors stand in
+  its walls, and these are stranger than the last. North, a grey door
+  rimed with frost, and beyond it the bark of hounds. East, a door of
+  apple-wood, and the scent of an orchard after rain. South, the back of
+  a wardrobe, fur coats and mothballs and, behind them, snow. West, a
+  plain oak door studded with iron, and the noise of a city market. The
+  stair goes on down.
+exits:
+  up: 6
+  north: 1500
+  east: 1000
+  south: 1200
+  west: 3001
+  down: 8
+flags: [safe]
+doors:
+  north: {name: the frost-grey door}
+  east: {name: the apple-wood door}
+  south: {name: the wardrobe}
+  west: {name: the iron-studded oak door}

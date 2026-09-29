@@ -1,0 +1,11 @@
+vnum: 1606
+name: a shoulder lamp
+keywords: [shoulder, lamp, light, flashlight]
+description: A clip-on shoulder lamp lies here, lens cracked but working.
+look: |
+  A fist-sized lamp that clamps onto armor at the shoulder and throws a
+  hard white beam. The battery pack is rated for a long night, which on
+  Mar Sara is the only kind of night there is in the tunnels.
+type: light
+burn: 1500
+value: 30

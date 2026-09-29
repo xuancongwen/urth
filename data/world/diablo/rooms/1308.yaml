@@ -1,0 +1,12 @@
+vnum: 1308
+name: The Graveyard Wall
+description: |
+  The lane ends at a low wall of fieldstone and a gap where a gate used
+  to hang. Beyond it the old graveyard runs downhill, the markers
+  tilted like bad teeth, several of the graves open and not from the
+  outside. A crate turned on its end serves someone as a shop counter.
+  The village is north; south, through the graves, the cathedral waits.
+exits:
+  north: 1304
+  south: 1309
+flags: [safe]

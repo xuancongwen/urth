@@ -1,0 +1,13 @@
+vnum: 1419
+name: a masked bandit
+keywords: [masked, bandit, thief, brigand]
+description: A masked bandit crouches in the wheat, a knife in hand.
+look: |
+  A thin man in a red kerchief tied over his face, and a jerkin of
+  leather patched from someone else's. Deserters, some say; farmers
+  who lost their land, say others. Either way, he is robbing this one.
+level: 10
+flags: [wander]
+attack:
+  kind: pierce
+  verb: stab

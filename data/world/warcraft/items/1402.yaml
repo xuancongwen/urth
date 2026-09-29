@@ -1,0 +1,12 @@
+vnum: 1402
+name: a spiked iron pauldron
+keywords: [spiked, iron, pauldron]
+description: A spiked iron pauldron lies here, strap broken.
+look: |
+  A single great shoulder plate hammered from a cauldron, by the look
+  of it, and fitted with three iron spikes long enough to discourage
+  anyone standing close. Grunts wear them on the axe side.
+type: armor
+slot: shoulders
+level: 11
+baseline: heavy

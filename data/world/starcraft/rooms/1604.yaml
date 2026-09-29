@@ -1,0 +1,11 @@
+vnum: 1604
+name: The Bridge
+description: |
+  The bridge of the command center, a ring of consoles around a tactical
+  table that paints the badlands in green wireframe. Red contacts crawl
+  along its western edge, a few more every hour. The windows are armored
+  glass, pitted by sand, and through them the mesas glow like coals.
+  Nobody raises their voice here, and nobody fights. The lift goes down.
+exits:
+  down: 1602
+flags: [safe]

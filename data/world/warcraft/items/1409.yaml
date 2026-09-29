@@ -1,0 +1,15 @@
+vnum: 1409
+name: a troll throwing axe
+keywords: [troll, throwing, axe]
+description: A small, wicked axe with a feathered haft lies here.
+look: |
+  A short haft of hard wood with a blade shaped like a crescent moon and
+  a tuft of bright feathers bound below the head. Balanced for throwing,
+  though it does fine work at arm's length too.
+type: weapon
+level: 12
+baseline: dagger
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

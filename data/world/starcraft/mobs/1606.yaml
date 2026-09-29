@@ -1,0 +1,15 @@
+vnum: 1606
+name: Drill Sergeant Kross
+keywords: [drill, sergeant, kross]
+description: Drill Sergeant Kross stands on the painted line, bellowing at nobody in particular.
+look: |
+  A slab of a man in battered powered armor, the helmet under one arm so
+  everyone can see his face, which is the point: it is a face that has
+  been shouting for twenty years. He has a resocialization scar at his
+  temple and no patience for anything, least of all you.
+level: 19
+flags: [assist]
+health: 520
+silver: 110
+attack:
+  verb: burst

@@ -1,0 +1,12 @@
+vnum: 1625
+name: The Engineering Bay
+description: |
+  Robotic arms hang from the ceiling of this long shed like the legs of a
+  dead spider, and a half-built suit of armor stands clamped in a gantry
+  with its chest plate open. Workbenches are buried in cutters, coils,
+  and cans of sealant. On one wall someone has hung a zerg carapace plate
+  with a bullseye painted on it, riddled with holes, beside a hand-lettered
+  sign: WE BUY CHITIN. The depot is back east.
+exits:
+  east: 1603
+flags: [safe]

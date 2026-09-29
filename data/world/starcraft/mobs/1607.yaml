@@ -1,0 +1,13 @@
+vnum: 1607
+name: an SCV
+keywords: [scv, worker, miner, robot]
+description: An SCV clanks about on its treads, cutting at the crystal with a mining laser.
+look: |
+  A space construction vehicle: a squat mechanical suit on treads with a
+  pilot sealed inside, one arm a drill and the other a cutting laser. The
+  pilot's face is visible through the canopy, chewing gum, bored. SCVs
+  are not built for fighting, but they are built to last.
+level: 16
+silver: 60
+attack:
+  verb: drill

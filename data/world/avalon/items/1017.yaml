@@ -1,0 +1,18 @@
+vnum: 1017
+name: a scabbard blessed by the Lady
+keywords: [scabbard, blessed, lady]
+description: A scabbard of white leather worked with blue thread lies here.
+look: |
+  White doeskin over a core of lake-reed, stitched with running water in
+  blue silk and fastened with a buckle of wyvern scale. The priestesses
+  say the one who wears the true scabbard cannot bleed. This is not the
+  true one. It helps.
+type: armor
+slot: belt
+level: 10
+baseline: medium
+weight: 2
+value: 300
+effects:
+  - kind: regen
+    params: { fraction: 0.005 }

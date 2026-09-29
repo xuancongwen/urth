@@ -1,0 +1,16 @@
+vnum: 1018
+name: the Barrow King
+keywords: [barrow, king, old]
+description: The Barrow King sits upon his throne of stone, a bronze blade across his knees.
+look: |
+  A king of the people who raised the stones, before the Romans, before
+  the Britons, before names. Leather skin over long bones, a circlet of
+  red gold on his brow, and a patience that has outlasted three
+  kingdoms. He has been waiting for a worthy challenger for a very long
+  time. He is not sure you are it.
+level: 12
+health: 440
+silver: 80
+stats: {strength: 16, constitution: 15}
+attack:
+  verb: slash

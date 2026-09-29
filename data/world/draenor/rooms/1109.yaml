@@ -1,0 +1,13 @@
+vnum: 1109
+name: The Warchief's Hall
+description: |
+  A long hall roofed in iron, pillared with the trunks of trees that no
+  longer grow anywhere. At the far end a throne of welded blades sits on
+  a dais of skulls, and the forge-glow from grates in the floor lights
+  everything from below, so every face looks like a mask. Battle
+  standards of a dozen conquered clans hang in rags from the beams. A
+  small door behind the throne lets in a cold, strange wind from the
+  east. The gate is west.
+exits:
+  west: 1107
+  east: 1121

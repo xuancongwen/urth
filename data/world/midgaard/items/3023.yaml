@@ -1,0 +1,14 @@
+vnum: 3023
+name: a ring of the owl
+keywords: [ring, owl]
+description: A small silver ring lies here.
+look: |
+  A thin silver band with a tiny owl's face worked into it, eyes of
+  chipped jet.
+type: armor
+slot: finger
+weight: 0
+level: 6
+value: 180
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

@@ -1,0 +1,12 @@
+vnum: 1604
+name: a pair of firebat gauntlets
+keywords: [firebat, gauntlets, gloves]
+description: A pair of scorched, heavy gauntlets lies here.
+look: |
+  Thick neosteel gauntlets lined with ceramic weave, built to hold a
+  flamethrower's grips without cooking the hands inside. The fingertips are
+  blistered and discolored from years of standing too close to the fire.
+type: armor
+slot: hands
+level: 18
+baseline: heavy

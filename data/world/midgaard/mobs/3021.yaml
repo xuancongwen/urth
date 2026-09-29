@@ -1,0 +1,11 @@
+vnum: 3021
+name: a sewer rat
+keywords: [sewer, rat]
+description: A fat sewer rat squeaks and bares its teeth at you.
+look: |
+  A rat the size of a small dog, grey and greasy, with a naked tail and
+  yellow teeth.
+level: 3
+flags: [assist]
+attack:
+  verb: bite

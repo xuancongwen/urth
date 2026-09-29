@@ -1,0 +1,16 @@
+vnum: 1214
+name: The Courtyard of Statues
+description: |
+  The courtyard is full of statues, and they are all wrong. A satyr
+  caught with one hoof lifted. A dwarf with his hand on his axe. A
+  centaur, a giant, a leopard mid-crouch, a little fox with its brush
+  curled round its feet, and near the middle, a stone lion that makes
+  you stop breathing until you see the pencilled moustache someone has
+  drawn on it. Every face shows the same look of surprise. Doors lead
+  north into the castle and south toward the smell of kennels, and a
+  stair goes down into the dark.
+exits:
+  east: 1213
+  north: 1215
+  south: 1217
+  down: 1216

@@ -1,0 +1,11 @@
+vnum: 1209
+name: Along the Frozen River
+description: |
+  The river winds between steep banks here, its ice ridged and grey. The
+  walking is easier on the ice than in the drifts, though every so often
+  it groans underfoot and you stop until it has finished. Upstream, east,
+  bells are ringing faintly, merry bells, which is the strangest sound
+  in all this silent country. The dam is back west.
+exits:
+  west: 1205
+  east: 1210

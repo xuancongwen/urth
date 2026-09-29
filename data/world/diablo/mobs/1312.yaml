@@ -1,0 +1,12 @@
+vnum: 1312
+name: a goatman
+keywords: [goatman, goat, beast]
+description: A goatman stamps and bleats, lowering its halberd.
+look: |
+  Seven feet of shaggy muscle on backward-jointed legs, with a goat's
+  head and a man's hatred. It wears a necklace of finger bones and
+  bells, and its halberd is black with old use.
+level: 18
+flags: [assist]
+attack:
+  verb: hack

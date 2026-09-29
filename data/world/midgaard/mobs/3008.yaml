@@ -1,0 +1,11 @@
+vnum: 3008
+name: the cityguard
+keywords: [cityguard, guard]
+description: A cityguard stands here, watching the crowd.
+look: |
+  A soldier of Midgaard's watch in mail and a tabard of the city
+  colours. He is bored, underpaid, and a good deal more dangerous than
+  he looks.
+level: 10
+attack:
+  verb: slash

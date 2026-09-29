@@ -1,0 +1,12 @@
+vnum: 1311
+name: a black mushroom
+keywords: [black, mushroom, fungus]
+description: A single glossy black mushroom grows from a crack in the rock.
+look: |
+  Black to the gills, with a cap like wet lacquer and a smell of old
+  cellars and pennies. It grows only where the rock is warm from below.
+  The witch across the stream has been wanting one.
+type: material
+material: black mushroom
+rarity: rare
+weight: 1

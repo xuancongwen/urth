@@ -1,0 +1,9 @@
+vnum: 1522
+name: The Hot Pool
+description: |
+  A pool among the roots of the godswood breathes steam into the cold,
+  its water green and warm and smelling faintly of stone. Moss grows
+  thick and bright around it in a ring where the snow cannot reach, and
+  the trees lean over it as if for warmth. The path runs back west.
+exits:
+  west: 1520

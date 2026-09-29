@@ -1,0 +1,13 @@
+vnum: 1506
+name: Between the Walls
+description: |
+  Winterfell is a castle inside a castle: an outer wall and, fifty feet
+  within it, an inner wall higher still, with a moat of dark water
+  between that never quite freezes. The ground here is a strip of
+  trodden snow where soldiers drill and horses are walked. A stone stair
+  climbs the outer wall to the battlements. North, a second gatehouse
+  guards the way in.
+exits:
+  north: 1508
+  south: 1505
+  up: 1507

@@ -1,0 +1,13 @@
+vnum: 1107
+name: The Gate of the Hellfire Citadel
+description: |
+  The gate is open because it has no need to be shut. Two towers of
+  black stone lean in over it, their tops hung with chains, and on the
+  chains hang things that were caught trying to leave. Inside, a forge
+  somewhere pounds like a heart. A ramp of iron plates climbs to the
+  ramparts above. The hall lies east, lit red from within, and the road
+  runs back west.
+exits:
+  west: 1106
+  east: 1109
+  up: 1108

@@ -1,0 +1,12 @@
+vnum: 1127
+name: The Cap's Edge Lookout
+description: |
+  A railed platform at the rim of the great cap, where the blue flesh
+  curls under and falls away into the marsh far below. A telescope of
+  brass and crystal points north toward the citadel, and chalk marks on
+  the rail count something: patrols, fires, days. Far off in the east,
+  past everything, the ground ends in a ragged line and pieces of it
+  float in the sky. The plaza is north.
+exits:
+  north: 1118
+flags: [safe]

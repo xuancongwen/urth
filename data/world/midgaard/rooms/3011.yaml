@@ -1,0 +1,12 @@
+vnum: 3011
+name: Main Street
+description: |
+  The street is busy with carters and porters shouting at each other to
+  make way. A grocer's stall spills out of the building to the north,
+  crates of onions and apples stacked by the door. To the south, the
+  ring of a hammer and a smell of hot iron come from the weaponsmith's.
+exits:
+  north: 3019
+  east: 3012
+  south: 3022
+  west: 3010

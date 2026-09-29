@@ -1,0 +1,12 @@
+vnum: 1312
+name: Beneath the Cathedral
+description: |
+  The stair ends in a vaulted undercroft where the monks once kept their
+  dead in niches cut into the walls. Most of the niches are empty now,
+  and the dust on the floor is disturbed by feet that shuffle. The air
+  is still and tastes of old stone. The stair climbs back up to the
+  nave; a passage leads south into the catacombs.
+exits:
+  up: 1310
+  south: 1313
+flags: [dark]

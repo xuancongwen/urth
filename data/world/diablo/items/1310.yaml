@@ -1,0 +1,13 @@
+vnum: 1310
+name: a demon heart
+keywords: [demon, heart]
+description: A black heart lies here, still beating slowly.
+look: |
+  The size of a fist and hot to the touch, the heart of something that
+  was never born. It beats, slow and sullen, and will go on beating for
+  days. Adria pays well for these and does not say what for.
+type: material
+material: demon heart
+rarity: uncommon
+weight: 1
+value: 60
