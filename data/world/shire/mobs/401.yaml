@@ -7,6 +7,5 @@ look: |
   bonnet, with an umbrella she uses as a pointer and a weapon. She has
   waited seventy-seven years for this door, and she is not leaving.
 level: 8
-flags: [peaceful]
 attack:
   verb: jab

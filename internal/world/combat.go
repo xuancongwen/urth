@@ -72,7 +72,8 @@ func (w *World) startFight(att, def *Character) {
 	w.autoAssist(att, def)
 }
 
-// stopFighting ends c's fight and any fight aimed at c.
+// stopFighting ends c's fight and any fight aimed at c. Whoever was
+// fighting c turns on anyone else still fighting them.
 func (w *World) stopFighting(c *Character, both bool) {
 	c.Fighting = nil
 	if !both {
@@ -81,8 +82,31 @@ func (w *World) stopFighting(c *Character, both bool) {
 	for _, o := range w.allCharacters() {
 		if o.Fighting == c {
 			o.Fighting = nil
+			w.fightBack(o)
 		}
 	}
+}
+
+// fightBack turns a character with no target on someone fighting it, and
+// returns whom: the first attacker standing in the room, so it answers
+// one at a time and takes the next when that one falls (docs/RULES.md
+// 4.7).
+func (w *World) fightBack(c *Character) *Character {
+	if c.Fighting != nil || c.Health <= 0 {
+		return nil
+	}
+	for _, o := range w.attackersOf(c) {
+		if o.Health <= 0 {
+			continue
+		}
+		w.wakeForFight(c)
+		c.Fighting = o
+		w.act("You turn on $N.", c, o, "", toChar)
+		w.act("$n turns on you.", c, o, "", toVict)
+		w.act("$n turns on $N.", c, o, "", toNotVict)
+		return o
+	}
+	return nil
 }
 
 // allCharacters returns every player and mob in the world.
@@ -107,20 +131,10 @@ func (w *World) allCharacters() []*Character {
 func (w *World) violence() {
 	for _, c := range w.allCharacters() {
 		def := c.Fighting
-		if def == nil {
-			continue
-		}
-		if def.Room != c.Room || c.Room == nil || def.Health <= 0 {
-			// The target is gone; turn on anyone still fighting us.
+		if def == nil || def.Room != c.Room || c.Room == nil || def.Health <= 0 {
+			// No target, or the target is gone; turn on anyone fighting us.
 			c.Fighting = nil
-			for _, e := range w.enemiesOf(c) {
-				if e.Health > 0 {
-					c.Fighting = e
-					def = e
-					break
-				}
-			}
-			if c.Fighting == nil {
+			if def = w.fightBack(c); def == nil {
 				continue
 			}
 		}

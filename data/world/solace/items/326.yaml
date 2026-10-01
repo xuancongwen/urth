@@ -1,0 +1,22 @@
+vnum: 326
+name: Riverwind's bow
+keywords: [riverwind, riverwinds, bow, plainsman, que-shu]
+description: A long plainsman's bow of horn and sinew lies here.
+look: |
+  A Que-Shu hunting bow, horn-backed and bound with sinew, taller
+  than most men and strung for an arm that has done nothing else since
+  boyhood. It carried its owner across the Plains of Dust on a quest
+  nobody was meant to come back from. It shoots where it is looked.
+type: weapon
+weight: 3
+level: 9
+baseline: standard
+value: 350
+rarity: uncommon
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,21 @@
+vnum: 1434
+name: the Warchief's black plate
+keywords: [warchief, warchiefs, black, plate, armor, armour]
+description: A suit of black plate lies here, no two pieces from the same smith.
+look: |
+  A breastplate off a human knight, pauldrons off an ogre, tassets
+  off something with more legs, all of it blacked with soot and oil
+  and riveted to fit one very large orc. Each piece was taken from an
+  enemy who no longer needed it. It turns a blow, and whoever wears
+  it into a fight does not expect to be the one who falls.
+type: armor
+slot: body
+level: 20
+baseline: plate
+weight: 30
+value: 1800
+rarity: rare
+effects:
+  - { kind: soak, params: { power: 0.12 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

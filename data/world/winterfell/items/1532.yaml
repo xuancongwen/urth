@@ -1,0 +1,26 @@
+vnum: 1532
+name: Ice
+keywords: [ice, greatsword, valyrian, sword, stark]
+description: A greatsword as wide as a hand lies here, dark and rippled like smoke.
+look: |
+  A greatsword of Valyrian steel, taller than a boy and as wide across
+  as a man's hand, spell-forged four hundred years ago and still sharp
+  enough to shave with. The lords of Winterfell have used it for
+  justice since before they kept records: the man who passes the
+  sentence swings the sword. It is lighter than it looks, and it does
+  not need a second stroke.
+type: weapon
+weight: 8
+level: 14
+baseline: heavy
+value: 1600
+rarity: rare
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: execute, params: { threshold: 0.3, mult: 1.4 } }
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

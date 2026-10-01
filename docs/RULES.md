@@ -800,8 +800,11 @@ others, players included.
   Members can `assist` and can be set to assist automatically. Group
   talk exists.
 - **Many on one.** Any number of attackers can fight one target; the
-  target auto-attacks one of them and may switch. Mobs can gang up, and
-  a mob may assist another of its kind or its group (a builder flag).
+  target auto-attacks one of them and may switch. Whoever is attacked
+  fights back without a command: when its target dies, flees, or is
+  otherwise gone, it turns on the next attacker still on it, one at a
+  time, until none is left. Mobs can gang up, and a mob may assist
+  another of its kind or its group (a builder flag).
 - **One on many.** An attacker's auto-attack has one target at a time,
   but `kill <other>` switches it mid-fight, and skills and spells may
   affect several or all enemies in the room. Everything hostile to a

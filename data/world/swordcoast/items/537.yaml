@@ -1,0 +1,20 @@
+vnum: 537
+name: the First Reader's scroll of Oghma
+keywords: [scroll, oghma, symbol, reader, tethtoril, silver]
+description: A small silver scroll on a cord lies here.
+look: |
+  The blank scroll of Oghma, the Binder of What Is Known, worked in
+  silver no longer than a finger and worn at the throat. Tethtoril
+  carried it for forty years on the library steps. It is cool and
+  quiet, and whoever wears it mends a little as they stand, the way a
+  page is mended: carefully, and so the join does not show.
+type: armor
+slot: neck
+level: 18
+weight: 0
+value: 1100
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: regen, params: { fraction: 0.02 } }

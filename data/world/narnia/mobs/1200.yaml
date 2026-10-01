@@ -9,6 +9,5 @@ look: |
   whether to be your friend or to report you, and plainly hoping it will
   be the first.
 level: 3
-flags: [peaceful]
 attack:
   verb: kick

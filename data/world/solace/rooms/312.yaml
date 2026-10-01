@@ -11,4 +11,3 @@ exits:
   east: 311
   north: 313
   up: 315
-flags: [safe]

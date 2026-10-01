@@ -13,8 +13,12 @@ drow wizard 17, shrine spiders 18, drow priestess 20 (the boss; the whip,
 the signet, the insignia of House Do'Urden, the necromancy totem, and
 the offering are with her).
 
-Notable items: the hook horror carries Icingdeath (715, level 14);
-the drow wizard keeps Twinkle as a prize (17); the priestess keeps
+Belwar Dissengulp (16) can be killed in the square of Blingdenstone,
+which is no longer safe, for the mithral hammer that is his right hand.
+Icingdeath and Twinkle (items 730 and 731 here) are carried by Drizzt,
+in his cave in `icewind`.
+
+Notable items: the priestess keeps
 Zaknafein's sword, the weapon of the man her house sacrificed (19). The priestess's
 snake-headed whip poisons and slows.
 

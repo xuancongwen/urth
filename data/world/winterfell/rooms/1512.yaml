@@ -13,4 +13,3 @@ exits:
   east: 1519
   west: 1514
   up: 1513
-flags: [safe]

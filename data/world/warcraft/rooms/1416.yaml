@@ -8,4 +8,3 @@ description: |
   the far end looks out on the forest. The doors out are west.
 exits:
   west: 1414
-flags: [safe]

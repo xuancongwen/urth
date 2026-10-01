@@ -14,9 +14,9 @@ resets:
   - { mob: 1519, room: 1509 }   # the master-at-arms in the yard, who teaches enhanced damage
   - { mob: 1506, room: 1511 }   # the kennelmaster and his hounds
   - { mob: 1507, room: 1511, max: 3 }
-  - { mob: 1504, room: 1512 }   # the Lord in his high seat
+  - { mob: 1504, room: 1512, equip: [{ item: 1532, slot: wield }] }   # the Lord in his high seat, and Ice
   - { mob: 1503, room: 1513 }   # the maester, who gives out errands
-  - { mob: 1505, room: 1513 }   # Old Nan, who gives out stories
+  - { mob: 1505, room: 1513, equip: [{ item: 1533, slot: wield }] }   # Old Nan, who gives out stories, and her needles
   - { item: 1509, room: 1514 }  # a torch by the crypt door, for those who did not bring one
   # --- the glass gardens and the godswood ---
   - { mob: 1518, room: 1519 }

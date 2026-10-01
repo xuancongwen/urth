@@ -1,0 +1,21 @@
+vnum: 1533
+name: Old Nan's knitting needle
+keywords: [nan, nans, knitting, needle, bone]
+description: A long bone knitting needle lies here, trailing a strand of grey wool.
+look: |
+  Yellow bone, worn smooth, as long as a forearm and sharper than it
+  has any reason to be. It has been clicking by the same fire since
+  before the lord's father was born. It is quick in the hand, and it
+  knows a great many stories about what happens to people in the dark.
+type: weapon
+weight: 0
+level: 6
+baseline: dagger
+value: 120
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab
+effects:
+  - { kind: finesse }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

@@ -2,13 +2,13 @@
 interval_seconds: 300
 resets:
   # Candlekeep
-  - { mob: 500, room: 503 }   # Winthrop behind his bar
-  - { mob: 501, room: 503 }   # Imoen, who does not stay put
+  - { mob: 500, room: 503, equip: [{ item: 508 }] }   # Winthrop behind his bar, with a mug of his own
+  - { mob: 501, room: 503, equip: [{ item: 536, slot: wield }] }   # Imoen, who does not stay put, and the bow she is not supposed to have
   - { item: 508, room: 503 }  # the ale
   - { item: 508, room: 503 }
-  - { mob: 502, room: 502 }   # Tethtoril on the steps
-  - { mob: 503, room: 504 }   # Gorion at his window
-  - { item: 507, room: 504 }  # the letter, and the ring he forgot
+  - { mob: 502, room: 502, equip: [{ item: 537, slot: neck }] }   # Tethtoril on the steps, Oghma's scroll at his throat
+  - { mob: 503, room: 504, equip: [{ item: 513, slot: finger1 }] }   # Gorion at his window, his ring on his hand
+  - { item: 507, room: 504 }  # the letter
   # the Lion's Way
   - { mob: 504, room: 506, max: 3 }   # gibberlings
   - { item: 514, room: 507 }          # the cairn's note
@@ -16,12 +16,12 @@ resets:
   - { item: 523, room: 508 }          # a monk's staff dropped on the road
   # the Coast Way and the Friendly Arm
   - { mob: 508, room: 510, equip: [{ item: 505 }, { item: 506 }, { item: 532, slot: feet }] }   # Tarnesh, with his wand, his orders, and the Boots of Speed
-  - { mob: 509, room: 511 }   # Khalid and Jaheira by the fire
-  - { mob: 510, room: 511 }
+  - { mob: 509, room: 511, equip: [{ item: 538, slot: wield }] }   # Khalid and Jaheira by the fire, his sword and her staff
+  - { mob: 510, room: 511, equip: [{ item: 539, slot: wield }] }
   - { mob: 518, room: 511 }   # the acrobat from Baldur's Gate, who teaches dodge
   - { item: 509, room: 511 }  # the stew
   - { item: 529, room: 509 }  # a traveller's cloak at the crossroads
-  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }, { item: 513 }] }   # the bandit, vest, dirk and purse, and Gorion's silver ring
+  - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }] }   # the bandit, vest, dirk and purse
   - { item: 535, room: 512 }          # the teamster's whip, left in the ruts
   - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }, { item: 524, slot: head }] }   # the hobgoblin, with a notched blade and a skullcap
   # Beregost

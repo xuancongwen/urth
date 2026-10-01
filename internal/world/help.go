@@ -66,7 +66,7 @@ var helpText = map[string]string{
 	"buy":  "buy <item>: trade a merchant its price for an item: silver, the goods it asks for from your inventory, or both.",
 	"sell": "sell <item>: sell an item from your inventory to the merchant here for half its value. A weapon or armor with no stated value is worth ten silver a level.",
 
-	"kill":     "kill <target>: attack. While fighting, kill <other> switches your target. Nobody can fight in a safe room.",
+	"kill":     "kill <target>: attack. While fighting, kill <other> switches your target. Anyone who attacks you is fought back, one at a time. Nobody can fight in a safe room.",
 	"flee":     "flee: run through a random exit to end a fight.",
 	"consider": "consider <target>: how the fight would go, and how hurt they look.",
 	"assist":   "assist [member]: attack whatever a group member here is fighting.",

@@ -1,7 +1,7 @@
 interval_seconds: 300
 resets:
   # Tristram
-  - { mob: 1300, room: 1301 }                                   # Deckard Cain by the fountain
+  - { mob: 1300, room: 1301, equip: [{ item: 1335, slot: wield }] }   # Deckard Cain by the fountain, leaning on the Horadric Staff
   - { mob: 1301, room: 1302 }                                   # Ogden at the Rising Sun
   - { mob: 1320, room: 1302 }                                   # the barbarian at the Rising Sun, who teaches whirlwind
   - { mob: 1302, room: 1303 }                                   # Griswold at the forge

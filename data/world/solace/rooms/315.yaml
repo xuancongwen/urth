@@ -6,4 +6,3 @@ description: |
   voices; from another, nothing at all, though somebody is inside.
 exits:
   down: 312
-flags: [safe]

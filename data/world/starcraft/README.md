@@ -25,7 +25,8 @@ goggles, a zergling scythe claw, a glave wurm, miners' lamps, fuel
 harnesses, plasma shield emitters, a carapace spaulder in the tunnels,
 a khaydarin ring, and a shock baton in the barracks.
 
-The bridge, the supply depot, and the engineering bay are safe. The
+The supply depot and the engineering bay are safe. The bridge is not:
+Magistrate Tarran (22) can be killed for his coat. The
 overrun bunker and everything past the infested colony (spawning pool,
 tunnels, hydralisk den, hive cluster, ultralisk cavern, cerebrate's
 chamber) are dark; the quartermaster sells shoulder lamps, and one lies

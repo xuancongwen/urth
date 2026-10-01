@@ -1,7 +1,7 @@
 interval_seconds: 300
 resets:
   # --- Bryn Shander ---
-  - { mob: 600, room: 601 }   # Cassius, under the awning
+  - { mob: 600, room: 601, equip: [{ item: 634, slot: finger1 }] }   # Cassius, under the awning, with the town's seal on his hand
   - { mob: 601, room: 601 }   # a market trader
   - { mob: 602, room: 602 }   # the tavern keeper, and what he sells
   - { mob: 618, room: 602 }   # the barbarian of Tempus by the fire, who teaches berserk
@@ -11,7 +11,7 @@ resets:
   - { mob: 604, room: 606 }   # the scrimshander and his bench
   - { item: 601, room: 606 }
   - { item: 610, room: 606 }
-  - { mob: 603, room: 607 }   # Regis, in the good chair
+  - { mob: 603, room: 607, equip: [{ item: 633, slot: neck }] }   # Regis, in the good chair, turning his pendant
   - { item: 608, room: 607 }
   - { mob: 605, room: 608 }   # the fisherman, the ivory, the gulls
   - { item: 610, room: 608 }
@@ -22,19 +22,19 @@ resets:
   # --- the tundra ---
   - { mob: 608, room: 610, max: 2, equip: [{ item: 611 }, { item: 617 }] }   # yetis carry fur, and a pair of mittens off their last meal
   - { mob: 609, room: 611, equip: [{ item: 600, slot: wield }, { item: 605, slot: feet }, { item: 618, slot: shield }] }   # the scout, axe, boots, and a Ten-Towns shield
-  - { mob: 610, room: 612, equip: [{ item: 604, slot: shoulders }, { item: 633, slot: neck }] }   # Biggrin, in his cloak and Regis's pendant
+  - { mob: 610, room: 612, equip: [{ item: 604, slot: shoulders }] }   # Biggrin, in his cloak
   - { item: 615, room: 611 }  # an Elk spear planted at the cairn
   # --- Kelvin's Cairn ---
-  - { mob: 611, room: 616 }   # Drizzt, and the figurine that stays
+  - { mob: 611, room: 616, equip: [{ item: 730, slot: wield }, { item: 731 }] }   # Drizzt, Icingdeath in hand and Twinkle beside it (both from the underdark's item block), and the figurine that stays
   - { item: 614, room: 616 }
   # --- the mines ---
   - { item: 624, room: 620 }  # a lantern by the gate
-  - { mob: 612, room: 621 }   # Bruenor
-  - { mob: 613, room: 621 }   # Catti-brie, who does not stay put
+  - { mob: 612, room: 621, equip: [{ item: 635, slot: wield }, { item: 636, slot: head }] }   # Bruenor, his axe, and the one-horned helm
+  - { mob: 613, room: 621, equip: [{ item: 632, slot: wield }] }   # Catti-brie, who does not stay put, and Taulmaril the Heartseeker
   - { mob: 614, room: 622 }   # the smith
   - { item: 602, room: 623 }  # a pick in the upper tunnels
   - { item: 621, room: 624 }  # dwarven greaves in the old workings
-  - { mob: 615, room: 625, equip: [{ item: 622 }, { item: 632 }] }   # the bear, and the claws that come off it, and Taulmaril the Heartseeker
+  - { mob: 615, room: 625, equip: [{ item: 622 }] }   # the bear, and the claws that come off it
   - { mob: 616, room: 626, max: 3, equip: [{ item: 619, slot: wield }, { item: 620, slot: body }] }   # the goblin band, flails and scrap mail
   - { mob: 617, room: 627, equip: [{ item: 603, slot: head }, { item: 609 }, { item: 630, slot: wield }, { item: 631 }] }   # the chieftain, crown, belt, and Aegis-fang, and Crenshinibon, the Crystal Shard
   - { item: 612, room: 640 }  # cairn silver at the bottom of the shaft

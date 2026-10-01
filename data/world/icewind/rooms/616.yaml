@@ -8,4 +8,3 @@ description: |
   there is nothing there. The slope is west.
 exits:
   west: 614
-flags: [safe]

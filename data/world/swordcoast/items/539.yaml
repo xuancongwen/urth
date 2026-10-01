@@ -1,0 +1,23 @@
+vnum: 539
+name: Jaheira's quarterstaff
+keywords: [jaheira, jaheiras, quarterstaff, staff]
+description: A quarterstaff of dark oak lies here, shod with iron at both ends.
+look: |
+  Oak from the Forest of Tethir, cut when the tree could spare it and
+  shod so that it serves as a spear in a pinch. A druid of the
+  Harpers leaned on it and looked at people. It keeps its bearer on
+  their feet, and it favours neither side of anything.
+type: weapon
+weight: 4
+level: 14
+baseline: staff
+value: 600
+rarity: uncommon
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: steady, params: { chance: 0.4 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

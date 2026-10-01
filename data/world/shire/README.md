@@ -6,7 +6,10 @@ edge of the Old Forest. Levels 1 to 10, with the Black Rider (9) on the
 road through the Woody End and Old Man Willow (10, tough) by the
 Withywindle. Reached through the west door of the Undercroft (room 6),
 which opens as an old cellar door in the bank of the Bywater Road (400).
-Hobbiton, Bywater, and Maggot's kitchen are safe. The two Old Forest rooms
+Hobbiton's lanes and Bywater are safe. Bagshot Row, the step of Bag End,
+and Maggot's kitchen are not: the Gaffer (10; his stick and pipe-weed),
+Lobelia (8; her umbrella), Ted Sandyman (6; his purse), and Farmer
+Maggot (12; mushrooms) can be killed. The two Old Forest rooms
 are dark.
 
 Notable items: the Black Rider wields a Morgul-knife (poison and chill)

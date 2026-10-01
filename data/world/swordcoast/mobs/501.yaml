@@ -8,6 +8,5 @@ look: |
   to stay in the keep and has decided that means the whole keep. She
   wants to know where you are going and whether she can come.
 level: 12
-flags: [peaceful]
 attack:
   verb: poke

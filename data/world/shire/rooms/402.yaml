@@ -10,4 +10,3 @@ exits:
   east: 401
   south: 403
   north: 406
-flags: [safe]

@@ -11,4 +11,3 @@ description: |
 exits:
   south: 1403
   west: 1408
-flags: [safe]

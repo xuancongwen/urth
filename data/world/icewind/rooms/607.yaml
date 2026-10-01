@@ -6,4 +6,3 @@ description: |
   flat surface lies a piece of carved bone. The only door is east.
 exits:
   east: 606
-flags: [safe]

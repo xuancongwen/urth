@@ -1,0 +1,18 @@
+vnum: 890
+name: the High Froman's hat
+keywords: [froman, fromans, hat, dented, office]
+description: A tall hat with a dent in it lies here, looking official.
+look: |
+  A hat of stiff felt, taller than a Geg's hat needs to be, with a
+  dent in the crown that has been there for nine High Fromans and is
+  the whole of the office: whoever wears the dent speaks for Wombe.
+  It is too big for most heads and makes its wearer sound, to Gegs at
+  least, like someone who must be right.
+type: armor
+slot: head
+level: 12
+baseline: light
+value: 300
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: steady, params: { chance: 0.25 } }

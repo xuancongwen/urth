@@ -3,11 +3,9 @@ resets:
   # the road and the Hill
   - { item: 403, room: 400 }   # a felt hat blown into the bend
   - { item: 419, room: 401 }   # a belt dropped in the road
-  - { mob: 400, room: 402 }    # the Gaffer on his bench
-  - { item: 400, room: 402 }   # his stick
-  - { item: 410, room: 402 }   # and his pipe-weed
+  - { mob: 400, room: 402, equip: [{ item: 400, slot: wield }, { item: 410 }] }    # the Gaffer on his bench, his stick, and his pipe-weed
   - { item: 405, room: 402 }   # a seed-cake under a cloth
-  - { mob: 401, room: 405 }    # Lobelia outside Bag End
+  - { mob: 401, room: 405, equip: [{ item: 429, slot: wield }] }    # Lobelia outside Bag End, and her umbrella
   - { item: 406, room: 405 }   # the letter under the door
   - { item: 415, room: 404 }   # a party cloak on the lane
   - { item: 421, room: 406 }   # a party present in the grass
@@ -39,7 +37,7 @@ resets:
   - { mob: 412, room: 416 }
   - { item: 411, room: 416 }   # mushrooms in the rows
   - { item: 411, room: 416 }
-  - { mob: 404, room: 417 }    # Farmer Maggot
+  - { mob: 404, room: 417, equip: [{ item: 411 }, { item: 411 }] }    # Farmer Maggot, mushrooms in his pockets
   - { item: 413, room: 417 }   # the basket by the door
   - { item: 417, room: 417 }   # the frying pan over the hearth
   - { item: 411, room: 417, into: 413 }

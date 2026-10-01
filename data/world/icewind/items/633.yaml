@@ -6,12 +6,11 @@ look: |
   A deep red ruby cut in more facets than there should be room for,
   on a fine gold chain. Look into it and you want very much to agree
   with whoever is wearing it. It belonged to the Pasha Pook of Calimport
-  before Regis borrowed it; Biggrin took it off the halfling in a
-  hurry, and has been agreeable ever since. Those who fight its wearer
-  find their blows pulling up short.
+  before Regis borrowed it, and he would rather not be asked about
+  that. Those who fight its wearer find their blows pulling up short.
 type: armor
 slot: neck
-level: 7
+level: 10
 baseline: light
 effects:
   - kind: stat

@@ -1,0 +1,25 @@
+vnum: 1435
+name: the Lord-Marshal's sword
+keywords: [lord-marshal, marshal, marshals, sword, lion, longsword]
+description: A knight's longsword lies here, a blue enamel lion on the pommel.
+look: |
+  A longsword of the keep's own forging, with the blue lion on the
+  pommel and two sieges' worth of nicks honed out of the edge. The
+  hand that carried it rested on the hilt every evening while its
+  owner counted the red chalk on the maps. It holds a line: it
+  parries well, and it steadies whoever stands behind it.
+type: weapon
+weight: 4
+level: 20
+baseline: standard
+value: 1700
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: strike
+effects:
+  - { kind: block, params: { chance: 0.10 } }
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

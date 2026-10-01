@@ -1,0 +1,26 @@
+vnum: 1335
+name: the Horadric Staff
+keywords: [horadric, staff, cain, deckard]
+description: A tall staff of pale wood lies here, capped in dull gold and cut with a spiral of small letters.
+look: |
+  The staff of the last of the Horadrim, and older than he is by a long
+  way. The letters wind from the foot to the cap and say, more or less,
+  what he says: stay a while, and listen. It was made by people who
+  locked three Evils in three stones and wrote down how, and it has not
+  forgotten. Whoever leans on it sees what was hidden and remembers
+  what they read, and the old wards in the wood still turn a blow.
+type: weapon
+weight: 4
+level: 20
+baseline: staff
+value: 1800
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: rap
+effects:
+  - { kind: detectHidden }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: protect, params: { mult: 0.93 } }

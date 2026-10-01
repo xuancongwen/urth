@@ -8,6 +8,5 @@ look: |
   counts the red chalk on the maps every evening. He does not like the
   count.
 level: 20
-flags: [peaceful]
 attack:
   verb: strike

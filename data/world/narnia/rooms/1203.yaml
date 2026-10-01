@@ -10,4 +10,3 @@ description: |
   out is east, back into the cold.
 exits:
   east: 1202
-flags: [safe]

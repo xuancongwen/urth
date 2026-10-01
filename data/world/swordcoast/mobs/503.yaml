@@ -7,6 +7,5 @@ look: |
   He has been kind to you all your life and is about to stop being able
   to. He folds the letter away when he sees you looking.
 level: 16
-flags: [peaceful]
 attack:
   verb: strike

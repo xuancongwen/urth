@@ -3,14 +3,12 @@ resets:
   # --- the Lantern Waste ---
   - { mob: 1208, room: 1202, max: 3, equip: [{ item: 1218 }] }   # snow hares carry their pelts
   - { mob: 1208, room: 1207, max: 3, equip: [{ item: 1218 }] }
-  - { mob: 1200, room: 1203 }                                     # Mr Tumnus at home
-  - { item: 1212, room: 1203 }                                    # his muffler, over a chair
-  - { item: 1226, room: 1203 }                                    # and his flute, by the teapot
+  - { mob: 1200, room: 1203, equip: [{ item: 1212, slot: neck }, { item: 1226, slot: hold }] }   # Mr Tumnus at home, in his muffler, with his flute
   - { item: 1228, room: 1208 }                                    # a dwarf's hood in the glade
   - { mob: 1209, room: 1204, max: 3, equip: [{ item: 1202 }] }    # spy-ravens drop feathers
   - { mob: 1209, room: 1209, max: 3, equip: [{ item: 1202 }] }
   # --- the Beavers ---
-  - { mob: 1203, room: 1206 }
+  - { mob: 1203, room: 1206, equip: [{ item: 1200 }] }               # Mr Beaver, and the lantern he made
   - { mob: 1204, room: 1206 }                                     # Mrs Beaver, merchant
   - { item: 1216, room: 1206 }                                    # a roll left cooling
   # --- Father Christmas ---
@@ -30,11 +28,11 @@ resets:
   - { mob: 1215, room: 1216, equip: [{ item: 1233 }] }   # werewolf in the dungeon, and Reepicheep's rapier
   - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }, { item: 1234 }] }   # the Witch, wand, crown, and the stone knife
   # --- Aslan's side ---
-  - { mob: 1216, room: 1220 }
+  - { mob: 1216, room: 1220, equip: [{ item: 1232 }] }               # Aslan; a lock of his mane comes away with his life
   - { mob: 1217, room: 1220, max: 2 }
   - { mob: 1220, room: 1220 }                                     # the centaur hunter, who teaches hamstring
   # --- the Stone Table and the war camp ---
-  - { mob: 1211, room: 1222, equip: [{ item: 1232 }] }             # the hag, with a lock of Aslan's mane
+  - { mob: 1211, room: 1222 }                                     # the hag
   - { mob: 1212, room: 1223, max: 2, equip: [{ item: 1222, slot: wield }] }   # ogres and their cudgels
   - { mob: 1210, room: 1223, max: 3, equip: [{ item: 1223, slot: wield }] }   # boggles and their flails
   # --- the coast ---

@@ -23,9 +23,10 @@ bandanas on the bandits, a wolfpelt mantle in the deep wood, gnoll
 spears, troll bone bracelets, a whelp-scale buckler on the scree, ogre-
 hide arm wraps, footmen's hauberks, a fel-etched knife on the altar.
 
-Safe: the hollow (1400), the great hall (1404), the goblin's tent
-(1405), the farmhouse (1412), the keep courtyard, smithy, and hall
-(1414 to 1416). Dark: the warlock's altar (1408), the copper delve
+Safe: the hollow (1400), the goblin's tent (1405), the farmhouse
+(1412), the keep courtyard and smithy (1414, 1415). The great hall
+(1404) and the hall of the keep (1416) are not: the Warchief (20; his
+black plate) and the Lord-Marshal (20; his sword) can be killed. Dark: the warlock's altar (1408), the copper delve
 (1418), and the gnoll den (1422).
 
 Merchants (`list`, `buy`, `sell`):

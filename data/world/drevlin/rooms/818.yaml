@@ -8,4 +8,3 @@ description: |
   up is the only way in.
 exits:
   up: 816
-flags: [safe]

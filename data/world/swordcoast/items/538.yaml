@@ -1,0 +1,22 @@
+vnum: 538
+name: Khalid's long sword
+keywords: [khalid, khalids, long, sword]
+description: A well-kept long sword lies here.
+look: |
+  A Calishite long sword with a plain guard, oiled every night by a
+  man who apologised to it. It is steadier than the hand that held it
+  ever looked, and it is very hard to get past.
+type: weapon
+weight: 4
+level: 14
+baseline: standard
+value: 600
+rarity: uncommon
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: block, params: { chance: 0.08 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.8 } }

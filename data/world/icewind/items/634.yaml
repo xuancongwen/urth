@@ -1,0 +1,18 @@
+vnum: 634
+name: the seal of Bryn Shander
+keywords: [seal, ring, bryn, shander, spokesman, cassius]
+description: A heavy signet ring lies here, cut with a knucklehead trout.
+look: |
+  Silver, thick, and cut with the trout of Ten-Towns over the walls
+  of Bryn Shander. The spokesman presses it into the wax of every
+  agreement between the towns, and none of them has ever agreed to
+  anything without it. Wearing it you find you can sit through a
+  great deal.
+type: armor
+slot: finger
+level: 12
+baseline: light
+value: 350
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

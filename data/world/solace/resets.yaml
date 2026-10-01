@@ -3,7 +3,7 @@ interval_seconds: 300
 resets:
   # the road
   - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }, { item: 318, slot: legs }] }   # hobgoblin soldiers
-  - { mob: 307, room: 302, equip: [{ item: 316, slot: wield }, { item: 317, slot: body }, { item: 314 }, { item: 313 }] }   # the captain, his whip, his stolen doublet, and Tas's hoopak, and Tika's frying pan
+  - { mob: 307, room: 302, equip: [{ item: 316, slot: wield }, { item: 317, slot: body }] }   # the captain, his whip, and his stolen doublet
   - { item: 310, room: 302 }   # the ledger
   - { mob: 308, room: 303, max: 2 }   # refugees
   - { item: 309, room: 303 }   # bark
@@ -13,25 +13,25 @@ resets:
   - { mob: 312, room: 305, max: 2 }   # townsmen
   - { mob: 309, room: 306 }   # the smith
   - { item: 322, room: 306 }   # a buckler of Flint's on the anvil
-  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }, { item: 321, slot: neck }, { item: 315 }, { item: 302 }] }   # the theocrat, his chain, and Flint's confiscated axe, and a plain blue crystal staff
+  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }, { item: 321, slot: neck }, { item: 315 }] }   # the theocrat, his chain, and Flint's confiscated axe
   - { mob: 304, room: 308, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # his guard
   - { mob: 304, room: 318, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # the bridge guard
   # the inn
-  - { mob: 300, room: 312 }
-  - { mob: 301, room: 312 }
+  - { mob: 300, room: 312, equip: [{ item: 307 }] }   # Otik, and a jar of his spice
+  - { mob: 301, room: 312, equip: [{ item: 313, slot: wield }] }   # Tika and her frying pan
   - { mob: 302, room: 312 }
   - { item: 300, room: 312 }
   - { item: 300, room: 312 }
   - { item: 301, room: 312 }
   - { item: 307, room: 313 }   # the spice jar in the kitchen
-  - { mob: 303, room: 315 }   # Raistlin, upstairs, with Caramon never far
+  - { mob: 303, room: 315, equip: [{ item: 312, slot: wield }] }   # Raistlin, upstairs, leaning on the Staff of Magius, with Caramon never far
   - { mob: 323, room: 315 }
-  - { mob: 325, room: 315 }   # Goldmoon and Riverwind, and the staff against the wall
-  - { mob: 326, room: 315 }
-  - { mob: 320, room: 312 }   # the companions in the common room
+  - { mob: 325, room: 315, equip: [{ item: 302, slot: wield }] }   # Goldmoon and the blue crystal staff
+  - { mob: 326, room: 315, equip: [{ item: 326, slot: wield }] }   # Riverwind and his bow
+  - { mob: 320, room: 312, equip: [{ item: 325, slot: wield }] }   # the companions in the common room: Tanis and his sword
   - { mob: 321, room: 312 }
   - { mob: 322, room: 312 }
-  - { mob: 324, room: 312 }   # Tas, who does not stay put
+  - { mob: 324, room: 312, equip: [{ item: 314, slot: wield }] }   # Tas, who does not stay put, and his hoopak
   # the lake and the shrine
   - { item: 121, room: 307 }   # salt at the lakeshore
   - { item: 121, room: 307 }
@@ -40,7 +40,7 @@ resets:
   - { item: 323, room: 304 }   # a woodcutter's axe behind the great vallenwood
   # the dark wood
   - { mob: 310, room: 321, max: 2, equip: [{ item: 308 }] }   # spiders carry venom sacs
-  - { mob: 311, room: 322, equip: [{ item: 312 }, { item: 311 }] }   # the wood-shade keeps the Staff of Magius, and Brightblade
+  - { mob: 311, room: 322, equip: [{ item: 311 }] }   # the wood-shade keeps Brightblade
   - { item: 324, room: 322 }   # a hunter's spider-fang dagger among the bones
   - { item: 319, room: 321 }   # a cloak in the webs
   - { item: 123, room: 322 }   # bone dust among the bones

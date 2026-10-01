@@ -8,6 +8,5 @@ look: |
   the dwarf who works hardest and complains loudest. His axe is
   within reach. It always is.
 level: 18
-flags: [peaceful]
 attack:
   verb: cleave

@@ -8,4 +8,3 @@ description: |
   Nobody raises their voice here, and nobody fights. The lift goes down.
 exits:
   down: 1602
-flags: [safe]

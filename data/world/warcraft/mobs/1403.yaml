@@ -8,6 +8,5 @@ look: |
   capped in gold. He talks little and listens less, and the war maps
   at his feet are marked with the names of places he intends to burn.
 level: 20
-flags: [peaceful]
 attack:
   verb: smash

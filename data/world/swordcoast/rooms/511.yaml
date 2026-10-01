@@ -7,4 +7,3 @@ description: |
   the door opens: the man anxious, the woman not. The steps are south.
 exits:
   south: 510
-flags: [safe]

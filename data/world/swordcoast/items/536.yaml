@@ -1,0 +1,23 @@
+vnum: 536
+name: Imoen's shortbow
+keywords: [imoen, imoens, shortbow, bow]
+description: A light shortbow lies here, its grip wound with pink ribbon.
+look: |
+  A yew shortbow from the Candlekeep armoury, signed out by nobody,
+  with a ribbon round the grip so that it cannot be mistaken for
+  anyone else's. It is quick rather than strong, and it has a knack
+  for the place a thing was not guarding.
+type: weapon
+weight: 2
+level: 12
+baseline: standard
+value: 450
+rarity: uncommon
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.07, mult: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

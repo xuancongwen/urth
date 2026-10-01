@@ -15,8 +15,9 @@ wildling warlord (11) in the camp, the great direwolf (11) in its den,
 and the White Walker (14) in the Clearing of the Pale Light beyond the
 wights.
 
-Safe: the waystone, the Smoking Log, the forge, the great hall, and the
-heart tree. Dark: the four crypt rooms (a torch lies in the First Keep,
+Safe: the waystone, the Smoking Log, the forge, and the heart tree. The
+great hall is not: the Lord of Winterfell (14) can be killed for Ice,
+and Old Nan (6), in the solar, for her knitting needle. Dark: the four crypt rooms (a torch lies in the First Keep,
 and the alewife and Mikken sell more). The iron crypt door starts
 closed.
 

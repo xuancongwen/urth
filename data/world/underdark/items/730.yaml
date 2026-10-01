@@ -7,10 +7,10 @@ look: |
   panther, two diamonds for eyes. It was forged to kill fire and took
   its name from the white dragon it lay beneath. Frost follows its edge
   into every wound and slows what it cuts, and while it is in your
-  hand flame and harm come at you a little weaker. The hook horror
-  killed its last owner and kept it among the elves it set in a row.
+  hand flame and harm come at you a little weaker. Drizzt Do'Urden took
+  it from the dragon's hoard and carried it across the tundra.
 type: weapon
-level: 14
+level: 20
 baseline: standard
 weapon:
   hands: 1

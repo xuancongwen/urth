@@ -5,13 +5,14 @@ description: A forked kender staff with a leather sling strung between the tines
 look: |
   Willow wood, a copper tip at one end and a forked sling at the other,
   and it whistles an insulting little tune when it is swung around.
-  The captain took it off a kender he caught on the road, and the kender
-  took his purse, his ring, and his map on the way out. Whoever carries
-  it finds themselves noticing things that were hidden, stepping out of
-  the way of things without thinking, and entirely unbothered by fear.
+  Tasslehoff Burrfoot would tell you it is the finest hoopak ever to
+  leave Kendermore, and then he would tell you about Kendermore. Whoever
+  carries it finds themselves noticing things that were hidden, stepping
+  out of the way of things without thinking, and entirely unbothered by
+  fear.
 type: weapon
 weight: 2
-level: 3
+level: 6
 baseline: staff
 value: 180
 weapon:

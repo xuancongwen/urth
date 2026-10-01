@@ -7,6 +7,5 @@ look: |
   is the one the others look to, and he would rather they didn't. He
   nods to you the way a man nods who is counting exits.
 level: 12
-flags: [peaceful]
 attack:
   verb: cut

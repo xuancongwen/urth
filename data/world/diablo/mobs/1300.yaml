@@ -9,6 +9,5 @@ look: |
   order of keepers, and he knows exactly what is under the cathedral.
   He would be glad to tell you. At length.
 level: 20
-flags: [peaceful]
 attack:
   verb: rap

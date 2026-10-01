@@ -9,9 +9,11 @@ to 12: Maugrim (11, tough) in the kennels, and the White Witch (12, very
 tough) on her throne of ice. Reached through the hub's south door, the
 wardrobe (room 7 in `start`), which opens into the fir wood at 1200.
 
-Safe: 1200 behind the wardrobe, Tumnus's cave (1203), the Beavers' lodge
-(1206), the sledge clearing (1210), Aslan's camp (1220), and the great
-hall of Cair Paravel (1227). Dark: the dungeon (1216) and the wolf
+Safe: 1200 behind the wardrobe, the sledge clearing (1210), and the great
+hall of Cair Paravel (1227). Tumnus's cave (1203), the Beavers' lodge
+(1206), and Aslan's camp (1220) are not: Mr Tumnus (3; his muffler and
+flute), Mr Beaver (4; a storm lantern), and Aslan (9; a lock of his
+mane) can be killed. Mrs Beaver and the centaurs stay peaceful. Dark: the dungeon (1216) and the wolf
 kennels (1217); Mrs Beaver sells a storm lantern.
 
 Merchants:
@@ -25,11 +27,10 @@ Merchants:
   Susan's yew bow for two fangs and a feather, no silver (wolves carry fangs, spy-ravens feathers).
 
 Uniques: the White Witch wields her wand (now chilling and petrifying)
-and carries the stone knife of the Table (execute, leech); the hag at
-the Stone Table carries a lock of Aslan's mane (regeneration, a last
-stand); the Queen's chief dwarf carries Susan's horn, stolen from the
+and carries the stone knife of the Table (execute, leech); a lock of Aslan's mane (regeneration, a last
+stand) comes only from Aslan; the Queen's chief dwarf carries Susan's horn, stolen from the
 gifts; the werewolf in the dungeon (1216) carries Reepicheep's
-rapier. Ordinary gear: Tumnus's flute (1203), a dwarf's hood (1208),
+rapier. Ordinary gear: Tumnus's flute (on Tumnus), a dwarf's hood (1208),
 greaves (1212), Narnian mail in Cair Paravel's hall (1227), and the
 minotaur's axe, ogre cudgels, boggle flails, dwarf bracers and
 gauntlets, and shore-crab shells on their owners.

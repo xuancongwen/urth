@@ -1,0 +1,23 @@
+vnum: 325
+name: Tanis's longsword
+keywords: [tanis, longsword, sword, elven, qualinesti]
+description: A plain longsword of elven make lies here.
+look: |
+  A Qualinesti blade, slender and a little long for a human hand, in
+  a scabbard that has seen five years of road. There is nothing magic
+  in it. It has been kept sharp by someone who hoped not to need it,
+  and it comes up to guard before its bearer has decided to.
+type: weapon
+weight: 3
+level: 12
+baseline: standard
+value: 500
+rarity: uncommon
+weapon:
+  hands: 1
+  kind: slash
+  verb: cut
+effects:
+  - { kind: block, params: { chance: 0.06 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

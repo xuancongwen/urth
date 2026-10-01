@@ -13,4 +13,3 @@ exits:
   west: 1302
   east: 1303
   south: 1304
-flags: [safe]

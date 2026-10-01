@@ -866,10 +866,10 @@ func TestKillSwitchesTargetAndManyOnOne(t *testing.T) {
 	p.HealthMax, p.Health = 1000, 1000
 	send(w, 1, "n") // two dogs
 	bob.take()
-	dogs := w.contents(p.Room).mobs
-	if len(dogs) < 2 {
-		t.Skip("need two dogs")
+	for len(w.contents(p.Room).mobs) < 2 {
+		spawnBeside(w, p.Character, 21)
 	}
+	dogs := w.contents(p.Room).mobs
 	send(w, 1, "kill dog")
 	bob.take()
 	send(w, 1, "kill 2.dog")
@@ -897,6 +897,87 @@ func TestKillSwitchesTargetAndManyOnOne(t *testing.T) {
 	}
 	if p.Fighting != dogs[0].Character {
 		t.Fatal("did not retarget the remaining attacker")
+	}
+}
+
+// spawnBeside puts a fresh mob in c's room, at full health as a reset would.
+func spawnBeside(w *World, c *Character, vnum int) *Mob {
+	m := w.newMob(w.content.Mobs[vnum])
+	w.recalc(m.Character)
+	m.Health, m.Mana = m.HealthMax, m.ManaMax
+	w.placeMob(m, c.Room)
+	return m
+}
+
+// Whoever is attacked fights back, one attacker at a time: the next one
+// the moment the last one falls or leaves, with no command typed.
+func TestAttackedFightsBackOneAtATime(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.HealthMax, p.Health = 1000, 1000
+	p.Room = w.content.Rooms.Rooms[2]
+	for len(w.contents(p.Room).mobs) < 3 {
+		spawnBeside(w, p.Character, 21)
+	}
+	dogs := w.contents(p.Room).mobs
+	for _, d := range dogs[:3] {
+		w.startFight(d.Character, p.Character)
+	}
+	if p.Fighting != dogs[0].Character {
+		t.Fatal("did not fight back at the first attacker")
+	}
+	bob.take()
+	nextRound(w)
+	if n := countOccurrences(bob.take(), "Your punch hits a stray dog."); n != 1 {
+		t.Fatalf("expected one swing at one target, got %d", n)
+	}
+
+	// The target dies: Bob is on the next attacker at once, so he cannot
+	// walk off between rounds, and he swings at it the next round.
+	w.die(dogs[0].Character, p.Character)
+	w.flush()
+	if o := bob.take(); p.Fighting != dogs[1].Character || !strings.Contains(o, "You turn on a stray dog.") {
+		t.Fatalf("did not turn on the second attacker: %q", o)
+	}
+	send(w, 1, "s")
+	if o := bob.take(); !strings.Contains(o, "You are fighting") {
+		t.Fatalf("walked away from a fight: %q", o)
+	}
+	nextRound(w)
+	if n := countOccurrences(bob.take(), "Your punch hits a stray dog."); n != 1 {
+		t.Fatalf("expected one swing at the second attacker, got %d", n)
+	}
+
+	// A target lost any other way is replaced at the next round.
+	p.Fighting = nil
+	nextRound(w)
+	if p.Fighting == nil {
+		t.Fatal("stood idle while under attack")
+	}
+
+	// A mob answers the same way: the one Bob's target was fighting flees,
+	// and the mob turns on Bob.
+	alice := login(t, w, 2, "Alice")
+	a := w.players[2]
+	a.Room = p.Room
+	target := p.Fighting
+	target.Fighting = a.Character
+	a.Fighting = target
+	send(w, 2, "flee")
+	alice.take()
+	if target.Fighting != p.Character {
+		t.Fatal("mob did not turn on its remaining attacker")
+	}
+
+	// With nobody left fighting him, Bob's fight is over.
+	for _, d := range w.contents(p.Room).mobs {
+		d.Fighting = nil
+	}
+	p.Fighting = nil
+	nextRound(w)
+	if p.Fighting != nil {
+		t.Fatal("picked a fight with nobody attacking")
 	}
 }
 

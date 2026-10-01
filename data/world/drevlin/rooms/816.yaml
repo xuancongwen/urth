@@ -11,4 +11,3 @@ exits:
   north: 814
   east: 817
   down: 818
-flags: [safe]

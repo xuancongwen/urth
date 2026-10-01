@@ -26,16 +26,16 @@ resets:
   - { item: 857, room: 813 }                                   # stew
   - { mob: 844, room: 813 }                                    # the brawler, who teaches hand to hand
   - { mob: 830, room: 815 }                                    # the scrivener
-  - { mob: 832, room: 816 }                                    # the High Froman
+  - { mob: 832, room: 816, equip: [{ item: 890, slot: head }] }   # the High Froman, in the hat of his office
   - { item: 865, room: 816 }                                   # the statue
   - { item: 860, room: 817 }                                   # the rune-stone in the crawl
-  - { mob: 833, room: 818 }                                    # Limbeck and his pamphlet
+  - { mob: 833, room: 818, equip: [{ item: 871, slot: face }] }   # Limbeck, his spectacles, and his pamphlet
   - { item: 856, room: 818 }
   # the Liftalofts and the watership
-  - { mob: 842, room: 821 }                                    # Hugh the Hand
-  - { mob: 843, room: 821 }                                    # Bane
+  - { mob: 842, room: 821, equip: [{ item: 891, slot: wield }] }   # Hugh the Hand and the knife he does not look at
+  - { mob: 843, room: 821, equip: [{ item: 892, slot: neck }] }   # Bane, and the feather at his throat
   - { mob: 840, room: 822, max: 2, equip: [{ item: 852, slot: wield }, { item: 884, slot: shield }, { item: 885, slot: head }] }   # marines
   - { item: 864, room: 823 }                                   # crystal shed by the engine
   - { item: 888, room: 824 }                                   # a boarding-pike in the rack below decks
-  - { mob: 841, room: 825, equip: [{ item: 852, slot: wield }, { item: 853, slot: body }, { item: 873, slot: shoulders }, { item: 858 }, { item: 871 }, { item: 874 }] }   # the captain, coat, sail-silk cloak, the flask, and Limbeck's spectacles, and a Sartan rune-staff
+  - { mob: 841, room: 825, equip: [{ item: 852, slot: wield }, { item: 853, slot: body }, { item: 873, slot: shoulders }, { item: 858 }, { item: 874 }] }   # the captain, coat, sail-silk cloak, the flask, and a Sartan rune-staff
   - { item: 861, room: 825 }                                   # the totem on his shrine

@@ -1,7 +1,7 @@
 interval_seconds: 300
 resets:
   # --- Backwater Station ---
-  - { mob: 1603, room: 1604 }                                   # the magistrate on the bridge
+  - { mob: 1603, room: 1604, equip: [{ item: 1634, slot: body }] }   # the magistrate on the bridge, in his coat
   - { mob: 1600, room: 1603 }                                   # the quartermaster at his counter
   - { mob: 1618, room: 1603 }                                   # the medic in the depot, who teaches second wind
   - { mob: 1601, room: 1625 }                                   # the chief engineer

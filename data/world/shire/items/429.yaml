@@ -1,0 +1,24 @@
+vnum: 429
+name: Lobelia's umbrella
+keywords: [lobelia, lobelias, umbrella, brolly]
+description: A stout black umbrella lies here, its ferrule worn to a point.
+look: |
+  A long umbrella of oiled black cloth on a hickory shaft, carried in
+  all weathers and never once opened. Its owner used it to point at
+  what she meant to have and to poke whoever was standing in front of
+  it. It finds the moment a body is off balance, and it has faced
+  down bigger folk than you.
+type: weapon
+weight: 2
+level: 8
+baseline: spear
+value: 250
+rarity: uncommon
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab
+effects:
+  - { kind: opportunist, params: { mult: 1.2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -1,0 +1,24 @@
+vnum: 891
+name: Hugh the Hand's knife
+keywords: [hugh, hughs, hand, knife, dagger, bone]
+description: A plain knife with a bone handle lies here, its edge honed to nothing.
+look: |
+  A hand's length of dark steel in a handle of yellowed bone, with no
+  mark on it and no ornament, sharpened so often the blade has gone
+  narrow. It belonged to an assassin of the Brotherhood who was paid
+  for each time he used it and never used it twice on one man. It
+  goes in where a wound already is.
+type: weapon
+weight: 1
+level: 18
+baseline: dagger
+value: 1200
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: crit, params: { chance: 0.10, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.3, mult: 1.4 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

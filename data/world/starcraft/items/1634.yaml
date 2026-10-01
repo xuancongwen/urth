@@ -1,0 +1,21 @@
+vnum: 1634
+name: the Magistrate's coat
+keywords: [magistrate, magistrates, coat, officer, officers, confederate]
+description: A Confederate officer's coat lies here, a size too large for anyone.
+look: |
+  Grey wool with a magistrate's bars on the collar and a ballistic
+  weave in the lining that the colonial service stopped issuing ten
+  years ago. The pockets are full of requisition forms, all refused.
+  It was worn by a man who held a station on nothing but procedure,
+  and something of that has stayed in the cloth.
+type: armor
+slot: body
+level: 22
+baseline: light
+weight: 5
+value: 1500
+rarity: uncommon
+effects:
+  - { kind: protect, params: { mult: 0.92 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

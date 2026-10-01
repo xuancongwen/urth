@@ -7,7 +7,9 @@ under Kelvin's Cairn. Levels 3 to 10. The hub's north door (room 6 in
 mine's deepest room, the Bottom of the Shaft (640), goes down to room
 700 in the Underdark.
 
-The towns, Drizzt's cave, Bruenor's hall, and the forge are safe. The
+The tavern, Lonelywood's street, the gates, and the forge are safe. The
+market square, Regis's cottage, Drizzt's cave, and Bruenor's hall are
+not: the people in them can be fought. The
 mine tunnels below the gate and Biggrin's lair are dark.
 
 Map (north is up; x east, y south, z up):
@@ -38,8 +40,13 @@ valley · 616 Drizzt's cave · 620 mine gate · 621 Bruenor's hall
 622 forge · 623 upper tunnels · 624 old workings · 625 bear den
 626 broken gallery · 627 chieftain's hole · 640 bottom of the shaft
 
-Notable items. Uniques: Regis's ruby pendant on Biggrin (7), Taulmaril
-the Heartseeker in the cave bear's den (625, 8), and on the goblin
+The famous can be killed, and carry what is theirs: Cassius (12; the
+seal of Bryn Shander), Regis (10; his ruby pendant), Catti-brie (12;
+Taulmaril the Heartseeker), Bruenor (18; his notched axe and the
+one-horned helm), and Drizzt (20; Icingdeath in hand and Twinkle
+beside it, both numbered in the Underdark's item block).
+
+Notable items. Uniques: on the goblin
 chieftain Aegis-fang and Crenshinibon (10, unidentified: it whispers,
 and it takes). The chieftain's
 dwarven war-belt soaks blows. Ordinary gear is carried by the yetis,

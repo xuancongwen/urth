@@ -6,7 +6,7 @@ resets:
   - { mob: 1401, room: 1403, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
   - { mob: 1401, room: 1407, max: 3, equip: [{ item: 1401, slot: wield }, { item: 1402, slot: shoulders }] }
   - { mob: 1402, room: 1405 }                                      # Zazzik, goblin merchant
-  - { mob: 1403, room: 1404 }                                      # the warchief
+  - { mob: 1403, room: 1404, equip: [{ item: 1434, slot: body }] }   # the warchief, in his black plate
   - { mob: 1420, room: 1404 }                                      # the orc warrior by the firepit, who teaches sunder
   - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }, { item: 1422 }] }   # warlock: robe, fel skull, and the Demon Soul
   - { item: 1433, room: 1408 }                                     # a ritual knife on the altar
@@ -16,7 +16,7 @@ resets:
   - { mob: 1405, room: 1413, max: 2, equip: [{ item: 1406, slot: wield }, { item: 1407, slot: shield }, { item: 1432 }] }   # footmen, a spare hauberk in the pack
   - { mob: 1406, room: 1415 }                                      # Brannoc, blacksmith merchant
   - { item: 1404, room: 1415 }                                     # a lump of ore in the smith's bin
-  - { mob: 1414, room: 1416 }                                      # the lord-marshal
+  - { mob: 1414, room: 1416, equip: [{ item: 1435, slot: wield }] }   # the lord-marshal and his sword
   - { mob: 1410, room: 1417, max: 3 }                              # forest wolves
   - { item: 1427, room: 1417 }                                     # a dead trapper's wolfpelt mantle
   - { mob: 1411, room: 1418, max: 3, equip: [{ item: 1404 }, { item: 1404 }, { item: 1425 }] }   # kobolds carry ore, and you no take candle

@@ -10,4 +10,3 @@ description: |
 exits:
   west: 1219
   east: 1224
-flags: [safe]

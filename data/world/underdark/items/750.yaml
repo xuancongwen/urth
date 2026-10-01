@@ -1,0 +1,24 @@
+vnum: 750
+name: the Burrow-Warden's hammer-hand
+keywords: [hammer, hammer-hand, hand, mithral, belwar, burrow-warden]
+description: A mithral hammer-head on a wrist cuff lies here, runes crawling over its face.
+look: |
+  A block of mithral the size of two fists, fixed to a cuff that
+  buckles over the forearm, made for a deep gnome who had lost the
+  hand it replaces. The runes on it wake when its wearer says the
+  words, and then it breaks stone as a pick breaks salt. It was the
+  right hand of the Most Honored Burrow-Warden of Blingdenstone.
+type: weapon
+weight: 6
+level: 16
+baseline: mace
+value: 1200
+rarity: rare
+weapon:
+  hands: 1
+  kind: blunt
+  verb: hammer
+effects:
+  - { kind: proc, params: { chance: 0.25, power: 1.0, verb: "stone-breaking crack of the hammer-hand" } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: steady, params: { chance: 0.3 } }

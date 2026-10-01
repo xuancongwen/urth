@@ -1,0 +1,19 @@
+vnum: 636
+name: the one-horned helm
+keywords: [helm, helmet, one-horned, horned, horn, bruenor]
+description: A dented dwarven helm lies here, one horn whole and one broken off short.
+look: |
+  Iron, dented all over, with one horn and the stump of another. It
+  has been hit by nearly everything in the North and has a dent to
+  show for each. The king of Clan Battlehammer wears it to table. A
+  blow that lands on it lands on something that has stopped caring.
+type: armor
+slot: head
+level: 18
+baseline: heavy
+weight: 4
+value: 900
+rarity: uncommon
+effects:
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

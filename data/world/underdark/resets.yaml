@@ -9,7 +9,7 @@ resets:
   - { mob: 702, room: 707, equip: [{ item: 741, slot: wield }] }   # the quaggoth in its den, with its bone club
   # Blingdenstone
   - { mob: 708, room: 709, max: 2 }                           # gate guards
-  - { mob: 709, room: 710 }                                   # Belwar
+  - { mob: 709, room: 710, equip: [{ item: 750, slot: wield }] }   # Belwar, and the hammer that is his right hand
   - { mob: 714, room: 710 }                                   # the drow assassin under the council's eye, who teaches circle
   - { mob: 710, room: 711 }                                   # the smith, who teaches riposte
   - { mob: 711, room: 712 }                                   # the hosteler
@@ -22,10 +22,10 @@ resets:
   - { item: 744, room: 714 }                                  # a gnome spear at the lip
   - { item: 743, room: 716 }                                  # a chitin helm on the chasm floor
   - { item: 749, room: 718 }                                  # a drow buckler in the worked tunnel
-  - { mob: 703, room: 715, equip: [{ item: 705 }, { item: 730 }] }   # the hook horror, and its hook when it falls, and Icingdeath
+  - { mob: 703, room: 715, equip: [{ item: 705 }] }   # the hook horror, and its hook when it falls
   # the drow road
   - { mob: 705, room: 719, max: 2, equip: [{ item: 700, slot: wield }, { item: 702, slot: shoulders }, { item: 703, slot: body }, { item: 745, slot: belt }, { item: 746, slot: feet }, { item: 714 }] }   # the patrol, sashed and soft-shod
-  - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }, { item: 747, slot: body }, { item: 731 }] }   # the wizard in the watchpost, robed, with Twinkle as a prize
+  - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }, { item: 747, slot: body }] }   # the wizard in the watchpost, robed
   - { mob: 712, room: 721, max: 2, equip: [{ item: 715 }] }   # shrine spiders carry venom
   - { item: 748, room: 721 }                                  # a spider-silk lash in the web
   # the shrine of Lolth

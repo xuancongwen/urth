@@ -8,4 +8,3 @@ description: |
   The courtyard is south.
 exits:
   south: 501
-flags: [safe]

@@ -1,0 +1,25 @@
+vnum: 635
+name: Bruenor's notched axe
+keywords: [bruenor, bruenors, axe, notched, battlehammer]
+description: A single-bladed dwarven axe lies here, its edge a row of notches.
+look: |
+  One blade, a short haft wrapped in old leather, and a notch along
+  the edge for every hundred things it has been put through. Bruenor
+  Battlehammer has carried it since he was a beardless boy in Mithral
+  Hall and will not have the notches ground out. It bites deep, and a
+  dwarf's stubbornness comes with it.
+type: weapon
+weight: 6
+level: 18
+baseline: axe
+value: 1400
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

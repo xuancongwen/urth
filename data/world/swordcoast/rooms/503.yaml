@@ -7,4 +7,3 @@ description: |
   and every joke is a price. The courtyard is out the west door.
 exits:
   west: 501
-flags: [safe]

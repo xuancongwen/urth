@@ -1,0 +1,20 @@
+vnum: 892
+name: Bane's feather amulet
+keywords: [bane, banes, feather, amulet]
+description: A single feather on a silver chain lies here.
+look: |
+  A hawk's feather set in silver, on a chain cut short for a child's
+  neck. It is a mysteriarch's work: a father far away sees through
+  it, and speaks through it, and the boy who wore it never once
+  seemed to be thinking what he was saying. People who talk to its
+  wearer tell more than they meant to.
+type: armor
+slot: neck
+level: 8
+weight: 0
+value: 400
+rarity: uncommon
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: detectInvisible }

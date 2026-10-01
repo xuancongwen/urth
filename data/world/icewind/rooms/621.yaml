@@ -8,4 +8,3 @@ description: |
 exits:
   south: 620
   west: 622
-flags: [safe]

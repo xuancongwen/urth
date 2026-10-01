@@ -3,8 +3,13 @@
 Tristram, the village in Khanduras, and the ruined cathedral whose
 cellars go down into Hell. Reached through the south door of the Deeper
 Hall (room 8), which opens as a door in a hillock on the north road into
-the village (1300). The village is peaceful and mostly safe; everything
-from the cathedral stair down is dark, so buy a lantern from Ogden.
+the village (1300). The village is peaceful, and its shops and the inn
+are safe; the square is not. Everything from the cathedral stair down is
+dark, so buy a lantern from Ogden.
+
+Deckard Cain (20) stands in the square and can be killed like anyone
+else; he leans on the Horadric Staff (20; sees the hidden, Intelligence
+and Wisdom, wards its bearer), and it is in his corpse.
 
 Levels, roughly in walking order: fallen ones and zombies 14, burning
 dead skeletons 15, the Butcher 16 (boss; his cleaver), the Skeleton King
