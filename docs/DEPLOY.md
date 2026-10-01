@@ -23,9 +23,7 @@ system and cloudflared, not the game.
 
 Nothing is built on the container: the deploy script cross-compiles on
 the dev machine, so the container never needs Go or 2 GB of RAM for a
-compiler. If you later fork toward the coordinate game in
-`COORDINATE-PORT.md`, expect roughly one core per few hundred players
-and revisit the CPU line.
+compiler.
 
 ## 2. First-time setup
 

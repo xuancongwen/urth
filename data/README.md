@@ -2,10 +2,10 @@
 
 Root for everything the server reads and writes at runtime.
 
-Planned layout (filled in by later milestones):
+Layout:
 
 - `world/<area>/`  `area.yaml`, `rooms/*.yaml`, `items/*.yaml`, `mobs/*.yaml`, `resets.yaml`
-- `players/`  saved accounts and characters, one YAML file each (milestone 4, gitignored)
+- `players/`  saved accounts and characters, one YAML file each (gitignored)
 - `scripts/`  goja JavaScript rule hooks; `rules.js` is the live rule set (docs/RULES.md section 1 lists the hooks)
 - rooms may carry `doors: {<direction>: {name: the oak door, closed: true}}` on an exit; declare it on one side and the loader mirrors it to the room beyond. A closed door blocks the way and hides the exit from `look`, `exits`, and `scan`; `look <direction>` finds it, `open` and `close` work it, and an area reset puts it back the way the file says. A door may also say `locked: true` (it starts shut and locked), `key: <item vnum>` (the item `lock` and `unlock` need, carried or held), and `pickproof: true` (`pick` never opens it); the tutorial's pine door (room 42) is the example
 - rooms may carry `position: {x, y, z}` to anchor the area map the web client draws; most rooms are placed by walking exits from an anchor, and the server logs any room whose exits contradict the grid so a builder can anchor it (`internal/room/layout.go`)

@@ -121,7 +121,7 @@ inspect without leaving.
 | `internal/copyover/` | restart in place with sockets handed over |
 | `internal/config/` `limit/` `version/` | config, flood limits, build metadata |
 | `data/` | world, scripts, schemas, players (gitignored) |
-| `docs/` | `MILESTONES.md` `DECISIONS.md` `RULES.md` `DEPLOY.md` `COORDINATE-PORT.md` |
+| `docs/` | `DECISIONS.md` `RULES.md` `DEPLOY.md` |
 | `deploy/` | LXC setup and deploy scripts |
 
 ## License

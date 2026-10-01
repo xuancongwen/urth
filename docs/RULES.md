@@ -1,14 +1,14 @@
 # Rules
 
 A living design document for the game rules: combat, stats, items, magic,
-progression. Nothing here is implemented yet; rules land in scripts from
-milestone 8 onward. Each section records a decision, the reasoning, and the
+progression. Each section records a decision, the reasoning, and the
 questions still open. Change a decision by editing it and noting the date.
+Work still to be built or decided is tracked in Trackstar (project Urth),
+not here.
 
 Rules are formulas plugged into fixed seams. Section 1 is the contract the
 engine offers; everything after it must be expressible through that contract.
-If a rule cannot be, widen the contract in milestone 6, do not put the rule
-in Go.
+If a rule cannot be, widen the contract, do not put the rule in Go.
 
 Status of each decision: **decided**, **leaning**, or **open**.
 
@@ -26,10 +26,10 @@ beat.
 
 ## 1. Constraints from the engine
 
-What a rule script will and will not be able to touch once milestone 6
-lands. This section is owned by the engine, not the designer.
+What a rule script can and cannot touch. This section is owned by the
+engine, not the designer.
 
-### Hook points (implemented; milestone 8 combat core, 2026-09-24)
+### Hook points (implemented; combat core, 2026-09-24)
 
 Each hook is a global function in `data/scripts/*.js`. Inputs are
 read-only snapshots; outputs are plain objects the engine applies. The
@@ -358,7 +358,7 @@ cheap, familiarity is worth something, and the engine does not define
 the stat set (section 1), so this costs no Go. But a name is not a
 stat: a stat exists when it has at least two jobs in the table below,
 drawn from numbers the system actually has. Any stat with fewer than
-two jobs when milestone 8 starts is merged into its neighbour. The
+two jobs when the rules are built is merged into its neighbour. The
 table is the decision; the names are the flexibility.
 
 The numbers available to assign, gathered from the sections above:
@@ -531,7 +531,7 @@ attack is a weapon with a damage number and a spread, and its stats
 have the same band.
 
 Consequences: `resolveAttack` gains nothing; `weapon.spread` and
-`armor.spread` are added to the item view (section 9). Damage stays
+`armor.spread` are added to the item view. Damage stays
 positive after a low draw; the floor is zero, not negative. 4.3 should
 choose percentage reduction so that spread on armor is expressed in the
 same units as spread on weapons. The simulator should report the
@@ -689,7 +689,7 @@ Beyond the auto-attack, one player action per round (2.1): an ability,
 `flee`, an item. Dual wield is open and is best treated as a feat that
 lets an off-hand weapon add its speed to the meter at a penalty.
 
-Consequences: `weapon.speed` on the item and in the view (section 9),
+Consequences: `weapon.speed` on the item and in the view,
 default 1. `derivedStats` returns `attacksPerRound` as the total speed
 and the engine's combat loop keeps the meter, or the rules keep it in
 effect state; the leaning is the engine, since the meter is a lifetime
@@ -825,7 +825,6 @@ target; a `Group` with a leader and members, persisted only for the
 session; experience split on kill; `follow`, `group`, `assist`, `gtell`.
 Views gain `group: [...]` and `enemies: [...]` so that hooks can see
 both sets. `resolveCast` takes a target *set*, not a single target.
-Logged in section 9.
 
 ---
 
@@ -939,7 +938,7 @@ Consequences: a new hook, `itemBaseline(prototype)`, called by the
 engine when content loads and again when scripts reload, returning the
 primary numbers; explicit fields on the prototype win. Prototypes gain
 `level` and `baseline` fields. The engine stores the results and never
-computes them (D15, D16). Section 9 lists it.
+computes them (D15, D16).
 
 ### 5.3 Rarity and drops
 
@@ -1000,7 +999,7 @@ own smaller phase lists.
 see and return, and nothing else. "When you enter a room" needs an
 `onMove` hook that does not exist yet. "Summon a creature" needs a
 return channel the engine acts on. Every such wish is a contract
-widening, listed and costed in section 9, not a feature of the effect
+widening, tracked and costed as its own story, not a feature of the effect
 system. This is the bound that keeps "arbitrary" implementable: the
 effect vocabulary grows by adding kinds in scripts, cheaply and
 hot-reloaded; the *reach* grows by adding hooks in Go, deliberately.
@@ -1033,7 +1032,7 @@ return channel to attach, update, and remove effects. The scripts' share
 is the pipeline, the ordering rule, and every kind, and it is
 unbounded by design. Because it is scripts, it is hot-reloaded and the
 simulator can run it, so kinds can be added one at a time against a
-regression set of fights. The first milestone-8 target should be the
+regression set of fights. The first target should be the
 pipeline with two or three kinds, not a library.
 
 **Open within 5.4:**
@@ -1161,7 +1160,7 @@ with `step` and `R` parameters. At `R` 10, the first failure never
 destroys, the fifth destroys one time in three, the twentieth two times
 in three.
 
-Consequences for the engine (both sections, section 9): a `recipeList`
+Consequences for the engine (both sections): a `recipeList`
 and `enchantList` from the rules with materials, difficulty, station,
 and result; `craft` and `enchant` commands that take an attempt through
 `resolveCraft` and `resolveEnchant` hooks and apply the result, which
@@ -1235,7 +1234,7 @@ first use of the `consume` return (section 1). Divine access needs a
 `sacrifice <item>` command that works only in a room flagged as a
 god's temple, consumes the item through the `consume` return, and
 records the deity beside the schools. Hints are a builder concern:
-milestone 7 tooling should make it easy to see which totems exist and
+builder tooling should make it easy to see which totems exist and
 where their hints are. No dependency on a quest system.
 
 ### 6.2 Casting consumes gathered materials
@@ -1433,7 +1432,7 @@ through an effect, which the `attacks` kind already supports.
 What the list deliberately leaves out: anything that creates a mob or
 an item (conjuration proper), anything that moves a character, and
 anything global. Each needs an engine return channel that does not yet
-exist and is listed in section 9.
+exist.
 
 ---
 
@@ -1576,7 +1575,7 @@ starting quantities in 3.3:
    level is the pace at which a build assembles. A feat that is an
    action or a proc may carry an effectiveness rating that improves
    with use (7.4); a flat grant does not. Feats are the answer
-   to the "skills" question in section 9 and need no new system: items
+   to the "skills" question and need no new system: items
    give intrinsic effects, discovery gives magic, levels give feats.
    This is what makes a level-up a decision the player remembers.
 3. **Health, grown as a multiplier.** `healthMax` is a base that grows
@@ -1849,54 +1848,4 @@ Consequences: a `mobBaseline(prototype)` hook alongside
 `itemBaseline`, same contract. Mob prototypes gain `baseline`
 overrides for stats, health, natural attack, and natural armor, plus
 optional `feats`, `schools`, and `xp` (7.1). `look` at a mob renders
-its equipment. Section 9 lists the hook.
-
----
-
-## 9. Open questions log
-
-Anything not yet placed in a section above.
-
-- **Groups and many-to-many combat** (4.7): target switching, the set of
-  attackers per character, `Group`, experience split, `follow`,
-  `group`, `assist`, `gtell`, mob assist flag, safe-room flag, and
-  `group` and `enemies` in the views. Engine work, no rules decision
-  outstanding; should land before `resolveCast` because spells target
-  sets.
-- **Before magic is built.** Decided 2026-09-24: cast time, interruption,
-  saves, scaling, targets, schools, deities, sacrifice (6.1, 6.4). Still
-  open: none. The material model is decided (6.2) and a first pool and
-  spell list are proposed in 6.5 for the designer to edit. Engine work
-  is listed above; 4.7 goes first.
-- **Hint authoring.** 6.1 relies on the world carrying hints toward
-  each totem. That is content, but it needs a builder-side view of which
-  totems exist and which rooms and NPCs mention them, or hints will rot
-  as areas change. Belongs in milestone 7.
-- **Crafting and enchanting** (5.5, 5.6): `recipeList`, `enchantList`,
-  `resolveCraft`, `resolveEnchant`, `craft` and `enchant` commands, a
-  `slots` field on prototypes, a `crafted` mark on instances, station
-  room flags. Design done; build after milestone 8.
-- **Contract widenings still owed.** Done on 2026-09-24: item spread,
-  speed, level, baseline, and effects in the view; mob natural attack,
-  armor, health and xp overrides; the two baseline hooks; effects on
-  characters and instances with persistence and lifetimes; stat points
-  and `train`; `deathRules`; fractional speed. Still owed: `resolveCast`
-  with the caster's unlocked schools and deities in the view, the
-  `consume` return, a return channel for attaching effects and updating
-  effect `state` (now also needed by 7.4's effectiveness ratings, which
-  live in `state`), a skill-use command and hook (7.4), and the hooks
-  effects will eventually want, each a separate widening: `onMove`,
-  `onDamaged`, `onDeath`. Feat picks from `onLevel` and the `feat`
-  command landed 2026-09-24.
-- **Feats** (the designer's word, replacing "skills") are permanent
-  effects with a minimum level, gained one or two per level by choice or
-  from a trainer (7.2, leaning). No new system; the engine's share is a
-  pick command, a banked pick count, and a `level` field on the effect. Item consumption is settled (section 1,
-  D17) and lands with the `cast` command.
-- **Round length.** Set to 2 s on 2026-09-24, and the config field is
-  now `round_ms` so 1.5 s is a one-line change when playtesting wants
-  it. The variance tables in 4.2 and 4.3 were computed at seven swings;
-  at eight to ten rounds they are slightly conservative.
-- **Mana** stays in the engine behind a flag and is not required by any
-  rule (6.2). Remove from the contract only if the material system is
-  confirmed after milestone 8.
+its equipment.
