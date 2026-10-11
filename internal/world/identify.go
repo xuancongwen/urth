@@ -1,6 +1,7 @@
 package world
 
 import (
+	"math"
 	"sort"
 	"strings"
 
@@ -37,10 +38,7 @@ func (w *World) itemCard(it *item.Item) string {
 	switch p.Type {
 	case item.Weapon:
 		wp := p.Resolved.Weapon
-		line := "Damage " + trimNum(wp.Damage) + " per swing, speed " + trimNum(wp.Speed)
-		if wp.Spread > 0 {
-			line += ", varies by " + itoa(int(wp.Spread*100+0.5)) + " percent"
-		}
+		line := "Damage " + spreadRange(wp.Damage, wp.Spread) + " per swing, speed " + trimNum(wp.Speed)
 		if wp.Hands == 2 {
 			line += ", two-handed"
 		}
@@ -51,10 +49,7 @@ func (w *World) itemCard(it *item.Item) string {
 	case item.Armor:
 		ar := p.Resolved.Armor
 		if ar.Defense > 0 {
-			line := "Defense " + trimNum(ar.Defense)
-			if ar.Spread > 0 {
-				line += ", varies by " + itoa(int(ar.Spread*100+0.5)) + " percent"
-			}
+			line := "Defense " + spreadRange(ar.Defense, ar.Spread)
 			lines = append(lines, line)
 		}
 	case item.Material:
@@ -138,6 +133,22 @@ func anyString(v any) string {
 	default:
 		return "?"
 	}
+}
+
+// spreadRange shows a mean and its spread as the range a roll falls in,
+// in whole numbers: 11.8 at 20 percent is "9-14". A range that rounds to
+// one number is that number.
+func spreadRange(mean, spread float64) string {
+	lo, hi := spreadBounds(mean, spread)
+	if lo == hi {
+		return itoa(lo)
+	}
+	return itoa(lo) + "-" + itoa(hi)
+}
+
+// spreadBounds is the low and high end of a roll, rounded.
+func spreadBounds(mean, spread float64) (lo, hi int) {
+	return int(math.Round(mean * (1 - spread))), int(math.Round(mean * (1 + spread)))
 }
 
 // trimNum prints a number with one decimal, or none when it is whole.

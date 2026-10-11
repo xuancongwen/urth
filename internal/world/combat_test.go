@@ -1037,7 +1037,7 @@ func TestLookShowsItemNumbersUnlessUnidentified(t *testing.T) {
 	giveItem(w, w.players[1].Character, 10)
 	send(w, 1, "look sword")
 	o := bob.take()
-	for _, want := range []string{"Pitted and dull.", "Type weapon, level 1", "Damage 4 per swing, speed 1, varies by 20 percent", "Your swings are slashes.", "Crits sometimes.", "odd: why test, x 2"} {
+	for _, want := range []string{"Pitted and dull.", "Type weapon, level 1", "Damage 3-5 per swing, speed 1", "Your swings are slashes.", "Crits sometimes.", "odd: why test, x 2"} {
 		if !strings.Contains(o, want) {
 			t.Fatalf("look sword missing %q: %q", want, o)
 		}
