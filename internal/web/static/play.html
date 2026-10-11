@@ -155,7 +155,9 @@
   #pick .acts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
   #pickname { font-weight: 600; }
 
-  #pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 8px 12px 0; flex: none; }
+  /* The compass on the left, up and down in a column on the right. */
+  #pad { display: grid; grid-template-columns: repeat(3, 1fr) .85fr; gap: 5px; margin: 8px 12px 0; flex: none; }
+  #pad .updown { margin-left: 6px; }
   #pad button { padding: .38em 0; font-size: .88em; border-radius: 9px; }
   #pad button.door { border-color: var(--accent); }
 
@@ -655,10 +657,12 @@
   }
 
   // The direction pad, always all six directions and look, laid out as a
-  // compass with up and down at the top corners. A direction is live when
+  // compass with up and down in a column on its right. A direction is live when
   // the room has that exit; a closed door is opened on the way, a locked
   // one leaves its button disabled (the door's row in Here unlocks it).
-  var PAD = ['up', 'north', 'down', 'west', 'look', 'east', '', 'south', ''];
+  var PAD = ['', 'north', '', 'up',
+             'west', 'look', 'east', '',
+             '', 'south', '', 'down'];
   var LABEL = { up: '▲ Up', down: '▼ Down', north: 'North', south: 'South', east: 'East', west: 'West', look: 'Look' };
   function renderPad(s) {
     var pad = $('pad'), cur = here(), doors = (cur && cur.doors) || {};
@@ -670,7 +674,7 @@
       var b = btn(LABEL[d], function () {
         if (doors[d] === 'closed') send('open ' + d);
         send(d);
-      }, doors[d] === 'closed' ? 'door' : '');
+      }, (doors[d] === 'closed' ? 'door' : '') + (d === 'up' || d === 'down' ? ' updown' : ''));
       b.disabled = !exists || doors[d] === 'locked';
       if (doors[d]) b.title = 'door ' + doors[d];
       pad.appendChild(b);
