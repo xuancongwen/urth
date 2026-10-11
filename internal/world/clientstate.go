@@ -55,8 +55,10 @@ func (w *World) clientState(p *Player) output.StateData {
 		Enemies: []output.Combatant{}, Inventory: []output.GearItem{}, Equipment: []output.GearItem{},
 		Skills: []output.Action{}, Spells: []output.Action{},
 	}
+	s.XP, s.LevelXP = c.Experience, w.xpToLevel(c.Level)
 	if next := w.xpToLevel(c.Level + 1); next < 1<<29 {
 		s.TNL = max(next-c.Experience, 0)
+		s.NextXP = next
 	}
 	if c.Fighting != nil {
 		t := w.combatant(p, c.Fighting)

@@ -69,6 +69,18 @@ func TestTapPageIsServed(t *testing.T) {
 	if resp.StatusCode != 200 || !contains(body, "client state") {
 		t.Fatalf("tap page not served: %d", resp.StatusCode)
 	}
+	if !contains(body, `rel="manifest" href="manifest.json"`) {
+		t.Fatal("tap page does not link its manifest")
+	}
+	m, err := http.Get("http://" + s.Addr().String() + "/manifest.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer m.Body.Close()
+	mb, _ := io.ReadAll(m.Body)
+	if m.StatusCode != 200 || !contains(mb, `"start_url": "/play.html"`) || !contains(mb, `"display": "standalone"`) {
+		t.Fatalf("manifest: %d %s", m.StatusCode, mb)
+	}
 }
 
 func TestAnalyticsIsConfigured(t *testing.T) {

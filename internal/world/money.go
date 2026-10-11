@@ -70,6 +70,9 @@ func takeCoins(c *Character, it *item.Item) bool {
 		return false
 	}
 	c.Silver += it.Coins
+	if r := rewardFor(c); r != nil {
+		r.Silver += it.Coins
+	}
 	return true
 }
 

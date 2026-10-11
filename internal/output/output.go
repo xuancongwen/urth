@@ -45,7 +45,23 @@ const (
 	// The token is single-use; every resume brings a new one. Text clients
 	// ignore it.
 	Session Type = "session"
+	// Reward is what a player gained in one tick, in Data as RewardData:
+	// a kill's experience and loot, a quest's pay, an expedition's haul.
+	// Text clients ignore it; the same news is in the text.
+	Reward Type = "reward"
 )
+
+// RewardData accompanies a Reward message. Title says what earned it ("a
+// hound of Annwn", "Quest complete"); Level is the new level when one was
+// gained.
+type RewardData struct {
+	Title       string     `json:"title,omitempty"`
+	XP          int        `json:"xp,omitempty"`
+	Silver      int        `json:"silver,omitempty"`
+	QuestPoints int        `json:"questPoints,omitempty"`
+	Items       []GearItem `json:"items"`
+	Level       int        `json:"level,omitempty"`
+}
 
 // SessionData accompanies a Session message.
 type SessionData struct {
@@ -121,8 +137,10 @@ type Entity struct {
 	Name  string `json:"name"`
 	Ref   string `json:"ref"`
 	Count int    `json:"count,omitempty"`
-	// Fixed marks an item that is part of the room and cannot be taken.
-	Fixed bool `json:"fixed,omitempty"`
+	// Fixed marks an item that is part of the room and cannot be taken;
+	// Container one things can be put in.
+	Fixed     bool `json:"fixed,omitempty"`
+	Container bool `json:"container,omitempty"`
 	// Rarity and Color are a rolled item's tier and its color code
 	// (docs/RULES.md 5.3), so a client can show it as the text does.
 	Rarity string `json:"rarity,omitempty"`
@@ -179,7 +197,13 @@ type StateData struct {
 	Stamina    int    `json:"stamina"`
 	StaminaMax int    `json:"staminaMax"`
 	TNL        int    `json:"tnl"`
-	Silver     int    `json:"silver"`
+	// XP is total experience; LevelXP and NextXP are the totals at which
+	// this level began and the next begins (NextXP 0 at the top), for a
+	// progress bar.
+	XP      int `json:"xp"`
+	LevelXP int `json:"levelXp"`
+	NextXP  int `json:"nextXp"`
+	Silver  int `json:"silver"`
 	// Position is standing, resting, or sleeping.
 	Position string `json:"position"`
 	// Target is who the character is fighting; Enemies everyone fighting

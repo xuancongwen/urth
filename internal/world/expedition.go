@@ -243,6 +243,13 @@ func (w *World) finishExpedition(p *Player, area string, ex Expedition) {
 	p.Health = clamp(int(ex.HealthF*float64(p.HealthMax)+0.5), 1, p.HealthMax)
 	p.Silver += ex.Silver
 	p.Inventory = append(p.Inventory, ex.Items...)
+	rewardTitle(p.Character, "Expedition: "+w.areaName(area))
+	if r := rewardFor(p.Character); r != nil {
+		r.Silver += ex.Silver
+		for _, it := range ex.Items {
+			rewardItem(p.Character, it)
+		}
+	}
 	b.WriteString("You return after " + w.questMinutes(ex.Rounds) + ": " + plural(ex.Kills, "kill") +
 		", " + moneyString(ex.Silver) + ", " + plural(len(ex.Items), "item") + ".\n")
 	p.Send(b.String())

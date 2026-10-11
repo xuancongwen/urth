@@ -45,7 +45,7 @@ func (w *World) roomEntities(r *room.Room, self *Player) (mobs, items []output.E
 	pool := w.searchPool(self)
 	for _, g := range item.Group(list) {
 		items = append(items, output.Entity{Name: g.Item.Name(), Ref: itemRef(list, pool, g.Item), Count: g.Count,
-			Fixed: g.Item.Proto.HasFlag("nopickup"), Rarity: g.Item.Rarity, Color: g.Item.Color})
+			Fixed: g.Item.Proto.HasFlag("nopickup"), Container: g.Item.IsContainer(), Rarity: g.Item.Rarity, Color: g.Item.Color})
 	}
 	return mobs, items
 }

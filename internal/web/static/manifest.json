@@ -1,0 +1,14 @@
+{
+  "name": "Urth",
+  "short_name": "Urth",
+  "description": "A MUD you play by tapping.",
+  "start_url": "/play.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e0f12",
+  "theme_color": "#15171c",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

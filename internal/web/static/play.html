@@ -3,8 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Urth (tap)</title>
+<title>Urth</title>
 <link rel="icon" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#15171c">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Urth">
 <!--analytics-->
 <style>
   :root {
@@ -49,7 +57,7 @@
   .tier { font-size: .8em; }
 
   /* Login */
-  #login { flex: 1; display: flex; flex-direction: column; padding: 16px; min-height: 0; }
+  #login { flex: 1; display: flex; flex-direction: column; padding: calc(16px + env(safe-area-inset-top)) 16px 16px; min-height: 0; }
   #login h1 { font-size: 1.4em; color: var(--accent); margin: 8px 0 12px; letter-spacing: .12em; }
   #banner { display: none; margin: 0 0 10px; white-space: pre; overflow: hidden; font-family: var(--mono); line-height: 1.12;
     color: var(--accent); text-align: left; }
@@ -61,12 +69,31 @@
   /* Game: a fixed screen. Header, map, pad, ticker, then one panel that
      scrolls on its own, then the tab bar. */
   #game { display: none; flex: 1; min-height: 0; flex-direction: column; }
-  #top { padding: 8px 12px 6px; }
+  #top { padding: calc(8px + env(safe-area-inset-top)) 12px 6px; }
   #who { font-weight: 600; font-size: .9em; }
   #vit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 5px; }
   #vit .v { font-size: .7em; color: var(--dim); }
   #vit .v span { float: right; color: var(--fg); }
 
+  #xprow { margin-top: 6px; }
+  #xprow .v { font-size: .7em; color: var(--dim); }
+  #xprow .v b { color: var(--fg); font-weight: 600; margin-right: 6px; }
+  #xprow .v span { float: right; }
+  .bar.xp { height: 4px; } .bar.xp > i { background: #b07ae0; }
+  #combatlog { font: 12px/1.45 var(--mono); color: #b9b6ab; margin: 8px 0 2px; padding: 6px 8px; background: #0e0b0c;
+    border-radius: 8px; max-height: 7.4em; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+  #combatlog div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #combatlog:empty { display: none; }
+  #reward { position: relative; margin: 0 12px 8px; padding: 10px 12px; border-radius: 14px; background: #1c1a12;
+    border: 1px solid #5a4a1e; box-shadow: 0 -6px 24px #0008; cursor: pointer; animation: rise .25s ease-out; flex: none; }
+  @keyframes rise { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+  #reward .title { font-size: .78em; color: var(--dim); letter-spacing: .04em; }
+  #reward .gains { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+  #reward .gain { font-weight: 700; font-size: 1.05em; padding: 2px 10px; border-radius: 999px; background: #2a2618; }
+  #reward .gain.xp { color: #c9a0f0; } #reward .gain.coin { color: var(--accent); } #reward .gain.lvl { color: #111; background: var(--accent); }
+  #reward .loot { margin-top: 6px; font-size: .92em; }
+  #reward .loot div { padding: 2px 0; }
+  #reward .row { margin-top: 6px; justify-content: flex-end; }
   #stage { position: relative; margin: 0 12px; height: clamp(190px, 33dvh, 300px); flex: none; border-radius: 14px; overflow: hidden;
     background: radial-gradient(circle at 50% 45%, #1a1d24 0%, #111318 70%); border: 1px solid var(--line); touch-action: none; }
   #map { width: 100%; height: 100%; display: block; }
@@ -134,6 +161,7 @@
     <h1 id="title">URTH</h1>
     <pre id="banner"></pre>
     <div id="loginlog">Tap Connect, then answer the prompts: your name, then your password.</div>
+    <button type="button" class="primary" id="quick" style="display:none; margin-top:10px"></button>
     <form id="loginform">
       <input id="logininput" class="text" autocomplete="off" autocapitalize="off" placeholder="not connected">
       <button class="primary" id="loginbtn" type="submit">Connect</button>
@@ -148,6 +176,7 @@
         <div id="manawrap"><div class="v">MP<span id="mana"></span></div><div class="bar mana"><i id="manabar"></i></div></div>
         <div id="stamwrap"><div class="v">ST<span id="stam"></span></div><div class="bar stam"><i id="stambar"></i></div></div>
       </div>
+      <div id="xprow"><div class="v"><b id="xplevel"></b><span id="xptext"></span></div><div class="bar xp"><i id="xpbar"></i></div></div>
     </div>
 
     <div id="stage">
@@ -172,6 +201,7 @@
       <div data-pane="here">
         <div id="fight" style="display:none">
           <div id="foes"></div>
+          <div id="combatlog"></div>
           <div id="actions"></div>
         </div>
         <div id="desc" class="clamp"></div>
@@ -188,6 +218,7 @@
       <div data-pane="me" style="display:none"><div class="list" id="melist"></div></div>
     </div>
 
+    <div id="reward" style="display:none"></div>
     <nav id="tabs">
       <button type="button" data-tab="here" class="on">Here</button>
       <button type="button" data-tab="bag">Bag<span class="badge" id="bagcount"></span></button>
@@ -215,6 +246,12 @@
     b.addEventListener('click', function (ev) { ev.stopPropagation(); onClick(); }); return b;
   }
   function send(line) { if (ws && ws.readyState === WebSocket.OPEN) ws.send(line); }
+  function remember(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
+  function recall(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  // A short buzz when health drops and a longer one on a level, if the
+  // phone can and the player has not turned it off.
+  var buzzOn = recall('urth.buzz') !== '0', lastHealth = null, lastLevel = null;
+  function buzz(pattern) { if (buzzOn && navigator.vibrate) { try { navigator.vibrate(pattern); } catch (e) {} } }
   function pct(a, b) { return (b > 0 ? Math.max(0, Math.min(100, 100 * a / b)) : 0) + '%'; }
 
   // ---- Login: the server's own prompts, answered in one input --------
@@ -279,6 +316,15 @@
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible' && resumePending && (!ws || ws.readyState === WebSocket.CLOSED)) connect();
   });
+  // "Sign in as <name>": the last character on this device. It connects
+  // and answers the name prompt; the password is still asked for.
+  var quickName = recall('urth.name'), sendNameOnPrompt = false;
+  function showQuick() {
+    var q = $('quick');
+    q.style.display = quickName && !inGame && (!ws || ws.readyState !== WebSocket.OPEN) ? '' : 'none';
+    q.textContent = 'Sign in as ' + quickName;
+  }
+  $('quick').addEventListener('click', function () { sendNameOnPrompt = true; $('quick').style.display = 'none'; connect(); });
   function connect() {
     var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
     resumePending = false;
@@ -305,6 +351,7 @@
       if (expectRestart) loginAppend('\nThe server is restarting. Tap ' + (reconnectToken ? 'Reconnect to carry on where you were.' : 'Connect when it is back.') + '\n');
       else loginAppend('\n[disconnected]\n');
       $('loginbtn').textContent = reconnectToken ? 'Reconnect' : 'Connect';
+      showQuick();
       $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
     };
     ws.onmessage = function (e) { JSON.parse(e.data).forEach(handle); };
@@ -320,11 +367,15 @@
       case 'state': state = m.data; render(); return;
       case 'expeditions': if (sheetFor === 'Expeditions') expeditionActs(m.data || []); return;
       case 'offers': if (sheetFor) offerActs(m.data || {}); return;
+      case 'reward': showReward(m.data || {}); return;
       case 'room':
         if (!inGame) enterGame();
         showDescription(m.text);
         break;
       case 'prompt':
+        if (sendNameOnPrompt && /^By what name/.test(m.text)) {
+          sendNameOnPrompt = false; loginAppend(m.text + quickName + '\n'); send(quickName); return;
+        }
         if (/^By what name/.test(m.text) && (inGame || usedResume)) {
           // The resume was not honoured (the character left meanwhile): sign in.
           usedResume = false; keepResume(null);
@@ -370,6 +421,11 @@
     for (var i = 0; i < plain.length; i++) if (plain[i].trim() !== '') lines.push(marked[i] !== undefined ? marked[i] : esc(plain[i]));
     if (!lines.length) return;
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
+    if (wasFighting && !logOnly) {
+      combatLines = combatLines.concat(lines).slice(-6);
+      var cl = $('combatlog'); cl.textContent = '';
+      combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l; cl.appendChild(d); });
+    }
     feed = feed.slice(-2); logLines = logLines.slice(-300);
     var f = $('ticker'); f.textContent = '';
     feed.forEach(function (l) { var d = el('div'); d.innerHTML = l; f.appendChild(d); });
@@ -378,11 +434,64 @@
     if (sheetFor) { sheetLines = sheetLines.concat(lines).slice(-200); $('sheettext').innerHTML = sheetLines.join('\n'); }
   }
 
+  // ---- Rewards: what a kill, quest, or expedition paid, held on screen --
+  // long enough to read. A reward arriving while one shows is added to it
+  // (the coins from a corpse come a moment after the kill).
+  var shown = null, rewardTimer = null;
+  function showReward(r) {
+    if (shown) {
+      shown.xp = (shown.xp || 0) + (r.xp || 0);
+      shown.silver = (shown.silver || 0) + (r.silver || 0);
+      shown.questPoints = (shown.questPoints || 0) + (r.questPoints || 0);
+      shown.items = shown.items.concat(r.items || []);
+      shown.level = r.level || shown.level;
+      shown.title = shown.title || r.title;
+    } else shown = { title: r.title, xp: r.xp || 0, silver: r.silver || 0, questPoints: r.questPoints || 0, items: r.items || [], level: r.level };
+    drawReward();
+    clearTimeout(rewardTimer);
+    rewardTimer = setTimeout(hideReward, shown.items.length || shown.level ? 9000 : 6000);
+  }
+  function hideReward() { shown = null; $('reward').style.display = 'none'; }
+  function drawReward() {
+    var r = shown, box = $('reward'); box.textContent = '';
+    var title = /^(Quest|Expedition)/.test(r.title || '') ? r.title : r.title ? 'Defeated ' + r.title : 'Found';
+    box.appendChild(el('div', 'title', title));
+    var gains = el('div', 'gains');
+    if (r.level) gains.appendChild(el('span', 'gain lvl', 'Level ' + r.level + '!'));
+    if (r.xp) gains.appendChild(el('span', 'gain xp', '+' + r.xp + ' XP'));
+    if (r.silver) gains.appendChild(el('span', 'gain coin', '+' + coins(r.silver)));
+    if (r.questPoints) gains.appendChild(el('span', 'gain coin', '+' + r.questPoints + ' QP'));
+    box.appendChild(gains);
+    if (r.items.length) {
+      var loot = el('div', 'loot');
+      r.items.forEach(function (it) {
+        var d = el('div', it.color ? 'c-' + it.color : '', '+ ' + it.name);
+        if (it.rarity) { d.appendChild(document.createTextNode(' ')); d.appendChild(el('span', 'tier', '(' + it.rarity + ')')); }
+        loot.appendChild(d);
+      });
+      box.appendChild(loot);
+      var acts = el('div', 'row');
+      acts.appendChild(btn('Open bag', function () { hideReward(); showTab('bag'); }));
+      box.appendChild(acts);
+    }
+    box.style.display = 'block';
+  }
+  $('reward').addEventListener('click', hideReward);
+
   // ---- Rendering from the state snapshot -----------------------------
   var lastRoom = 0;
   function render() {
     var s = state;
-    $('who').textContent = s.name + ' · level ' + s.level + (s.tnl >= 0 ? ' · ' + s.tnl + ' xp to go' : '');
+    if (lastHealth !== null && s.health < lastHealth) buzz(30);
+    if (lastLevel !== null && s.level > lastLevel) buzz([60, 60, 120]);
+    lastHealth = s.health; lastLevel = s.level;
+    if (s.name && recall('urth.name') !== s.name) remember('urth.name', s.name);
+    $('who').textContent = s.name;
+    $('xplevel').textContent = 'Level ' + s.level;
+    if (s.nextXp > s.levelXp) {
+      $('xpbar').style.width = pct(s.xp - s.levelXp, s.nextXp - s.levelXp);
+      $('xptext').textContent = s.tnl + ' xp to ' + (s.level + 1);
+    } else { $('xpbar').style.width = '100%'; $('xptext').textContent = 'top level'; }
     $('silver').textContent = coins(s.silver);
     $('hpbar').style.width = pct(s.health, s.healthMax); $('hp').textContent = s.health + '/' + s.healthMax;
     $('manawrap').style.visibility = s.manaMax > 0 ? '' : 'hidden';
@@ -437,12 +546,12 @@
     return (g ? g + 'g ' : '') + (sv ? sv + 's' : '');
   }
 
-  var wasFighting = false;
+  var wasFighting = false, combatLines = [];
   function renderFight(s) {
     var fighting = s.enemies.length > 0 || !!s.casting;
     $('fight').style.display = fighting ? '' : 'none';
     tabButton('here').classList.toggle('alert', fighting && currentTab !== 'here');
-    if (fighting && !wasFighting) showTab('here');
+    if (fighting && !wasFighting) { showTab('here'); combatLines = []; $('combatlog').textContent = ''; }
     wasFighting = fighting;
     if (!fighting) return;
     var foes = $('foes'); foes.textContent = '';
@@ -575,6 +684,8 @@
       ['Who is on', function () { openSheet('Who', 'who', []); }],
       ['Settings', function () { openSheet('Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; })); }],
       ['Help', function () { openSheet('Help', 'help', []); }],
+      ['Change password', passwordSheet],
+      ['Vibrate when hit: ' + (buzzOn ? 'on' : 'off'), function () { buzzOn = !buzzOn; remember('urth.buzz', buzzOn ? '1' : '0'); renderMe(state); }],
       ['Full client', function () { // the desktop client, remembered so the main page stops sending you here
         try { localStorage.setItem('urth.client', 'full'); } catch (e) {}
         location.href = '/';
@@ -590,6 +701,23 @@
       d.addEventListener('click', r[1]);
       list.appendChild(d);
     });
+  }
+
+  // Password: two fields and a button; the server checks the old one.
+  function passwordSheet() {
+    openSheet('Change password', null, []);
+    var box = $('sheetacts');
+    var old = el('input', 'text'); old.type = 'password'; old.placeholder = 'current password'; old.autocomplete = 'current-password';
+    var neu = el('input', 'text'); neu.type = 'password'; neu.placeholder = 'new password'; neu.autocomplete = 'new-password';
+    [old, neu].forEach(function (i) { i.style.gridColumn = '1 / -1'; box.appendChild(i); });
+    var go = btn('Change it', function () {
+      if (!old.value || !neu.value) return;
+      if (/\s/.test(old.value + neu.value)) { $('sheettext').textContent = 'Passwords cannot contain spaces.'; return; }
+      send('password ' + old.value + ' ' + neu.value);
+      old.value = neu.value = '';
+    }, 'primary');
+    go.style.gridColumn = '1 / -1';
+    box.appendChild(go);
   }
 
   // Train: a button for each stat while there are points to spend. The
@@ -671,11 +799,29 @@
       row(list, itemName(it), use, function () {
         var acts = [];
         if (use) acts.push(use);
-        acts.push(['Drop', 'drop ' + it.ref], ['Sell', 'sell ' + it.ref], ['Sacrifice', 'sacrifice ' + it.ref]);
+        acts.push(['Give…', function () { giveSheet(it); }], ['Put in…', function () { putSheet(it); }],
+          ['Drop', 'drop ' + it.ref], ['Sell', 'sell ' + it.ref], ['Sacrifice', 'sacrifice ' + it.ref]);
         openSheet(it.name, 'look ' + it.ref, acts);
       });
     });
     if (!s.inventory.length) list.appendChild(el('div', 'dim', 'Your bag is empty.'));
+  }
+
+  // Give: to anyone here, player or creature.
+  function giveSheet(it) {
+    var s = state, acts = [];
+    s.room.players.forEach(function (n) { acts.push([n, 'give ' + it.ref + ' ' + n.toLowerCase()]); });
+    s.room.mobs.forEach(function (m) { acts.push([m.name, 'give ' + it.ref + ' ' + m.ref]); });
+    openSheet('Give ' + it.name + ' to…', null, acts);
+    if (!acts.length) $('sheettext').textContent = 'There is nobody here to give it to.';
+  }
+  // Put: into a container you carry or one lying here (a chest, a corpse).
+  function putSheet(it) {
+    var s = state, acts = [];
+    s.inventory.forEach(function (c) { if (c.type === 'container' && c.ref !== it.ref) acts.push([c.name, 'put ' + it.ref + ' ' + c.ref]); });
+    s.room.items.forEach(function (c) { if (c.container) acts.push([c.name + ' (here)', 'put ' + it.ref + ' ' + c.ref]); });
+    openSheet('Put ' + it.name + ' in…', null, acts);
+    if (!acts.length) $('sheettext').textContent = 'You have nothing to put it in.';
   }
 
   function useAction(it) {
@@ -905,18 +1051,40 @@
     }
     return false;
   }
-  var drag = null;
-  canvas.addEventListener('pointerdown', function (ev) { drag = { x: ev.clientX, y: ev.clientY, px: pan.x, py: pan.y, moved: false }; canvas.setPointerCapture && canvas.setPointerCapture(ev.pointerId); });
+  // One finger drags (or taps); two fingers pinch to zoom.
+  var drag = null, fingers = {}, pinch = null;
+  function fingerList() { return Object.keys(fingers).map(function (k) { return fingers[k]; }); }
+  function spread(f) { return Math.hypot(f[0].x - f[1].x, f[0].y - f[1].y) || 1; }
+  canvas.addEventListener('pointerdown', function (ev) {
+    fingers[ev.pointerId] = { x: ev.clientX, y: ev.clientY };
+    canvas.setPointerCapture && canvas.setPointerCapture(ev.pointerId);
+    var f = fingerList();
+    if (f.length === 2) { pinch = { d: spread(f), cell: cell }; drag = null; return; }
+    drag = { x: ev.clientX, y: ev.clientY, px: pan.x, py: pan.y, moved: false };
+  });
   canvas.addEventListener('pointermove', function (ev) {
+    if (fingers[ev.pointerId]) fingers[ev.pointerId] = { x: ev.clientX, y: ev.clientY };
+    if (pinch) {
+      var f = fingerList();
+      if (f.length === 2) zoom(pinch.cell * spread(f) / pinch.d / cell);
+      return;
+    }
     if (!drag) return;
     var dx = ev.clientX - drag.x, dy = ev.clientY - drag.y;
     if (Math.abs(dx) + Math.abs(dy) > 6) drag.moved = true;
     if (drag.moved) { pan.x = drag.px + dx; pan.y = drag.py + dy; drawMap(); }
   });
+  function lift(ev) {
+    delete fingers[ev.pointerId];
+    if (pinch) { if (!fingerList().length) pinch = null; drag = null; return true; }
+    return false;
+  }
   canvas.addEventListener('pointerup', function (ev) {
-    if (drag && !drag.moved) { var b = canvas.getBoundingClientRect(); tap(ev.clientX - b.left, ev.clientY - b.top); }
+    var wasPinch = lift(ev);
+    if (!wasPinch && drag && !drag.moved) { var b = canvas.getBoundingClientRect(); tap(ev.clientX - b.left, ev.clientY - b.top); }
     drag = null;
   });
+  canvas.addEventListener('pointercancel', function (ev) { lift(ev); drag = null; });
   canvas.addEventListener('mousemove', function (ev) {
     if (drag || !state) return;
     var b = canvas.getBoundingClientRect(), r = roomAtPoint(ev.clientX - b.left, ev.clientY - b.top);
@@ -1015,7 +1183,7 @@
   });
   $('ticker').addEventListener('click', function () { showTab('log'); });
   // A tab the phone reloaded after suspending it still holds its token.
-  if (resumeToken) { $('loginbtn').textContent = 'Send'; connect(); }
+  if (resumeToken) { $('loginbtn').textContent = 'Send'; connect(); } else showQuick();
 })();
 </script>
 </body>

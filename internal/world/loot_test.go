@@ -6,6 +6,7 @@ import (
 
 	"urth/internal/effect"
 	"urth/internal/item"
+	"urth/internal/output"
 )
 
 // lootRulesJS rolls every item rare with one affix and drops two items.
@@ -164,4 +165,33 @@ func TestRoomEntitiesCarryRarity(t *testing.T) {
 		}
 	}
 	t.Fatalf("rolled item not listed: %+v", items)
+}
+
+// TestKillSendsReward: a kill with autoloot on sends one reward naming the
+// victim, with the experience and what came out of the corpse.
+func TestKillSendsReward(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.rec.AutoLoot = true
+	p.HealthMax, p.Health = 1000, 1000
+	send(w, 1, "kill guard")
+	var got *output.RewardData
+	for i := 0; i < 400 && got == nil; i++ {
+		w.Tick()
+		for _, b := range bob.batches {
+			for _, m := range b.Messages {
+				if m.Type == output.Reward {
+					r := m.Data.(output.RewardData)
+					got = &r
+				}
+			}
+		}
+	}
+	if got == nil {
+		t.Fatal("no reward after the kill")
+	}
+	if got.Title != "a city guard" || got.XP != 60 || len(got.Items) != 2 || got.Items[0].Name != "a rusty sword" {
+		t.Fatalf("reward: %+v", *got)
+	}
 }

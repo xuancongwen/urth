@@ -283,6 +283,7 @@ func (w *World) die(victim, killer *Character) {
 			// Every grouped player here earns the kill as if alone (4.7).
 			for _, member := range groupOf(killer) {
 				if member.Room == room && member.player != nil {
+					rewardTitle(member, victim.Name)
 					w.grantXP(member, w.xpForKill(member, victim))
 					w.questKill(member.player, victim)
 				}
@@ -429,6 +430,9 @@ func (w *World) grantXP(c *Character, xp int) {
 		return
 	}
 	c.Experience += xp
+	if r := rewardFor(c); r != nil {
+		r.XP += xp
+	}
 	c.Send("You receive {C}" + itoa(xp) + "{x} experience points.\n")
 	for c.Experience >= w.xpToLevel(c.Level+1) {
 		c.Level++
@@ -451,6 +455,9 @@ func (w *World) grantXP(c *Character, xp int) {
 			msg = "You raise a level!"
 		}
 		c.Send("{Y}" + output.Escape(msg) + "{x} You are now level " + itoa(c.Level) + ".\n")
+		if r := rewardFor(c); r != nil {
+			r.Level = c.Level
+		}
 		if r.StatPoints > 0 {
 			c.Send("You have " + itoa(c.StatPoints) + " stat points to train.\n")
 		}

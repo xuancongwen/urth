@@ -323,6 +323,7 @@ func (w *World) round() {
 // disconnected after their farewell goes out.
 func (w *World) flush() {
 	for id, p := range w.players {
+		w.queueReward(p)
 		w.queueState(p)
 		p.flush(w.prompt(p))
 		if p.closing {

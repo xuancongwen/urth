@@ -72,6 +72,8 @@ type Player struct {
 	// linkdeadUntil is when a link-dead character leaves (linkdead.go).
 	resumeToken   string
 	linkdeadUntil time.Time
+	// reward gathers what the player gains this tick (reward.go).
+	reward *output.RewardData
 
 	input   []string
 	pending []output.Message

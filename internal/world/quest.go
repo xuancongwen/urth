@@ -473,6 +473,11 @@ func (w *World) questComplete(p *Player) {
 	}
 	p.questPoints += q.Points
 	p.Silver += max(q.Silver, 0)
+	if r := rewardFor(p.Character); r != nil {
+		rewardTitle(p.Character, "Quest complete")
+		r.QuestPoints += q.Points
+		r.Silver += max(q.Silver, 0)
+	}
 	w.act("$N says 'Well done.' You gain {Y}"+plural(q.Points, "quest point")+"{x}"+questExtras(q)+".", p.Character, qm, "", toChar)
 	if q.Message != "" {
 		p.Send(output.Escape(q.Message) + "\n")
