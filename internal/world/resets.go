@@ -105,6 +105,55 @@ func (w *World) resetArea(a *areaState) {
 	w.log.Debug("area reset", "area", a.dir, "spawned", spawned)
 }
 
+// Generator defaults: a spawn every three rounds, until three stand in the
+// room.
+const (
+	spawnEvery = 3
+	spawnMax   = 3
+)
+
+// tickGenerators lets each living generator (a mob with spawns) add its
+// brood to its room on its timer, fighting or not.
+func (w *World) tickGenerators() {
+	var due []*Mob
+	for _, c := range w.rooms {
+		for _, m := range c.mobs {
+			if m.Proto.Spawns == nil {
+				continue
+			}
+			if m.spawnIn--; m.spawnIn <= 0 {
+				due = append(due, m)
+			}
+		}
+	}
+	for _, g := range due {
+		s := g.Proto.Spawns
+		every, most := s.Every, s.Max
+		if every <= 0 {
+			every = spawnEvery
+		}
+		if most <= 0 {
+			most = spawnMax
+		}
+		g.spawnIn = every
+		proto := w.content.Mobs[s.Mob]
+		n := 0
+		for _, m := range w.contents(g.Room).mobs {
+			if m.Proto == proto {
+				n++
+			}
+		}
+		if proto == nil || n >= most {
+			continue
+		}
+		m := w.newMob(proto)
+		w.recalc(m.Character)
+		m.Health, m.Mana, m.Stamina = m.HealthMax, m.ManaMax, m.StaminaMax
+		w.placeMob(m, g.Room)
+		w.act("$N lurches out of $n.", g.Character, m.Character, "", toRoom)
+	}
+}
+
 func hasVnum(list []*item.Item, vnum int) bool {
 	for _, it := range list {
 		if it.Proto.Vnum == vnum {

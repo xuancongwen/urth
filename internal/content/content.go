@@ -55,6 +55,11 @@ func Load(dir string) (*World, error) {
 
 func (w *World) validate() error {
 	for _, m := range w.Mobs {
+		if m.Spawns != nil {
+			if _, ok := w.Mobs[m.Spawns.Mob]; !ok {
+				return fmt.Errorf("mob %d (%s): spawns mob %d, which does not exist", m.Vnum, m.Name, m.Spawns.Mob)
+			}
+		}
 		for _, s := range m.Sells {
 			if _, ok := w.Items[s.Item]; !ok {
 				return fmt.Errorf("mob %d (%s): sells item %d, which does not exist", m.Vnum, m.Name, s.Item)

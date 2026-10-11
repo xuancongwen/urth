@@ -294,6 +294,7 @@ func (w *World) round() {
 	w.tickExpeditions()
 	w.expireLinkdead()
 	w.wanderMobs()
+	w.tickGenerators()
 	w.tickAreas()
 	if w.scripts != nil {
 		if changed, err := w.scripts.Reload(); changed {

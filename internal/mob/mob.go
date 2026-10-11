@@ -56,6 +56,9 @@ type Proto struct {
 	Trades []Trade `yaml:"trades,omitempty"`
 	// Effects every instance carries (a poisonous bite, thick hide).
 	Effects []effect.Spec `yaml:"effects,omitempty"`
+	// Spawns makes the mob a generator: while it lives it adds another
+	// mob to its room on a timer.
+	Spawns *Spawn `yaml:"spawns,omitempty"`
 	// Resolved is what the game uses: stated values with the baseline
 	// filling the gaps. Set by the world; never read from YAML.
 	Resolved Resolved `yaml:"-"`
@@ -63,6 +66,14 @@ type Proto struct {
 	Area string `yaml:"-"`
 	// File is the path the prototype was read from, for tooling.
 	File string `yaml:"-"`
+}
+
+// Spawn is what a generator produces: one Mob every Every rounds, while
+// fewer than Max of them stand in its room.
+type Spawn struct {
+	Mob   int `yaml:"mob"`
+	Every int `yaml:"every,omitempty"`
+	Max   int `yaml:"max,omitempty"`
 }
 
 // Sale is one item a quest vendor offers, and its price in quest points.

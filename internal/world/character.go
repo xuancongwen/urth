@@ -110,6 +110,8 @@ type Mob struct {
 	*Character
 	Proto *mob.Proto
 	id    uint64
+	// spawnIn counts the rounds to a generator's next spawn.
+	spawnIn int
 }
 
 func (w *World) newMob(p *mob.Proto) *Mob {

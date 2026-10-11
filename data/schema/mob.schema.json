@@ -25,6 +25,17 @@
     "armor": { "$ref": "common.schema.json#/$defs/armor", "description": "Natural defense used when nothing is worn." },
     "xp": { "type": "integer", "minimum": 0, "description": "Overrides the kill reward when positive." },
     "silver": { "type": "integer", "minimum": 0, "description": "Coins carried, when positive." },
+    "spawns": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mob"],
+      "properties": {
+        "mob": { "$ref": "common.schema.json#/$defs/vnum", "description": "The mob prototype it produces." },
+        "every": { "type": "integer", "minimum": 1, "default": 3, "description": "Rounds between spawns." },
+        "max": { "type": "integer", "minimum": 1, "default": 3, "description": "No spawn while this many of them stand in its room." }
+      },
+      "description": "Makes the mob a generator: while it lives it adds a mob to its room on a timer, so it is placed even with no reset of its own."
+    },
     "teaches": { "type": "array", "items": { "type": "string" }, "description": "Skill ids this trainer sells (docs/RULES.md 7.4)." },
     "sells": {
       "type": "array",

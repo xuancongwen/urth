@@ -123,6 +123,9 @@ func Lint(w *World, startRoom int) []Problem {
 		}
 	}
 	for _, m := range w.Mobs {
+		if m.Spawns != nil && placedMob[m.Vnum] {
+			placedMob[m.Spawns.Mob] = true // a generator's brood
+		}
 		for _, s := range m.Sells {
 			placedItem[s.Item] = true // a quest vendor's stock
 		}
