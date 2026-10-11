@@ -32,6 +32,14 @@ type Item struct {
 	// Quest names the player whose fetch quest this item was made for;
 	// nobody else can pick it up.
 	Quest string
+	// Rarity is the tier a loot roll gave this instance ("rare"), empty
+	// for a plain one; Color is the color token its name is shown in;
+	// Prefix goes before the noun ("a cruel rusty sword") and Suffix
+	// after it ("of the bear"). See docs/RULES.md 5.3.
+	Rarity string
+	Color  string
+	Prefix string
+	Suffix string
 }
 
 // Lit reports whether a light item still gives light.
@@ -53,16 +61,60 @@ func New(p *Proto) *Item {
 	return it
 }
 
-// Name is the short description.
-func (i *Item) Name() string { return i.Proto.Name }
+// Name is the short description, with a rolled item's prefix and suffix.
+// A prefix goes after the article, which is corrected to match it: "a
+// rusty sword" with "elusive" is "an elusive rusty sword".
+func (i *Item) Name() string {
+	name := i.Proto.Name
+	if i.Prefix != "" {
+		name = withPrefix(name, i.Prefix)
+	}
+	if i.Suffix != "" {
+		name += " " + i.Suffix
+	}
+	return name
+}
+
+func withPrefix(name, prefix string) string {
+	for _, art := range []string{"a ", "an ", "A ", "An "} {
+		if rest, ok := strings.CutPrefix(name, art); ok {
+			a := "a "
+			if strings.ContainsRune("aeiouAEIOU", rune(prefix[0])) {
+				a = "an "
+			}
+			if art[0] == 'A' {
+				a = strings.ToUpper(a[:1]) + a[1:]
+			}
+			return a + prefix + " " + rest
+		}
+	}
+	for _, art := range []string{"the ", "some ", "The ", "Some "} {
+		if rest, ok := strings.CutPrefix(name, art); ok {
+			return art + prefix + " " + rest
+		}
+	}
+	return prefix + " " + name
+}
+
+// Rolled reports whether a loot roll changed this instance.
+func (i *Item) Rolled() bool { return i.Rarity != "" }
 
 // IsContainer reports whether things can be put inside.
 func (i *Item) IsContainer() bool { return i.Proto.Type == Container }
 
 // Matches reports whether a typed word refers to this item: the word is a
-// prefix of one of its keywords, case-insensitively.
+// prefix of one of its keywords, or of a word of its rolled prefix or
+// suffix ("bear" for "of the bear"), case-insensitively.
 func (i *Item) Matches(word string) bool {
-	return MatchKeywords(i.Proto.Keywords, word)
+	if MatchKeywords(i.Proto.Keywords, word) {
+		return true
+	}
+	for _, w := range strings.Fields(strings.ToLower(i.Prefix + " " + i.Suffix)) {
+		if w != "of" && w != "the" && MatchKeywords([]string{w}, word) {
+			return true
+		}
+	}
+	return false
 }
 
 // MatchKeywords is the shared keyword test used for items and mobs.
@@ -135,11 +187,16 @@ func Remove(list []*Item, it *Item) []*Item {
 }
 
 // Group counts consecutive-agnostic duplicates by prototype, preserving
-// first-seen order, for "(2) a rusty sword" listings.
+// first-seen order, for "(2) a rusty sword" listings. A rolled item is
+// never folded into a stack, since its affixes are its own.
 func Group(list []*Item) []Grouped {
 	var out []Grouped
 	index := map[*Proto]int{}
 	for _, it := range list {
+		if it.Rolled() {
+			out = append(out, Grouped{Item: it, Count: 1})
+			continue
+		}
 		if i, ok := index[it.Proto]; ok {
 			out[i].Count++
 			continue

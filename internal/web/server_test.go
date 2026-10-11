@@ -54,6 +54,20 @@ func TestPageIsServed(t *testing.T) {
 	}
 }
 
+func TestTapPageIsServed(t *testing.T) {
+	s, _, cancel, _ := startServer(t)
+	defer cancel()
+	resp, err := http.Get("http://" + s.Addr().String() + "/play.html")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer resp.Body.Close()
+	body, _ := io.ReadAll(resp.Body)
+	if resp.StatusCode != 200 || !contains(body, "client state") {
+		t.Fatalf("tap page not served: %d", resp.StatusCode)
+	}
+}
+
 func TestAnalyticsIsConfigured(t *testing.T) {
 	get := func(s *Server) string {
 		t.Helper()

@@ -169,7 +169,7 @@ func (w *World) statCharacter(c *Character) string {
 		b.WriteString("Room: " + itoa(c.Room.Vnum) + "  ")
 	}
 	b.WriteString("Level: " + itoa(c.Level) + "  XP: " + itoa(c.Experience) + "\n")
-	b.WriteString("Health: " + itoa(c.Health) + "/" + itoa(c.HealthMax) + "  Mana: " + itoa(c.Mana) + "/" + itoa(c.ManaMax) + "  Speed: " + ftoa(c.Speed) + "  Stat points: " + itoa(c.StatPoints) + "\n")
+	b.WriteString("Health: " + itoa(c.Health) + "/" + itoa(c.HealthMax) + "  Mana: " + itoa(c.Mana) + "/" + itoa(c.ManaMax) + "  Stamina: " + itoa(c.Stamina) + "/" + itoa(c.StaminaMax) + "  Speed: " + ftoa(c.Speed) + "  Stat points: " + itoa(c.StatPoints) + "\n")
 	if len(c.Stats) > 0 {
 		b.WriteString("Stats:")
 		for _, k := range sortedKeys(c.Stats) {
@@ -287,7 +287,7 @@ func cmdLoad(w *World, p *Player, args string) {
 		}
 		m := w.newMob(proto)
 		w.recalc(m.Character)
-		m.Health, m.Mana = m.HealthMax, m.ManaMax
+		m.Health, m.Mana, m.Stamina = m.HealthMax, m.ManaMax, m.StaminaMax
 		w.placeMob(m, p.Room)
 		w.act("$n has created $N!", p.Character, m.Character, "", toRoom)
 		w.act("You create $N.", p.Character, m.Character, "", toChar)
@@ -413,7 +413,7 @@ func cmdRestore(w *World, p *Player, args string) {
 	}
 	for _, c := range targets {
 		w.recalc(c)
-		c.Health, c.Mana = c.HealthMax, c.ManaMax
+		c.Health, c.Mana, c.Stamina = c.HealthMax, c.ManaMax, c.StaminaMax
 		if c != p.Character {
 			w.act("$n has restored you.", p.Character, c, "", toVict)
 		}

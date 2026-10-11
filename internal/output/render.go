@@ -25,7 +25,7 @@ func RenderText(b Batch) string {
 		case EchoOn:
 			sb.WriteString(telnetWontEcho)
 			continue
-		case Reconnect, Commands:
+		case Reconnect, Commands, State:
 			continue
 		}
 		sb.WriteString(m.Text)

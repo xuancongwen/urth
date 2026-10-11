@@ -39,8 +39,8 @@ left out; the engine then uses a quiet default.
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
 | `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage, procs:[{verb, damage, back}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
-| `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, speed}`; `speed` is swings per round, fractional allowed |
-| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, skills:{id: rating}, aura:[{verb, damage}]}`; each aura entry strikes every enemy fighting the character in its room |
+| `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, staminaMax, speed}`; `speed` is swings per round, fractional allowed |
+| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, staminaDelta, skills:{id: rating}, aura:[{verb, damage}]}`; each aura entry strikes every enemy fighting the character in its room |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
 | `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |
@@ -51,18 +51,21 @@ left out; the engine then uses a quiet default.
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
-| `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, start, innate, price, requires:[{material, count}], description}]` |
+| `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, stamina, start, innate, price, requires:[{material, count}], description}]`; `stamina` is the cost of a use (7.7) |
+| `rollItem` (optional) | a reset creates a plain weapon or armor, and for each extra drop (5.3) | item, `{source: "reset" or "drop", level}` | `{rarity, color, prefix, suffix, effects:[{kind, params}]}`; an empty `rarity` leaves the item plain, the effects are stored on the instance |
+| `lootRules` (optional) | a mob dies | victim | `{drops, levelBand}`: extra items for the corpse, drawn from the rollable prototypes of the victim's area within the band |
+| `expeditionRules` (optional) | `expedition` | player | `{levelBand, fights, maxFights, restBelow, retreatBelow}`: which of an area's mobs a run may meet, its default and longest length, and the health fractions at which the character sleeps and turns for home |
 | `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |
 | `questRules` (optional) | `quest request`, and when a quest ends | player | `{levelBand, rounds, cooldown, quitCooldown}`, the band in levels and the timers in rounds (7.6) |
 | `questReward` (optional) | a quest is drawn | player, quest `{kind, target, name, level, area, room, rounds}` | `{points, silver, xp, message}`, shown on offer and paid on completion |
-| `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}}` |
-| `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, materials:[{material, count}], target, save, saveEffect, description}]` |
+| `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}, cooldown, stamina}`; `cooldown` and `stamina`, when present, replace the skill's own for this use |
+| `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, mana, materials:[{material, count}], target, save, saveEffect, description}]`; `materials` is for the few spells that want items |
 | `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
 
 ### What scripts see
 
 - Character: `{name, level, xp, stats:{}, statPoints, featPoints, silver, health,
-  healthMax, mana, manaMax, speed, equipment:{slot: item}, effects:[],
+  healthMax, mana, manaMax, stamina, staminaMax, speed, equipment:{slot: item}, effects:[],
   schools:[], deity, isPlayer, fighting, position, group:[brief], enemies:[brief],
   casting:{spell, rounds} or absent, cooldowns:{id: rounds},
   room:{vnum,name,area}}`, where `position` is `standing`, `resting`,
@@ -128,8 +131,9 @@ left out; the engine then uses a quiet default.
   mob keeps the base stats it spawned with but its derived values move.
 - Casting (6.4): one cast in progress per character with rounds left;
   `castRounds` 0 resolves on the command; movement always cancels;
-  damage cancels when the spell says so; materials leave the inventory
-  when the cast begins; cooldowns count down per round. Targets are
+  damage cancels when the spell says so; the spell's mana is spent and
+  any materials leave the inventory when the cast begins, and a cast
+  the caster cannot pay for is refused; cooldowns count down per round. Targets are
   built by the engine from the spell's `target`: single (named or the
   current target), ally (named or self), self, group (members here),
   area (everyone here not in the caster's group). A hostile cast starts
@@ -712,7 +716,7 @@ should be checked against.
 | Rounds to recover from a fight to full | about 15 (30 seconds) |
 | Fights per outing before returning to town | about 10 |
 | Even fights chained with no rest before death is likely | 3 to 4 |
-| Materials consumed per outing when magic is used freely | to be set with 6.2 |
+| Mana spent per fight when magic is used freely, against the pool (6.2) | to be set |
 | Standard deviation of health remaining after an even fight (this row sizes avoidance, 4.3) | under 8 points |
 
 Measured 2026-09-24 with the 3.3 starting values, geometric baselines
@@ -942,10 +946,89 @@ computes them (D15, D16).
 
 ### 5.3 Rarity and drops
 
-**Status: open.** Rephrased in terms of 5.4. Rarity, if it exists, is a
-count or quality of effects. A "random affix" is an effect rolled onto
-an instance at spawn. A fixed item is a prototype with intrinsic
-effects. Where items come from (drops, shops, crafting) is untouched.
+**Thesis.** No randomness in loot. Section 8 already makes a guaranteed
+drop an equipped item, visible on `look` before the fight, and every
+unique is a builder's prototype with intrinsic effects. What you see is
+what you get, and the world's hints (6.1) can point at a specific
+reward.
+
+**Antithesis.** Then every guard drops the same spear forever. Once a
+player has seen an area's gear, killing there again gives coin and
+experience and nothing to hope for, and an area is finished the day it
+is explored. The chance that *this* kill is the good one is the oldest
+reason to fight one more mob, and a fixed table cannot provide it. A
+graphical or companion front end built on these rules (discussed
+2026-10-11) leans on that pull even harder than the text game does.
+
+**Synthesis (leaning, 2026-10-11).** Keep both. Fixed items stay fixed,
+and ordinary gear can come out better than its prototype. Rarity is a
+*count of rolled effects*, as 5.4 asked: an affix is an effect (5.4)
+rolled onto an instance, stored in the instance's applied effects
+the same way an enchantment is, so nothing new is persisted but the
+rarity's name.
+
+- **Tiers** (revised 2026-10-11). A tier is a range of affix counts:
+  common none, uncommon up to two, rare up to four, epic up to six,
+  legendary up to eight, unique up to ten, and artifact beyond that
+  (eleven or twelve as the rules stand). The tier is shown in the
+  item's color and on `look`.
+- **Names.** Every affix lends a name both a prefix word and a suffix
+  phrase, and any affix may supply either; there is no split of
+  affixes into prefixes and suffixes and no limit per side, as there is
+  in Diablo. The strongest roll names the suffix and the next strongest
+  the prefix: "a merciless rusty sword of the bear". Both sets of words
+  work as keywords. A rolled tier called unique is not the same thing
+  as a builder's named item with intrinsic effects, which never rolls
+  and has no tier; if the two words collide in play, one should be
+  renamed.
+- **What can roll.** Weapons and armor with a vnum and no intrinsic
+  effects, and not flagged `quest`, `newbie`, or `norandom`. A
+  prototype with intrinsic effects is a named item and is never
+  rolled; that keeps uniques, and everything the world hints at,
+  exactly as the builder wrote them.
+- **When.** At creation by a reset, which covers the gear a mob
+  spawns wearing (still visible before the fight, so 8 holds) and
+  gear lying in rooms; and at a mob's death, as an extra *drop*. Merchants and
+  quest vendors sell plain items; what they sell is the
+  prototype.
+- **Drops.** On a death, the rules say how many extra items the
+  corpse gets and how wide a level band they come from. The engine
+  draws each from the rollable weapon and armor prototypes of the
+  victim's own area within that band, so a drop fits where it fell,
+  and rolls it like a reset item. An area with no such prototype drops
+  nothing extra.
+- **Magnitudes.** An affix is a starting value scaled by the item's
+  level and by a quality drawn from a band, the higher tiers drawing
+  from a better band. Affixes come from the existing effect kinds
+  (stats, steadiness, and shorter cooldowns on anything; crit, crit
+  damage, damage, extra swings, leech, ignite, chill, a thunder proc,
+  venom, execute, and opportunist on weapons; defense, dodge,
+  protect, shield block, thorns, a bramble aura, soak, regen, last
+  stand, and the two sights on armor), so
+  every one already works in the pipeline, `describeEffect`
+  already words it, and enchanting (5.6) still has slots to fill.
+  An item's number of enchantment slots is separate from its rarity.
+
+Starting values, arbitrary in the sense of 3.3, per thousand items: a
+reset item rolls common 700, uncommon 200, rare 70, epic 24, legendary
+5, unique 0.9, artifact 0.1; a drop rolls from a richer table (400,
+350, 150, 70, 24, 5, 1) because a drop is the event the player hoped
+for. Higher tiers also draw each affix from a better quality band.
+About thirty affixes exist, eighteen or so open to any one item, so
+even an artifact rarely repeats one; past the pool's size they repeat
+and stack. A kill drops an extra item one time
+in five, one level either side of the victim's; a mob flagged `boss`
+always drops two. These are for playtest: the `loot` builder command
+samples the table so a change can be seen before anyone farms it.
+
+Consequences: an optional `rollItem(item, context)` hook returning
+`{rarity, color, prefix, suffix, effects}`, and an optional `lootRules(victim)`
+returning `{drops, levelBand}`; without them nothing rolls. The item
+instance gains `rarity`, `color`, `prefix`, and `suffix`, saved in the player
+file; the item view carries `rarity`. Listings stop folding a rolled
+item into a stack of its plain prototype. Open: whether merchants
+should pay more for a higher tier, and whether a tier should also add
+an enchantment slot.
 
 ### 5.4 Effects
 
@@ -1177,7 +1260,9 @@ Worked dialectically on 2026-09-24. The shape is set by three
 commitments from the designer: any character can potentially use magic,
 each school of magic must be discovered and unlocked through play, and
 casting consumes gathered materials. Magic is meant to be very strong
-and to carry real costs. Everything below follows from those.
+and to carry real costs. Everything below follows from those. The third
+commitment changed on 2026-10-11: casting costs mana, and materials are
+an extra cost only some spells carry (6.2).
 
 ### 6.1 Schools are discovered and unlocked by consuming a totem
 
@@ -1237,7 +1322,7 @@ records the deity beside the schools. Hints are a builder concern:
 builder tooling should make it easy to see which totems exist and
 where their hints are. No dependency on a quest system.
 
-### 6.2 Casting consumes gathered materials
+### 6.2 Casting costs mana; some spells also want items
 
 **Thesis.** Casting draws from a mana pool that regenerates. Cheap to
 implement, and the engine already has `mana`, `manaMax`, and `manaDelta`.
@@ -1278,27 +1363,78 @@ Rarity is a field on the material's prototype and the drop tables in
 list are proposed in 6.5. `resolveCast` lists the materials
 it used in its `consume` return and the engine removes them (section 1).
 
+**Revised 2026-10-11: mana, with items for some spells.** The designer
+asked to drop the material requirement from spells in general and move
+to mana, keeping items for the spells where an item is the point:
+performing certain enchantments, opening portals, and the like. The
+material synthesis above is kept as the record of what was tried.
+
+Why, in the terms of this section: a material on every spell made
+casting a logistics job. A character who found a school could not use
+it until it had farmed the right things, and every cast was a small
+inventory check, which reads poorly in text and worse on a phone. The
+antithesis still holds, so the synthesis has to answer it: a pool that
+is always full at the start of an outing makes magic free at the
+margin. The answer is where mana comes back. It refills out of a fight,
+over about the same time health does (2.5), and not at all during one,
+so the decision 2.1 and 6.3 want is still there: a fight has a budget,
+and an outing is a chain of budgets with rests between them. Casting in
+an even fight spends what the next fight might need.
+
+- **Mana.** Every spell has a mana cost, spent when the cast begins, so
+  an interrupted cast loses it, as it lost materials (6.4). The pool is
+  a base plus a little per level, times the better of the Intelligence
+  and Wisdom multipliers, so either branch's stat makes a deeper pool.
+  It refills from empty in about 45 rounds standing out of a fight,
+  faster resting and asleep at the same multipliers as health, and not
+  at all in a fight (a parameter, `manaFightRegen`, if a trickle is
+  wanted).
+- **Items, for some spells.** A spell may still name materials, as an
+  extra cost on top of its mana, consumed the same way. They are for
+  spells whose effect is about an object or a place: an enchantment
+  that wants a particular reagent, a portal that wants a focus, a
+  summoning that wants a token. The first such spells do not exist
+  yet; the engine path for them does.
+- **The material pool** (6.5) stays. Its uses are now those spells,
+  crafting (5.5), enchanting (5.6), skills taught for items (7.4),
+  and offerings, rather than every cast.
+
+Starting values, arbitrary in the sense of 3.3: a pool of 30 plus 3 a
+level before the stat multiplier, and costs from 6 (Firebolt, Daze) to
+20 (Sanctuary), so a level-1 caster with no points in either stat casts
+about five cheap spells from full. Cost does not grow with level, so
+early spells get cheaper relative to the pool as a character grows.
+This supersedes the mana fallback in D18 and answers the question it
+left open; see D23.
+
+Consequences: `spellList` entries gain `mana`; `cast` refuses a spell
+the caster cannot pay for and spends the mana with any materials when
+the cast begins; `derivedStats` returns a real `manaMax` and `onTick`
+a `manaDelta`; the prompt shows mana once the pool is above zero;
+`spells` lists each cost. Materials keep their item type and drops.
+
 ### 6.3 Magic is very strong
 
 **Thesis.** Magic sits at parity with weapons so that casters and
 fighters are balanced against each other.
 
 **Antithesis.** There are no casters and fighters (7.3); every character
-can potentially cast. Parity would make the discovery and the materials a
+can potentially cast. Parity would make the discovery and the cost a
 tax on an effect you could have got from a sword. If magic costs more
 than a swing it has to do more than a swing.
 
 **Synthesis (leaning).** Per use, magic is the strongest tool in the
-game. The material cost and discovered access are what balance it, so
-its output is not held back to weapon levels. In terms of 2.1, casting
-is the decision a fight offers: when to spend materials, on which fight.
-An even fight at level is winnable with steel alone; magic is what makes
-a fight above level winnable, and spending it on an even fight is a
-choice to trade materials for safety and speed.
+game. The mana cost (6.2, revised 2026-10-11: a pool that does not
+refill in a fight) and discovered access are what balance it, so its
+output is not held back to weapon levels. In terms of 2.1, casting is
+the decision a fight offers: when to spend mana, on which fight. An
+even fight at level is winnable with steel alone; magic is what makes a
+fight above level winnable, and spending it on an even fight is a
+choice to trade the next fight's mana for safety and speed now.
 
-Consequences: the simulator must run fights with and without material
-use, and report material consumption per fight, since that is the cost
-being balanced. 4.5 gains a row for it.
+Consequences: the simulator must run fights with and without casting,
+and report mana spent per fight against the pool, since that is the
+cost being balanced. 4.5 gains a row for it.
 
 ### 6.4 Casting mechanics
 
@@ -1319,15 +1455,15 @@ and does not take the round's action (2.1), so it can be chained with
 another spell or with an attack in the same round. One means it takes
 this round's action and completes at the round boundary. N means N
 rounds of casting. A caster has at most one spell in progress; starting
-another cancels it. Free spells are limited by their material cost and
+another cancels it. Free spells are limited by their mana cost and
 by an optional per-spell cooldown, not by the round. If a real
 difference between instant and zero-round appears in play, the doc
 comes back here.
 
 **Interruption.** Movement always interrupts a cast in progress. Damage
 interrupts only spells that say so (`interruptOnDamage`). Leaning:
-materials are committed when the cast begins, so an interrupted cast
-loses them. That is the consequence 6.3 asks magic to carry, and it is
+mana and any materials are committed when the cast begins, so an
+interrupted cast loses them. That is the consequence 6.3 asks magic to carry, and it is
 why a long cast is a real decision in a fight. Open: whether an
 interrupted cast also triggers the cooldown.
 
@@ -1337,7 +1473,7 @@ and Dragons manner, and the spell names which: *reflex* (Dexterity),
 what the spell says: negates it, or halves it. Some spells allow no
 save. Note against 4.2: a save is a binary roll, the kind of variance
 4.2 keeps out of the weapon fight. It is admitted here on purpose,
-because a spell is rare, costs materials, and is meant to be strong
+because a spell is rare, costs mana, and is meant to be strong
 (6.3); a fight is not decided by a single save the way it would be by
 a hit roll on every swing. The simulator should report save rates.
 Starting formula, asymptotic like everything else here:
@@ -1364,7 +1500,8 @@ area spell can catch allies (friendly fire) is open and leans no.
 
 **Spell definition fields**, so the list can be written: `id`, `name`,
 `branch` (arcane or divine), `school` or `deity`, `castRounds`,
-`interruptOnDamage`, `cooldown`, `materials` (kind and count),
+`interruptOnDamage`, `cooldown`, `mana`, `materials` (kind and count,
+for the few spells that want items),
 `target` (single, area, self), `save` (reflex, fortitude, will, none)
 and `saveEffect` (negate, half), `scaling` (stats and whether level),
 and the effect: damage, healing, or effects to attach (5.4).
@@ -1385,7 +1522,9 @@ level (5.2), before the spell's stat and level scaling, so the list
 stays true when the curve moves. Durations are rounds.
 
 **Materials pool.** Rarity sets how often farming yields it; the last
-tier is never random.
+tier is never random. Since 2026-10-11 no spell on the lists below
+needs a material (6.2); the pool feeds item-bound spells, crafting,
+enchanting, and trainers.
 
 | Material | Rarity | Where |
 |---|---|---|
@@ -1401,27 +1540,27 @@ tier is never random.
 
 **Arcane**, one per school.
 
-| Spell | School | Cast | Interrupt | Cooldown | Materials | Target | Save | Effect |
+| Spell | School | Cast | Interrupt | Cooldown | Mana | Target | Save | Effect |
 |---|---|---|---|---|---|---|---|---|
-| Firebolt | evocation | 1 | yes | 0 | 1 ash | single | reflex, half | damage 2.0x |
-| Ward | abjuration | 0 | no | 10 | 1 salt | self or one ally | none | +defense equal to medium armor at level, 10 rounds |
-| Acid Splash | conjuration | 1 | yes | 0 | 1 salt, 1 ash | single | fortitude, half | damage 1.5x, then 0.3x per round for 3 rounds |
-| Foresight | divination | 0 | no | 20 | 1 nightshade | self | none | +10 percent dodge, 10 rounds |
-| Daze | enchantment | 1 | yes | 5 | 1 bone dust | single | will, negate | target speed halved, 3 rounds |
-| Blur | illusion | 1 | no | 15 | 1 quicksilver | self | none | +15 percent dodge, 5 rounds |
-| Drain | necromancy | 1 | yes | 3 | 1 bone dust | single | fortitude, half | damage 1.5x; caster heals half of it |
-| Haste | transmutation | 2 | yes | 20 | 2 quicksilver | self | none | +1 swing per round, 5 rounds |
-| Fireball | evocation | 2 | yes | 8 | 2 ash, 1 star iron | area | reflex, half | damage 1.5x to each enemy |
+| Firebolt | evocation | 1 | yes | 0 | 6 | single | reflex, half | damage 2.0x |
+| Ward | abjuration | 0 | no | 10 | 8 | self or one ally | none | +defense equal to medium armor at level, 10 rounds |
+| Acid Splash | conjuration | 1 | yes | 0 | 7 | single | fortitude, half | damage 1.5x, then 0.3x per round for 3 rounds |
+| Foresight | divination | 0 | no | 20 | 8 | self | none | +10 percent dodge, 10 rounds |
+| Daze | enchantment | 1 | yes | 5 | 6 | single | will, negate | target speed halved, 3 rounds |
+| Blur | illusion | 1 | no | 15 | 8 | self | none | +15 percent dodge, 5 rounds |
+| Drain | necromancy | 1 | yes | 3 | 7 | single | fortitude, half | damage 1.5x; caster heals half of it |
+| Haste | transmutation | 2 | yes | 20 | 15 | self | none | +1 swing per round, 5 rounds |
+| Fireball | evocation | 2 | yes | 8 | 15 | area | reflex, half | damage 1.5x to each enemy |
 
 **Divine**, one per god, plus a second for Good since healing is the
 thing a group (4.7) needs first.
 
-| Spell | Deity | Cast | Interrupt | Cooldown | Materials | Target | Save | Effect |
+| Spell | Deity | Cast | Interrupt | Cooldown | Mana | Target | Save | Effect |
 |---|---|---|---|---|---|---|---|---|
-| Mend | Good | 1 | yes | 0 | 1 tallow | self or one ally | none | heals 30 percent of the target's maximum |
-| Sanctuary | Good | 2 | yes | 30 | 1 salt, 1 heartwood | group | none | damage taken halved, 5 rounds |
-| Stillness | Neutral | 1 | yes | 10 | 1 salt, 1 tallow | area | will, negate | every enemy's speed halved, 2 rounds |
-| Blight | Evil | 1 | yes | 6 | 1 bone dust, 1 nightshade | area | fortitude, half | 0.4x per round to each enemy, 5 rounds |
+| Mend | Good | 1 | yes | 0 | 8 | self or one ally | none | heals 30 percent of the target's maximum |
+| Sanctuary | Good | 2 | yes | 30 | 20 | group | none | damage taken halved, 5 rounds |
+| Stillness | Neutral | 1 | yes | 10 | 12 | area | will, negate | every enemy's speed halved, 2 rounds |
+| Blight | Evil | 1 | yes | 6 | 12 | area | fortitude, half | 0.4x per round to each enemy, 5 rounds |
 
 Scaling for all of the above: the branch stat (Intelligence or Wisdom)
 times the level multiplier, per 6.4. Fireball and Blight are the first
@@ -1675,40 +1814,40 @@ and nothing competes with feats for the level-up choice.
 
 **First skills**, starting values:
 
-| Skill | Level | Kind | Cooldown | Start | Taught | What the rating scales |
-|---|---|---|---|---|---|---|
-| Kick | 1 | action, single target | 2 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
-| Bash | 3 | action, single target | 4 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
-| Twin Strike | 5 | passive | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
-| Rend | 3 | action, single target | 3 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
-| Riposte | 4 | passive | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
+| Skill | Level | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|---|
+| Kick | 1 | action, single target |  | 4 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
+| Bash | 3 | action, single target | 3 | 8 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
+| Twin Strike | 5 | passive | | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
+| Rend | 3 | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
+| Riposte | 4 | passive | | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
 **Combat skills** (approved 2026-09-28), after ROM 2.4 and its
 descendants. Each has trainers in the areas whose level band fits it,
 and all of them are sold in the balance lab.
 
-| Skill | Level | Kind | Cooldown | Start | Taught | What the rating scales |
-|---|---|---|---|---|---|---|
-| Dodge | 1 | passive | | 20 | 2 gold | up to +10 percent dodge |
-| Trip | 2 | action, single | 4 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
-| Hand to Hand | 2 | passive | | 20 | 3 gold | unarmed damage, up to double |
-| Dirt Kicking | 3 | action, single | 5 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
-| Shield Block | 3 | passive | | 20 | 4 gold | up to +15 percent block, shield worn |
-| Backstab | 4 | action, single | 0 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
-| Fast Healing | 4 | passive | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
-| Enhanced Damage | 5 | passive | | 15 | 10 gold | up to +15 percent damage on swings |
-| Hamstring | 6 | action, single | 6 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
-| Disarm | 6 | action, single | 8 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
-| Feint | 7 | action, single, cannot be dodged | 5 | 25 | 7 gold | -10 percent dodge and block for three rounds |
-| Berserk | 8 | action, self | 20 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
-| Envenom | 9 | action, self | 15 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
-| Rescue | 10 | action, ally | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
-| Circle | 10 | action, single | 6 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
-| Sunder | 12 | action, single | 8 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
-| Second Wind | 12 | action, self | 30 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
-| Triple Strike | 12 | passive | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
-| Whirlwind | 15 | action, area | 10 | 20 | 25 gold | 0.8x damage to every foe fighting you |
-| Coup de Grace | 18 | action, single | 8 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
+| Skill | Level | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|---|
+| Dodge | 1 | passive | | | 20 | 2 gold | up to +10 percent dodge |
+| Trip | 2 | action, single | 3 | 6 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
+| Hand to Hand | 2 | passive | | | 20 | 3 gold | unarmed damage, up to double |
+| Dirt Kicking | 3 | action, single | 4 | 8 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
+| Shield Block | 3 | passive | | | 20 | 4 gold | up to +15 percent block, shield worn |
+| Backstab | 4 | action, single |  | 10 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
+| Fast Healing | 4 | passive | | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
+| Enhanced Damage | 5 | passive | | | 15 | 10 gold | up to +15 percent damage on swings |
+| Hamstring | 6 | action, single | 4 | 8 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
+| Disarm | 6 | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
+| Feint | 7 | action, single, cannot be dodged | 3 | 6 | 25 | 7 gold | -10 percent dodge and block for three rounds |
+| Berserk | 8 | action, self | 20 | 12 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
+| Envenom | 9 | action, self | 10 | 8 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
+| Rescue | 10 | action, ally | 2 | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
+| Circle | 10 | action, single | 2 | 8 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
+| Sunder | 12 | action, single | 6 | 10 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
+| Second Wind | 12 | action, self | 30 | 0 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
+| Triple Strike | 12 | passive | | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
+| Whirlwind | 15 | action, area | 3 | 12 | 20 | 25 gold | 0.8x damage to every foe fighting you |
+| Coup de Grace | 18 | action, single |  | 10 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
 
 Consequences (built 2026-09-28): skill targets are `single`, `area`
 (every foe fighting the user; one use, one improvement roll, one
@@ -1789,6 +1928,69 @@ Sinks are content: the herald in the Long Hall sells starter and
 mid-level gear. Open: whether quest points should also buy services
 (a resurrection, a rename), and whether a vendor's stock should rotate.
 
+
+### 7.7 Stamina
+
+**Status: leaning, 2026-10-11.** Asked for by the designer: a resource
+that physical characters manage and trade against, without limiting
+movement.
+
+**Thesis.** ROM's movement points: walking spends them, resting brings
+them back. Familiar, and a reason to rest.
+
+**Antithesis.** A movement tax limits the one thing the game should
+never make tedious, getting somewhere, and makes no decision in a fight.
+And a second resource that is mana by another name (spent, refilled
+between fights) only adds a number to the prompt; the fighter would
+manage exactly what the caster manages.
+
+**Synthesis (leaning).** Stamina is the pacing resource *inside* a
+fight, where mana (6.2) is the budget *across* fights. It refills
+quickly, in a fight too, and skills (7.4) spend it. The question it
+poses is when to burst within this fight, where mana's question is
+which fight to spend on. Walking never costs stamina.
+
+- **Pool.** A base plus a little a level, times the better of the
+  Strength and Constitution multipliers, as mana takes the better of
+  Intelligence and Wisdom. A classless character feels its build in
+  both pools.
+- **Regeneration.** From empty to full in about ten rounds in a fight,
+  twice as fast out of one, and faster again resting or asleep at the
+  multipliers health uses. One even fight (4.5) is about one refill.
+- **Gear.** Heavy and plate armor slow it by the share of the body
+  they cover, and a heavy weapon slows it a little. This is the cost
+  of heavy gear that 4.3's dodge penalty alone did not carry, and the
+  reason a skill-heavy character leans to light armor.
+- **Exhaustion.** At zero a character can use no skill and dodges a
+  little less until it recovers. It never hurts by itself (2.3).
+- **Costs replace most cooldowns.** Before stamina, every active skill
+  was paced by a cooldown. Now each costs stamina, and a cooldown is
+  kept only where a skill would otherwise chain into a lock (stuns,
+  slows, disarms, blinding) or is a once-a-fight move (Berserk, Second
+  Wind). Plain damage skills (Kick, Rend, Backstab, Coup de Grace)
+  have none: spend as fast as the pool allows, one skill a round as
+  before (2.1). Relentless, which cut cooldowns, also cuts stamina
+  costs by a fifth.
+
+Starting values, arbitrary in the sense of 3.3: a pool of 20 plus 1 a
+level; full in 10 rounds in a fight; heavy armor slows regeneration by
+a quarter and plate by two fifths at full cover, a heavy weapon by a
+tenth; exhausted, 5 percent less dodge. Costs run from 4 (Kick) to 12
+(Berserk, Whirlwind), so a fresh character kicks about five times from
+full and then every other round, which is the pace Kick's old
+cooldown set. Second Wind is free and keeps its long cooldown: it is
+how a character recovers, not a burst.
+
+Open: whether `flee` should cost stamina, so an exhausted character
+cannot run as easily; and a power-attack style toggle that drains
+stamina each round for damage. Neither is built.
+
+Consequences: `derivedStats` returns `staminaMax` and `onTick` a
+`staminaDelta`; `skillList` entries gain `stamina`; the engine refuses a
+skill the user cannot pay for and spends the cost when the use goes
+ahead (a dodged skill was still attempted); `useSkill` may return
+`stamina` to replace the cost for one use; the pool is saved, shown on
+the prompt as `st`, on `score`, and in client state.
 ---
 
 ## 8. Mobs

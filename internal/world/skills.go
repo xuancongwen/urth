@@ -15,15 +15,18 @@ import (
 
 // Skill is one entry of skillList.
 type Skill struct {
-	ID       string  `json:"id"`
-	Name     string  `json:"name"`
-	Level    int     `json:"level"`
-	Passive  bool    `json:"passive"`
-	Target   string  `json:"target"` // single, area, ally, or none, for active skills
-	Cooldown int     `json:"cooldown"`
-	Start    float64 `json:"start"`  // effectiveness on first use
-	Innate   bool    `json:"innate"` // known by everyone at level; others need a trainer
-	Price    int     `json:"price"`  // in silver, at a trainer
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Level    int    `json:"level"`
+	Passive  bool   `json:"passive"`
+	Target   string `json:"target"` // single, area, ally, or none, for active skills
+	Cooldown int    `json:"cooldown"`
+	// Stamina is what a use costs (docs/RULES.md 7.7), checked before the
+	// use and spent when it goes ahead.
+	Stamina int     `json:"stamina"`
+	Start   float64 `json:"start"`  // effectiveness on first use
+	Innate  bool    `json:"innate"` // known by everyone at level; others need a trainer
+	Price   int     `json:"price"`  // in silver, at a trainer
 	// Requires are items handed over as well as coin, by material name.
 	Requires    []SpellMaterial `json:"requires"`
 	Description string          `json:"description"`
@@ -47,6 +50,8 @@ type SkillResult struct {
 	// Cooldown, when set, replaces the skill's own for this use (feats
 	// that shorten cooldowns).
 	Cooldown *int `json:"cooldown"`
+	// Stamina, when set, replaces the skill's cost for this use.
+	Stamina *int `json:"stamina"`
 }
 
 type skillEffectSpec struct {
@@ -168,10 +173,13 @@ func cmdSkills(w *World, p *Player, _ string) {
 		} else {
 			line += padRight("trainer", 9)
 		}
-		if sk.Passive {
-			line += "passive  "
-		} else {
-			line += "cooldown " + itoa(sk.Cooldown) + "  "
+		switch {
+		case sk.Passive:
+			line += padRight("passive", 16)
+		case sk.Cooldown > 0:
+			line += padRight(itoa(sk.Stamina)+" st, "+itoa(sk.Cooldown)+" rnd", 16)
+		default:
+			line += padRight(itoa(sk.Stamina)+" stamina", 16)
 		}
 		if cd := p.cooldowns["skill:"+sk.ID]; cd > 0 {
 			line += "{R}(" + itoa(cd) + " rounds){x} "
@@ -208,6 +216,11 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 	key := "skill:" + sk.ID
 	if cd := c.cooldowns[key]; cd > 0 {
 		p.Send(output.Escape(sk.Name) + " is not ready for another " + plural(cd, "round") + ".\n")
+		return
+	}
+	if c.Stamina < sk.Stamina {
+		p.Send("You are too winded for " + output.Escape(sk.Name) + ": it takes " + itoa(sk.Stamina) +
+			" stamina and you have " + itoa(c.Stamina) + ".\n")
 		return
 	}
 	targets, ok := w.skillTargets(p, sk, args)
@@ -251,6 +264,11 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 			if cd > 0 {
 				c.cooldowns[key] = cd
 			}
+			cost := sk.Stamina
+			if r.Stamina != nil {
+				cost = max(*r.Stamina, 0)
+			}
+			c.Stamina = max(c.Stamina-cost, 0)
 			applySkillRatings(c, r.Skills)
 		}
 		w.skillOutcome(c, sk, target, r)
@@ -452,5 +470,5 @@ func (w *World) startFightIfIdle(att, def *Character) {
 
 func skillView(sk Skill) map[string]any {
 	return map[string]any{"id": sk.ID, "name": sk.Name, "level": sk.Level, "passive": sk.Passive,
-		"target": sk.Target, "cooldown": sk.Cooldown, "start": sk.Start, "innate": sk.Innate, "price": sk.Price, "requires": sk.Requires}
+		"target": sk.Target, "cooldown": sk.Cooldown, "stamina": sk.Stamina, "start": sk.Start, "innate": sk.Innate, "price": sk.Price, "requires": sk.Requires}
 }

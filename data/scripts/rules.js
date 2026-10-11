@@ -39,7 +39,22 @@ var P = {
   respawnHealth: 0.25,
   pointsAtCreation: 6, pointsPerLevel: 2,
   featsPerLevel: 1,     // feat picks per level (7.2: one or two)
-  manaEnabled: false    // D18: mana stays in the engine, off in the rules
+  // Mana (RULES 6.2, revised 2026-10-11): the pool is manaBase plus
+  // manaPerLevel a level, times the better of the Intelligence and Wisdom
+  // multipliers, and refills from empty in manaRegenRounds standing out
+  // of a fight (resting and sleeping speed it as they do health). In a
+  // fight it comes back at manaFightRegen of that rate.
+  manaBase: 30, manaPerLevel: 3, manaRegenRounds: 45, manaFightRegen: 0,
+  // Stamina (RULES 7.7): what skills spend, refilled within a fight. The
+  // pool is staminaBase plus staminaPerLevel a level, times the better of
+  // the Strength and Constitution multipliers; it refills from empty in
+  // staminaRegenRounds in a fight and staminaRestMult times faster out
+  // of one (resting and sleeping faster still). Heavy and plate armor,
+  // by the share of the body they cover, and a heavy weapon slow it.
+  // Empty, a character dodges exhaustedDodge less.
+  staminaBase: 20, staminaPerLevel: 1, staminaRegenRounds: 10, staminaRestMult: 2,
+  staminaHeavyArmor: 0.25, staminaPlateArmor: 0.4, staminaHeavyWeapon: 0.1,
+  exhaustedDodge: 0.05
 };
 
 var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
@@ -493,7 +508,7 @@ function blindMiss(c) {
 // dodgeChance is c's chance to dodge a swing or a skill.
 function dodgeChance(c) {
   return P.dodgeBase * mult(c, "dexterity", true) + sumEffects(c, "dodge", "amount") + sumEffects(c, "powerAttack", "dodge") +
-    armorTrait(c, "dodge") + weaponTrait(c, "dodge") + 0.10 * skillRating(c, "dodge") / 100;
+    armorTrait(c, "dodge") + weaponTrait(c, "dodge") + 0.10 * skillRating(c, "dodge") / 100 - (exhausted(c) ? P.exhaustedDodge : 0);
 }
 
 // blockChance is c's chance to block, Riposte aside: block effects that do
@@ -600,11 +615,51 @@ function derivedStats(c) {
   for (var i = 0; i < STATS.length; i++) stats[STATS[i]] = stat(c, STATS[i]);
   return {
     healthMax: Math.max(1, healthMax),
-    manaMax: P.manaEnabled ? 10 + 2 * c.level : 0,
+    manaMax: manaMax(c),
+    staminaMax: staminaMax(c),
     speed: Math.max(0.1, speed),
     stats: stats
   };
 }
+
+function manaMax(c) {
+  var m = Math.max(mult(c, "intelligence"), mult(c, "wisdom"));
+  return Math.max(0, Math.round((P.manaBase + P.manaPerLevel * ((c.level || 1) - 1)) * m));
+}
+
+// manaRegen is mana back per round at a position multiplier.
+function manaRegen(c, posMult) {
+  if (!c.manaMax || c.mana >= c.manaMax) return 0;
+  return Math.max(1, Math.round(c.manaMax / P.manaRegenRounds * posMult));
+}
+
+function staminaMax(c) {
+  var m = Math.max(mult(c, "strength"), mult(c, "constitution"));
+  return Math.max(0, Math.round((P.staminaBase + P.staminaPerLevel * ((c.level || 1) - 1)) * m));
+}
+
+// staminaGear is the factor gear puts on stamina regeneration: heavy and
+// plate armor by the share of the body they cover, and a heavy weapon.
+function staminaGear(c) {
+  var heavy = 0, plate = 0, s;
+  if (c.equipment) for (s in c.equipment) {
+    var it = c.equipment[s];
+    if (!it || it.type !== "armor") continue;
+    var share = it.slot === "shield" ? 0.1 : (SLOT_WEIGHT[it.slot] || 0);
+    if (it.baseline === "heavy" || it.baseline === "tower") heavy += share;
+    if (it.baseline === "plate") plate += share;
+  }
+  var w = wielded(c);
+  return Math.max(0.2, 1 - P.staminaHeavyArmor * heavy - P.staminaPlateArmor * plate - (w && isHeavy(w) ? P.staminaHeavyWeapon : 0));
+}
+
+// staminaRegen is stamina back per round at a multiplier.
+function staminaRegen(c, m) {
+  if (!c.staminaMax || c.stamina >= c.staminaMax) return 0;
+  return Math.max(1, Math.round(c.staminaMax / P.staminaRegenRounds * m * staminaGear(c)));
+}
+
+function exhausted(c) { return c.staminaMax > 0 && c.stamina <= 0; }
 
 function onTick(c) {
   // Damage over time ("dot" effects: Acid Splash, Blight, ignite) ticks
@@ -617,7 +672,9 @@ function onTick(c) {
     eachEffect(c, function (e) {
       if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
     });
-    return { healthDelta: regen - Math.round(dot), manaDelta: 0, skills: improvePassives(c), aura: aura };
+    var fightMana = P.manaFightRegen > 0 ? manaRegen(c, P.manaFightRegen) : 0;
+    return { healthDelta: regen - Math.round(dot), manaDelta: fightMana, staminaDelta: staminaRegen(c, 1),
+      skills: improvePassives(c), aura: aura };
   }
   // Out of a fight health comes back, faster resting and faster still
   // asleep. Fast Healing adds up to half again, and it improves while
@@ -630,7 +687,8 @@ function onTick(c) {
     var next = improve(fh);
     if (next !== fh) skills.fast_healing = next;
   }
-  return { healthDelta: rest + regen - Math.round(dot), manaDelta: 0, skills: skills };
+  return { healthDelta: rest + regen - Math.round(dot), manaDelta: manaRegen(c, posMult),
+    staminaDelta: staminaRegen(c, P.staminaRestMult * posMult), skills: skills };
 }
 
 function levelCost(n) { return P.xpBase * n * Math.pow(P.xpR, n - 1); }
@@ -727,7 +785,7 @@ var FEATS = [
     effect: { kind: "regen", params: { fraction: 0.01 } } },
   { id: "bulwark", name: "Bulwark", level: 13, requires: ["shield_focus"], description: "Block 7 percent more again with a shield worn.",
     effect: { kind: "shieldBlock", params: { chance: 0.07 } } },
-  { id: "relentless", name: "Relentless", level: 14, description: "Every skill's cooldown is a round shorter, never below one.",
+  { id: "relentless", name: "Relentless", level: 14, description: "Every skill's cooldown is a round shorter, never below one, and skills cost a fifth less stamina.",
     effect: { kind: "cooldownCut", params: { rounds: 1 } } },
   { id: "unstoppable", name: "Unstoppable", level: 16, requires: ["sure_footing"], description: "Nothing takes your round from you, and slows are halved.",
     effect: { kind: "steady", params: { chance: 1, slow: 0.5 } } },
@@ -772,59 +830,60 @@ function deathRules() {
 }
 
 // ---------------------------------------------------------------------
-// Magic (RULES 6). spellList defines the spells; the engine owns cast
+// Magic (RULES 6). spellList defines the spells; mana is each one's cost,
+// and materials an extra cost only some spells name. The engine owns cast
 // time, targets, materials, and cooldowns; resolveCast decides what each
 // target suffers or gains. Damage is a multiple of the standard weapon's
 // per-swing damage at the caster's level (6.5), times the branch stat and
 // level (6.4).
 // ---------------------------------------------------------------------
 var SPELLS = [
-  { id: "firebolt", name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
-    materials: [{ material: "ash", count: 1 }], target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
+  { id: "firebolt", mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
     description: "A bolt of fire at one target." },
-  { id: "fireball", name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
-    materials: [{ material: "ash", count: 2 }, { material: "star iron", count: 1 }], target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
+  { id: "fireball", mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
+    target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
     description: "Fire fills the room." },
-  { id: "ward", name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
-    materials: [{ material: "salt", count: 1 }], target: "ally", save: "none",
+  { id: "ward", mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
+    target: "ally", save: "none",
     effect: function (caster, target) { return { kind: "defense", params: { amount: target.level + 2 }, rounds: 10 }; },
     description: "A ward as strong as armor, for ten rounds." },
-  { id: "acid", name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
-    materials: [{ material: "salt", count: 1 }, { material: "ash", count: 1 }], target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
+  { id: "acid", mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.3 * power) }, rounds: 3 }; },
     description: "Acid that keeps burning." },
-  { id: "foresight", name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
-    materials: [{ material: "nightshade", count: 1 }], target: "self", save: "none",
+  { id: "foresight", mana: 8, name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
+    target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.10 }, rounds: 10 }; },
     description: "See the blow before it lands." },
-  { id: "daze", name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
-    materials: [{ material: "bone dust", count: 1 }], target: "single", save: "will", saveEffect: "negate",
+  { id: "daze", mana: 6, name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
+    target: "single", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 3 }; },
     description: "The target's swings come slow." },
-  { id: "blur", name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
-    materials: [{ material: "quicksilver", count: 1 }], target: "self", save: "none",
+  { id: "blur", mana: 8, name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
+    target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.15 }, rounds: 5 }; },
     description: "Your outline swims." },
-  { id: "drain", name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
-    materials: [{ material: "bone dust", count: 1 }], target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
+  { id: "drain", mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+    target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
     description: "Take their life for your own." },
-  { id: "haste", name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
-    materials: [{ material: "quicksilver", count: 2 }], target: "self", save: "none",
+  { id: "haste", mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
+    target: "self", save: "none",
     effect: function () { return { kind: "attacks", params: { amount: 1 }, rounds: 5 }; },
     description: "One more swing every round." },
-  { id: "mend", name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
-    materials: [{ material: "tallow", count: 1 }], target: "ally", save: "none", heal: 0.30,
+  { id: "mend", mana: 8, name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    target: "ally", save: "none", heal: 0.30,
     description: "Close wounds." },
-  { id: "sanctuary", name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
-    materials: [{ material: "salt", count: 1 }, { material: "heartwood", count: 1 }], target: "group", save: "none",
+  { id: "sanctuary", mana: 20, name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
+    target: "group", save: "none",
     effect: function () { return { kind: "protect", params: { mult: 0.5 }, rounds: 5 }; },
     description: "The group takes half damage." },
-  { id: "stillness", name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
-    materials: [{ material: "salt", count: 1 }, { material: "tallow", count: 1 }], target: "area", save: "will", saveEffect: "negate",
+  { id: "stillness", mana: 12, name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
+    target: "area", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 2 }; },
     description: "Every enemy slows." },
-  { id: "blight", name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
-    materials: [{ material: "bone dust", count: 1 }, { material: "nightshade", count: 1 }], target: "area", save: "fortitude", saveEffect: "half",
+  { id: "blight", mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
+    target: "area", save: "fortitude", saveEffect: "half",
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
     description: "Rot spreads through every enemy." }
 ];
@@ -833,7 +892,7 @@ function spellList() {
   // The engine only needs the definition fields; functions stay here.
   return SPELLS.map(function (sp) {
     return { id: sp.id, name: sp.name, branch: sp.branch, school: sp.school || "", deity: sp.deity || "",
-      castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage, cooldown: sp.cooldown || 0,
+      castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage, cooldown: sp.cooldown || 0, mana: sp.mana || 0,
       materials: sp.materials || [], target: sp.target, save: sp.save || "none", saveEffect: sp.saveEffect || "",
       description: sp.description || "" };
   });
@@ -954,7 +1013,8 @@ function describeEffect(e) {
     case "steady": return (num(p.chance) >= 1 ? "Never loses a round" : "A " + pct(p.chance) + " chance to keep a round that would be lost") +
       (p.slow !== undefined ? "; slows are " + Math.round((1 - num(p.slow)) * 100) + " percent weaker" : "") + tail;
     case "opportunist": return Math.round((num(p.mult) - 1) * 100) + " percent more damage to foes who are stunned or slowed" + tail;
-    case "cooldownCut": return "Skill cooldowns " + num(p.rounds) + " round" + (num(p.rounds) === 1 ? "" : "s") + " shorter" + tail;
+    case "cooldownCut": return "Skill cooldowns " + num(p.rounds) + " round" + (num(p.rounds) === 1 ? "" : "s") + " shorter, and skills cost " +
+      Math.min(100, 20 * num(p.rounds)) + " percent less stamina" + tail;
     case "unarmedMult": return "Bare hands and kicks hit " + Math.round((num(p.mult) - 1) * 100) + " percent harder" + tail;
     case "envenom": return "Envenomed: each hit poisons for " + units(p.power) + " a round, " + (num(p.maxStacks) || 1) + " doses deep" + tail;
     case "detectInvisible": return "Reveals the invisible" + tail;
@@ -971,6 +1031,9 @@ function describeEffect(e) {
 // and passives that improve with use. A rating from start to 100 is how
 // much of the skill's potential a use delivers; it is never a chance of
 // failure. Every character has every skill its level allows.
+// Each active skill costs stamina (RULES 7.7, 2026-10-11), which paces it
+// within a fight; a cooldown is kept only where a skill would otherwise
+// chain (stuns, slows, disarms, blinding) or is a once-a-fight move.
 // ---------------------------------------------------------------------
 // Fields beyond the engine's: damage (units of a standard swing, or a
 // function of user and target), verb, stunChance (a lost round, scaled by
@@ -980,15 +1043,15 @@ function describeEffect(e) {
 // ally (a use on a friend), rest (a passive that improves resting, not
 // fighting).
 var SKILLS = [
-  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 2, start: 30, innate: true,
+  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 0, stamina: 4, start: 30, innate: true,
     damage: 1.2, verb: "kick", unarmed: true,
     description: "A kick worth more than a swing at full skill, and it needs no weapon." },
-  { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 4, start: 25, innate: false, price: 300,
+  { id: "bash", name: "Bash", level: 3, passive: false, target: "single", cooldown: 3, stamina: 8, start: 25, innate: false, price: 300,
     damage: 0.6, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
   { id: "twin", name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
     description: "A second swing in the same round, as often as your skill allows. Triple Strike follows." },
-  { id: "rend", name: "Rend", level: 3, passive: false, target: "single", cooldown: 3, start: 30, innate: false, price: 100,
+  { id: "rend", name: "Rend", level: 3, passive: false, target: "single", cooldown: 0, stamina: 6, start: 30, innate: false, price: 100,
     requires: [{ material: "wolf fang", count: 2 }], damage: 0.8, verb: "rend", bleed: 0.25,
     description: "Tear at them like a beast: some damage now, and a wound that bleeds for three rounds. The beast-master wants wolf fangs for it." },
   { id: "riposte", name: "Riposte", level: 4, passive: true, start: 20, innate: false, price: 500,
@@ -997,13 +1060,13 @@ var SKILLS = [
   // --- ROM 2.4 and friends (approved 2026-09-28) ---
   { id: "dodge", name: "Dodge", level: 1, passive: true, start: 20, innate: false, price: 200,
     description: "Slip aside: up to one more swing in ten dodged." },
-  { id: "trip", name: "Trip", level: 2, passive: false, target: "single", cooldown: 4, start: 25, innate: false, price: 200,
+  { id: "trip", name: "Trip", level: 2, passive: false, target: "single", cooldown: 3, stamina: 6, start: 25, innate: false, price: 200,
     damage: 0.3, verb: "trip", stunChance: 1.0, stunMessage: "They go down.",
     effects: function (u, t, scale) { return [{ on: "target", kind: "dodge", params: { amount: -0.05 }, rounds: 2 }]; },
     description: "Sweep their legs: a little damage, they are slow to dodge for two rounds, and at full skill they lose their next round." },
   { id: "hand_to_hand", name: "Hand to Hand", level: 2, passive: true, start: 20, innate: false, price: 300,
     description: "Fight with your fists: at full skill, bare hands hit twice as hard." },
-  { id: "dirt_kicking", name: "Dirt Kicking", level: 3, passive: false, target: "single", cooldown: 5, start: 25, innate: false, price: 300,
+  { id: "dirt_kicking", name: "Dirt Kicking", level: 3, passive: false, target: "single", cooldown: 4, stamina: 8, start: 25, innate: false, price: 300,
     verb: "dirt kick",
     effects: function (u, t, scale, out) {
       out.message = "They are blinded!";
@@ -1012,7 +1075,7 @@ var SKILLS = [
     description: "Dirt in the eyes: for two rounds, up to four of their swings in ten go wide." },
   { id: "shield_block", name: "Shield Block", level: 3, passive: true, start: 20, innate: false, price: 400,
     description: "Take blows on your shield: up to 15 percent more blocked, shield worn." },
-  { id: "backstab", name: "Backstab", level: 4, passive: false, target: "single", cooldown: 0, start: 25, innate: false, price: 500,
+  { id: "backstab", name: "Backstab", level: 4, passive: false, target: "single", cooldown: 0, stamina: 10, start: 25, innate: false, price: 500,
     damage: 3.0, verb: "backstab",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to backstab.";
@@ -1025,11 +1088,11 @@ var SKILLS = [
     description: "Mend quickly: resting brings health back up to half again as fast. Improves while you rest." },
   { id: "enhanced_damage", name: "Enhanced Damage", level: 5, passive: true, start: 15, innate: false, price: 1000,
     description: "Put your weight behind it: up to 15 percent more damage on every swing." },
-  { id: "hamstring", name: "Hamstring", level: 6, passive: false, target: "single", cooldown: 6, start: 25, innate: false, price: 600,
+  { id: "hamstring", name: "Hamstring", level: 6, passive: false, target: "single", cooldown: 4, stamina: 8, start: 25, innate: false, price: 600,
     damage: 0.5, verb: "hamstring",
     effects: function (u, t, scale) { return [{ on: "target", kind: "speedMult", params: { mult: 1 - 0.3 * scale, source: "hamstring" }, rounds: 4 }]; },
     description: "Cut the tendon: some damage, and their swings slow to 70 percent for four rounds at full skill." },
-  { id: "disarm", name: "Disarm", level: 6, passive: false, target: "single", cooldown: 8, start: 20, innate: false, price: 700,
+  { id: "disarm", name: "Disarm", level: 6, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 700,
     verb: "disarm",
     check: function (u, t) {
       if (!wielded(u)) return "You need a weapon of your own to disarm with.";
@@ -1041,7 +1104,7 @@ var SKILLS = [
       return [{ on: "target", kind: "disarmed", params: {}, rounds: 1 + Math.round(2 * scale) }];
     },
     description: "Knock their weapon aside: they fight with what nature gave them for up to three rounds." },
-  { id: "feint", name: "Feint", level: 7, passive: false, target: "single", cooldown: 5, start: 25, innate: false, price: 700,
+  { id: "feint", name: "Feint", level: 7, passive: false, target: "single", cooldown: 3, stamina: 6, start: 25, innate: false, price: 700,
     verb: "feint", unavoidable: true,
     effects: function (u, t, scale, out) {
       out.message = "They bite on the feint.";
@@ -1049,7 +1112,7 @@ var SKILLS = [
               { on: "target", kind: "block", params: { chance: -0.10 * scale }, rounds: 3 }];
     },
     description: "Draw their guard: for three rounds they dodge and block up to one swing in ten less." },
-  { id: "berserk", name: "Berserk", level: 8, passive: false, target: "none", cooldown: 20, start: 25, innate: false, price: 900,
+  { id: "berserk", name: "Berserk", level: 8, passive: false, target: "none", cooldown: 20, stamina: 12, start: 25, innate: false, price: 900,
     check: function (u) { return hasSource(u, "berserk") ? "You are already raging." : ""; },
     self: function (u, scale, out) {
       out.message = "You fly into a rage!";
@@ -1059,21 +1122,21 @@ var SKILLS = [
         { on: "self", kind: "dodge", params: { amount: -0.05, source: "berserk" }, rounds: 6 }];
     },
     description: "Rage for six rounds: up to +3 Strength and half a swing more each round, but you dodge less." },
-  { id: "envenom", name: "Envenom", level: 9, passive: false, target: "none", cooldown: 15, start: 25, innate: false, price: 900,
+  { id: "envenom", name: "Envenom", level: 9, passive: false, target: "none", cooldown: 10, stamina: 8, start: 25, innate: false, price: 900,
     check: function (u) { return wielded(u) ? "" : "You need a blade to coat."; },
     self: function (u, scale, out) {
       out.message = "You coat your weapon in venom.";
       out.effects = [{ on: "self", kind: "envenom", params: { power: 0.15 * scale, rounds: 3, maxStacks: 2 }, rounds: 10 }];
     },
     description: "Poison your weapon for ten rounds: each hit leaves venom in the wound, two doses deep." },
-  { id: "rescue", name: "Rescue", level: 10, passive: false, target: "ally", cooldown: 6, start: 30, innate: false, price: 1000,
+  { id: "rescue", name: "Rescue", level: 10, passive: false, target: "ally", cooldown: 2, stamina: 6, start: 30, innate: false, price: 1000,
     verb: "rescue",
     ally: function (u, t, scale, out) {
       out.taunt = true;
       out.effects = [{ on: "target", kind: "protect", params: { mult: 1 - 0.3 * scale }, rounds: 2 }];
     },
     description: "Step in front of a friend: everyone fighting them turns on you, and they take less damage for two rounds." },
-  { id: "circle", name: "Circle", level: 10, passive: false, target: "single", cooldown: 6, start: 20, innate: false, price: 1200,
+  { id: "circle", name: "Circle", level: 10, passive: false, target: "single", cooldown: 2, stamina: 8, start: 20, innate: false, price: 1200,
     damage: 1.8, verb: "circle",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to circle.";
@@ -1081,7 +1144,7 @@ var SKILLS = [
       return "";
     },
     description: "Slip around them mid-fight and stab: nearly two swings' worth at full skill. Dagger only." },
-  { id: "sunder", name: "Sunder", level: 12, passive: false, target: "single", cooldown: 8, start: 20, innate: false, price: 1500,
+  { id: "sunder", name: "Sunder", level: 12, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 1500,
     damage: 1.0, verb: "sunder",
     check: function (u) { return isHeavy(wielded(u)) ? "" : "You need a heavy weapon to sunder armor."; },
     effects: function (u, t, scale, out) {
@@ -1089,15 +1152,15 @@ var SKILLS = [
       return [{ on: "target", kind: "defense", params: { amount: -0.5 * ARMOR_BASELINES.medium(t.level).defense * scale }, rounds: 5 }];
     },
     description: "Break their armor with a heavy weapon: a swing's damage, and for five rounds half a set of armor stops nothing." },
-  { id: "second_wind", name: "Second Wind", level: 12, passive: false, target: "none", cooldown: 30, start: 25, innate: false, price: 1500,
+  { id: "second_wind", name: "Second Wind", level: 12, passive: false, target: "none", cooldown: 30, stamina: 0, start: 25, innate: false, price: 1500,
     check: function (u) { return u.health >= u.healthMax ? "You are not winded." : ""; },
     self: function (u, scale, out) { out.heal = Math.max(1, Math.round(u.healthMax * (0.10 + 0.15 * scale))); },
     verb: "second wind",
     description: "Catch your breath, even mid-fight: up to a quarter of your health back at once." },
-  { id: "whirlwind", name: "Whirlwind", level: 15, passive: false, target: "area", cooldown: 10, start: 20, innate: false, price: 2500,
+  { id: "whirlwind", name: "Whirlwind", level: 15, passive: false, target: "area", cooldown: 3, stamina: 12, start: 20, innate: false, price: 2500,
     damage: 0.8, verb: "whirlwind",
     description: "Spin through them: most of a swing to every foe fighting you." },
-  { id: "coup_de_grace", name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 8, start: 20, innate: false, price: 3000,
+  { id: "coup_de_grace", name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 0, stamina: 10, start: 20, innate: false, price: 3000,
     damage: function (u, t) { return t.healthMax > 0 && t.health / t.healthMax < 0.25 ? 3.5 : 0.5; }, verb: "coup de grace",
     description: "Finish them: three and a half swings' worth against a foe below a quarter of their health, little otherwise." },
   { id: "triple", name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
@@ -1116,7 +1179,7 @@ var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how 
 function skillList() {
   return SKILLS.map(function (sk) {
     return { id: sk.id, name: sk.name, level: sk.level, passive: !!sk.passive, target: sk.target || "none",
-      cooldown: sk.cooldown || 0, start: sk.start, innate: !!sk.innate, price: sk.price || 0, requires: sk.requires || [], description: sk.description || "" };
+      cooldown: sk.cooldown || 0, stamina: sk.stamina || 0, start: sk.start, innate: !!sk.innate, price: sk.price || 0, requires: sk.requires || [], description: sk.description || "" };
   });
 }
 
@@ -1185,9 +1248,11 @@ function useSkill(user, target, skill, e) {
   var out = { ok: true, hit: true, stage: "", damage: 0, verb: sk.verb || sk.id, effects: [], skills: {} };
   var next = improve(rating);
   if (next !== rating) out.skills[sk.id] = next;
-  // Relentless: cooldowns a round shorter, never below one.
+  // Relentless: cooldowns a round shorter, never below one, and a fifth
+  // off the stamina for each such round.
   var cut = sumEffects(user, "cooldownCut", "rounds");
   if (cut > 0 && sk.cooldown > 0) out.cooldown = Math.max(1, sk.cooldown - cut);
+  if (cut > 0 && sk.stamina > 0) out.stamina = Math.max(1, Math.round(sk.stamina * Math.max(0, 1 - 0.2 * cut)));
   if (sk.self) { sk.self(user, scale, out); return out; }
   if (!target) return out;
   if (sk.ally) { sk.ally(user, target, scale, out); return out; }
@@ -1233,6 +1298,121 @@ function moneyFor(victim) {
   var base = MONEY.perLevel * (victim.level || 1);
   return Math.max(0, Math.round(spreadRoll(base, MONEY.spread)));
 }
+
+// ---------------------------------------------------------------------
+// Loot (RULES 5.3): rarity is a count of rolled affixes. rollItem is
+// asked for each plain weapon or armor a reset creates and for each extra
+// item a death drops; lootRules says how many a death drops. Affixes are
+// ordinary effect kinds, so describeEffect words them and the pipeline
+// runs them. Every number here is a starting value for playtest.
+// ---------------------------------------------------------------------
+// A tier rolls between min and max affixes. Weights are per thousand,
+// from a reset and from a drop.
+var RARITY = [
+  { id: "common",    color: "",  min: 0,  max: 0,  reset: 700, drop: 400, quality: [0, 0] },
+  { id: "uncommon",  color: "G", min: 1,  max: 2,  reset: 200, drop: 350, quality: [0.5, 1.0] },
+  { id: "rare",      color: "B", min: 3,  max: 4,  reset: 70,  drop: 150, quality: [0.6, 1.1] },
+  { id: "epic",      color: "M", min: 5,  max: 6,  reset: 24,  drop: 70,  quality: [0.7, 1.2] },
+  { id: "legendary", color: "Y", min: 7,  max: 8,  reset: 5,   drop: 24,  quality: [0.8, 1.3] },
+  { id: "unique",    color: "R", min: 9,  max: 10, reset: 0.9, drop: 5,   quality: [0.9, 1.4] },
+  { id: "artifact",  color: "W", min: 11, max: 12, reset: 0.1, drop: 1,   quality: [1.0, 1.5] },
+];
+
+var LOOT = { dropChance: 0.2, bossDrops: 2, levelBand: 1 };
+
+// An affix: which item types it goes on, the words it lends a name (any
+// affix may give either), and its effect at level L and quality q (1 is a
+// full-strength roll). Weight is how often it is drawn against the others.
+var AFFIXES = [
+  { id: "str",       on: "any",    weight: 3, prefix: "mighty",     suffix: "of the bear",       effect: function (L, q) { return { kind: "stat", params: { stat: "strength", amount: statAmount(L, q) } }; } },
+  { id: "dex",       on: "any",    weight: 3, prefix: "nimble",     suffix: "of the cat",        effect: function (L, q) { return { kind: "stat", params: { stat: "dexterity", amount: statAmount(L, q) } }; } },
+  { id: "int",       on: "any",    weight: 2, prefix: "clever",     suffix: "of the owl",        effect: function (L, q) { return { kind: "stat", params: { stat: "intelligence", amount: statAmount(L, q) } }; } },
+  { id: "wis",       on: "any",    weight: 2, prefix: "wise",       suffix: "of the sage",       effect: function (L, q) { return { kind: "stat", params: { stat: "wisdom", amount: statAmount(L, q) } }; } },
+  { id: "cha",       on: "any",    weight: 1, prefix: "gracious",   suffix: "of grace",          effect: function (L, q) { return { kind: "stat", params: { stat: "charisma", amount: statAmount(L, q) } }; } },
+  { id: "steady",    on: "any",    weight: 1, prefix: "steadfast",  suffix: "of the mountain",   effect: function (L, q) { return { kind: "steady", params: { chance: round2(0.2 * q) } }; } },
+  { id: "focus",     on: "any",    weight: 0.5, prefix: "focused",  suffix: "of focus",          effect: function (L, q) { return { kind: "cooldownCut", params: { rounds: 1 } }; } },
+  { id: "crit",      on: "weapon", weight: 2, prefix: "keen",       suffix: "of precision",      effect: function (L, q) { return { kind: "crit", params: { chance: round2(0.04 * q), mult: 2 } }; } },
+  { id: "critMult",  on: "weapon", weight: 1, prefix: "ruinous",    suffix: "of ruin",           effect: function (L, q) { return { kind: "critMult", params: { amount: round2(0.25 * q) } }; } },
+  { id: "damage",    on: "weapon", weight: 3, prefix: "cruel",      suffix: "of slaying",        effect: function (L, q) { return { kind: "damage", params: { mult: round2(1 + 0.06 * q), weapon: true } }; } },
+  { id: "haste",     on: "weapon", weight: 1, prefix: "swift",      suffix: "of haste",          effect: function (L, q) { return { kind: "attacks", params: { amount: round2(0.15 * q) } }; } },
+  { id: "leech",     on: "weapon", weight: 1, prefix: "thirsting",  suffix: "of the leech",      effect: function (L, q) { return { kind: "leech", params: { fraction: round2(0.04 * q) } }; } },
+  { id: "ignite",    on: "weapon", weight: 1, prefix: "smoldering", suffix: "of embers",         effect: function (L, q) { return { kind: "ignite", params: { power: round2(0.1 * q), rounds: 3, maxStacks: 2 } }; } },
+  { id: "chill",     on: "weapon", weight: 1, prefix: "frozen",     suffix: "of frost",          effect: function (L, q) { return { kind: "chill", params: { chance: round2(0.1 * q), mult: 0.8, rounds: 2 } }; } },
+  { id: "thunder",   on: "weapon", weight: 1, prefix: "thundering", suffix: "of thunder",        effect: function (L, q) { return { kind: "proc", params: { chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
+  { id: "venom",     on: "weapon", weight: 1, prefix: "venomous",   suffix: "of venom",          effect: function (L, q) { return { kind: "envenom", params: { power: round2(0.05 * q), maxStacks: 2 } }; } },
+  { id: "execute",   on: "weapon", weight: 1, prefix: "merciless",  suffix: "of mercy",          effect: function (L, q) { return { kind: "execute", params: { threshold: 0.25, mult: round2(1 + 0.15 * q) } }; } },
+  { id: "jackal",    on: "weapon", weight: 1, prefix: "cunning",    suffix: "of the jackal",     effect: function (L, q) { return { kind: "opportunist", params: { mult: round2(1 + 0.1 * q) } }; } },
+  { id: "con",       on: "armor",  weight: 3, prefix: "stalwart",   suffix: "of the ox",         effect: function (L, q) { return { kind: "stat", params: { stat: "constitution", amount: statAmount(L, q) } }; } },
+  { id: "defense",   on: "armor",  weight: 2, prefix: "sturdy",     suffix: "of the turtle",     effect: function (L, q) { return { kind: "defense", params: { amount: round2(0.45 * growth(L) * q) } }; } },
+  { id: "dodge",     on: "armor",  weight: 2, prefix: "elusive",    suffix: "of evasion",        effect: function (L, q) { return { kind: "dodge", params: { amount: round2(0.02 * q) } }; } },
+  { id: "protect",   on: "armor",  weight: 2, prefix: "warded",     suffix: "of warding",        effect: function (L, q) { return { kind: "protect", params: { mult: round2(1 - 0.04 * q) } }; } },
+  { id: "bulwark",   on: "armor",  weight: 1, prefix: "guarding",   suffix: "of the bulwark",    effect: function (L, q) { return { kind: "shieldBlock", params: { chance: round2(0.03 * q) } }; } },
+  { id: "thorns",    on: "armor",  weight: 1, prefix: "thorned",    suffix: "of thorns",         effect: function (L, q) { return { kind: "thorns", params: { fraction: round2(0.08 * q), verb: "thorns" } }; } },
+  { id: "brambles",  on: "armor",  weight: 1, prefix: "briared",    suffix: "of brambles",       effect: function (L, q) { return { kind: "aura", params: { power: round2(0.05 * q), verb: "brambles" } }; } },
+  { id: "soak",      on: "armor",  weight: 1, prefix: "stony",      suffix: "of stone",          effect: function (L, q) { return { kind: "soak", params: { power: round2(0.05 * q) } }; } },
+  { id: "regen",     on: "armor",  weight: 1, prefix: "mending",    suffix: "of mending",        effect: function (L, q) { return { kind: "regen", params: { fraction: round2(0.005 * q) } }; } },
+  { id: "last",      on: "armor",  weight: 1, prefix: "defiant",    suffix: "of the last stand", effect: function (L, q) { return { kind: "lastStand", params: { threshold: 0.3, mult: round2(1 - 0.15 * q) } }; } },
+  { id: "sight",     on: "armor",  weight: 0.5, prefix: "clear-eyed", suffix: "of true sight",   effect: function (L, q) { return { kind: "detectInvisible", params: {} }; } },
+  { id: "hawk",      on: "armor",  weight: 0.5, prefix: "watchful", suffix: "of the hawk",       effect: function (L, q) { return { kind: "detectHidden", params: {} }; } },
+];
+
+function round2(x) { return Math.round(x * 100) / 100; }
+
+// statAmount: one point at low level, a point more every ten levels, more
+// on a good roll.
+function statAmount(L, q) { return Math.max(1, Math.round((1 + Math.floor((L || 1) / 10)) * q)); }
+
+function weightedPick(list, weightOf) {
+  var total = 0;
+  for (var i = 0; i < list.length; i++) total += weightOf(list[i]);
+  var r = random.float() * total;
+  for (var j = 0; j < list.length; j++) {
+    r -= weightOf(list[j]);
+    if (r < 0) return list[j];
+  }
+  return list[list.length - 1];
+}
+
+function rollItem(it, ctx) {
+  var source = ctx.source === "drop" ? "drop" : "reset";
+  var tier = weightedPick(RARITY, function (t) { return t[source]; });
+  var count = tier.min + random.int(tier.max - tier.min + 1);
+  if (count === 0) return { rarity: "" };
+  var type = it.type === "weapon" ? "weapon" : "armor";
+  var all = AFFIXES.filter(function (a) { return a.on === "any" || a.on === type; });
+  var pool = all.slice();
+  var L = Math.max(ctx.level || 1, it.level || 1);
+  var rolls = [];
+  for (var n = 0; n < count; n++) {
+    if (pool.length === 0) pool = all.slice(); // past the pool's size, affixes repeat and stack
+    var a = weightedPick(pool, function (x) { return x.weight; });
+    pool = pool.filter(function (x) { return x !== a; });
+    var q = tier.quality[0] + random.float() * (tier.quality[1] - tier.quality[0]);
+    rolls.push({ affix: a, q: q, effect: a.effect(L, q) });
+  }
+  // The strongest roll names the suffix, the next strongest the prefix.
+  var named = rolls.slice().sort(function (x, y) { return y.q - x.q; });
+  var suffix = named[0].affix.suffix;
+  var prefix = "";
+  for (var i = 1; i < named.length && !prefix; i++) if (named[i].affix !== named[0].affix) prefix = named[i].affix.prefix;
+  return { rarity: tier.id, color: tier.color, prefix: prefix, suffix: suffix,
+    effects: rolls.map(function (r) { return r.effect; }) };
+}
+
+function lootRules(victim) {
+  var flags = (victim.mob && victim.mob.flags) || [];
+  if (flags.indexOf("boss") >= 0) return { drops: LOOT.bossDrops, levelBand: LOOT.levelBand };
+  return { drops: random.float() < LOOT.dropChance ? 1 : 0, levelBand: LOOT.levelBand };
+}
+
+// ---------------------------------------------------------------------
+// Expeditions: a run of fights on paper in an area near the character's
+// level, auto-attack only. Sleeps to full under restBelow, heads home
+// after a win under retreatBelow. Starting values for playtest.
+// ---------------------------------------------------------------------
+var EXPEDITION = { levelBand: 3, fights: 10, maxFights: 30, restBelow: 0.5, retreatBelow: 0.2 };
+
+function expeditionRules(c) { return EXPEDITION; }
 
 // ---------------------------------------------------------------------
 // Quests (RULES 7.6). The engine draws a kill or fetch task against a

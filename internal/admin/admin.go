@@ -102,6 +102,8 @@ type CharacterView struct {
 	HealthMax   int             `json:"healthMax,omitempty"`
 	Mana        int             `json:"mana"`
 	ManaMax     int             `json:"manaMax,omitempty"`
+	Stamina     int             `json:"stamina"`
+	StaminaMax  int             `json:"staminaMax,omitempty"`
 	Fighting    string          `json:"fighting,omitempty"`
 	Schools     []string        `json:"schools,omitempty"`
 	Deity       string          `json:"deity,omitempty"`

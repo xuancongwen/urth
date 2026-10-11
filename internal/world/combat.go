@@ -307,6 +307,7 @@ func (w *World) die(victim, killer *Character) {
 	w.recalc(victim)
 	victim.Health = max(1, int(float64(victim.HealthMax)*rules.RespawnHealth))
 	victim.Mana = victim.ManaMax
+	victim.Stamina = victim.StaminaMax
 	if start != nil && victim.Room != start {
 		victim.Room = start
 		w.act("$n appears, looking shaken.", victim, nil, "", toRoom)
@@ -357,6 +358,7 @@ func (w *World) makeCorpse(c *Character, rounds int) *item.Item {
 		if silver := w.moneyFor(c); silver > 0 {
 			held = append(held, coinPile(silver))
 		}
+		held = append(held, w.lootDrops(c, w.rng)...)
 	}
 	corpse := item.New(corpseProto(c))
 	corpse.Contents = held
@@ -443,6 +445,7 @@ func (w *World) grantXP(c *Character, xp int) {
 		w.recalc(c)
 		c.Health = c.HealthMax
 		c.Mana = c.ManaMax
+		c.Stamina = c.StaminaMax
 		msg := r.Message
 		if msg == "" {
 			msg = "You raise a level!"
@@ -541,6 +544,7 @@ func (w *World) regen() {
 		}
 		c.Health = clamp(c.Health+r.HealthDelta, 0, c.HealthMax)
 		c.Mana = clamp(c.Mana+r.ManaDelta, 0, c.ManaMax)
+		c.Stamina = clamp(c.Stamina+r.StaminaDelta, 0, c.StaminaMax)
 		if c.Health <= 0 && r.HealthDelta < 0 {
 			w.die(c, nil)
 			continue

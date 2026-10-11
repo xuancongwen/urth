@@ -27,6 +27,11 @@ const (
 	// client resumes without a login; with no Data before a shutdown, so
 	// the client retries until the server returns. Text clients ignore it.
 	Reconnect Type = "reconnect"
+	// State is a snapshot of the character for clients that draw it rather
+	// than read it: vitals, the fight, the room, gear, and skills. Data
+	// carries StateData. Sent only to sessions that asked with "client
+	// state", and only when it changed. Text clients ignore it.
+	State Type = "state"
 )
 
 // ReconnectData accompanies a Reconnect message.
@@ -85,6 +90,107 @@ type MapRoom struct {
 	Exits map[string]int `json:"exits"`
 	Seen  bool           `json:"seen"`
 	Safe  bool           `json:"safe,omitempty"`
+	// What a player who has stood here knows of it: Dark, the deity of a
+	// Temple, the Services of whoever stands here now (shop, trainer,
+	// quest, vendor), and each door's state by direction (open, closed,
+	// locked). Left empty for rooms not yet seen.
+	Dark     bool              `json:"dark,omitempty"`
+	Temple   string            `json:"temple,omitempty"`
+	Services []string          `json:"services,omitempty"`
+	Doors    map[string]string `json:"doors,omitempty"`
+	// What scan would show, for this room and the rooms it can see into:
+	// creatures that are not peaceful, how far above the player the
+	// strongest of them is in levels (negative is below), and players.
+	Foes    int `json:"foes,omitempty"`
+	Danger  int `json:"danger,omitempty"`
+	Players int `json:"players,omitempty"`
+	// Items says something lies on the floor; only the player's own room.
+	Items bool `json:"items,omitempty"`
+}
+
+// StateData accompanies a State message. Every Ref is what a command
+// would take to name the same thing ("2.sword").
+type StateData struct {
+	Name       string `json:"name"`
+	Level      int    `json:"level"`
+	Health     int    `json:"health"`
+	HealthMax  int    `json:"healthMax"`
+	Mana       int    `json:"mana"`
+	ManaMax    int    `json:"manaMax"`
+	Stamina    int    `json:"stamina"`
+	StaminaMax int    `json:"staminaMax"`
+	TNL        int    `json:"tnl"`
+	Silver     int    `json:"silver"`
+	// Position is standing, resting, or sleeping.
+	Position string `json:"position"`
+	// Target is who the character is fighting; Enemies everyone fighting
+	// it, the target included.
+	Target  *Combatant  `json:"target"`
+	Enemies []Combatant `json:"enemies"`
+	// Casting is the spell under way and its rounds left, if any.
+	Casting *Casting `json:"casting,omitempty"`
+	// Room is where the character stands. Its mobs and items carry refs;
+	// it has no map (the room message has that).
+	Room StateRoom `json:"room"`
+	// Map is the area around the player, as the room message carries it.
+	Map       *MapData   `json:"map,omitempty"`
+	Inventory []GearItem `json:"inventory"`
+	Equipment []GearItem `json:"equipment"`
+	Skills    []Action   `json:"skills"`
+	Spells    []Action   `json:"spells"`
+}
+
+// Combatant is one side of a fight as a client draws it.
+type Combatant struct {
+	Name      string `json:"name"`
+	Ref       string `json:"ref"`
+	Health    int    `json:"health"`
+	HealthMax int    `json:"healthMax"`
+}
+
+// Casting is a spell in progress.
+type Casting struct {
+	Spell  string `json:"spell"`
+	Rounds int    `json:"rounds"`
+}
+
+// StateRoom is the room part of a state snapshot.
+type StateRoom struct {
+	Vnum    int      `json:"vnum"`
+	Name    string   `json:"name"`
+	Exits   []string `json:"exits"`
+	Safe    bool     `json:"safe,omitempty"`
+	Players []string `json:"players"`
+	Mobs    []Entity `json:"mobs"`
+	Items   []Entity `json:"items"`
+}
+
+// GearItem is an item carried or worn. Slot is the position worn on, or
+// for a carried item the position it would go on ("" if none). Color is
+// its rarity's color code, empty for a plain item.
+type GearItem struct {
+	Name   string `json:"name"`
+	Ref    string `json:"ref"`
+	Count  int    `json:"count,omitempty"`
+	Type   string `json:"type"`
+	Slot   string `json:"slot,omitempty"`
+	Rarity string `json:"rarity,omitempty"`
+	Color  string `json:"color,omitempty"`
+}
+
+// Action is a skill or spell the character can use. Command is what to
+// send to use it (without a target); Target is single, area, ally, self,
+// group, or none; Cooldown is rounds until it is ready again.
+type Action struct {
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Command  string `json:"command"`
+	Target   string `json:"target"`
+	Cooldown int    `json:"cooldown"`
+	// Mana and Stamina are what a use costs: spells spend mana, skills
+	// stamina.
+	Mana    int `json:"mana,omitempty"`
+	Stamina int `json:"stamina,omitempty"`
 }
 
 // Batch is everything a player receives in one tick, delivered as a unit so

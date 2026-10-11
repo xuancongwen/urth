@@ -1412,3 +1412,26 @@ func TestDamageWordsLadder(t *testing.T) {
 		t.Fatalf("live damage word: %q", o)
 	}
 }
+
+func TestCastSpendsMana(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	// testRules gives a pool of 5; Nova costs 4 and needs no materials.
+	setRules(t, w, strings.Replace(magicRules, `{ id: "nova",`, `{ id: "nova", mana: 4,`, 1))
+	p := w.players[1]
+	p.Schools = []string{"evocation"}
+	p.Mana = p.ManaMax
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "4 mana") {
+		t.Fatalf("spells shows no cost: %q", o)
+	}
+	send(w, 1, "cast nova")
+	if o := bob.take(); !strings.Contains(o, "You begin casting Nova") || p.Mana != 1 {
+		t.Fatalf("cast: %q mana %d", o, p.Mana)
+	}
+	p.casting = nil
+	send(w, 1, "cast nova")
+	if o := bob.take(); !strings.Contains(o, "You need 4 mana to cast Nova; you have 1.") || p.Mana != 1 {
+		t.Fatalf("short of mana: %q mana %d", o, p.Mana)
+	}
+}

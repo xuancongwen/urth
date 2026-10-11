@@ -16,12 +16,15 @@ import (
 
 // Spell is one entry of spellList.
 type Spell struct {
-	ID                string          `json:"id"`
-	Name              string          `json:"name"`
-	Branch            string          `json:"branch"` // arcane or divine
-	School            string          `json:"school"`
-	Deity             string          `json:"deity"`
-	CastRounds        int             `json:"castRounds"`
+	ID         string `json:"id"`
+	Name       string `json:"name"`
+	Branch     string `json:"branch"` // arcane or divine
+	School     string `json:"school"`
+	Deity      string `json:"deity"`
+	CastRounds int    `json:"castRounds"`
+	// Mana is spent when the cast begins (docs/RULES.md 6.2), along with
+	// any Materials, which only some spells name.
+	Mana              int             `json:"mana"`
 	InterruptOnDamage bool            `json:"interruptOnDamage"`
 	Cooldown          int             `json:"cooldown"`
 	Materials         []SpellMaterial `json:"materials"`
@@ -162,7 +165,10 @@ func cmdSpells(w *World, p *Player, _ string) {
 		} else {
 			line += padRight(output.Escape(sp.School), 14)
 		}
-		line += "cast " + itoa(sp.CastRounds) + "  " + sp.Target
+		line += "cast " + itoa(sp.CastRounds) + "  " + padRight(sp.Target, 7)
+		if sp.Mana > 0 {
+			line += "  " + itoa(sp.Mana) + " mana"
+		}
 		if len(sp.Materials) > 0 {
 			var mats []string
 			for _, m := range sp.Materials {
@@ -214,6 +220,10 @@ func cmdCast(w *World, p *Player, args string) {
 		p.Send(output.Escape(sp.Name) + " is not ready for another " + plural(cd, "round") + ".\n")
 		return
 	}
+	if p.Mana < sp.Mana {
+		p.Send("You need " + itoa(sp.Mana) + " mana to cast " + output.Escape(sp.Name) + "; you have " + itoa(p.Mana) + ".\n")
+		return
+	}
 	if m, missing := missingMaterials(p.Character, sp); missing {
 		p.Send("You need " + plural(max(m.Count, 1), output.Escape(m.Material)) + " to cast " + output.Escape(sp.Name) + ".\n")
 		return
@@ -228,6 +238,7 @@ func cmdCast(w *World, p *Player, args string) {
 		return
 	}
 	commitMaterials(p.Character, sp)
+	p.Mana -= max(sp.Mana, 0)
 	if sp.CastRounds <= 0 {
 		w.resolveCastNow(p.Character, sp, targets)
 		return
@@ -319,8 +330,8 @@ func (w *World) tickCooldowns() {
 	}
 }
 
-// interruptCast cancels a cast in progress. Materials were committed at
-// the start and are gone.
+// interruptCast cancels a cast in progress. Mana and materials were
+// spent at the start and are gone.
 func (w *World) interruptCast(c *Character, why string) {
 	if c.casting == nil {
 		return
@@ -476,7 +487,7 @@ func spellView(sp Spell) map[string]any {
 	}
 	return map[string]any{
 		"id": sp.ID, "name": sp.Name, "branch": sp.Branch, "school": sp.School, "deity": sp.Deity,
-		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown,
+		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown, "mana": sp.Mana,
 		"materials": mats, "target": sp.Target, "save": sp.Save, "saveEffect": sp.SaveEffect,
 	}
 }

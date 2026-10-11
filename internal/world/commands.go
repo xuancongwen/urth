@@ -62,6 +62,7 @@ func init() {
 		{"consider", 3, cmdConsider, false},
 		{"flee", 2, cmdFlee, false},
 		{"score", 2, cmdScore, false},
+		{"stats", 5, cmdScore, false}, // the modern word for score; only typed in full, so "stat" stays the builder's
 		{"train", 2, cmdTrain, false},
 		{"feat", 3, cmdFeat, false},
 		{"follow", 3, cmdFollow, false},
@@ -87,6 +88,7 @@ func init() {
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},
 		{"color", 3, cmdColor, false},
+		{"settings", 3, cmdSettings, false},
 		{"autoloot", 5, cmdAutoloot, false},
 		{"autogold", 5, cmdAutogold, false},
 		{"autosac", 5, cmdAutosac, false},
@@ -111,7 +113,10 @@ func init() {
 		{"deny", 4, cmdDeny, true},
 		{"allow", 5, cmdAllow, true},
 		{"users", 4, cmdUsers, true},
+		{"client", 6, cmdClient, false},
+		{"expedition", 3, cmdExpedition, false},
 		{"simulate", 3, cmdSimulate, true},
+		{"loot", 4, cmdLoot, true},
 		{"copyover", 8, cmdCopyover, true},
 		{"shutdown", 8, cmdShutdown, true},
 	}
@@ -255,6 +260,9 @@ func (w *World) look(p *Player) {
 			b.WriteString(output.Escape(g.Item.Proto.Description))
 			if color != "" {
 				b.WriteString("{x}")
+			}
+			if g.Item.Rolled() {
+				b.WriteString(" " + rarityTag(g.Item))
 			}
 			b.WriteString("\n")
 		}

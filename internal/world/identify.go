@@ -31,6 +31,9 @@ func (w *World) itemCard(it *item.Item) string {
 		head += ", weight " + itoa(p.Weight)
 	}
 	lines = append(lines, head)
+	if it.Rolled() {
+		lines = append(lines, "Rarity "+output.Escape(it.Rarity)+".")
+	}
 	switch p.Type {
 	case item.Weapon:
 		wp := p.Resolved.Weapon

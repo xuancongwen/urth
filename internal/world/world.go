@@ -280,6 +280,7 @@ func (w *World) round() {
 	w.burnLights()
 	w.decayItems()
 	w.tickQuests()
+	w.tickExpeditions()
 	w.wanderMobs()
 	w.tickAreas()
 	if w.scripts != nil {
@@ -311,6 +312,7 @@ func (w *World) round() {
 // disconnected after their farewell goes out.
 func (w *World) flush() {
 	for id, p := range w.players {
+		w.queueState(p)
 		p.flush(w.prompt(p))
 		if p.closing {
 			// The transport will still emit Disconnected; drop the player now
@@ -329,6 +331,9 @@ func (w *World) prompt(p *Player) output.Message {
 	if p.ManaMax > 0 {
 		text += " " + itoa(p.Mana) + "/" + itoa(p.ManaMax) + "m"
 	}
+	if p.StaminaMax > 0 {
+		text += " " + itoa(p.Stamina) + "/" + itoa(p.StaminaMax) + "st"
+	}
 	tnl := -1
 	if next := w.xpToLevel(p.Level + 1); next < 1<<29 {
 		tnl = max(next-p.Experience, 0)
@@ -336,7 +341,8 @@ func (w *World) prompt(p *Player) output.Message {
 	}
 	text += "> "
 	return output.Message{Type: output.Prompt, Text: text, Data: map[string]int{
-		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax, "tnl": tnl,
+		"health": p.Health, "healthMax": p.HealthMax, "mana": p.Mana, "manaMax": p.ManaMax,
+		"stamina": p.Stamina, "staminaMax": p.StaminaMax, "tnl": tnl,
 	}}
 }
 

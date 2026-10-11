@@ -1,6 +1,8 @@
 package world
 
 import (
+	"strings"
+
 	"urth/internal/item"
 	"urth/internal/output"
 )
@@ -80,4 +82,43 @@ func (w *World) lootCorpse(p *Player, corpse *item.Item, coinsOnly bool) {
 		w.actItem("You get $p from $t.", p.Character, nil, output.Escape(it.Name()), from, toChar)
 		w.actItem("$n gets $p from $t.", p.Character, nil, output.Escape(it.Name()), from, toRoom)
 	}
+}
+
+// A setting is one of a player's saved toggles, as settings lists them.
+type setting struct {
+	name, about string
+	on          func(p *Player) bool
+	toggle      func(w *World, p *Player, args string)
+}
+
+var playerSettings = []setting{
+	{"autoloot", "take everything from your kills", func(p *Player) bool { return p.rec != nil && p.rec.AutoLoot }, cmdAutoloot},
+	{"autogold", "take the coins from your kills", func(p *Player) bool { return p.rec != nil && p.rec.AutoGold }, cmdAutogold},
+	{"autosac", "sacrifice your kills' corpses once they are empty", func(p *Player) bool { return p.rec != nil && p.rec.AutoSac }, cmdAutosac},
+	{"color", "color in what you read", func(p *Player) bool { return p.Color }, cmdColor},
+}
+
+// cmdSettings: settings | settings <name>. Lists every toggle and where it
+// stands; with a name, flips that one, as typing its own command does.
+func cmdSettings(w *World, p *Player, args string) {
+	if word := strings.ToLower(strings.TrimSpace(args)); word != "" {
+		for _, s := range playerSettings {
+			if strings.HasPrefix(s.name, word) {
+				s.toggle(w, p, "")
+				return
+			}
+		}
+		p.Send("No such setting. Type settings to see them.\n")
+		return
+	}
+	var b strings.Builder
+	b.WriteString("Your settings. Flip one with its name, or settings <name>.\n")
+	for _, s := range playerSettings {
+		state := "{R}off{x}"
+		if s.on(p) {
+			state = "{G}on {x}"
+		}
+		b.WriteString("  " + padRight(s.name, 10) + state + "  " + s.about + "\n")
+	}
+	p.Send(b.String())
 }

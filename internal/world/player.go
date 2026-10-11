@@ -55,11 +55,18 @@ type Player struct {
 	questPoints int
 	quest       *store.SavedQuest
 	questWait   int
+	// expeditionWait is rounds before another expedition (expedition.go).
+	expeditionWait int
 
 	// Login scratch.
 	pendingName     string
 	pendingPassword string
 	passwordTries   int
+
+	// wantState asks for a State message whenever the snapshot changes
+	// (clientstate.go); lastState is the last one sent, as JSON.
+	wantState bool
+	lastState string
 
 	input   []string
 	pending []output.Message

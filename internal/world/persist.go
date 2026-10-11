@@ -19,9 +19,14 @@ func saveItems(list []*item.Item) []store.SavedItem {
 		if it.Proto.Vnum == 0 {
 			continue // corpses and other synthetic items are not saved
 		}
-		out = append(out, store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn, Quest: it.Quest})
+		out = append(out, saveItem(it))
 	}
 	return out
+}
+
+func saveItem(it *item.Item) store.SavedItem {
+	return store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn, Quest: it.Quest,
+		Rarity: it.Rarity, Color: it.Color, Prefix: it.Prefix, Suffix: it.Suffix}
 }
 
 func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
@@ -36,6 +41,7 @@ func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
 		it.Contents = w.loadItems(s.Contents, owner)
 		it.Effects = s.Effects
 		it.Quest = s.Quest
+		it.Rarity, it.Color, it.Prefix, it.Suffix = s.Rarity, s.Color, s.Prefix, s.Suffix
 		if s.Burn != 0 {
 			it.Burn = s.Burn
 		}
@@ -48,7 +54,7 @@ func (w *World) saveCharacterItems(p *Player) {
 	p.rec.Inventory = saveItems(p.Inventory)
 	p.rec.Equipment = map[string]store.SavedItem{}
 	for slot, it := range p.Equipment {
-		p.rec.Equipment[string(slot)] = store.SavedItem{Vnum: it.Proto.Vnum, Contents: saveItems(it.Contents), Effects: it.Effects, Burn: it.Burn, Quest: it.Quest}
+		p.rec.Equipment[string(slot)] = saveItem(it)
 	}
 }
 
@@ -106,10 +112,11 @@ func (w *World) loadSheet(p *Player) {
 	w.ensurePassives(p.Character)
 	w.recalc(p.Character)
 	if p.rec.Health <= 0 {
-		p.Health, p.Mana = p.HealthMax, p.ManaMax
+		p.Health, p.Mana, p.Stamina = p.HealthMax, p.ManaMax, p.StaminaMax
 	} else {
 		p.Health = clamp(p.rec.Health, 1, p.HealthMax)
 		p.Mana = clamp(p.rec.Mana, 0, p.ManaMax)
+		p.Stamina = clamp(p.rec.Stamina, 0, p.StaminaMax)
 	}
 }
 
@@ -132,6 +139,7 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.Effects = append([]effect.Active(nil), p.Effects...)
 	p.rec.Health = p.Health
 	p.rec.Mana = p.Mana
+	p.rec.Stamina = p.Stamina
 	p.rec.Visited = p.rec.Visited[:0]
 	for v := range p.visited {
 		p.rec.Visited = append(p.rec.Visited, v)

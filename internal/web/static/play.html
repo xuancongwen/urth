@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Urth (tap)</title>
+<link rel="icon" href="favicon.svg">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
+    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --mana: #5a8fd6; --stamina: #d9a24a;
+    --uncommon: #6fd36f; --rare: #6aa6ff; --epic: #d17ae6; --legendary: #f0d050; --unique: #ff6b5b; --artifact: #ffffff;
+    --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.4 var(--font); }
+  body { min-height: 100dvh; display: flex; justify-content: center; }
+  #app { width: 100%; max-width: 560px; min-height: 100dvh; display: flex; flex-direction: column; padding: 0 12px 12px; }
+  button { font: inherit; color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+    padding: .55em .8em; cursor: pointer; touch-action: manipulation; }
+  button:active { transform: translateY(1px); }
+  button:disabled { opacity: .35; cursor: default; }
+  button.primary { border-color: var(--accent); color: var(--accent); }
+  button.danger { border-color: var(--bad); color: var(--bad); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-top: 10px; }
+  .lab { font-size: .72em; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+  .dim { color: var(--dim); }
+  .row { display: flex; align-items: center; gap: 8px; }
+  .grow { flex: 1; min-width: 0; }
+  .bar { height: 7px; background: #22252d; border-radius: 4px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; background: var(--ok); transition: width .25s; }
+  .bar.foe > i { background: var(--bad); }
+  .bar.mana > i { background: var(--mana); }
+  .bar.stam > i { background: var(--stamina); }
+  .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .r-G { color: var(--uncommon); } .r-B { color: var(--rare); } .r-M { color: var(--epic); }
+  .r-Y { color: var(--legendary); } .r-R { color: var(--unique); } .r-W { color: var(--artifact); }
+
+  /* Login */
+  #login { flex: 1; display: flex; flex-direction: column; padding-top: 12px; }
+  #login h1 { font-size: 1.3em; color: var(--accent); margin: 8px 0; letter-spacing: .04em; }
+  #loginlog { flex: 1; min-height: 200px; max-height: 60dvh; overflow-y: auto; white-space: pre-wrap; font: 13px/1.4 var(--mono);
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+  #loginform { display: flex; gap: 8px; margin-top: 10px; }
+  #logininput { flex: 1; font: inherit; padding: .6em .8em; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); }
+
+  /* Game */
+  #game { display: none; flex-direction: column; flex: 1; }
+  #top { padding-top: 8px; }
+  #who { font-weight: 600; font-size: .92em; }
+  #vit { display: grid; grid-template-columns: auto 1fr auto; gap: 3px 8px; align-items: center; font-size: .78em; margin-top: 4px; }
+
+  /* Map */
+  #stage { position: relative; margin-top: 8px; height: min(58dvh, 520px); min-height: 280px; border-radius: 14px; overflow: hidden;
+    background: radial-gradient(circle at 50% 45%, #1a1d24 0%, #111318 70%); border: 1px solid var(--line); touch-action: none; }
+  #map { width: 100%; height: 100%; display: block; }
+  #maptop { position: absolute; left: 10px; right: 10px; top: 8px; display: flex; align-items: center; gap: 8px; pointer-events: none; }
+  #roomname { color: var(--accent); font-weight: 600; text-shadow: 0 1px 3px #000; }
+  #maptop .tag { font-size: .72em; padding: 1px 6px; border-radius: 6px; background: #0009; color: var(--dim); }
+  #mapbtns { position: absolute; right: 8px; top: 38px; display: flex; flex-direction: column; gap: 6px; }
+  #mapbtns button { width: 38px; height: 38px; padding: 0; background: #15171ccc; font-size: 1.05em; }
+  #mapbtns button.lit { border-color: var(--accent); color: var(--accent); }
+  #pick { position: absolute; left: 8px; right: 8px; bottom: 8px; display: none; background: #15171ef0; border: 1px solid var(--line);
+    border-radius: 12px; padding: 8px 10px; }
+  #pick .acts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  #pickname { font-weight: 600; }
+  #legend { position: absolute; left: 8px; bottom: 8px; font-size: .7em; color: var(--dim); background: #0008; padding: 3px 7px; border-radius: 6px; }
+
+  #desc { font-size: .9em; color: #b9b6ab; }
+  #desc.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .list > div { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); }
+  .list > div:first-child { border-top: 0; }
+  .list .name { flex: 1; min-width: 0; }
+  .list button { padding: .35em .7em; font-size: .9em; }
+  #fight .foe { margin-bottom: 8px; }
+  #actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+  #actions button { position: relative; overflow: hidden; padding: .7em .3em; font-size: .9em; }
+  #actions button .cd { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--accent); }
+  #actions button small { display: block; color: var(--dim); font-size: .75em; }
+  #feed { font: 12.5px/1.45 var(--mono); color: var(--dim); min-height: 4.4em; white-space: pre-wrap; }
+  #feed div:last-child { color: var(--fg); }
+  #tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+  #tabs button.on { border-color: var(--accent); color: var(--accent); }
+  #log { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; max-height: 50dvh; overflow-y: auto; }
+  #sheet { position: fixed; inset: auto 0 0 0; display: none; justify-content: center; z-index: 5; }
+  #sheet > div { width: 100%; max-width: 560px; background: var(--panel); border-top: 1px solid var(--line);
+    border-radius: 14px 14px 0 0; padding: 14px 12px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px #0008; }
+  #sheet .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+  #sheettext { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; color: #b9b6ab; max-height: 40dvh; overflow-y: auto; margin-top: 8px; }
+  #shade { position: fixed; inset: 0; background: #0007; display: none; z-index: 4; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="login">
+    <h1>URTH</h1>
+    <div id="loginlog">Tap Connect, then answer the prompts: your name, then your password.</div>
+    <form id="loginform">
+      <input id="logininput" autocomplete="off" autocapitalize="off" placeholder="not connected">
+      <button class="primary" id="loginbtn" type="submit">Connect</button>
+    </form>
+  </div>
+
+  <div id="game">
+    <div id="top">
+      <div class="row"><span id="who" class="grow ellipsis"></span><span id="silver" class="dim"></span></div>
+      <div id="vit">
+        <span class="dim">HP</span><div class="bar"><i id="hpbar"></i></div><span id="hp"></span>
+        <span class="dim" id="manalab">MP</span><div class="bar mana" id="manawrap"><i id="manabar"></i></div><span id="mana"></span>
+        <span class="dim" id="stamlab">ST</span><div class="bar stam" id="stamwrap"><i id="stambar"></i></div><span id="stam"></span>
+      </div>
+    </div>
+
+    <div id="stage">
+      <canvas id="map"></canvas>
+      <div id="maptop"><span id="roomname" class="ellipsis"></span><span id="roomtags"></span></div>
+      <div id="mapbtns">
+        <button type="button" id="zin" title="Zoom in">+</button>
+        <button type="button" id="zout" title="Zoom out">−</button>
+        <button type="button" id="center" title="Back to me">◎</button>
+        <button type="button" id="goup" title="Up">▲</button>
+        <button type="button" id="godown" title="Down">▼</button>
+      </div>
+      <div id="legend"></div>
+      <div id="pick">
+        <div class="row"><span id="pickname" class="grow ellipsis"></span><span id="pickinfo" class="dim"></span></div>
+        <div class="acts" id="pickacts"></div>
+      </div>
+    </div>
+
+    <div class="card" id="desccard">
+      <div id="desc" class="clamp"></div>
+    </div>
+
+    <div class="card" id="fight" style="display:none">
+      <div class="lab">Fighting</div>
+      <div id="foes"></div>
+      <div id="actions"></div>
+    </div>
+
+    <div class="card" id="here">
+      <div class="lab">Here</div>
+      <div class="list" id="herelist"></div>
+      <div class="row" style="margin-top:8px; gap:6px; flex-wrap:wrap" id="restrow"></div>
+    </div>
+
+    <div class="card"><div id="feed"></div></div>
+
+    <div id="tabs">
+      <button type="button" data-tab="bag" class="on">Bag</button>
+      <button type="button" data-tab="gear">Gear</button>
+      <button type="button" data-tab="log">Log</button>
+    </div>
+    <div class="card" id="tabbody"><div class="list" id="baglist"></div><div class="list" id="gearlist" style="display:none"></div><div id="log" style="display:none"></div></div>
+  </div>
+</div>
+<div id="shade"></div>
+<div id="sheet"><div>
+  <div class="row"><strong id="sheetname" class="grow"></strong><button type="button" id="sheetclose">Close</button></div>
+  <div id="sheettext"></div>
+  <div class="acts" id="sheetacts"></div>
+</div></div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var ws = null, inGame = false, state = null, feed = [], logLines = [], sheetFor = null;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function btn(label, onClick, cls) {
+    var b = el('button', cls || '', label); b.type = 'button';
+    b.addEventListener('click', function (ev) { ev.stopPropagation(); onClick(); }); return b;
+  }
+  function send(line) { if (ws && ws.readyState === WebSocket.OPEN) ws.send(line); }
+  function pct(a, b) { return (b > 0 ? Math.max(0, Math.min(100, 100 * a / b)) : 0) + '%'; }
+
+  // ---- Login: the server's own prompts, answered in one input --------
+  function loginAppend(text) {
+    var log = $('loginlog'); log.textContent += text;
+    if (log.textContent.length > 20000) log.textContent = log.textContent.slice(-20000);
+    log.scrollTop = log.scrollHeight;
+  }
+  $('loginform').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!ws || ws.readyState !== WebSocket.OPEN) { connect(); return; }
+    var input = $('logininput');
+    send(input.value);
+    loginAppend((input.type === 'password' ? '' : input.value) + '\n');
+    input.value = '';
+  });
+
+  function connect() {
+    var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
+    ws = new WebSocket(proto + location.host + '/ws');
+    $('loginlog').textContent = '';
+    $('loginbtn').textContent = 'Send';
+    $('logininput').placeholder = 'type here';
+    ws.onopen = function () { $('logininput').focus(); };
+    ws.onclose = function () {
+      inGame = false; state = null;
+      $('game').style.display = 'none'; $('login').style.display = 'flex';
+      loginAppend('\n[disconnected]\n');
+      $('loginbtn').textContent = 'Connect'; $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
+    };
+    ws.onmessage = function (e) { JSON.parse(e.data).forEach(handle); };
+  }
+
+  function handle(m) {
+    switch (m.type) {
+      case 'echo-off': $('logininput').type = 'password'; return;
+      case 'echo-on': $('logininput').type = 'text'; return;
+      case 'commands': case 'reconnect': return;
+      case 'state': state = m.data; render(); return;
+      case 'room':
+        if (!inGame) {
+          inGame = true;
+          $('login').style.display = 'none'; $('game').style.display = 'flex';
+          send('client state');
+          setTimeout(drawMap, 0);
+        }
+        showDescription(m.text);
+        break;
+      case 'prompt':
+        if (!inGame) loginAppend(m.text);
+        return;
+    }
+    if (!inGame) { loginAppend(m.text); return; }
+    addText(m.text, m.type === 'room');
+  }
+
+  // The room message is name, description, exits, then what is here. The
+  // description is the part worth keeping in view.
+  function showDescription(text) {
+    var lines = text.split('\n'), out = [];
+    for (var i = 1; i < lines.length; i++) {
+      if (/^\[Exits/.test(lines[i])) break;
+      out.push(lines[i]);
+    }
+    var d = out.join('\n').trim();
+    $('desc').textContent = d || (lines[0] || '');
+    $('desccard').style.display = d || lines[0] ? '' : 'none';
+  }
+  $('desccard').addEventListener('click', function () { $('desc').classList.toggle('clamp'); });
+
+  // ---- Text: a short feed of the latest lines, and the full log ------
+  function addText(text, logOnly) {
+    var lines = text.split('\n').filter(function (l) { return l.trim() !== ''; });
+    if (!lines.length) return;
+    lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
+    feed = feed.slice(-4); logLines = logLines.slice(-300);
+    var f = $('feed'); f.textContent = '';
+    feed.forEach(function (l) { f.appendChild(el('div', '', l)); });
+    var log = $('log'); log.textContent = logLines.join('\n'); log.scrollTop = log.scrollHeight;
+    if (sheetFor) $('sheettext').textContent = lines.join('\n');
+  }
+
+  // ---- Rendering from the state snapshot -----------------------------
+  var lastRoom = 0;
+  function render() {
+    var s = state;
+    $('who').textContent = s.name + '  ·  level ' + s.level + (s.tnl >= 0 ? '  ·  ' + s.tnl + ' xp to go' : '');
+    $('silver').textContent = coins(s.silver);
+    $('hpbar').style.width = pct(s.health, s.healthMax); $('hp').textContent = s.health + '/' + s.healthMax;
+    var mana = s.manaMax > 0;
+    ['manalab', 'manawrap', 'mana'].forEach(function (id) { $(id).style.display = mana ? '' : 'none'; });
+    $('manabar').style.width = pct(s.mana, s.manaMax); $('mana').textContent = s.mana + '/' + s.manaMax;
+    var stam = s.staminaMax > 0;
+    ['stamlab', 'stamwrap', 'stam'].forEach(function (id) { $(id).style.display = stam ? '' : 'none'; });
+    $('stambar').style.width = pct(s.stamina, s.staminaMax); $('stam').textContent = s.stamina + '/' + s.staminaMax;
+
+    $('roomname').textContent = s.room.name;
+    var tags = $('roomtags'); tags.textContent = '';
+    if (s.room.safe) tags.appendChild(el('span', 'tag', 'safe'));
+    $('goup').style.display = s.room.exits.indexOf('up') >= 0 ? '' : 'none';
+    $('godown').style.display = s.room.exits.indexOf('down') >= 0 ? '' : 'none';
+    if (s.room.vnum !== lastRoom) { lastRoom = s.room.vnum; pan = { x: 0, y: 0 }; picked = 0; showPick(); }
+    setMap(s.map);
+
+    renderFight(s);
+    renderHere(s);
+    renderBag(s);
+    renderGear(s);
+  }
+
+  function coins(silver) {
+    if (!silver) return 'no coins';
+    var g = Math.floor(silver / 100), sv = silver % 100;
+    return (g ? g + 'g ' : '') + (sv ? sv + 's' : '');
+  }
+
+  function renderFight(s) {
+    var fighting = s.enemies.length > 0 || !!s.casting;
+    $('fight').style.display = fighting ? '' : 'none';
+    if (!fighting) return;
+    var foes = $('foes'); foes.textContent = '';
+    s.enemies.forEach(function (e) {
+      var isTarget = s.target && s.target.ref === e.ref && s.target.name === e.name;
+      var d = el('div', 'foe');
+      var top = el('div', 'row');
+      top.appendChild(el('span', 'grow ellipsis', (isTarget ? '▶ ' : '') + e.name));
+      if (!isTarget) top.appendChild(btn('Target', function () { send('kill ' + e.ref); }));
+      d.appendChild(top);
+      var bar = el('div', 'bar foe'); var i = el('i'); i.style.width = pct(e.health, e.healthMax); bar.appendChild(i);
+      d.appendChild(bar);
+      foes.appendChild(d);
+    });
+    if (s.casting) foes.appendChild(el('div', 'dim', 'Casting ' + s.casting.spell + ' (' + s.casting.rounds + ')'));
+    var acts = $('actions'); acts.textContent = '';
+    s.skills.concat(s.spells).forEach(function (a) {
+      var b = btn('', function () { send(a.command + (a.target === 'single' && s.target ? ' ' + s.target.ref : '')); });
+      b.appendChild(document.createTextNode(a.name));
+      var short = a.mana > s.mana || a.stamina > s.stamina;
+      b.appendChild(el('small', '', a.cooldown > 0 ? a.cooldown + ' rnd' : a.mana ? a.mana + ' mana' : a.stamina ? a.stamina + ' st' : 'ready'));
+      if (short) b.disabled = true;
+      if (a.cooldown > 0) { b.disabled = true; var cd = el('i', 'cd'); cd.style.width = Math.min(100, a.cooldown * 10) + '%'; b.appendChild(cd); }
+      acts.appendChild(b);
+    });
+    acts.appendChild(btn('Flee', function () { send('flee'); }, 'danger'));
+  }
+
+  function renderHere(s) {
+    var list = $('herelist'); list.textContent = '';
+    s.room.players.forEach(function (n) { var d = el('div'); d.appendChild(el('span', 'name ellipsis', n)); list.appendChild(d); });
+    s.room.mobs.forEach(function (m) {
+      var d = el('div'); d.appendChild(el('span', 'name ellipsis', m.name));
+      d.appendChild(btn('Look', function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref], ['Fight', 'kill ' + m.ref]]); }));
+      if (!s.room.safe) d.appendChild(btn('Fight', function () { send('kill ' + m.ref); }, 'primary'));
+      list.appendChild(d);
+    });
+    s.room.items.forEach(function (it) {
+      var d = el('div');
+      d.appendChild(el('span', 'name ellipsis dim', (it.count > 1 ? '(' + it.count + ') ' : '') + it.name));
+      if (/corpse/.test(it.name)) d.appendChild(btn('Loot', function () { send('get all ' + it.ref); }, 'primary'));
+      else if (!it.fixed) d.appendChild(btn('Take', function () { send('get ' + it.ref); }));
+      d.appendChild(btn('Look', function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); }));
+      list.appendChild(d);
+    });
+    if (!list.childNodes.length) list.appendChild(el('div', 'dim', 'Nobody and nothing.'));
+    var rest = $('restrow'); rest.textContent = '';
+    if (s.enemies.length) return;
+    if (s.position === 'standing') {
+      rest.appendChild(btn('Rest', function () { send('rest'); }));
+      rest.appendChild(btn('Sleep', function () { send('sleep'); }));
+    } else {
+      rest.appendChild(btn('Stand', function () { send('stand'); }, 'primary'));
+    }
+    rest.appendChild(btn('Stats', function () { openSheet('Character', 'stats', []); }));
+    rest.appendChild(btn('Settings', function () {
+      openSheet('Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; }));
+    }));
+    rest.appendChild(btn('Quest', function () { openSheet('Quest', 'quest info', [['Request', 'quest request'], ['Complete', 'quest complete']]); }));
+  }
+
+  function itemName(it) {
+    var span = el('span', 'name ellipsis ' + (it.color ? 'r-' + it.color : ''), (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
+    if (it.rarity) span.title = it.rarity;
+    return span;
+  }
+
+  function renderBag(s) {
+    var list = $('baglist'); list.textContent = '';
+    s.inventory.forEach(function (it) {
+      var d = el('div'); d.appendChild(itemName(it));
+      var use = useAction(it);
+      if (use) d.appendChild(btn(use[0], function () { send(use[1]); }, 'primary'));
+      d.appendChild(btn('…', function () {
+        var acts = [];
+        if (use) acts.push(use);
+        acts.push(['Drop', 'drop ' + it.ref], ['Sell', 'sell ' + it.ref], ['Sacrifice', 'sacrifice ' + it.ref]);
+        openSheet(it.name, 'look ' + it.ref, acts);
+      }));
+      list.appendChild(d);
+    });
+    if (!s.inventory.length) list.appendChild(el('div', 'dim', 'Your bag is empty.'));
+  }
+
+  function useAction(it) {
+    if (it.type === 'totem') return ['Brandish', 'brandish ' + it.ref];
+    if (it.slot === 'hold') return ['Hold', 'hold ' + it.ref];
+    if (it.slot || it.type === 'weapon') return ['Wear', 'wear ' + it.ref];
+    return null;
+  }
+
+  function renderGear(s) {
+    var list = $('gearlist'); list.textContent = '';
+    s.equipment.forEach(function (it) {
+      var d = el('div');
+      d.appendChild(el('span', 'dim', it.slot.replace(/[12]$/, '')));
+      d.appendChild(itemName(it));
+      d.appendChild(btn('Look', function () { openSheet(it.name, 'look ' + it.ref, [['Remove', 'remove ' + it.ref]]); }));
+      list.appendChild(d);
+    });
+    if (!s.equipment.length) list.appendChild(el('div', 'dim', 'You are wearing nothing.'));
+  }
+
+  // ---- Map ------------------------------------------------------------
+  // The area around the player, drawn from the state's map: rooms seen
+  // and unseen, doors, who is within scanning distance and how dangerous,
+  // services, temples. Tap a room to walk there, your own room to look.
+  // Drag to pan.
+  var canvas = $('map'), ctx = canvas.getContext ? canvas.getContext('2d') : null;
+  var mapData = null, rooms = {}, cell = 52, pan = { x: 0, y: 0 }, picked = 0;
+  var DIRS = { north: [0, -1], south: [0, 1], east: [1, 0], west: [-1, 0] };
+  var DANGER = function (d) { return d >= 3 ? '#ff4d4d' : d >= 1 ? '#ff9a3c' : d === 0 ? '#ffd24d' : '#9aa0ad'; };
+
+  function setMap(d) {
+    mapData = d; rooms = {};
+    if (d) d.rooms.forEach(function (r) { rooms[r.vnum] = r; });
+    drawMap();
+  }
+  function here() { return state && rooms[state.room.vnum]; }
+  function geometry() {
+    var dpr = window.devicePixelRatio || 1, w = canvas.clientWidth || 360, h = canvas.clientHeight || 360;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+    return { dpr: dpr, w: w, h: h };
+  }
+  function posOf(r, g) {
+    var cur = here();
+    return [g.w / 2 + pan.x + (r.x - cur.x) * cell, g.h / 2 + pan.y + (r.y - cur.y) * cell];
+  }
+  function roundRect(x, y, w, h, rad) {
+    ctx.beginPath(); ctx.moveTo(x + rad, y); ctx.arcTo(x + w, y, x + w, y + h, rad); ctx.arcTo(x + w, y + h, x, y + h, rad);
+    ctx.arcTo(x, y + h, x, y, rad); ctx.arcTo(x, y, x + w, y, rad); ctx.closePath();
+  }
+  function drawMap() {
+    if (!ctx) return;
+    var g = geometry();
+    ctx.setTransform(g.dpr, 0, 0, g.dpr, 0, 0);
+    ctx.clearRect(0, 0, g.w, g.h);
+    var cur = here();
+    if (!mapData || !cur) {
+      ctx.fillStyle = '#4a4e5a'; ctx.font = '13px system-ui'; ctx.textAlign = 'center';
+      ctx.fillText('no map here', g.w / 2, g.h / 2);
+      $('legend').textContent = '';
+      return;
+    }
+    var box = Math.round(cell * 0.56), font = 'system-ui, sans-serif';
+    var level = mapData.rooms.filter(function (r) { return r.z === cur.z; });
+    // Exits and doors first, so rooms draw over them.
+    level.forEach(function (r) {
+      var p = posOf(r, g);
+      Object.keys(r.exits).forEach(function (dir) {
+        var d = DIRS[dir]; if (!d) return;
+        var to = rooms[r.exits[dir]];
+        var near = to && to.z === cur.z && Math.abs(to.x - r.x) + Math.abs(to.y - r.y) <= 3;
+        var q = near ? posOf(to, g) : [p[0] + d[0] * cell * 0.5, p[1] + d[1] * cell * 0.5];
+        ctx.strokeStyle = (r.seen || (to && to.seen)) ? '#535968' : '#2a2e38'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); ctx.stroke();
+        if (!to) { // leads out of the area
+          ctx.fillStyle = '#6b7080'; ctx.beginPath();
+          ctx.arc(q[0], q[1], 3, 0, Math.PI * 2); ctx.fill();
+        }
+        var door = r.doors && r.doors[dir];
+        if (door) {
+          var mx = p[0] + d[0] * (box / 2 + 5), my = p[1] + d[1] * (box / 2 + 5);
+          ctx.strokeStyle = door === 'locked' ? '#d95f5f' : door === 'closed' ? '#e0b04a' : '#8c7a50';
+          ctx.lineWidth = 4; ctx.beginPath();
+          if (d[0]) { ctx.moveTo(mx, my - 7); ctx.lineTo(mx, my + 7); } else { ctx.moveTo(mx - 7, my); ctx.lineTo(mx + 7, my); }
+          ctx.stroke();
+        }
+      });
+    });
+    level.forEach(function (r) {
+      var p = posOf(r, g), x = p[0] - box / 2, y = p[1] - box / 2;
+      ctx.fillStyle = !r.seen ? '#16181d' : r.dark ? '#0b0c0f' : r.safe ? '#2c5547' : '#2d323d';
+      roundRect(x, y, box, box, 6); ctx.fill();
+      ctx.strokeStyle = r.vnum === picked ? '#e0b04a' : r.seen ? '#7d8394' : '#30343e'; ctx.lineWidth = r.vnum === picked ? 2 : 1;
+      ctx.stroke();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      // Services and temples as a glyph in the middle.
+      var glyph = '';
+      if (r.temple) glyph = '✝';
+      else if (r.services && r.services.length) glyph = { shop: '$', trainer: 'T', quest: '!', vendor: '¤' }[r.services[0]] || '•';
+      else if (r.dark && r.seen) glyph = '☾';
+      if (glyph) { ctx.fillStyle = r.temple ? '#e6d29a' : '#e0b04a'; ctx.font = 'bold ' + Math.round(box * 0.45) + 'px ' + font; ctx.fillText(glyph, p[0], p[1] + 1); }
+      if (r.exits.up || r.exits.down) {
+        ctx.fillStyle = '#a9aebd'; ctx.font = Math.round(box * 0.28) + 'px ' + font;
+        ctx.fillText(r.exits.up && r.exits.down ? '⇕' : r.exits.up ? '▲' : '▼', x + box - 7, y + 8);
+      }
+      // Who is there, for rooms in scanning range.
+      if (r.foes) {
+        var fx = x + 8, fy = y + box - 8;
+        ctx.fillStyle = DANGER(r.danger); ctx.beginPath(); ctx.arc(fx, fy, 6, 0, Math.PI * 2); ctx.fill();
+        if (r.foes > 1) { ctx.fillStyle = '#111'; ctx.font = 'bold 9px ' + font; ctx.fillText(String(r.foes), fx, fy + 0.5); }
+      }
+      if (r.players) { ctx.fillStyle = '#6aa6ff'; ctx.beginPath(); ctx.arc(x + box - 8, y + box - 8, 5, 0, Math.PI * 2); ctx.fill(); }
+      if (r.items) { ctx.fillStyle = '#e0b04a'; ctx.save(); ctx.translate(x + 8, y + 8); ctx.rotate(Math.PI / 4); ctx.fillRect(-3, -3, 6, 6); ctx.restore(); }
+      if (cell >= 70 && r.seen && r.vnum !== cur.vnum) {
+        ctx.fillStyle = '#8c92a3'; ctx.font = '10px ' + font;
+        ctx.fillText(r.name.length > 16 ? r.name.slice(0, 15) + '…' : r.name, p[0], y + box + 9);
+      }
+    });
+    var c = posOf(cur, g);
+    ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 2.5; roundRect(c[0] - box / 2 - 4, c[1] - box / 2 - 4, box + 8, box + 8, 9); ctx.stroke();
+    ctx.fillStyle = '#e0b04a'; ctx.beginPath(); ctx.arc(c[0], c[1] - (glyphAt(cur) ? box * 0.3 : 0), 4, 0, Math.PI * 2); ctx.fill();
+    $('legend').textContent = mapData.area + (cur.z ? ' · level ' + cur.z : '');
+  }
+  function glyphAt(r) { return r.temple || (r.services && r.services.length) || (r.dark && r.seen); }
+
+  function roomAtPoint(px, py) {
+    var cur = here(); if (!cur) return null;
+    var g = geometry(), box = cell * 0.56, found = null;
+    mapData.rooms.forEach(function (r) {
+      if (r.z !== cur.z) return;
+      var p = posOf(r, g);
+      if (Math.abs(px - p[0]) <= box / 2 + 6 && Math.abs(py - p[1]) <= box / 2 + 6) found = r;
+    });
+    return found;
+  }
+  // Shortest walk over known exits. Steps through a closed door open it
+  // first; a locked one blocks the way.
+  function pathTo(target) {
+    var start = state.room.vnum, prev = {}, queue = [start], seen = {}; seen[start] = true;
+    while (queue.length) {
+      var v = queue.shift(); if (v === target) break;
+      var r = rooms[v]; if (!r) continue;
+      Object.keys(r.exits).forEach(function (dir) {
+        var to = r.exits[dir];
+        if (seen[to] || !rooms[to] || (r.doors && r.doors[dir] === 'locked')) return;
+        seen[to] = true; prev[to] = [v, dir]; queue.push(to);
+      });
+    }
+    if (!seen[target]) return null;
+    var steps = [], at = target;
+    while (at !== start) {
+      var dir = prev[at][1], from = rooms[prev[at][0]];
+      steps.unshift(dir);
+      if (from.doors && from.doors[dir] === 'closed') steps.unshift('open ' + dir);
+      at = prev[at][0];
+    }
+    return steps;
+  }
+  function walk(steps) { steps.forEach(function (s) { send(s); }); addText('walk ' + steps.filter(function (s) { return !/^open /.test(s); }).join(' ')); }
+
+  function describe(r) {
+    var bits = [];
+    if (!r.seen) return 'unexplored';
+    if (r.safe) bits.push('safe');
+    if (r.dark) bits.push('dark');
+    if (r.temple) bits.push(r.temple + ' temple');
+    (r.services || []).forEach(function (s) { bits.push(s); });
+    if (r.foes) bits.push(r.foes + (r.foes > 1 ? ' foes' : ' foe') + ', ' + (r.danger >= 3 ? 'deadly' : r.danger >= 1 ? 'tough' : r.danger === 0 ? 'even' : 'easy'));
+    if (r.players) bits.push(r.players + (r.players > 1 ? ' players' : ' player'));
+    return bits.join(' · ');
+  }
+  function showPick() {
+    var r = rooms[picked], box = $('pick');
+    if (!r || !state) { box.style.display = 'none'; $('legend').style.display = ''; return; }
+    box.style.display = 'block'; $('legend').style.display = 'none';
+    $('pickname').textContent = r.seen ? r.name : 'Unexplored';
+    $('pickinfo').textContent = describe(r);
+    var acts = $('pickacts'); acts.textContent = '';
+    if (r.vnum === state.room.vnum) {
+      acts.appendChild(btn('Look', function () { openSheet(state.room.name, 'look', []); }));
+      acts.appendChild(btn('Scan', function () { openSheet('Nearby', 'scan', []); }));
+    } else {
+      $('pickinfo').textContent = 'no known way there' + (describe(r) ? ' · ' + describe(r) : '');
+    }
+    acts.appendChild(btn('Close', function () { picked = 0; showPick(); drawMap(); }));
+  }
+  // Tapping the map is how you move, as clicking is on the browser
+  // client's map: any room with a known way walks there at once, opening
+  // closed doors on the way. Your own room offers Look and Scan.
+  function tap(px, py) {
+    var r = roomAtPoint(px, py);
+    if (!r) { picked = 0; showPick(); drawMap(); return; }
+    if (r.vnum !== state.room.vnum) {
+      var steps = pathTo(r.vnum);
+      if (steps) { picked = 0; showPick(); walk(steps); return; }
+    }
+    picked = r.vnum; showPick(); drawMap();
+  }
+  var drag = null;
+  canvas.addEventListener('pointerdown', function (ev) { drag = { x: ev.clientX, y: ev.clientY, px: pan.x, py: pan.y, moved: false }; canvas.setPointerCapture && canvas.setPointerCapture(ev.pointerId); });
+  canvas.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    var dx = ev.clientX - drag.x, dy = ev.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 6) drag.moved = true;
+    if (drag.moved) { pan.x = drag.px + dx; pan.y = drag.py + dy; drawMap(); }
+  });
+  canvas.addEventListener('pointerup', function (ev) {
+    if (drag && !drag.moved) { var b = canvas.getBoundingClientRect(); tap(ev.clientX - b.left, ev.clientY - b.top); }
+    drag = null;
+  });
+  canvas.addEventListener('mousemove', function (ev) {
+    if (drag || !state) return;
+    var b = canvas.getBoundingClientRect(), r = roomAtPoint(ev.clientX - b.left, ev.clientY - b.top);
+    $('roomname').textContent = r ? (r.seen ? r.name : 'unexplored') : state.room.name;
+    canvas.style.cursor = r && r.vnum !== state.room.vnum ? 'pointer' : '';
+  });
+  canvas.addEventListener('mouseleave', function () { if (state) $('roomname').textContent = state.room.name; });
+  canvas.addEventListener('wheel', function (ev) { ev.preventDefault(); zoom(ev.deltaY < 0 ? 1.15 : 1 / 1.15); }, { passive: false });
+  function zoom(f) { var n = Math.max(30, Math.min(110, cell * f)); pan.x *= n / cell; pan.y *= n / cell; cell = n; drawMap(); }
+  $('zin').addEventListener('click', function () { zoom(1.25); });
+  $('zout').addEventListener('click', function () { zoom(0.8); });
+  $('center').addEventListener('click', function () { pan = { x: 0, y: 0 }; drawMap(); });
+  $('goup').addEventListener('click', function () { send('up'); });
+  $('godown').addEventListener('click', function () { send('down'); });
+  window.addEventListener('resize', drawMap);
+
+  // ---- Bottom sheet: a command's reply plus follow-up actions --------
+  function openSheet(name, command, acts) {
+    sheetFor = name;
+    $('sheetname').textContent = name; $('sheettext').textContent = '…';
+    var box = $('sheetacts'); box.textContent = '';
+    acts.forEach(function (a) { box.appendChild(btn(a[0], function () { closeSheet(); send(a[1]); })); });
+    $('sheet').style.display = 'flex'; $('shade').style.display = 'block';
+    send(command);
+  }
+  function closeSheet() { sheetFor = null; $('sheet').style.display = 'none'; $('shade').style.display = 'none'; }
+  $('sheetclose').addEventListener('click', closeSheet);
+  $('shade').addEventListener('click', closeSheet);
+
+  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (o) { o.classList.toggle('on', o === b); });
+      $('baglist').style.display = b.dataset.tab === 'bag' ? '' : 'none';
+      $('gearlist').style.display = b.dataset.tab === 'gear' ? '' : 'none';
+      $('log').style.display = b.dataset.tab === 'log' ? '' : 'none';
+      if (b.dataset.tab === 'log') $('log').scrollTop = $('log').scrollHeight;
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -120,7 +120,7 @@ func (w *World) simCharacter(p *mob.Proto) *Character {
 	}
 equipped:
 	w.recalc(m.Character)
-	m.Health, m.Mana = m.HealthMax, m.ManaMax
+	m.Health, m.Mana, m.Stamina = m.HealthMax, m.ManaMax, m.StaminaMax
 	return m.Character
 }
 
@@ -137,7 +137,7 @@ func (w *World) cloneForSim(src *Character) *Character {
 		c.Equipment[slot] = clone
 	}
 	w.recalc(c)
-	c.Health, c.Mana = c.HealthMax, c.ManaMax
+	c.Health, c.Mana, c.Stamina = c.HealthMax, c.ManaMax, c.StaminaMax
 	return c
 }
 
@@ -158,7 +158,7 @@ func (w *World) simFighter(level int) *Character {
 		}
 	}
 	w.recalc(c)
-	c.Health, c.Mana = c.HealthMax, c.ManaMax
+	c.Health, c.Mana, c.Stamina = c.HealthMax, c.ManaMax, c.StaminaMax
 	return c
 }
 
@@ -174,7 +174,7 @@ func (w *World) simOutfitter(level int) *Character {
 	c.Experience = w.xpToLevel(level)
 	w.outfit(c, outfitFlag)
 	w.recalc(c)
-	c.Health, c.Mana = c.HealthMax, c.ManaMax
+	c.Health, c.Mana, c.Stamina = c.HealthMax, c.ManaMax, c.StaminaMax
 	return c
 }
 

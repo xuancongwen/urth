@@ -35,6 +35,10 @@ type Character struct {
 	HealthMax int
 	Mana      int
 	ManaMax   int
+	// Stamina is what skills spend (docs/RULES.md 7.7); it refills fast,
+	// in a fight too.
+	Stamina    int
+	StaminaMax int
 	// Speed is swings per round; swing is the meter that turns a fractional
 	// speed into whole swings (docs/RULES.md 4.4).
 	Speed float64

@@ -13,7 +13,7 @@
   :root {
     color-scheme: dark;
     --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
-    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --mana: #5a8fd6;
+    --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --mana: #5a8fd6; --stamina: #d9a24a;
     --font: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
@@ -59,6 +59,7 @@
   .bar > i { display: block; height: 100%; width: 0; transition: width .25s; }
   .hp > i { background: var(--bad); } .hp.hit > i { background: #fff; transition: none; }
   .mana > i { background: var(--mana); }
+  .stamina > i { background: var(--stamina); }
   #here { padding: .3em 0 .5em; font-size: .9em; }
   #here .row { display: flex; flex-wrap: wrap; gap: .25em .4em; padding: .15em .9em; }
   #here .lab { color: var(--dim); font-size: .8em; width: 100%; }
@@ -129,6 +130,7 @@
   <div id="vitals">
     <span class="lab">HP</span><span class="bar hp"><i id="hpbar"></i></span><span id="hp">-</span>
     <span class="lab" id="manalab">Mana</span><span class="bar mana" id="manabarwrap"><i id="manabar"></i></span><span id="mana">-</span>
+    <span class="lab" id="stamlab">Stamina</span><span class="bar stamina" id="stambarwrap"><i id="stambar"></i></span><span id="stam">-</span>
     <span class="lab">Next</span><span id="tnl" style="grid-column: span 2">-</span>
   </div>
   <h3>Here</h3>
@@ -182,6 +184,9 @@
     var hasMana = d.manaMax > 0;
     $('manalab').style.display = $('manabarwrap').style.display = $('mana').style.display = hasMana ? '' : 'none';
     setBar('manabar', 'mana', d.mana, d.manaMax);
+    var hasStam = d.staminaMax > 0;
+    $('stamlab').style.display = $('stambarwrap').style.display = $('stam').style.display = hasStam ? '' : 'none';
+    setBar('stambar', 'stam', d.stamina || 0, d.staminaMax || 0);
     $('tnl').textContent = d.tnl >= 0 ? d.tnl + ' xp' : 'max level';
     if (lastHealth !== null && d.health < lastHealth) {
       var bar = $('hpbar').parentNode;

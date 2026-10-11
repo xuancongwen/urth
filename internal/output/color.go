@@ -30,6 +30,15 @@ var ansiCodes = map[byte]string{
 	'w': "\033[0;37m", 'W': "\033[1;37m",
 }
 
+// IsColor reports whether code is a color token's code ("R" for "{R}").
+func IsColor(code string) bool {
+	if len(code) != 1 {
+		return false
+	}
+	_, ok := ansiCodes[code[0]]
+	return ok
+}
+
 // Escape makes player-typed text safe to embed: braces become literal.
 func Escape(s string) string { return strings.ReplaceAll(s, "{", "{{") }
 

@@ -190,7 +190,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 		p.Inventory = old.Inventory
 		p.Equipment = old.Equipment
 		p.Level, p.Experience, p.Stats = old.Level, old.Experience, old.Stats
-		p.Health, p.Mana = old.Health, old.Mana
+		p.Health, p.Mana, p.Stamina = old.Health, old.Mana, old.Stamina
 		w.recalc(p.Character)
 		for _, o := range w.allCharacters() {
 			if o.Fighting == old.Character {

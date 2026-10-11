@@ -415,3 +415,58 @@ func TestLookSeparatesFixturesItemsAndMobs(t *testing.T) {
 		t.Errorf("fixed flags wrong: %v", fixed)
 	}
 }
+
+func TestWearWieldsWeapons(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	a, b := item.New(w.content.Items[10]), item.New(w.content.Items[15])
+	p.Inventory = append(p.Inventory, a, b)
+	send(w, 1, "wear all")
+	if p.Equipment["wield"] != a || len(p.Inventory) != 1 {
+		t.Fatalf("wear all wields the first weapon only: %v, %d left", p.Equipment["wield"], len(p.Inventory))
+	}
+	bob.take()
+	send(w, 1, "wear spear")
+	if o := bob.take(); p.Equipment["wield"] != b || !strings.Contains(o, "You wield a plain spear") {
+		t.Fatalf("wear spear: %q", o)
+	}
+}
+
+func TestStatsIsScore(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	send(w, 1, "score")
+	score := bob.take()
+	send(w, 1, "stats")
+	if o := bob.take(); o != score || !strings.Contains(o, "Bob") {
+		t.Fatalf("stats %q, score %q", o, score)
+	}
+	w.players[1].Admin = true
+	send(w, 1, "stat guard")
+	if o := bob.take(); o == score {
+		t.Fatal("stat should stay the builder command for admins")
+	}
+}
+
+func TestSettings(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	send(w, 1, "settings")
+	o := bob.take()
+	for _, want := range []string{"autoloot  off", "autosac   off", "color     on"} {
+		if !strings.Contains(o, want) {
+			t.Fatalf("settings missing %q: %q", want, o)
+		}
+	}
+	send(w, 1, "settings autol")
+	bob.take()
+	send(w, 1, "settings")
+	if o := bob.take(); !strings.Contains(o, "autoloot  on") || !w.players[1].rec.AutoLoot {
+		t.Fatalf("after flipping autoloot: %q", o)
+	}
+	send(w, 1, "set nope")
+	if o := bob.take(); !strings.Contains(o, "No such setting") {
+		t.Fatalf("unknown: %q", o)
+	}
+}

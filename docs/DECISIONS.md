@@ -216,3 +216,17 @@ still need the page's header, and the Host check now also admits .local
 names, which public DNS cannot serve, so mDNS names on the LAN work. The
 page is plain HTTP, so a password crosses the LAN in the clear; TLS is
 left for when the page has to leave the LAN, and ssh covers that today.
+
+## D23. Spells cost mana; items only where the spell is about an item
+
+This supersedes D18. Material-costed casting (RULES 6.2 as decided on
+2026-09-24) made every cast an inventory check and kept a newly found
+school unusable until its materials were farmed. The designer asked on
+2026-10-11 to move to mana and keep item requirements only for spells
+where the item is the point, such as enchantments and portals. D18 kept
+`mana`, `manaMax`, and `manaDelta` in the engine for exactly this, so
+the change is in the rules: `derivedStats` returns a real pool,
+`onTick` refills it out of a fight, and each spell names a `mana`
+cost that the engine checks and spends when the cast begins, alongside
+any materials it still names. Mana does not refill in a fight, which
+is what keeps a cast a decision (RULES 2.1, 6.3).

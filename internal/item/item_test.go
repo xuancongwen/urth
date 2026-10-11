@@ -81,3 +81,24 @@ func TestLoadArea(t *testing.T) {
 		t.Fatal("expected bad slot error")
 	}
 }
+
+func TestRolledName(t *testing.T) {
+	for _, c := range []struct{ name, prefix, suffix, want string }{
+		{"a rusty sword", "", "of the bear", "a rusty sword of the bear"},
+		{"a rusty sword", "elusive", "of the bear", "an elusive rusty sword of the bear"},
+		{"an iron helm", "cruel", "", "a cruel iron helm"},
+		{"the Black Blade", "keen", "of ruin", "the keen Black Blade of ruin"},
+		{"boots", "swift", "", "swift boots"},
+	} {
+		it := New(&Proto{Name: c.name, Keywords: []string{"x"}})
+		it.Prefix, it.Suffix = c.prefix, c.suffix
+		if got := it.Name(); got != c.want {
+			t.Errorf("%q + %q + %q = %q, want %q", c.prefix, c.name, c.suffix, got, c.want)
+		}
+	}
+	it := New(&Proto{Name: "a sword", Keywords: []string{"sword"}})
+	it.Prefix, it.Suffix = "elusive", "of the bear"
+	if !it.Matches("elus") || !it.Matches("bear") || it.Matches("of") || it.Matches("the") {
+		t.Error("rolled words as keywords")
+	}
+}

@@ -69,7 +69,7 @@ func (w *World) resetArea(a *areaState) {
 			}
 			m := w.newMob(proto)
 			for _, eq := range r.Equip {
-				it := item.New(w.content.Items[eq.Item])
+				it := w.newResetItem(w.content.Items[eq.Item], m.Level)
 				if eq.Slot != "" {
 					m.Equipment[freePosition(m.Character, item.Slot(eq.Slot))] = it
 				} else {
@@ -77,7 +77,7 @@ func (w *World) resetArea(a *areaState) {
 				}
 			}
 			w.recalc(m.Character)
-			m.Health, m.Mana = m.HealthMax, m.ManaMax
+			m.Health, m.Mana, m.Stamina = m.HealthMax, m.ManaMax, m.StaminaMax
 			w.placeMob(m, rm)
 			spawned++
 		case r.Into != 0:
@@ -91,14 +91,14 @@ func (w *World) resetArea(a *areaState) {
 			if container == nil || hasVnum(container.Contents, r.Item) {
 				continue
 			}
-			container.Contents = append(container.Contents, item.New(w.content.Items[r.Item]))
+			container.Contents = append(container.Contents, w.newResetItem(w.content.Items[r.Item], 0))
 			spawned++
 		default:
 			c := w.contents(rm)
 			if hasVnum(c.items, r.Item) {
 				continue
 			}
-			c.items = append(c.items, item.New(w.content.Items[r.Item]))
+			c.items = append(c.items, w.newResetItem(w.content.Items[r.Item], 0))
 			spawned++
 		}
 	}

@@ -22,7 +22,7 @@ func cmdEquipment(_ *World, p *Player, _ string) {
 		b.WriteString("Nothing.\n")
 	}
 	for _, s := range slots {
-		b.WriteString(slotLabel(s) + output.Escape(p.Equipment[s].Name()) + "\n")
+		b.WriteString(slotLabel(s) + shownName(p.Equipment[s]) + "\n")
 	}
 	p.Send(b.String())
 }
@@ -39,7 +39,7 @@ func listItems(list []*item.Item, empty string) string {
 		} else {
 			b.WriteString("     ")
 		}
-		b.WriteString(output.Escape(g.Item.Name()) + "\n")
+		b.WriteString(shownName(g.Item) + "\n")
 	}
 	return b.String()
 }
@@ -198,7 +198,9 @@ func cmdGive(w *World, p *Player, args string) {
 	}
 }
 
-// cmdWear: wear <item> | wear all. Weapons are wielded, not worn.
+// cmdWear: wear <item> | wear all. A weapon is wielded, as wield would;
+// wear all wields one only when the hand is empty, so a bag of weapons
+// does not swap through them. A second weapon will have its own command.
 func cmdWear(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Wear what?\n")
@@ -217,8 +219,8 @@ func cmdWear(w *World, p *Player, args string) {
 		case item.Light:
 			w.wearLight(p, it)
 		case item.Weapon:
-			if !all {
-				p.Send("You must wield that.\n")
+			if _, wielding := p.Equipment["wield"]; !all || !wielding {
+				w.wearItem(p, it, "wield", "You wield $p.", "$n wields $p.")
 			}
 		default:
 			if it.Proto.WearSlot() != "" {

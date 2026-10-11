@@ -42,22 +42,9 @@ func (w *World) roomEntities(r *room.Room, self *Player) (mobs, items []output.E
 		mobs = append(mobs, output.Entity{Name: m.Name, Ref: ref(word, n)})
 	}
 	list := w.contents(r).items
+	pool := w.searchPool(self)
 	for _, g := range item.Group(list) {
-		word := ""
-		if len(g.Item.Proto.Keywords) > 0 {
-			word = g.Item.Proto.Keywords[0]
-		}
-		n := 0
-		for _, it := range list {
-			if !it.Matches(word) {
-				continue
-			}
-			n++
-			if it == g.Item {
-				break
-			}
-		}
-		items = append(items, output.Entity{Name: g.Item.Name(), Ref: ref(word, n), Count: g.Count, Fixed: g.Item.Proto.HasFlag("nopickup")})
+		items = append(items, output.Entity{Name: g.Item.Name(), Ref: itemRef(list, pool, g.Item), Count: g.Count, Fixed: g.Item.Proto.HasFlag("nopickup")})
 	}
 	return mobs, items
 }
@@ -76,6 +63,7 @@ func (w *World) mapAround(r *room.Room, p *Player) *output.MapData {
 		return nil
 	}
 	data := &output.MapData{Area: r.Area}
+	scanned := w.scannable(p)
 	depth := map[int]int{r.Vnum: 0}
 	queue := []*room.Room{r}
 	for len(queue) > 0 {
@@ -98,12 +86,87 @@ func (w *World) mapAround(r *room.Room, p *Player) *output.MapData {
 			depth[to] = depth[cur.Vnum] + 1
 			queue = append(queue, next)
 		}
-		data.Rooms = append(data.Rooms, output.MapRoom{
+		mr := output.MapRoom{
 			Vnum: cur.Vnum, Name: cur.Name, X: cur.X, Y: cur.Y, Z: cur.Z,
 			Exits: exits, Seen: p.visited[cur.Vnum], Safe: cur.Safe(),
-		})
+		}
+		if mr.Seen {
+			w.mapDetails(&mr, cur)
+		}
+		if scanned[cur.Vnum] {
+			w.mapOccupants(&mr, cur, p)
+		}
+		if cur == r {
+			mr.Items = len(w.contents(r).items) > 0
+		}
+		data.Rooms = append(data.Rooms, mr)
 	}
 	return data
+}
+
+// scannable is the player's room and the rooms scan would look into from
+// it: through open exits, and lit.
+func (w *World) scannable(p *Player) map[int]bool {
+	out := map[int]bool{}
+	if p.Room == nil || !w.canSee(p.Character) {
+		return out
+	}
+	out[p.Room.Vnum] = true
+	for _, dir := range w.openExits(p.Room) {
+		if dest := w.passable(p.Room, dir); dest != nil && (!dest.Dark() || w.lightIn(dest)) {
+			out[dest.Vnum] = true
+		}
+	}
+	return out
+}
+
+// mapDetails fills what a visitor knows of a room.
+func (w *World) mapDetails(mr *output.MapRoom, r *room.Room) {
+	mr.Dark, mr.Temple = r.Dark(), r.Temple
+	have := map[string]bool{}
+	for _, m := range w.contents(r).mobs {
+		for _, s := range []struct {
+			name string
+			ok   bool
+		}{{"shop", isMerchant(m)}, {"trainer", len(m.Proto.Teaches) > 0}, {"quest", isQuestmaster(m)}, {"vendor", isVendor(m)}} {
+			if s.ok && !have[s.name] {
+				have[s.name] = true
+				mr.Services = append(mr.Services, s.name)
+			}
+		}
+	}
+	for dir := range r.Doors {
+		if mr.Doors == nil {
+			mr.Doors = map[string]string{}
+		}
+		switch {
+		case w.doorLocked(r, dir):
+			mr.Doors[dir] = "locked"
+		case w.doorClosed(r, dir):
+			mr.Doors[dir] = "closed"
+		default:
+			mr.Doors[dir] = "open"
+		}
+	}
+}
+
+// mapOccupants counts who p could scan in r.
+func (w *World) mapOccupants(mr *output.MapRoom, r *room.Room, p *Player) {
+	first := true
+	for _, c := range w.visibleCharactersIn(p.Character, r) {
+		switch {
+		case c == p.Character:
+		case c.IsPlayer():
+			mr.Players++
+		case c.mob != nil && !c.mob.Proto.HasFlag("peaceful"):
+			gap := c.Level - p.Level
+			if first || gap > mr.Danger {
+				mr.Danger = gap
+			}
+			first = false
+			mr.Foes++
+		}
+	}
 }
 
 // sendCommands tells a client which commands exist, for completion.

@@ -225,3 +225,70 @@ function resolveCast(caster, targets, spell) {
 		t.Fatalf("drain heal: %q health %d/%d", o, p.Health, p.HealthMax)
 	}
 }
+
+// staminaRules gives a pool of 10 that refills 2 a round, and a kick that
+// costs 4 with no cooldown.
+const staminaRules = testRules + `
+function skillList() {
+  return [{ id: "kick", name: "Kick", level: 1, target: "single", cooldown: 0, stamina: 4, start: 50, innate: true, description: "Kick." }];
+}
+function useSkill(user, target, skill, e) { return { ok: true, hit: true, stage: "", damage: 1, verb: "kick", effects: [], skills: {} }; }
+`
+
+func TestSkillsSpendStamina(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	src := strings.Replace(staminaRules, "manaMax: 5,", "manaMax: 5, staminaMax: 10,", 1)
+	src = strings.Replace(src, "manaDelta: 0 }", "manaDelta: 0, staminaDelta: 2 }", 1)
+	setRules(t, w, src)
+	p := w.players[1]
+	p.Stamina = p.StaminaMax
+	if p.StaminaMax != 10 {
+		t.Fatalf("stamina max %d", p.StaminaMax)
+	}
+	send(w, 1, "kill guard")
+	send(w, 1, "kick")
+	if p.Stamina != 6 {
+		t.Fatalf("after one kick: %d", p.Stamina)
+	}
+	for i := 0; i < 10; i++ { // a round, so the next skill is allowed
+		w.Tick()
+	}
+	p.Stamina = 3
+	bob.take()
+	send(w, 1, "kick")
+	if o := bob.take(); !strings.Contains(o, "too winded for Kick: it takes 4 stamina and you have 3") {
+		t.Fatalf("winded: %q", o)
+	}
+	for i := 0; i < 10; i++ { // one round
+		w.Tick()
+	}
+	if p.Stamina != 5 {
+		t.Fatalf("after a round: %d", p.Stamina)
+	}
+	send(w, 1, "skills")
+	if o := bob.take(); !strings.Contains(o, "4 stamina") {
+		t.Fatalf("skills: %q", o)
+	}
+}
+
+// TestShippedCostsReachTheEngine guards the rules' list functions, which
+// copy fields by name: every shipped active skill costs stamina or keeps
+// a cooldown, every shipped spell costs mana, and pools are non-empty.
+func TestShippedCostsReachTheEngine(t *testing.T) {
+	w := shippedWorld(t)
+	for _, sk := range w.skillList() {
+		if !sk.Passive && sk.Stamina <= 0 && sk.Cooldown <= 0 {
+			t.Errorf("skill %s costs nothing", sk.ID)
+		}
+	}
+	for _, sp := range w.spellList() {
+		if sp.Mana <= 0 {
+			t.Errorf("spell %s costs no mana", sp.ID)
+		}
+	}
+	c := w.simFighter(5)
+	if c.ManaMax <= 0 || c.StaminaMax <= 0 {
+		t.Errorf("pools: mana %d stamina %d", c.ManaMax, c.StaminaMax)
+	}
+}

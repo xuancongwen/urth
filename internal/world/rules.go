@@ -45,8 +45,9 @@ type Proc struct {
 
 // TickResult is what onTick returns.
 type TickResult struct {
-	HealthDelta int `json:"healthDelta"`
-	ManaDelta   int `json:"manaDelta"`
+	HealthDelta  int `json:"healthDelta"`
+	ManaDelta    int `json:"manaDelta"`
+	StaminaDelta int `json:"staminaDelta"`
 	// Skills carries updated effectiveness ratings for skills in use.
 	Skills map[string]float64 `json:"skills"`
 	// Aura strikes every enemy fighting the character in its room.
@@ -93,9 +94,10 @@ type kitEntry struct {
 // Derived is what derivedStats returns. Speed is swings per round and may
 // be fractional (docs/RULES.md 4.4).
 type Derived struct {
-	HealthMax int     `json:"healthMax"`
-	ManaMax   int     `json:"manaMax"`
-	Speed     float64 `json:"speed"`
+	HealthMax  int     `json:"healthMax"`
+	ManaMax    int     `json:"manaMax"`
+	StaminaMax int     `json:"staminaMax"`
+	Speed      float64 `json:"speed"`
 	// Stats are the effective stats after gear and effects, for display.
 	Stats map[string]int `json:"stats"`
 }
@@ -184,6 +186,8 @@ func (w *World) view(c *Character) map[string]any {
 		"healthMax":  c.HealthMax,
 		"mana":       c.Mana,
 		"manaMax":    c.ManaMax,
+		"stamina":    c.Stamina,
+		"staminaMax": c.StaminaMax,
 		"speed":      c.Speed,
 		"equipment":  eq,
 		"effects":    effect.Views(nil, c.Effects),
@@ -255,6 +259,9 @@ func itemView(it *item.Item) map[string]any {
 	if p.Material != "" {
 		v["material"] = p.Material
 		v["rarity"] = p.Rarity
+	}
+	if it.Rarity != "" {
+		v["rarity"] = it.Rarity
 	}
 	if p.School != "" {
 		v["school"] = p.School
@@ -450,6 +457,9 @@ func (w *World) derived(c *Character) Derived {
 	if d.ManaMax < 0 {
 		d.ManaMax = 0
 	}
+	if d.StaminaMax < 0 {
+		d.StaminaMax = 0
+	}
 	if d.Speed <= 0 {
 		d.Speed = 1
 	}
@@ -518,10 +528,14 @@ func (w *World) recalc(c *Character) {
 	d := w.derived(c)
 	c.HealthMax = d.HealthMax
 	c.ManaMax = d.ManaMax
+	c.StaminaMax = d.StaminaMax
 	c.Speed = d.Speed
 	c.EffStats = d.Stats
 	if c.Health > c.HealthMax {
 		c.Health = c.HealthMax
+	}
+	if c.Stamina > c.StaminaMax {
+		c.Stamina = c.StaminaMax
 	}
 	if c.Mana > c.ManaMax {
 		c.Mana = c.ManaMax

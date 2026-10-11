@@ -45,8 +45,8 @@ Prefixes work (`n`, `inv`, `wie`). Targets take ROM forms: `sword`,
 | Magic | cast spells consume sacrifice |
 | Groups | follow group gtell |
 | Talking | say (or `'`) chat yell |
-| Character | score train feat practice quest who color save password quit |
-| Builder (admin) | goto at stat load purge force restore transfer peace reload simulate copyover shutdown |
+| Character | score (stats) settings train feat practice quest expedition who color save password quit |
+| Builder (admin) | goto at stat load purge force restore transfer peace reload simulate loot copyover shutdown |
 | Admin | promote demote passwd deny allow users |
 
 The admin page at `server.admin_addr` lists every character with who is

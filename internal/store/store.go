@@ -54,6 +54,7 @@ type Record struct {
 	Deity   string   `yaml:"deity,omitempty"`
 	Health  int      `yaml:"health"`
 	Mana    int      `yaml:"mana"`
+	Stamina int      `yaml:"stamina,omitempty"`
 	// Quests (docs/RULES.md 7.6): points banked, the quest under way, and
 	// rounds to wait before the next request.
 	QuestPoints int         `yaml:"quest_points,omitempty"`
@@ -76,6 +77,12 @@ type SavedItem struct {
 	Burn     int             `yaml:"burn,omitempty"`
 	// Quest names the player whose fetch quest this item belongs to.
 	Quest string `yaml:"quest,omitempty"`
+	// Rarity, Color, Prefix, and Suffix are what a loot roll gave the
+	// instance (docs/RULES.md 5.3); its affixes are among Effects.
+	Rarity string `yaml:"rarity,omitempty"`
+	Color  string `yaml:"color,omitempty"`
+	Prefix string `yaml:"prefix,omitempty"`
+	Suffix string `yaml:"suffix,omitempty"`
 }
 
 // SavedQuest is a quest in progress (docs/RULES.md 7.6).
