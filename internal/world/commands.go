@@ -314,8 +314,8 @@ func cmdSay(w *World, p *Player, args string) {
 		return
 	}
 	said := output.Escape(args)
-	w.act("You say '{G}$t{x}'", p.Character, nil, said, toChar)
-	w.act("$n says '{G}$t{x}'", p.Character, nil, said, toRoom)
+	w.actChat("You say '{G}$t{x}'", p.Character, nil, said, toChar)
+	w.actChat("$n says '{G}$t{x}'", p.Character, nil, said, toRoom)
 }
 
 // cmdWho lists everyone playing whom the asker can see. Invisible and

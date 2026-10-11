@@ -105,6 +105,13 @@ func (c *Character) Send(text string) {
 	}
 }
 
+// SendChat sends speech: text a client may set apart as chat.
+func (c *Character) SendChat(text string) {
+	if c.player != nil {
+		c.player.SendMsg(output.Message{Type: output.Chat, Text: text})
+	}
+}
+
 // Mob is a non-player character spawned from a prototype.
 type Mob struct {
 	*Character

@@ -1,8 +1,10 @@
 package world
 
 import (
+	"strings"
 	"testing"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/output"
 )
@@ -90,5 +92,48 @@ func TestStateMapDetails(t *testing.T) {
 	}
 	if r := rooms[3]; r.Vnum == 3 && (r.Temple != "good" || r.Doors["west"] == "") {
 		t.Fatalf("seen temple: %+v", r)
+	}
+}
+
+func TestChatIsTyped(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	alice := login(t, w, 2, "Alice")
+	alice.batches = nil
+	send(w, 1, "say hello")
+	send(w, 1, "tell alice psst")
+	var said, told bool
+	for _, b := range alice.batches {
+		for _, m := range b.Messages {
+			if m.Type == output.Chat && strings.Contains(m.Text, "says") {
+				said = true
+			}
+			if m.Type == output.Chat && strings.Contains(m.Text, "tells you") {
+				d, ok := m.Data.(output.ChatData)
+				told = ok && d.Tell && d.From == "Bob"
+			}
+		}
+	}
+	if !said || !told {
+		t.Fatalf("say typed %v, tell typed with sender %v", said, told)
+	}
+	_ = bob
+}
+
+func TestStateCarriesEffectsAndGroup(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	login(t, w, 2, "Alice")
+	send(w, 2, "follow bob")
+	send(w, 1, "group alice")
+	p := w.players[1]
+	p.Effects = append(p.Effects, effect.Active{Spec: effect.Spec{Kind: "attacks", Params: map[string]any{"amount": 1}}, Rounds: 5})
+	send(w, 1, "client state")
+	s, _ := lastState(bob)
+	if len(s.Effects) != 1 || s.Effects[0].Rounds != 5 || s.Effects[0].Left == "" {
+		t.Fatalf("effects: %+v", s.Effects)
+	}
+	if len(s.Group) != 1 || s.Group[0].Name != "Alice" || !s.Group[0].Here {
+		t.Fatalf("group: %+v", s.Group)
 	}
 }

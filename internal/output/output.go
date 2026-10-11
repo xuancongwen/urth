@@ -49,6 +49,9 @@ const (
 	// a kill's experience and loot, a quest's pay, an expedition's haul.
 	// Text clients ignore it; the same news is in the text.
 	Reward Type = "reward"
+	// Chat is something a player said: say, chat, yell, tell, group
+	// talk. Text clients show it like any text; a client may set it apart.
+	Chat Type = "chat"
 )
 
 // RewardData accompanies a Reward message. Kills names each foe whose
@@ -62,6 +65,13 @@ type RewardData struct {
 	QuestPoints int        `json:"questPoints,omitempty"`
 	Items       []GearItem `json:"items"`
 	Level       int        `json:"level,omitempty"`
+}
+
+// ChatData accompanies a Chat message that is a tell to the reader:
+// From is who sent it, so a client can offer to reply.
+type ChatData struct {
+	Tell bool   `json:"tell"`
+	From string `json:"from"`
 }
 
 // SessionData accompanies a Session message.
@@ -225,10 +235,42 @@ type StateData struct {
 	// Stats are the character's stats in display order, each as trained
 	// and as gear and effects make it; StatPoints and FeatPoints are
 	// unspent picks; QuestPoints are banked.
-	Stats       []Stat `json:"stats"`
-	StatPoints  int    `json:"statPoints"`
-	FeatPoints  int    `json:"featPoints"`
-	QuestPoints int    `json:"questPoints"`
+	Stats []Stat `json:"stats"`
+	// Quest is the quest under way, if any; Group the other members of the
+	// character's group; Effects the timed effects on it.
+	Quest       *QuestState   `json:"quest,omitempty"`
+	Group       []Companion   `json:"group"`
+	Effects     []EffectState `json:"effects"`
+	StatPoints  int           `json:"statPoints"`
+	FeatPoints  int           `json:"featPoints"`
+	QuestPoints int           `json:"questPoints"`
+}
+
+// QuestState is a quest under way: kill or fetch, the target's name, the
+// area it is in, the time left in words, and whether it only waits to be
+// handed in.
+type QuestState struct {
+	Kind   string `json:"kind"`
+	Target string `json:"target"`
+	Area   string `json:"area"`
+	Left   string `json:"left"`
+	Done   bool   `json:"done,omitempty"`
+}
+
+// Companion is a fellow group member: Here says they share the room.
+type Companion struct {
+	Name      string `json:"name"`
+	Health    int    `json:"health"`
+	HealthMax int    `json:"healthMax"`
+	Here      bool   `json:"here,omitempty"`
+}
+
+// EffectState is a timed effect: what it does, in words, and its time
+// left, in rounds and in words.
+type EffectState struct {
+	Text   string `json:"text"`
+	Rounds int    `json:"rounds"`
+	Left   string `json:"left"`
 }
 
 // Stat is one stat on a state snapshot.

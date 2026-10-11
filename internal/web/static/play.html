@@ -37,6 +37,10 @@
   .row { display: flex; align-items: center; gap: 8px; }
   .grow { flex: 1; min-width: 0; }
   .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Item and creature names wrap rather than clip: a rolled name with a
+     prefix, a suffix, its tier, and the comparison runs long on a phone. */
+  .wrap { white-space: normal; overflow-wrap: anywhere; line-height: 1.3; }
+  .wrap .cmp, .wrap .tier { white-space: nowrap; }
   .bar { height: 5px; background: #23262e; border-radius: 3px; overflow: hidden; }
   .bar > i { display: block; height: 100%; background: var(--ok); transition: width .25s; }
   .bar.foe > i { background: var(--bad); }
@@ -75,7 +79,22 @@
   #vit .v { font-size: .7em; color: var(--dim); }
   #vit .v span { float: right; color: var(--fg); }
 
-  #xprow { margin-top: 6px; }
+  #effects { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  #effects:empty { display: none; }
+  #effects span { font-size: .68em; padding: 1px 7px; border-radius: 999px; background: #1f2a33; color: #9cc8e8; white-space: nowrap; }
+  #effects span b { color: var(--dim); font-weight: 400; margin-left: 4px; }
+  #party { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; }
+  #party:empty { display: none; }
+  .mate { font-size: .78em; color: #9cc8e8; }
+  .mate .bar { height: 4px; margin-top: 2px; }
+  #queststrip { margin-top: 10px; padding: 7px 10px; border-radius: 10px; background: #1b1d2a; border: 1px solid #2c3050; font-size: .85em; cursor: pointer; }
+  #queststrip:empty { display: none; }
+  #queststrip b { color: #a9b4ff; font-weight: 600; }
+  #notice { position: fixed; left: 50%; transform: translateX(-50%); top: calc(8px + env(safe-area-inset-top)); z-index: 6;
+    width: min(500px, calc(100% - 24px)); background: #2a1f33; border: 1px solid #6a4a8a; border-radius: 12px; padding: 8px 10px;
+    box-shadow: 0 8px 24px #000a; display: flex; align-items: center; gap: 8px; animation: rise .2s ease-out; }
+  #notice .msg { flex: 1; min-width: 0; font-size: .9em; }
+  #log .chat { color: #e2c6f5; }
   #xprow .v { font-size: .7em; color: var(--dim); }
   #xprow .v b { color: var(--fg); font-weight: 600; margin-right: 6px; }
   #xprow .v span { float: right; }
@@ -210,6 +229,7 @@
         <div id="manawrap"><div class="v">MP<span id="mana"></span></div><div class="bar mana"><i id="manabar"></i></div></div>
         <div id="stamwrap"><div class="v">ST<span id="stam"></span></div><div class="bar stam"><i id="stambar"></i></div></div>
       </div>
+      <div id="effects"></div>
       <div id="xprow"><div class="v"><b id="xplevel"></b><span id="xptext"></span></div><div class="bar xp"><i id="xpbar"></i></div></div>
     </div>
 
@@ -230,6 +250,7 @@
 
     <div id="battle" style="display:none">
       <div id="foes"></div>
+      <div id="party"></div>
       <div id="casting"></div>
       <div id="combatlog"></div>
     </div>
@@ -239,6 +260,7 @@
 
     <div id="panel">
       <div data-pane="here">
+        <div id="queststrip"></div>
         <div id="desc" class="clamp"></div>
         <div class="list" id="herelist"></div>
         <div class="chips" id="restrow"></div>
@@ -246,6 +268,7 @@
       <div data-pane="bag" style="display:none"><div class="chips" id="bagbar"></div><div class="list" id="baglist"></div></div>
       <div data-pane="gear" style="display:none"><div class="list" id="gearlist"></div></div>
       <div data-pane="log" style="display:none">
+        <div class="chips" id="logfilter"></div>
         <div class="chips" id="talkmodes"></div>
         <form id="cmdform" class="row" style="margin-top:8px"><input id="cmd" class="text" autocomplete="off" autocapitalize="off" placeholder="type a command"><button type="submit">Send</button></form>
         <div id="log"></div>
@@ -258,11 +281,12 @@
       <button type="button" data-tab="here" class="on">Here</button>
       <button type="button" data-tab="bag">Bag<span class="badge" id="bagcount"></span></button>
       <button type="button" data-tab="gear">Gear</button>
-      <button type="button" data-tab="log">Log</button>
+      <button type="button" data-tab="log">Log<span class="badge" id="chatcount" style="display:none"></span></button>
       <button type="button" data-tab="me">Me</button>
     </nav>
   </div>
 </div>
+<div id="notice" style="display:none"></div>
 <div id="shade"></div>
 <div id="sheet"><div>
   <div class="grip"></div>
@@ -416,6 +440,11 @@
       case 'expeditions': if (sheetFor === 'Expeditions') expeditionActs(m.data || []); return;
       case 'offers': if (sheetFor) offerActs(m.data || {}); return;
       case 'reward': showReward(m.data || {}); return;
+      case 'chat':
+        if (!inGame) break;
+        addText(m.text, m.html, false, true);
+        if (m.data && m.data.tell) showNotice(m.text.trim(), m.data.from);
+        return;
       case 'room':
         if (!inGame) enterGame();
         showDescription(m.text);
@@ -464,10 +493,15 @@
   // Lines are kept as the server's HTML (escaped text in color spans, as
   // the main client shows them); a line with no text is dropped.
   function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
-  function addText(text, html, logOnly) {
+  function addText(text, html, logOnly, chat) {
     var plain = text.split('\n'), marked = (html || esc(text)).split('\n'), lines = [];
     for (var i = 0; i < plain.length; i++) if (plain[i].trim() !== '') lines.push(marked[i] !== undefined ? marked[i] : esc(plain[i]));
     if (!lines.length) return;
+    if (chat) {
+      lines = lines.map(function (l) { return '<span class="chat">' + l + '</span>'; });
+      chatLines = chatLines.concat(lines).slice(-200);
+      if (currentTab !== 'log') { unreadChat += lines.length; showChatCount(); }
+    }
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
     if (wasFighting && !logOnly) {
       combatLines = combatLines.concat(lines).slice(-30);
@@ -477,7 +511,7 @@
     feed = feed.slice(-2); logLines = logLines.slice(-300);
     var f = $('ticker'); f.textContent = '';
     feed.forEach(function (l) { var d = el('div'); d.innerHTML = l; f.appendChild(d); });
-    $('log').innerHTML = logLines.join('\n');
+    $('log').innerHTML = (logFilter === 'chat' ? chatLines : logLines).join('\n');
     if (currentTab === 'log') $('panel').scrollTop = $('panel').scrollHeight;
     if (sheetFor) { sheetLines = sheetLines.concat(lines).slice(-200); $('sheettext').innerHTML = sheetLines.join('\n'); }
   }
@@ -603,6 +637,7 @@
     if (s.room.vnum !== lastRoom) { lastRoom = s.room.vnum; pan = { x: 0, y: 0 }; picked = 0; showPick(); }
     setMap(s.map);
     renderPad(s);
+    renderStatus(s);
 
     renderFight(s);
     renderHere(s);
@@ -634,6 +669,35 @@
       pad.appendChild(b);
     });
   }
+
+  // Effects as chips under the vitals; the quest in Here; the group's
+  // health in Here and in the battle view.
+  function renderStatus(s) {
+    var fx = $('effects'); fx.textContent = '';
+    (s.effects || []).forEach(function (e) {
+      var chip = el('span', '', e.text.length > 28 ? e.text.slice(0, 27) + '…' : e.text);
+      chip.title = e.text;
+      chip.appendChild(el('b', '', e.left));
+      fx.appendChild(chip);
+    });
+    var q = $('queststrip'); q.textContent = '';
+    if (s.quest) {
+      q.appendChild(document.createTextNode('Quest: '));
+      q.appendChild(el('b', '', (s.quest.kind === 'kill' ? 'kill ' : 'find ') + s.quest.target));
+      q.appendChild(document.createTextNode(s.quest.done ? ' · done, return to a questmaster' : ' · ' + s.quest.area + ' · ' + s.quest.left + ' left'));
+    }
+    var party = $('party'); party.textContent = '';
+    (s.group || []).forEach(function (m) {
+      var d = el('div', 'mate');
+      d.appendChild(el('span', '', m.name + (m.here ? '' : ' (away)') + ' · ' + m.health + '/' + m.healthMax));
+      var bar = el('div', 'bar'); var i = el('i'); i.style.width = pct(m.health, m.healthMax); bar.appendChild(i);
+      d.appendChild(bar);
+      party.appendChild(d);
+    });
+  }
+  $('queststrip').addEventListener('click', function () {
+    openSheet('Quest', 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete']]);
+  });
 
   function coins(silver) {
     if (!silver) return 'no coins';
@@ -707,7 +771,7 @@
         // button; fighting it moves to the sheet.
         var svc = serviceAction(m);
         var fight = s.room.safe ? null : ['Fight', 'kill ' + m.ref];
-        row(list, el('span', 'name ellipsis mob', m.name), svc || fight,
+        row(list, el('span', 'name wrap mob', m.name), svc || fight,
           function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref]].concat(fight ? [fight] : [])); });
       });
     }
@@ -725,7 +789,7 @@
       s.room.items.forEach(function (it) {
         var main = /corpse/.test(it.name) ? ['Loot', 'get all ' + it.ref] : it.fixed ? null : ['Take', 'get ' + it.ref, ''];
         var cls = it.color ? 'c-' + it.color : it.fixed ? 'fixed' : 'item';
-        var label = el('span', 'name ellipsis ' + cls, (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
+        var label = el('span', 'name wrap ' + cls, (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
         if (it.rarity) { // as the room text has it: "a club (uncommon)", the tag in the tier's color
           label.title = it.rarity;
           label.appendChild(document.createTextNode(' '));
@@ -733,6 +797,15 @@
         }
         row(list, label, main,
           function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); });
+      });
+    }
+    if ((s.group || []).length) {
+      section(list, 'Group');
+      s.group.forEach(function (m) {
+        var name = el('span', 'name ellipsis mate', m.name + (m.here ? '' : ' (away)'));
+        var bar = el('div', 'bar'); var i = el('i'); i.style.width = pct(m.health, m.healthMax); bar.appendChild(i);
+        name.appendChild(bar);
+        row(list, name, null, function () { openSheet(m.name, 'look ' + m.name.toLowerCase(), [['Tell…', function () { closeSheet(); talkTo('tell ' + m.name); }]]); });
       });
     }
     doorRows(list);
@@ -899,7 +972,7 @@
   }
 
   function itemName(it) {
-    var span = el('span', 'name ellipsis ' + (it.color ? 'c-' + it.color : ''), (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
+    var span = el('span', 'name wrap ' + (it.color ? 'c-' + it.color : ''), (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
     if (it.rarity) span.title = it.rarity;
     return span;
   }
@@ -987,7 +1060,7 @@
         var use = useAction(it), name = itemName(it), mark = compareMark(compare(it, s));
         if (mark) name.appendChild(mark);
         if (selecting) {
-          var tickName = el('span', 'name ellipsis');
+          var tickName = el('span', 'name wrap');
           tickName.appendChild(el('span', 'tick', picked[it.id] ? '✓' : '○'));
           tickName.appendChild(name);
           var d = el('div' + '', picked[it.id] ? 'picked' : '');
@@ -1039,7 +1112,7 @@
   function renderGear(s) {
     var list = $('gearlist'); list.textContent = '';
     s.equipment.forEach(function (it) {
-      var name = el('span', 'name ellipsis');
+      var name = el('span', 'name wrap');
       var slot = el('span', 'dim', it.slot.replace(/[12]$/, '') + '  '); slot.style.fontSize = '.8em';
       name.appendChild(slot); name.appendChild(itemName(it));
       row(list, name, null, function () { openSheet(it.name, 'look ' + it.ref, [['Remove', 'remove ' + it.ref]]); });
@@ -1345,6 +1418,36 @@
   $('shade').addEventListener('click', closeSheet);
 
   // The Log tab takes typed commands too, for anything without a button.
+  // ---- Chat: counted while you are elsewhere, filterable in the log, and
+  // a tell to you shows as a notice with a Reply.
+  var chatLines = [], unreadChat = 0, logFilter = 'all', noticeTimer = null;
+  function showChatCount() {
+    var b = $('chatcount');
+    b.textContent = unreadChat > 99 ? '99+' : String(unreadChat);
+    b.style.display = unreadChat ? '' : 'none';
+  }
+  function renderLogFilter() {
+    var box = $('logfilter'); box.textContent = '';
+    [['Everything', 'all'], ['Chat only', 'chat']].forEach(function (f) {
+      box.appendChild(btn(f[0], function () {
+        logFilter = f[1]; renderLogFilter();
+        $('log').innerHTML = (logFilter === 'chat' ? chatLines : logLines).join('\n');
+        $('panel').scrollTop = $('panel').scrollHeight;
+      }, logFilter === f[1] ? 'primary' : ''));
+    });
+  }
+  renderLogFilter();
+  function showNotice(text, from) {
+    var n = $('notice'); n.textContent = '';
+    n.appendChild(el('span', 'msg', text));
+    n.appendChild(btn('Reply', function () { n.style.display = 'none'; talkTo('tell ' + from); }, 'primary'));
+    n.appendChild(btn('✕', function () { n.style.display = 'none'; }, 'ghost'));
+    n.style.display = 'flex';
+    clearTimeout(noticeTimer);
+    noticeTimer = setTimeout(function () { n.style.display = 'none'; }, 8000);
+    buzz([40, 60, 40]);
+  }
+
   // The box under the log says, chats, tells, or runs a command, as the
   // chosen mode prefixes it.
   var talkMode = '';
@@ -1373,6 +1476,7 @@
   function tabButton(name) { return document.querySelector('#tabs button[data-tab="' + name + '"]') || el('button'); }
   function showTab(name) {
     currentTab = name;
+    if (name === 'log') { unreadChat = 0; showChatCount(); }
     Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
       b.classList.toggle('on', b.dataset.tab === name);
       if (b.dataset.tab === name) b.classList.remove('alert');

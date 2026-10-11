@@ -214,9 +214,9 @@ func cmdChat(w *World, p *Player, args string) {
 			continue
 		}
 		if o == p {
-			o.Send("{M}You chat '" + msg + "'{x}\n")
+			o.SendChat("{M}You chat '" + msg + "'{x}\n")
 		} else {
-			o.Send("{M}" + p.DisplayName() + " chats '" + msg + "'{x}\n")
+			o.SendChat("{M}" + p.DisplayName() + " chats '" + msg + "'{x}\n")
 		}
 	}
 }
@@ -231,11 +231,11 @@ func cmdYell(w *World, p *Player, args string) {
 		return
 	}
 	msg := output.Escape(args)
-	p.Send("{Y}You yell '" + msg + "'{x}\n")
+	p.SendChat("{Y}You yell '" + msg + "'{x}\n")
 	for _, r := range w.roomsWithin(p.Room, yellRange) {
 		for _, o := range w.playersIn(r) {
 			if o != p {
-				o.Send("{Y}" + p.DisplayName() + " yells '" + msg + "'{x}\n")
+				o.SendChat("{Y}" + p.DisplayName() + " yells '" + msg + "'{x}\n")
 			}
 		}
 	}

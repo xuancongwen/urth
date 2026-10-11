@@ -73,12 +73,12 @@ func (w *World) tell(from, to *Player, msg string) {
 		return
 	}
 	msg = output.Escape(msg)
-	from.Send("{M}You tell " + to.DisplayName() + " '" + msg + "'{x}\n")
+	from.SendChat("{M}You tell " + to.DisplayName() + " '" + msg + "'{x}\n")
 	sender := from.DisplayName()
 	if !w.canSeeChar(to.Character, from.Character) {
 		sender = "Someone"
 	}
-	to.Send("{M}" + sender + " tells you '" + msg + "'{x}\n")
+	to.SendMsg(output.Message{Type: output.Chat, Text: "{M}" + sender + " tells you '" + msg + "'{x}\n", Data: output.ChatData{Tell: true, From: from.Name}})
 	if to.Position == posSleeping {
 		from.Send(to.DisplayName() + " is asleep.\n")
 	}

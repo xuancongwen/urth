@@ -33,16 +33,25 @@ func (w *World) act(format string, actor *Character, victim *Character, text str
 }
 
 func (w *World) actItem(format string, actor *Character, victim *Character, itemName string, text string, to actTarget) {
+	w.actSend((*Character).Send, format, actor, victim, itemName, text, to)
+}
+
+// actChat is act for speech: the messages are typed as chat (output.Chat).
+func (w *World) actChat(format string, actor *Character, victim *Character, text string, to actTarget) {
+	w.actSend((*Character).SendChat, format, actor, victim, "", text, to)
+}
+
+func (w *World) actSend(send func(*Character, string), format string, actor *Character, victim *Character, itemName string, text string, to actTarget) {
 	msg := capitalize(expandAct(format, actor, victim, itemName, text))
 	if !strings.HasSuffix(msg, "\n") {
 		msg += "\n"
 	}
 	switch to {
 	case toChar:
-		actor.Send(msg)
+		send(actor, msg)
 	case toVict:
 		if victim != nil {
-			victim.Send(msg)
+			send(victim, msg)
 		}
 	case toNotVict, toRoom:
 		if actor.Room == nil {
@@ -52,7 +61,7 @@ func (w *World) actItem(format string, actor *Character, victim *Character, item
 			if p.Character == actor || (to == toNotVict && p.Character == victim) {
 				continue
 			}
-			p.Send(msg)
+			send(p.Character, msg)
 		}
 	}
 }

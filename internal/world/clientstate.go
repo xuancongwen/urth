@@ -80,6 +80,22 @@ func (w *World) clientState(p *Player) output.StateData {
 		}
 		s.Stats = append(s.Stats, output.Stat{Name: k, Base: c.Stats[k], Effective: eff})
 	}
+	s.Group, s.Effects = []output.Companion{}, []output.EffectState{}
+	for _, m := range groupOf(c) {
+		if m != c {
+			s.Group = append(s.Group, output.Companion{Name: m.Name, Health: m.Health, HealthMax: m.HealthMax, Here: m.Room == c.Room})
+		}
+	}
+	for _, e := range c.Effects {
+		if e.Rounds > 0 && e.Kind != "skill" {
+			bare := e
+			bare.Rounds = 0
+			s.Effects = append(s.Effects, output.EffectState{Text: output.Strip(w.describeEffect(bare)), Rounds: e.Rounds, Left: w.roundsLeft(e.Rounds)})
+		}
+	}
+	if q := p.quest; q != nil {
+		s.Quest = &output.QuestState{Kind: q.Kind, Target: w.questTargetName(q), Area: w.areaName(q.Area), Left: w.questMinutes(q.Rounds), Done: q.Done}
+	}
 	s.Room = w.stateRoom(p)
 	if w.canSee(c) {
 		s.Map = w.mapAround(p.Room, p)

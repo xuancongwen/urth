@@ -223,9 +223,9 @@ func cmdGtell(w *World, p *Player, args string) {
 	msg := output.Escape(args)
 	for _, m := range p.group.members {
 		if m == p.Character {
-			m.Send("You tell the group '" + msg + "'\n")
+			m.SendChat("You tell the group '" + msg + "'\n")
 		} else {
-			m.Send(p.DisplayName() + " tells the group '" + msg + "'\n")
+			m.SendChat(p.DisplayName() + " tells the group '" + msg + "'\n")
 		}
 	}
 }
