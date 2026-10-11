@@ -172,7 +172,7 @@ func Default() Config {
 		},
 		Timing: Timing{
 			TickMs:          100,
-			RoundMs:         2000,
+			RoundMs:         3000,
 			AutosaveSeconds: 300,
 		},
 		Paths: Paths{

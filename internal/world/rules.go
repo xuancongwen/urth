@@ -2,6 +2,7 @@ package world
 
 import (
 	"errors"
+	"math"
 	"strings"
 
 	"urth/internal/effect"
@@ -539,5 +540,18 @@ func (w *World) recalc(c *Character) {
 	}
 	if c.Mana > c.ManaMax {
 		c.Mana = c.ManaMax
+	}
+}
+
+// checkRoundLength warns when the rules count wall-clock timers (regen,
+// corpses, quests) for a round of a different length than the config's.
+func (w *World) checkRoundLength() {
+	var secs float64
+	if !w.callOptional("roundSeconds", &secs) || secs <= 0 {
+		return
+	}
+	if cfg := float64(w.cfg.Timing.RoundMs) / 1000; math.Abs(cfg-secs) > 0.001 {
+		w.log.Warn("the rules assume a different round length than timing.round_ms; their timers will run long or short",
+			"rules_seconds", secs, "config_seconds", cfg)
 	}
 }

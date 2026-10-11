@@ -18,6 +18,11 @@
 // Parameters (RULES 3.3, 4.3, 4.5, 4.6, 7.1)
 // ---------------------------------------------------------------------
 var P = {
+  // The round is timing.round_ms in config; keep this in step with it.
+  // Fights, cooldowns, and effects are counted in rounds and run at its
+  // pace; the timers below meant as wall-clock time are kept in seconds or
+  // minutes and turned into rounds from it (after this object).
+  roundSeconds: 3,      // ROM 2.4's combat round (decided 2026-10-11, from 2 s)
   statBaseline: 10,     // a stat of 10 multiplies by exactly 1
   statK: 0.05,          // multiplier per point above or below 10
   statBand: 0.10,       // ±10% jitter on every stat multiplier (4.2)
@@ -29,13 +34,13 @@ var P = {
   blockBase: 0.0,       // nothing blocks without a shield or a feat
   K: 20,                // reduction = D / (D + K) at level 1; K is a unit, not a cap
   kGrowth: 1.0,         // K grows with the attacker's level as levelGrowth^((L-1)*kGrowth); at 1.0 a tier of armor reduces the same share at every level
-  regenRounds: 45,      // rounds from empty to full out of a fight, standing (90 s)
+  regenSeconds: 90,     // empty to full out of a fight, standing
   restRegen: 2,         // resting regenerates twice as fast (45 s)
   sleepRegen: 3,        // sleeping three times as fast (30 s)
   xpBase: 50, xpR: 1.15, // cost(N) = xpBase * N * xpR^(N-1)
   xpPerLevelKill: 10,   // an even kill is worth 10 * victim level
   deathXpFraction: 0.20, deathXpLevelCap: 0.50,
-  corpseRounds: 600,    // 20 minutes at 2 s rounds
+  corpseMinutes: 20,    // how long a corpse lies before it rots
   respawnHealth: 0.25,
   pointsAtCreation: 6, pointsPerLevel: 2,
   featsPerLevel: 1,     // feat picks per level (7.2: one or two)
@@ -44,7 +49,7 @@ var P = {
   // multipliers, and refills from empty in manaRegenRounds standing out
   // of a fight (resting and sleeping speed it as they do health). In a
   // fight it comes back at manaFightRegen of that rate.
-  manaBase: 30, manaPerLevel: 3, manaRegenRounds: 45, manaFightRegen: 0,
+  manaBase: 30, manaPerLevel: 3, manaRegenSeconds: 90, manaFightRegen: 0,
   // Stamina (RULES 7.7): what skills spend, refilled within a fight. The
   // pool is staminaBase plus staminaPerLevel a level, times the better of
   // the Strength and Constitution multipliers; it refills from empty in
@@ -56,6 +61,13 @@ var P = {
   staminaHeavyArmor: 0.25, staminaPlateArmor: 0.4, staminaHeavyWeapon: 0.1,
   exhaustedDodge: 0.05
 };
+// The engine warns at start when this disagrees with timing.round_ms.
+function roundSeconds() { return P.roundSeconds; }
+
+// Wall-clock timers in rounds of P.roundSeconds.
+P.regenRounds = P.regenSeconds / P.roundSeconds;
+P.manaRegenRounds = P.manaRegenSeconds / P.roundSeconds;
+P.corpseRounds = Math.round(P.corpseMinutes * 60 / P.roundSeconds);
 
 var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
@@ -1426,12 +1438,11 @@ var QUEST = {
   quitMinutes: 10,     // wait after giving up, so quitting is not a reroll
   pointsBase: 8,       // quest points for a level-0 task ...
   pointsPerLevel: 2,   // ... plus this per level of the target
-  silverPerLevel: 20,  // coin on top, in silver
-  roundSeconds: 2      // timing.round_ms in config; keep in step
+  silverPerLevel: 20   // coin on top, in silver
 };
 
 function questRules(c) {
-  var perMinute = 60 / QUEST.roundSeconds;
+  var perMinute = 60 / P.roundSeconds;
   return { levelBand: QUEST.levelBand, rounds: QUEST.minutes * perMinute,
            cooldown: QUEST.cooldownMinutes * perMinute, quitCooldown: QUEST.quitMinutes * perMinute };
 }

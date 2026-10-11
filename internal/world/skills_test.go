@@ -4,6 +4,7 @@ import (
 	"strings"
 	"testing"
 
+	"urth/internal/config"
 	"urth/internal/item"
 )
 
@@ -290,5 +291,18 @@ func TestShippedCostsReachTheEngine(t *testing.T) {
 	c := w.simFighter(5)
 	if c.ManaMax <= 0 || c.StaminaMax <= 0 {
 		t.Errorf("pools: mana %d stamina %d", c.ManaMax, c.StaminaMax)
+	}
+}
+
+// TestShippedRoundLengthAgrees: the rules turn wall-clock timers into
+// rounds of their own round length, which must be the config's.
+func TestShippedRoundLengthAgrees(t *testing.T) {
+	w := shippedWorld(t)
+	var secs float64
+	if !w.callOptional("roundSeconds", &secs) {
+		t.Fatal("the shipped rules have no roundSeconds")
+	}
+	if want := float64(config.Default().Timing.RoundMs) / 1000; secs != want {
+		t.Fatalf("rules assume %v s rounds, the default config %v s", secs, want)
 	}
 }

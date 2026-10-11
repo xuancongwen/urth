@@ -161,6 +161,7 @@ func (w *World) RegisterTokens(players []copyover.Player) {
 // everyone, says goodbye, and returns.
 func (w *World) Run(ctx context.Context) {
 	w.started = time.Now()
+	w.checkRoundLength()
 	w.log.Info("world running", "tick", w.tick, "round_ticks", w.roundTicks, "autosave_rounds", w.autosaveRounds,
 		"rooms", len(w.content.Rooms.Rooms), "items", len(w.content.Items), "mobs", len(w.content.Mobs), "areas", len(w.areas))
 	ticker := time.NewTicker(w.tick)

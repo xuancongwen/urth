@@ -150,10 +150,17 @@ left out; the engine then uses a quiet default.
 ### Time
 
 - A tick is `timing.tick_ms` (100 ms). Commands are processed once per tick.
-- A round is `timing.round_ms` (2000 ms as of 2026-09-24, down from 3 s).
-  Combat, regeneration, and effect durations are counted in rounds. The
-  field is in milliseconds so fractional seconds can be tried in
-  playtesting; it must be at least one tick.
+- A round is `timing.round_ms`: 3000 ms, ROM 2.4's combat round, as of
+  2026-10-11 (it was 3 s, then 2 s from 2026-09-24, and the designer
+  brought it back to ROM's pace). Combat, cooldowns, cast times, and
+  effect durations are counted in rounds and run at its pace.
+  Regeneration out of a fight, corpse decay, and quest clocks are meant
+  as wall-clock time: the rules keep them in seconds or minutes and
+  turn them into rounds with their own `P.roundSeconds`, which must
+  match `round_ms` (the server warns at start if it does not, and a
+  test holds the shipped pair together). The field is in milliseconds
+  so fractional seconds can be tried in playtesting; it must be at
+  least one tick.
 
 ### Balance tooling (implemented)
 
@@ -310,8 +317,10 @@ the middle of one, with the player logging out somewhere unsafe or
 abandoning the run.
 
 **Synthesis (leaning).** An outing is ten to twenty minutes. That is
-roughly ten fights with rests between them, each fight lasting fifteen
-to twenty seconds, which is eight to ten rounds at two seconds a round. A longer delve is several outings
+roughly ten fights with rests between them, each fight lasting eight
+to ten rounds: fifteen to twenty seconds at the two-second round this
+was written for, twenty-four to thirty seconds at ROM's three-second
+round restored on 2026-10-11, a deliberate slowing of the fight. A longer delve is several outings
 chained by a player who chooses not to return to town, which is exactly
 the attrition risk 2.3 wants. Session-scale goals (a level, a piece of
 gear) span a few outings; career-scale goals span many sessions.
@@ -321,8 +330,8 @@ Consequences: 4.5's table is filled from these numbers. Regeneration
 seconds, long enough to be a choice and short enough not to be a chore.
 Standing out of a fight takes three times as long and resting twice as
 long (decided 2026-09-28), so stopping to rest is worth a command:
-`regenRounds` is the standing figure, `restRegen` and `sleepRegen` the
-multipliers. Resting costs movement, fighting, and casting until the
+`regenSeconds` is the standing figure (ninety seconds; the rules turn
+it into rounds), `restRegen` and `sleepRegen` the multipliers. Resting costs movement, fighting, and casting until the
 character stands; a sleeper can do almost nothing until it wakes, and a
 fight wakes it.
 The targets are in seconds; the round counts follow from the round
@@ -710,10 +719,10 @@ should be checked against.
 
 | Target | Value |
 |---|---|
-| Rounds for an even fight (equal level, standard gear) | 8 to 10 (15 to 20 seconds) |
+| Rounds for an even fight (equal level, standard gear) | 8 to 10 (24 to 30 seconds at 3 s rounds) |
 | Health remaining after an even fight at full health | 50 to 70 percent |
 | Win rate at +1 level, +3 levels, +5 levels | 80, 40, under 10 percent |
-| Rounds to recover from a fight to full | about 15 (30 seconds) |
+| Time to recover from a fight to full, asleep | about 30 seconds (10 rounds at 3 s) |
 | Fights per outing before returning to town | about 10 |
 | Even fights chained with no rest before death is likely | 3 to 4 |
 | Mana spent per fight when magic is used freely, against the pool (6.2) | to be set |
@@ -1451,7 +1460,7 @@ alongside another spell), and *N-round*. Thesis: model all three.
 Antithesis: instant and zero-round both mean "costs no action and no
 time"; they differ only in whether the spell resolves on the tick it is
 typed or at the next round boundary, and no player will feel that
-difference against a two-second round. Two concepts for one experience
+difference against a round of two or three seconds. Two concepts for one experience
 is a cost with no return. **Synthesis (leaning):** one number,
 `castRounds`. Zero means the spell resolves on the tick it is typed
 and does not take the round's action (2.1), so it can be chained with
@@ -1924,7 +1933,7 @@ level band and the timers in rounds; `questReward(player, quest)` is
 asked once, when the quest is given, and returns the points, silver,
 and experience on offer and an optional message. The engine shows those
 numbers and pays them on completion. Defaults without the hooks: three
-levels either way, fifteen minutes at a two-second round, five points
+levels either way, fifteen minutes (in rounds of the rules' `roundSeconds`), five points
 plus the target's level.
 
 Sinks are content: the herald in the Long Hall sells starter and

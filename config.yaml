@@ -40,7 +40,7 @@ timing:
   tick_ms: 100
   # Length of a combat/regen round in milliseconds. Fractional seconds are
   # fine (1500 is a second and a half); must be at least tick_ms.
-  round_ms: 2000
+  round_ms: 3000
   # How often every online player is saved to disk.
   autosave_seconds: 300
 
