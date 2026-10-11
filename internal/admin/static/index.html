@@ -248,6 +248,7 @@
         (c.online ? '<span class="k">address</span><span>' + esc(c.addr) + '</span>' : '') +
         '<span class="k">health</span><span>' + c.health + (c.healthMax ? ' / ' + c.healthMax : '') + (c.fighting ? ' <span style="color:var(--bad)">fighting ' + esc(c.fighting) + '</span>' : '') + '</span>' +
         (c.manaMax || c.mana ? '<span class="k">mana</span><span>' + c.mana + (c.manaMax ? ' / ' + c.manaMax : '') + '</span>' : '') +
+        (c.staminaMax || c.stamina ? '<span class="k">stamina</span><span>' + c.stamina + (c.staminaMax ? ' / ' + c.staminaMax : '') + '</span>' : '') +
         '<span class="k">silver</span><span>' + c.silver + '</span>' +
         (stats ? '<span class="k">stats</span><span>' + esc(stats) + '</span>' : '') +
         (c.statPoints || c.featPoints ? '<span class="k">unspent</span><span>' + (c.statPoints || 0) + ' stat, ' + (c.featPoints || 0) + ' feat</span>' : '') +

@@ -100,3 +100,28 @@ func TestAdminAPI(t *testing.T) {
 	}
 	_ = alice
 }
+
+func TestAdminAPIStamina(t *testing.T) {
+	w := testWorld(t)
+	setRules(t, w, strings.Replace(testRules, "manaMax: 5,", "manaMax: 5, staminaMax: 10,", 1))
+	login(t, w, 1, "Bob")
+	w.players[1].Stamina = 7
+	stop, done := make(chan struct{}), make(chan struct{})
+	go func() {
+		defer close(done)
+		for {
+			select {
+			case <-stop:
+				return
+			default:
+				w.Tick()
+				time.Sleep(time.Millisecond)
+			}
+		}
+	}()
+	defer func() { close(stop); <-done }()
+	bob, err := w.Admin().Character("bob")
+	if err != nil || bob.StaminaMax != 10 || bob.Stamina < 7 {
+		t.Fatalf("bob: stamina %d/%d %v", bob.Stamina, bob.StaminaMax, err)
+	}
+}

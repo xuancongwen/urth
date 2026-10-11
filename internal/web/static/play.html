@@ -68,6 +68,9 @@
   #pickname { font-weight: 600; }
   #legend { position: absolute; left: 8px; bottom: 8px; font-size: .7em; color: var(--dim); background: #0008; padding: 3px 7px; border-radius: 6px; }
 
+  #pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+  #pad button { padding: .6em 0; }
+  #pad button.door { border-color: var(--accent); }
   #desc { font-size: .9em; color: #b9b6ab; }
   #desc.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .list > div { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); }
@@ -120,8 +123,6 @@
         <button type="button" id="zin" title="Zoom in">+</button>
         <button type="button" id="zout" title="Zoom out">−</button>
         <button type="button" id="center" title="Back to me">◎</button>
-        <button type="button" id="goup" title="Up">▲</button>
-        <button type="button" id="godown" title="Down">▼</button>
       </div>
       <div id="legend"></div>
       <div id="pick">
@@ -129,6 +130,8 @@
         <div class="acts" id="pickacts"></div>
       </div>
     </div>
+
+    <div id="pad"></div>
 
     <div class="card" id="desccard">
       <div id="desc" class="clamp"></div>
@@ -153,7 +156,8 @@
       <button type="button" data-tab="gear">Gear</button>
       <button type="button" data-tab="log">Log</button>
     </div>
-    <div class="card" id="tabbody"><div class="list" id="baglist"></div><div class="list" id="gearlist" style="display:none"></div><div id="log" style="display:none"></div></div>
+    <div class="card" id="tabbody"><div class="list" id="baglist"></div><div class="list" id="gearlist" style="display:none"></div><div id="logwrap" style="display:none"><div id="log"></div>
+      <form id="cmdform" class="row" style="margin-top:8px"><input id="cmd" class="grow" autocomplete="off" autocapitalize="off" placeholder="type a command" style="font:inherit;padding:.5em .7em;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--fg)"><button type="submit">Send</button></form></div></div>
   </div>
 </div>
 <div id="shade"></div>
@@ -272,15 +276,37 @@
     $('roomname').textContent = s.room.name;
     var tags = $('roomtags'); tags.textContent = '';
     if (s.room.safe) tags.appendChild(el('span', 'tag', 'safe'));
-    $('goup').style.display = s.room.exits.indexOf('up') >= 0 ? '' : 'none';
-    $('godown').style.display = s.room.exits.indexOf('down') >= 0 ? '' : 'none';
     if (s.room.vnum !== lastRoom) { lastRoom = s.room.vnum; pan = { x: 0, y: 0 }; picked = 0; showPick(); }
     setMap(s.map);
+    renderPad(s);
 
     renderFight(s);
     renderHere(s);
     renderBag(s);
     renderGear(s);
+  }
+
+  // The direction pad, always all six directions and look, laid out as a
+  // compass with up and down at the top corners. A direction is live when
+  // the room has that exit; a closed door is opened on the way, a locked
+  // one leaves its button disabled (the door's row in Here unlocks it).
+  var PAD = ['up', 'north', 'down', 'west', 'look', 'east', '', 'south', ''];
+  var LABEL = { up: '▲ up', down: '▼ down', north: 'north', south: 'south', east: 'east', west: 'west', look: 'look' };
+  function renderPad(s) {
+    var pad = $('pad'), cur = here(), doors = (cur && cur.doors) || {};
+    pad.textContent = '';
+    PAD.forEach(function (d) {
+      if (!d) { pad.appendChild(el('span')); return; }
+      if (d === 'look') { pad.appendChild(btn(LABEL[d], function () { openSheet(s.room.name, 'look', []); })); return; }
+      var exists = s.room.exits.indexOf(d) >= 0 || !!(cur && cur.exits[d]);
+      var b = btn(LABEL[d], function () {
+        if (doors[d] === 'closed') send('open ' + d);
+        send(d);
+      }, doors[d] === 'closed' ? 'door' : '');
+      b.disabled = !exists || doors[d] === 'locked';
+      if (doors[d]) b.title = 'door ' + doors[d];
+      pad.appendChild(b);
+    });
   }
 
   function coins(silver) {
@@ -336,6 +362,7 @@
       d.appendChild(btn('Look', function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); }));
       list.appendChild(d);
     });
+    doorRows(list);
     if (!list.childNodes.length) list.appendChild(el('div', 'dim', 'Nobody and nothing.'));
     var rest = $('restrow'); rest.textContent = '';
     if (s.enemies.length) return;
@@ -350,6 +377,23 @@
       openSheet('Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; }));
     }));
     rest.appendChild(btn('Quest', function () { openSheet('Quest', 'quest info', [['Request', 'quest request'], ['Complete', 'quest complete']]); }));
+  }
+
+  // Doors in this room, from the map, with what can be done to each.
+  function doorActions(dir, st) {
+    if (st === 'locked') return [['Unlock', 'unlock ' + dir], ['Pick', 'pick ' + dir]];
+    if (st === 'closed') return [['Open', 'open ' + dir], ['Lock', 'lock ' + dir]];
+    return [['Close', 'close ' + dir]];
+  }
+  function doorRows(list) {
+    var cur = here();
+    if (!cur || !cur.doors) return;
+    Object.keys(cur.doors).sort().forEach(function (dir) {
+      var st = cur.doors[dir], d = el('div');
+      d.appendChild(el('span', 'name ellipsis dim', 'Door ' + dir + ', ' + st));
+      doorActions(dir, st).forEach(function (a, i) { d.appendChild(btn(a[0], function () { send(a[1]); }, i === 0 && st !== 'open' ? 'primary' : '')); });
+      list.appendChild(d);
+    });
   }
 
   function itemName(it) {
@@ -555,7 +599,13 @@
       acts.appendChild(btn('Look', function () { openSheet(state.room.name, 'look', []); }));
       acts.appendChild(btn('Scan', function () { openSheet('Nearby', 'scan', []); }));
     } else {
-      $('pickinfo').textContent = 'no known way there' + (describe(r) ? ' · ' + describe(r) : '');
+      var lock = lockedFirst(r.vnum);
+      if (lock) {
+        $('pickinfo').textContent = 'the door ' + lock + ' is locked';
+        doorActions(lock, 'locked').forEach(function (a) { acts.appendChild(btn(a[0], function () { send(a[1]); picked = 0; showPick(); drawMap(); }, 'primary')); });
+      } else {
+        $('pickinfo').textContent = 'no known way there' + (describe(r) ? ' · ' + describe(r) : '');
+      }
     }
     acts.appendChild(btn('Close', function () { picked = 0; showPick(); drawMap(); }));
   }
@@ -570,6 +620,31 @@
       if (steps) { picked = 0; showPick(); walk(steps); return; }
     }
     picked = r.vnum; showPick(); drawMap();
+  }
+  // lockedFirst is the direction of a locked door in this room that the
+  // way to target starts through, if the only way there is past it.
+  function lockedFirst(target) {
+    var cur = here();
+    if (!cur || !cur.doors) return '';
+    var dirs = Object.keys(cur.doors).filter(function (d) { return cur.doors[d] === 'locked'; });
+    for (var i = 0; i < dirs.length; i++) {
+      var next = cur.exits[dirs[i]];
+      if (next === target || (rooms[next] && pathFrom(next, target))) return dirs[i];
+    }
+    return '';
+  }
+  function pathFrom(start, target) {
+    var seen = {}, queue = [start]; seen[start] = true;
+    while (queue.length) {
+      var v = queue.shift(); if (v === target) return true;
+      var r = rooms[v]; if (!r) continue;
+      Object.keys(r.exits).forEach(function (dir) {
+        var to = r.exits[dir];
+        if (seen[to] || !rooms[to] || (r.doors && r.doors[dir] === 'locked')) return;
+        seen[to] = true; queue.push(to);
+      });
+    }
+    return false;
   }
   var drag = null;
   canvas.addEventListener('pointerdown', function (ev) { drag = { x: ev.clientX, y: ev.clientY, px: pan.x, py: pan.y, moved: false }; canvas.setPointerCapture && canvas.setPointerCapture(ev.pointerId); });
@@ -595,8 +670,6 @@
   $('zin').addEventListener('click', function () { zoom(1.25); });
   $('zout').addEventListener('click', function () { zoom(0.8); });
   $('center').addEventListener('click', function () { pan = { x: 0, y: 0 }; drawMap(); });
-  $('goup').addEventListener('click', function () { send('up'); });
-  $('godown').addEventListener('click', function () { send('down'); });
   window.addEventListener('resize', drawMap);
 
   // ---- Bottom sheet: a command's reply plus follow-up actions --------
@@ -612,12 +685,20 @@
   $('sheetclose').addEventListener('click', closeSheet);
   $('shade').addEventListener('click', closeSheet);
 
+  // The Log tab takes typed commands too, for anything without a button.
+  $('cmdform').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var v = $('cmd').value.trim();
+    if (!v) return;
+    send(v); addText('> ' + v, true); $('cmd').value = '';
+  });
+
   Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
     b.addEventListener('click', function () {
       Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (o) { o.classList.toggle('on', o === b); });
       $('baglist').style.display = b.dataset.tab === 'bag' ? '' : 'none';
       $('gearlist').style.display = b.dataset.tab === 'gear' ? '' : 'none';
-      $('log').style.display = b.dataset.tab === 'log' ? '' : 'none';
+      $('logwrap').style.display = b.dataset.tab === 'log' ? '' : 'none';
       if (b.dataset.tab === 'log') $('log').scrollTop = $('log').scrollHeight;
     });
   });
