@@ -14,105 +14,126 @@
     --font: system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: ui-monospace, Menlo, Consolas, monospace;
   }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.4 var(--font); }
-  body { min-height: 100dvh; display: flex; justify-content: center; }
-  #app { width: 100%; max-width: 560px; min-height: 100dvh; display: flex; flex-direction: column; padding: 0 12px 12px; }
-  button { font: inherit; color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
-    padding: .55em .8em; cursor: pointer; touch-action: manipulation; }
-  button:active { transform: translateY(1px); }
-  button:disabled { opacity: .35; cursor: default; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 15px/1.4 var(--font); overflow: hidden; }
+  body { display: flex; justify-content: center; }
+  #app { width: 100%; max-width: 520px; height: 100dvh; display: flex; flex-direction: column; }
+  button { font: inherit; color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px;
+    padding: .5em .8em; cursor: pointer; touch-action: manipulation; }
+  button:active { background: #232731; }
+  button:disabled { opacity: .3; cursor: default; }
   button.primary { border-color: var(--accent); color: var(--accent); }
   button.danger { border-color: var(--bad); color: var(--bad); }
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-top: 10px; }
-  .lab { font-size: .72em; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+  button.ghost { background: none; border-color: transparent; color: var(--dim); padding: .4em .5em; }
   .dim { color: var(--dim); }
   .row { display: flex; align-items: center; gap: 8px; }
   .grow { flex: 1; min-width: 0; }
-  .bar { height: 7px; background: #22252d; border-radius: 4px; overflow: hidden; }
+  .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar { height: 5px; background: #23262e; border-radius: 3px; overflow: hidden; }
   .bar > i { display: block; height: 100%; background: var(--ok); transition: width .25s; }
   .bar.foe > i { background: var(--bad); }
   .bar.mana > i { background: var(--mana); }
   .bar.stam > i { background: var(--stamina); }
-  .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .r-G { color: var(--uncommon); } .r-B { color: var(--rare); } .r-M { color: var(--epic); }
   .r-Y { color: var(--legendary); } .r-R { color: var(--unique); } .r-W { color: var(--artifact); }
 
   /* Login */
-  #login { flex: 1; display: flex; flex-direction: column; padding-top: 12px; }
-  #login h1 { font-size: 1.3em; color: var(--accent); margin: 8px 0; letter-spacing: .04em; }
-  #loginlog { flex: 1; min-height: 200px; max-height: 60dvh; overflow-y: auto; white-space: pre-wrap; font: 13px/1.4 var(--mono);
+  #login { flex: 1; display: flex; flex-direction: column; padding: 16px; min-height: 0; }
+  #login h1 { font-size: 1.4em; color: var(--accent); margin: 8px 0 12px; letter-spacing: .12em; }
+  #banner { display: none; margin: 0 0 10px; white-space: pre; overflow: hidden; font-family: var(--mono); line-height: 1.12;
+    color: var(--accent); text-align: left; }
+  #loginlog { flex: 1; min-height: 0; overflow-y: auto; white-space: pre-wrap; font: 13px/1.4 var(--mono);
     background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
-  #loginform { display: flex; gap: 8px; margin-top: 10px; }
-  #logininput { flex: 1; font: inherit; padding: .6em .8em; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); }
+  #loginform { display: flex; gap: 8px; margin-top: 10px; padding-bottom: env(safe-area-inset-bottom); }
+  input.text { flex: 1; min-width: 0; font: inherit; padding: .6em .8em; border-radius: 10px; border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); }
 
-  /* Game */
-  #game { display: none; flex-direction: column; flex: 1; }
-  #top { padding-top: 8px; }
-  #who { font-weight: 600; font-size: .92em; }
-  #vit { display: grid; grid-template-columns: auto 1fr auto; gap: 3px 8px; align-items: center; font-size: .78em; margin-top: 4px; }
+  /* Game: a fixed screen. Header, map, pad, ticker, then one panel that
+     scrolls on its own, then the tab bar. */
+  #game { display: none; flex: 1; min-height: 0; flex-direction: column; }
+  #top { padding: 8px 12px 6px; }
+  #who { font-weight: 600; font-size: .9em; }
+  #vit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 5px; }
+  #vit .v { font-size: .7em; color: var(--dim); }
+  #vit .v span { float: right; color: var(--fg); }
 
-  /* Map */
-  #stage { position: relative; margin-top: 8px; height: min(58dvh, 520px); min-height: 280px; border-radius: 14px; overflow: hidden;
+  #stage { position: relative; margin: 0 12px; height: clamp(190px, 33dvh, 300px); flex: none; border-radius: 14px; overflow: hidden;
     background: radial-gradient(circle at 50% 45%, #1a1d24 0%, #111318 70%); border: 1px solid var(--line); touch-action: none; }
   #map { width: 100%; height: 100%; display: block; }
-  #maptop { position: absolute; left: 10px; right: 10px; top: 8px; display: flex; align-items: center; gap: 8px; pointer-events: none; }
-  #roomname { color: var(--accent); font-weight: 600; text-shadow: 0 1px 3px #000; }
-  #maptop .tag { font-size: .72em; padding: 1px 6px; border-radius: 6px; background: #0009; color: var(--dim); }
-  #mapbtns { position: absolute; right: 8px; top: 38px; display: flex; flex-direction: column; gap: 6px; }
-  #mapbtns button { width: 38px; height: 38px; padding: 0; background: #15171ccc; font-size: 1.05em; }
-  #mapbtns button.lit { border-color: var(--accent); color: var(--accent); }
-  #pick { position: absolute; left: 8px; right: 8px; bottom: 8px; display: none; background: #15171ef0; border: 1px solid var(--line);
-    border-radius: 12px; padding: 8px 10px; }
+  #maptop { position: absolute; left: 10px; right: 48px; top: 7px; display: flex; align-items: center; gap: 6px; pointer-events: none; }
+  #roomname { color: var(--accent); font-weight: 600; font-size: .92em; text-shadow: 0 1px 3px #000; }
+  .tag { font-size: .68em; padding: 1px 6px; border-radius: 6px; background: #0009; color: var(--dim); }
+  #mapbtns { position: absolute; right: 6px; top: 6px; display: flex; flex-direction: column; gap: 5px; }
+  #mapbtns button { width: 32px; height: 32px; padding: 0; background: #15171ccc; border-radius: 8px; font-size: .95em; }
+  #legend { position: absolute; left: 8px; bottom: 6px; font-size: .66em; color: var(--dim); background: #0008; padding: 2px 6px; border-radius: 6px; }
+  #pick { position: absolute; left: 6px; right: 6px; bottom: 6px; display: none; background: #15171ef2; border: 1px solid var(--line);
+    border-radius: 12px; padding: 8px 10px; font-size: .9em; }
   #pick .acts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
   #pickname { font-weight: 600; }
-  #legend { position: absolute; left: 8px; bottom: 8px; font-size: .7em; color: var(--dim); background: #0008; padding: 3px 7px; border-radius: 6px; }
 
-  #pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
-  #pad button { padding: .6em 0; }
+  #pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 8px 12px 0; flex: none; }
+  #pad button { padding: .38em 0; font-size: .88em; border-radius: 9px; }
   #pad button.door { border-color: var(--accent); }
-  #desc { font-size: .9em; color: #b9b6ab; }
+
+  #ticker { margin: 8px 12px 0; font: 12px/1.45 var(--mono); color: var(--dim); height: 2.9em; overflow: hidden; flex: none; cursor: pointer; }
+  #ticker div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #ticker div:last-child { color: var(--fg); }
+
+  #panel { flex: 1; min-height: 0; overflow-y: auto; margin-top: 8px; padding: 2px 12px 12px; border-top: 1px solid var(--line); overscroll-behavior: contain; }
+  .sec { font-size: .68em; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin: 12px 0 2px; }
+  #desc { font-size: .88em; color: #b9b6ab; margin-top: 10px; cursor: pointer; }
   #desc.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .list > div { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-top: 1px solid var(--line); }
+  .list > div { display: flex; align-items: center; gap: 6px; padding: 8px 0; border-top: 1px solid #1f222a; }
   .list > div:first-child { border-top: 0; }
   .list .name { flex: 1; min-width: 0; }
-  .list button { padding: .35em .7em; font-size: .9em; }
-  #fight .foe { margin-bottom: 8px; }
-  #actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
-  #actions button { position: relative; overflow: hidden; padding: .7em .3em; font-size: .9em; }
+  .list button { padding: .32em .75em; font-size: .88em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chips button { padding: .4em .8em; font-size: .88em; border-radius: 999px; }
+
+  #fight { margin-top: 10px; padding: 10px; border: 1px solid #4a2a2a; border-radius: 12px; background: #1a1315; }
+  #fight .foe { margin-bottom: 7px; font-size: .92em; }
+  #actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 6px; }
+  #actions button { position: relative; overflow: hidden; padding: .5em .3em; font-size: .86em; line-height: 1.2; }
   #actions button .cd { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--accent); }
-  #actions button small { display: block; color: var(--dim); font-size: .75em; }
-  #feed { font: 12.5px/1.45 var(--mono); color: var(--dim); min-height: 4.4em; white-space: pre-wrap; }
-  #feed div:last-child { color: var(--fg); }
-  #tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
-  #tabs button.on { border-color: var(--accent); color: var(--accent); }
-  #log { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; max-height: 50dvh; overflow-y: auto; }
+  #actions button small { display: block; color: var(--dim); font-size: .78em; }
+
+  #log { font: 12px/1.45 var(--mono); white-space: pre-wrap; margin-top: 8px; }
+
+  #tabs { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); background: var(--panel);
+    padding-bottom: env(safe-area-inset-bottom); flex: none; }
+  #tabs button { border: 0; border-radius: 0; background: none; color: var(--dim); padding: .7em 0 .65em; font-size: .82em; position: relative; }
+  #tabs button.on { color: var(--accent); }
+  #tabs button.on::before { content: ""; position: absolute; left: 30%; right: 30%; top: 0; height: 2px; background: var(--accent); border-radius: 2px; }
+  #tabs .badge { display: inline-block; min-width: 1.4em; margin-left: 3px; padding: 0 4px; border-radius: 999px; background: #2a2e38; color: var(--fg); font-size: .8em; }
+  #tabs .alert::after { content: ""; position: absolute; top: 8px; right: calc(50% - 22px); width: 7px; height: 7px; border-radius: 50%; background: var(--bad); }
+
   #sheet { position: fixed; inset: auto 0 0 0; display: none; justify-content: center; z-index: 5; }
-  #sheet > div { width: 100%; max-width: 560px; background: var(--panel); border-top: 1px solid var(--line);
-    border-radius: 14px 14px 0 0; padding: 14px 12px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px #0008; }
-  #sheet .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
-  #sheettext { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; color: #b9b6ab; max-height: 40dvh; overflow-y: auto; margin-top: 8px; }
-  #shade { position: fixed; inset: 0; background: #0007; display: none; z-index: 4; }
+  #sheet > div { width: 100%; max-width: 520px; background: var(--panel); border-top: 1px solid var(--line);
+    border-radius: 16px 16px 0 0; padding: 12px 14px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px #0008; }
+  #sheet .grip { width: 36px; height: 4px; border-radius: 2px; background: #3a3e48; margin: 0 auto 10px; }
+  #sheet .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; }
+  #sheettext { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; color: #b9b6ab; max-height: 45dvh; overflow-y: auto; margin-top: 8px; }
+  #shade { position: fixed; inset: 0; background: #0008; display: none; z-index: 4; }
 </style>
 </head>
 <body>
 <div id="app">
   <div id="login">
-    <h1>URTH</h1>
+    <h1 id="title">URTH</h1>
+    <pre id="banner"></pre>
     <div id="loginlog">Tap Connect, then answer the prompts: your name, then your password.</div>
     <form id="loginform">
-      <input id="logininput" autocomplete="off" autocapitalize="off" placeholder="not connected">
+      <input id="logininput" class="text" autocomplete="off" autocapitalize="off" placeholder="not connected">
       <button class="primary" id="loginbtn" type="submit">Connect</button>
     </form>
   </div>
 
   <div id="game">
     <div id="top">
-      <div class="row"><span id="who" class="grow ellipsis"></span><span id="silver" class="dim"></span></div>
+      <div class="row"><span id="who" class="grow ellipsis"></span><span id="silver" class="dim" style="font-size:.85em"></span></div>
       <div id="vit">
-        <span class="dim">HP</span><div class="bar"><i id="hpbar"></i></div><span id="hp"></span>
-        <span class="dim" id="manalab">MP</span><div class="bar mana" id="manawrap"><i id="manabar"></i></div><span id="mana"></span>
-        <span class="dim" id="stamlab">ST</span><div class="bar stam" id="stamwrap"><i id="stambar"></i></div><span id="stam"></span>
+        <div><div class="v">HP<span id="hp"></span></div><div class="bar"><i id="hpbar"></i></div></div>
+        <div id="manawrap"><div class="v">MP<span id="mana"></span></div><div class="bar mana"><i id="manabar"></i></div></div>
+        <div id="stamwrap"><div class="v">ST<span id="stam"></span></div><div class="bar stam"><i id="stambar"></i></div></div>
       </div>
     </div>
 
@@ -132,37 +153,40 @@
     </div>
 
     <div id="pad"></div>
+    <div id="ticker" title="Open the log"></div>
 
-    <div class="card" id="desccard">
-      <div id="desc" class="clamp"></div>
+    <div id="panel">
+      <div data-pane="here">
+        <div id="fight" style="display:none">
+          <div id="foes"></div>
+          <div id="actions"></div>
+        </div>
+        <div id="desc" class="clamp"></div>
+        <div class="list" id="herelist"></div>
+        <div class="chips" id="restrow"></div>
+      </div>
+      <div data-pane="bag" style="display:none"><div class="list" id="baglist"></div></div>
+      <div data-pane="gear" style="display:none"><div class="list" id="gearlist"></div></div>
+      <div data-pane="log" style="display:none">
+        <form id="cmdform" class="row" style="margin-top:10px"><input id="cmd" class="text" autocomplete="off" autocapitalize="off" placeholder="type a command"><button type="submit">Send</button></form>
+        <div id="log"></div>
+      </div>
+      <div data-pane="me" style="display:none"><div class="list" id="melist"></div></div>
     </div>
 
-    <div class="card" id="fight" style="display:none">
-      <div class="lab">Fighting</div>
-      <div id="foes"></div>
-      <div id="actions"></div>
-    </div>
-
-    <div class="card" id="here">
-      <div class="lab">Here</div>
-      <div class="list" id="herelist"></div>
-      <div class="row" style="margin-top:8px; gap:6px; flex-wrap:wrap" id="restrow"></div>
-    </div>
-
-    <div class="card"><div id="feed"></div></div>
-
-    <div id="tabs">
-      <button type="button" data-tab="bag" class="on">Bag</button>
+    <nav id="tabs">
+      <button type="button" data-tab="here" class="on">Here</button>
+      <button type="button" data-tab="bag">Bag<span class="badge" id="bagcount"></span></button>
       <button type="button" data-tab="gear">Gear</button>
       <button type="button" data-tab="log">Log</button>
-    </div>
-    <div class="card" id="tabbody"><div class="list" id="baglist"></div><div class="list" id="gearlist" style="display:none"></div><div id="logwrap" style="display:none"><div id="log"></div>
-      <form id="cmdform" class="row" style="margin-top:8px"><input id="cmd" class="grow" autocomplete="off" autocapitalize="off" placeholder="type a command" style="font:inherit;padding:.5em .7em;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--fg)"><button type="submit">Send</button></form></div></div>
+      <button type="button" data-tab="me">Me</button>
+    </nav>
   </div>
 </div>
 <div id="shade"></div>
 <div id="sheet"><div>
-  <div class="row"><strong id="sheetname" class="grow"></strong><button type="button" id="sheetclose">Close</button></div>
+  <div class="grip"></div>
+  <div class="row"><strong id="sheetname" class="grow ellipsis"></strong><button type="button" class="ghost" id="sheetclose">Close</button></div>
   <div id="sheettext"></div>
   <div class="acts" id="sheetacts"></div>
 </div></div>
@@ -194,10 +218,36 @@
     input.value = '';
   });
 
+  // The server's banner is wide ASCII art. It goes in its own block, never
+  // wrapped, with the font sized so its widest line fits the screen.
+  var bannerText = '';
+  function showBanner(text) {
+    // Drop blank edges and the margin every line shares.
+    var lines = text.split('\n').map(function (l) { return l.replace(/\s+$/, ''); });
+    while (lines.length && !lines[0]) lines.shift();
+    while (lines.length && !lines[lines.length - 1]) lines.pop();
+    var indent = lines.filter(function (l) { return l; }).reduce(function (n, l) { return Math.min(n, l.length - l.replace(/^ +/, '').length); }, 1e9);
+    bannerText = lines.map(function (l) { return l.slice(Math.min(indent, l.length)); }).join('\n');
+    var b = $('banner');
+    b.textContent = bannerText;
+    b.style.display = bannerText ? 'block' : 'none';
+    $('title').style.display = bannerText ? 'none' : '';
+    fitBanner();
+  }
+  function fitBanner() {
+    var b = $('banner');
+    if (!bannerText || !b.clientWidth) return;
+    var cols = bannerText.split('\n').reduce(function (n, l) { return Math.max(n, l.length); }, 1);
+    // A monospace character is about 0.6em wide.
+    b.style.fontSize = Math.min(13, Math.max(4, b.clientWidth / (cols * 0.6))) + 'px';
+  }
+  window.addEventListener('resize', fitBanner);
+
   function connect() {
     var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
     ws = new WebSocket(proto + location.host + '/ws');
     $('loginlog').textContent = '';
+    showBanner('');
     $('loginbtn').textContent = 'Send';
     $('logininput').placeholder = 'type here';
     ws.onopen = function () { $('logininput').focus(); };
@@ -229,6 +279,7 @@
         if (!inGame) loginAppend(m.text);
         return;
     }
+    if (!inGame && m.type === 'system' && /\n.*\n.*\n/.test(m.text) && !bannerText) { showBanner(m.text); return; }
     if (!inGame) { loginAppend(m.text); return; }
     addText(m.text, m.type === 'room');
   }
@@ -243,17 +294,16 @@
     }
     var d = out.join('\n').trim();
     $('desc').textContent = d || (lines[0] || '');
-    $('desccard').style.display = d || lines[0] ? '' : 'none';
   }
-  $('desccard').addEventListener('click', function () { $('desc').classList.toggle('clamp'); });
+  $('desc').addEventListener('click', function () { $('desc').classList.toggle('clamp'); });
 
-  // ---- Text: a short feed of the latest lines, and the full log ------
+  // ---- Text: a two-line ticker of the latest, and the full log -------
   function addText(text, logOnly) {
     var lines = text.split('\n').filter(function (l) { return l.trim() !== ''; });
     if (!lines.length) return;
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
-    feed = feed.slice(-4); logLines = logLines.slice(-300);
-    var f = $('feed'); f.textContent = '';
+    feed = feed.slice(-2); logLines = logLines.slice(-300);
+    var f = $('ticker'); f.textContent = '';
     feed.forEach(function (l) { f.appendChild(el('div', '', l)); });
     var log = $('log'); log.textContent = logLines.join('\n'); log.scrollTop = log.scrollHeight;
     if (sheetFor) $('sheettext').textContent = lines.join('\n');
@@ -263,15 +313,16 @@
   var lastRoom = 0;
   function render() {
     var s = state;
-    $('who').textContent = s.name + '  ·  level ' + s.level + (s.tnl >= 0 ? '  ·  ' + s.tnl + ' xp to go' : '');
+    $('who').textContent = s.name + ' · level ' + s.level + (s.tnl >= 0 ? ' · ' + s.tnl + ' xp to go' : '');
     $('silver').textContent = coins(s.silver);
     $('hpbar').style.width = pct(s.health, s.healthMax); $('hp').textContent = s.health + '/' + s.healthMax;
-    var mana = s.manaMax > 0;
-    ['manalab', 'manawrap', 'mana'].forEach(function (id) { $(id).style.display = mana ? '' : 'none'; });
+    $('manawrap').style.visibility = s.manaMax > 0 ? '' : 'hidden';
     $('manabar').style.width = pct(s.mana, s.manaMax); $('mana').textContent = s.mana + '/' + s.manaMax;
-    var stam = s.staminaMax > 0;
-    ['stamlab', 'stamwrap', 'stam'].forEach(function (id) { $(id).style.display = stam ? '' : 'none'; });
+    $('stamwrap').style.visibility = s.staminaMax > 0 ? '' : 'hidden';
     $('stambar').style.width = pct(s.stamina, s.staminaMax); $('stam').textContent = s.stamina + '/' + s.staminaMax;
+    var bagN = s.inventory.reduce(function (n, it) { return n + (it.count || 1); }, 0);
+    $('bagcount').textContent = bagN ? String(bagN) : '';
+    $('bagcount').style.display = bagN ? '' : 'none';
 
     $('roomname').textContent = s.room.name;
     var tags = $('roomtags'); tags.textContent = '';
@@ -284,6 +335,7 @@
     renderHere(s);
     renderBag(s);
     renderGear(s);
+    renderMe(s);
   }
 
   // The direction pad, always all six directions and look, laid out as a
@@ -291,7 +343,7 @@
   // the room has that exit; a closed door is opened on the way, a locked
   // one leaves its button disabled (the door's row in Here unlocks it).
   var PAD = ['up', 'north', 'down', 'west', 'look', 'east', '', 'south', ''];
-  var LABEL = { up: '▲ up', down: '▼ down', north: 'north', south: 'south', east: 'east', west: 'west', look: 'look' };
+  var LABEL = { up: '▲ Up', down: '▼ Down', north: 'North', south: 'South', east: 'East', west: 'West', look: 'Look' };
   function renderPad(s) {
     var pad = $('pad'), cur = here(), doors = (cur && cur.doors) || {};
     pad.textContent = '';
@@ -315,9 +367,13 @@
     return (g ? g + 'g ' : '') + (sv ? sv + 's' : '');
   }
 
+  var wasFighting = false;
   function renderFight(s) {
     var fighting = s.enemies.length > 0 || !!s.casting;
     $('fight').style.display = fighting ? '' : 'none';
+    tabButton('here').classList.toggle('alert', fighting && currentTab !== 'here');
+    if (fighting && !wasFighting) showTab('here');
+    wasFighting = fighting;
     if (!fighting) return;
     var foes = $('foes'); foes.textContent = '';
     s.enemies.forEach(function (e) {
@@ -345,38 +401,68 @@
     acts.appendChild(btn('Flee', function () { send('flee'); }, 'danger'));
   }
 
+  // A row: a name, at most one main action, and "⋯" for the rest in a
+  // sheet that also shows the look.
+  function row(list, nameEl, main, more) {
+    var d = el('div'); d.appendChild(nameEl);
+    if (main) d.appendChild(btn(main[0], function () { send(main[1]); }, main[2] || 'primary'));
+    if (more) d.appendChild(btn('⋯', more, 'ghost'));
+    list.appendChild(d);
+  }
+  function section(list, title) { list.appendChild(el('div', 'sec', title)); }
+
   function renderHere(s) {
     var list = $('herelist'); list.textContent = '';
-    s.room.players.forEach(function (n) { var d = el('div'); d.appendChild(el('span', 'name ellipsis', n)); list.appendChild(d); });
-    s.room.mobs.forEach(function (m) {
-      var d = el('div'); d.appendChild(el('span', 'name ellipsis', m.name));
-      d.appendChild(btn('Look', function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref], ['Fight', 'kill ' + m.ref]]); }));
-      if (!s.room.safe) d.appendChild(btn('Fight', function () { send('kill ' + m.ref); }, 'primary'));
-      list.appendChild(d);
-    });
-    s.room.items.forEach(function (it) {
-      var d = el('div');
-      d.appendChild(el('span', 'name ellipsis dim', (it.count > 1 ? '(' + it.count + ') ' : '') + it.name));
-      if (/corpse/.test(it.name)) d.appendChild(btn('Loot', function () { send('get all ' + it.ref); }, 'primary'));
-      else if (!it.fixed) d.appendChild(btn('Take', function () { send('get ' + it.ref); }));
-      d.appendChild(btn('Look', function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); }));
-      list.appendChild(d);
-    });
+    if (s.room.mobs.length) {
+      section(list, 'Creatures');
+      s.room.mobs.forEach(function (m) {
+        row(list, el('span', 'name ellipsis', m.name), s.room.safe ? null : ['Fight', 'kill ' + m.ref],
+          function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref]].concat(s.room.safe ? [] : [['Fight', 'kill ' + m.ref]])); });
+      });
+    }
+    if (s.room.players.length) {
+      section(list, 'Players');
+      s.room.players.forEach(function (n) { row(list, el('span', 'name ellipsis', n)); });
+    }
+    if (s.room.items.length) {
+      section(list, 'Items');
+      s.room.items.forEach(function (it) {
+        var main = /corpse/.test(it.name) ? ['Loot', 'get all ' + it.ref] : it.fixed ? null : ['Take', 'get ' + it.ref, ''];
+        row(list, el('span', 'name ellipsis dim', (it.count > 1 ? '(' + it.count + ') ' : '') + it.name), main,
+          function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); });
+      });
+    }
     doorRows(list);
-    if (!list.childNodes.length) list.appendChild(el('div', 'dim', 'Nobody and nothing.'));
     var rest = $('restrow'); rest.textContent = '';
     if (s.enemies.length) return;
     if (s.position === 'standing') {
       rest.appendChild(btn('Rest', function () { send('rest'); }));
       rest.appendChild(btn('Sleep', function () { send('sleep'); }));
     } else {
-      rest.appendChild(btn('Stand', function () { send('stand'); }, 'primary'));
+      rest.appendChild(btn('Stand up', function () { send('stand'); }, 'primary'));
     }
-    rest.appendChild(btn('Stats', function () { openSheet('Character', 'stats', []); }));
-    rest.appendChild(btn('Settings', function () {
-      openSheet('Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; }));
-    }));
-    rest.appendChild(btn('Quest', function () { openSheet('Quest', 'quest info', [['Request', 'quest request'], ['Complete', 'quest complete']]); }));
+    rest.appendChild(btn('Scan', function () { openSheet('Nearby', 'scan', []); }));
+  }
+
+  // The Me tab: the character, its abilities, and settings, each a sheet.
+  function renderMe(s) {
+    var list = $('melist');
+    if (list.childNodes.length) return; // the rows never change
+    [['Stats', 'Character', 'stats', []],
+     ['Skills', 'Skills', 'skills', []],
+     ['Spells', 'Spells', 'spells', []],
+     ['Feats', 'Feats', 'feat', []],
+     ['Quest', 'Quest', 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete']]],
+     ['Who is on', 'Who', 'who', []],
+     ['Settings', 'Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; })]
+    ].forEach(function (r) {
+      var d = el('div');
+      d.appendChild(el('span', 'name', r[0]));
+      d.appendChild(el('span', 'dim', '›'));
+      d.style.cursor = 'pointer';
+      d.addEventListener('click', function () { openSheet(r[1], r[2], r[3]); });
+      list.appendChild(d);
+    });
   }
 
   // Doors in this room, from the map, with what can be done to each.
@@ -388,11 +474,12 @@
   function doorRows(list) {
     var cur = here();
     if (!cur || !cur.doors) return;
+    section(list, 'Doors');
     Object.keys(cur.doors).sort().forEach(function (dir) {
-      var st = cur.doors[dir], d = el('div');
-      d.appendChild(el('span', 'name ellipsis dim', 'Door ' + dir + ', ' + st));
-      doorActions(dir, st).forEach(function (a, i) { d.appendChild(btn(a[0], function () { send(a[1]); }, i === 0 && st !== 'open' ? 'primary' : '')); });
-      list.appendChild(d);
+      var st = cur.doors[dir], acts = doorActions(dir, st);
+      var main = acts[0].concat(st === 'open' ? [''] : []);
+      row(list, el('span', 'name ellipsis', dir.charAt(0).toUpperCase() + dir.slice(1) + ' door, ' + st), main,
+        acts.length > 1 ? function () { openSheet(dir.charAt(0).toUpperCase() + dir.slice(1) + ' door', 'look ' + dir, acts); } : null);
     });
   }
 
@@ -405,16 +492,13 @@
   function renderBag(s) {
     var list = $('baglist'); list.textContent = '';
     s.inventory.forEach(function (it) {
-      var d = el('div'); d.appendChild(itemName(it));
       var use = useAction(it);
-      if (use) d.appendChild(btn(use[0], function () { send(use[1]); }, 'primary'));
-      d.appendChild(btn('…', function () {
+      row(list, itemName(it), use, function () {
         var acts = [];
         if (use) acts.push(use);
         acts.push(['Drop', 'drop ' + it.ref], ['Sell', 'sell ' + it.ref], ['Sacrifice', 'sacrifice ' + it.ref]);
         openSheet(it.name, 'look ' + it.ref, acts);
-      }));
-      list.appendChild(d);
+      });
     });
     if (!s.inventory.length) list.appendChild(el('div', 'dim', 'Your bag is empty.'));
   }
@@ -429,11 +513,10 @@
   function renderGear(s) {
     var list = $('gearlist'); list.textContent = '';
     s.equipment.forEach(function (it) {
-      var d = el('div');
-      d.appendChild(el('span', 'dim', it.slot.replace(/[12]$/, '')));
-      d.appendChild(itemName(it));
-      d.appendChild(btn('Look', function () { openSheet(it.name, 'look ' + it.ref, [['Remove', 'remove ' + it.ref]]); }));
-      list.appendChild(d);
+      var name = el('span', 'name ellipsis');
+      var slot = el('span', 'dim', it.slot.replace(/[12]$/, '') + '  '); slot.style.fontSize = '.8em';
+      name.appendChild(slot); name.appendChild(itemName(it));
+      row(list, name, null, function () { openSheet(it.name, 'look ' + it.ref, [['Remove', 'remove ' + it.ref]]); });
     });
     if (!s.equipment.length) list.appendChild(el('div', 'dim', 'You are wearing nothing.'));
   }
@@ -444,7 +527,7 @@
   // services, temples. Tap a room to walk there, your own room to look.
   // Drag to pan.
   var canvas = $('map'), ctx = canvas.getContext ? canvas.getContext('2d') : null;
-  var mapData = null, rooms = {}, cell = 52, pan = { x: 0, y: 0 }, picked = 0;
+  var mapData = null, rooms = {}, cell = 44, pan = { x: 0, y: 0 }, picked = 0;
   var DIRS = { north: [0, -1], south: [0, 1], east: [1, 0], west: [-1, 0] };
   var DANGER = function (d) { return d >= 3 ? '#ff4d4d' : d >= 1 ? '#ff9a3c' : d === 0 ? '#ffd24d' : '#9aa0ad'; };
 
@@ -693,15 +776,24 @@
     send(v); addText('> ' + v, true); $('cmd').value = '';
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
-    b.addEventListener('click', function () {
-      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (o) { o.classList.toggle('on', o === b); });
-      $('baglist').style.display = b.dataset.tab === 'bag' ? '' : 'none';
-      $('gearlist').style.display = b.dataset.tab === 'gear' ? '' : 'none';
-      $('logwrap').style.display = b.dataset.tab === 'log' ? '' : 'none';
-      if (b.dataset.tab === 'log') $('log').scrollTop = $('log').scrollHeight;
+  // ---- Tabs: one pane of the panel at a time ---------------------------
+  var currentTab = 'here';
+  function tabButton(name) { return document.querySelector('#tabs button[data-tab="' + name + '"]') || el('button'); }
+  function showTab(name) {
+    currentTab = name;
+    Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
+      b.classList.toggle('on', b.dataset.tab === name);
+      if (b.dataset.tab === name) b.classList.remove('alert');
     });
+    Array.prototype.forEach.call(document.querySelectorAll('#panel [data-pane]'), function (p) {
+      p.style.display = p.dataset.pane === name ? '' : 'none';
+    });
+    $('panel').scrollTop = name === 'log' ? $('panel').scrollHeight : 0;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
+    b.addEventListener('click', function () { showTab(b.dataset.tab); });
   });
+  $('ticker').addEventListener('click', function () { showTab('log'); });
 })();
 </script>
 </body>
