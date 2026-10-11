@@ -3,10 +3,11 @@ name: The Old Road Under the Trees
 description: |
   The road climbs out of a cutting and into the shade of trees so large
   that the road itself seems to have been laid between their roots. Far
-  above, the first lamps of a town are lit in the branches. Behind you the
-  way leads down into the dark; ahead it goes on north through the wood,
-  and a rutted track runs off south into deeper shadow.
+  above, the first lamps of a town are lit in the branches. Behind you, to
+  the south, the road runs back down into the dark under the earth; ahead
+  it goes on north through the wood, and a rutted track runs off west into
+  deeper shadow.
 exits:
-  down: 5
+  south: 5
   north: 302
-  south: 321
+  west: 321
