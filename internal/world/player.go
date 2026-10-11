@@ -2,6 +2,7 @@ package world
 
 import (
 	"strings"
+	"time"
 
 	"urth/internal/output"
 	"urth/internal/session"
@@ -67,6 +68,10 @@ type Player struct {
 	// (clientstate.go); lastState is the last one sent, as JSON.
 	wantState bool
 	lastState string
+	// resumeToken is the token a web client resumes this character with;
+	// linkdeadUntil is when a link-dead character leaves (linkdead.go).
+	resumeToken   string
+	linkdeadUntil time.Time
 
 	input   []string
 	pending []output.Message

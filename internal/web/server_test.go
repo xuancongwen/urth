@@ -52,6 +52,9 @@ func TestPageIsServed(t *testing.T) {
 	if resp.StatusCode != 200 || !contains(body, "new WebSocket") {
 		t.Fatalf("page not served: %d %q", resp.StatusCode, body[:min(len(body), 80)])
 	}
+	if !contains(body, "location.replace('/play.html')") || !contains(body, "max-width: 760px") {
+		t.Fatal("the main page no longer sends phone-sized screens to the tap client")
+	}
 }
 
 func TestTapPageIsServed(t *testing.T) {
@@ -69,7 +72,7 @@ func TestTapPageIsServed(t *testing.T) {
 }
 
 func TestAnalyticsIsConfigured(t *testing.T) {
-	get := func(s *Server) string {
+	get := func(s *Server, path string) string {
 		t.Helper()
 		if err := s.Listen(); err != nil {
 			t.Fatal(err)
@@ -77,7 +80,7 @@ func TestAnalyticsIsConfigured(t *testing.T) {
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
 		go func() { _ = s.Serve(ctx) }()
-		resp, err := http.Get("http://" + s.Addr().String() + "/")
+		resp, err := http.Get("http://" + s.Addr().String() + path)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -86,14 +89,20 @@ func TestAnalyticsIsConfigured(t *testing.T) {
 		return string(body)
 	}
 	log := slog.New(slog.NewTextHandler(io.Discard, nil))
-	if body := get(NewServer("127.0.0.1:0", nil, log)); contains([]byte(body), "<script defer") || !contains([]byte(body), "new WebSocket") {
+	if body := get(NewServer("127.0.0.1:0", nil, log), "/"); contains([]byte(body), "<script defer") || !contains([]byte(body), "new WebSocket") {
 		t.Fatal("page without a tracker configured should load none")
 	}
 	s := NewServer("127.0.0.1:0", nil, log)
 	s.SetAnalytics("https://stats.example.com/script.js", map[string]string{"data-website-id": "abc", "data-auto-track": "a\"b"})
 	want := `<script defer src="https://stats.example.com/script.js" data-auto-track="a&#34;b" data-website-id="abc"></script>`
-	if body := get(s); !contains([]byte(body), want) {
+	if body := get(s, "/"); !contains([]byte(body), want) {
 		t.Fatalf("tracker missing from page: %s", body[:min(len(body), 600)])
+	}
+	// The tap client is where phones land, so it is counted too.
+	s2 := NewServer("127.0.0.1:0", nil, log)
+	s2.SetAnalytics("https://stats.example.com/script.js", map[string]string{"data-website-id": "abc", "data-auto-track": "a\"b"})
+	if body := get(s2, "/play.html"); !contains([]byte(body), want) || contains([]byte(body), "<!--analytics-->") {
+		t.Fatalf("tracker missing from the tap client: %s", body[:min(len(body), 600)])
 	}
 }
 
@@ -238,5 +247,42 @@ func TestConnectionCapReturns503(t *testing.T) {
 	c := nextEvent(t, events).(session.Connected).Conn
 	if c.RemoteAddr() != "203.0.113.9" {
 		t.Fatalf("remote = %q, want the forwarded address", c.RemoteAddr())
+	}
+}
+
+// TestPingsKeepAliveAndCloseDeadPeers: a client that reads (and so answers
+// pings) stays connected; one that stops answering is closed.
+func TestPingsKeepAliveAndCloseDeadPeers(t *testing.T) {
+	oldInterval, oldTimeout := pingInterval, pingTimeout
+	pingInterval, pingTimeout = 40*time.Millisecond, 150*time.Millisecond
+	defer func() { pingInterval, pingTimeout = oldInterval, oldTimeout }()
+	s, events, cancel, _ := startServer(t)
+	defer cancel()
+	ctx, cancelDial := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancelDial()
+
+	alive, _, err := websocket.Dial(ctx, "ws://"+s.Addr().String()+"/ws", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer alive.CloseNow()
+	nextEvent(t, events)                  // Connected
+	alive.CloseRead(context.Background()) // reads in the background, which answers pings
+	time.Sleep(400 * time.Millisecond)
+	select {
+	case ev := <-events:
+		t.Fatalf("a client answering pings was dropped: %+v", ev)
+	default:
+	}
+
+	dead, _, err := websocket.Dial(ctx, "ws://"+s.Addr().String()+"/ws", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer dead.CloseNow()
+	nextEvent(t, events) // Connected; this one never reads, so never answers
+	ev := nextEvent(t, events)
+	if d, ok := ev.(session.Disconnected); !ok || d.Reason != "ping timeout" {
+		t.Fatalf("silent peer: %+v", ev)
 	}
 }

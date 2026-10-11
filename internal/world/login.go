@@ -184,31 +184,10 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	rec.LastLogin = time.Now().UTC()
 
 	if old := w.playingByName(rec.Name, p); old != nil {
-		// Reconnect: take over the existing character in place, including
-		// whatever it is carrying right now.
-		p.Room = old.Room
-		p.Inventory = old.Inventory
-		p.Equipment = old.Equipment
-		p.Level, p.Experience, p.Stats = old.Level, old.Experience, old.Stats
-		p.Health, p.Mana, p.Stamina = old.Health, old.Mana, old.Stamina
-		w.recalc(p.Character)
-		for _, o := range w.allCharacters() {
-			if o.Fighting == old.Character {
-				o.Fighting = p.Character
-			}
-		}
-		p.Fighting = old.Fighting
-		old.Room = nil // suppress "has left the game"
-		old.Inventory = nil
-		old.Equipment = nil
-		old.SendMsg(output.Message{Type: output.System, Text: "{R}This character has been reconnected from elsewhere.{x}\n"})
-		old.disconnect()
-		w.log.Info("reconnected", "session", p.conn.ID(), "name", p.Name, "old_session", old.conn.ID())
-		p.Send("\nReconnecting.\n")
-		w.act("$n has reconnected.", p.Character, nil, "", toRoom)
-		w.sendCommands(p)
-		w.look(p)
-		w.save(p)
+		// The character is already in the world, link-dead or playing
+		// elsewhere: hand it this connection as it stands, everything it
+		// carries and knows included.
+		w.reattach(old, p)
 		return
 	}
 	w.loadCharacterItems(p)
@@ -236,6 +215,7 @@ func (w *World) enterGame(p *Player, rec *store.Record) {
 	p.Send("\nWelcome, " + p.Name + ".\n\n")
 	w.act("$n has entered the game.", p.Character, nil, "", toRoom)
 	w.sendCommands(p)
+	w.issueToken(p)
 	w.look(p)
 	w.save(p)
 }
@@ -271,6 +251,7 @@ func (w *World) restore(p *Player, r Restore) {
 	p.Room = room
 	w.log.Info("restored", "session", p.conn.ID(), "name", p.Name)
 	w.sendCommands(p)
+	w.issueToken(p)
 	p.Send("{G}Copyover complete.{x}\n")
 }
 

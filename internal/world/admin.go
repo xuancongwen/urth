@@ -41,7 +41,15 @@ func cmdCopyover(w *World, p *Player, _ string) {
 		st.Listeners = w.deps.Listeners()
 	}
 	var files []*os.File
-	for _, o := range w.players {
+	for id, o := range w.players {
+		if o.linkdead() {
+			// No socket to hand over; it is saved below and can sign in
+			// again after the restart.
+			w.save(o)
+			w.leave(o)
+			delete(w.players, id)
+			continue
+		}
 		if o.State != StatePlaying {
 			o.SendMsg(output.Message{Type: output.System, Text: "\nThe server is restarting. Please reconnect in a moment.\n"})
 			o.disconnect()

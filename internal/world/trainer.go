@@ -53,6 +53,7 @@ func cmdPractice(w *World, p *Player, args string) {
 	skills := w.skillList()
 	if args == "" {
 		var b strings.Builder
+		offers := output.OffersData{From: trainers[0].Name, Items: []output.Offer{}}
 		for _, trainer := range trainers {
 			b.WriteString(trainer.DisplayName() + " can teach you:\n")
 			n := 0
@@ -66,13 +67,17 @@ func cmdPractice(w *World, p *Player, args string) {
 					cost += " and " + plural(max(r.Count, 1), output.Escape(r.Material))
 				}
 				line := "  " + padRight(output.Escape(sk.Name), 14) + padRight(cost, 34)
+				o := output.Offer{Name: sk.Name, Price: output.Strip(cost), Command: "practice " + sk.ID}
 				switch {
 				case skillEffect(p.Character, sk.ID) != nil:
 					line += "(you know this)"
+					o.Note, o.Disabled = "you know this", true
 				case p.Level < sk.Level:
 					line += "(level " + itoa(sk.Level) + ")"
+					o.Note, o.Disabled = "level "+itoa(sk.Level), true
 				}
 				b.WriteString(line + "\n")
+				offers.Items = append(offers.Items, o)
 			}
 			if n == 0 {
 				b.WriteString("  nothing, it turns out.\n")
@@ -80,6 +85,7 @@ func cmdPractice(w *World, p *Player, args string) {
 		}
 		b.WriteString("You have " + escapeMoney(p.Silver) + ".\n")
 		p.Send(b.String())
+		p.SendMsg(output.Message{Type: output.Offers, Data: offers})
 		return
 	}
 	want := strings.ToLower(args)

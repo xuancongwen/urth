@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Urth (tap)</title>
 <link rel="icon" href="favicon.svg">
+<!--analytics-->
 <style>
   :root {
     color-scheme: dark;
     --bg: #0e0f12; --panel: #15171c; --panel-2: #1b1e25; --line: #262a33;
     --fg: #d6d3c8; --dim: #7c8090; --accent: #e0b04a; --ok: #7cc47c; --bad: #d95f5f; --mana: #5a8fd6; --stamina: #d9a24a;
-    --uncommon: #6fd36f; --rare: #6aa6ff; --epic: #d17ae6; --legendary: #f0d050; --unique: #ff6b5b; --artifact: #ffffff;
     --font: system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: ui-monospace, Menlo, Consolas, monospace;
   }
@@ -34,8 +34,19 @@
   .bar.foe > i { background: var(--bad); }
   .bar.mana > i { background: var(--mana); }
   .bar.stam > i { background: var(--stamina); }
-  .r-G { color: var(--uncommon); } .r-B { color: var(--rare); } .r-M { color: var(--epic); }
-  .r-Y { color: var(--legendary); } .r-R { color: var(--unique); } .r-W { color: var(--artifact); }
+  /* The server's color codes, in the main client's palette (index.html).
+     Creatures are yellow, what can be taken green, fixed things dim, and a
+     rolled item takes its tier's color, as in the text. */
+  .c-d { color: #3a3d46 } .c-D { color: #7c8090 }
+  .c-r { color: #b3453f } .c-R { color: #e8685f }
+  .c-g { color: #4f9a55 } .c-G { color: #7cc47c }
+  .c-y { color: #b28a2e } .c-Y { color: #e0b04a }
+  .c-b { color: #3d64a8 } .c-B { color: #6f9be0 }
+  .c-m { color: #9a4f9a } .c-M { color: #d17ad1 }
+  .c-c { color: #3a9a9a } .c-C { color: #6fd0d0 }
+  .c-w { color: #b8b5aa } .c-W { color: #f2efe4 }
+  .mob { color: #e0b04a; } .item { color: #7cc47c; } .fixed { color: var(--dim); }
+  .tier { font-size: .8em; }
 
   /* Login */
   #login { flex: 1; display: flex; flex-direction: column; padding: 16px; min-height: 0; }
@@ -103,6 +114,7 @@
   #tabs button { border: 0; border-radius: 0; background: none; color: var(--dim); padding: .7em 0 .65em; font-size: .82em; position: relative; }
   #tabs button.on { color: var(--accent); }
   #tabs button.on::before { content: ""; position: absolute; left: 30%; right: 30%; top: 0; height: 2px; background: var(--accent); border-radius: 2px; }
+  .list .badge { display: inline-block; margin-left: 8px; padding: 0 6px; border-radius: 999px; background: var(--accent); color: #111; font-size: .75em; font-weight: 600; }
   #tabs .badge { display: inline-block; min-width: 1.4em; margin-left: 3px; padding: 0 4px; border-radius: 999px; background: #2a2e38; color: var(--fg); font-size: .8em; }
   #tabs .alert::after { content: ""; position: absolute; top: 8px; right: calc(50% - 22px); width: 7px; height: 7px; border-radius: 50%; background: var(--bad); }
 
@@ -110,7 +122,8 @@
   #sheet > div { width: 100%; max-width: 520px; background: var(--panel); border-top: 1px solid var(--line);
     border-radius: 16px 16px 0 0; padding: 12px 14px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px #0008; }
   #sheet .grip { width: 36px; height: 4px; border-radius: 2px; background: #3a3e48; margin: 0 auto 10px; }
-  #sheet .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; }
+  #sheet .acts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; max-height: 40dvh; overflow-y: auto; }
+  #sheet .acts small { display: block; font-size: .78em; }
   #sheettext { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; color: #b9b6ab; max-height: 45dvh; overflow-y: auto; margin-top: 8px; }
   #shade { position: fixed; inset: 0; background: #0008; display: none; z-index: 4; }
 </style>
@@ -168,7 +181,8 @@
       <div data-pane="bag" style="display:none"><div class="list" id="baglist"></div></div>
       <div data-pane="gear" style="display:none"><div class="list" id="gearlist"></div></div>
       <div data-pane="log" style="display:none">
-        <form id="cmdform" class="row" style="margin-top:10px"><input id="cmd" class="text" autocomplete="off" autocapitalize="off" placeholder="type a command"><button type="submit">Send</button></form>
+        <div class="chips" id="talkmodes"></div>
+        <form id="cmdform" class="row" style="margin-top:8px"><input id="cmd" class="text" autocomplete="off" autocapitalize="off" placeholder="type a command"><button type="submit">Send</button></form>
         <div id="log"></div>
       </div>
       <div data-pane="me" style="display:none"><div class="list" id="melist"></div></div>
@@ -193,7 +207,7 @@
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var ws = null, inGame = false, state = null, feed = [], logLines = [], sheetFor = null;
+  var ws = null, inGame = false, state = null, feed = [], logLines = [], sheetFor = null, sheetLines = [];
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function btn(label, onClick, cls) {
@@ -243,19 +257,55 @@
   }
   window.addEventListener('resize', fitBanner);
 
+  // A copyover sends a token first; tapping Reconnect resumes the session
+  // with it, with no sign-in (D14). The page never reconnects unasked.
+  // After an unexpected drop (the phone slept), the page resumes by itself
+  // once it is visible again, with the resume token from the server, and
+  // gets the same character back (D24). A quit forgets the token.
+  var reconnectToken = null, expectRestart = false;
+  var resumeToken = null, resumeTries = 0, resumePending = false, usedResume = false;
+  try { resumeToken = localStorage.getItem('urth.resume'); } catch (e) {}
+  function keepResume(t) {
+    resumeToken = t;
+    try { if (t) localStorage.setItem('urth.resume', t); else localStorage.removeItem('urth.resume'); } catch (e) {}
+  }
+  var RESUME_WAIT = [500, 2000, 5000, 10000];
+  function scheduleResume() {
+    if (!resumeToken || resumeTries >= RESUME_WAIT.length) { resumePending = false; return false; }
+    resumePending = true;
+    if (document.visibilityState === 'visible') setTimeout(function () { if (resumePending) connect(); }, RESUME_WAIT[resumeTries]);
+    return true;
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && resumePending && (!ws || ws.readyState === WebSocket.CLOSED)) connect();
+  });
   function connect() {
     var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-    ws = new WebSocket(proto + location.host + '/ws');
-    $('loginlog').textContent = '';
-    showBanner('');
+    resumePending = false;
+    var token = reconnectToken || resumeToken, resuming = !!token, opened = false;
+    usedResume = !reconnectToken && !!resumeToken;
+    ws = new WebSocket(proto + location.host + '/ws' + (resuming ? '?token=' + encodeURIComponent(token) : ''));
+    reconnectToken = null; expectRestart = false;
+    if (!inGame) $('loginlog').textContent = resuming ? 'Resuming…\n' : '';
+    if (!resuming) showBanner('');
     $('loginbtn').textContent = 'Send';
     $('logininput').placeholder = 'type here';
-    ws.onopen = function () { $('logininput').focus(); };
-    ws.onclose = function () {
-      inGame = false; state = null;
+    ws.onopen = function () { opened = true; resumeTries = 0; if (!inGame) $('logininput').focus(); };
+    ws.onclose = function (e) {
+      if (!opened) resumeTries++;
+      var unexpected = !expectRestart && !(e.code === 1000 || e.reason === 'idle');
+      if (e.code === 1000) keepResume(null); // a quit, a kick, or a deny
+      if (unexpected && scheduleResume()) {
+        if (inGame) addText('[connection lost: reconnecting]', null);
+        else $('loginlog').textContent = 'Reconnecting…\n';
+        return; // the game stays on screen while it comes back
+      }
+      inGame = false; state = null; closeSheet();
       $('game').style.display = 'none'; $('login').style.display = 'flex';
-      loginAppend('\n[disconnected]\n');
-      $('loginbtn').textContent = 'Connect'; $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
+      if (expectRestart) loginAppend('\nThe server is restarting. Tap ' + (reconnectToken ? 'Reconnect to carry on where you were.' : 'Connect when it is back.') + '\n');
+      else loginAppend('\n[disconnected]\n');
+      $('loginbtn').textContent = reconnectToken ? 'Reconnect' : 'Connect';
+      $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
     };
     ws.onmessage = function (e) { JSON.parse(e.data).forEach(handle); };
   }
@@ -264,24 +314,38 @@
     switch (m.type) {
       case 'echo-off': $('logininput').type = 'password'; return;
       case 'echo-on': $('logininput').type = 'text'; return;
-      case 'commands': case 'reconnect': return;
+      case 'reconnect': reconnectToken = (m.data && m.data.token) || null; expectRestart = true; return;
+      case 'session': keepResume(m.data && m.data.token); return;
+      case 'commands': if (!inGame) { enterGame(); send('look'); } return; // in the game, as after a resume
       case 'state': state = m.data; render(); return;
+      case 'expeditions': if (sheetFor === 'Expeditions') expeditionActs(m.data || []); return;
+      case 'offers': if (sheetFor) offerActs(m.data || {}); return;
       case 'room':
-        if (!inGame) {
-          inGame = true;
-          $('login').style.display = 'none'; $('game').style.display = 'flex';
-          send('client state');
-          setTimeout(drawMap, 0);
-        }
+        if (!inGame) enterGame();
         showDescription(m.text);
         break;
       case 'prompt':
+        if (/^By what name/.test(m.text) && (inGame || usedResume)) {
+          // The resume was not honoured (the character left meanwhile): sign in.
+          usedResume = false; keepResume(null);
+          inGame = false; state = null; closeSheet();
+          $('game').style.display = 'none'; $('login').style.display = 'flex';
+          $('loginlog').textContent = '';
+          $('loginbtn').textContent = 'Send'; $('logininput').placeholder = 'type here';
+        }
         if (!inGame) loginAppend(m.text);
         return;
     }
     if (!inGame && m.type === 'system' && /\n.*\n.*\n/.test(m.text) && !bannerText) { showBanner(m.text); return; }
     if (!inGame) { loginAppend(m.text); return; }
-    addText(m.text, m.type === 'room');
+    addText(m.text, m.html, m.type === 'room');
+  }
+
+  function enterGame() {
+    inGame = true;
+    $('login').style.display = 'none'; $('game').style.display = 'flex';
+    send('client state');
+    setTimeout(drawMap, 0);
   }
 
   // The room message is name, description, exits, then what is here. The
@@ -298,15 +362,20 @@
   $('desc').addEventListener('click', function () { $('desc').classList.toggle('clamp'); });
 
   // ---- Text: a two-line ticker of the latest, and the full log -------
-  function addText(text, logOnly) {
-    var lines = text.split('\n').filter(function (l) { return l.trim() !== ''; });
+  // Lines are kept as the server's HTML (escaped text in color spans, as
+  // the main client shows them); a line with no text is dropped.
+  function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+  function addText(text, html, logOnly) {
+    var plain = text.split('\n'), marked = (html || esc(text)).split('\n'), lines = [];
+    for (var i = 0; i < plain.length; i++) if (plain[i].trim() !== '') lines.push(marked[i] !== undefined ? marked[i] : esc(plain[i]));
     if (!lines.length) return;
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
     feed = feed.slice(-2); logLines = logLines.slice(-300);
     var f = $('ticker'); f.textContent = '';
-    feed.forEach(function (l) { f.appendChild(el('div', '', l)); });
-    var log = $('log'); log.textContent = logLines.join('\n'); log.scrollTop = log.scrollHeight;
-    if (sheetFor) $('sheettext').textContent = lines.join('\n');
+    feed.forEach(function (l) { var d = el('div'); d.innerHTML = l; f.appendChild(d); });
+    $('log').innerHTML = logLines.join('\n');
+    if (currentTab === 'log') $('panel').scrollTop = $('panel').scrollHeight;
+    if (sheetFor) { sheetLines = sheetLines.concat(lines).slice(-200); $('sheettext').innerHTML = sheetLines.join('\n'); }
   }
 
   // ---- Rendering from the state snapshot -----------------------------
@@ -336,6 +405,7 @@
     renderBag(s);
     renderGear(s);
     renderMe(s);
+    if (sheetRefresh) sheetRefresh(s);
   }
 
   // The direction pad, always all six directions and look, laid out as a
@@ -405,7 +475,7 @@
   // sheet that also shows the look.
   function row(list, nameEl, main, more) {
     var d = el('div'); d.appendChild(nameEl);
-    if (main) d.appendChild(btn(main[0], function () { send(main[1]); }, main[2] || 'primary'));
+    if (main) d.appendChild(btn(main[0], function () { if (typeof main[1] === 'function') main[1](); else send(main[1]); }, main[2] || 'primary'));
     if (more) d.appendChild(btn('⋯', more, 'ghost'));
     list.appendChild(d);
   }
@@ -416,19 +486,35 @@
     if (s.room.mobs.length) {
       section(list, 'Creatures');
       s.room.mobs.forEach(function (m) {
-        row(list, el('span', 'name ellipsis', m.name), s.room.safe ? null : ['Fight', 'kill ' + m.ref],
-          function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref]].concat(s.room.safe ? [] : [['Fight', 'kill ' + m.ref]])); });
+        // A creature that serves players gets its service as the main
+        // button; fighting it moves to the sheet.
+        var svc = serviceAction(m);
+        var fight = s.room.safe ? null : ['Fight', 'kill ' + m.ref];
+        row(list, el('span', 'name ellipsis mob', m.name), svc || fight,
+          function () { openSheet(m.name, 'look ' + m.ref, [['Consider', 'consider ' + m.ref]].concat(fight ? [fight] : [])); });
       });
     }
     if (s.room.players.length) {
       section(list, 'Players');
-      s.room.players.forEach(function (n) { row(list, el('span', 'name ellipsis', n)); });
+      s.room.players.forEach(function (n) {
+        row(list, el('span', 'name ellipsis', n), null, function () {
+          openSheet(n, 'look ' + n.toLowerCase(), [['Follow', 'follow ' + n], ['Invite to group', 'group ' + n],
+            ['Tell…', function () { closeSheet(); talkTo('tell ' + n); }]]);
+        });
+      });
     }
     if (s.room.items.length) {
       section(list, 'Items');
       s.room.items.forEach(function (it) {
         var main = /corpse/.test(it.name) ? ['Loot', 'get all ' + it.ref] : it.fixed ? null : ['Take', 'get ' + it.ref, ''];
-        row(list, el('span', 'name ellipsis dim', (it.count > 1 ? '(' + it.count + ') ' : '') + it.name), main,
+        var cls = it.color ? 'c-' + it.color : it.fixed ? 'fixed' : 'item';
+        var label = el('span', 'name ellipsis ' + cls, (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
+        if (it.rarity) { // as the room text has it: "a club (uncommon)", the tag in the tier's color
+          label.title = it.rarity;
+          label.appendChild(document.createTextNode(' '));
+          label.appendChild(el('span', 'tier', '(' + it.rarity + ')'));
+        }
+        row(list, label, main,
           function () { openSheet(it.name, 'look ' + it.ref, it.fixed ? [] : [['Take', 'get ' + it.ref]]); });
       });
     }
@@ -442,27 +528,116 @@
       rest.appendChild(btn('Stand up', function () { send('stand'); }, 'primary'));
     }
     rest.appendChild(btn('Scan', function () { openSheet('Nearby', 'scan', []); }));
+    rest.appendChild(btn('Recall', function () { send('recall'); }));
+  }
+
+  function serviceAction(m) {
+    var svc = m.services || [];
+    if (svc.indexOf('shop') >= 0) return ['Shop', function () { openSheet(m.name, 'list', []); }];
+    if (svc.indexOf('trainer') >= 0) return ['Train', function () { openSheet(m.name, 'practice', []); }];
+    if (svc.indexOf('quest') >= 0) return ['Quest', function () { openSheet(m.name, 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete']]); }];
+    if (svc.indexOf('vendor') >= 0) return ['Wares', function () { openSheet(m.name, 'quest list', []); }];
+    return null;
+  }
+
+  // What a merchant, trainer, or vendor offers, as one button each; the
+  // sheet stays open so the trade's reply shows under the list.
+  function offerActs(d) {
+    var box = $('sheetacts'); box.textContent = '';
+    (d.items || []).forEach(function (o) {
+      var b = btn('', function () {
+        send(o.command);
+        // A feat pick changes what is available: list them again.
+        if (d.from === 'feats') setTimeout(function () { if (sheetFor === 'Feats') openSheet('Feats', 'feat', []); }, 500);
+      });
+      b.appendChild(document.createTextNode(o.name));
+      var meta = [o.price, o.note].filter(Boolean).join(' · ');
+      if (meta) b.appendChild(el('small', 'dim', meta));
+      if (o.about) b.appendChild(el('small', 'dim', o.about));
+      b.style.textAlign = 'left';
+      b.disabled = !!o.disabled;
+      box.appendChild(b);
+    });
   }
 
   // The Me tab: the character, its abilities, and settings, each a sheet.
   function renderMe(s) {
-    var list = $('melist');
-    if (list.childNodes.length) return; // the rows never change
-    [['Stats', 'Character', 'stats', []],
-     ['Skills', 'Skills', 'skills', []],
-     ['Spells', 'Spells', 'spells', []],
-     ['Feats', 'Feats', 'feat', []],
-     ['Quest', 'Quest', 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete']]],
-     ['Who is on', 'Who', 'who', []],
-     ['Settings', 'Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; })]
-    ].forEach(function (r) {
+    var list = $('melist'); list.textContent = '';
+    var rows = [
+      ['Stats', function () { openSheet('Character', 'stats', []); }],
+      ['Train stats', trainSheet, s.statPoints],
+      ['Feats', function () { openSheet('Feats', 'feat', []); }, s.featPoints],
+      ['Abilities', abilitiesSheet],
+      ['Expeditions', function () { openSheet('Expeditions', 'expedition', []); }],
+      ['Quest', function () { openSheet('Quest', 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete'], ['Quest points', 'quest points']]); }],
+      ['Group', function () { openSheet('Group', 'group', [['Leave the group', 'follow self']]); }],
+      ['Affects', function () { openSheet('Affects', 'affects', []); }],
+      ['Who is on', function () { openSheet('Who', 'who', []); }],
+      ['Settings', function () { openSheet('Settings', 'settings', ['autoloot', 'autogold', 'autosac', 'color'].map(function (n) { return ['Flip ' + n, 'settings ' + n]; })); }],
+      ['Help', function () { openSheet('Help', 'help', []); }],
+      ['Full client', function () { // the desktop client, remembered so the main page stops sending you here
+        try { localStorage.setItem('urth.client', 'full'); } catch (e) {}
+        location.href = '/';
+      }]
+    ];
+    rows.forEach(function (r) {
       var d = el('div');
-      d.appendChild(el('span', 'name', r[0]));
+      var name = el('span', 'name', r[0]);
+      if (r[2] > 0) name.appendChild(el('span', 'badge', String(r[2])));
+      d.appendChild(name);
       d.appendChild(el('span', 'dim', '›'));
       d.style.cursor = 'pointer';
-      d.addEventListener('click', function () { openSheet(r[1], r[2], r[3]); });
+      d.addEventListener('click', r[1]);
       list.appendChild(d);
     });
+  }
+
+  // Train: a button for each stat while there are points to spend. The
+  // sheet redraws from each new state, so points count down as you tap.
+  function trainSheet() {
+    openSheet('Train stats', 'train', []);
+    sheetRefresh = function (s) {
+      var box = $('sheetacts'); box.textContent = '';
+      if (!s.statPoints) {
+        var note = el('div', 'dim', 'No stat points to spend. Each level brings more.'); note.style.gridColumn = '1 / -1';
+        box.appendChild(note);
+      }
+      s.stats.forEach(function (st) {
+        var b = btn('', function () { send('train ' + st.name); });
+        b.appendChild(document.createTextNode(st.name.charAt(0).toUpperCase() + st.name.slice(1) + ' ' + st.base));
+        if (st.effective !== st.base) b.appendChild(el('small', 'dim', ' (' + st.effective + ' with gear)'));
+        b.disabled = !s.statPoints;
+        box.appendChild(b);
+      });
+    };
+    sheetRefresh(state);
+  }
+
+  // Abilities: every skill and spell, usable outside a fight when it needs
+  // no foe (Second Wind, Ward, Mend on yourself), and on your target in one.
+  function abilitiesSheet() {
+    openSheet('Abilities', null, []);
+    sheetRefresh = function (s) {
+      var box = $('sheetacts'); box.textContent = '';
+      var fighting = s.enemies.length > 0;
+      var all = s.skills.concat(s.spells);
+      if (!all.length) {
+        var none = el('div', 'dim', 'You have no skills or spells to use yet. Trainers teach skills; totems and temples open magic.');
+        none.style.gridColumn = '1 / -1'; box.appendChild(none);
+      }
+      all.forEach(function (a) {
+        var needsFoe = a.target === 'single' || a.target === 'area';
+        var b = btn('', function () { send(a.command + (a.target === 'single' && s.target ? ' ' + s.target.ref : '')); });
+        b.appendChild(document.createTextNode(a.name));
+        var why = a.cooldown > 0 ? a.cooldown + ' rounds' : needsFoe && !fighting ? 'in a fight' :
+          a.mana > s.mana ? 'needs ' + a.mana + ' mana' : a.stamina > s.stamina ? 'needs ' + a.stamina + ' st' :
+          a.mana ? a.mana + ' mana' : a.stamina ? a.stamina + ' st' : 'ready';
+        b.appendChild(el('small', 'dim', why));
+        b.disabled = a.cooldown > 0 || (needsFoe && !fighting) || a.mana > s.mana || a.stamina > s.stamina;
+        box.appendChild(b);
+      });
+    };
+    sheetRefresh(state);
   }
 
   // Doors in this room, from the map, with what can be done to each.
@@ -484,7 +659,7 @@
   }
 
   function itemName(it) {
-    var span = el('span', 'name ellipsis ' + (it.color ? 'r-' + it.color : ''), (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
+    var span = el('span', 'name ellipsis ' + (it.color ? 'c-' + it.color : ''), (it.count > 1 ? '(' + it.count + ') ' : '') + it.name);
     if (it.rarity) span.title = it.rarity;
     return span;
   }
@@ -504,6 +679,7 @@
   }
 
   function useAction(it) {
+    if (it.type === 'container') return ['Look in', function () { openSheet(it.name, 'look in ' + it.ref, [['Take everything out', 'get all ' + it.ref]]); }];
     if (it.type === 'totem') return ['Brandish', 'brandish ' + it.ref];
     if (it.slot === 'hold') return ['Hold', 'hold ' + it.ref];
     if (it.slot || it.type === 'weapon') return ['Wear', 'wear ' + it.ref];
@@ -658,7 +834,7 @@
     }
     return steps;
   }
-  function walk(steps) { steps.forEach(function (s) { send(s); }); addText('walk ' + steps.filter(function (s) { return !/^open /.test(s); }).join(' ')); }
+  function walk(steps) { steps.forEach(function (s) { send(s); }); addText('walk ' + steps.filter(function (s) { return !/^open /.test(s); }).join(' '), null); }
 
   function describe(r) {
     var bits = [];
@@ -755,25 +931,69 @@
   $('center').addEventListener('click', function () { pan = { x: 0, y: 0 }; drawMap(); });
   window.addEventListener('resize', drawMap);
 
-  // ---- Bottom sheet: a command's reply plus follow-up actions --------
-  function openSheet(name, command, acts) {
-    sheetFor = name;
-    $('sheetname').textContent = name; $('sheettext').textContent = '…';
+  // ---- Expeditions: an area, a length, then the run's report -----------
+  var expLen = 10;
+  function expeditionActs(list) {
     var box = $('sheetacts'); box.textContent = '';
-    acts.forEach(function (a) { box.appendChild(btn(a[0], function () { closeSheet(); send(a[1]); })); });
-    $('sheet').style.display = 'flex'; $('shade').style.display = 'block';
-    send(command);
+    var why = !list.length ? '' : !list[0].safe ? 'Expeditions set out from somewhere safe, like a town.' :
+      list[0].wait ? 'You are still resting from the last one.' : '';
+    if (why) { var note = el('div', 'dim', why); note.style.gridColumn = '1 / -1'; box.appendChild(note); }
+    var lens = el('div', 'chips'); lens.style.gridColumn = '1 / -1'; lens.style.marginTop = '0';
+    [5, 10, 20].forEach(function (n) {
+      lens.appendChild(btn(n + ' fights', function () { expLen = n; expeditionActs(list); }, n === expLen ? 'primary' : ''));
+    });
+    box.appendChild(lens);
+    list.forEach(function (x) {
+      var b = btn('', function () { openSheet('Expedition: ' + x.name, 'expedition ' + x.area + ' ' + expLen, []); });
+      b.appendChild(document.createTextNode(x.name));
+      var lv = el('small', 'dim', ' · level ' + x.low + (x.high !== x.low ? '–' + x.high : ''));
+      b.appendChild(lv);
+      b.disabled = !!why;
+      box.appendChild(b);
+    });
   }
-  function closeSheet() { sheetFor = null; $('sheet').style.display = 'none'; $('shade').style.display = 'none'; }
+
+  // ---- Bottom sheet: a command's reply plus follow-up actions --------
+  // A sheet shows a command's reply (if any) and buttons; an action is a
+  // command to send, closing the sheet, or a function to run. A sheet that
+  // follows the character sets sheetRefresh, called with each new state.
+  var sheetRefresh = null;
+  function openSheet(name, command, acts) {
+    sheetFor = name; sheetLines = []; sheetRefresh = null;
+    $('sheetname').textContent = name; $('sheettext').textContent = command ? '…' : '';
+    var box = $('sheetacts'); box.textContent = '';
+    acts.forEach(function (a) {
+      box.appendChild(btn(a[0], function () { if (typeof a[1] === 'function') a[1](); else { closeSheet(); send(a[1]); } }));
+    });
+    $('sheet').style.display = 'flex'; $('shade').style.display = 'block';
+    if (command) send(command);
+  }
+  function closeSheet() { sheetFor = null; sheetRefresh = null; $('sheet').style.display = 'none'; $('shade').style.display = 'none'; }
   $('sheetclose').addEventListener('click', closeSheet);
   $('shade').addEventListener('click', closeSheet);
 
   // The Log tab takes typed commands too, for anything without a button.
+  // The box under the log says, chats, tells, or runs a command, as the
+  // chosen mode prefixes it.
+  var talkMode = '';
+  var MODES = [['Command', ''], ['Say', 'say'], ['Chat', 'chat']];
+  function renderModes() {
+    var box = $('talkmodes'); box.textContent = '';
+    var modes = MODES.slice();
+    if (/^tell /.test(talkMode)) modes.push([talkMode.replace(/^tell /, 'Tell '), talkMode]);
+    modes.forEach(function (m) {
+      box.appendChild(btn(m[0], function () { talkMode = m[1]; renderModes(); $('cmd').focus(); }, talkMode === m[1] ? 'primary' : ''));
+    });
+    $('cmd').placeholder = talkMode ? talkMode.replace(/^tell (.*)/, 'tell $1') + '…' : 'type a command';
+  }
+  function talkTo(mode) { talkMode = mode; renderModes(); showTab('log'); $('cmd').focus(); }
+  renderModes();
   $('cmdform').addEventListener('submit', function (ev) {
     ev.preventDefault();
     var v = $('cmd').value.trim();
     if (!v) return;
-    send(v); addText('> ' + v, true); $('cmd').value = '';
+    var line = talkMode ? talkMode + ' ' + v : v;
+    send(line); addText('> ' + line, null, true); $('cmd').value = '';
   });
 
   // ---- Tabs: one pane of the panel at a time ---------------------------
@@ -794,6 +1014,8 @@
     b.addEventListener('click', function () { showTab(b.dataset.tab); });
   });
   $('ticker').addEventListener('click', function () { showTab('log'); });
+  // A tab the phone reloaded after suspending it still holds its token.
+  if (resumeToken) { $('loginbtn').textContent = 'Send'; connect(); }
 })();
 </script>
 </body>

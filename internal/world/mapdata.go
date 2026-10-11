@@ -39,14 +39,52 @@ func (w *World) roomEntities(r *room.Room, self *Player) (mobs, items []output.E
 				break
 			}
 		}
-		mobs = append(mobs, output.Entity{Name: m.Name, Ref: ref(word, n)})
+		mobs = append(mobs, output.Entity{Name: m.Name, Ref: ref(word, n), Services: mobServices(m)})
 	}
 	list := w.contents(r).items
 	pool := w.searchPool(self)
 	for _, g := range item.Group(list) {
-		items = append(items, output.Entity{Name: g.Item.Name(), Ref: itemRef(list, pool, g.Item), Count: g.Count, Fixed: g.Item.Proto.HasFlag("nopickup")})
+		items = append(items, output.Entity{Name: g.Item.Name(), Ref: itemRef(list, pool, g.Item), Count: g.Count,
+			Fixed: g.Item.Proto.HasFlag("nopickup"), Rarity: g.Item.Rarity, Color: g.Item.Color})
 	}
 	return mobs, items
+}
+
+// mobServices lists what m does for players, in the words MapRoom uses.
+func mobServices(m *Mob) []string {
+	var out []string
+	if isMerchant(m) {
+		out = append(out, "shop")
+	}
+	if len(m.Proto.Teaches) > 0 {
+		out = append(out, "trainer")
+	}
+	if isQuestmaster(m) {
+		out = append(out, "quest")
+	}
+	if isVendor(m) {
+		out = append(out, "vendor")
+	}
+	return out
+}
+
+// offerWord is the keyword of protos[i] that a buy command, which takes
+// the first offer matching its word, resolves to protos[i] itself.
+func offerWord(protos []*item.Proto, i int) string {
+	for _, k := range protos[i].Keywords {
+		for j, p := range protos {
+			if p != nil && item.MatchKeywords(p.Keywords, k) {
+				if j == i {
+					return k
+				}
+				break
+			}
+		}
+	}
+	if len(protos[i].Keywords) > 0 {
+		return protos[i].Keywords[0]
+	}
+	return ""
 }
 
 func ref(word string, n int) string {

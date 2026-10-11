@@ -9,6 +9,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
 <!--analytics-->
+<script>
+// Phone-sized screens get the tap client (/play.html) unless the player
+// chose the full client there; ?full picks it for this visit.
+(function () {
+  var pref = '';
+  try { pref = localStorage.getItem('urth.client') || ''; } catch (e) {}
+  if (/[?&]full\b/.test(location.search) || pref === 'full') return;
+  if (window.matchMedia && matchMedia('(max-width: 760px)').matches) location.replace('/play.html');
+})();
+</script>
 <style>
   :root {
     color-scheme: dark;
@@ -28,7 +38,9 @@
     border-bottom: 1px solid var(--line); }
   #title { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
   #area { color: var(--dim); font-size: .85em; }
-  #conn { margin-left: auto; font-size: .8em; color: var(--dim); }
+  #tapview { margin-left: auto; font-size: .8em; color: var(--dim); text-decoration: none; }
+  #tapview:hover { color: var(--accent); }
+  #conn { margin-left: .8em; font-size: .8em; color: var(--dim); }
   #conn.on { color: var(--ok); } #conn.off { color: var(--bad); }
   #screen { flex: 1; min-height: 0; overflow-y: auto; padding: .8em 1.1em 1.6em;
     white-space: pre-wrap; word-break: break-word; overscroll-behavior: contain; }
@@ -118,7 +130,7 @@
 </head>
 <body>
 <div id="main">
-  <div id="head"><span id="title">Urth</span><span id="area"></span><span id="conn">connecting</span></div>
+  <div id="head"><span id="title">Urth</span><span id="area"></span><a id="tapview" href="/play.html" title="The tap client, made for phones" onclick="try { localStorage.setItem('urth.client', 'tap') } catch (e) {}">tap view</a><span id="conn">connecting</span></div>
   <div id="screen"></div>
   <div id="connectbox"><p id="connectmsg">Not connected.</p><button id="connect" type="button">Connect</button></div>
 </div>
@@ -371,11 +383,30 @@
 
   // ---- Connection ---------------------------------------------------
   var proto = location.protocol === 'https:' ? 'wss://' : 'ws://';
-  // The page never connects on its own: not on load, not after a drop,
-  // not after a restart. Every close returns to the Connect screen. A
+  // The page never connects on load or after a restart; Connect does. A
   // copyover token is kept so that Connect resumes the session while the
-  // server still honours it (two minutes).
+  // server still honours it (two minutes). The one exception (D24): after
+  // an unexpected drop (a phone asleep, the network gone) the page resumes
+  // by itself as soon as it is visible again, with the resume token the
+  // server gave it, and the server hands back the same character, which
+  // stayed in the world link-dead meanwhile. A quit forgets the token.
   var ws = null, reconnectToken = null, expectRestart = false;
+  var resumeToken = null, resumeTries = 0, resumePending = false, usedResume = false;
+  try { resumeToken = localStorage.getItem('urth.resume'); } catch (e) {}
+  function keepResume(t) {
+    resumeToken = t;
+    try { if (t) localStorage.setItem('urth.resume', t); else localStorage.removeItem('urth.resume'); } catch (e) {}
+  }
+  var RESUME_WAIT = [500, 2000, 5000, 10000];
+  function scheduleResume() {
+    if (!resumeToken || resumeTries >= RESUME_WAIT.length) { resumePending = false; return false; }
+    resumePending = true;
+    if (document.visibilityState === 'visible') setTimeout(function () { if (resumePending) connect(); }, RESUME_WAIT[resumeTries]);
+    return true;
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && resumePending && (!ws || ws.readyState === WebSocket.CLOSED)) connect();
+  });
   var conn = $('conn'), main = $('main');
   // The client hangs up after this long without a command, with a warning
   // a minute before. Output does not count as activity.
@@ -413,23 +444,36 @@
   function connect() {
     if (ws && (ws.readyState === WebSocket.CONNECTING || ws.readyState === WebSocket.OPEN)) return;
     showConnectBox(false);
-    var url = proto + location.host + '/ws' + (reconnectToken ? '?token=' + encodeURIComponent(reconnectToken) : '');
-    var resuming = !!reconnectToken;
+    resumePending = false;
+    var token = reconnectToken || resumeToken;
+    usedResume = !reconnectToken && !!resumeToken;
+    var url = proto + location.host + '/ws' + (token ? '?token=' + encodeURIComponent(token) : '');
+    var resuming = !!token, opened = false;
     conn.textContent = 'connecting'; conn.className = '';
     ws = new WebSocket(url);
     ws.onopen = function () {
-      reconnectToken = null;
+      reconnectToken = null; opened = true; resumeTries = 0;
       setConnected(true); input.type = 'text';
       system(resuming ? '[reconnected]' : '[connected]');
       input.focus();
     };
     ws.onclose = function (e) {
       var why;
+      if (!opened) resumeTries++;
       if (expectRestart) { expectRestart = false; why = 'The server is restarting.'; system('[server restarting]'); }
       else if (e.reason === 'idle') { why = 'Disconnected after ' + Math.round(idleLimit / 60000) + ' minutes idle.'; }
-      else if (e.code === 1000) { why = 'Disconnected' + (e.reason ? ': ' + e.reason : '') + '.'; system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); }
-      else if (e.wasClean || e.code === 1001) { why = 'Disconnected.'; system('[disconnected]'); }
-      else { why = resuming ? 'Could not resume the session.' : 'Connection lost.'; system('[connection lost]'); }
+      else if (e.code === 1000) { keepResume(null); why = 'Disconnected' + (e.reason ? ': ' + e.reason : '') + '.'; system('[disconnected' + (e.reason ? ': ' + e.reason : '') + ']'); }
+      else {
+        // Unexpected: come back by ourselves when the page is visible.
+        setConnected(false);
+        if (scheduleResume()) {
+          if (opened) system('[connection lost: reconnecting]');
+          conn.textContent = 'reconnecting'; conn.className = '';
+          showConnectBox(false);
+          return;
+        }
+        why = resuming ? 'Could not resume the session.' : 'Connection lost.'; system('[connection lost]');
+      }
       setConnected(false);
       showConnectBox(true, why);
     };
@@ -438,11 +482,15 @@
         switch (m.type) {
           case 'prompt':
             if (m.data && typeof m.data.health === 'number') { showVitals(m.data); prompt.textContent = ''; }
-            else { prompt.textContent = m.text; }
+            else {
+              prompt.textContent = m.text;
+              if (usedResume && /^By what name/.test(m.text)) { usedResume = false; keepResume(null); } // the token was not honoured
+            }
             return;
           case 'echo-off': input.type = 'password'; return;
           case 'echo-on': input.type = 'text'; return;
           case 'reconnect': reconnectToken = (m.data && m.data.token) || null; expectRestart = true; return;
+          case 'session': keepResume(m.data && m.data.token); return;
           case 'commands': commandNames = m.data || []; return;
           case 'room':
             if (m.data) {
@@ -514,6 +562,9 @@
   setConnected(false);
   input.placeholder = 'not connected. press Enter to connect';
   drawMap();
+  // A tab the phone reloaded after suspending it still holds its resume
+  // token: carry on rather than show the Connect screen (D24).
+  if (resumeToken) connect();
 })();
 </script>
 </body>

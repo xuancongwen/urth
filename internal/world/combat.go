@@ -648,6 +648,19 @@ func cmdFeat(w *World, p *Player, args string) {
 		}
 		b.WriteString("{G}*{x} learned  {Y}+{x} available. Type 'feat <name>' to choose one.\n")
 		p.Send(b.String())
+		offers := output.OffersData{From: "feats", Items: []output.Offer{}}
+		for _, f := range feats {
+			ok, why := available(f)
+			o := output.Offer{Name: f.Name, Command: "feat " + f.ID, Note: why, About: f.Description}
+			if !ok || p.FeatPoints <= 0 {
+				o.Disabled = true
+			}
+			if ok && p.FeatPoints <= 0 {
+				o.Note = "available, no picks left"
+			}
+			offers.Items = append(offers.Items, o)
+		}
+		p.SendMsg(output.Message{Type: output.Offers, Data: offers})
 		return
 	}
 	want := strings.ToLower(args)

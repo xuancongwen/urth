@@ -260,6 +260,8 @@ func (w *World) listExpeditions(p *Player, rules ExpeditionRules) {
 	var b strings.Builder
 	b.WriteString("Expeditions near level " + itoa(p.Level) + ": expedition <area> [fights] [seed]\n")
 	n := 0
+	list := []output.Expedition{}
+	safe := p.Room != nil && p.Room.Safe()
 	for _, a := range areas {
 		foes := w.expeditionFoes(a, p.Level, rules.LevelBand)
 		if len(foes) == 0 {
@@ -271,6 +273,7 @@ func (w *World) listExpeditions(p *Player, rules ExpeditionRules) {
 			lv := w.simCharacter(f).Level
 			lo, hi = min(lo, lv), max(hi, lv)
 		}
+		list = append(list, output.Expedition{Area: a, Name: w.areaName(a), Kinds: len(foes), Low: lo, High: hi, Safe: safe, Wait: p.expeditionWait})
 		levels := "level " + itoa(lo)
 		if hi != lo {
 			levels = "levels " + itoa(lo) + "-" + itoa(hi)
@@ -281,6 +284,7 @@ func (w *World) listExpeditions(p *Player, rules ExpeditionRules) {
 		b.WriteString("  Nowhere. Nothing anywhere is near your level.\n")
 	}
 	p.Send(b.String())
+	p.SendMsg(output.Message{Type: output.Expeditions, Data: list})
 }
 
 // matchArea finds an area directory by name or prefix.

@@ -68,6 +68,15 @@ func (w *World) clientState(p *Player) output.StateData {
 	if c.casting != nil {
 		s.Casting = &output.Casting{Spell: c.casting.spell.Name, Rounds: c.casting.rounds}
 	}
+	s.StatPoints, s.FeatPoints, s.QuestPoints = c.StatPoints, c.FeatPoints, p.questPoints
+	s.Stats = []output.Stat{}
+	for _, k := range orderedStats(c.Stats) {
+		eff := c.Stats[k]
+		if v, ok := c.EffStats[k]; ok {
+			eff = v
+		}
+		s.Stats = append(s.Stats, output.Stat{Name: k, Base: c.Stats[k], Effective: eff})
+	}
 	s.Room = w.stateRoom(p)
 	if w.canSee(c) {
 		s.Map = w.mapAround(p.Room, p)

@@ -55,6 +55,10 @@ world:
   respawn_room: 1
   # The first character ever created becomes an admin (copyover, shutdown).
   first_player_is_admin: true
+  # A character whose connection drops (a phone asleep) stays in the
+  # world this long, link-dead, for its player to come back to. 0 removes
+  # it at once.
+  linkdead_minutes: 10
 
 log:
   # debug, info, warn, error

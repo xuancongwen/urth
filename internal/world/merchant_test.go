@@ -6,6 +6,7 @@ import (
 
 	"urth/internal/item"
 	"urth/internal/mob"
+	"urth/internal/output"
 )
 
 // makeMerchant turns the city guard in the hub into a merchant: the rusty
@@ -83,5 +84,37 @@ func TestMerchantSell(t *testing.T) {
 	send(w, 1, "sell sword")
 	if o := bob.take(); !strings.Contains(o, "You sell a rusty sword to a city guard for 40 silver") || p.Silver != 40 {
 		t.Fatalf("sell: %q silver %d", o, p.Silver)
+	}
+}
+
+// TestOffersCarryCommands checks the structured offers beside a listing:
+// each command buys the item it is listed with, even when an earlier
+// offer shares a keyword with it.
+func TestOffersCarryCommands(t *testing.T) {
+	w := testWorld(t)
+	makeMerchant(w)
+	// A second sword, after the rusty one: "sword" would buy the rusty.
+	w.content.Mobs[20].Trades = append(w.content.Mobs[20].Trades, mob.Trade{Item: 15, Silver: 10})
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.Silver = 1000
+	send(w, 1, "list")
+	var offers output.OffersData
+	for _, m := range bob.batches[len(bob.batches)-1].Messages {
+		if m.Type == output.Offers {
+			offers = m.Data.(output.OffersData)
+		}
+	}
+	if len(offers.Items) != 3 || offers.Items[0].Command != "buy rusty" || offers.Items[2].Command != "buy plain" {
+		t.Fatalf("offers: %+v", offers)
+	}
+	send(w, 1, offers.Items[2].Command)
+	if len(p.Inventory) != 1 || p.Inventory[0].Proto.Vnum != 15 {
+		t.Fatalf("bought %v", p.Inventory)
+	}
+	room, _ := w.content.Rooms.Get(1)
+	mobs, _ := w.roomEntities(room, p)
+	if len(mobs) == 0 || len(mobs[0].Services) != 1 || mobs[0].Services[0] != "shop" {
+		t.Fatalf("services: %+v", mobs)
 	}
 }

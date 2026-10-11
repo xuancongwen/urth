@@ -145,3 +145,23 @@ func TestShippedMobsCanDrop(t *testing.T) {
 		}
 	}
 }
+
+func TestRoomEntitiesCarryRarity(t *testing.T) {
+	w := testWorld(t)
+	setRules(t, w, lootRulesJS)
+	login(t, w, 1, "Bob")
+	p := w.players[1]
+	it := item.New(w.content.Items[10])
+	w.rollItem(it, "drop", 1)
+	w.contents(p.Room).items = append(w.contents(p.Room).items, it)
+	_, items := w.roomEntities(p.Room, p)
+	for _, e := range items {
+		if e.Name == it.Name() {
+			if e.Rarity != "rare" || e.Color != "B" {
+				t.Fatalf("entity: %+v", e)
+			}
+			return
+		}
+	}
+	t.Fatalf("rolled item not listed: %+v", items)
+}

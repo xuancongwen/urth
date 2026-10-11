@@ -118,8 +118,17 @@ func (s *Server) Serve(ctx context.Context) error {
 		return err
 	}
 	index = []byte(strings.Replace(string(index), "<!--analytics-->", s.tracker, 1))
+	play, err := fs.ReadFile(pages, "play.html")
+	if err != nil {
+		return err
+	}
+	play = []byte(strings.Replace(string(play), "<!--analytics-->", s.tracker, 1))
 	mux := http.NewServeMux()
 	mux.Handle("/", http.FileServer(http.FS(pages)))
+	mux.HandleFunc("GET /play.html", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		_, _ = w.Write(play)
+	})
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		_, _ = w.Write(index)

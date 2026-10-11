@@ -32,7 +32,59 @@ const (
 	// carries StateData. Sent only to sessions that asked with "client
 	// state", and only when it changed. Text clients ignore it.
 	State Type = "state"
+	// Expeditions lists the areas an expedition can set out for, in Data
+	// as []Expedition, beside the text listing. Text clients ignore it.
+	Expeditions Type = "expeditions"
+	// Offers is what a merchant, trainer, or quest vendor offers, in Data
+	// as OffersData, beside the text listing, so a client can make a
+	// button of each. Text clients ignore it.
+	Offers Type = "offers"
+	// Session carries a resume token in Data (SessionData) once a player
+	// is in the game. A web client that loses its connection reconnects
+	// with it and gets the same character back, link-dead in the meantime.
+	// The token is single-use; every resume brings a new one. Text clients
+	// ignore it.
+	Session Type = "session"
 )
+
+// SessionData accompanies a Session message.
+type SessionData struct {
+	Token string `json:"token"`
+}
+
+// OffersData accompanies an Offers message.
+type OffersData struct {
+	From  string  `json:"from"`
+	Items []Offer `json:"items"`
+}
+
+// Offer is one thing on offer: its name, its price as words, the command
+// that takes it, and a note ("level 5", "you know this") when one applies.
+type Offer struct {
+	Name    string `json:"name"`
+	Price   string `json:"price"`
+	Command string `json:"command"`
+	Note    string `json:"note,omitempty"`
+	// About says what it does (a feat's description); Disabled marks an
+	// offer that cannot be taken now, with Note saying why.
+	About    string `json:"about,omitempty"`
+	Disabled bool   `json:"disabled,omitempty"`
+}
+
+// Expedition is one area an expedition can go to: its directory, which
+// the expedition command takes, its name, how many kinds of foe near the
+// player's level it holds, and their levels.
+type Expedition struct {
+	Area  string `json:"area"`
+	Name  string `json:"name"`
+	Kinds int    `json:"kinds"`
+	Low   int    `json:"low"`
+	High  int    `json:"high"`
+	// Safe says whether the player stands somewhere an expedition can
+	// set out from; Wait is rounds of rest still owed.
+	Safe bool `json:"safe"`
+	Wait int  `json:"wait,omitempty"`
+}
 
 // ReconnectData accompanies a Reconnect message.
 type ReconnectData struct {
@@ -71,6 +123,13 @@ type Entity struct {
 	Count int    `json:"count,omitempty"`
 	// Fixed marks an item that is part of the room and cannot be taken.
 	Fixed bool `json:"fixed,omitempty"`
+	// Rarity and Color are a rolled item's tier and its color code
+	// (docs/RULES.md 5.3), so a client can show it as the text does.
+	Rarity string `json:"rarity,omitempty"`
+	Color  string `json:"color,omitempty"`
+	// Services are what a creature does for players: shop, trainer, quest
+	// (a questmaster), vendor (sells for quest points).
+	Services []string `json:"services,omitempty"`
 }
 
 // MapData is the rooms near the player, positioned for drawing.
@@ -138,6 +197,20 @@ type StateData struct {
 	Equipment []GearItem `json:"equipment"`
 	Skills    []Action   `json:"skills"`
 	Spells    []Action   `json:"spells"`
+	// Stats are the character's stats in display order, each as trained
+	// and as gear and effects make it; StatPoints and FeatPoints are
+	// unspent picks; QuestPoints are banked.
+	Stats       []Stat `json:"stats"`
+	StatPoints  int    `json:"statPoints"`
+	FeatPoints  int    `json:"featPoints"`
+	QuestPoints int    `json:"questPoints"`
+}
+
+// Stat is one stat on a state snapshot.
+type Stat struct {
+	Name      string `json:"name"`
+	Base      int    `json:"base"`
+	Effective int    `json:"effective"`
 }
 
 // Combatant is one side of a fight as a client draws it.

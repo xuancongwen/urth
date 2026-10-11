@@ -89,19 +89,28 @@ func cmdList(w *World, p *Player, _ string) {
 	}
 	var b strings.Builder
 	b.WriteString(m.DisplayName() + " offers:\n")
-	for _, t := range m.Proto.Trades {
-		proto := w.content.Items[t.Item]
+	protos := make([]*item.Proto, len(m.Proto.Trades))
+	for i, t := range m.Proto.Trades {
+		protos[i] = w.content.Items[t.Item]
+	}
+	offers := output.OffersData{From: m.Name, Items: []output.Offer{}}
+	for i, t := range m.Proto.Trades {
+		proto := protos[i]
 		if proto == nil {
 			continue
 		}
 		line := "  " + padRight(output.Escape(proto.Name), 34) + w.tradePrice(t)
+		o := output.Offer{Name: proto.Name, Price: output.Strip(w.tradePrice(t)), Command: "buy " + offerWord(protos, i)}
 		if proto.Level > 1 {
 			line += " (level " + itoa(proto.Level) + ")"
+			o.Note = "level " + itoa(proto.Level)
 		}
 		b.WriteString(line + "\n")
+		offers.Items = append(offers.Items, o)
 	}
 	b.WriteString("You have " + moneyString(p.Silver) + ".\n")
 	p.Send(b.String())
+	p.SendMsg(output.Message{Type: output.Offers, Data: offers})
 }
 
 // cmdBuy: buy <item>. Pays the trade's silver and items to the merchant.

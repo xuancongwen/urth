@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"urth/internal/mob"
+	"urth/internal/output"
 )
 
 func TestExpeditionRun(t *testing.T) {
@@ -24,6 +25,15 @@ func TestExpeditionRun(t *testing.T) {
 	send(w, 1, "expedition")
 	if o := bob.take(); !strings.Contains(o, "a stray dog") && !strings.Contains(o, "  a ") {
 		t.Fatalf("list: %q", o)
+	}
+	var listed []output.Expedition
+	for _, m := range bob.batches[len(bob.batches)-1].Messages {
+		if m.Type == output.Expeditions {
+			listed = m.Data.([]output.Expedition)
+		}
+	}
+	if len(listed) != 1 || listed[0].Area != "a" || listed[0].Safe {
+		t.Fatalf("expeditions data: %+v", listed)
 	}
 
 	// Against the unarmed dog Bob wins every fight; same seed, same run.

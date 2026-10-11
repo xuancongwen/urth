@@ -64,11 +64,13 @@ type World struct {
 	// doors is the live state of every door someone has touched, true
 	// when closed, keyed by room and direction. Untouched doors are in
 	// the state their room file gives; an area reset forgets its entries.
-	doors   map[doorKey]doorState
-	rng     *rand.Rand
-	events  chan session.Event
-	posts   chan func()
-	tokens  map[string]pendingToken
+	doors  map[doorKey]doorState
+	rng    *rand.Rand
+	events chan session.Event
+	posts  chan func()
+	tokens map[string]pendingToken
+	// resume maps a resume token to its character (linkdead.go).
+	resume  map[string]*Player
 	scripts *script.Engine
 	// hookErrors records the script load each hook last failed under, so
 	// a broken formula is reported once per reload.
@@ -124,6 +126,7 @@ func New(cfg config.Config, c *content.World, log *slog.Logger, deps Deps) *Worl
 		events:         make(chan session.Event, eventBuffer),
 		posts:          make(chan func(), eventBuffer),
 		tokens:         map[string]pendingToken{},
+		resume:         map[string]*Player{},
 		banner:         loadBanner(cfg.Paths.Data),
 		tick:           tick,
 		roundTicks:     roundTicks,
@@ -223,6 +226,8 @@ func (w *World) handleEvent(ev session.Event) {
 			if t, ok := w.tokens[e.Token]; ok && time.Now().Before(t.expires) {
 				delete(w.tokens, e.Token)
 				w.restore(p, t.restore)
+			} else if old, ok := w.resume[e.Token]; ok {
+				w.reattach(old, p)
 			} else {
 				w.log.Warn("bad or expired copyover token", "session", e.Conn.ID())
 				w.greet(p)
@@ -235,8 +240,13 @@ func (w *World) handleEvent(ev session.Event) {
 		if !ok {
 			return
 		}
+		if p.State == StatePlaying && !p.closing && w.linkdeadGrace() > 0 {
+			w.goLinkdead(p, e.Reason)
+			return
+		}
 		w.save(p)
 		w.leave(p)
+		w.forget(p)
 		delete(w.players, e.ID)
 		w.log.Info("disconnected", "session", e.ID, "name", p.Name, "reason", e.Reason)
 	case session.Input:
@@ -281,6 +291,7 @@ func (w *World) round() {
 	w.decayItems()
 	w.tickQuests()
 	w.tickExpeditions()
+	w.expireLinkdead()
 	w.wanderMobs()
 	w.tickAreas()
 	if w.scripts != nil {
@@ -319,6 +330,7 @@ func (w *World) flush() {
 			// so late input is not processed.
 			w.save(p)
 			w.leave(p)
+			w.forget(p)
 			delete(w.players, id)
 		}
 	}

@@ -230,3 +230,27 @@ the change is in the rules: `derivedStats` returns a real pool,
 cost that the engine checks and spends when the cast begins, alongside
 any materials it still names. Mana does not refill in a fight, which
 is what keeps a cast a decision (RULES 2.1, 6.3).
+
+## D24. Dropped connections leave the character link-dead, and web clients resume
+
+A phone that sleeps drops its WebSocket, and so do proxies that see no
+traffic for a while; until now any drop removed the character at once,
+so a player lost their place, and their fight, to a dark screen. Now a
+character whose connection drops without a quit stays in the world for
+`world.linkdead_minutes` (10 by default; 0 restores the old behaviour),
+as in ROM: saved, shown as link-dead to `who`, and removed only if no one
+comes back. On entering the game a web client is given a resume token
+(a `session` message); reconnecting with it reattaches the same
+character to the new socket, and every resume issues a new token. A
+password sign-in reclaims a link-dead character the same way, which also
+serves telnet. Signing in to a character that is playing elsewhere
+reattaches it too, rather than copying some of its fields into a fresh
+one, which lost silver, feats, and quest state.
+
+This relaxes D14's rule that a page never connects unasked, in one case:
+after an unexpected drop, both web clients resume by themselves as soon
+as the page is visible again, and a page that loads holding a token
+resumes. Copyover, restarts, quits, kicks, and idle hang-ups still wait
+for the player. The web server also pings every 30 seconds, so a proxy
+never sees a quiet socket, and a peer that cannot answer is closed and
+left link-dead.

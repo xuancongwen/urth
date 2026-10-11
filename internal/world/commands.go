@@ -339,6 +339,9 @@ func cmdWho(w *World, p *Player, _ string) {
 		if other.Hidden() {
 			r.mark += " (Hidden)"
 		}
+		if other.linkdead() {
+			r.mark += " (link-dead)"
+		}
 		rows = append(rows, r)
 	}
 	sortStringsBy(rows, func(i, j int) bool { return rows[i].name < rows[j].name })

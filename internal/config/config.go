@@ -133,6 +133,10 @@ type World struct {
 	// FirstPlayerIsAdmin grants admin to the first character ever created,
 	// so a fresh server has someone who can copyover and shutdown.
 	FirstPlayerIsAdmin bool `yaml:"first_player_is_admin"`
+	// LinkdeadMinutes is how long a character whose connection dropped
+	// stays in the world, link-dead, for its player to come back to (a
+	// phone asleep, a train through a tunnel). Zero removes it at once.
+	LinkdeadMinutes int `yaml:"linkdead_minutes"`
 }
 
 // Respawn is the room a dead player returns to.
@@ -179,6 +183,7 @@ func Default() Config {
 			StartRoom:          40,
 			RespawnRoom:        1,
 			FirstPlayerIsAdmin: true,
+			LinkdeadMinutes:    10,
 		},
 		Log: Log{
 			Level:  "info",
@@ -238,6 +243,9 @@ func (c Config) Validate() error {
 	}
 	if c.World.StartRoom <= 0 {
 		return fmt.Errorf("world.start_room must be a positive vnum, got %d", c.World.StartRoom)
+	}
+	if c.World.LinkdeadMinutes < 0 {
+		return fmt.Errorf("world.linkdead_minutes must be 0 or more, got %d", c.World.LinkdeadMinutes)
 	}
 	if c.World.RespawnRoom < 0 {
 		return fmt.Errorf("world.respawn_room must be a vnum, or 0 for the start room, got %d", c.World.RespawnRoom)

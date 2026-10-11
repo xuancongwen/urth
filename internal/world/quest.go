@@ -508,19 +508,28 @@ func (w *World) questList(p *Player) {
 	}
 	var b strings.Builder
 	b.WriteString(v.DisplayName() + " offers, for quest points:\n")
-	for _, s := range v.Proto.Sells {
-		proto := w.saleProto(s)
+	protos := make([]*item.Proto, len(v.Proto.Sells))
+	for i, s := range v.Proto.Sells {
+		protos[i] = w.saleProto(s)
+	}
+	offers := output.OffersData{From: v.Name, Items: []output.Offer{}}
+	for i, s := range v.Proto.Sells {
+		proto := protos[i]
 		if proto == nil {
 			continue
 		}
 		line := "  " + padRight(output.Escape(proto.Name), 34) + padRight(itoa(s.Points)+" qp", 10)
+		o := output.Offer{Name: proto.Name, Price: plural(s.Points, "quest point"), Command: "quest buy " + offerWord(protos, i)}
 		if proto.Level > 1 {
 			line += "(level " + itoa(proto.Level) + ")"
+			o.Note = "level " + itoa(proto.Level)
 		}
 		b.WriteString(line + "\n")
+		offers.Items = append(offers.Items, o)
 	}
 	b.WriteString("You have " + plural(p.questPoints, "quest point") + ".\n")
 	p.Send(b.String())
+	p.SendMsg(output.Message{Type: output.Offers, Data: offers})
 }
 
 func (w *World) questBuy(p *Player, args string) {

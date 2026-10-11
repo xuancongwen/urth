@@ -22,6 +22,15 @@ const outboundBuffer = 256
 
 const writeTimeout = 10 * time.Second
 
+// A ping goes out every pingInterval so a proxy in front (cloudflared cuts
+// a WebSocket after about 100 seconds without traffic) never sees a quiet
+// connection, and a peer that cannot answer within pingTimeout is closed.
+// The world keeps its character link-dead for a while either way.
+var (
+	pingInterval = 30 * time.Second
+	pingTimeout  = 30 * time.Second
+)
+
 // wireMessage is one output.Message as sent to the browser: plain text for
 // clients that want it, HTML with color spans for the bare page, and any
 // structured data.
@@ -153,8 +162,18 @@ func (s *Server) writeLoop(c *conn) {
 		// Shutdown or a broken peer: do not wait on the other side.
 		_ = c.ws.CloseNow()
 	}()
+	ping := time.NewTicker(pingInterval)
+	defer ping.Stop()
 	for {
 		select {
+		case <-ping.C:
+			go func() {
+				ctx, cancel := context.WithTimeout(context.Background(), pingTimeout)
+				defer cancel()
+				if err := c.ws.Ping(ctx); err != nil {
+					c.closeWith("ping timeout")
+				}
+			}()
 		case <-c.closed:
 			for {
 				select {
