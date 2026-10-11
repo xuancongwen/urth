@@ -28,7 +28,7 @@
     "sacrifice": { "$ref": "common.schema.json#/$defs/deity", "description": "The deity that accepts this as a great sacrifice at its temple." },
     "burn": { "type": "integer", "minimum": 0, "description": "Rounds a light lasts while worn; 0 never goes out." },
     "capacity": { "type": "integer", "minimum": 0, "description": "Weight a container holds; 0 is unlimited." },
-    "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "examples": ["nopickup", "coins", "quest"] } }
+    "flags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "examples": ["nopickup", "coins", "quest", "drop"] } }
   },
   "allOf": [
     { "if": { "properties": { "type": { "const": "armor" } }, "required": ["type"] }, "then": { "required": ["slot"] } },

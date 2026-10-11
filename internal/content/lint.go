@@ -137,6 +137,9 @@ func Lint(w *World, startRoom int) []Problem {
 		if p.HasFlag("newbie") {
 			continue // sub issue gear, handed to new characters
 		}
+		if p.HasFlag("drop") {
+			continue // found only in corpses, as an extra drop (docs/RULES.md 5.3)
+		}
 		if !placedItem[p.Vnum] && !w.Rooms.Areas[p.Area].Detached {
 			add(Problem{Level: Warn, Area: p.Area, Kind: "unplaced", File: p.File, Vnum: p.Vnum,
 				Text: fmt.Sprintf("item %d (%s) is never placed by a reset", p.Vnum, p.Name)})

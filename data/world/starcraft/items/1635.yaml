@@ -1,0 +1,15 @@
+vnum: 1635
+name: a C-20A canister rifle
+keywords: [c-20a, canister, rifle]
+description: A long canister rifle lies here.
+look: |
+  The ghost program's rifle: a long barrel, a heavy scope, and a
+  magazine of 25mm rounds.
+type: weapon
+level: 24
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: snipe

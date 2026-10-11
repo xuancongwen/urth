@@ -126,3 +126,22 @@ func TestLootCommand(t *testing.T) {
 		t.Fatalf("loot: %q", o)
 	}
 }
+
+// TestShippedMobsCanDrop checks the shipped world: every hostile mob in a
+// placed area has plain gear near its level to drop (RULES 5.3).
+func TestShippedMobsCanDrop(t *testing.T) {
+	w := shippedWorld(t)
+	for _, p := range w.content.Mobs {
+		if p.HasFlag("peaceful") || w.content.Rooms.Areas[p.Area].Detached {
+			continue
+		}
+		victim := w.simCharacter(p)
+		var rules LootRules
+		if !w.callOptional("lootRules", &rules, w.view(victim)) {
+			t.Fatal("the shipped rules have no lootRules")
+		}
+		if len(w.dropCandidates(p.Area, victim.Level, rules.LevelBand)) == 0 {
+			t.Errorf("%s (%s, level %d) has nothing to drop", p.Name, p.Area, victim.Level)
+		}
+	}
+}

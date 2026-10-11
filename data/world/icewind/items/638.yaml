@@ -1,0 +1,12 @@
+vnum: 638
+name: a pair of furred mittens
+keywords: [furred, mittens, gloves]
+description: A pair of fur-lined mittens lies here.
+look: |
+  Wolf fur outside, wool inside. In Ten-Towns a man without these loses
+  fingers.
+type: armor
+slot: hands
+level: 12
+baseline: light
+flags: [drop]

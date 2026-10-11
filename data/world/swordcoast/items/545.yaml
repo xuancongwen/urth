@@ -1,0 +1,12 @@
+vnum: 545
+name: a set of Iron Throne splint mail
+keywords: [iron, throne, splint, mail]
+description: A suit of splint mail lies here.
+look: |
+  Strips of steel riveted to leather, made by the Throne for men who
+  must not be traced.
+type: armor
+slot: body
+level: 17
+baseline: heavy
+flags: [drop]

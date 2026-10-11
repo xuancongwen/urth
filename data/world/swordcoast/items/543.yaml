@@ -1,0 +1,11 @@
+vnum: 543
+name: a Flaming Fist chain shirt
+keywords: [flaming, fist, chain, shirt]
+description: A chain shirt with a red tabard lies here.
+look: |
+  Good chain under a red tabard with the burning fist of Baldur's Gate.
+type: armor
+slot: body
+level: 13
+baseline: medium
+flags: [drop]

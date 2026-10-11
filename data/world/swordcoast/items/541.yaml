@@ -1,0 +1,11 @@
+vnum: 541
+name: a patched leather cap
+keywords: [patched, leather, cap]
+description: A patched leather cap lies here.
+look: |
+  A farmer's cap with a strip of hardened leather sewn into the crown.
+type: armor
+slot: head
+level: 1
+baseline: light
+flags: [drop]

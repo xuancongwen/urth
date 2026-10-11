@@ -1,0 +1,15 @@
+vnum: 430
+name: a ruffian's cudgel
+keywords: [ruffian, cudgel, club]
+description: A knobbed cudgel lies here.
+look: |
+  Sharkey's men carried these. It is heavier than a walking stick and
+  meant for less pleasant things.
+type: weapon
+level: 9
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: thump

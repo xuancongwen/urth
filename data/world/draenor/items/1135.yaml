@@ -1,0 +1,12 @@
+vnum: 1135
+name: a ravager-hide vest
+keywords: [ravager-hide, ravager, hide, vest]
+description: A vest of mottled ravager hide lies here.
+look: |
+  Tough, spined hide stitched with sinew. It smells of the Hellfire
+  wastes.
+type: armor
+slot: body
+level: 17
+baseline: light
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 896
+name: an elven flight helm
+keywords: [elven, flight, helm]
+description: A winged elven helm lies here.
+look: |
+  A dragonship rider's helm, padded inside and fitted with goggles of
+  clear glass.
+type: armor
+slot: head
+level: 18
+baseline: medium
+flags: [drop]

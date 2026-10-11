@@ -1,0 +1,15 @@
+vnum: 637
+name: a dwarven war pick
+keywords: [dwarven, war, pick]
+description: A dwarven war pick lies here.
+look: |
+  A miner's pick reforged for fighting, with a hammer face opposite the
+  spike.
+type: weapon
+level: 12
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: pick

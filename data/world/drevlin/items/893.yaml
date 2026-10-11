@@ -1,0 +1,15 @@
+vnum: 893
+name: a Geg riveting hammer
+keywords: [geg, riveting, hammer]
+description: A long-handled riveting hammer lies here.
+look: |
+  A tool of the Kicksey-winsey, and heavy enough to be a weapon when the
+  elves come down.
+type: weapon
+level: 12
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: clang

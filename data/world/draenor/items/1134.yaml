@@ -1,0 +1,15 @@
+vnum: 1134
+name: a fel iron war cleaver
+keywords: [fel, iron, war, cleaver]
+description: A fel iron cleaver lies here, faintly green.
+look: |
+  A thick slab of fel iron with a spike on the back. It hums when it
+  hits.
+type: weapon
+level: 17
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

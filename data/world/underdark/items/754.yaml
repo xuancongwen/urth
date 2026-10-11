@@ -1,0 +1,11 @@
+vnum: 754
+name: a duergar plate harness
+keywords: [duergar, plate, harness]
+description: A grey plate harness lies here.
+look: |
+  Squat, thick plate made for a duergar and widened by someone else.
+type: armor
+slot: body
+level: 20
+baseline: plate
+flags: [drop]

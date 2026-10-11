@@ -1,0 +1,15 @@
+vnum: 639
+name: a frost-iron greataxe
+keywords: [frost-iron, greataxe, axe]
+description: A greataxe rimed with frost lies here.
+look: |
+  Iron from the deep mines under Kelvin's Cairn, cold to the touch even
+  indoors.
+type: weapon
+level: 19
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

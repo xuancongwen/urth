@@ -996,7 +996,10 @@ rarity's name.
   draws each from the rollable weapon and armor prototypes of the
   victim's own area within that band, so a drop fits where it fell,
   and rolls it like a reset item. An area with no such prototype drops
-  nothing extra.
+  nothing extra, so every area carries plain gear up to the level of
+  its strongest mobs; a prototype flagged `drop` is gear made for this,
+  placed by no reset and found only in corpses (a test checks every
+  hostile mob has something to drop).
 - **Magnitudes.** An affix is a starting value scaled by the item's
   level and by a quality drawn from a band, the higher tiers drawing
   from a better band. Affixes come from the existing effect kinds

@@ -1,0 +1,12 @@
+vnum: 330
+name: a Solamnic helm
+keywords: [solamnic, helm]
+description: A visored helm with a crest lies here.
+look: |
+  The open-faced helm of a Knight of the Crown, its crest long since
+  lost.
+type: armor
+slot: head
+level: 12
+baseline: heavy
+flags: [drop]

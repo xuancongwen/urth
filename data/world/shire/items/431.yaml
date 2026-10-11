@@ -1,0 +1,11 @@
+vnum: 431
+name: a leather jerkin from Bree
+keywords: [leather, jerkin, bree]
+description: A stout leather jerkin lies here.
+look: |
+  Made in Bree for a Big Person and cut down by a patient hobbit tailor.
+type: armor
+slot: body
+level: 9
+baseline: light
+flags: [drop]

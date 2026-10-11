@@ -1,0 +1,12 @@
+vnum: 328
+name: a draconian-scale vest
+keywords: [draconian-scale, draconian, scale, vest]
+description: A vest of grey scales lies here.
+look: |
+  Scales shed by a draconian, sewn onto leather. They are still slightly
+  warm.
+type: armor
+slot: body
+level: 9
+baseline: medium
+flags: [drop]

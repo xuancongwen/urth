@@ -1,0 +1,12 @@
+vnum: 1035
+name: a hauberk of Caerleon mail
+keywords: [hauberk, caerleon, mail]
+description: A hauberk of riveted mail lies folded here.
+look: |
+  Knee-length mail of the kind the court smiths made by the hundred.
+  Every ring is closed with a rivet.
+type: armor
+slot: body
+level: 14
+baseline: medium
+flags: [drop]

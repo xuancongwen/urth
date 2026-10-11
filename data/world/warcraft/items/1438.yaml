@@ -1,0 +1,15 @@
+vnum: 1438
+name: a Blackrock war axe
+keywords: [blackrock, war, axe]
+description: A black iron war axe lies here.
+look: |
+  Blackrock forged, heavy and crude, the kind the Horde makes by the
+  thousand.
+type: weapon
+level: 20
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

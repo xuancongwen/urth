@@ -1,0 +1,14 @@
+vnum: 331
+name: a Qualinesti longbow-staff
+keywords: [qualinesti, staff]
+description: An elven staff of pale wood lies here.
+look: |
+  Qualinesti ash, light and springy, shod in silver at both ends.
+type: weapon
+level: 15
+baseline: staff
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike

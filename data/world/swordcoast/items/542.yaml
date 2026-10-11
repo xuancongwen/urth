@@ -1,0 +1,15 @@
+vnum: 542
+name: a Flaming Fist longsword
+keywords: [flaming, fist, longsword, sword]
+description: A longsword with a red hilt lies here.
+look: |
+  Issued to the mercenaries of the Flaming Fist, with a red-wrapped
+  grip.
+type: weapon
+level: 13
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

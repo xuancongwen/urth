@@ -1,0 +1,15 @@
+vnum: 432
+name: a Dunedain longsword
+keywords: [dunedain, longsword, sword]
+description: A plain longsword in a worn scabbard lies here.
+look: |
+  A Ranger's blade, long and grey, with no ornament but a star on the
+  pommel.
+type: weapon
+level: 12
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

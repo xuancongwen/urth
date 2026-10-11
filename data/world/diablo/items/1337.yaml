@@ -1,0 +1,12 @@
+vnum: 1337
+name: a cathedral plate cuirass
+keywords: [cathedral, plate, cuirass]
+description: A dented plate cuirass lies here.
+look: |
+  Plate from the cathedral's old guard, the sun of Zakarum hammered flat
+  by something that hit very hard.
+type: armor
+slot: body
+level: 24
+baseline: plate
+flags: [drop]

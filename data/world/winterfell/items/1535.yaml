@@ -1,0 +1,11 @@
+vnum: 1535
+name: a Northern mail hauberk
+keywords: [northern, mail, hauberk]
+description: A long mail hauberk lies here.
+look: |
+  Mail to the knee, oiled against the cold, with a wolf-fur collar.
+type: armor
+slot: body
+level: 14
+baseline: medium
+flags: [drop]

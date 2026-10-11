@@ -1,0 +1,15 @@
+vnum: 1534
+name: a Northern bastard sword
+keywords: [northern, bastard, sword]
+description: A long bastard sword lies here.
+look: |
+  A hand-and-a-half sword from Mikken's forge, plain and grey, with a
+  wolf's head on the pommel.
+type: weapon
+level: 14
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

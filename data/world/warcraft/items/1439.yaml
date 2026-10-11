@@ -1,0 +1,11 @@
+vnum: 1439
+name: a Blackrock spiked pauldron
+keywords: [blackrock, spiked, pauldron]
+description: A spiked iron pauldron lies here.
+look: |
+  Black iron and rivets, with spikes for show and for use.
+type: armor
+slot: shoulders
+level: 20
+baseline: heavy
+flags: [drop]

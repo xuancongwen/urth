@@ -1,0 +1,15 @@
+vnum: 1336
+name: a hellforged falchion
+keywords: [hellforged, falchion, sword]
+description: A falchion with a blackened blade lies here.
+look: |
+  A heavy single-edged blade, forged somewhere hotter than any smithy.
+  The steel is dark all the way through.
+type: weapon
+level: 24
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

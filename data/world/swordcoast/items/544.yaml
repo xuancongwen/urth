@@ -1,0 +1,14 @@
+vnum: 544
+name: an Iron Throne war axe
+keywords: [iron, throne, war, axe]
+description: A heavy war axe lies here.
+look: |
+  Iron Throne steel, well made and anonymous, as their work always is.
+type: weapon
+level: 17
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

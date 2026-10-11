@@ -1,0 +1,14 @@
+vnum: 540
+name: a rusty kobold knife
+keywords: [rusty, kobold, knife]
+description: A small rusty knife lies here.
+look: |
+  A kobold's knife, more rust than blade, but it still has a point.
+type: weapon
+level: 1
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

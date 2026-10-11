@@ -1,0 +1,15 @@
+vnum: 329
+name: a Solamnic sword
+keywords: [solamnic, sword]
+description: A Solamnic sword with a kingfisher on the hilt lies here.
+look: |
+  A knight's sword, straight and heavy, the kingfisher of the order on
+  its pommel.
+type: weapon
+level: 12
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

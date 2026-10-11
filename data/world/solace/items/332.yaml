@@ -1,0 +1,12 @@
+vnum: 332
+name: a set of dragonarmy plate
+keywords: [dragonarmy, plate, armor]
+description: A suit of black dragonarmy plate lies here.
+look: |
+  The black plate of a dragonarmy officer, with the dragon emblem
+  chiselled off.
+type: armor
+slot: body
+level: 15
+baseline: plate
+flags: [drop]

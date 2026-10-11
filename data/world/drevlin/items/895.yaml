@@ -1,0 +1,15 @@
+vnum: 895
+name: an elven storm-blade
+keywords: [elven, storm-blade, blade]
+description: A slim blue-steel blade lies here.
+look: |
+  Elven work from the realm above, light and keen, with a guard shaped
+  like a cloud.
+type: weapon
+level: 18
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

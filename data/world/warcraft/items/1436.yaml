@@ -1,0 +1,15 @@
+vnum: 1436
+name: a Stormwind arming sword
+keywords: [stormwind, arming, sword]
+description: A Stormwind arming sword lies here.
+look: |
+  A footman's sword with a lion on the pommel, straight from the city
+  armoury.
+type: weapon
+level: 16
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

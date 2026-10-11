@@ -1,0 +1,15 @@
+vnum: 3053
+name: a guardsman's halberd
+keywords: [guardsman, halberd]
+description: A long halberd lies against the wall.
+look: |
+  City guard issue: an axe blade, a spike, and a hook for pulling riders
+  down.
+type: weapon
+level: 14
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: chop

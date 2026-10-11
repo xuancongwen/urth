@@ -1,0 +1,12 @@
+vnum: 1636
+name: a hostile environment suit
+keywords: [hostile, environment, suit]
+description: A sealed environment suit lies here.
+look: |
+  A sealed suit rated for vacuum and acid rain. The visor is scratched
+  but holds.
+type: armor
+slot: body
+level: 24
+baseline: heavy
+flags: [drop]

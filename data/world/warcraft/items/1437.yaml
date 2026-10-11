@@ -1,0 +1,11 @@
+vnum: 1437
+name: a Stormwind kite shield
+keywords: [stormwind, kite, shield]
+description: A blue kite shield with a gold lion lies here.
+look: |
+  The lion of Stormwind on a field of blue, chipped at the rim.
+type: armor
+slot: shield
+level: 16
+baseline: shield
+flags: [drop]

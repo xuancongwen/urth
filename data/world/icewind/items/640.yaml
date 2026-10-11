@@ -1,0 +1,11 @@
+vnum: 640
+name: a mithral-bound shield
+keywords: [mithral-bound, mithral, shield]
+description: A round shield bound in mithral lies here.
+look: |
+  Oak and iron, rimmed with a thin band of mithral from Mithral Hall.
+type: armor
+slot: shield
+level: 19
+baseline: shield
+flags: [drop]

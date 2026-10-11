@@ -1,0 +1,15 @@
+vnum: 1034
+name: a Saxon war-axe
+keywords: [saxon, war-axe, axe]
+description: A heavy Saxon war-axe lies in the reeds.
+look: |
+  A broad iron head on an ash haft, taken from some raid that came too
+  far west. The edge has been kept.
+type: weapon
+level: 14
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

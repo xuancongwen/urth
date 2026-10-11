@@ -1,0 +1,14 @@
+vnum: 327
+name: a hobgoblin's war flail
+keywords: [hobgoblin, war, flail]
+description: A spiked flail lies here.
+look: |
+  Two iron balls on chains, crudely made and well used.
+type: weapon
+level: 9
+baseline: flail
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: lash

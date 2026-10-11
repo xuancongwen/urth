@@ -1,0 +1,15 @@
+vnum: 751
+name: a drow shortblade
+keywords: [drow, shortblade, blade]
+description: A slim black blade lies here.
+look: |
+  Drow steel, dark and thin, made to be carried by someone who does not
+  wish to be seen.
+type: weapon
+level: 17
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: slice

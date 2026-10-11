@@ -1,0 +1,11 @@
+vnum: 433
+name: a Ranger's grey cloak
+keywords: [ranger, grey, cloak]
+description: A weathered grey-green cloak lies here.
+look: |
+  Rain and road have faded it to the colour of the Barrow-downs.
+type: armor
+slot: shoulders
+level: 12
+baseline: cloth
+flags: [drop]

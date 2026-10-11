@@ -1,0 +1,12 @@
+vnum: 752
+name: a drow scale mail
+keywords: [drow, scale, mail]
+description: A coat of black scale mail lies here.
+look: |
+  Small overlapping scales of drow steel that make no sound when the
+  wearer moves.
+type: armor
+slot: body
+level: 17
+baseline: light
+flags: [drop]

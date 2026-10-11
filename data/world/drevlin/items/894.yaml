@@ -1,0 +1,12 @@
+vnum: 894
+name: a set of boiler-plate greaves
+keywords: [boiler-plate, boiler, greaves]
+description: A pair of greaves cut from boiler plate lies here.
+look: |
+  Riveted from a broken boiler of the great machine. Ugly, and very hard
+  to dent.
+type: armor
+slot: legs
+level: 12
+baseline: heavy
+flags: [drop]

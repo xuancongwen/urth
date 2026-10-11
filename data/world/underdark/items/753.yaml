@@ -1,0 +1,15 @@
+vnum: 753
+name: a duergar warhammer
+keywords: [duergar, warhammer, hammer]
+description: A grey iron warhammer lies here.
+look: |
+  Duergar iron, grey and pitted, with a head the size of a fist and a
+  long spike behind it.
+type: weapon
+level: 20
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: pound

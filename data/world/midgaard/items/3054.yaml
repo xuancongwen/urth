@@ -1,0 +1,12 @@
+vnum: 3054
+name: a guardsman's breastplate
+keywords: [guardsman, breastplate]
+description: A breastplate stamped with the city arms lies here.
+look: |
+  Steel plate with the arms of Midgaard stamped over the heart, and a
+  dent beside them.
+type: armor
+slot: body
+level: 14
+baseline: heavy
+flags: [drop]
