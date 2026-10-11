@@ -3,6 +3,7 @@ package item
 import (
 	"os"
 	"path/filepath"
+	"strconv"
 	"testing"
 )
 
@@ -100,5 +101,17 @@ func TestRolledName(t *testing.T) {
 	it.Prefix, it.Suffix = "elusive", "of the bear"
 	if !it.Matches("elus") || !it.Matches("bear") || it.Matches("of") || it.Matches("the") {
 		t.Error("rolled words as keywords")
+	}
+}
+
+func TestIDReference(t *testing.T) {
+	a, b := New(&Proto{Name: "a sword", Keywords: []string{"sword"}}), New(&Proto{Name: "a sword", Keywords: []string{"sword"}})
+	list := []*Item{a, b}
+	got := Find(list, ParseTarget("#"+strconv.FormatUint(b.ID, 10)))
+	if len(got) != 1 || got[0] != b {
+		t.Fatalf("#id found %v", got)
+	}
+	if len(Find(list, ParseTarget("#0"))) != 0 || a.Matches("#") {
+		t.Fatal("a bad #id matched")
 	}
 }

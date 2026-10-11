@@ -218,7 +218,7 @@ func (w *World) searchPool(p *Player) []*item.Item {
 
 func gearItem(it *item.Item, ref string) output.GearItem {
 	p := it.Proto
-	g := output.GearItem{Name: it.Name(), Ref: ref, Type: string(p.Type), Rarity: it.Rarity, Color: it.Color,
+	g := output.GearItem{ID: it.ID, Name: it.Name(), Ref: ref, Type: string(p.Type), Rarity: it.Rarity, Color: it.Color,
 		Level: p.Level, Effects: len(p.Effects) + len(it.Effects)}
 	switch p.Type {
 	case item.Weapon:

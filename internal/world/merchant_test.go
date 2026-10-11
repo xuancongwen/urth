@@ -1,6 +1,7 @@
 package world
 
 import (
+	"strconv"
 	"strings"
 	"testing"
 
@@ -116,5 +117,22 @@ func TestOffersCarryCommands(t *testing.T) {
 	mobs, _ := w.roomEntities(room, p)
 	if len(mobs) == 0 || len(mobs[0].Services) != 1 || mobs[0].Services[0] != "shop" {
 		t.Fatalf("services: %+v", mobs)
+	}
+}
+
+// TestSellByID: "#<id>" names one instance, so a client can sell items it
+// listed one after another without the references shifting.
+func TestSellByID(t *testing.T) {
+	w := testWorld(t)
+	makeMerchant(w)
+	login(t, w, 1, "Bob")
+	p := w.players[1]
+	sword := *w.content.Items[10]
+	sword.Value = 81
+	a, b := item.New(&sword), item.New(&sword)
+	p.Inventory = append(p.Inventory, a, b)
+	send(w, 1, "sell #"+strconv.FormatUint(b.ID, 10))
+	if len(p.Inventory) != 1 || p.Inventory[0] != a || p.Silver != 40 {
+		t.Fatalf("sold the wrong one: %v silver %d", p.Inventory, p.Silver)
 	}
 }

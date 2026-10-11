@@ -267,6 +267,8 @@ type StateRoom struct {
 // for a carried item the position it would go on ("" if none). Color is
 // its rarity's color code, empty for a plain item.
 type GearItem struct {
+	// ID is the instance's id, which "#<id>" names in any command.
+	ID     uint64 `json:"id"`
 	Name   string `json:"name"`
 	Ref    string `json:"ref"`
 	Count  int    `json:"count,omitempty"`

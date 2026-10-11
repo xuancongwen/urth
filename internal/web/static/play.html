@@ -175,6 +175,14 @@
   #sheet .acts small { display: block; font-size: .78em; }
   #sheetsub { font-size: .85em; margin-top: 4px; }
   #sheetsub:empty { display: none; }
+  .list > div.picked { background: #22261c; border-radius: 8px; }
+  .tick { width: 1.3em; display: inline-block; color: var(--accent); font-weight: 700; }
+  #bagbar:empty { display: none; }
+  #bagbar { margin-top: 10px; }
+  #bagbar .count { align-self: center; font-size: .85em; color: var(--dim); }
+  @keyframes lowpulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+  .bar.low > i { background: var(--bad); animation: lowpulse 1s ease-in-out infinite; }
+  button.flee-now { background: var(--bad); color: #111; font-weight: 700; animation: lowpulse 1.2s ease-in-out infinite; }
   .up { color: #7cc47c; font-weight: 700; } .down { color: #d97a6f; } .same { color: var(--dim); }
   .cmp { font-size: .78em; margin-left: 6px; white-space: nowrap; }
   #sheettext { font: 12.5px/1.45 var(--mono); white-space: pre-wrap; color: #b9b6ab; max-height: 45dvh; overflow-y: auto; margin-top: 8px; }
@@ -198,7 +206,7 @@
     <div id="top">
       <div class="row"><span id="who" class="grow ellipsis"></span><span id="silver" class="dim" style="font-size:.85em"></span></div>
       <div id="vit">
-        <div><div class="v">HP<span id="hp"></span></div><div class="bar"><i id="hpbar"></i></div></div>
+        <div><div class="v">HP<span id="hp"></span></div><div class="bar" id="hpwrap"><i id="hpbar"></i></div></div>
         <div id="manawrap"><div class="v">MP<span id="mana"></span></div><div class="bar mana"><i id="manabar"></i></div></div>
         <div id="stamwrap"><div class="v">ST<span id="stam"></span></div><div class="bar stam"><i id="stambar"></i></div></div>
       </div>
@@ -235,7 +243,7 @@
         <div class="list" id="herelist"></div>
         <div class="chips" id="restrow"></div>
       </div>
-      <div data-pane="bag" style="display:none"><div class="list" id="baglist"></div></div>
+      <div data-pane="bag" style="display:none"><div class="chips" id="bagbar"></div><div class="list" id="baglist"></div></div>
       <div data-pane="gear" style="display:none"><div class="list" id="gearlist"></div></div>
       <div data-pane="log" style="display:none">
         <div class="chips" id="talkmodes"></div>
@@ -274,11 +282,23 @@
     b.addEventListener('click', function (ev) { ev.stopPropagation(); onClick(); }); return b;
   }
   function send(line) { if (ws && ws.readyState === WebSocket.OPEN) ws.send(line); }
+  // sendAll sends commands one at a time, a little apart, since the server
+  // takes one command a tick per player and queues only so many.
+  var outbox = [], outboxTimer = null;
+  function sendAll(cmds) {
+    outbox = outbox.concat(cmds);
+    if (outboxTimer) return;
+    (function next() {
+      if (!outbox.length) { outboxTimer = null; return; }
+      send(outbox.shift());
+      outboxTimer = setTimeout(next, 150);
+    })();
+  }
   function remember(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
   function recall(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   // A short buzz when health drops and a longer one on a level, if the
   // phone can and the player has not turned it off.
-  var buzzOn = recall('urth.buzz') !== '0', lastHealth = null, lastLevel = null;
+  var buzzOn = recall('urth.buzz') !== '0', lastHealth = null, lastLevel = null, restingToFull = false, lastPosition = null;
   function buzz(pattern) { if (buzzOn && navigator.vibrate) { try { navigator.vibrate(pattern); } catch (e) {} } }
   function pct(a, b) { return (b > 0 ? Math.max(0, Math.min(100, 100 * a / b)) : 0) + '%'; }
 
@@ -547,6 +567,17 @@
   function render() {
     var s = state;
     if (lastHealth !== null && s.health < lastHealth) buzz(30);
+    // Low health: the bar pulses, the phone buzzes once on crossing 30%.
+    var low = s.healthMax > 0 && s.health / s.healthMax < 0.3;
+    if (low && lastHealth !== null && lastHealth / s.healthMax >= 0.3) buzz([200, 80, 200]);
+    $('hpwrap').classList.toggle('low', low);
+    // Rest until full: wake and stand when every bar is full, give up if
+    // a fight starts or the player got up.
+    if (restingToFull) {
+      if (s.enemies.length || s.position === 'standing' && lastPosition && lastPosition !== 'standing') restingToFull = false;
+      else if (s.health >= s.healthMax && s.mana >= s.manaMax && s.stamina >= s.staminaMax) { restingToFull = false; send('stand'); }
+    }
+    lastPosition = s.position;
     if (lastLevel !== null && s.level > lastLevel) buzz([60, 60, 120]);
     lastHealth = s.health; lastLevel = s.level;
     if (s.name && recall('urth.name') !== s.name) remember('urth.name', s.name);
@@ -652,7 +683,8 @@
       if (a.cooldown > 0) { b.disabled = true; var cd = el('i', 'cd'); cd.style.width = Math.min(100, a.cooldown * 10) + '%'; b.appendChild(cd); }
       acts.appendChild(b);
     });
-    acts.appendChild(btn('Flee', function () { send('flee'); }, 'danger'));
+    var lowNow = s.healthMax > 0 && s.health / s.healthMax < 0.3;
+    acts.appendChild(btn(lowNow ? 'Flee!' : 'Flee', function () { send('flee'); }, lowNow ? 'flee-now' : 'danger'));
   }
 
 
@@ -706,7 +738,11 @@
     doorRows(list);
     var rest = $('restrow'); rest.textContent = '';
     if (s.enemies.length) return;
-    if (s.position === 'standing') {
+    var full = s.health >= s.healthMax && s.mana >= s.manaMax && s.stamina >= s.staminaMax;
+    if (restingToFull) {
+      rest.appendChild(btn('Resting until full… stop', function () { restingToFull = false; send('stand'); }, 'primary'));
+    } else if (s.position === 'standing') {
+      if (!full) rest.appendChild(btn('Rest until full', function () { restingToFull = true; send('sleep'); }, 'primary'));
       rest.appendChild(btn('Rest', function () { send('rest'); }));
       rest.appendChild(btn('Sleep', function () { send('sleep'); }));
     } else {
@@ -907,7 +943,38 @@
     box.appendChild(line);
   }
 
+  // The bag lists items by kind. Select mode ticks items (tap a row, or
+  // pick every downgrade) and then sells, drops, or sacrifices them all,
+  // naming each by its id so the references never shift.
+  var selecting = false, picked = {};
+  function merchantHere(s) { return s.room.mobs.some(function (m) { return (m.services || []).indexOf('shop') >= 0; }); }
+  function sacrificeCmds(it) { return ['drop #' + it.id, 'sacrifice #' + it.id]; }
+  function renderBagBar(s) {
+    var bar = $('bagbar'); bar.textContent = '';
+    if (!s.inventory.length) return;
+    if (!selecting) { bar.appendChild(btn('Select', function () { selecting = true; picked = {}; renderBag(state); })); return; }
+    var chosen = s.inventory.filter(function (it) { return picked[it.id]; });
+    bar.appendChild(btn('Downgrades', function () {
+      s.inventory.forEach(function (it) { var c = compare(it, s); if (c && c.dir === 'down') picked[it.id] = true; });
+      renderBag(state);
+    }));
+    bar.appendChild(btn('None', function () { picked = {}; renderBag(state); }));
+    bar.appendChild(el('span', 'count', chosen.length + ' picked'));
+    var act = function (label, make, cls) {
+      var b = btn(label, function () {
+        var cmds = []; chosen.forEach(function (it) { cmds = cmds.concat(make(it)); });
+        sendAll(cmds); selecting = false; picked = {}; renderBag(state);
+      }, cls);
+      b.disabled = !chosen.length; bar.appendChild(b);
+    };
+    if (merchantHere(s)) act('Sell', function (it) { return ['sell #' + it.id]; }, 'primary');
+    act('Drop', function (it) { return ['drop #' + it.id]; });
+    act('Sacrifice', sacrificeCmds);
+    bar.appendChild(btn('Done', function () { selecting = false; picked = {}; renderBag(state); }, 'ghost'));
+  }
+
   function renderBag(s) {
+    renderBagBar(s);
     var list = $('baglist'); list.textContent = '';
     var groups = [['Weapons', function (it) { return it.type === 'weapon'; }],
                   ['Armor', function (it) { return it.type === 'armor'; }],
@@ -919,12 +986,24 @@
       items.forEach(function (it) {
         var use = useAction(it), name = itemName(it), mark = compareMark(compare(it, s));
         if (mark) name.appendChild(mark);
+        if (selecting) {
+          var tickName = el('span', 'name ellipsis');
+          tickName.appendChild(el('span', 'tick', picked[it.id] ? '✓' : '○'));
+          tickName.appendChild(name);
+          var d = el('div' + '', picked[it.id] ? 'picked' : '');
+          d.appendChild(tickName);
+          d.style.cursor = 'pointer';
+          d.addEventListener('click', function () { if (picked[it.id]) delete picked[it.id]; else picked[it.id] = true; renderBag(state); });
+          list.appendChild(d);
+          return;
+        }
         row(list, name, use, function () {
           var acts = [];
           if (use) acts.push(use);
           acts.push(['Give…', function () { giveSheet(it); }], ['Put in…', function () { putSheet(it); }],
-            ['Drop', 'drop ' + it.ref], ['Sell', 'sell ' + it.ref], ['Sacrifice', 'sacrifice ' + it.ref]);
-          openSheet(it.name, 'look ' + it.ref, acts);
+            ['Drop', 'drop #' + it.id], ['Sell', 'sell #' + it.id],
+            ['Sacrifice', function () { closeSheet(); sendAll(sacrificeCmds(it)); }]);
+          openSheet(it.name, 'look #' + it.id, acts);
           compareLine(it, s);
         });
       });

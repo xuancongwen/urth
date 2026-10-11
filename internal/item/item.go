@@ -104,8 +104,13 @@ func (i *Item) IsContainer() bool { return i.Proto.Type == Container }
 
 // Matches reports whether a typed word refers to this item: the word is a
 // prefix of one of its keywords, or of a word of its rolled prefix or
-// suffix ("bear" for "of the bear"), case-insensitively.
+// suffix ("bear" for "of the bear"), case-insensitively. "#<id>" names
+// exactly this instance, for clients that act on items they listed: a
+// reference that does not shift as other items come and go.
 func (i *Item) Matches(word string) bool {
+	if rest, ok := strings.CutPrefix(word, "#"); ok {
+		return rest == strconv.FormatUint(i.ID, 10)
+	}
 	if MatchKeywords(i.Proto.Keywords, word) {
 		return true
 	}
