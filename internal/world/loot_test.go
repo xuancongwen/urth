@@ -191,7 +191,7 @@ func TestKillSendsReward(t *testing.T) {
 	if got == nil {
 		t.Fatal("no reward after the kill")
 	}
-	if got.Title != "a city guard" || got.XP != 60 || len(got.Items) != 2 || got.Items[0].Name != "a rusty sword" {
+	if len(got.Kills) != 1 || got.Kills[0] != "a city guard" || got.XP != 60 || len(got.Items) != 2 || got.Items[0].Name != "a rusty sword" {
 		t.Fatalf("reward: %+v", *got)
 	}
 }

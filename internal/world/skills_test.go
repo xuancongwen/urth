@@ -283,9 +283,17 @@ func TestShippedCostsReachTheEngine(t *testing.T) {
 			t.Errorf("skill %s costs nothing", sk.ID)
 		}
 	}
+	for _, sk := range w.skillList() {
+		if !sk.Innate && len(sk.Stats) == 0 {
+			t.Errorf("taught skill %s has no stat requirement", sk.ID)
+		}
+	}
 	for _, sp := range w.spellList() {
 		if sp.Mana <= 0 {
 			t.Errorf("spell %s costs no mana", sp.ID)
+		}
+		if sp.Level < 1 || len(sp.Stats) == 0 {
+			t.Errorf("spell %s has no level or stat requirement: %d %v", sp.ID, sp.Level, sp.Stats)
 		}
 	}
 	c := w.simFighter(5)
@@ -304,5 +312,50 @@ func TestShippedRoundLengthAgrees(t *testing.T) {
 	}
 	if want := float64(config.Default().Timing.RoundMs) / 1000; secs != want {
 		t.Fatalf("rules assume %v s rounds, the default config %v s", secs, want)
+	}
+}
+
+// TestRequirements: a trainer will not teach a skill whose stats you lack,
+// and a spell you have access to will not cast below its level or stat.
+func TestRequirements(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	guard := w.content.Mobs[20]
+	guard.Flags = append(guard.Flags, "peaceful")
+	guard.Teaches = []string{"stab"}
+	setRules(t, w, testRules+`
+function skillList() {
+  return [{ id: "stab", name: "Stab", level: 1, target: "single", cooldown: 0, stamina: 0, stats: { might: 3 }, start: 50, price: 0, description: "Stab." }];
+}
+function spellList() {
+  return [{ id: "nova", name: "Nova", branch: "arcane", school: "evocation", level: 4, stats: { might: 2 }, castRounds: 0, target: "self", save: "none", materials: [] }];
+}
+function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], targets: [], casterEffects: [] }; }
+`)
+	p.Stats["might"] = 1
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "(needs 3 might)") {
+		t.Fatalf("listing: %q", o)
+	}
+	send(w, 1, "practice stab")
+	if o := bob.take(); !strings.Contains(o, "You'll want 3 might before I teach you Stab") || skillEffect(p.Character, "stab") != nil {
+		t.Fatalf("taught without the stat: %q", o)
+	}
+	p.Stats["might"] = 3
+	send(w, 1, "practice stab")
+	if skillEffect(p.Character, "stab") == nil {
+		t.Fatalf("not taught with the stat: %q", bob.take())
+	}
+
+	p.Schools = []string{"evocation"}
+	send(w, 1, "cast nova")
+	if o := bob.take(); !strings.Contains(o, "You cannot cast Nova yet: it takes level 4 and 2 might, and you lack level 4.") {
+		t.Fatalf("cast below level: %q", o)
+	}
+	p.Level = 4
+	send(w, 1, "cast nova")
+	if o := bob.take(); strings.Contains(o, "cannot cast") {
+		t.Fatalf("cast refused at level with the stat: %q", o)
 	}
 }

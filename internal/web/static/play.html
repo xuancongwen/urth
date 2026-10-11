@@ -80,20 +80,43 @@
   #xprow .v b { color: var(--fg); font-weight: 600; margin-right: 6px; }
   #xprow .v span { float: right; }
   .bar.xp { height: 4px; } .bar.xp > i { background: #b07ae0; }
-  #combatlog { font: 12px/1.45 var(--mono); color: #b9b6ab; margin: 8px 0 2px; padding: 6px 8px; background: #0e0b0c;
-    border-radius: 8px; max-height: 7.4em; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+  /* The battle view takes the map's place while a fight lasts: foes on
+     top (tap one to target it), the combat feed filling the rest. */
+  #battle { margin: 0 12px; height: clamp(220px, 40dvh, 360px); flex: none; flex-direction: column; padding: 8px;
+    border-radius: 14px; border: 1px solid #4a2a2a; background: radial-gradient(circle at 50% 0%, #241618 0%, #140f10 75%); overflow: hidden; }
+  #foes { flex: none; display: flex; flex-direction: column; gap: 5px; max-height: 48%; overflow-y: auto; }
+  .foe { padding: 6px 9px; border-radius: 10px; background: #211618; border: 1px solid #3a2326; cursor: pointer; }
+  .foe.target { border-color: var(--bad); background: #2a181a; cursor: default; }
+  .foe .row { font-size: .9em; } .foe .hp { font-size: .8em; color: var(--dim); }
+  .foe .bar { height: 7px; margin-top: 4px; }
+  #casting { font-size: .82em; color: var(--mana); padding: 4px 2px 0; }
+  #casting:empty { display: none; }
+  #combatlog { font: 12px/1.45 var(--mono); color: #b9b6ab; margin-top: 6px; padding: 6px 8px; background: #0c0909;
+    border-radius: 8px; flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
   #combatlog div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #combatlog:empty { display: none; }
-  #reward { position: relative; margin: 0 12px 8px; padding: 10px 12px; border-radius: 14px; background: #1c1a12;
-    border: 1px solid #5a4a1e; box-shadow: 0 -6px 24px #0008; cursor: pointer; animation: rise .25s ease-out; flex: none; }
+  /* The reward card sits in the screen's column above the tab bar, so it
+     takes room from the panel rather than covering anything. Its header
+     and gains stay put; its item list scrolls; it never grows past about
+     a third of the screen. */
+  #reward { margin: 0 12px 8px; border-radius: 14px; background: #1c1a12; border: 1px solid #5a4a1e;
+    box-shadow: 0 -6px 24px #0008; animation: rise .25s ease-out; flex: none; display: flex; flex-direction: column;
+    max-height: 34dvh; overflow: hidden; }
   @keyframes rise { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
-  #reward .title { font-size: .78em; color: var(--dim); letter-spacing: .04em; }
-  #reward .gains { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
-  #reward .gain { font-weight: 700; font-size: 1.05em; padding: 2px 10px; border-radius: 999px; background: #2a2618; }
+  #reward .head { display: flex; align-items: flex-start; gap: 8px; padding: 9px 6px 0 12px; }
+  #reward .title { flex: 1; min-width: 0; font-size: .8em; color: var(--dim); letter-spacing: .02em; }
+  #reward .title b { color: var(--fg); font-weight: 600; }
+  #reward .x { padding: 0 .55em; font-size: 1.05em; line-height: 1.4; }
+  #reward .gains { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 12px 8px; }
+  #reward .gain { font-weight: 700; font-size: 1em; padding: 2px 10px; border-radius: 999px; background: #2a2618; }
   #reward .gain.xp { color: #c9a0f0; } #reward .gain.coin { color: var(--accent); } #reward .gain.lvl { color: #111; background: var(--accent); }
-  #reward .loot { margin-top: 6px; font-size: .92em; }
-  #reward .loot div { padding: 2px 0; }
-  #reward .row { margin-top: 6px; justify-content: flex-end; }
+  #reward .loot { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 12px 6px; font-size: .92em; border-top: 1px solid #3a321a; }
+  #reward .loot > div { padding: 5px 0; border-top: 1px solid #2a2618; }
+  #reward .loot > div:first-child { border-top: 0; }
+  #reward .foot { padding: 6px 12px 9px; display: flex; justify-content: flex-end; border-top: 1px solid #3a321a; }
+  #reward.compact { cursor: pointer; }
+  #reward.compact .gains { padding-top: 0; }
+  #reward .more { color: var(--dim); font-size: .85em; align-self: center; }
   #stage { position: relative; margin: 0 12px; height: clamp(190px, 33dvh, 300px); flex: none; border-radius: 14px; overflow: hidden;
     background: radial-gradient(circle at 50% 45%, #1a1d24 0%, #111318 70%); border: 1px solid var(--line); touch-action: none; }
   #map { width: 100%; height: 100%; display: block; }
@@ -127,9 +150,8 @@
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .chips button { padding: .4em .8em; font-size: .88em; border-radius: 999px; }
 
-  #fight { margin-top: 10px; padding: 10px; border: 1px solid #4a2a2a; border-radius: 12px; background: #1a1315; }
-  #fight .foe { margin-bottom: 7px; font-size: .92em; }
-  #actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 6px; }
+  /* While fighting, the actions take the direction pad's place. */
+  #actions { grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 8px 12px 0; flex: none; max-height: 24dvh; overflow-y: auto; }
   #actions button { position: relative; overflow: hidden; padding: .5em .3em; font-size: .86em; line-height: 1.2; }
   #actions button .cd { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--accent); }
   #actions button small { display: block; color: var(--dim); font-size: .78em; }
@@ -198,16 +220,17 @@
       </div>
     </div>
 
+    <div id="battle" style="display:none">
+      <div id="foes"></div>
+      <div id="casting"></div>
+      <div id="combatlog"></div>
+    </div>
     <div id="pad"></div>
+    <div id="actions" style="display:none"></div>
     <div id="ticker" title="Open the log"></div>
 
     <div id="panel">
       <div data-pane="here">
-        <div id="fight" style="display:none">
-          <div id="foes"></div>
-          <div id="combatlog"></div>
-          <div id="actions"></div>
-        </div>
         <div id="desc" class="clamp"></div>
         <div class="list" id="herelist"></div>
         <div class="chips" id="restrow"></div>
@@ -427,7 +450,7 @@
     if (!lines.length) return;
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
     if (wasFighting && !logOnly) {
-      combatLines = combatLines.concat(lines).slice(-6);
+      combatLines = combatLines.concat(lines).slice(-30);
       var cl = $('combatlog'); cl.textContent = '';
       combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l; cl.appendChild(d); });
     }
@@ -439,54 +462,85 @@
     if (sheetFor) { sheetLines = sheetLines.concat(lines).slice(-200); $('sheettext').innerHTML = sheetLines.join('\n'); }
   }
 
-  // ---- Rewards: what a kill, quest, or expedition paid, held on screen --
-  // long enough to read. A reward arriving while one shows is added to it
-  // (the coins from a corpse come a moment after the kill).
-  var shown = null, rewardTimer = null;
+  // ---- Rewards: what kills, quests, and expeditions paid --------------
+  // Rewards that arrive while the card shows are added to it, so a fight
+  // with several foes ends in one card naming them all. While a fight is
+  // still on, the card stays one line; it opens when the fight ends or on
+  // a tap. It closes on its ✕, or by itself: 6 seconds without loot, 15
+  // with, the clock restarting whenever it is touched.
+  var shown = null, rewardTimer = null, rewardOpen = false;
   function showReward(r) {
-    if (shown) {
-      shown.xp = (shown.xp || 0) + (r.xp || 0);
-      shown.silver = (shown.silver || 0) + (r.silver || 0);
-      shown.questPoints = (shown.questPoints || 0) + (r.questPoints || 0);
-      shown.items = shown.items.concat(r.items || []);
-      shown.level = r.level || shown.level;
-      shown.title = shown.title || r.title;
-    } else shown = { title: r.title, xp: r.xp || 0, silver: r.silver || 0, questPoints: r.questPoints || 0, items: r.items || [], level: r.level };
+    if (!shown) shown = { kills: [], titles: [], xp: 0, silver: 0, questPoints: 0, items: [], level: 0 };
+    shown.kills = shown.kills.concat(r.kills || []);
+    if (r.title && shown.titles.indexOf(r.title) < 0) shown.titles.push(r.title);
+    shown.xp += r.xp || 0; shown.silver += r.silver || 0; shown.questPoints += r.questPoints || 0;
+    shown.items = shown.items.concat(r.items || []);
+    shown.level = Math.max(shown.level, r.level || 0);
     drawReward();
-    clearTimeout(rewardTimer);
-    rewardTimer = setTimeout(hideReward, shown.items.length || shown.level ? 9000 : 6000);
+    armReward();
   }
-  function hideReward() { shown = null; $('reward').style.display = 'none'; }
+  function armReward() {
+    clearTimeout(rewardTimer);
+    if (shown) rewardTimer = setTimeout(hideReward, shown.items.length || shown.level ? 15000 : 6000);
+  }
+  function hideReward() { clearTimeout(rewardTimer); shown = null; rewardOpen = false; $('reward').style.display = 'none'; }
+  // "Defeated a hound of Annwn ×2, Gwyn ap Nudd"
+  function killsText(kills) {
+    var count = {}, order = [];
+    kills.forEach(function (k) { if (!count[k]) { count[k] = 0; order.push(k); } count[k]++; });
+    return order.map(function (k) { return count[k] > 1 ? k + ' ×' + count[k] : k; }).join(', ');
+  }
   function drawReward() {
     var r = shown, box = $('reward'); box.textContent = '';
-    var title = /^(Quest|Expedition)/.test(r.title || '') ? r.title : r.title ? 'Defeated ' + r.title : 'Found';
-    box.appendChild(el('div', 'title', title));
+    if (!r) return;
+    var fighting = state && state.enemies.length > 0;
+    var compact = fighting && !rewardOpen;
+    box.className = compact ? 'compact' : '';
+    var head = el('div', 'head'), title = el('div', 'title');
+    if (r.kills.length) {
+      title.appendChild(document.createTextNode(r.kills.length > 1 ? 'Defeated ' + r.kills.length + ' foes: ' : 'Defeated '));
+      title.appendChild(el('b', '', killsText(r.kills)));
+    }
+    r.titles.forEach(function (t) {
+      if (title.childNodes.length) title.appendChild(document.createTextNode(' · '));
+      title.appendChild(el('b', '', t));
+    });
+    if (!title.childNodes.length) title.textContent = 'Found';
+    head.appendChild(title);
+    head.appendChild(btn('✕', hideReward, 'ghost x'));
+    box.appendChild(head);
     var gains = el('div', 'gains');
     if (r.level) gains.appendChild(el('span', 'gain lvl', 'Level ' + r.level + '!'));
     if (r.xp) gains.appendChild(el('span', 'gain xp', '+' + r.xp + ' XP'));
     if (r.silver) gains.appendChild(el('span', 'gain coin', '+' + coins(r.silver)));
     if (r.questPoints) gains.appendChild(el('span', 'gain coin', '+' + r.questPoints + ' QP'));
+    if (compact && r.items.length) gains.appendChild(el('span', 'more', r.items.length + ' item' + (r.items.length > 1 ? 's' : '') + ' ▸'));
     box.appendChild(gains);
-    if (r.items.length) {
+    if (!compact && r.items.length) {
       var loot = el('div', 'loot');
       r.items.forEach(function (it) {
-        var d = el('div', 'row'), name = el('span', 'grow ' + (it.color ? 'c-' + it.color : ''), '+ ' + it.name);
+        var d = el('div', 'row'), name = el('span', 'grow ' + (it.color ? 'c-' + it.color : ''), it.name);
         if (it.rarity) { name.appendChild(document.createTextNode(' ')); name.appendChild(el('span', 'tier', '(' + it.rarity + ')')); }
         var c = state ? compare(it, state) : null, mark = compareMark(c);
         if (mark) name.appendChild(mark);
         d.appendChild(name);
-        if (c && c.dir === 'up' && it.ref) d.appendChild(btn('Wear', function (ev) { send('wear ' + it.ref); }, 'primary'));
-        d.style.marginTop = '2px';
+        if (c && c.dir === 'up' && it.ref) d.appendChild(btn('Wear', function () { send('wear ' + it.ref); }, 'primary'));
         loot.appendChild(d);
       });
       box.appendChild(loot);
-      var acts = el('div', 'row');
-      acts.appendChild(btn('Open bag', function () { hideReward(); showTab('bag'); }));
-      box.appendChild(acts);
+      var foot = el('div', 'foot');
+      foot.appendChild(btn('Open bag', function () { hideReward(); showTab('bag'); }));
+      box.appendChild(foot);
     }
-    box.style.display = 'block';
+    box.style.display = 'flex';
   }
-  $('reward').addEventListener('click', hideReward);
+  // A tap on the one-line card opens it; any touch keeps the card up.
+  $('reward').addEventListener('click', function () {
+    if ($('reward').className === 'compact') { rewardOpen = true; drawReward(); }
+    armReward();
+  });
+  $('reward').addEventListener('scroll', armReward, true);
+  $('reward').addEventListener('pointerdown', armReward);
 
   // ---- Rendering from the state snapshot -----------------------------
   var lastRoom = 0;
@@ -557,38 +611,50 @@
   }
 
   var wasFighting = false, combatLines = [];
+  // A fight takes over the map and the pad: the battle view where the map
+  // was, the actions where the pad was. The ticker steps aside for the
+  // feed. They come back when the fight ends.
   function renderFight(s) {
     var fighting = s.enemies.length > 0 || !!s.casting;
-    $('fight').style.display = fighting ? '' : 'none';
-    tabButton('here').classList.toggle('alert', fighting && currentTab !== 'here');
-    if (fighting && !wasFighting) { showTab('here'); combatLines = []; $('combatlog').textContent = ''; }
+    if (fighting !== wasFighting) {
+      $('stage').style.display = fighting ? 'none' : '';
+      $('pad').style.display = fighting ? 'none' : '';
+      $('ticker').style.display = fighting ? 'none' : '';
+      $('battle').style.display = fighting ? 'flex' : 'none';
+      $('actions').style.display = fighting ? 'grid' : 'none';
+      if (fighting) { combatLines = []; $('combatlog').textContent = ''; }
+      else setTimeout(drawMap, 0); // the canvas was hidden; size it again
+      if (shown) { rewardOpen = false; drawReward(); } // one line in a fight, open after
+    }
     wasFighting = fighting;
     if (!fighting) return;
     var foes = $('foes'); foes.textContent = '';
     s.enemies.forEach(function (e) {
       var isTarget = s.target && s.target.ref === e.ref && s.target.name === e.name;
-      var d = el('div', 'foe');
+      var d = el('div', 'foe' + (isTarget ? ' target' : ''));
       var top = el('div', 'row');
       top.appendChild(el('span', 'grow ellipsis', (isTarget ? '▶ ' : '') + e.name));
-      if (!isTarget) top.appendChild(btn('Target', function () { send('kill ' + e.ref); }));
+      top.appendChild(el('span', 'hp', Math.round(100 * e.health / Math.max(e.healthMax, 1)) + '%'));
       d.appendChild(top);
       var bar = el('div', 'bar foe'); var i = el('i'); i.style.width = pct(e.health, e.healthMax); bar.appendChild(i);
       d.appendChild(bar);
+      if (!isTarget) d.addEventListener('click', function () { send('kill ' + e.ref); });
       foes.appendChild(d);
     });
-    if (s.casting) foes.appendChild(el('div', 'dim', 'Casting ' + s.casting.spell + ' (' + s.casting.rounds + ')'));
+    $('casting').textContent = s.casting ? 'Casting ' + s.casting.spell + '… ' + s.casting.rounds + ' round' + (s.casting.rounds === 1 ? '' : 's') : '';
     var acts = $('actions'); acts.textContent = '';
     s.skills.concat(s.spells).forEach(function (a) {
       var b = btn('', function () { send(a.command + (a.target === 'single' && s.target ? ' ' + s.target.ref : '')); });
       b.appendChild(document.createTextNode(a.name));
-      var short = a.mana > s.mana || a.stamina > s.stamina;
-      b.appendChild(el('small', '', a.cooldown > 0 ? a.cooldown + ' rnd' : a.mana ? a.mana + ' mana' : a.stamina ? a.stamina + ' st' : 'ready'));
+      var short = a.mana > s.mana || a.stamina > s.stamina || !!a.locked;
+      b.appendChild(el('small', '', a.locked ? 'needs ' + a.locked : a.cooldown > 0 ? a.cooldown + ' rnd' : a.mana ? a.mana + ' mana' : a.stamina ? a.stamina + ' st' : 'ready'));
       if (short) b.disabled = true;
       if (a.cooldown > 0) { b.disabled = true; var cd = el('i', 'cd'); cd.style.width = Math.min(100, a.cooldown * 10) + '%'; b.appendChild(cd); }
       acts.appendChild(b);
     });
     acts.appendChild(btn('Flee', function () { send('flee'); }, 'danger'));
   }
+
 
   // A row: a name, at most one main action, and "⋯" for the rest in a
   // sheet that also shows the look.
@@ -767,11 +833,11 @@
         var needsFoe = a.target === 'single' || a.target === 'area';
         var b = btn('', function () { send(a.command + (a.target === 'single' && s.target ? ' ' + s.target.ref : '')); });
         b.appendChild(document.createTextNode(a.name));
-        var why = a.cooldown > 0 ? a.cooldown + ' rounds' : needsFoe && !fighting ? 'in a fight' :
+        var why = a.locked ? 'needs ' + a.locked : a.cooldown > 0 ? a.cooldown + ' rounds' : needsFoe && !fighting ? 'in a fight' :
           a.mana > s.mana ? 'needs ' + a.mana + ' mana' : a.stamina > s.stamina ? 'needs ' + a.stamina + ' st' :
           a.mana ? a.mana + ' mana' : a.stamina ? a.stamina + ' st' : 'ready';
         b.appendChild(el('small', 'dim', why));
-        b.disabled = a.cooldown > 0 || (needsFoe && !fighting) || a.mana > s.mana || a.stamina > s.stamina;
+        b.disabled = !!a.locked || a.cooldown > 0 || (needsFoe && !fighting) || a.mana > s.mana || a.stamina > s.stamina;
         box.appendChild(b);
       });
     };

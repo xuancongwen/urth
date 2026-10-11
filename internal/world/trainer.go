@@ -75,6 +75,9 @@ func cmdPractice(w *World, p *Player, args string) {
 				case p.Level < sk.Level:
 					line += "(level " + itoa(sk.Level) + ")"
 					o.Note, o.Disabled = "level "+itoa(sk.Level), true
+				case unmetStats(p.Character, sk.Stats) != "":
+					line += "(needs " + needsText(sk.Stats) + ")"
+					o.Note, o.Disabled = "needs "+needsText(sk.Stats), true
 				}
 				b.WriteString(line + "\n")
 				offers.Items = append(offers.Items, o)
@@ -123,6 +126,10 @@ func cmdPractice(w *World, p *Player, args string) {
 		w.act("$N looks you over. 'Come back at level "+itoa(match.Level)+".'", p.Character, trainer, "", toChar)
 		return
 	}
+	if short := unmetStats(p.Character, match.Stats); short != "" {
+		w.act("$N looks you over. 'You'll want "+short+" before I teach you "+output.Escape(match.Name)+".'", p.Character, trainer, "", toChar)
+		return
+	}
 	if p.Silver < match.Price {
 		p.Send(output.Escape(match.Name) + " costs " + escapeMoney(match.Price) + ". You have " + escapeMoney(p.Silver) + ".\n")
 		return
@@ -146,4 +153,26 @@ func cmdPractice(w *World, p *Player, args string) {
 	w.act("You pay $N $t and learn {Y}"+output.Escape(match.Name)+"{x}.", p.Character, trainer, escapeMoney(match.Price), toChar)
 	w.act("$n practices with $N.", p.Character, trainer, "", toNotVict)
 	w.save(p)
+}
+
+// unmetStats names the first stat requirement c's trained stats fall
+// short of ("13 dexterity"), or "" when all are met. Requirements are
+// checked against trained stats, not gear, so a build is what qualifies
+// (docs/RULES.md 7.4, 6.4).
+func unmetStats(c *Character, needs map[string]int) string {
+	for _, k := range sortedKeys(needs) {
+		if c.Stats[k] < needs[k] {
+			return itoa(needs[k]) + " " + k
+		}
+	}
+	return ""
+}
+
+// needsText is a requirement list in words: "13 dexterity and 11 strength".
+func needsText(needs map[string]int) string {
+	var parts []string
+	for _, k := range sortedKeys(needs) {
+		parts = append(parts, itoa(needs[k])+" "+k)
+	}
+	return strings.Join(parts, " and ")
 }

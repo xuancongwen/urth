@@ -114,7 +114,7 @@ func (w *World) clientState(p *Player) output.StateData {
 			continue
 		}
 		s.Spells = append(s.Spells, output.Action{ID: sp.ID, Name: sp.Name, Command: "cast '" + sp.Name + "'",
-			Target: sp.Target, Cooldown: c.cooldowns[sp.ID], Mana: sp.Mana})
+			Target: sp.Target, Cooldown: c.cooldowns[sp.ID], Mana: sp.Mana, Locked: spellUnready(c, sp)})
 	}
 	return s
 }

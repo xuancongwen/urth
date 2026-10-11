@@ -1479,6 +1479,15 @@ interrupted cast loses them. That is the consequence 6.3 asks magic to carry, an
 why a long cast is a real decision in a fight. Open: whether an
 interrupted cast also triggers the cooldown.
 
+**Requirements (leaning, 2026-10-11).** Unlocking a school or a god
+(6.1) gives access to its spells; each spell also names a level and a
+trained stat (Intelligence for arcane, Wisdom for divine) the caster
+must have before it can be cast, so finding the evocation totem at
+level one does not put Fireball in a beginner's hands. A spell that is
+not ready yet still shows in `spells`, with what it needs, so the
+player knows what to work toward. Like skills (7.4), requirements
+read trained stats, not gear. The numbers are in 6.5's tables.
+
 **Saves.** A target resists a spell by a saving throw in the Dungeons
 and Dragons manner, and the spell names which: *reflex* (Dexterity),
 *fortitude* (Constitution), or *will* (Wisdom). A successful save does
@@ -1552,27 +1561,27 @@ enchanting, and trainers.
 
 **Arcane**, one per school.
 
-| Spell | School | Cast | Interrupt | Cooldown | Mana | Target | Save | Effect |
-|---|---|---|---|---|---|---|---|---|
-| Firebolt | evocation | 1 | yes | 0 | 6 | single | reflex, half | damage 2.0x |
-| Ward | abjuration | 0 | no | 10 | 8 | self or one ally | none | +defense equal to medium armor at level, 10 rounds |
-| Acid Splash | conjuration | 1 | yes | 0 | 7 | single | fortitude, half | damage 1.5x, then 0.3x per round for 3 rounds |
-| Foresight | divination | 0 | no | 20 | 8 | self | none | +10 percent dodge, 10 rounds |
-| Daze | enchantment | 1 | yes | 5 | 6 | single | will, negate | target speed halved, 3 rounds |
-| Blur | illusion | 1 | no | 15 | 8 | self | none | +15 percent dodge, 5 rounds |
-| Drain | necromancy | 1 | yes | 3 | 7 | single | fortitude, half | damage 1.5x; caster heals half of it |
-| Haste | transmutation | 2 | yes | 20 | 15 | self | none | +1 swing per round, 5 rounds |
-| Fireball | evocation | 2 | yes | 8 | 15 | area | reflex, half | damage 1.5x to each enemy |
+| Spell | School | Cast | Interrupt | Cooldown | Mana | Level, needs | Target | Save | Effect |
+|---|---|---|---|---|---|---|---|---|---|
+| Firebolt | evocation | 1 | yes | 0 | 6 | 1, 11 Int | single | reflex, half | damage 2.0x |
+| Ward | abjuration | 0 | no | 10 | 8 | 2, 11 Int | self or one ally | none | +defense equal to medium armor at level, 10 rounds |
+| Acid Splash | conjuration | 1 | yes | 0 | 7 | 3, 12 Int | single | fortitude, half | damage 1.5x, then 0.3x per round for 3 rounds |
+| Foresight | divination | 0 | no | 20 | 8 | 4, 12 Int | self | none | +10 percent dodge, 10 rounds |
+| Daze | enchantment | 1 | yes | 5 | 6 | 3, 12 Int | single | will, negate | target speed halved, 3 rounds |
+| Blur | illusion | 1 | no | 15 | 8 | 5, 13 Int | self | none | +15 percent dodge, 5 rounds |
+| Drain | necromancy | 1 | yes | 3 | 7 | 5, 13 Int | single | fortitude, half | damage 1.5x; caster heals half of it |
+| Haste | transmutation | 2 | yes | 20 | 15 | 8, 15 Int | self | none | +1 swing per round, 5 rounds |
+| Fireball | evocation | 2 | yes | 8 | 15 | 10, 16 Int | area | reflex, half | damage 1.5x to each enemy |
 
 **Divine**, one per god, plus a second for Good since healing is the
 thing a group (4.7) needs first.
 
-| Spell | Deity | Cast | Interrupt | Cooldown | Mana | Target | Save | Effect |
-|---|---|---|---|---|---|---|---|---|
-| Mend | Good | 1 | yes | 0 | 8 | self or one ally | none | heals 30 percent of the target's maximum |
-| Sanctuary | Good | 2 | yes | 30 | 20 | group | none | damage taken halved, 5 rounds |
-| Stillness | Neutral | 1 | yes | 10 | 12 | area | will, negate | every enemy's speed halved, 2 rounds |
-| Blight | Evil | 1 | yes | 6 | 12 | area | fortitude, half | 0.4x per round to each enemy, 5 rounds |
+| Spell | Deity | Cast | Interrupt | Cooldown | Mana | Level, needs | Target | Save | Effect |
+|---|---|---|---|---|---|---|---|---|---|
+| Mend | Good | 1 | yes | 0 | 8 | 1, 11 Wis | self or one ally | none | heals 30 percent of the target's maximum |
+| Sanctuary | Good | 2 | yes | 30 | 20 | 8, 15 Wis | group | none | damage taken halved, 5 rounds |
+| Stillness | Neutral | 1 | yes | 10 | 12 | 4, 12 Wis | area | will, negate | every enemy's speed halved, 2 rounds |
+| Blight | Evil | 1 | yes | 6 | 12 | 6, 14 Wis | area | fortitude, half | 0.4x per round to each enemy, 5 rounds |
 
 Scaling for all of the above: the branch stat (Intelligence or Wisdom)
 times the level multiplier, per 6.4. Fireball and Blight are the first
@@ -1814,6 +1823,22 @@ each round beyond the auto-attack, plus a few passives that work on
 their own. They are distinct from feats (chosen, permanent, no rating)
 and from spells (discovered, material-costed).
 
+**Requirements (leaning, 2026-10-11).** With mana (6.2) and stamina
+(7.7) in, the designer asked for skills to need stats as well as a
+level, so that a build is something a character works toward rather
+than buys. Every taught skill names the trained stats a trainer wants
+before teaching it: one stat, matching what the skill does (Strength
+for Bash and Sunder, Dexterity for Backstab and Circle, Constitution
+for Rescue and Second Wind), rising with the skill's level from 11 or 12
+for the first skills to 17 or 18 for the last. Innate skills need none.
+Requirements read trained stats, not gear, so a ring cannot lend one
+and the stat points a character spends are the build; trained stats
+never fall, so a requirement once met stays met. Skills learned before
+this keep working. With six points at creation and two a level, a level
+12 character has 28 to spend: 16 in one stat for its signature skills
+leaves room for a second. The numbers are starting values (the Needs
+column below).
+
 **How skills are gained (decided 2026-09-25).** Most skills are
 taught: a trainer in the world teaches a set of skills, each for a
 price in coin (7.5) and, for some, items handed over as well (named as
@@ -1826,40 +1851,40 @@ and nothing competes with feats for the level-up choice.
 
 **First skills**, starting values:
 
-| Skill | Level | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
-|---|---|---|---|---|---|---|---|
-| Kick | 1 | action, single target |  | 4 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
-| Bash | 3 | action, single target | 3 | 8 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
-| Twin Strike | 5 | passive | | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
-| Rend | 3 | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
-| Riposte | 4 | passive | | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
+| Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|---|---|
+| Kick | 1 | none (innate) | action, single target |  | 4 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
+| Bash | 3 | 12 Str | action, single target | 3 | 8 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
+| Twin Strike | 5 | 13 Dex | passive | | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
+| Rend | 3 | 12 Str | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
+| Riposte | 4 | 12 Dex | passive | | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
 **Combat skills** (approved 2026-09-28), after ROM 2.4 and its
 descendants. Each has trainers in the areas whose level band fits it,
 and all of them are sold in the balance lab.
 
-| Skill | Level | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
-|---|---|---|---|---|---|---|---|
-| Dodge | 1 | passive | | | 20 | 2 gold | up to +10 percent dodge |
-| Trip | 2 | action, single | 3 | 6 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
-| Hand to Hand | 2 | passive | | | 20 | 3 gold | unarmed damage, up to double |
-| Dirt Kicking | 3 | action, single | 4 | 8 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
-| Shield Block | 3 | passive | | | 20 | 4 gold | up to +15 percent block, shield worn |
-| Backstab | 4 | action, single |  | 10 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
-| Fast Healing | 4 | passive | | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
-| Enhanced Damage | 5 | passive | | | 15 | 10 gold | up to +15 percent damage on swings |
-| Hamstring | 6 | action, single | 4 | 8 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
-| Disarm | 6 | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
-| Feint | 7 | action, single, cannot be dodged | 3 | 6 | 25 | 7 gold | -10 percent dodge and block for three rounds |
-| Berserk | 8 | action, self | 20 | 12 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
-| Envenom | 9 | action, self | 10 | 8 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
-| Rescue | 10 | action, ally | 2 | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
-| Circle | 10 | action, single | 2 | 8 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
-| Sunder | 12 | action, single | 6 | 10 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
-| Second Wind | 12 | action, self | 30 | 0 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
-| Triple Strike | 12 | passive | | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
-| Whirlwind | 15 | action, area | 3 | 12 | 20 | 25 gold | 0.8x damage to every foe fighting you |
-| Coup de Grace | 18 | action, single |  | 10 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
+| Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|---|---|
+| Dodge | 1 | 11 Dex | passive | | | 20 | 2 gold | up to +10 percent dodge |
+| Trip | 2 | 11 Dex | action, single | 3 | 6 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
+| Hand to Hand | 2 | 11 Str | passive | | | 20 | 3 gold | unarmed damage, up to double |
+| Dirt Kicking | 3 | 12 Dex | action, single | 4 | 8 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
+| Shield Block | 3 | 12 Con | passive | | | 20 | 4 gold | up to +15 percent block, shield worn |
+| Backstab | 4 | 13 Dex | action, single |  | 10 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
+| Fast Healing | 4 | 12 Con | passive | | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
+| Enhanced Damage | 5 | 13 Str | passive | | | 15 | 10 gold | up to +15 percent damage on swings |
+| Hamstring | 6 | 13 Dex | action, single | 4 | 8 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
+| Disarm | 6 | 14 Dex | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
+| Feint | 7 | 14 Dex | action, single, cannot be dodged | 3 | 6 | 25 | 7 gold | -10 percent dodge and block for three rounds |
+| Berserk | 8 | 15 Str | action, self | 20 | 12 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
+| Envenom | 9 | 15 Dex | action, self | 10 | 8 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
+| Rescue | 10 | 14 Con | action, ally | 2 | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
+| Circle | 10 | 16 Dex | action, single | 2 | 8 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
+| Sunder | 12 | 16 Str | action, single | 6 | 10 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
+| Second Wind | 12 | 16 Con | action, self | 30 | 0 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
+| Triple Strike | 12 | 16 Dex | passive | | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
+| Whirlwind | 15 | 17 Str | action, area | 3 | 12 | 20 | 25 gold | 0.8x damage to every foe fighting you |
+| Coup de Grace | 18 | 18 Str | action, single |  | 10 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
 
 Consequences (built 2026-09-28): skill targets are `single`, `area`
 (every foe fighting the user; one use, one improvement roll, one

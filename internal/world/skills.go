@@ -23,10 +23,12 @@ type Skill struct {
 	Cooldown int    `json:"cooldown"`
 	// Stamina is what a use costs (docs/RULES.md 7.7), checked before the
 	// use and spent when it goes ahead.
-	Stamina int     `json:"stamina"`
-	Start   float64 `json:"start"`  // effectiveness on first use
-	Innate  bool    `json:"innate"` // known by everyone at level; others need a trainer
-	Price   int     `json:"price"`  // in silver, at a trainer
+	Stamina int `json:"stamina"`
+	// Stats are the trained stats a trainer requires before teaching it.
+	Stats  map[string]int `json:"stats"`
+	Start  float64        `json:"start"`  // effectiveness on first use
+	Innate bool           `json:"innate"` // known by everyone at level; others need a trainer
+	Price  int            `json:"price"`  // in silver, at a trainer
 	// Requires are items handed over as well as coin, by material name.
 	Requires    []SpellMaterial `json:"requires"`
 	Description string          `json:"description"`
@@ -170,6 +172,8 @@ func cmdSkills(w *World, p *Player, _ string) {
 			line += padRight(itoa(int(effectiveness(e)+0.5))+"%", 9)
 		} else if sk.Innate {
 			line += padRight("new", 9)
+		} else if unmetStats(p.Character, sk.Stats) != "" {
+			line += padRight("needs "+needsText(sk.Stats), 9) + " "
 		} else {
 			line += padRight("trainer", 9)
 		}
@@ -470,5 +474,5 @@ func (w *World) startFightIfIdle(att, def *Character) {
 
 func skillView(sk Skill) map[string]any {
 	return map[string]any{"id": sk.ID, "name": sk.Name, "level": sk.Level, "passive": sk.Passive,
-		"target": sk.Target, "cooldown": sk.Cooldown, "stamina": sk.Stamina, "start": sk.Start, "innate": sk.Innate, "price": sk.Price, "requires": sk.Requires}
+		"target": sk.Target, "cooldown": sk.Cooldown, "stamina": sk.Stamina, "stats": sk.Stats, "start": sk.Start, "innate": sk.Innate, "price": sk.Price, "requires": sk.Requires}
 }

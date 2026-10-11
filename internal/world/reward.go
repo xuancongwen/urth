@@ -32,6 +32,13 @@ func rewardTitle(c *Character, title string) {
 // rewardItem adds an item the player just took to the reward, as the bag
 // shows it (with the reference a command takes, and its numbers), so a
 // client can offer to wear it.
+// rewardKill records a foe whose death paid the reward.
+func rewardKill(c *Character, name string) {
+	if r := rewardFor(c); r != nil {
+		r.Kills = append(r.Kills, name)
+	}
+}
+
 func (w *World) rewardItem(c *Character, it *item.Item) {
 	r := rewardFor(c)
 	if r == nil {

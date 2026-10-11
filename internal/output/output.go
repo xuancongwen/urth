@@ -51,10 +51,11 @@ const (
 	Reward Type = "reward"
 )
 
-// RewardData accompanies a Reward message. Title says what earned it ("a
-// hound of Annwn", "Quest complete"); Level is the new level when one was
-// gained.
+// RewardData accompanies a Reward message. Kills names each foe whose
+// death paid it, in order; Title names anything else that did ("Quest
+// complete"); Level is the new level when one was gained.
 type RewardData struct {
+	Kills       []string   `json:"kills,omitempty"`
 	Title       string     `json:"title,omitempty"`
 	XP          int        `json:"xp,omitempty"`
 	Silver      int        `json:"silver,omitempty"`
@@ -297,6 +298,9 @@ type Action struct {
 	// stamina.
 	Mana    int `json:"mana,omitempty"`
 	Stamina int `json:"stamina,omitempty"`
+	// Locked says what the character still lacks to use it ("level 10",
+	// "16 intelligence"), empty when nothing.
+	Locked string `json:"locked,omitempty"`
 }
 
 // Batch is everything a player receives in one tick, delivered as a unit so

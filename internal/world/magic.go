@@ -24,7 +24,11 @@ type Spell struct {
 	CastRounds int    `json:"castRounds"`
 	// Mana is spent when the cast begins (docs/RULES.md 6.2), along with
 	// any Materials, which only some spells name.
-	Mana              int             `json:"mana"`
+	Mana int `json:"mana"`
+	// Level and Stats are what a caster with access to the spell must have
+	// before it can be cast (6.4): a level and trained stats.
+	Level             int             `json:"level"`
+	Stats             map[string]int  `json:"stats"`
 	InterruptOnDamage bool            `json:"interruptOnDamage"`
 	Cooldown          int             `json:"cooldown"`
 	Materials         []SpellMaterial `json:"materials"`
@@ -85,6 +89,27 @@ func (w *World) spellList() []Spell {
 	var list []Spell
 	w.callOptional("spellList", &list)
 	return list
+}
+
+// spellUnready says why c cannot cast sp yet ("level 10", "16
+// intelligence"), or "" when it can.
+func spellUnready(c *Character, sp Spell) string {
+	if c.Level < sp.Level {
+		return "level " + itoa(sp.Level)
+	}
+	return unmetStats(c, sp.Stats)
+}
+
+// spellNeeds is everything sp requires, in words, for listings.
+func spellNeeds(sp Spell) string {
+	parts := []string{}
+	if sp.Level > 1 {
+		parts = append(parts, "level "+itoa(sp.Level))
+	}
+	if t := needsText(sp.Stats); t != "" {
+		parts = append(parts, t)
+	}
+	return strings.Join(parts, " and ")
 }
 
 // knowsSpell reports whether c has access to sp.
@@ -179,6 +204,9 @@ func cmdSpells(w *World, p *Player, _ string) {
 		if cd := p.cooldowns[sp.ID]; cd > 0 {
 			line += "  {R}(" + itoa(cd) + " rounds){x}"
 		}
+		if spellUnready(p.Character, sp) != "" {
+			line += "  {D}(needs " + spellNeeds(sp) + "){x}"
+		}
 		b.WriteString(line + "\n")
 	}
 	if n == 0 {
@@ -211,6 +239,10 @@ func cmdCast(w *World, p *Player, args string) {
 	sp, ok := w.findSpell(p.Character, name)
 	if !ok {
 		p.Send("You don't know that spell.\n")
+		return
+	}
+	if why := spellUnready(p.Character, sp); why != "" {
+		p.Send("You cannot cast " + output.Escape(sp.Name) + " yet: it takes " + spellNeeds(sp) + ", and you lack " + why + ".\n")
 		return
 	}
 	if p.casting != nil {
@@ -487,7 +519,7 @@ func spellView(sp Spell) map[string]any {
 	}
 	return map[string]any{
 		"id": sp.ID, "name": sp.Name, "branch": sp.Branch, "school": sp.School, "deity": sp.Deity,
-		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown, "mana": sp.Mana,
+		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown, "mana": sp.Mana, "level": sp.Level, "stats": sp.Stats,
 		"materials": mats, "target": sp.Target, "save": sp.Save, "saveEffect": sp.SaveEffect,
 	}
 }
