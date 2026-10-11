@@ -272,6 +272,12 @@ func (w *World) die(victim, killer *Character) {
 	victim.Send("{R}You have been KILLED!!{x}\n")
 	w.stopFighting(victim, true)
 	rules := w.deathRules()
+	if victim.player != nil && victim.Room != nil {
+		r := victim.Room
+		victim.player.SendMsg(output.Message{Type: output.Death, Data: output.DeathData{Room: r.Vnum, Name: r.Name,
+			AreaDir: r.Area, AreaName: w.areaName(r.Area), Rounds: max(rules.CorpseRounds, 1),
+			Seconds: max(rules.CorpseRounds, 1) * max(w.cfg.Timing.RoundMs, 1) / 1000}})
+	}
 	corpse := w.makeCorpse(victim, rules.CorpseRounds)
 
 	victim.casting = nil

@@ -52,7 +52,21 @@ const (
 	// Chat is something a player said: say, chat, yell, tell, group
 	// talk. Text clients show it like any text; a client may set it apart.
 	Chat Type = "chat"
+	// Death tells a player where their corpse lies, in Data as DeathData,
+	// so a client can lead them back. Text clients ignore it.
+	Death Type = "death"
 )
+
+// DeathData accompanies a Death message: the room the corpse is in, its
+// name and area (directory and name), and the rounds before it rots.
+type DeathData struct {
+	Room     int    `json:"room"`
+	Name     string `json:"name"`
+	AreaDir  string `json:"areaDir"`
+	AreaName string `json:"areaName"`
+	Rounds   int    `json:"rounds"`
+	Seconds  int    `json:"seconds"`
+}
 
 // RewardData accompanies a Reward message. Kills names each foe whose
 // death paid it, in order; Title names anything else that did ("Quest
@@ -255,6 +269,10 @@ type QuestState struct {
 	Area   string `json:"area"`
 	Left   string `json:"left"`
 	Done   bool   `json:"done,omitempty"`
+	// Room is where the target was seen or the item was placed, for a
+	// map marker; AreaDir is its area as the map names it.
+	Room    int    `json:"room,omitempty"`
+	AreaDir string `json:"areaDir,omitempty"`
 }
 
 // Companion is a fellow group member: Here says they share the room.

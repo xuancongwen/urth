@@ -87,6 +87,11 @@
   #party:empty { display: none; }
   .mate { font-size: .78em; color: #9cc8e8; }
   .mate .bar { height: 4px; margin-top: 2px; }
+  #gearbar:empty { display: none; } #gearbar { margin-top: 10px; }
+  .slotname { display: inline-block; min-width: 5.2em; font-size: .78em; color: var(--dim); text-transform: capitalize; }
+  #corpsestrip { margin-top: 10px; padding: 7px 10px; border-radius: 10px; background: #2a1618; border: 1px solid #5a2a2e; font-size: .85em; }
+  #corpsestrip:empty { display: none; }
+  #corpsestrip .row { margin-top: 6px; justify-content: flex-end; }
   #queststrip { margin-top: 10px; padding: 7px 10px; border-radius: 10px; background: #1b1d2a; border: 1px solid #2c3050; font-size: .85em; cursor: pointer; }
   #queststrip:empty { display: none; }
   #queststrip b { color: #a9b4ff; font-weight: 600; }
@@ -260,13 +265,14 @@
 
     <div id="panel">
       <div data-pane="here">
+        <div id="corpsestrip"></div>
         <div id="queststrip"></div>
         <div id="desc" class="clamp"></div>
         <div class="list" id="herelist"></div>
         <div class="chips" id="restrow"></div>
       </div>
       <div data-pane="bag" style="display:none"><div class="chips" id="bagbar"></div><div class="list" id="baglist"></div></div>
-      <div data-pane="gear" style="display:none"><div class="list" id="gearlist"></div></div>
+      <div data-pane="gear" style="display:none"><div class="chips" id="gearbar"></div><div class="list" id="gearlist"></div></div>
       <div data-pane="log" style="display:none">
         <div class="chips" id="logfilter"></div>
         <div class="chips" id="talkmodes"></div>
@@ -440,6 +446,7 @@
       case 'expeditions': if (sheetFor === 'Expeditions') expeditionActs(m.data || []); return;
       case 'offers': if (sheetFor) offerActs(m.data || {}); return;
       case 'reward': showReward(m.data || {}); return;
+      case 'death': rememberCorpse(m.data || {}); return;
       case 'chat':
         if (!inGame) break;
         addText(m.text, m.html, false, true);
@@ -670,9 +677,35 @@
     });
   }
 
+  // ---- Your corpse: where it lies and how long it lasts, kept on the
+  // device, marked on the map, and offered as a walk until you get there.
+  var corpse = null;
+  try { corpse = JSON.parse(recall('urth.corpse') || 'null'); } catch (e) {}
+  function rememberCorpse(d) {
+    corpse = { room: d.room, name: d.name, areaDir: d.areaDir, areaName: d.areaName, until: Date.now() + (d.seconds || 1200) * 1000 };
+    remember('urth.corpse', JSON.stringify(corpse));
+  }
+  function forgetCorpse() { corpse = null; remember('urth.corpse', null); }
+  function renderCorpse(s) {
+    var box = $('corpsestrip'); box.textContent = '';
+    if (!corpse) return;
+    if (Date.now() > corpse.until || s.room.vnum === corpse.room) { forgetCorpse(); return; }
+    var mins = Math.max(1, Math.round((corpse.until - Date.now()) / 60000));
+    box.appendChild(document.createTextNode('Your corpse, with your gear, lies in '));
+    box.appendChild(el('b', '', corpse.name));
+    box.appendChild(document.createTextNode(' (' + corpse.areaName + '), about ' + mins + ' minute' + (mins > 1 ? 's' : '') + ' before it rots.'));
+    var acts = el('div', 'row');
+    var steps = rooms[corpse.room] ? pathTo(corpse.room) : null;
+    if (steps) acts.appendChild(btn('Walk there (' + steps.filter(function (x) { return !/^open /.test(x); }).length + ')', function () { walk(steps); }, 'primary'));
+    else acts.appendChild(el('span', 'dim', mapData && mapData.area === corpse.areaDir ? 'No known way yet.' : 'Head for ' + corpse.areaName + '.'));
+    acts.appendChild(btn('Forget it', function () { forgetCorpse(); renderCorpse(state); }, 'ghost'));
+    box.appendChild(acts);
+  }
+
   // Effects as chips under the vitals; the quest in Here; the group's
   // health in Here and in the battle view.
   function renderStatus(s) {
+    renderCorpse(s);
     var fx = $('effects'); fx.textContent = '';
     (s.effects || []).forEach(function (e) {
       var chip = el('span', '', e.text.length > 28 ? e.text.slice(0, 27) + '…' : e.text);
@@ -1109,15 +1142,45 @@
     return null;
   }
 
-  function renderGear(s) {
-    var list = $('gearlist'); list.textContent = '';
-    s.equipment.forEach(function (it) {
-      var name = el('span', 'name wrap');
-      var slot = el('span', 'dim', it.slot.replace(/[12]$/, '') + '  '); slot.style.fontSize = '.8em';
-      name.appendChild(slot); name.appendChild(itemName(it));
-      row(list, name, null, function () { openSheet(it.name, 'look ' + it.ref, [['Remove', 'remove ' + it.ref]]); });
+  // Gear: every slot in body order, empty ones too, so a gap shows. Wear
+  // all upgrades puts on, for each slot, the best piece in the bag that
+  // beats what is there (or fills it), by the same comparison as the bag.
+  var SLOTS = ['light', 'head', 'face', 'neck', 'shoulders', 'body', 'arms', 'hands', 'wrist1', 'wrist2', 'belt',
+               'legs', 'feet', 'finger1', 'finger2', 'shield', 'wield', 'hold'];
+  function upgradePicks(s) {
+    var best = {};
+    s.inventory.forEach(function (it) {
+      var c = compare(it, s);
+      if (!c || c.dir !== 'up') return;
+      var fam = family(it.slot);
+      if (!best[fam] || score(it) > score(best[fam])) best[fam] = it;
     });
-    if (!s.equipment.length) list.appendChild(el('div', 'dim', 'You are wearing nothing.'));
+    return Object.keys(best).map(function (k) { return best[k]; });
+  }
+  function renderGear(s) {
+    var bar = $('gearbar'); bar.textContent = '';
+    var picks = upgradePicks(s);
+    if (picks.length) {
+      bar.appendChild(btn('Wear all upgrades (' + picks.length + ')', function () {
+        sendAll(picks.map(function (it) { return 'wear #' + it.id; }));
+      }, 'primary'));
+    }
+    var list = $('gearlist'); list.textContent = '';
+    SLOTS.forEach(function (slot) {
+      var it = s.equipment.filter(function (e) { return e.slot === slot; })[0];
+      var name = el('span', 'name wrap');
+      name.appendChild(el('span', 'slotname', slot.replace(/[12]$/, '')));
+      if (!it) {
+        name.appendChild(el('span', 'dim', '— empty'));
+        var fits = s.inventory.filter(function (b) { return family(b.slot) === family(slot); });
+        row(list, name, fits.length ? ['Wear…', function () {
+          openSheet('Wear on ' + slot.replace(/[12]$/, ''), null, fits.map(function (b) { return [b.name, 'wear #' + b.id]; }));
+        }, ''] : null);
+        return;
+      }
+      name.appendChild(itemName(it));
+      row(list, name, null, function () { openSheet(it.name, 'look #' + it.id, [['Remove', 'remove #' + it.id]]); });
+    });
   }
 
   // ---- Map ------------------------------------------------------------
@@ -1217,6 +1280,18 @@
         ctx.fillText(r.name.length > 16 ? r.name.slice(0, 15) + '…' : r.name, p[0], y + box + 9);
       }
     });
+    // Markers: the quest's room and your corpse, when they are in view.
+    function marker(vnum, color, glyph) {
+      var r = rooms[vnum];
+      if (!r || r.z !== cur.z) return;
+      var p = posOf(r, g);
+      ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(p[0], p[1], box * 0.62, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = color; ctx.font = 'bold ' + Math.round(box * 0.4) + 'px ' + font; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(glyph, p[0] + box * 0.55, p[1] - box * 0.55);
+    }
+    if (state && state.quest && state.quest.room && state.quest.areaDir === mapData.area) marker(state.quest.room, '#a9b4ff', '!');
+    if (corpse && corpse.areaDir === mapData.area) marker(corpse.room, '#ff6b6b', '✖');
     var c = posOf(cur, g);
     ctx.strokeStyle = '#e0b04a'; ctx.lineWidth = 2.5; roundRect(c[0] - box / 2 - 4, c[1] - box / 2 - 4, box + 8, box + 8, 9); ctx.stroke();
     ctx.fillStyle = '#e0b04a'; ctx.beginPath(); ctx.arc(c[0], c[1] - (glyphAt(cur) ? box * 0.3 : 0), 4, 0, Math.PI * 2); ctx.fill();

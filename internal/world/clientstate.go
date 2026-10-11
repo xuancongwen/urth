@@ -94,7 +94,8 @@ func (w *World) clientState(p *Player) output.StateData {
 		}
 	}
 	if q := p.quest; q != nil {
-		s.Quest = &output.QuestState{Kind: q.Kind, Target: w.questTargetName(q), Area: w.areaName(q.Area), Left: w.questMinutes(q.Rounds), Done: q.Done}
+		s.Quest = &output.QuestState{Kind: q.Kind, Target: w.questTargetName(q), Area: w.areaName(q.Area), Left: w.questMinutes(q.Rounds), Done: q.Done,
+			Room: q.Room, AreaDir: q.Area}
 	}
 	s.Room = w.stateRoom(p)
 	if w.canSee(c) {

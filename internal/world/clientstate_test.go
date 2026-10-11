@@ -137,3 +137,25 @@ func TestStateCarriesEffectsAndGroup(t *testing.T) {
 		t.Fatalf("group: %+v", s.Group)
 	}
 }
+
+func TestDeathNamesTheCorpseRoom(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	send(w, 1, "north")
+	bob.batches = nil
+	w.die(p.Character, nil)
+	w.Tick()
+	for _, b := range bob.batches {
+		for _, m := range b.Messages {
+			if m.Type == output.Death {
+				d := m.Data.(output.DeathData)
+				if d.Room != 2 || d.Name != "North" || d.Rounds <= 0 || d.Seconds <= 0 {
+					t.Fatalf("death: %+v", d)
+				}
+				return
+			}
+		}
+	}
+	t.Fatal("no death message")
+}
