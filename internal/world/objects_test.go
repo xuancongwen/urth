@@ -470,3 +470,28 @@ func TestSettings(t *testing.T) {
 		t.Fatalf("unknown: %q", o)
 	}
 }
+
+func TestScoreKeepsItsBorder(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.Silver = 12345 // 123 gold and 45 silver
+	p.questPoints = 7
+	send(w, 1, "score")
+	o := bob.take()
+	if !strings.Contains(o, "123g 45s") {
+		t.Fatalf("coins: %q", o)
+	}
+	for _, l := range strings.Split(o, "\n") {
+		if (strings.HasPrefix(l, "|") || strings.HasPrefix(l, "+")) && len(l) != sheetWidth {
+			t.Fatalf("row is %d wide, not %d: %q", len(l), sheetWidth, l)
+		}
+	}
+	var s sheet
+	s.pair("Experience", strings.Repeat("9", 30), "Next", "x")
+	for _, l := range strings.Split(strings.TrimSpace(output.Strip(s.b.String())), "\n") {
+		if len(l) != sheetWidth {
+			t.Fatalf("long pair row is %d wide: %q", len(l), l)
+		}
+	}
+}

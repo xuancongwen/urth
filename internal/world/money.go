@@ -29,6 +29,21 @@ func moneyString(silver int) string {
 	}
 }
 
+// shortMoney renders silver as "1g 23s", for tight columns like score.
+func shortMoney(silver int) string {
+	g, s := silver/silverPerGold, silver%silverPerGold
+	switch {
+	case silver <= 0:
+		return "none"
+	case g > 0 && s > 0:
+		return itoa(g) + "g " + itoa(s) + "s"
+	case g > 0:
+		return itoa(g) + "g"
+	default:
+		return itoa(s) + "s"
+	}
+}
+
 // coinPile makes a pile of coins as an item to lie in a room or corpse.
 func coinPile(silver int) *item.Item {
 	name := "a pile of coins"

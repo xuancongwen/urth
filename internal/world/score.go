@@ -25,15 +25,22 @@ func (s *sheet) line(plain string) {
 	s.b.WriteString("{c}|{x} " + padRight(plain, sheetWidth-4) + " {c}|{x}\n")
 }
 
-// pair writes two label/value cells side by side.
+// pair writes two label/value cells side by side. A left cell too long
+// for its half pushes the right one onto a row of its own, so a long
+// value never runs into the next label or past the border.
 func (s *sheet) pair(l1, v1, l2, v2 string) {
 	half := (sheetWidth - 4) / 2
-	left := padRight(padRight(l1, 13)+v1, half)
+	left := padRight(l1, 13) + v1
 	right := ""
 	if l2 != "" {
 		right = padRight(l2, 13) + v2
 	}
-	s.line(left + right)
+	if len(left) >= half && right != "" {
+		s.line(left)
+		s.line(padRight("", half) + right)
+		return
+	}
+	s.line(padRight(left, half) + right)
 }
 
 // labelled writes a label and a value that may wrap onto further rows.
@@ -85,7 +92,11 @@ func cmdScore(w *World, p *Player, _ string) {
 	}
 	health := itoa(p.Health) + "/" + itoa(p.HealthMax)
 	s.pair("Health", health, "Experience", xp)
-	s.pair("Coins", moneyString(p.Silver), "Quest points", itoa(p.questPoints))
+	coins := moneyString(p.Silver)
+	if len(coins) > (sheetWidth-4)/2-13-1 {
+		coins = shortMoney(p.Silver) // "1g 23s" when the words would not fit the column
+	}
+	s.pair("Coins", coins, "Quest points", itoa(p.questPoints))
 	if p.StaminaMax > 0 {
 		s.pair("Stamina", itoa(p.Stamina)+"/"+itoa(p.StaminaMax), "", "")
 	}
