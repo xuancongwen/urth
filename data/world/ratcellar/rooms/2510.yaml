@@ -1,0 +1,11 @@
+vnum: 2510
+name: The Wererat's Den
+description: |
+  A dry chamber off the cistern, once a sluice-keeper's room. There is
+  a bed of sacking, a table, a chair with three legs and a brick, and
+  on the table a chipped plate and a neat pile of buttons sorted by
+  size. Someone lives here who still remembers how people live, and
+  has decided to do it badly. The cistern is east.
+exits:
+  east: 2509
+flags: [dark]

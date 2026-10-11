@@ -1,0 +1,13 @@
+vnum: 2712
+name: The Bone Gate
+description: |
+  The passage ends at a gate built entirely of bones: ribs for bars, a
+  lintel of thigh bones lashed with sinew, a pair of skulls on posts for
+  finials. It stands open. Past it the crypt is built again, properly,
+  with dressed stone, as if the people who made the deep crypt wanted to
+  be very formal about what they were keeping in it. The passage is east
+  and the gate opens west.
+exits:
+  east: 2709
+  west: 2713
+flags: [dark]

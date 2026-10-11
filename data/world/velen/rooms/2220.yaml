@@ -1,0 +1,11 @@
+vnum: 2220
+name: The Werewolf's Den
+description: |
+  A cave that stinks of wet dog and old blood, the floor deep in bones
+  and torn clothes. Among them are fine things: a nobleman's cloak, a
+  signet ring, a child's wooden horse, things a man carried home once and
+  a beast did not bother to put down. Something here sleeps by day, and
+  the dark is complete. The woods are east.
+exits:
+  east: 2219
+flags: [dark]

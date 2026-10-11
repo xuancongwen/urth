@@ -1,0 +1,12 @@
+vnum: 2305
+name: a mouse droid
+keywords: [mouse, droid, mse, mse-6]
+description: A mouse droid zips along the foot of the wall, beeping.
+look: |
+  A little black box on wheels, about the size of a boot, that scurries
+  up and down the corridors on errands nobody remembers giving it. Growl
+  at it and it shrieks and flees in the other direction.
+level: 5
+flags: [peaceful, wander]
+attack:
+  verb: bump

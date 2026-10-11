@@ -1,0 +1,12 @@
+vnum: 1707
+name: a plasma bug charge sac
+keywords: [plasma, bug, charge, sac]
+description: A glassy sac crackling with blue light lies here.
+look: |
+  A sac from deep inside a plasma bug, glassy and taut, and full of
+  something that lights up blue whenever you touch it. Your teeth ache
+  holding it. Fleet Research will pay a great deal to have one, and a
+  great deal more to have someone else carry it.
+type: other
+weight: 3
+value: 90

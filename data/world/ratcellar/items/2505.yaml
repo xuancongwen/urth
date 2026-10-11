@@ -1,0 +1,19 @@
+vnum: 2505
+name: a moonstone ring on a bit of string
+keywords: [moonstone, ring, string, wererat]
+description: A moonstone ring threaded on a bit of string lies here.
+look: |
+  A pale moonstone in a plain silver band, threaded on a string because
+  the hand it fitted is not always a hand. The stone is cloudy, and in
+  the dark it holds a faint light of its own, like the moon behind a
+  cloud. Wearing it you feel quick, and a little hungry for cheese.
+type: armor
+slot: finger
+weight: 0
+level: 5
+value: 250
+effects:
+  - kind: dodge
+    params: { amount: 0.02 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

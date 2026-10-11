@@ -1,0 +1,16 @@
+vnum: 2800
+name: The Portal Landing
+description: |
+  You step out of the red light onto soft grass, and the portal hangs
+  behind you in the air, a ragged oval of crimson fire that hums like a
+  hive. The sky here is the colour of a bruise and the moon is far too
+  big. Wind moves through waist-high grass in long silver waves, and
+  somewhere out in it, something lows. It is not a friendly sound. The
+  portal leads east, back to the graveyard wall in Tristram; the fields
+  open to the west. Nobody has ever found this place, because there is
+  no cow level.
+exits:
+  east: 1308
+  west: 2801
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

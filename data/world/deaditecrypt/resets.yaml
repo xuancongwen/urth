@@ -1,0 +1,72 @@
+interval_seconds: 120
+resets:
+  # --- the top: the wise man's alcove ---
+  - { mob: 2700, room: 2701 }   # the wise man among his candles, selling torches
+  - { mob: 2701, room: 2701 }   # Lord Arthur, who teaches bash and rescue
+  - { item: 2700, room: 2700 }   # a torch dropped at the foot of the ladder
+  # --- the stairs and the ossuary: skeletons (14) and skeleton warriors (15) ---
+  - { mob: 2702, room: 2702, max: 6, equip: [{ item: 2712, slot: wield }, { item: 2704 }] }   # skeletons on the stairs, six in all, some with a skull to spare
+  - { mob: 2702, room: 2702, max: 6, equip: [{ item: 2712, slot: wield }, { item: 2704 }] }   # skeletons on the stairs, six in all, some with a skull to spare
+  - { mob: 2702, room: 2702, max: 6, equip: [{ item: 2712, slot: wield }] }   # skeletons on the stairs, six in all, some with a skull to spare
+  - { mob: 2702, room: 2702, max: 6, equip: [{ item: 2712, slot: wield }] }   # skeletons on the stairs, six in all, some with a skull to spare
+  - { mob: 2702, room: 2703, max: 6, equip: [{ item: 2712, slot: wield }, { item: 2704 }] }   # skeletons among the bones
+  - { mob: 2702, room: 2703, max: 6, equip: [{ item: 2712, slot: wield }, { item: 2704 }] }   # skeletons among the bones
+  - { mob: 2703, room: 2703, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }, { item: 2704 }] }   # skeleton warriors in the ossuary, thirteen in all
+  - { mob: 2703, room: 2703, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors in the ossuary, thirteen in all
+  - { mob: 2703, room: 2703, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors in the ossuary, thirteen in all
+  - { mob: 2706, room: 2703, max: 6 }   # a flying head, which wanders off
+  # --- the hall of skulls and the charnel gallery ---
+  - { mob: 2703, room: 2704, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }, { item: 2704 }] }   # skeleton warriors under the skulls
+  - { mob: 2703, room: 2704, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors under the skulls
+  - { mob: 2703, room: 2704, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors under the skulls
+  - { mob: 2704, room: 2704, max: 8, equip: [{ item: 2717, slot: wield }, { item: 2704 }] }   # skeleton archers in the slits, eight in all
+  - { mob: 2704, room: 2704, max: 8, equip: [{ item: 2717, slot: wield }, { item: 2704 }] }   # skeleton archers in the slits, eight in all
+  - { mob: 2705, room: 2705, max: 14, equip: [{ item: 2705 }] }   # deadites off their shelves, fourteen in all
+  - { mob: 2705, room: 2705, max: 14, equip: [{ item: 2705 }] }   # deadites off their shelves, fourteen in all
+  - { mob: 2705, room: 2705, max: 14, equip: [{ item: 2705 }] }   # deadites off their shelves, fourteen in all
+  - { mob: 2705, room: 2705, max: 14, equip: [{ item: 2705 }] }   # deadites off their shelves, fourteen in all
+  # --- the hall of the dead and the marshalling ground ---
+  - { mob: 2703, room: 2706, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors among the tombs
+  - { mob: 2703, room: 2706, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors among the tombs
+  - { mob: 2704, room: 2706, max: 8, equip: [{ item: 2717, slot: wield }, { item: 2704 }] }   # skeleton archers between the pillars
+  - { mob: 2704, room: 2706, max: 8, equip: [{ item: 2717, slot: wield }] }   # skeleton archers between the pillars
+  - { mob: 2704, room: 2706, max: 8, equip: [{ item: 2717, slot: wield }] }   # skeleton archers between the pillars
+  - { mob: 2706, room: 2706, max: 6 }   # a flying head
+  - { mob: 2707, room: 2707, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }, { item: 2704 }] }   # skeleton captains drilling the dead, ten in all
+  - { mob: 2707, room: 2707, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }, { item: 2704 }] }   # skeleton captains drilling the dead, ten in all
+  - { mob: 2703, room: 2707, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors at drill
+  - { mob: 2703, room: 2707, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors at drill
+  - { mob: 2703, room: 2707, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors at drill
+  - { mob: 2704, room: 2707, max: 8, equip: [{ item: 2717, slot: wield }] }   # a skeleton archer at drill
+  # --- the pit ---
+  - { mob: 2705, room: 2708, max: 14, equip: [{ item: 2705 }] }   # deadites at the pit's edge
+  - { mob: 2705, room: 2708, max: 14 }   # deadites at the pit's edge
+  - { mob: 2705, room: 2708, max: 14 }   # deadites at the pit's edge
+  - { mob: 2706, room: 2708, max: 6 }   # flying heads over the pit
+  - { mob: 2706, room: 2708, max: 6 }   # flying heads over the pit
+  - { mob: 2705, room: 2710, max: 14, equip: [{ item: 2705 }] }   # deadites in the pit
+  - { mob: 2705, room: 2710, max: 14, equip: [{ item: 2705 }] }   # deadites in the pit
+  - { mob: 2705, room: 2710, max: 14 }   # deadites in the pit
+  - { mob: 2705, room: 2710, max: 14 }   # deadites in the pit
+  - { mob: 2705, room: 2710, max: 14 }   # deadites in the pit
+  - { mob: 2708, room: 2711, equip: [{ item: 2703 }, { item: 2705 }, { item: 2705 }] }   # the Pit witch, hoarding Ash's chainsaw hand
+  - { mob: 2705, room: 2711, max: 14 }   # deadites at the witch's fire
+  - { mob: 2705, room: 2711, max: 14 }   # deadites at the witch's fire
+  # --- the deep crypt ---
+  - { mob: 2706, room: 2709, max: 6 }   # flying heads in the passage
+  - { mob: 2706, room: 2709, max: 6 }   # flying heads in the passage
+  - { mob: 2707, room: 2709, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # a skeleton captain on the ramp
+  - { mob: 2707, room: 2712, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains at the bone gate
+  - { mob: 2707, room: 2712, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains at the bone gate
+  - { mob: 2704, room: 2712, max: 8, equip: [{ item: 2717, slot: wield }, { item: 2704 }] }   # skeleton archers on the gate
+  - { mob: 2704, room: 2712, max: 8, equip: [{ item: 2717, slot: wield }, { item: 2704 }] }   # skeleton archers on the gate
+  - { mob: 2707, room: 2713, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }, { item: 2704 }] }   # skeleton captains in the antechamber
+  - { mob: 2707, room: 2713, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains in the antechamber
+  - { mob: 2703, room: 2713, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors in the niches
+  - { mob: 2703, room: 2713, max: 13, equip: [{ item: 2712, slot: wield }, { item: 2715, slot: head }] }   # skeleton warriors in the niches
+  - { mob: 2710, room: 2714, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }, { item: 2702 }] }   # the skeleton general at the war table, with Ash's boomstick
+  - { mob: 2707, room: 2714, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains reporting for duty
+  - { mob: 2707, room: 2714, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains reporting for duty
+  - { mob: 2707, room: 2714, max: 10, equip: [{ item: 2720, slot: wield }, { item: 2721, slot: head }] }   # skeleton captains reporting for duty
+  - { item: 2714, room: 2714 }   # a bone-handled mace on the rack
+  - { mob: 2709, room: 2715, equip: [{ item: 2701, slot: hold }] }   # Evil Ash at the altar, holding the Necronomicon

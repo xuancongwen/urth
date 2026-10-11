@@ -1,0 +1,12 @@
+vnum: 1704
+name: a plate of warrior bug carapace
+keywords: [plate, warrior, bug, carapace, shell, chitin]
+description: A curved plate of orange-brown bug shell lies here.
+look: |
+  A section of shell cracked off a warrior bug, ridged and glossy and
+  harder than it has any right to be. The quartermaster buys it by the
+  pound. The engineers bolt it over armor, and the Federal Network
+  films it for the folks at home.
+type: other
+weight: 2
+value: 15

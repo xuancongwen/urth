@@ -1,0 +1,29 @@
+vnum: 2203
+name: Imlerith's mace
+keywords: [imlerith's, imlerith, mace, morningstar, hunt]
+description: A huge spiked mace of black iron lies here, furred with frost.
+look: |
+  The mace of Imlerith, general of the Wild Hunt: a head of black iron
+  the size of a man's chest, ringed with spikes, on a haft as long as a
+  spear. Frost grows on it in feathers and never melts, and it is so
+  heavy that lifting it is a test and swinging it is an argument with
+  the ground. Whatever it hits feels the cold of the world beyond the
+  sky and slows, and stays slow.
+type: weapon
+weight: 14
+level: 34
+baseline: mace
+value: 7000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: crush
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

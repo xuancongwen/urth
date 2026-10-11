@@ -1,0 +1,16 @@
+vnum: 2901
+name: Level 1, the Stone Maze
+description: |
+  Walls of rough grey stone blocks, each exactly the same size, stand
+  in a maze that makes no sense from inside it and perfect sense from
+  above, if you happened to be looking down from the ceiling. The floor
+  is a checkerboard of darker stone. Every corridor is wide enough for
+  exactly one hero, and every corner has something waiting behind it.
+  Bones rattle somewhere west, a locked door glints east, and north the
+  maze opens toward a square of light marked EXIT. The coin slot is
+  south.
+exits:
+  south: 2900
+  west: 2902
+  east: 2903
+  north: 2904

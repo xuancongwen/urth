@@ -1,0 +1,12 @@
+vnum: 2916
+name: Level 4, the Treasure Vault
+description: |
+  A stone vault stacked to the ceiling with chests, coins in drifts
+  against the walls, crowns on the floor like dropped hats. Nobody
+  needed all of this. In the middle of the floor a trapdoor stands open
+  over a last flight of steps, and the air coming up it is very still
+  and very cold, and does not smell of anything at all. The crossfire
+  is south, through the vault door.
+exits:
+  south: 2913
+  down: 2917

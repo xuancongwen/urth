@@ -1,0 +1,12 @@
+vnum: 1706
+name: a tanker bug fire gland
+keywords: [tanker, bug, fire, gland, sac]
+description: A swollen, sloshing gland the size of a keg lies here, smoking faintly.
+look: |
+  One of the glands a tanker bug squirts its fire from, cut free with
+  a great deal of care. The fluid inside is the colour of weak tea and
+  smokes when it touches air. Do not drop it. The engineers can make it
+  into something that throws fire the other way.
+type: other
+weight: 8
+value: 60

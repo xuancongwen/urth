@@ -1,0 +1,68 @@
+interval_seconds: 300
+resets:
+  # --- Fire Base Whiskey ---
+  - { mob: 1705, room: 1700 }                                   # Carmen Ibanez at her drop ship
+  - { mob: 1704, room: 1700 }                                   # the FedNet correspondent, filming the pad
+  - { mob: 1701, room: 1702 }                                   # the quartermaster at her counter
+  - { mob: 1703, room: 1703 }                                   # Colonel Jenkins by the recruitment screen
+  - { mob: 1700, room: 1704 }                                   # Sergeant Zim, who teaches bash and rescue
+  - { mob: 1702, room: 1704, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }, { item: 1703 }] }   # troopers at drill
+  - { mob: 1702, room: 1704, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }] }
+  - { mob: 1702, room: 1705, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }, { item: 1703 }] }   # troopers on the wire
+  - { mob: 1702, room: 1705, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1702 }] }   # one with a spare field light
+  - { mob: 1717, room: 1705 }                                   # a neo-dog watching the plain
+  # --- the killing field and the spires: warrior bugs, six of them ---
+  - { mob: 1706, room: 1706, max: 6, equip: [{ item: 1704 }] }  # warrior bugs on the killing field
+  - { mob: 1706, room: 1706, max: 6 }
+  - { mob: 1706, room: 1706, max: 6 }
+  - { mob: 1706, room: 1706, max: 6, equip: [{ item: 1704 }] }
+  - { mob: 1706, room: 1707, max: 6 }                           # and two among the spires
+  - { mob: 1706, room: 1707, max: 6, equip: [{ item: 1704 }] }
+  # --- blooded warrior bugs, five ---
+  - { mob: 1707, room: 1707, max: 5, equip: [{ item: 1704 }] }  # blooded warriors in the spires
+  - { mob: 1707, room: 1707, max: 5 }
+  - { mob: 1707, room: 1707, max: 5, equip: [{ item: 1704 }] }
+  - { mob: 1707, room: 1708, max: 5 }                           # and in the gully of boots
+  - { mob: 1707, room: 1708, max: 5, equip: [{ item: 1704 }] }
+  # --- elder warrior bugs, six ---
+  - { mob: 1708, room: 1708, max: 6, equip: [{ item: 1704 }, { item: 1708 }] }   # elders in the gully, one leg claw loose
+  - { mob: 1708, room: 1708, max: 6, equip: [{ item: 1704 }] }
+  - { mob: 1708, room: 1708, max: 6 }
+  - { mob: 1708, room: 1713, max: 6, equip: [{ item: 1704 }, { item: 1708 }] }   # elders picking over the crash site
+  - { mob: 1708, room: 1713, max: 6, equip: [{ item: 1704 }] }
+  - { mob: 1708, room: 1713, max: 6 }
+  # --- hoppers, five, which wander ---
+  - { mob: 1709, room: 1710, max: 5, equip: [{ item: 1705 }, { item: 1709 }] }   # hoppers in the canyon
+  - { mob: 1709, room: 1710, max: 5, equip: [{ item: 1705 }] }
+  - { mob: 1709, room: 1711, max: 5, equip: [{ item: 1705 }] }  # hoppers on the roost
+  - { mob: 1709, room: 1711, max: 5, equip: [{ item: 1705 }, { item: 1709 }] }
+  - { mob: 1709, room: 1711, max: 5, equip: [{ item: 1705 }] }
+  # --- digger bugs, five ---
+  - { mob: 1710, room: 1718, max: 5, equip: [{ item: 1704 }] }  # diggers in the burrow field
+  - { mob: 1710, room: 1718, max: 5 }
+  - { mob: 1710, room: 1718, max: 5, equip: [{ item: 1704 }] }
+  - { mob: 1710, room: 1712, max: 5 }                           # and among the hive mounds
+  - { mob: 1710, room: 1712, max: 5, equip: [{ item: 1704 }] }
+  # --- Rasczak's last stand ---
+  - { mob: 1711, room: 1714, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }, { item: 1721 }] }   # Lieutenant Rasczak, and his sidearm
+  # --- the tanker trench and the plasma battery ---
+  - { mob: 1713, room: 1716, equip: [{ item: 1706 }, { item: 1706 }, { item: 1722 }] }   # the tanker bug; the MI helmet is in its gut
+  - { mob: 1714, room: 1717, max: 2, equip: [{ item: 1707 }] }  # plasma bugs firing at the Fleet
+  - { mob: 1714, room: 1717, max: 2, equip: [{ item: 1707 }] }
+  # --- the tunnels ---
+  - { item: 1702, room: 1715 }                                  # a field light dropped at the lip of the hole
+  - { mob: 1712, room: 1719, max: 5, equip: [{ item: 1704 }] }  # a tunnel warrior in the throat
+  - { mob: 1712, room: 1720, max: 5 }                           # tunnel warriors at the branches
+  - { mob: 1712, room: 1720, max: 5, equip: [{ item: 1704 }] }
+  - { mob: 1712, room: 1723, max: 5 }                           # and in the deep tunnel
+  - { mob: 1712, room: 1723, max: 5, equip: [{ item: 1704 }] }
+  - { mob: 1718, room: 1721, max: 3, equip: [{ item: 1704 }] }  # burrowers tending the eggs
+  - { mob: 1718, room: 1721, max: 3 }
+  - { mob: 1718, room: 1722, max: 3, equip: [{ item: 1704 }] }  # one in the sapper's gallery
+  - { item: 1720, room: 1722 }                                  # the sappers' tactical nuke, timer at zero
+  # --- the royal caverns ---
+  - { mob: 1715, room: 1724, max: 4, equip: [{ item: 1717 }] }  # royal guards along the antechamber walls
+  - { mob: 1715, room: 1724, max: 4 }
+  - { mob: 1715, room: 1724, max: 4, equip: [{ item: 1704 }] }
+  - { mob: 1715, room: 1726, max: 4, equip: [{ item: 1704 }] }  # one watching the larder
+  - { mob: 1716, room: 1725, equip: [{ item: 1723 }] }          # the Brain Bug, keeping the Roughnecks' Morita

@@ -1,0 +1,11 @@
+vnum: 2902
+name: Level 1, the Bone Yard
+description: |
+  A dead end of the maze, and the dead keep it. Heaps of bleached bones
+  lie against the stone, skulls stacked on thighbones in neat pale
+  pyramids, and every so often one of the heaps shivers and a thin grey
+  shape pulls itself up out of it and drifts toward the light. The walls
+  are scored with old arrow marks where heroes tried to shoot their way
+  out of here. The maze is east.
+exits:
+  east: 2901

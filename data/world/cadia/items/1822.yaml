@@ -1,0 +1,13 @@
+vnum: 1822
+name: a horned power-armour helm
+keywords: [horned, power-armour, power, armour, armor, helm, helmet]
+description: A black helm with a pair of curling horns lies here.
+look: |
+  The helm of a Chaos Space Marine, black ceramite trimmed with gold,
+  grown a pair of ram's horns over ten thousand years in the Eye. The eye
+  lenses glow faintly red even with no one inside.
+type: armor
+slot: head
+level: 46
+baseline: plate
+flags: [drop]

@@ -1,0 +1,24 @@
+vnum: 1922
+name: a Sardaukar blade
+keywords: [sardaukar, blade, sword]
+description: A plain grey sword with a black grip lies here.
+look: |
+  The sidearm of a Sardaukar Bashar: a straight, plain, perfectly
+  balanced sword with no ornament at all, forged on Salusa Secundus
+  where only the hard survive. It is an instrument for one thing. The
+  man who holds it stops losing his footing, and every blow he lands
+  finds the exact place where it will do the most good.
+type: weapon
+weight: 3
+level: 38
+baseline: standard
+value: 4000
+weapon:
+  hands: 1
+  kind: slash
+  verb: cut
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: steady, params: { chance: 0.3 } }

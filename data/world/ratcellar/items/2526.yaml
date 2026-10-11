@@ -1,0 +1,13 @@
+vnum: 2526
+name: a rusted chain shirt
+keywords: [rusted, chain, shirt, mail]
+description: A chain shirt, rusted into a stiff orange heap, lies here.
+look: |
+  A shirt of riveted iron rings, rusted so badly it stands up on its
+  own. Shaken out it still turns a blade, and a rat's teeth, and it
+  only leaves a little orange on you.
+type: armor
+slot: body
+level: 7
+baseline: heavy
+flags: [drop]

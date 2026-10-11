@@ -1,0 +1,19 @@
+vnum: 2908
+name: a demon
+keywords: [demon, imp, fiend]
+description: A grinning demon juggles a ball of fire from hand to hand, watching you.
+look: |
+  A wiry red thing the height of a child, with horns, a barbed tail,
+  and a grin full of needles. It makes fire in its palms the way a boy
+  makes snowballs, and throws it the same way: hard, often, and
+  laughing.
+level: 31
+flags: [assist]
+health: 800
+silver: 18
+attack:
+  kind: fire
+  verb: claw
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 0.6, verb: "hurled fireball" }

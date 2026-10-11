@@ -1,0 +1,14 @@
+vnum: 2107
+name: The Church of Barovia
+description: |
+  Rows of plain benches face an altar of bare stone where a hundred
+  candles burn and drip. The holy symbols on the walls are old and
+  dented, and the morning lord painted over the altar has had his face
+  worn away by kisses. The screaming is louder in here, coming up
+  through the floorboards, and it stops whenever the priest begins to
+  pray. Evil does not cross this threshold, though it does stand outside
+  it. The lane is west, and a side door opens south into the graveyard.
+exits:
+  west: 2106
+  south: 2110
+flags: [safe]

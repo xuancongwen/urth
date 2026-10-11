@@ -1,0 +1,10 @@
+vnum: 2803
+name: The Cow Pen
+description: |
+  A pen of split rails, big enough for a hundred head, with the gate
+  torn off and flung twenty yards. Nothing in here was ever penned. The
+  mud is churned knee deep and littered with shattered feed troughs, and
+  a crude rack along one fence holds halberds, as a farmer might hang
+  his rakes. The trampled grass is south.
+exits:
+  south: 2802

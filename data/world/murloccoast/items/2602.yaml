@@ -1,0 +1,12 @@
+vnum: 2602
+name: a makrura claw
+keywords: [makrura, claw, pincer]
+description: A huge blue-black pincer lies here, still snapping now and then.
+look: |
+  A crawler's claw as long as your forearm, its shell thick and ridged
+  and its inside edge lined with teeth. Boiled, it would feed a family.
+  Hollowed, the shell makes a decent buckler. The fisherman has done
+  both.
+type: other
+weight: 2
+value: 10

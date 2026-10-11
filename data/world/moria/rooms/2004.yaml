@@ -1,0 +1,17 @@
+vnum: 2004
+name: The Doors of Durin
+description: |
+  Two holly trees, larger than any you have seen, stand where the road
+  ends against the cliff. Between them the rock is smooth and grey and
+  apparently nothing. But when the moon finds it, or a lantern held
+  close, faint lines of silver show: an arch of Elvish letters, an
+  anvil and hammer under a crown of seven stars, and a great star in
+  the middle. The letters read, as near as anyone in the camp can say:
+  The Doors of Durin, Lord of Moria. Speak, friend, and enter. Somebody
+  has scratched underneath, in common runes, THEY MEAN IT LITERALLY.
+  The doors are east; the causeway runs back west along the lake.
+exits:
+  west: 2001
+  east: 2007
+doors:
+  east: {name: the Doors of Durin, closed: true}

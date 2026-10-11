@@ -1,0 +1,16 @@
+vnum: 2414
+name: a machete
+keywords: [machete, blade, knife]
+description: A long machete with a taped handle lies here.
+look: |
+  A broad, heavy brush knife with black tape wound round the handle, the
+  edge nicked from cutting trail. It was for vines. It will do for other
+  things.
+type: weapon
+weight: 2
+level: 8
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

@@ -1,0 +1,15 @@
+vnum: 2206
+name: a nekker
+keywords: [nekker]
+description: A nekker crouches by a burrow, chittering to the others.
+look: |
+  A grey, wiry little goblin of a thing, knee high to a tall man, with a
+  frog's wide mouth, long ears, and claws far too big for it. One nekker
+  is a joke. Nekkers are a pack, and the pack is never just the ones you
+  can see.
+level: 10
+flags: [assist]
+silver: 6
+attack:
+  kind: claw
+  verb: claw

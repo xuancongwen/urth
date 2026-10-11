@@ -1,0 +1,12 @@
+vnum: 2426
+name: The Tyrannosaur Paddock
+description: |
+  A paddock of thick jungle and churned mud behind the broken fence, the
+  trees snapped off at a height that does not bear thinking about. A chain
+  hangs from a post, ending in nothing. Footprints a yard long fill with
+  rain. At the paddock's far side the ground ends at a sheer concrete wall
+  dropping into the trees below. The road is north, and the wall goes
+  down.
+exits:
+  north: 2425
+  down: 2427

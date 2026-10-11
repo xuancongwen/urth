@@ -1,0 +1,13 @@
+vnum: 2718
+name: a deadite's grave shroud
+keywords: [deadite's, deadite, grave, shroud, mantle]
+description: A torn grey shroud lies here in a heap.
+look: |
+  A burial shroud of heavy grey linen, torn at the neck where its owner
+  clawed out of it, folded over into a mantle. It is thicker than it
+  looks and smells worse.
+type: armor
+slot: shoulders
+level: 16
+baseline: cloth
+flags: [drop]

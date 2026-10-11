@@ -1,0 +1,19 @@
+vnum: 2407
+name: a dilophosaurus
+keywords: [dilophosaurus, dilo, spitter, dinosaur]
+description: A dilophosaurus watches you with its head tilted, hooting softly.
+look: |
+  A slim, crested dinosaur about the height of a man, with a pair of thin
+  red crests on its head, almost comical. Then it rattles, and a great
+  frill of yellow and red skin snaps open around its neck, and it spits: a
+  black venom that blinds, and then burns.
+level: 10
+silver: 15
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: proc
+    params: { verb: blinding spit, chance: 0.15, power: 0.6 }
+  - kind: chill
+    params: { chance: 0.15, mult: 0.7, rounds: 2 }

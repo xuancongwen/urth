@@ -1,0 +1,13 @@
+vnum: 2120
+name: The Courtyard of Castle Ravenloft
+description: |
+  Cobbles glisten with rain under walls that climb out of sight. A coach
+  without horses stands by the stables, and the stables have no horses
+  either. Gargoyles lean from every gutter. The great doors of the keep
+  stand open to the south, spilling candlelight, and an organ is playing
+  somewhere deep inside, slow and beautiful and awful. The dead stand
+  guard here in the rotting livery of the house of von Zarovich. The
+  gatehouse is north.
+exits:
+  north: 2119
+  south: 2121

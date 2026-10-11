@@ -1,0 +1,16 @@
+vnum: 1902
+name: The Great Cavern
+description: |
+  The heart of the sietch: a cavern big enough to hold a market, which it
+  does, and a council, which it also does, usually at the same time.
+  Cloth-hung alcoves climb the walls in tiers, and catwalks of rope and
+  plasmeld run between them. Nobody spills a drop of anything here. Above
+  the speaking-rock at the centre someone has carved, deep and plain: THE
+  SPICE MUST FLOW. A water-seller's alcove opens to the north, the training
+  floor to the south, and the door seal to the east.
+exits:
+  west: 1901
+  north: 1903
+  south: 1904
+  east: 1905
+flags: [safe]

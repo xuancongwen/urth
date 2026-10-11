@@ -1,0 +1,15 @@
+vnum: 2313
+name: an Imperial officer
+keywords: [imperial, officer, lieutenant, commander]
+description: An Imperial officer in a crisp grey uniform looks down his nose at you.
+look: |
+  A narrow-faced officer in olive grey, cap pulled low, rank plaque
+  polished, hands clasped behind his back. He speaks in a clipped Core
+  Worlds accent and treats the people around him as furniture. He has a
+  sidearm, and the troopers will come running if he raises his voice.
+level: 24
+flags: [assist]
+silver: 150
+attack:
+  kind: fire
+  verb: shoot

@@ -1,0 +1,17 @@
+vnum: 2806
+name: a hell bovine war champion
+keywords: [hell, bovine, war, champion, cow]
+description: A hell bovine war champion stands guard, a maul resting on its shoulder.
+look: |
+  The biggest of the champions, in plate from horn to hoof, carrying a
+  maul with a head the size of a milk churn. These are the Cow King's
+  guard, and they stand about his throne field with the bored patience
+  of animals that have never once lost.
+level: 26
+flags: [assist]
+silver: 50
+attack:
+  kind: blunt
+  verb: pound
+effects:
+  - { kind: steady, params: { chance: 0.25 } }

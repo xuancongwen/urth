@@ -1,0 +1,14 @@
+vnum: 1705
+name: Pilot Carmen Ibanez
+keywords: [pilot, carmen, ibanez, fleet, ensign]
+description: Pilot Carmen Ibanez runs a hand over the scorched nose of a drop ship, smiling.
+look: |
+  A Fleet pilot in a blue flight suit, dark-haired and quick, with the
+  easy confidence of someone who has threaded a drop ship through a
+  barrage of plasma and come back for more. She flies the troopers down
+  and she flies what is left of them back. She waves you toward the
+  wire. "Give 'em hell. I'll be here."
+level: 20
+flags: [peaceful]
+attack:
+  verb: punch

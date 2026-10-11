@@ -1,0 +1,19 @@
+vnum: 2308
+name: a detention block guard
+keywords: [detention, block, guard, stormtrooper, trooper]
+description: A stormtrooper on detention duty stands here with his rifle across his chest.
+look: |
+  A stormtrooper assigned to the cells, which is the closest thing to a
+  quiet posting this station has. He has been told that nobody ever
+  breaks out of AA-23. He believes it. He has been told it so often that
+  he has stopped looking at the door.
+level: 17
+flags: [assist]
+silver: 65
+armor:
+  defense: 19
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: blind, params: { miss: 0.2 } }

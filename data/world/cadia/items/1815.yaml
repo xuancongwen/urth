@@ -1,0 +1,17 @@
+vnum: 1815
+name: a blessed eviscerator
+keywords: [blessed, eviscerator, chainsword, chain, great]
+description: A two-handed chainsword hung with purity seals lies here.
+look: |
+  A chainsword the size of a door, carried by the zealots of the
+  Ecclesiarchy, its housing chased with litanies and hung with wax seals
+  and strips of scripture. It is unbalanced, terrifying, and holy, and
+  the priest who blesses it does so with daemon ichor, burning, which
+  is a long story.
+type: weapon
+level: 45
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: eviscerate

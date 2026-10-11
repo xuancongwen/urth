@@ -1,0 +1,12 @@
+vnum: 2907
+name: a demon's horn
+keywords: [demon, demon's, horn]
+description: A curved black horn lies here, still warm.
+look: |
+  A ridged black horn as long as your hand, hot at the root and cooling
+  toward the tip, smelling of the pit it came out of. It never quite
+  cools all the way. Smiths who know the trick work it into armor that
+  shrugs off fire.
+type: other
+weight: 1
+value: 15

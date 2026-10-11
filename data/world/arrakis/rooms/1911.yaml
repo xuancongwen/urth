@@ -1,0 +1,13 @@
+vnum: 1911
+name: The Cielago Roost
+description: |
+  A high chamber under the Shield Wall where the cielago roost: the little
+  desert bats the Fremen use to carry messages, and which do not like
+  being disturbed by anyone who is not carrying a message. The floor is
+  deep in guano and the air is thick with chittering. The passage runs
+  back south, and a narrower way leads east, where someone has piled rocks
+  as a wall and then left a gap in it.
+exits:
+  south: 1910
+  east: 1912
+flags: [dark]

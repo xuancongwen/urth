@@ -1,0 +1,12 @@
+vnum: 1817
+name: The Scrap Fort
+description: |
+  Walls of crushed Chimera hulls and girders, stacked and welded and
+  painted with glyphs, make a ramshackle keep in the middle of what was
+  a parade ground. Smoke pours from a dozen cooking fires. Gretchin
+  scurry underfoot carrying ammunition and insults. The noise never
+  stops. A big gun pit lies to the west, where the boss sits; the
+  manufactorum is south.
+exits:
+  south: 1816
+  west: 1818

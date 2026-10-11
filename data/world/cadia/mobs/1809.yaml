@@ -1,0 +1,15 @@
+vnum: 1809
+name: an Ork shoota boy
+keywords: [ork, shoota, boy, boyz, greenskin]
+description: An Ork shoota boy blazes away at the sky, laughing.
+look: |
+  An Ork with a shoota: a gun built of scrap pipe, a magazine the size
+  of a loaf, and a firing rate limited only by how long it can keep its
+  finger on the trigger. It does not aim. It does not need to. More
+  dakka is the whole of its tactical doctrine.
+level: 32
+flags: [assist]
+silver: 45
+attack:
+  kind: pierce
+  verb: dakka

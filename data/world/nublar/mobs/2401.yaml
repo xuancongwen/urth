@@ -1,0 +1,24 @@
+vnum: 2401
+name: a gift shop clerk
+keywords: [gift, shop, clerk, shopkeeper, attendant]
+description: A gift shop clerk in a park polo shirt straightens a rack of plush raptors.
+look: |
+  A young man in a red park polo and a name badge that says ASK ME, who
+  has been told the park opens next week and has started to doubt it. He
+  sells the souvenirs to anyone and the practical stock in the case to
+  anyone who asks nicely, and the back room will stitch hides and claws
+  into something useful if you bring them in. Type 'list' to see what he
+  has.
+level: 10
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 2406, silver: 25 }
+  - { item: 2410, silver: 90 }
+  - { item: 2408, silver: 60 }
+  - { item: 2407, silver: 150 }
+  - { item: 2409, silver: 380 }
+  - { item: 2423, silver: 300, items: [2411, 2411, 2411] }
+  - { item: 2424, silver: 420, items: [2412, 2412, 2412] }
+  - { item: 2406, items: [2411, 2411] }

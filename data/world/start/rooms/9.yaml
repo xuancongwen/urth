@@ -1,0 +1,26 @@
+vnum: 9
+name: The Hall of Legends
+description: |
+  Below the Deeper Hall the stair narrows to a crawl and comes out in a
+  long, low hall hung with tapestries so old the pictures have slid off
+  them. Four doors, and every one of them belongs to a story someone
+  once told by a fire. North, a door of weathered pine scored with claw
+  marks and hung with a wolf's-head medallion. East, a sheer face of
+  grey stone with a tracery of silver lines and an arch, faintly lit.
+  South, a wrought-iron gate, and past it a white mist that does not
+  move with the draught. West, a pair of enormous timber gates, freshly
+  painted, under a sign whose letters you can almost read. A rope
+  ladder goes on down into a hum of machinery.
+exits:
+  up: 8
+  north: 2200
+  east: 2000
+  south: 2100
+  west: 2400
+  down: 10
+flags: [safe]
+doors:
+  north: {name: the claw-scored pine door}
+  east: {name: the Doors of Durin}
+  south: {name: the wrought-iron gate}
+  west: {name: the great timber gates}

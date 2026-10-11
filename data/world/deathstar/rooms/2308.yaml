@@ -1,0 +1,13 @@
+vnum: 2308
+name: The Cell Block Corridor
+description: |
+  A long narrow walkway between two rows of cell doors, each a grey slab
+  with a number stencilled over it. The floor is a grating, and under it
+  something rumbles. Halfway along, a ventilation grate has been blasted
+  open into a chute that slopes steeply down and smells unbelievably
+  bad. Cell 2187 is south. The control station is east, and the chute
+  goes down.
+exits:
+  east: 2307
+  south: 2309
+  down: 2311

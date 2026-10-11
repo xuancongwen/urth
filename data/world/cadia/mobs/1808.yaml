@@ -1,0 +1,15 @@
+vnum: 1808
+name: an Ork boy
+keywords: [ork, boy, boyz, greenskin]
+description: An Ork boy bellows WAAAGH at nobody in particular.
+look: |
+  Seven feet of green muscle bent under its own weight, with a jaw of
+  tusks, little red eyes, and a choppa in one fist. It came to Cadia
+  because there was a fight and stayed because the fight is still going.
+  It is having the time of its life, and it is loud about it.
+level: 30
+flags: [assist]
+silver: 40
+attack:
+  kind: slash
+  verb: chop

@@ -1,0 +1,21 @@
+vnum: 2112
+name: Kiril Stoyanovich
+keywords: [kiril, stoyanovich, werewolf, alpha]
+description: Kiril Stoyanovich crouches over a pile of bones, half wolf and wholly hungry.
+look: |
+  The leader of the werewolf pack, a huge, shaggy brute with a shock of
+  iron-grey fur and a man's cruel grin under a wolf's muzzle. He took
+  the pack from its old mistress by tearing her throat out, and he means
+  to take the valley from the count the same way, one village at a time.
+  He does not mind starting with you.
+level: 24
+flags: [assist]
+health: 900
+silver: 80
+stats: {strength: 14, constitution: 14}
+attack:
+  kind: claw
+  verb: rend
+effects:
+  - kind: regen
+    params: { fraction: 0.02 }

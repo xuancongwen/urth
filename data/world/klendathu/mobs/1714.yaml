@@ -1,0 +1,18 @@
+vnum: 1714
+name: a plasma bug
+keywords: [plasma, bug, arachnid, artillery]
+description: A plasma bug squats here, vast and swollen, its abdomen glowing blue.
+look: |
+  A bug the size of a house, most of it abdomen: a great bloated sac
+  that glows blue from inside, aimed at the sky like a mortar. It turns
+  slowly. It does everything slowly. When it finally turns its business
+  end toward you and clenches, the plasma it throws can knock a drop
+  ship out of orbit.
+level: 36
+health: 3500
+silver: 120
+attack:
+  kind: fire
+  verb: plasma blast
+  speed: 0.5
+  damage: 170

@@ -1,0 +1,10 @@
+vnum: 2122
+name: The Study of the Chamberlain
+description: |
+  A cramped study lined with ledgers: the accounts of the castle for
+  four hundred years, kept in one small, neat hand. A writing desk
+  stands under a window with a view of the whole valley. The quill is
+  wet. Every name in the newest ledger has a line through it. The hall
+  is east.
+exits:
+  east: 2121

@@ -1,0 +1,16 @@
+vnum: 2517
+name: a cooper's hatchet
+keywords: [cooper's, cooper, hatchet, axe]
+description: A short-hafted hatchet lies here, its edge chipped.
+look: |
+  The little axe a cooper uses to trim staves, its head spotted with
+  rust and its haft wrapped in tarred string. It trims rats just as
+  well.
+type: weapon
+level: 4
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

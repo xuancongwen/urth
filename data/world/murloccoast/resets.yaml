@@ -1,0 +1,63 @@
+interval_seconds: 120
+resets:
+  # --- the lighthouse ---
+  - { mob: 2600, room: 2602 }                                   # Fisherman Haldren, who buys fins and sells lanterns
+  - { mob: 2601, room: 2603 }                                   # Captain Grayson's ghost, who teaches dodge and trip
+  # --- the dunes and the tide line: foragers, eight across the coast ---
+  - { mob: 2602, room: 2601, max: 8, equip: [{ item: 2600 }] }  # foragers wander up into the dunes
+  - { mob: 2602, room: 2601, max: 8, equip: [{ item: 2600 }] }
+  - { mob: 2602, room: 2604, max: 8, equip: [{ item: 2600 }] }  # and pick along the tide line
+  - { mob: 2602, room: 2604, max: 8, equip: [{ item: 2600 }] }
+  - { mob: 2602, room: 2604, max: 8, equip: [{ item: 2600 }] }
+  - { mob: 2602, room: 2604, max: 8, equip: [{ item: 2600 }] }
+  - { mob: 2602, room: 2608, max: 8, equip: [{ item: 2600 }] }  # and pick over the drying racks
+  - { mob: 2602, room: 2608, max: 8, equip: [{ item: 2600 }] }
+  # --- Shell Beach: tidehunters, five ---
+  - { mob: 2603, room: 2605, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2603, room: 2605, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2603, room: 2605, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2603, room: 2605, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2603, room: 2604, max: 5, equip: [{ item: 2600 }] }  # one on the tide line with the foragers
+  # --- the tide pools: snapclaws, three ---
+  - { mob: 2608, room: 2606, max: 3, equip: [{ item: 2602 }] }
+  - { mob: 2608, room: 2606, max: 3, equip: [{ item: 2602 }] }
+  - { mob: 2608, room: 2606, max: 3, equip: [{ item: 2602 }] }
+  # --- the hut village: warriors, eight ---
+  - { mob: 2604, room: 2607, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  - { mob: 2604, room: 2607, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  - { mob: 2604, room: 2607, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  - { mob: 2604, room: 2607, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  - { mob: 2604, room: 2608, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }   # guarding the racks
+  - { mob: 2604, room: 2608, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  - { mob: 2604, room: 2609, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }   # at the great hut
+  - { mob: 2604, room: 2609, max: 8, equip: [{ item: 2600 }, { item: 2600 }] }
+  # --- oracles, six ---
+  - { mob: 2606, room: 2609, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }   # at the shell totem
+  - { mob: 2606, room: 2609, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2606, room: 2610, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }   # chanting over the eggs
+  - { mob: 2606, room: 2610, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2606, room: 2610, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2606, room: 2615, max: 6, equip: [{ item: 2600 }, { item: 2606 }] }   # one in the grotto mouth
+  # --- coastrunners, five, who wander the shore ---
+  - { mob: 2605, room: 2607, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2605, room: 2611, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2605, room: 2611, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2605, room: 2613, max: 5, equip: [{ item: 2600 }] }
+  - { mob: 2605, room: 2613, max: 5, equip: [{ item: 2600 }] }
+  # --- the wreck ---
+  - { mob: 2611, room: 2611, equip: [{ item: 2604, slot: wield }, { item: 2600 }] }   # Old Murk-Eye and his fish on a stick
+  - { item: 2601, room: 2611 }                                  # a storm lantern hung on the figurehead
+  # --- the shallows and the reef: tiderunners, seven ---
+  - { mob: 2607, room: 2612, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2612, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2612, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2614, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2614, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2614, max: 7, equip: [{ item: 2600 }] }
+  - { mob: 2607, room: 2614, max: 7, equip: [{ item: 2600 }] }
+  # --- the grotto: royal guards, four, and the king ---
+  - { mob: 2609, room: 2615, max: 4, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2609, room: 2615, max: 4, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2609, room: 2616, max: 4, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2609, room: 2616, max: 4, equip: [{ item: 2600 }, { item: 2606 }] }
+  - { mob: 2610, room: 2616, equip: [{ item: 2603, slot: head }, { item: 2606 }, { item: 2606 }] }   # King Mrgl-Mrgl in his crown of shells

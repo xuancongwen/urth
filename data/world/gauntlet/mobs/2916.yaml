@@ -1,0 +1,19 @@
+vnum: 2916
+name: the Sorcerer Supreme
+keywords: [supreme, wizard, old]
+description: The Sorcerer Supreme stands at the centre of the runes, leaning on a wizard's staff.
+look: |
+  A gaunt old man in robes of midnight blue, his beard down to his
+  knees, leaning on a staff that is not his and never will be. He has
+  learned every trick the sorcerers know and none of the ones the staff
+  does. He does not vanish like his pupils; he likes to be seen.
+level: 34
+health: 2800
+silver: 260
+attack:
+  kind: magic
+  verb: hex
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 0.8, verb: "bolt of cold blue fire" }
+  - { kind: dodge, params: { amount: 0.06 } }

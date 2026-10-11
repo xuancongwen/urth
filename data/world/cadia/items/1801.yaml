@@ -1,0 +1,14 @@
+vnum: 1801
+name: a suit of Cadian flak armour
+keywords: [cadian, flak, armour, armor, vest, chestplate]
+description: A suit of olive flak armour lies here, the plates scuffed pale.
+look: |
+  Layered flak weave under moulded plates, in the drab olive of the
+  Cadian Shock Troops. It will stop shrapnel, most of the time, and a
+  las-bolt, some of the time, and the Munitorum regards both figures as
+  satisfactory. A serial number is stamped inside the collar, and
+  several names have been crossed out above it.
+type: armor
+slot: body
+level: 24
+baseline: medium

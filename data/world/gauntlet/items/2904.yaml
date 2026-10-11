@@ -1,0 +1,11 @@
+vnum: 2904
+name: a pitch torch
+keywords: [pitch, torch, light]
+description: A stubby pitch torch lies here, unlit.
+look: |
+  A short club of wood with its head wrapped in pitch-soaked rag. It
+  burns smoky and orange and lasts long enough to get across one dark
+  level, maybe two if you do not stop to argue about the food.
+type: light
+burn: 1200
+value: 30

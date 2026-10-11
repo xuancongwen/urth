@@ -1,0 +1,16 @@
+vnum: 2217
+name: a warrior of the Wild Hunt
+keywords: [warrior, wild, hunt, rider, aen, elle]
+description: A warrior of the Wild Hunt stands in black spiked armor, sword in hand.
+look: |
+  A rider of the Hunt on foot, encased in black plate wrought into
+  spikes and skulls, with a helm like a horned skull and nothing at all
+  visible through the eye slit. Under the armor is an elf of the Aen
+  Elle, from a world the Hunt has already finished with. It is patient
+  and cold, and it does not need to win quickly.
+level: 32
+flags: [assist]
+silver: 60
+attack:
+  kind: slash
+  verb: slash

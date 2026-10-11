@@ -1,0 +1,12 @@
+vnum: 2205
+name: a witcher's contract notice
+keywords: [witcher's, witcher, contract, notice, paper]
+description: A rain-stained notice torn from a board lies here.
+look: |
+  A notice in a careful village hand: WITCHER WANTED. A BEAST IN THE
+  FIELDS, A BEAST IN THE WOODS, A BEAST IN THE RIVER. PAY ON PROOF. Below
+  it someone has added, in a worse hand: ALSO THE BARON'S WIFE IS
+  MISSING, DO NOT ASK HIM. The innkeeper would want to know who took it
+  down, and why.
+type: other
+flags: [quest]

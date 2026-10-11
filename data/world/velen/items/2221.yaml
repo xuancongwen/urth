@@ -1,0 +1,17 @@
+vnum: 2221
+name: a leshen-root cudgel
+keywords: [leshen-root, leshen, root, cudgel, club]
+description: A gnarled cudgel of black root lies here.
+look: |
+  A length of root torn from the leshen's oak, gnarled into a knob at
+  one end and hard as iron. It is warm to hold, which is not something
+  wood should be.
+type: weapon
+weight: 4
+level: 26
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

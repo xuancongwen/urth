@@ -1,0 +1,25 @@
+vnum: 1919
+name: Feyd-Rautha
+keywords: [feyd-rautha, feyd, rautha, harkonnen, na-baron]
+description: Feyd-Rautha Harkonnen stretches in the white sand, smiling at you.
+look: |
+  The na-Baron, nephew and heir of the Baron Harkonnen: young, beautiful,
+  and dead in the eyes, with a dancer's body and a gladiator's scars.
+  He has fought a hundred slaves in the arena on Giedi Prime and killed
+  every one, and he keeps a white knife in his left hand while the
+  crowd watches the right. He bows to you, and the bow is a joke at
+  your expense.
+level: 44
+health: 7500
+silver: 800
+armor:
+  defense: 210
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - { kind: dodge, params: { amount: 0.05 } }

@@ -1,0 +1,15 @@
+vnum: 1717
+name: a neo-dog
+keywords: [neo-dog, neodog, neo, dog]
+description: A neo-dog sits by the wire, ears up, watching the plain.
+look: |
+  A big, grave, intelligent dog, bred by Military Intelligence for
+  scouting bug holes, with a vest of grey armor and a translator on its
+  collar that says WOOF in a flat voice when it barks. It looks at you
+  as though it is deciding something. It decides you are probably all
+  right.
+level: 18
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: bite

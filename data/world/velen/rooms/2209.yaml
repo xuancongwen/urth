@@ -1,0 +1,13 @@
+vnum: 2209
+name: The Nekker Hollow
+description: |
+  A sunken hollow among birches, its floor riddled with burrows the size
+  of a barrel, the earth heaped in mounds around them. Little clawed
+  footprints cover every soft patch. A pair of dead deer lie half
+  dragged into one hole and half not, as if the thing below lost
+  interest. The road climbs north out of the hollow and drops south to
+  the river. The biggest burrow gapes to the west.
+exits:
+  south: 2206
+  west: 2210
+  north: 2211

@@ -1,0 +1,14 @@
+vnum: 2215
+name: a dented Redanian helmet
+keywords: [dented, redanian, helmet, helm, kettle]
+description: A dented kettle helmet with a white eagle lies here.
+look: |
+  A Redanian infantryman's kettle helmet, a wide iron brim over a round
+  crown, with a white eagle painted on the front and a dent in the back
+  where it did its job once and not twice.
+type: armor
+slot: head
+weight: 3
+level: 13
+baseline: medium
+flags: [drop]

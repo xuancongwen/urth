@@ -1,0 +1,12 @@
+vnum: 2105
+name: a pouch of grave dirt
+keywords: [pouch, grave, dirt, soil, earth]
+description: A small leather pouch of grave dirt lies here.
+look: |
+  A drawstring pouch of damp black earth, scraped from the boots and
+  fingernails of something that dug itself out of a grave. Bildrath says
+  the church will pay well for it, for reasons he does not explain, and
+  takes a cut for himself.
+type: other
+weight: 1
+value: 8

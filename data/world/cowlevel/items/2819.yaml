@@ -1,0 +1,13 @@
+vnum: 2819
+name: a pair of cowhide gauntlets
+keywords: [cowhide, gauntlets, gloves, hide]
+description: A pair of cowhide gauntlets lies here.
+look: |
+  Gauntlets of hardened cowhide with long cuffs, made for hands of a
+  different shape and laced tighter for yours.
+type: armor
+slot: hands
+weight: 1
+level: 22
+baseline: medium
+flags: [drop]

@@ -1,0 +1,16 @@
+vnum: 1814
+name: a Kasrkin hellgun
+keywords: [kasrkin, hellgun, hotshot, lasgun, rifle, gun]
+description: A heavy lasgun cabled to a backpack power pack lies here.
+look: |
+  A hellgun: a lasgun that has given up all pretence of economy, cabled
+  to a backpack power cell and throwing a bolt that burns straight
+  through flak and the man inside it. The barrel shroud is scorched blue.
+  The Kasrkin who carried it is in the catacombs now, with his regiment.
+type: weapon
+level: 33
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: hot-shot

@@ -1,0 +1,14 @@
+vnum: 2702
+name: The Crypt Stairs
+description: |
+  The steps are worn into troughs by centuries of feet, most of which
+  were being carried. They end at a landing where three ways open: a low
+  arch north toward stacked bones, a long colonnade west, and the stair
+  back up. Bony fingers have clawed grooves in the plaster at ankle
+  height, as if the dead had been trying to get up the stairs for a very
+  long time and had only lately worked out how.
+exits:
+  up: 2700
+  north: 2703
+  west: 2706
+flags: [dark]

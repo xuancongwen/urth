@@ -1,0 +1,17 @@
+vnum: 2420
+name: a bent jeep roll bar
+keywords: [bent, jeep, roll, bar, pipe]
+description: A bent length of steel roll bar lies here.
+look: |
+  A length of a tour jeep's roll cage, wrenched off and bent by something
+  that thought the jeep had food inside. It makes a brutal two-handed
+  club.
+type: weapon
+weight: 8
+level: 32
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash

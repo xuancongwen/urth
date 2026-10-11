@@ -1,0 +1,17 @@
+vnum: 2827
+name: a champion's halberd
+keywords: [champion's, champions, halberd, polearm]
+description: A well-kept halberd with a polished blade lies here.
+look: |
+  A halberd kept with care: the blade honed, the haft oiled, a tassel of
+  dyed horsehair under the head. The champions of the herd take pride in
+  their work.
+type: weapon
+weight: 10
+level: 25
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

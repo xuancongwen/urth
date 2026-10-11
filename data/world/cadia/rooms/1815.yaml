@@ -1,0 +1,12 @@
+vnum: 1815
+name: The Ossuary of the Honoured
+description: |
+  A vaulted chamber where the bones of officers were stacked in
+  patterns, femurs and skulls set into aquilas and regimental crests.
+  Someone has pulled them down and rebuilt them into an eight-pointed
+  star on the floor, with candles of tallow you would rather not ask
+  about at each point, and has been praying here to something that is
+  not the Emperor. The catacombs run back east.
+exits:
+  east: 1814
+flags: [dark]

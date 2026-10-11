@@ -1,0 +1,17 @@
+vnum: 2120
+name: a Ravenloft guard's halberd
+keywords: [ravenloft, guard's, guard, halberd, polearm]
+description: A tall black halberd lies here, its blade etched with a crest.
+look: |
+  A halberd of blackened steel, the axe blade etched with the von
+  Zarovich crest, from the castle's armory. Its last owner has been dead
+  four hundred years and kept it oiled.
+type: weapon
+weight: 12
+level: 28
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

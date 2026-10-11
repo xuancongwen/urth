@@ -1,0 +1,59 @@
+interval_seconds: 300
+resets:
+  # --- the docking bay and the freighter ---
+  - { mob: 2300, room: 2301 }                                   # Han Solo in the hold, selling what he can spare
+  - { mob: 2301, room: 2301 }                                   # Chewbacca under a console
+  - { mob: 2302, room: 2302 }                                   # Ben Kenobi's ghost on the lounge bench, who teaches dodge and riposte
+  - { mob: 2303, room: 2302 }                                   # the astromech, plugged into something it should not be
+  - { mob: 2304, room: 2302 }                                   # the protocol droid, quoting odds
+  - { mob: 2305, room: 2300, max: 2 }                           # mouse droids about their errands
+  - { mob: 2305, room: 2315, max: 2 }
+  - { mob: 2309, room: 2303, equip: [{ item: 2328, slot: wield }, { item: 2300, slot: head }, { item: 2325 }] }   # TK-421, not at his post, with the one E-11 that shoots straight
+  # --- stormtroopers ---
+  - { mob: 2306, room: 2304, max: 5, equip: [{ item: 2302, slot: wield }, { item: 2300, slot: head }, { item: 2325 }] }   # troopers at the blast doors
+  - { mob: 2306, room: 2304, max: 5, equip: [{ item: 2302, slot: wield }, { item: 2325 }] }
+  - { mob: 2306, room: 2303, max: 5, equip: [{ item: 2300, slot: head }, { item: 2325 }] }   # one minding the control room
+  - { mob: 2306, room: 2305, max: 5, equip: [{ item: 2302, slot: wield }, { item: 2325 }] }   # one at the junction
+  - { mob: 2306, room: 2306, max: 5, equip: [{ item: 2300, slot: head }, { item: 2325 }] }   # one waiting for a lift
+  - { mob: 2307, room: 2305, max: 2, equip: [{ item: 2302, slot: wield }, { item: 2301, slot: body }, { item: 2325 }] }   # squad leaders
+  - { mob: 2307, room: 2315, max: 2, equip: [{ item: 2301, slot: body }, { item: 2325 }, { item: 2325 }] }
+  # --- the detention level ---
+  - { mob: 2308, room: 2307, max: 4, equip: [{ item: 2302, slot: wield }, { item: 2301, slot: body }, { item: 2325 }] }   # guards at the control station
+  - { mob: 2308, room: 2307, max: 4, equip: [{ item: 2300, slot: head }, { item: 2325 }] }
+  - { mob: 2308, room: 2308, max: 4, equip: [{ item: 2302, slot: wield }, { item: 2325 }] }   # guards on the cell walkway
+  - { mob: 2308, room: 2308, max: 4, equip: [{ item: 2301, slot: body }, { item: 2325 }] }
+  - { mob: 2315, room: 2310 }                                   # the interrogation droid
+  - { mob: 2314, room: 2311 }                                   # the dianoga in the compactor
+  - { item: 2308, room: 2311 }                                  # a durasteel pipe in the muck
+  # --- the fighter hangar ---
+  - { mob: 2310, room: 2313, max: 2, equip: [{ item: 2303, slot: wield }, { item: 2326 }] }   # technicians on the racks
+  - { mob: 2310, room: 2320, max: 2, equip: [{ item: 2326 }] }  # one at the tractor beam terminal
+  - { mob: 2311, room: 2313, max: 4, equip: [{ item: 2303, slot: wield }, { item: 2304, slot: head }, { item: 2326 }] }   # TIE pilots
+  - { mob: 2311, room: 2313, max: 4, equip: [{ item: 2305, slot: body }] }
+  - { mob: 2311, room: 2314, max: 4, equip: [{ item: 2304, slot: head }, { item: 2305, slot: body }] }   # pilots at the briefing
+  - { mob: 2311, room: 2314, max: 4, equip: [{ item: 2303, slot: wield }, { item: 2326 }] }
+  - { item: 2319, room: 2313 }                                  # a glow rod left on a rack
+  # --- the corridors and command ---
+  - { mob: 2312, room: 2315, equip: [{ item: 2306, slot: wield }] }   # the scout trooper, walking the halls
+  - { mob: 2313, room: 2316, max: 4, equip: [{ item: 2307, slot: body }, { item: 2326 }] }   # officers
+  - { mob: 2313, room: 2317, max: 4, equip: [{ item: 2307, slot: body }, { item: 2303, slot: wield }, { item: 2326 }] }
+  - { mob: 2313, room: 2317, max: 4, equip: [{ item: 2326 }, { item: 2326 }] }
+  - { mob: 2313, room: 2325, max: 4, equip: [{ item: 2307, slot: body }, { item: 2326 }] }   # one at Tarkin's elbow
+  # --- death troopers ---
+  - { mob: 2316, room: 2321, max: 4, equip: [{ item: 2311, slot: wield }, { item: 2310, slot: head }] }   # guarding the reactor approach
+  - { mob: 2316, room: 2321, max: 4, equip: [{ item: 2310, slot: head }] }
+  - { mob: 2316, room: 2320, max: 4, equip: [{ item: 2311, slot: wield }] }   # guarding the tractor beam
+  - { mob: 2316, room: 2320, max: 4, equip: [{ item: 2310, slot: head }] }
+  # --- the superlaser and the surface ---
+  - { mob: 2317, room: 2324, max: 6, equip: [{ item: 2312, slot: head }] }   # gunners at the levers
+  - { mob: 2317, room: 2324, max: 6, equip: [{ item: 2312, slot: head }, { item: 2326 }] }
+  - { mob: 2317, room: 2324, max: 6 }
+  - { mob: 2317, room: 2323, max: 6, equip: [{ item: 2312, slot: head }] }
+  - { mob: 2317, room: 2328, max: 6, equip: [{ item: 2312, slot: head }] }   # turbolaser crews
+  - { mob: 2317, room: 2329, max: 6 }
+  - { mob: 2318, room: 2325, equip: [{ item: 2329, slot: hold }] }   # Grand Moff Tarkin and his code cylinder
+  # --- the guards and the Dark Lord ---
+  - { mob: 2319, room: 2326, max: 2, equip: [{ item: 2315, slot: body }] }   # Royal Guards
+  - { mob: 2319, room: 2326, max: 2, equip: [{ item: 2315, slot: body }] }
+  - { mob: 2320, room: 2326, equip: [{ item: 2330, slot: wield }, { item: 2315, slot: body }] }   # the captain and his force pike
+  - { mob: 2321, room: 2327, equip: [{ item: 2331, slot: wield }, { item: 2332, slot: head }] }   # Darth Vader, his lightsaber and his helmet

@@ -1,0 +1,12 @@
+vnum: 1708
+name: The Gully of Boots
+description: |
+  A dry gully where the first wave came down off course. The drop ships
+  are long gone, but the troopers they dropped are still here, after a
+  fashion: helmets, a hand still holding a rifle, a great many boots.
+  Somebody has planted a Federation flag in the middle of it, and the
+  bugs have chewed it down to the pole. The spires are east, and the
+  gully climbs north into a canyon.
+exits:
+  east: 1707
+  north: 1710

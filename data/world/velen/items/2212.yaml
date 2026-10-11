@@ -1,0 +1,17 @@
+vnum: 2212
+name: a rusty boat hook
+keywords: [rusty, boat, hook, pole]
+description: A rusty boat hook on a long ash pole lies here.
+look: |
+  A ferryman's boat hook, iron gone orange with rust, on a pole worn
+  smooth. Its owner used it to keep drowners off the boat, right up to
+  the day he did not.
+type: weapon
+weight: 4
+level: 6
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: jab

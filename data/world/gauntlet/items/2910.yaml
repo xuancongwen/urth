@@ -1,0 +1,25 @@
+vnum: 2910
+name: Thyra's sword
+keywords: [thyra's, thyra, sword, valkyrie]
+description: A long straight sword with a winged crossguard lies here.
+look: |
+  A valkyrie's blade, long and narrow and bright, the crossguard cast
+  as a pair of spread swan's wings and the pommel a plain steel disc.
+  Thyra carried it with her shield and wore armor that turned most of
+  what was thrown at her. The demon mother kept it in the furnace to
+  see if it would melt. It did not. It still cuts clean, and it still
+  turns blows aside for whoever holds it.
+type: weapon
+weight: 5
+level: 32
+baseline: standard
+value: 3400
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: block, params: { chance: 0.06 } }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

@@ -1,0 +1,16 @@
+vnum: 2507
+name: a dire rat
+keywords: [dire, rat]
+description: A dire rat, scarred and mangy and as big as a wolf, bares a pair of chisel teeth.
+look: |
+  Whatever a rat is, this is more of it. It is the size of a wolf, with
+  patches of bare grey skin showing through mangy fur, and a pair of
+  orange chisel teeth that could go through a door, and from the look
+  of it, have. Its eyes are red and clever. It does not attack alone if
+  it can help it.
+level: 5
+flags: [assist]
+silver: 8
+attack:
+  kind: bite
+  verb: savage

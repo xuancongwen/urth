@@ -1,0 +1,17 @@
+vnum: 2812
+name: a hell bovine halberd
+keywords: [hell, bovine, halberd, polearm]
+description: A long halberd with a crescent blade lies here.
+look: |
+  The common weapon of the herd: an iron crescent on an oak haft as long
+  as two men, with a spike for the end. It is crude and it does not need
+  to be anything else.
+type: weapon
+weight: 10
+level: 20
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

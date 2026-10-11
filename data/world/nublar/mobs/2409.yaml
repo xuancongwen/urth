@@ -1,0 +1,15 @@
+vnum: 2409
+name: a parasaurolophus
+keywords: [parasaurolophus, parasaur, dinosaur, duckbill]
+description: A parasaurolophus wades in the shallows, honking through its long crest.
+look: |
+  A big, placid duck-billed dinosaur with a long hollow crest sweeping
+  back from its head, through which it honks like a ship's horn. It lives
+  in a herd, and when one of them is threatened, all of them come to see
+  about it.
+level: 16
+flags: [assist]
+silver: 20
+attack:
+  kind: blunt
+  verb: tail-swipe

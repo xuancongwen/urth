@@ -1,0 +1,12 @@
+vnum: 2516
+name: a dented pot helm
+keywords: [dented, pot, helm, helmet]
+description: A dented iron pot, worn as a helm, lies here.
+look: |
+  It was a cooking pot. Then a rivet and a chinstrap made it a helm.
+  The dent in the crown suggests it has been tested at least once.
+type: armor
+slot: head
+level: 3
+baseline: medium
+flags: [drop]

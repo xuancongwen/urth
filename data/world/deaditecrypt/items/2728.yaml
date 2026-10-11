@@ -1,0 +1,12 @@
+vnum: 2728
+name: a barred great helm
+keywords: [barred, great, helm, helmet]
+description: A flat-topped great helm with a barred visor lies here.
+look: |
+  A flat-topped great helm with a barred faceplate, heavy enough to make
+  your neck ache and solid enough that you are glad of it.
+type: armor
+slot: head
+level: 19
+baseline: plate
+flags: [drop]

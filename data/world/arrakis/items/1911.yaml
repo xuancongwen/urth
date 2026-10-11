@@ -1,0 +1,13 @@
+vnum: 1911
+name: a Harkonnen helmet
+keywords: [harkonnen, helmet, helm]
+description: A squat blue helmet with a dark visor lies here.
+look: |
+  A blue plasteel helmet with a dark visor against the sun and a
+  filter mask hanging from the chin strap. The inside is stencilled
+  with an inventory number and the words PROPERTY OF THE BARON, as if
+  anyone would want it.
+type: armor
+slot: head
+level: 23
+baseline: medium

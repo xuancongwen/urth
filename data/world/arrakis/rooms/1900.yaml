@@ -1,0 +1,14 @@
+vnum: 1900
+name: A Crack in the Shield Wall
+description: |
+  A fissure in black basalt, so narrow you turn sideways for the first few
+  steps, opens out into a passage worn smooth by a great many bare feet.
+  The air is hot and so dry it pulls at the inside of your nose. Somewhere
+  ahead, very faintly, people are talking and a drum is keeping time. The
+  crack runs back west to the stair; the passage goes on east into the
+  rock.
+exits:
+  west: 10
+  east: 1901
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

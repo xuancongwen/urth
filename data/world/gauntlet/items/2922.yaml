@@ -1,0 +1,12 @@
+vnum: 2922
+name: a pair of hobnailed boots
+keywords: [hobnailed, boots]
+description: A pair of hobnailed boots stands here.
+look: |
+  Heavy leather boots with iron nails in the soles that ring on the
+  stone. Nothing sneaks up on anything in these.
+type: armor
+slot: feet
+level: 27
+baseline: medium
+flags: [drop]

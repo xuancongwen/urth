@@ -1,0 +1,10 @@
+vnum: 2408
+name: Gallimimus Valley
+description: |
+  A long meadow of grass and fallen trees, open to the sky. The ground is
+  churned by hundreds of three-toed feet, and the grass is flattened in
+  sweeping curves where a whole flock has turned at once, the way
+  starlings turn. Somebody's machete stands upright in a stump, as if its
+  owner left at a run. The trail climbs north to the road.
+exits:
+  north: 2407

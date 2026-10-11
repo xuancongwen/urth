@@ -1,0 +1,11 @@
+vnum: 1916
+name: The Harkonnen Picket Line
+description: |
+  A line of armored posts and razor wire stretched across the sand, with a
+  searchlight tower at each end and a gun emplacement in the middle that
+  nobody has dared to fire since the last time a worm heard it. Heavy
+  troopers in blue uniforms pace between the posts, sweating. The wreck is
+  west; east, the line runs up to the walls of a forward base.
+exits:
+  west: 1909
+  east: 1917

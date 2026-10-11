@@ -1,0 +1,15 @@
+vnum: 1910
+name: a Harkonnen heavy trooper
+keywords: [harkonnen, heavy, trooper, soldier]
+description: A Harkonnen heavy trooper in full armor paces the wire.
+look: |
+  A trooper in heavy plate with a dark visor down, built like a door.
+  He moves slowly, because of the heat and the armor and because he
+  has nowhere to be. He would very much like something to happen, so
+  that he can complain about it later.
+level: 24
+flags: [assist]
+silver: 120
+attack:
+  kind: blunt
+  verb: club

@@ -1,0 +1,26 @@
+vnum: 2807
+name: the Cow King
+keywords: [cow, king, bovine, bull]
+description: The Cow King rises from his throne of cart wheels and bellows. "MOO."
+look: |
+  A bull the size of a hay wain, upright, in a coat of black-and-white
+  hide and a war hat with his own horns through it, a battered crown
+  wedged between them. Lightning crackles along his horns and drips off
+  his hooves into the grass. He was a demon once, the story goes, or an
+  ordinary bull that wandered somewhere it should not have; either way
+  he has ruled these fields since before anyone in Tristram believed in
+  them, and he does not take kindly to visitors.
+level: 27
+health: 1400
+stats: {strength: 16, constitution: 16, dexterity: 12}
+silver: 400
+armor:
+  defense: 15
+attack:
+  kind: pierce
+  verb: gore
+effects:
+  - kind: proc
+    params: { verb: crack of lightning, chance: 0.2, power: 1.0 }
+  - kind: soak
+    params: { power: 0.1 }

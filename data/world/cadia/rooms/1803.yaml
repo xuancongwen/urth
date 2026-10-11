@@ -1,0 +1,12 @@
+vnum: 1803
+name: The Commissariat Bunker
+description: |
+  A squat bunker of rockcrete with a single firing slit, swept clean,
+  which in this trench is a statement. A banner of the Commissariat hangs
+  on the back wall, black and red, and beneath it a desk holds a
+  chronometer, a cap, and a laspistol lying with its grip toward the
+  door. There is a chair for visitors. It has never been sat in. The
+  trench is south.
+exits:
+  south: 1801
+flags: [safe]

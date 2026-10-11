@@ -1,0 +1,13 @@
+vnum: 2206
+name: The River Road
+description: |
+  The road dips toward the river through flattened reeds and hoofprints
+  full of water. The Pontar is wide and brown here and smells of silt
+  and something dead. Fishing nets hang on poles along the bank, torn
+  through from the inside, and something has dragged a rowing boat up
+  the mud and taken a bite out of the hull. The road goes north up the
+  valley and back south to the crossroads; the reed beds are east.
+exits:
+  south: 2200
+  north: 2209
+  east: 2207

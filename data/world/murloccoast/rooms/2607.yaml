@@ -1,0 +1,13 @@
+vnum: 2607
+name: The Hut Village Outskirts
+description: |
+  Domed huts of mud and woven reed squat on the sand like overturned
+  baskets, their doorways low and round and dripping. Fish heads hang on
+  strings between them to dry, or perhaps as decoration; it is hard to
+  tell with murlocs. A crude fence of driftwood stakes runs nowhere in
+  particular. Drying racks stand to the north, the village proper lies
+  west, and Shell Beach is east.
+exits:
+  east: 2605
+  north: 2608
+  west: 2609

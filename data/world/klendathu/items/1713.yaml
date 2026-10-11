@@ -1,0 +1,14 @@
+vnum: 1713
+name: a bug-plate cuirass
+keywords: [bug-plate, bug, plate, cuirass, armor, armour]
+description: A trooper's cuirass plated with overlapping bug shell lies here.
+look: |
+  A Mobile Infantry cuirass with plates of warrior bug carapace riveted
+  over it, stiffened at the joints with hopper wing ridge. The engineers
+  at the fire base are proud of it. It is heavy, it is ugly, and the
+  bugs have trouble getting through it, which makes it the best thing
+  on Klendathu.
+type: armor
+slot: body
+level: 30
+baseline: heavy

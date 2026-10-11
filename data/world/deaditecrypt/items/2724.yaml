@@ -1,0 +1,13 @@
+vnum: 2724
+name: a corroded plate cuirass
+keywords: [corroded, plate, cuirass, breastplate]
+description: A green-corroded plate cuirass lies here.
+look: |
+  A breastplate and backplate of good steel, gone green and pitted at
+  the edges, with the arms of Lord Arthur's grandfather still faintly
+  visible on the chest. It is heavy and it holds.
+type: armor
+slot: body
+level: 18
+baseline: plate
+flags: [drop]

@@ -1,0 +1,14 @@
+vnum: 1921
+name: The Sardaukar Hall
+description: |
+  The Harkonnens have given this hall to their guests and do not come in.
+  It is bare and clean, and the men in grey who use it sit in perfect
+  silence, cleaning weapons that are already clean. The Emperor's
+  Sardaukar do not boast. They do not have to. A door north bears the
+  mark of a Bashar; a doorway south is hung with black cloth; the arena
+  is east, and the landing field west.
+exits:
+  west: 1920
+  north: 1922
+  south: 1923
+  east: 1924

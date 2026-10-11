@@ -1,0 +1,13 @@
+vnum: 2700
+name: a pitch torch
+keywords: [pitch, torch, light]
+description: A pitch-soaked torch lies here, unlit.
+look: |
+  A length of ash wood wrapped in rags and dipped in pitch, the kind the
+  castle hands out to the men on the walls. It smokes, it spits, and it
+  keeps the dead at the edge of its light, which is all anyone asks of
+  it.
+type: light
+weight: 1
+value: 15
+burn: 1000

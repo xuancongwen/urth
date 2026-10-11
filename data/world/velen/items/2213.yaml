@@ -1,0 +1,13 @@
+vnum: 2213
+name: a pair of drowned man's boots
+keywords: [drowned, man's, boots, waders]
+description: A pair of waterlogged leather boots lies here.
+look: |
+  Tall fisherman's boots, waxed leather, still squelching. They fit
+  someone very well once.
+type: armor
+slot: feet
+weight: 2
+level: 9
+baseline: light
+flags: [drop]

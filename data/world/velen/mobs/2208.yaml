@@ -1,0 +1,16 @@
+vnum: 2208
+name: a bandit
+keywords: [bandit, brigand, robber]
+description: A bandit picks through the ashes of a cottage for anything left.
+look: |
+  A hollow-cheeked man in stolen boots and a padded jacket with somebody
+  else's blood on it. He used to farm. Then the soldiers came, and then
+  the soldiers came back, and now he finds it easier to be the one doing
+  the taking. He will not let you leave with anything he thinks he can
+  have.
+level: 14
+flags: [assist]
+silver: 20
+attack:
+  kind: slash
+  verb: slash

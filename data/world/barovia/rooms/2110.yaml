@@ -1,0 +1,14 @@
+vnum: 2110
+name: The Graveyard of Barovia
+description: |
+  Leaning headstones crowd a muddy yard behind the church, with names
+  worn off and dates that all end in the same few years. Many of the
+  graves lie open, their soil heaped beside them as if dug from below. A
+  stone stair in the middle of the yard goes down into a black crypt
+  mouth. Its slab, so heavy no one has moved it in living memory, lies
+  cracked in two beside the stair, and from below comes a dry rattling
+  like a sack of bones being shaken. Mist pools between the stones and
+  does not drift. The church door is north; the crypt stair goes down.
+exits:
+  north: 2107
+  down: 2700

@@ -1,0 +1,11 @@
+vnum: 2805
+name: The Open Field
+description: |
+  The grass gives way to a wide field of clover, cropped short by
+  grazing. In the middle of it a single milk churn stands upright,
+  pristine, as though it were placed there as a joke. Out in the dark to
+  the west a ring of standing stones shows pale against the sky. The
+  moonlit grass is east.
+exits:
+  east: 2802
+  west: 2806

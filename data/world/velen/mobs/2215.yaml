@@ -1,0 +1,23 @@
+vnum: 2215
+name: the leshen
+keywords: [leshen, leshy, spirit, wood]
+description: The leshen rises from the roots of the dead oak, crows boiling around its antlers.
+look: |
+  A tall shape of bark, bone, and moss, with a deer's skull for a face
+  and a crown of antlers hung with crows. Its arms are branches and its
+  fingers are roots, and the roots run into the ground and through it,
+  and the whole wood moves when it does. The villages around here leave
+  it offerings. Some of the offerings walk in on their own.
+level: 26
+health: 1700
+silver: 120
+armor:
+  defense: 22
+attack:
+  kind: blunt
+  verb: lash
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: soak
+    params: { power: 0.1 }

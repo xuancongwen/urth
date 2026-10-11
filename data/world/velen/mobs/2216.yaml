@@ -1,0 +1,15 @@
+vnum: 2216
+name: a hound of the Wild Hunt
+keywords: [hound, wild, hunt, dog]
+description: A hound of the Wild Hunt pads across the frost, breath steaming blue.
+look: |
+  A great gaunt hound the size of a pony, all ribs and ice, with spikes
+  of frozen bone along its spine and eyes like cold stars. Frost spreads
+  from its paws where it stands. It has followed the Hunt across worlds,
+  and it has your scent now.
+level: 30
+flags: [assist]
+silver: 40
+attack:
+  kind: bite
+  verb: bite

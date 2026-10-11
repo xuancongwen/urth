@@ -1,0 +1,13 @@
+vnum: 2915
+name: a valkyrie's winged hauberk
+keywords: [valkyrie's, valkyrie, winged, hauberk, mail]
+description: A hauberk of fine bright mail with winged shoulders lies here.
+look: |
+  A long coat of small bright rings, close-woven, with shoulder caps cut
+  in the shape of folded wings. The provisioner works demon horn into
+  the collar and the hem, and the mail stays cool however hot the level
+  gets.
+type: armor
+slot: body
+level: 34
+baseline: heavy

@@ -1,0 +1,15 @@
+vnum: 2201
+name: The Inn at the Crossroads
+description: |
+  A low common room with a fire, a counter, and more benches than
+  customers. The war has been bad for business and good for the soup,
+  which now contains whatever anyone brings in. A table by the hearth is
+  laid out for gwent, the cards worn soft at the corners, and the two
+  farmers playing it have been on the same game since the Nilfgaardians
+  came. Nobody draws a blade in here; the innkeeper keeps a cleaver under
+  the counter and a long memory. The crossroads are west, and the yard is
+  through the back door east.
+exits:
+  west: 2200
+  east: 2202
+flags: [safe]

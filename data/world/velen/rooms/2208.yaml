@@ -1,0 +1,10 @@
+vnum: 2208
+name: The Drowned Mill
+description: |
+  A watermill with its wheel stopped and furred with weed, the millrace
+  choked with silt and fish scales. The upper floor has collapsed into
+  the lower, and a nest of rags and hair in the corner smells worse than
+  the river. Someone hung a sprig of verbena over the door against the
+  hag; it did not work. The reed beds are back west.
+exits:
+  west: 2207

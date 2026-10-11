@@ -1,0 +1,15 @@
+vnum: 2603
+name: a murloc tidehunter
+keywords: [murloc, tidehunter, hunter]
+description: A murloc tidehunter crouches by the water, spear raised, watching for fish.
+look: |
+  Bigger than a forager and greener, with a net slung over one shoulder
+  and a fishing spear held very still above the surf. Its eyes swivel
+  independently. One of them is watching the water. The other one is
+  watching you.
+level: 9
+flags: [assist]
+silver: 8
+attack:
+  kind: pierce
+  verb: spear

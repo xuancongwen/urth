@@ -1,0 +1,13 @@
+vnum: 1724
+name: The Royal Antechamber
+description: |
+  A vaulted chamber deep under Klendathu, its floor strewn with chitin
+  and bones. Huge warrior bugs, larger and paler than the ones on the
+  surface, stand guard along the walls without moving, like statues.
+  They are not statues. A tunnel slopes north toward a pulsing warmth.
+  A side passage leads west, and the shaft goes up.
+exits:
+  up: 1723
+  north: 1725
+  west: 1726
+flags: [dark]

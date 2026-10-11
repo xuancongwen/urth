@@ -1,0 +1,17 @@
+vnum: 2917
+name: a thief
+keywords: [thief, rogue, pickpocket]
+description: A thief in a dark hood slinks along the wall, eyeing your pack.
+look: |
+  A skinny figure in a grey hood, all elbows and quick hands, who came
+  in at some level nobody can remember and never found the exit. Thieves
+  run the mazes stealing potions and keys and food from heroes too busy
+  to notice. This one has done well for itself.
+level: 31
+flags: [wander]
+silver: 180
+attack:
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: dodge, params: { amount: 0.06 } }

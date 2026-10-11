@@ -1,0 +1,15 @@
+vnum: 2512
+name: a cellarman's mallet
+keywords: [cellarman's, cellarman, mallet, hammer]
+description: A wooden mallet with a split head lies here.
+look: |
+  A beechwood mallet for knocking bungs into casks, its head split and
+  bound with wire. It has been used to knock other things since.
+type: weapon
+level: 2
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: thump

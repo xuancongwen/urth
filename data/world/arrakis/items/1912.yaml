@@ -1,0 +1,17 @@
+vnum: 1912
+name: a Harkonnen lasgun
+keywords: [harkonnen, lasgun, gun, rifle, laser]
+description: A long lasgun with a blue-striped stock lies here.
+look: |
+  A continuous-wave laser projector with a power cell in the stock. It
+  cuts through almost anything, and the manual says, in red, never to
+  fire it at a shield: lasgun and shield together go up like a small
+  atomic. Harkonnen sergeants carry them because out here, nobody
+  bothers with shields.
+type: weapon
+level: 25
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: burn

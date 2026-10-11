@@ -1,0 +1,16 @@
+vnum: 2824
+name: a bovine poleaxe
+keywords: [bovine, poleaxe, axe, polearm]
+description: A poleaxe with a hammer on the back lies here.
+look: |
+  A long poleaxe, blade on one side and a hammer on the other, the
+  hammer face cut in the shape of a hoof so that it leaves a print.
+type: weapon
+weight: 11
+level: 24
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: chop

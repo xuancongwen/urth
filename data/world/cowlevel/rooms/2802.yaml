@@ -1,0 +1,13 @@
+vnum: 2802
+name: Moonlit Grass
+description: |
+  Open grass in every direction, silver under the enormous moon, and not
+  a tree or a stone to put your back to. The wind carries the smell of
+  smoke from the south and of a great many animals from the north. A
+  fence of split rails runs off northward, sagging. The fields continue
+  west, and the way back to the portal is east.
+exits:
+  east: 2801
+  west: 2805
+  north: 2803
+  south: 2804

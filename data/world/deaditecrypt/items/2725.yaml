@@ -1,0 +1,12 @@
+vnum: 2725
+name: a sword belt of cracked leather
+keywords: [sword, belt, cracked, leather]
+description: A wide sword belt of cracked leather lies here.
+look: |
+  A wide belt of oiled leather, cracked and brittle at the edges, with
+  an iron buckle and an empty frog for a sword that someone else has.
+type: armor
+slot: belt
+level: 18
+baseline: medium
+flags: [drop]

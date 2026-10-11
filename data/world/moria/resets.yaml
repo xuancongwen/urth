@@ -1,0 +1,70 @@
+interval_seconds: 300
+resets:
+  # --- outside the West-gate: the camp of the Erebor dwarves ---
+  - { mob: 2000, room: 2003 }                                   # Draupnir at his awning
+  - { mob: 2001, room: 2002 }                                   # Andvari, who teaches shield block and sunder
+  - { mob: 2002, room: 2002, max: 3 }                           # dwarves of Erebor round the fire
+  - { mob: 2002, room: 2002, max: 3 }
+  - { mob: 2002, room: 2000, max: 3 }                           # one on watch at the foot of the cliff
+  - { item: 2000, room: 2002 }                                  # a spare torch by the fire
+  # --- the lake ---
+  - { mob: 2015, room: 2005, max: 3 }                           # a tentacle groping in the shallows
+  - { mob: 2015, room: 2006, max: 3 }                           # two more by the pool
+  - { mob: 2015, room: 2006, max: 3 }
+  - { mob: 2018, room: 2006, equip: [{ item: 2020 }, { item: 2002 }] }   # the Watcher, and the mithril shirt of the prince it drowned
+  # --- the West-gate and the first halls ---
+  - { mob: 2003, room: 2007, max: 5, equip: [{ item: 2008, slot: wield }] }   # cave goblins at the gate
+  - { mob: 2003, room: 2007, max: 5 }
+  - { mob: 2003, room: 2007, max: 5 }
+  - { mob: 2003, room: 2008, max: 5, equip: [{ item: 2008, slot: wield }] }   # more on the stair
+  - { mob: 2003, room: 2008, max: 5 }
+  - { mob: 2004, room: 2008, max: 2 }                           # goblin scouts, wandering
+  - { mob: 2004, room: 2009, max: 2, equip: [{ item: 2003 }] }
+  - { mob: 2005, room: 2010, equip: [{ item: 2008, slot: wield }, { item: 2009, slot: shield }, { item: 2005 }] }   # the goblin chief in the guardroom
+  - { item: 2001, room: 2010 }                                  # a dwarf lantern left by the well
+  # --- the wolf-holes and the mithril workings ---
+  - { mob: 2006, room: 2012, max: 2 }                           # grey wolves in the holes
+  - { mob: 2006, room: 2012, max: 2 }
+  - { mob: 2007, room: 2012, max: 3, equip: [{ item: 2010 }] }  # wargs, one with a hide to give up
+  - { mob: 2007, room: 2013, max: 3 }
+  - { mob: 2007, room: 2013, max: 3 }
+  - { mob: 2008, room: 2013, max: 3 }                           # great bats
+  - { mob: 2008, room: 2009, max: 3 }
+  - { mob: 2008, room: 2026, max: 3 }
+  - { item: 2002, room: 2013 }                                  # a lump of ore in the vein
+  # --- the armoury and the gallery ---
+  - { mob: 2009, room: 2015, max: 7, equip: [{ item: 2011, slot: wield }, { item: 2003 }] }   # orc archers
+  - { mob: 2009, room: 2015, max: 7, equip: [{ item: 2011, slot: wield }] }
+  - { mob: 2009, room: 2016, max: 7, equip: [{ item: 2011, slot: wield }, { item: 2003 }] }
+  - { mob: 2009, room: 2016, max: 7, equip: [{ item: 2011, slot: wield }] }
+  - { mob: 2009, room: 2016, max: 7, equip: [{ item: 2011, slot: wield }] }
+  - { mob: 2009, room: 2018, max: 7, equip: [{ item: 2011, slot: wield }, { item: 2003 }] }   # two at the fissure
+  - { mob: 2009, room: 2018, max: 7, equip: [{ item: 2011, slot: wield }] }
+  - { item: 2004, room: 2015 }                                  # one dwarf-mail shirt the orcs missed
+  # --- Moria orcs in the halls ---
+  - { mob: 2010, room: 2011, max: 5, equip: [{ item: 2012, slot: head }, { item: 2003 }] }   # at the three arches
+  - { mob: 2010, room: 2011, max: 5, equip: [{ item: 2012, slot: head }] }
+  - { mob: 2010, room: 2018, max: 5, equip: [{ item: 2012, slot: head }] }
+  - { mob: 2010, room: 2027, max: 5, equip: [{ item: 2012, slot: head }, { item: 2003 }] }   # in the forges
+  - { mob: 2010, room: 2027, max: 5, equip: [{ item: 2003 }] }
+  - { item: 2015, room: 2027 }                                  # a dwarf war-mattock among the slag
+  - { item: 2003, room: 2027 }                                  # orc iron on an anvil
+  # --- the Uruks and Mazarbul ---
+  - { mob: 2012, room: 2014, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2003 }] }   # Uruk captains in the Twenty-first Hall
+  - { mob: 2012, room: 2014, max: 4, equip: [{ item: 2013, slot: wield }] }
+  - { mob: 2012, room: 2017, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2012, slot: head }] }
+  - { mob: 2012, room: 2020, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2003 }] }
+  - { mob: 2013, room: 2017, equip: [{ item: 2013, slot: wield }, { item: 2012, slot: head }, { item: 2022 }] }   # Narzug, with Orcrist wrapped on his back
+  - { mob: 2016, room: 2019, equip: [{ item: 2023, slot: hold }, { item: 2002 }, { item: 2002 }] }   # the cave troll in Balin's tomb, holding the Book of Mazarbul
+  # --- the deep halls ---
+  - { mob: 2014, room: 2020, max: 6, equip: [{ item: 2014, slot: body }, { item: 2003 }] }   # orcs of the Black Pit
+  - { mob: 2014, room: 2020, max: 6, equip: [{ item: 2014, slot: body }] }
+  - { mob: 2014, room: 2022, max: 6, equip: [{ item: 2014, slot: body }, { item: 2013, slot: wield }] }   # the chieftain's guard
+  - { mob: 2014, room: 2022, max: 6, equip: [{ item: 2014, slot: body }] }
+  - { mob: 2014, room: 2028, max: 6, equip: [{ item: 2014, slot: body }] }
+  - { mob: 2014, room: 2024, max: 6, equip: [{ item: 2014, slot: body }, { item: 2003 }] }   # one holding the First Hall
+  - { mob: 2017, room: 2022, equip: [{ item: 2014, slot: body }, { item: 2021 }, { item: 2002 }] }   # the chieftain, with Glamdring wrapped across his knees
+  - { mob: 2011, room: 2028, max: 2, equip: [{ item: 2003 }] }  # drums in the deep
+  - { mob: 2011, room: 2028, max: 2 }
+  # --- the Bridge of Khazad-dum ---
+  - { mob: 2019, room: 2023, equip: [{ item: 2024 }] }          # Durin's Bane, keeping the axe of the king it slew

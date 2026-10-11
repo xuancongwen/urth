@@ -1,0 +1,12 @@
+vnum: 1723
+name: The Deep Tunnel
+description: |
+  The tunnel goes down steeply here, slick underfoot and hot. The walls
+  sweat. The clicking from everywhere has become a kind of chant, slow
+  and deep, and under it there is a feeling, not a sound, of something
+  very large paying attention. A shaft in the floor drops further down.
+  The branching tunnels are south.
+exits:
+  south: 1720
+  down: 1724
+flags: [dark]

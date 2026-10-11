@@ -1,0 +1,10 @@
+vnum: 1714
+name: The Ridge Bunker
+description: |
+  A forward bunker of sandbags and corrugated plate on a rise of rock,
+  overrun some time ago. Its walls are slashed open in three places, its
+  radio is smashed, and spent magazines carpet the floor. Most of the
+  platoon that held it is not here any more. One man is. The crash site
+  is down the slope to the west.
+exits:
+  west: 1713

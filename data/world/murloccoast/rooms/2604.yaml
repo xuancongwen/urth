@@ -1,0 +1,12 @@
+vnum: 2604
+name: The Tide Line
+description: |
+  The dunes slump onto a broad beach of grey sand, wet and shining where
+  the last wave left it. A line of kelp, cuttlefish bones, and broken
+  crates marks how high the water came. Murlocs pick along it, turning
+  things over with their feet and squabbling over anything that might
+  be food, which to a murloc is everything. The dunes rise to the east;
+  the beach runs on west.
+exits:
+  east: 2601
+  west: 2605

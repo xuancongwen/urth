@@ -1,0 +1,12 @@
+vnum: 2210
+name: a nekker heart
+keywords: [nekker, heart]
+description: A small black heart lies here, still faintly warm.
+look: |
+  The heart of a nekker, small, hard, and black, with a smell like a
+  wet burrow. Herbalists grind them for salves. Villagers nail them over
+  doors to keep the rest of the pack away, which works about as well as
+  anything else does in Velen.
+type: other
+weight: 1
+value: 10

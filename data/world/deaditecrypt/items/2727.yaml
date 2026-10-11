@@ -1,0 +1,13 @@
+vnum: 2727
+name: a pair of steel gauntlets
+keywords: [steel, gauntlets, gloves]
+description: A pair of articulated steel gauntlets lies here.
+look: |
+  Articulated steel gauntlets of castle make, the fingers jointed and
+  the cuffs flared. One is badly dented, as if it once punched something
+  with a skull for a face.
+type: armor
+slot: hands
+level: 19
+baseline: heavy
+flags: [drop]

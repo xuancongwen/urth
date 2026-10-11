@@ -1,0 +1,13 @@
+vnum: 2910
+name: Level 3, the Demon Pits
+description: |
+  The dark breaks open on a floor cratered with pits, each one a ragged
+  hole full of smouldering red light, and every so often something with
+  horns and a grin climbs out of one and looks around for a hero to
+  throw fire at. The air tastes of burnt sulphur. The stone walls are
+  blackened in round splashes at head height. The dark corridor is
+  west; a hotter glow comes from the east.
+exits:
+  west: 2909
+  east: 2911
+flags: [dark]

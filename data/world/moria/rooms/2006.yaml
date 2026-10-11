@@ -1,0 +1,10 @@
+vnum: 2006
+name: The Watcher's Pool
+description: |
+  You are waist-deep where the dammed Sirannon made its pool, and the
+  water stinks. Broken shields, a dwarf helmet, and the ribs of a pony
+  lie in the weed, all of them dragged down from the bank. The surface
+  heaves now and then, slowly, as if something underneath were
+  breathing. Sensible people go back north, now, and quietly.
+exits:
+  north: 2005

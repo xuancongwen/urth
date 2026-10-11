@@ -1,0 +1,13 @@
+vnum: 2825
+name: a bovine plate cuirass
+keywords: [bovine, plate, cuirass, breastplate]
+description: A barrel-chested plate cuirass lies here.
+look: |
+  A cuirass built for a chest twice as deep as yours, padded out with
+  straw to fit. It rings like a bell when struck.
+type: armor
+slot: body
+weight: 18
+level: 24
+baseline: plate
+flags: [drop]

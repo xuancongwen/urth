@@ -1,0 +1,13 @@
+vnum: 2616
+name: The King's Grotto
+description: |
+  A vaulted sea cave, its roof lost in darkness, its floor a pool fed
+  by a tunnel to the open sea that breathes in and out with the tide.
+  On an island of heaped shells in the middle stands a throne made of
+  a ship's figurehead, a rowboat, and a great deal of driftwood, all
+  of it smothered in pearl and mother-of-pearl. The murlocs have
+  brought their king everything shiny the sea ever gave them. The way
+  out is east.
+exits:
+  east: 2615
+flags: [dark]

@@ -1,0 +1,10 @@
+vnum: 2330
+name: The Exhaust Port
+description: |
+  At the end of the trench, a small round hatch is set in the floor, no
+  bigger than a womp rat, with a ray-shielded grating over it. It leads,
+  if you believe the stolen plans, straight down to the main reactor. It
+  does not look important. Somebody has painted a small target around it
+  anyway. The trench runs back west.
+exits:
+  west: 2329

@@ -1,0 +1,15 @@
+vnum: 2944
+name: a knight's longsword
+keywords: [knight's, knight, longsword, sword]
+description: A plain knight's longsword lies here.
+look: |
+  A long straight blade with a cross hilt and a wheel pommel. No
+  name on it, no device. It is just a very good sword.
+type: weapon
+level: 35
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

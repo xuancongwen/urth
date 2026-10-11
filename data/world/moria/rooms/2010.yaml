@@ -1,0 +1,12 @@
+vnum: 2010
+name: The Guardroom of the Well
+description: |
+  A square chamber cut for a watch of dwarves, with a stone bench along
+  each wall and, in the middle of the floor, a round well with a low
+  parapet. Its cover is gone. If you drop a stone in, it takes a long,
+  long time to hit anything, and then, faint and far below, something
+  goes tom-tap, tap-tom. The goblins have made the room their own, and
+  it shows. The only way out is south to the stair.
+exits:
+  south: 2008
+flags: [dark]

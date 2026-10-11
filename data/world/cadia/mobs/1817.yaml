@@ -1,0 +1,18 @@
+vnum: 1817
+name: Lieutenant Dravik
+keywords: [lieutenant, dravik, traitor, officer]
+description: Lieutenant Dravik kneels in the bone star, praying in a voice that keeps breaking.
+look: |
+  A Cadian officer, or he was: the uniform is still regulation, the
+  boots still polished, but the rank pins are bent into stars and he
+  has cut the Eye into his own palm so deep it will not close. He sold
+  his platoon's position to the cult for a promise. He carries the
+  chainsword his regiment gave him, and he fights like a Cadian, which
+  is the cruelest part.
+level: 28
+flags: [assist]
+health: 1500
+silver: 200
+attack:
+  kind: slash
+  verb: slash

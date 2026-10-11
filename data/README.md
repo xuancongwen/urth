@@ -13,6 +13,7 @@ Layout:
 - `schema/`  JSON Schema for each content file, for completion and validation in the editor. `.vscode/settings.json` maps them for VS Code's YAML extension. Any editor that runs yaml-language-server can use them; a file may also name its schema on its first line, `# yaml-language-server: $schema=../../../schema/room.schema.json`. `go test ./internal/content` fails if a schema drifts from the Go structs.
 - a mob flagged `questmaster` hands out quests; a mob with `sells: [{item: <vnum>, points: <n>}]` trades those items for quest points; an item flagged `quest` is one the questmaster may plant for a fetch quest and is never placed by a reset (docs/RULES.md 7.6)
 - a mob with `trades: [{item: <vnum>, silver: <n>, items: [<vnum>, ...]}]` is a merchant: `list` shows its wares, `buy` pays the silver, the listed items from the buyer's inventory (a vnum twice means two), or both, and `sell` pays half an item's `value` (a weapon or armor with none is worth ten silver a level)
+- a mob with `spawns: {mob: <vnum>, every: <rounds>, max: <n>}` is a generator: while it lives it adds one of that mob to its room every `every` rounds (default 3) until `max` of them (default 3) stand there, fighting or not; a mob a placed generator spawns counts as placed
 - an item flagged `newbie` is sub issue gear: every new character is created wearing one of each (the start area's items 130 to 134), and merchants will not buy it
 - an area whose rooms are not meant to connect to the world, nor whose prototypes to be placed by resets (the balance range), says `detached: true` in `area.yaml`; `urth check` then leaves it alone
 
@@ -36,4 +37,18 @@ Doors (room 7), which opens on `winterfell` (north, levels 6 to 14),
 9), and `midgaard` (west, classic ROM Midgaard, 1 to 15), and on down
 to the Deeper Hall (room 8), which opens on `warcraft` (north, 8 to
 16), `draenor` (east, 12 to 20), `diablo` (south, Tristram and the
-cathedral, 14 to 22), and `starcraft` (west, 16 to 24). Each area's README.md carries its map.
+cathedral, 14 to 22), and `starcraft` (west, 16 to 24). Below that the halls change their
+rule: an area there runs from a low entrance up to its famous threats at
+the level their source made them. The Hall of Legends (room 9) opens on
+`velen` (north, The Witcher, 6 to 36), `moria` (east, 10 to 50),
+`barovia` (south, Ravenloft, 12 to 45), and `nublar` (west, Jurassic
+Park, 4 to 40); the Hall of Distant Stars (room 10) on `klendathu`
+(north, Starship Troopers, 16 to 42), `arrakis` (east, Dune, 14 to 60),
+`deathstar` (south, 15 to 55), `cadia` (west, Warhammer 40K, 22 to 65),
+and down to `gauntlet` (the arcade game, 28 to 34). Five farming areas
+keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
+at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
+`murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`
+(14 to 18, below Barovia's graveyard), `cowlevel` (20 to 26, through a
+locked portal in Tristram whose key is Wirt's leg, which Wirt sells), and
+`gauntlet`. Each area's README.md carries its map.

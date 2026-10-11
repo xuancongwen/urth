@@ -1,0 +1,12 @@
+vnum: 2722
+name: a shield of boards and bones
+keywords: [shield, boards, bones]
+description: A round shield of planks and lashed bones lies here.
+look: |
+  Coffin boards nailed into a round shield and reinforced with ribs
+  lashed across the face. It is ugly, it creaks, and it stops arrows.
+type: armor
+slot: shield
+level: 17
+baseline: shield
+flags: [drop]

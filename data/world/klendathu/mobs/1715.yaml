@@ -1,0 +1,15 @@
+vnum: 1715
+name: a royal guard bug
+keywords: [royal, guard, bug, warrior, arachnid]
+description: A royal guard bug stands motionless by the wall, pale mandibles open.
+look: |
+  A warrior bug twice the usual size and pale as bone, with great
+  scything mandibles and a crest of spines along its back. It does not
+  charge and it does not shriek. It stands between you and the cavern
+  to the north, and that is all it has ever done, and all it needs to.
+level: 40
+flags: [assist]
+silver: 60
+attack:
+  kind: slash
+  verb: shear

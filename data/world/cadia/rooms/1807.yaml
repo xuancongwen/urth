@@ -1,0 +1,15 @@
+vnum: 1807
+name: The Elysion Fields
+description: |
+  Once, the story goes, this was farmland. Now it is a grey sea of
+  overlapping craters, each holding a puddle, a ruined Chimera, or a
+  heap of bodies in two kinds of uniform. Shells moan overhead in both
+  directions without seeming to hit anything that matters. North, the
+  tail of a downed Valkyrie juts from the earth. South, the craters run
+  down toward a sunken pit that stinks. West, the walls of Kasr Myrak
+  stand broken against the purple sky. The wire is east.
+exits:
+  north: 1808
+  south: 1809
+  east: 1806
+  west: 1811

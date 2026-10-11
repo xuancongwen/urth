@@ -1,0 +1,15 @@
+vnum: 1819
+name: an Ork choppa
+keywords: [ork, choppa, axe, cleaver]
+description: A crude, enormous cleaver of riveted steel lies here.
+look: |
+  A slab of sharpened girder with a grip wrapped in Guardsman webbing.
+  Orks call it a choppa. It does exactly what that sounds like.
+type: weapon
+level: 31
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

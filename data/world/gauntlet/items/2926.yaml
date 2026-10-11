@@ -1,0 +1,15 @@
+vnum: 2926
+name: a broad falchion
+keywords: [broad, falchion, sword]
+description: A broad falchion lies here.
+look: |
+  A single-edged blade that widens toward the tip, for chopping more
+  than fencing. It has seen a great deal of chopping.
+type: weapon
+level: 29
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

@@ -1,0 +1,13 @@
+vnum: 2117
+name: a pair of Vistani riding boots
+keywords: [vistani, riding, boots]
+description: A pair of tall red riding boots lies here.
+look: |
+  Tall boots of red-dyed leather with silver buckles, made for a wagon
+  seat and a horse's flank, and for running when the deal goes bad.
+type: armor
+slot: feet
+weight: 2
+level: 19
+baseline: light
+flags: [drop]

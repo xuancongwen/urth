@@ -1,0 +1,14 @@
+vnum: 2703
+name: The Ossuary
+description: |
+  Every wall is bones. Thigh bones stacked like firewood, skulls set
+  between them in neat rows, finger bones pressed into the mortar in
+  patterns some monk thought were pretty. Most of the skulls are facing
+  you. Some of the gaps in the rows are fresh, and the bones that filled
+  them are walking around somewhere. Arches go north and east, and the
+  stairs are south.
+exits:
+  south: 2702
+  north: 2704
+  east: 2705
+flags: [dark]

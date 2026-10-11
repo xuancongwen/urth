@@ -1,0 +1,11 @@
+vnum: 1810
+name: The Plague Pit
+description: |
+  A mass grave the Munitorum dug for the casualties of a week that
+  turned into a month, and never got round to filling in. Nurgle's
+  blessing found it first. The bodies have swollen and split and grown
+  together, and the whole pit heaves gently, as if breathing. Things in
+  rotten Cadian khaki stagger about its rim on errands of their own.
+  The only way out is back north, up the crater slope.
+exits:
+  north: 1809

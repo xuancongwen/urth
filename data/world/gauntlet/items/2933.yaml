@@ -1,0 +1,12 @@
+vnum: 2933
+name: a pair of scorched pauldrons
+keywords: [scorched, pauldrons, shoulders]
+description: A pair of soot-blackened pauldrons lies here.
+look: |
+  Heavy shoulder plates blackened by fire. Whoever wore them stood
+  close to a demon pit for longer than was wise.
+type: armor
+slot: shoulders
+level: 31
+baseline: heavy
+flags: [drop]

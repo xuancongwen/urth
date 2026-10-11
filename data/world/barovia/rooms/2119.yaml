@@ -1,0 +1,11 @@
+vnum: 2119
+name: The Drawbridge of Ravenloft
+description: |
+  A drawbridge of black timbers spans a chasm a thousand feet deep, and
+  it was lowered before you arrived, as if you were expected. The chains
+  creak in the wind. Under your boots the planks are spongy and some are
+  missing. South, the gatehouse portcullis stands raised, and beyond it
+  a courtyard glistens with rain. North, the road winds back down.
+exits:
+  north: 2118
+  south: 2120

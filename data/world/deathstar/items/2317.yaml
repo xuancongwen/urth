@@ -1,0 +1,13 @@
+vnum: 2317
+name: a black durasteel cuirass
+keywords: [black, durasteel, cuirass, armor, armour]
+description: A heavy cuirass of black durasteel lies here.
+look: |
+  A cuirass of black durasteel, plain and thick, of the kind made to
+  stand up to things that a blaster cannot touch. The inside is padded,
+  and scored where something hot went most of the way through.
+type: armor
+slot: body
+level: 55
+baseline: plate
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 2313
+name: The TIE Fighter Hangar
+description: |
+  A long hangar where TIE fighters hang from overhead racks like rows of
+  bats, their hexagonal wings dark and their ball cockpits open. The
+  engines scream as one is dropped and launched through the magnetic
+  field at the far end, and the next slides along to take its place.
+  Technicians in grey run between the racks. The junction is west, and a
+  door south leads to the pilots' ready room.
+exits:
+  south: 2314
+  west: 2305

@@ -1,0 +1,13 @@
+vnum: 2410
+name: a pair of night-vision goggles
+keywords: [night-vision, night, vision, goggles, nvg]
+description: A pair of bulky night-vision goggles lies here.
+look: |
+  A heavy binocular set on a head harness, military surplus, with a
+  battery pack at the back. Switched on, the dark turns a grainy green and
+  you can see everything in it, including the things that were already
+  watching you.
+type: light
+weight: 2
+value: 70
+burn: 2500

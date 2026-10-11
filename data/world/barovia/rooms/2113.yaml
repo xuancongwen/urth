@@ -1,0 +1,12 @@
+vnum: 2113
+name: Madam Eva's Tent
+description: |
+  Inside the tent the air is thick with incense and the light is all red
+  and gold, from lamps hung with scarves. Rugs cover the ground,
+  cushions cover the rugs, and in the middle sits a low table with a
+  deck of tarokka cards on it, face down, waiting. Nobody fights in
+  Madam Eva's tent. Nobody would dare. The flap opens north onto the
+  camp.
+exits:
+  north: 2112
+flags: [safe]

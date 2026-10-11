@@ -1,0 +1,13 @@
+vnum: 2127
+name: The Catacombs
+description: |
+  A low vault under the castle, lined with niches, and every niche holds
+  a coffin or a corpse that never got one. The air is cold and still and
+  thick with the smell of earth. Bats hang from the ceiling in black
+  clusters and stir when your light touches them. Passages lead west and
+  east between the niches, and the stair climbs back up to the hall.
+exits:
+  up: 2121
+  west: 2128
+  east: 2129
+flags: [dark]

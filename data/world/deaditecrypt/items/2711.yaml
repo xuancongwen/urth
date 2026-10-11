@@ -1,0 +1,13 @@
+vnum: 2711
+name: a pair of cracked bone greaves
+keywords: [cracked, bone, greaves]
+description: A pair of leg guards made of lashed shin bones lies here.
+look: |
+  Shin bones split lengthwise and lashed together with sinew into a pair
+  of greaves. They are light and they rattle, and they have turned a
+  blade at least once, judging by the notch.
+type: armor
+slot: legs
+level: 13
+baseline: light
+flags: [drop]

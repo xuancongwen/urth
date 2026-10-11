@@ -1,0 +1,26 @@
+vnum: 2911
+name: Questor's bow
+keywords: [questor's, questor, bow, longbow, elf]
+description: A slender elven bow strung with silver gut lies here.
+look: |
+  A light recurved bow of pale wood, so slender it looks as if it would
+  snap, strung with something that shines like silver thread. Questor
+  the Elf was the fastest shot in any dungeon and the hungriest. The
+  Lobber King found it on a level where the elf had stopped to eat, and
+  has been throwing rocks at heroes with it ever since, never having
+  worked out what it was for. In the right hands it looses faster than
+  you can count.
+type: weapon
+weight: 2
+level: 33
+baseline: standard
+value: 3600
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: "second arrow, loosed before the first lands" }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

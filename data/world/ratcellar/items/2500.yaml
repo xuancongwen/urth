@@ -1,0 +1,12 @@
+vnum: 2500
+name: a tallow candle
+keywords: [tallow, candle, light]
+description: A stubby tallow candle stands here in a saucer of its own drippings.
+look: |
+  A thick yellow candle of honest mutton fat, stuck in a tin saucer with
+  a ring to hook a finger through. It smokes, it smells of dinner, and
+  it gives a light the colour of weak tea. The rats find it very
+  interesting. Keep it away from them.
+type: light
+burn: 900
+value: 6

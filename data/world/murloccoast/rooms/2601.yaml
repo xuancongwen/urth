@@ -1,0 +1,13 @@
+vnum: 2601
+name: The Windswept Dunes
+description: |
+  Sand ridges roll toward the sea like slow waves, and the wind lifts
+  their crests into fine stinging veils. Webbed footprints wander all
+  over the place here, three toes and a long heel, crossing and
+  recrossing as if their makers had argued about the way. To the north
+  a whitewashed lighthouse stands on a knuckle of rock. The path runs
+  east toward the farms, and west down onto the beach.
+exits:
+  east: 2600
+  north: 2602
+  west: 2604

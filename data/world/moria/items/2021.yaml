@@ -1,0 +1,31 @@
+vnum: 2021
+name: Glamdring
+keywords: [glamdring, foe-hammer, foehammer, beater, sword, elven, blade]
+description: A long elven sword lies here, its blade glimmering a cold blue.
+look: |
+  The Foe-hammer, made in Gondolin for the elf-king Turgon long ages
+  ago, and found in a troll-hoard by a wizard who carried it far. The
+  goblins call it Beater and hate it. Its hilt is set with a white gem,
+  and its blade is written with runes, and when orcs are near it burns
+  with a pale blue light, so that nothing creeping in the dark is hidden
+  from its bearer. It hits like a hammer and bites like a sword.
+type: weapon
+weight: 4
+level: 28
+baseline: standard
+value: 4500
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: smite
+effects:
+  - kind: damage
+    params: { mult: 1.1, weapon: true }
+  - kind: crit
+    params: { chance: 0.08, mult: 2.0 }
+  - kind: detectHidden
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

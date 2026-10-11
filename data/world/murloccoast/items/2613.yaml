@@ -1,0 +1,14 @@
+vnum: 2613
+name: a pair of sharkskin boots
+keywords: [sharkskin, boots]
+description: A pair of rough grey boots lies here.
+look: |
+  Boots of sharkskin, which is like sandpaper one way and smooth the
+  other. They grip wet rock better than anything a cobbler makes from
+  cow.
+type: armor
+slot: feet
+weight: 2
+level: 8
+baseline: light
+flags: [drop]

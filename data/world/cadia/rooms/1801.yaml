@@ -1,0 +1,16 @@
+vnum: 1801
+name: The Fire Trench
+description: |
+  A zigzag trench cut eight feet deep into the Cadian loam, its walls
+  revetted with sandbags, flakboard, and in one place the door of a
+  Chimera. Troopers sit on the firestep cleaning lasguns they cleaned an
+  hour ago. Vox-wire runs along the wall in loops. A dugout with a
+  Munitorum aquila over the door opens south, and a concrete bunker with
+  a black and red banner squats to the north. The line continues west;
+  the stair is east.
+exits:
+  north: 1803
+  south: 1802
+  east: 1800
+  west: 1804
+flags: [safe]

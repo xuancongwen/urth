@@ -1,0 +1,13 @@
+vnum: 2307
+name: an Imperial officer's tunic
+keywords: [imperial, officer's, officer, tunic, uniform]
+description: A grey Imperial officer's tunic lies folded here.
+look: |
+  A double-breasted tunic of olive grey, the rank plaque on the chest
+  showing a row of little red and blue squares. It is very well pressed.
+  It is armoured in the lining, discreetly, because officers here have a
+  way of making enemies.
+type: armor
+slot: body
+level: 24
+baseline: cloth

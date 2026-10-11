@@ -1,0 +1,15 @@
+vnum: 2713
+name: The Antechamber of the Book
+description: |
+  A pillared antechamber whose walls are carved with warnings in four
+  languages, one of them Latin, all of them saying the same thing: do
+  not take the book. Below the warnings, in smaller letters, the words
+  themselves, half chipped away. Dead men in rusted armor stand guard in
+  the niches, and not all of them are carvings. A door north lets out
+  the clatter of an armory, the gate is east, and to the west a cold
+  wind blows from the altar.
+exits:
+  east: 2712
+  north: 2714
+  west: 2715
+flags: [dark]

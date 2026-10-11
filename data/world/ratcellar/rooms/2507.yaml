@@ -1,0 +1,15 @@
+vnum: 2507
+name: The Sewer Junction
+description: |
+  Four tunnels meet here under a round shaft that goes up to a grating
+  far overhead, through which falls a thin grey light that does not
+  reach the floor, and now and then a turnip peel. The water pools in
+  a basin in the middle before it finds its way out. A culvert runs
+  north, steps go down south to a cistern, the old sewer is west, and
+  the eastern tunnel has been gnawed wider than any mason left it.
+exits:
+  west: 2506
+  north: 2508
+  south: 2509
+  east: 2511
+flags: [dark]

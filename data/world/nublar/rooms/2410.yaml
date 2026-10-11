@@ -1,0 +1,12 @@
+vnum: 2410
+name: The Tour Road, Triceratops Turnoff
+description: |
+  The road bends past a lookout point with a coin telescope and a sign
+  showing a cheerful horned dinosaur. A gate in the paddock fence to the
+  south stands open, a veterinary jeep parked half through it with a
+  medical bag on the seat. The air smells of crushed leaves and, more
+  strongly, of a very large animal. The road runs east and west.
+exits:
+  east: 2407
+  south: 2411
+  west: 2412

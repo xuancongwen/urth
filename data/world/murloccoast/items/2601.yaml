@@ -1,0 +1,12 @@
+vnum: 2601
+name: a storm lantern
+keywords: [storm, lantern, lamp, light]
+description: A tin storm lantern with a glass chimney sits here.
+look: |
+  A fisherman's lantern of dented tin, its glass chimney caged in wire
+  against knocks and its wick trimmed short to make the oil last. It
+  will burn in a gale. It will burn in a sea cave, too, which is where
+  you are probably taking it.
+type: light
+burn: 1500
+value: 30

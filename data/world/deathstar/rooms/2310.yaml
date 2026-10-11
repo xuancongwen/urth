@@ -1,0 +1,10 @@
+vnum: 2310
+name: The Interrogation Chamber
+description: |
+  A round dark chamber with a tilted chair at its centre, fitted with
+  restraints at wrist and ankle. A rack of instruments on the wall has
+  been arranged with loving neatness. Nothing in the room is dirty, and
+  nothing in it is for anything good. The air is cold. The door back to
+  the control station is north.
+exits:
+  north: 2307

@@ -1,0 +1,13 @@
+vnum: 2713
+name: a rotted leather jerkin
+keywords: [rotted, leather, jerkin]
+description: A stiff, mildewed leather jerkin lies here.
+look: |
+  A leather jerkin gone stiff and green with mildew, with a hole over
+  the heart that tells you how its owner came to be down here. It still
+  turns a glancing blow.
+type: armor
+slot: body
+level: 14
+baseline: light
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 2902
+name: a jug of cider
+keywords: [jug, cider, food, drink]
+description: A stone jug of cider stands here, its cork tied down with string.
+look: |
+  A brown stoneware jug with a thumb loop, cold and sweating, full of
+  cloudy apple cider with a kick at the end of it. The jug is marked
+  with a single X, which may be the maker's mark or a warning. Whoever
+  shoots it by mistake will never hear the end of it.
+type: other
+weight: 3
+value: 12

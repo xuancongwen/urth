@@ -1,0 +1,12 @@
+vnum: 1820
+name: The Defiled Cathedral
+description: |
+  The nave is a forest of broken pillars under a roof half open to the
+  Eye, and the light that comes through is the colour of a bruise.
+  Every saint in the windows has had his face smashed out. The pews have
+  been burned for warmth, and the altar has been put to uses you would
+  rather not guess at. The square is east, and a doorway in the apse
+  opens west onto the kasr's inner bastion.
+exits:
+  east: 1819
+  west: 1821

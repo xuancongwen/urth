@@ -1,0 +1,13 @@
+vnum: 2017
+name: The Passage of Records
+description: |
+  A short wide passage whose walls are carved floor to roof with the
+  names and deeds of dwarves, row on row, in angular runes. Someone has
+  hacked at the newest rows with an axe. A doorway north lets out a
+  grey light and a cold draught; east the passage opens into a pillared
+  hall; west is the Twenty-first Hall.
+exits:
+  west: 2014
+  east: 2020
+  north: 2019
+flags: [dark]

@@ -1,0 +1,19 @@
+vnum: 2803
+name: the Cow King's hide
+keywords: [cow, king's, kings, hide, leathers, armor]
+description: A heavy coat of studded black-and-white hide lies here.
+look: |
+  A long coat of studded leather, the patched black and white of a dairy
+  cow, cut from something much larger than one. It is one of the three
+  pieces of the Cow King's leathers. It smells of grass and thunder, and
+  the wearer heals as a beast heals, fast and without complaint.
+type: armor
+slot: body
+weight: 8
+level: 27
+baseline: light
+value: 2600
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: soak, params: { power: 0.05 } }

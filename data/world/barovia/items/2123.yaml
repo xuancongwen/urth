@@ -1,0 +1,13 @@
+vnum: 2123
+name: a silver bridal circlet
+keywords: [silver, bridal, circlet, crown, tiara]
+description: A thin silver circlet set with garnets lies here.
+look: |
+  A slender circlet of silver set with three dark garnets, the kind a
+  bride wears on her wedding day. This one has been worn for a great
+  many wedding days, all to the same groom, none of them ending well.
+type: armor
+slot: head
+weight: 1
+level: 33
+baseline: light

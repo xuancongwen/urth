@@ -1,0 +1,18 @@
+vnum: 2907
+name: a grunt hut
+keywords: [hut, generator]
+description: A squat hut of daub and bone squats here, and something inside it is getting up.
+look: |
+  A low dome of mud and sticks plastered over a frame of bones, with a
+  single black doorway. It smells of smoke and wet dog. Grunts come out
+  of it at a steady trudge, more grunts than could possibly fit inside.
+  The walls are thick. They will come down if you hit them enough.
+level: 30
+health: 2000
+xp: 150
+attack:
+  damage: 1
+  verb: creak
+armor:
+  defense: 18
+spawns: { mob: 2906, every: 4, max: 3 }

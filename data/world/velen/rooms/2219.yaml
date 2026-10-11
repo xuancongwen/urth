@@ -1,0 +1,12 @@
+vnum: 2219
+name: The Edge of the Woods
+description: |
+  Old firs, so close that the light goes green and then grey a few steps
+  in. No birds sing. Claw marks gouge the bark at the height of a tall
+  man's head, too wide apart for a bear's. A path, of a sort, winds north
+  deeper into the wood. A cave mouth yawns in a bank to the west. The
+  ridge is back east.
+exits:
+  east: 2217
+  west: 2220
+  north: 2221

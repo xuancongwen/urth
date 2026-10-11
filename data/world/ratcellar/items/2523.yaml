@@ -1,0 +1,13 @@
+vnum: 2523
+name: a pair of rusted iron gauntlets
+keywords: [rusted, iron, gauntlets, pair]
+description: A pair of rusted iron gauntlets lies here, fingers curled.
+look: |
+  Heavy gauntlets of overlapping iron plates, rusted stiff at the
+  knuckles. With some work and some oil they would close. Without,
+  they make very good fists.
+type: armor
+slot: hands
+level: 6
+baseline: heavy
+flags: [drop]

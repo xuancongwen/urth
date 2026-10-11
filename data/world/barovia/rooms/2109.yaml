@@ -1,0 +1,13 @@
+vnum: 2109
+name: The Crossroads Gallows
+description: |
+  Two roads meet at a gallows of grey timber, and a frayed noose turns
+  slowly on it in a wind you cannot feel. A milestone is carved with
+  three names: Barovia north, Tser Pool west, and south, under a deep
+  gouge where someone tried to chisel it away, Ravenloft. The woods
+  press close on every side, and the howling is nearer here. The village
+  is north, the river road west, and the road to the castle south.
+exits:
+  north: 2108
+  west: 2111
+  south: 2116

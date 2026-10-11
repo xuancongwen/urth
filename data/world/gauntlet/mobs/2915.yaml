@@ -1,0 +1,19 @@
+vnum: 2915
+name: the Lobber King
+keywords: [king]
+description: The Lobber King squats behind the tallest wall, an elven bow slung uselessly on his back.
+look: |
+  The oldest and longest-armed of the lobbers, grey in the muzzle, with
+  a crown hammered out of a helmet and a sack of the very best rocks.
+  He wears Questor's bow on his back by its string, as a trophy, and
+  has never once tried to shoot it. He throws better than anyone down
+  here, and from further.
+level: 33
+flags: [assist]
+health: 3000
+silver: 240
+attack:
+  kind: blunt
+  verb: lobbed boulder
+effects:
+  - { kind: dodge, params: { amount: 0.06 } }

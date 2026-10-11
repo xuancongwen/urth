@@ -1,0 +1,9 @@
+vnum: 2406
+name: Fern Gully
+description: |
+  A green gully choked with ferns taller than you are, dripping and
+  rustling though there is no wind. Things move in the undergrowth, small
+  and quick and in numbers, chirping to one another. Scraps of a tourist's
+  rain poncho hang from the fronds, nibbled. The road is south.
+exits:
+  south: 2405

@@ -1,0 +1,11 @@
+vnum: 1823
+name: The Ritual Gallery
+description: |
+  A platform of scaffold bolted around the pylon high above the kasr,
+  the wind up here hot and carrying the sound of screaming from very far
+  away. Runes have been carved into the pylon's black face, and blood
+  runs in them uphill. Above, the Eye of Terror fills the sky, and you
+  could swear it is closer than it was this morning. The scaffold leads
+  back down.
+exits:
+  down: 1822

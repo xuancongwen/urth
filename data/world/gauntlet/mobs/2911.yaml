@@ -1,0 +1,17 @@
+vnum: 2911
+name: a sorcerer
+keywords: [sorcerer, mage, robed]
+description: A robed sorcerer flickers here, half there and half not.
+look: |
+  A tall figure in a hooded robe the colour of the walls, its face lost
+  in shadow, its hands full of a cold blue light. Sorcerers wink out of
+  sight when they please and reappear a step closer, and they do not
+  bother to announce themselves before they strike.
+level: 33
+flags: [assist]
+silver: 25
+attack:
+  kind: magic
+  verb: blast
+effects:
+  - { kind: invisible }

@@ -1,0 +1,12 @@
+vnum: 1813
+name: The Collapsed Bunker
+description: |
+  A command bunker that took a direct hit from something large enough
+  that its roof is now the floor of the level below. It is pitch black
+  and stinks of rot and burned insulation. Something shuffles in the
+  dark, slow and patient. A stair, half buried, leads down into the
+  catacombs under the kasr; the street is north.
+exits:
+  north: 1812
+  down: 1814
+flags: [dark]

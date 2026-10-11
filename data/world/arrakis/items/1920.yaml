@@ -1,0 +1,25 @@
+vnum: 1920
+name: the crysknife of a maker's tooth
+keywords: [crysknife, maker's, maker, tooth, knife]
+description: A milk-white crysknife lies here, its edge shimmering faintly.
+look: |
+  A true crysknife, ground from the tooth of a great worm and kept
+  alive by contact with its owner's body. The blade is milky white and
+  as long as your forearm, and once drawn it should not be sheathed
+  until it has drawn blood. The renegade naib kept it after his tribe
+  cast him out, which was the last of his several crimes. It finds the
+  gap in any guard, and in your hand it moves almost before you do.
+type: weapon
+weight: 1
+level: 28
+baseline: dagger
+value: 2500
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: finesse }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

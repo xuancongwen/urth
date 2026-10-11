@@ -1,0 +1,16 @@
+vnum: 2602
+name: a murloc forager
+keywords: [murloc, forager]
+description: A murloc forager waddles along the sand, gargling happily to itself.
+look: |
+  A small green fish-man the height of a child, with a wide wet mouth
+  full of needle teeth, bulging eyes, and a crest of spines that rises
+  when it is excited, which is always. It carries a net bag of shells,
+  crabs, and things it has found. If you hit it, it will scream, and
+  everything with fins for a hundred yards will come running.
+level: 8
+flags: [assist, wander]
+silver: 6
+attack:
+  kind: pierce
+  verb: jab

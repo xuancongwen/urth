@@ -1,0 +1,15 @@
+vnum: 2720
+name: a captain's rusted broadsword
+keywords: [captain's, captain, rusted, broadsword, sword]
+description: A heavy broadsword with a rusted crossguard lies here.
+look: |
+  A broadsword with a wide blade and a crossguard shaped like a pair of
+  wings, all of it furred with rust. It belonged to an officer once, and
+  still does; he just has less skin now.
+type: weapon
+level: 17
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

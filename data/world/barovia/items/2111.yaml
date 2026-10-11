@@ -1,0 +1,25 @@
+vnum: 2111
+name: Strahd's cloak
+keywords: [strahd's, strahd, cloak, black, mantle]
+description: A long black cloak lined with blood-red silk lies here, stirring without a wind.
+look: |
+  A cloak of heavy black velvet lined with silk the colour of fresh
+  blood, with a high stiff collar and a clasp of white gold in the shape
+  of the von Zarovich crest. It moves on its own, a little, like a thing
+  breathing. Worn, it makes you hard to hit and quick on your feet, and
+  every wound you deal feeds you, and every wound you take closes faster
+  than it should. You feel taller in it. You feel hungry.
+type: armor
+slot: shoulders
+weight: 3
+level: 45
+baseline: light
+value: 8000
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: regen
+    params: { fraction: 0.01 }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

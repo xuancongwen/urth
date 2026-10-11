@@ -1,0 +1,16 @@
+vnum: 2312
+name: a scout trooper
+keywords: [scout, trooper, biker, imperial]
+description: A scout trooper in light armour prowls the corridor, listening.
+look: |
+  A trooper in lighter armour than the rest, with a narrow-visored
+  helmet built for a speeder bike and a pistol in a boot holster. Scout
+  troopers are trained to work alone and to shoot accurately, which sets
+  them sharply apart from their colleagues. This one is bored of
+  corridors and has started patrolling them.
+level: 22
+flags: [wander]
+silver: 90
+attack:
+  kind: fire
+  verb: shoot

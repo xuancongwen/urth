@@ -1,0 +1,14 @@
+vnum: 2808
+name: a stray hell bovine
+keywords: [stray, hell, bovine, cow]
+description: A stray hell bovine ambles through the grass, chewing.
+look: |
+  A hell bovine that has wandered off from the herd, as cows do, halberd
+  trailing in the grass behind it. It chews with slow deliberation. When
+  it sees you, it stops chewing.
+level: 22
+flags: [assist, wander]
+silver: 30
+attack:
+  kind: slash
+  verb: chop

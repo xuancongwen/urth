@@ -1,0 +1,11 @@
+vnum: 1721
+name: The Egg Chamber
+description: |
+  A low chamber lined from floor to ceiling with leathery eggs, each
+  the size of a trooper's pack, packed together like the cells of a
+  honeycomb. They are warm, and some of them are moving. A few have
+  already split open, and whatever came out of them is not in the room
+  any more. The branching tunnels are east.
+exits:
+  east: 1720
+flags: [dark]

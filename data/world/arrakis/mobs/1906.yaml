@@ -1,0 +1,13 @@
+vnum: 1906
+name: a desert hawk
+keywords: [desert, hawk, bird]
+description: A desert hawk sits on a rock, turning its head to look at you with one eye.
+look: |
+  A lean brown hawk with a hooked beak and talons like fish hooks. It
+  drinks blood instead of water, because on Arrakis that is what there
+  is. It has noticed you are full of it.
+level: 16
+silver: 5
+attack:
+  kind: claw
+  verb: rake

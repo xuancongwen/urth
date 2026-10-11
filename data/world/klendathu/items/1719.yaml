@@ -1,0 +1,11 @@
+vnum: 1719
+name: a trooper's dog tags
+keywords: [trooper's, trooper, dog, tags, dogtags]
+description: A pair of dog tags on a bead chain lies here.
+look: |
+  Two steel tags on a chain, stamped with a name, a serial number, a
+  blood type, and the words MOBILE INFANTRY. They have been through a
+  bug, slowly. Someone at the fire base has been asking after them, and
+  would like to know more.
+type: other
+flags: [quest]

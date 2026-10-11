@@ -1,0 +1,17 @@
+vnum: 2102
+name: a silvered longsword
+keywords: [silvered, longsword, sword, silver]
+description: A longsword with a bright silvered edge lies here.
+look: |
+  A plain soldier's longsword whose edge has been dipped in silver by a
+  smith who knew why people in this valley ask for such things. The
+  silver is already wearing thin near the hilt.
+type: weapon
+weight: 6
+level: 15
+baseline: standard
+value: 300
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

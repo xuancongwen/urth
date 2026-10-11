@@ -1,0 +1,10 @@
+vnum: 2326
+name: The Guards' Antechamber
+description: |
+  A tall, bare antechamber with walls of black stone and a floor of red.
+  There is no furniture and no decoration, only a pair of doors at the
+  west end and the guards who stand before them, robed in crimson,
+  motionless as statues. The air is very still. Fire control is east.
+exits:
+  east: 2324
+  west: 2327

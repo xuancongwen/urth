@@ -1,0 +1,28 @@
+vnum: 2200
+name: a witcher's steel sword
+keywords: [witcher's, witcher, steel, sword, longsword]
+description: A long, slim steel sword with a wolf's head pommel lies here.
+look: |
+  A witcher's steel blade, meant for men and for the things that are
+  only a little worse than men: long, light, and balanced so far toward
+  the point that it seems to want to go somewhere. Runes are etched
+  near the guard, worn shallow by years of oiling. A deserter took it
+  off a dead witcher and has been bragging about it ever since, which
+  is the only use he ever got out of it. In trained hands it finds the
+  gap in a guard and slips aside from the riposte.
+type: weapon
+weight: 3
+level: 15
+baseline: standard
+value: 1200
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: dodge
+    params: { amount: 0.02 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

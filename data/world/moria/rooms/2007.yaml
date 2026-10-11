@@ -1,0 +1,13 @@
+vnum: 2007
+name: Inside the West-gate
+description: |
+  The doors swing shut behind you on their own, the way doors do in a
+  story you would rather not be in. Ahead a flight of wide steps climbs
+  into perfect dark. The floor is littered with bones, broken arrows,
+  and dwarf-mail gone to rust, and the walls are scored by blades. Moria
+  smells of cold stone, old smoke, and goblin. The stair goes up east;
+  the doors are back west.
+exits:
+  west: 2004
+  east: 2008
+flags: [dark]

@@ -1,0 +1,16 @@
+vnum: 2525
+name: a chain-and-bucket flail
+keywords: [chain, bucket, flail]
+description: A short chain with an iron bucket-weight on the end lies here.
+look: |
+  A well chain cut short, with the iron counterweight still on the end
+  and a stick through the top link for a handle. It swings wild. It
+  lands hard.
+type: weapon
+level: 7
+baseline: flail
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

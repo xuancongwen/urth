@@ -1,0 +1,12 @@
+vnum: 2003
+name: The Trader's Awning
+description: |
+  A canvas awning stretched between two boulders shelters a field forge,
+  a pair of strongboxes, and a rack of mail coats hung up like washing.
+  Coils of rope, bundles of pitch-soaked torches, and a row of brass
+  lanterns cover a trestle table, every item marked with a price in
+  runes. A set of scales sits ready for weighing anything you might
+  bring back out of the mountain. The camp's fire is west.
+exits:
+  west: 2002
+flags: [safe]

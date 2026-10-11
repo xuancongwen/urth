@@ -1,0 +1,16 @@
+vnum: 1717
+name: a royal guard mandible
+keywords: [royal, guard, mandible, jaw, blade]
+description: A pale, hooked mandible as long as a sword lies here.
+look: |
+  One of the great pale mandibles of a royal guard bug, sheared off at
+  the hinge. It is edged on the inside like a scythe and heavy enough
+  that one swing takes your whole shoulder with it.
+type: weapon
+weight: 4
+level: 40
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: shear

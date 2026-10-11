@@ -1,0 +1,15 @@
+vnum: 2004
+name: a goblin scout
+keywords: [goblin, scout, orc, snaga]
+description: A goblin scout slinks along the wall, sniffing.
+look: |
+  A lean goblin with a nose like a hound's, sent out ahead of the others
+  to sniff for strangers. It moves in quick scuttling bursts and never
+  quite stands up straight. When it finds you it squeals, and the
+  squeal carries.
+level: 12
+flags: [assist, wander]
+silver: 10
+attack:
+  kind: pierce
+  verb: stab

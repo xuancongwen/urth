@@ -1,0 +1,15 @@
+vnum: 1718
+name: a burrower bug
+keywords: [burrower, bug, arachnid]
+description: A burrower bug bursts out of the tunnel wall in a spray of grit.
+look: |
+  A low, armored bug with a wedge-shaped head and short powerful legs,
+  made for driving through rock. It digs fast enough to come up under
+  you, and it does. Its shell is plated like a pangolin's and grinds
+  when it moves.
+level: 26
+flags: [assist]
+silver: 25
+attack:
+  kind: blunt
+  verb: ram

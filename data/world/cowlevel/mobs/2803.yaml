@@ -1,0 +1,15 @@
+vnum: 2803
+name: a hell bovine halberdier
+keywords: [hell, bovine, halberdier, cow]
+description: A hell bovine halberdier stands in rank, great halberd at the ready.
+look: |
+  A hell bovine in a scrap-iron breastplate with a halberd so heavy its
+  haft is banded in iron. It moves in step with its neighbours and
+  swings when they swing, which is the frightening part: somebody has
+  been drilling these.
+level: 23
+flags: [assist]
+silver: 34
+attack:
+  kind: slash
+  verb: cleave

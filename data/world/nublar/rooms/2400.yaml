@@ -1,0 +1,15 @@
+vnum: 2400
+name: The Great Gates
+description: |
+  Two timber gates the height of a four-storey house stand open on either
+  side of a paved road, hung from stone pylons wrapped in iron torches
+  that nobody has ever lit. Across the top, in red and yellow letters on a
+  wooden lintel, a sign reads JURASSIC PARK. Jungle presses in against the
+  walls, wet and green and loud with insects, and somewhere far off
+  something large calls once and stops. The road runs west toward the low
+  thatched roofs of the visitor center. East, a plain doorway leads back
+  into the quiet stone halls of Urth.
+exits:
+  east: 9
+  west: 2401
+position: {x: 0, y: 0, z: 0}

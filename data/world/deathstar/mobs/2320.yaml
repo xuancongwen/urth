@@ -1,0 +1,20 @@
+vnum: 2320
+name: the Royal Guard captain
+keywords: [royal, guard, captain, crimson]
+description: The Royal Guard captain stands before the inner doors, force pike crackling.
+look: |
+  A Royal Guard taller than the rest, with a black band on the crimson
+  helmet and a force pike whose head crackles with a blue charge. He has
+  stood before these doors for longer than the station has existed, and
+  he will stand before them after you are gone.
+level: 38
+flags: [assist]
+health: 2600
+silver: 400
+armor:
+  defense: 130
+attack:
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: steady, params: { chance: 0.3 } }

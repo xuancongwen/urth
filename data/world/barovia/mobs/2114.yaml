@@ -1,0 +1,23 @@
+vnum: 2114
+name: Rahadin
+keywords: [rahadin, chamberlain, dusk, elf]
+description: Rahadin stands behind the desk, writing a name in the ledger and crossing it out.
+look: |
+  A slender dusk elf with skin the grey of ash and hair like smoke, in a
+  long black coat buttoned to the throat. He has been the chamberlain of
+  Castle Ravenloft for four hundred years, and has killed everyone who
+  ever asked him to leave. They say the screams of the people he has
+  murdered follow him everywhere, and standing near him you start to
+  hear them too. A slender scimitar lies on the desk by his hand.
+level: 32
+flags: [assist]
+health: 2200
+silver: 300
+stats: {dexterity: 16, intelligence: 14}
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

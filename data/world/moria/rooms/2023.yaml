@@ -1,0 +1,14 @@
+vnum: 2023
+name: The Bridge of Khazad-dum
+description: |
+  A slender bridge of stone without kerb or rail, fifty feet long, arches
+  over a chasm full of red light. It is so narrow that only one may cross
+  at a time. Fire leaps from the depths on either side, and the heat
+  beats on your face. This was the last defence of the dwarves against
+  any enemy who took the First Hall. Something stands on it, or will. The
+  bridge leads east to the First Hall, west back to the Second Hall, and
+  down, if you are very unlucky, into the abyss.
+exits:
+  west: 2021
+  east: 2024
+  down: 2026

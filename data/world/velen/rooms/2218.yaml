@@ -1,0 +1,10 @@
+vnum: 2218
+name: The Griffin's Crag
+description: |
+  A broken crag of rock streaked white with droppings, crowned with a
+  nest of whole branches and fence posts and a wagon wheel. The nest is
+  lined with fur and cloth, and bones are everywhere: sheep, horse, man.
+  A dead witcher lies propped against the rock, a long time dead, his
+  swords gone and his chain broken. The ridge is south.
+exits:
+  south: 2217

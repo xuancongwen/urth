@@ -1,0 +1,17 @@
+vnum: 1700
+name: a Morita Mk I rifle
+keywords: [morita, mk, rifle, gun]
+description: A stubby grey Morita rifle lies here, its magazine half full.
+look: |
+  The standard rifle of the Mobile Infantry: a squat bullpup frame of
+  grey composite with a long magazine and a short, loud barrel. It is
+  not accurate, but it fires a great many rounds very quickly, and
+  against a bug that is the only kind of accuracy that counts. The
+  stock carries a decal: I'M DOING MY PART.
+type: weapon
+level: 18
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: burst

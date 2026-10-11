@@ -1,0 +1,12 @@
+vnum: 2229
+name: The Crones' Kitchen
+description: |
+  A round chamber deep in the hill, the walls a lattice of living roots,
+  with a cauldron the size of a cart bubbling over a fire of bones. A
+  loom in the corner weaves a tapestry of real hair. Three chairs face
+  the fire. Old women's things are everywhere: shawls, spoons, sewing
+  baskets, a rocking chair, and the shoes of every child who ever went
+  into the bog alone. The tunnel is west.
+exits:
+  west: 2228
+flags: [dark]

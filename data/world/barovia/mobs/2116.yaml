@@ -1,0 +1,23 @@
+vnum: 2116
+name: Anastrasya Karelova
+keywords: [anastrasya, karelova, bride, vampire]
+description: Anastrasya Karelova lounges in the tomb, trying on jewels before a cracked mirror.
+look: |
+  The second bride, a sharp-faced woman with red hair piled high and a
+  silver circlet at her brow. She took the count's hand to rise above a
+  merchant's daughter's lot, and she has never stopped being pleased
+  with herself about it. She smiles at you the way a cat smiles at a
+  cupboard.
+level: 34
+flags: [assist]
+health: 2000
+silver: 250
+stats: {dexterity: 14, charisma: 16}
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: regen
+    params: { fraction: 0.01 }

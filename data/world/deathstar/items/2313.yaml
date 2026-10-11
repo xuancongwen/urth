@@ -1,0 +1,12 @@
+vnum: 2313
+name: a pair of gunner's gauntlets
+keywords: [gunner's, gunner, gauntlets, gloves]
+description: A pair of heavy black gauntlets lies here.
+look: |
+  Thick insulated gauntlets for working the superlaser's firing levers,
+  which run hot enough to blister. The fingertips are worn smooth.
+type: armor
+slot: hands
+level: 33
+baseline: medium
+flags: [drop]

@@ -1,0 +1,11 @@
+vnum: 2016
+name: The Arrow-slit Gallery
+description: |
+  A long gallery cut into the rock above a lower hall, its outer wall
+  pierced with narrow slits for shooting down through. The orcs use it
+  the way the dwarves meant it to be used. Black-fletched arrows lie
+  in heaps by every slit, and the floor is sticky. The stair down to
+  the armoury is south.
+exits:
+  south: 2015
+flags: [dark]

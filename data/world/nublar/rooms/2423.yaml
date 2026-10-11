@@ -1,0 +1,11 @@
+vnum: 2423
+name: The Generator Bunker
+description: |
+  A concrete bunker beneath the shed, packed with the island's backup
+  generators, every one of them silent. A breaker panel on the wall has
+  had every switch thrown off, and a handwritten sign beside it says ONE
+  AT A TIME. Pipes run off into the dark. There is a sound like breathing
+  that is not your own. The hatch is up.
+exits:
+  up: 2422
+flags: [dark]

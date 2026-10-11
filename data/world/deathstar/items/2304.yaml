@@ -1,0 +1,13 @@
+vnum: 2304
+name: a TIE pilot's flight helmet
+keywords: [tie, pilot's, pilot, flight, helmet]
+description: A black flight helmet with breathing hoses lies here.
+look: |
+  A domed black helmet with a sealed faceplate and two corrugated hoses
+  running down to a chest unit, because a TIE fighter has no life
+  support and its pilot carries his own. The Imperial crest is painted
+  on each temple.
+type: armor
+slot: head
+level: 20
+baseline: medium

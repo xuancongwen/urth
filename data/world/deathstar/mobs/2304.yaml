@@ -1,0 +1,13 @@
+vnum: 2304
+name: a protocol droid
+keywords: [protocol, droid, c-3po, 3po, threepio, golden]
+description: A golden protocol droid stands here wringing its hands.
+look: |
+  A tall gold humanoid droid with round yellow eyes and a voice that
+  never stops. It is fluent in over six million forms of communication
+  and has used all of them to say that we are doomed. It would very much
+  like you to know the odds of surviving this, and they are not good.
+level: 20
+flags: [peaceful]
+attack:
+  verb: slap

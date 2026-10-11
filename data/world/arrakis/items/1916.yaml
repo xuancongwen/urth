@@ -1,0 +1,14 @@
+vnum: 1916
+name: a Sardaukar combat harness
+keywords: [sardaukar, combat, harness, armor, armour, plate]
+description: A plain grey harness of plates lies here.
+look: |
+  Grey plates on a grey harness, no insignia, no ornament, nothing to
+  mark the wearer as anyone at all. The Sardaukar do not need to be
+  recognised. The plates are thick, and they have been hit a great
+  many times, and none of the hits got through.
+type: armor
+slot: body
+weight: 9
+level: 38
+baseline: plate

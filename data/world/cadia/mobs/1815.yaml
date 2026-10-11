@@ -1,0 +1,31 @@
+vnum: 1815
+name: Abaddon the Despoiler
+keywords: [abaddon, despoiler, warmaster, chaos, black, legion]
+description: Abaddon the Despoiler stands at the edge of the breach, watching Cadia die.
+look: |
+  The Warmaster of Chaos, first captain of the Sons of Horus, who has
+  led thirteen Black Crusades out of the Eye and has come at last to
+  the end of this one. He is enormous in Terminator plate of black and
+  gold, his topknot hanging over one shoulder, the daemon sword
+  Drach'nyen on his back and the Talon of Horus on his right hand,
+  crackling. He turns to look at you with something like interest. It
+  is the worst thing that has ever happened to you.
+level: 65
+health: 160000
+stats: {strength: 22, constitution: 20, dexterity: 15, intelligence: 16, wisdom: 14}
+silver: 2000
+armor:
+  defense: 1600
+attack:
+  kind: slash
+  verb: rake
+effects:
+  - kind: crit
+    params: { chance: 0.12, mult: 2 }
+  - kind: proc
+    params: { chance: 0.15, power: 1.2, verb: burst from the Talon's combi-bolter }
+  - kind: aura
+    params: { power: 0.1, verb: black lightning of Drach'nyen }
+  - kind: soak
+    params: { power: 0.15 }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

@@ -1,0 +1,12 @@
+vnum: 2509
+name: a hollowed-out cheese
+keywords: [hollowed, cheese, rind, wheel]
+description: The rind of a whole cheese stands here, hollow as a tent.
+look: |
+  The rind of a good farmhouse cheese, perfect on the outside and
+  entirely gone on the inside, except for a few crumbs and a rat-sized
+  doorway at the back. It is a sort of masterpiece. The innkeeper will
+  not think so.
+type: other
+weight: 1
+value: 1

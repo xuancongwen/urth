@@ -1,0 +1,14 @@
+vnum: 1819
+name: a servo-skull
+keywords: [servo-skull, servo, skull, drone]
+description: A servo-skull drifts past on humming suspensors, its lens clicking.
+look: |
+  The skull of some honoured servant of the Emperor, granted the
+  privilege of serving after death: polished, fitted with an anti-grav
+  plate, a lens, and a little vox-grille that occasionally recites
+  ammunition counts. It drifts up and down the line recording
+  everything for the Munitorum, which will never read it.
+level: 22
+flags: [peaceful, wander]
+attack:
+  verb: bump

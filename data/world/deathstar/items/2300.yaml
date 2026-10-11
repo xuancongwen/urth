@@ -1,0 +1,13 @@
+vnum: 2300
+name: a stormtrooper helmet
+keywords: [stormtrooper, helmet, helm, bucket]
+description: A white stormtrooper helmet lies here, grinning at nothing.
+look: |
+  A white plastoid helmet with a black-mouthed grille and tinted eye
+  lenses that make everything look slightly green and slightly far away.
+  The visor narrows the view a great deal, which may explain a few
+  things.
+type: armor
+slot: head
+level: 15
+baseline: medium

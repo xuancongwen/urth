@@ -1,0 +1,12 @@
+vnum: 2320
+name: The Tractor Beam Power Terminal
+description: |
+  A narrow ledge with no rail runs around a vast cylindrical shaft, so
+  deep that you cannot see the bottom, so high that you cannot see the
+  top. A wind blows up it, steady and warm. Set into the wall is the
+  terminal for the tractor beam that dragged the freighter in, a panel
+  of switches and gauges with a big lever, and a great deal of nothing
+  beside it. One careless step and you would fall for a very long time.
+  The maintenance shaft is up.
+exits:
+  up: 2319

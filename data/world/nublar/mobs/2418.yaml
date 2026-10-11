@@ -1,0 +1,13 @@
+vnum: 2418
+name: a tethered goat
+keywords: [tethered, goat, kid]
+description: A goat stands tethered to a post in the rain, bleating.
+look: |
+  A small, damp, nervous goat on a chain, put out here as an enticement
+  for the paddock's resident. It bleats at you hopefully. You have a bad
+  feeling about its prospects.
+level: 2
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: butt

@@ -1,0 +1,13 @@
+vnum: 2403
+name: The Gift Shop
+description: |
+  Racks of T-shirts, lunch boxes, plush raptors, and plastic amber key
+  rings fill a bright little shop that has not yet had a customer. A glass
+  case behind the till holds rather more practical stock: lamps, ranger
+  kit, and a rifle with a dart cartridge. The shop is safe, and priced as
+  if it knew it. The rotunda is north, and a staff door leads west to the
+  game warden's lodge.
+exits:
+  north: 2401
+  west: 2404
+flags: [safe]

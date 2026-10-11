@@ -1,0 +1,12 @@
+vnum: 2105
+name: The Burgomaster's Yard
+description: |
+  A garden gone to briars inside an iron fence, before a mansion of grey
+  stone whose windows have been boarded up from inside. The boards are
+  scored with long scratches, and so is the front door, which is braced
+  shut and has not opened to a knock in weeks. The flowerbeds have been
+  dug over, though no one planted anything. Things that used to be
+  villagers stand in the briars swaying, waiting for the door. The
+  square is west.
+exits:
+  west: 2103

@@ -1,0 +1,14 @@
+vnum: 2617
+name: a crawler-shell buckler
+keywords: [crawler, shell, buckler, shield]
+description: A small round shield of blue-black shell lies here.
+look: |
+  The hollowed shell of a makrura's claw, flattened, trimmed round, and
+  given a leather strap. It is light and ridged, and blades skid off
+  it.
+type: armor
+slot: shield
+weight: 2
+level: 9
+baseline: shield
+flags: [drop]

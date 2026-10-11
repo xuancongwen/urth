@@ -1,0 +1,19 @@
+vnum: 2211
+name: a noonwraith
+keywords: [noonwraith, wraith, bride, ghost]
+description: A noonwraith in a rotted wedding dress drifts round and round the well.
+look: |
+  A woman in a wedding gown gone grey and tattered, her face a ruin
+  behind a veil, her hair a white cloud that moves when nothing else
+  does. She walks only when the sun is at its height, round and round
+  the well where she was thrown. She splits into three when pressed, or
+  seems to, and when she strikes it is like a sudden stroke of heat.
+level: 16
+health: 520
+silver: 30
+attack:
+  kind: cold
+  verb: rake
+effects:
+  - kind: dodge
+    params: { amount: 0.08 }

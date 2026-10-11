@@ -1,0 +1,12 @@
+vnum: 2704
+name: a yellowed skull
+keywords: [yellowed, skull, bone]
+description: A yellowed human skull lies here, grinning.
+look: |
+  A skull, old and yellow, with a crack across the crown and all its
+  teeth. It has been animated recently and is not quite sure it has
+  finished. The wise man in the alcove buys them by the sack; he says
+  they make a fine ward, ground up and laid across a doorway.
+type: other
+weight: 1
+value: 10

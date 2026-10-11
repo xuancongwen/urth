@@ -1,0 +1,12 @@
+vnum: 2005
+name: The Weedy Shallows
+description: |
+  The shore gives way to knee-deep water the colour of strong tea, thick
+  with a green weed that wraps your ankles and does not want to let go.
+  The bottom is soft and full of sharp things that may be stones and
+  may be bones. Ripples run across the surface from somewhere south,
+  where the water deepens, though there is no wind at all. The causeway
+  is back north.
+exits:
+  north: 2001
+  south: 2006

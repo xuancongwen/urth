@@ -1,0 +1,18 @@
+vnum: 2412
+name: a velociraptor
+keywords: [velociraptor, raptor, dinosaur]
+description: A velociraptor crouches low, head tilted, studying you.
+look: |
+  A lean hunter the height of a man, feathered in dun and stripes, with a
+  long stiff tail and a great hooked claw on each foot that taps the
+  ground, tick, tick, while it thinks. And it does think. It never attacks
+  the same place twice, and it is never the only one.
+level: 22
+flags: [assist]
+silver: 40
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.03 }

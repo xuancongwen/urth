@@ -1,0 +1,13 @@
+vnum: 2101
+name: The Svalich Woods
+description: |
+  The pines here grow so close that their branches knit overhead, and
+  the road runs through a tunnel of needles and dripping dark. Every
+  trunk is furred with grey moss. Paw prints the size of dinner plates
+  cross the mud and go off into the trees in both directions, and
+  somewhere off to the west a wolf begins to howl and is answered from
+  the east. The mists lie north; the road goes on south toward a
+  village.
+exits:
+  north: 2100
+  south: 2102

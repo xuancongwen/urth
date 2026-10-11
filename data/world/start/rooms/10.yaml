@@ -1,0 +1,28 @@
+vnum: 10
+name: The Hall of Distant Stars
+description: |
+  The rope ladder ends on a deck plate. The walls of this hall are not
+  stone but riveted metal, cold to the touch, and through a long
+  viewport in the ceiling there are stars that no one on Urth has ever
+  named. Four hatches. North, a drop-ship ramp under a stencilled eagle
+  and the words SERVICE GUARANTEES CITIZENSHIP. East, a door of pitted
+  sand-scoured plasteel; the air seeping past it is dry enough to crack
+  your lips. South, a sliding blast door of black and grey panels that
+  hisses at nobody in particular. West, a bronze door chased with
+  skulls and a two-headed eagle, and behind it, guns. In the floor a
+  round grate glows with a flickering attract-mode light, and a voice
+  from below says something about food.
+exits:
+  up: 9
+  north: 1700
+  east: 1900
+  south: 2300
+  west: 1800
+  down: 2900
+flags: [safe]
+doors:
+  north: {name: the drop-ship ramp}
+  east: {name: the sand-scoured door}
+  south: {name: the blast door}
+  west: {name: the bronze door}
+  down: {name: the glowing grate}

@@ -1,0 +1,10 @@
+vnum: 2123
+name: The Chapel of Ravenloft
+description: |
+  A chapel that was holy once. The pews are smashed, the altar cracked
+  down the middle, and the stained-glass saint in the window has had her
+  face knocked out. Light falls through the hole in a cold grey bar.
+  Pale figures kneel in the ruined pews in a parody of prayer, and turn
+  their heads, all at once, when you come in. The hall is west.
+exits:
+  west: 2121

@@ -1,0 +1,13 @@
+vnum: 1820
+name: "a suit of 'eavy armour"
+keywords: [eavy, heavy, ork, armour, armor, plates]
+description: A suit of riveted scrap plates lies here, painted red.
+look: |
+  Plates of Chimera hull beaten flat and riveted together over a
+  leather harness, the whole thing painted red and covered in glyphs.
+  It weighs as much as you do, and it works.
+type: armor
+slot: body
+level: 35
+baseline: heavy
+flags: [drop]

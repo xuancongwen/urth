@@ -1,0 +1,23 @@
+vnum: 1810
+name: a shard of the Cadian pylon
+keywords: [shard, cadian, pylon, black, stone, relic]
+description: A splinter of seamless black stone lies here, humming.
+look: |
+  A sliver of the pylon, black and smooth as glass, cold enough to
+  sting. The sorcerer pried it out to read what was written inside, and
+  it is still trying to do what the pylons did: hold back the warp. Held,
+  it steadies the hand and quiets the mind, and the things that hide
+  from mortal eyes cannot hide from whoever holds it.
+type: armor
+slot: hold
+weight: 2
+level: 46
+value: 8000
+effects:
+  - kind: steady
+    params: { chance: 0.35 }
+  - kind: protect
+    params: { mult: 0.92 }
+  - kind: detectInvisible
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

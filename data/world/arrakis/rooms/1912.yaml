@@ -1,0 +1,13 @@
+vnum: 1912
+name: The Dry Cistern
+description: |
+  A cistern carved to hold a tribe's water, long since dry. Its walls are
+  rimed with a white crust where the last of it evaporated. People live
+  here now who are not welcome in any sietch: there are bedrolls in the
+  corners, a cold fire pit, and the smell of men who have stopped caring
+  about their stillsuits. The roost is back west; a curtain of hides hangs
+  across a passage to the east.
+exits:
+  west: 1911
+  east: 1913
+flags: [dark]

@@ -1,0 +1,20 @@
+vnum: 1925
+name: the Gom Jabbar
+keywords: [gom, jabbar, gom-jabbar, needle]
+description: A slender needle with a drop of something on its tip lies here.
+look: |
+  A needle, no longer than a finger, with a drop of meta-cyanide on its
+  point. The Bene Gesserit hold it to the neck of those they test: an
+  animal caught in a trap will chew off its leg to escape, and a human
+  will endure the pain and live. Held, it lends its holder a terrible
+  patience, and the ability to finish what has been started.
+type: armor
+slot: hold
+weight: 0
+level: 42
+value: 5000
+effects:
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.4 }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

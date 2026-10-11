@@ -1,0 +1,12 @@
+vnum: 1919
+name: The Open Erg
+description: |
+  Dunes in long ranks like the waves of a sea that has stopped moving, or
+  nearly. Out here the sand sings when the wind slides over it, a low hum
+  you feel in your teeth. There is no shade anywhere. The Fremen walk
+  without rhythm here, so as not to call anything. The spice blow is
+  north; the erg rolls on east and south.
+exits:
+  north: 1914
+  east: 1925
+  south: 1927

@@ -1,0 +1,16 @@
+vnum: 1706
+name: a warrior bug
+keywords: [warrior, bug, arachnid]
+description: A warrior bug clatters toward you on four jointed legs, mandibles working.
+look: |
+  The common soldier of the arachnid swarm: a body the size of a horse
+  balanced on four long legs that end in spikes, two more limbs up
+  front for cutting, and a head that is all jaw. Its shell is orange and
+  brown and very hard. It shrieks when it charges. It is never the only
+  one.
+level: 16
+flags: [assist]
+silver: 15
+attack:
+  kind: pierce
+  verb: stab

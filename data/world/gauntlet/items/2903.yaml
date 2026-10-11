@@ -1,0 +1,13 @@
+vnum: 2903
+name: a magic potion
+keywords: [magic, potion, flask, blue]
+description: A squat blue flask of magic potion glows faintly here.
+look: |
+  A round-bellied flask of thick blue glass, sealed with wax, that glows
+  from inside like a lamp turned low. Shake it and something in it
+  crackles. The heroes of the old levels drank these, or smashed them,
+  and everything on the screen died at once. Down here it is only a
+  potion, but a good one.
+type: other
+weight: 1
+value: 60

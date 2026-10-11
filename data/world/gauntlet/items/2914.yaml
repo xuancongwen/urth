@@ -1,0 +1,12 @@
+vnum: 2914
+name: a warrior's horned helm
+keywords: [warrior's, warrior, horned, helm, helmet]
+description: A heavy iron helm with two curved horns sits here.
+look: |
+  An iron helm in the old northern style, cheek-plates riveted on with
+  grunt-tusk rivets, crowned with two short horns that are entirely for
+  show. It fits like a bucket and turns a club like a wall.
+type: armor
+slot: head
+level: 32
+baseline: plate

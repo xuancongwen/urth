@@ -1,0 +1,27 @@
+vnum: 2404
+name: a Tyrannosaurus rex tooth
+keywords: [tyrannosaurus, rex, t-rex, trex, tooth, fang]
+description: A serrated tooth the size of a banana lies here.
+look: |
+  A tyrannosaur tooth, a foot long from root to tip, thick as your wrist
+  and serrated on both edges like a bread knife. It was not shed; it was
+  broken off in something that had the bad luck to be very tough. Held by
+  the root, it punches through anything, and it hits hardest of all when
+  the thing in front of you is already dying, as a tyrannosaur's bite
+  does.
+type: weapon
+weight: 3
+level: 40
+baseline: dagger
+value: 9000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: bite
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.4 }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

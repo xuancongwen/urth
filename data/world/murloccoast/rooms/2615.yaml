@@ -1,0 +1,13 @@
+vnum: 2615
+name: The Grotto Mouth
+description: |
+  The crack opens into a cave of wet black rock, and the daylight gives
+  out a few steps in. Water runs ankle deep across the floor and drains
+  away west into the dark, and every sound comes back three times. The
+  walls are crusted with shells pressed in by hand in patterns, more
+  and more of them the deeper you look. Something big is breathing
+  further in. The path climbs up to the headland.
+exits:
+  up: 2613
+  west: 2616
+flags: [dark]

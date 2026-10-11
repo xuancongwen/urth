@@ -1,0 +1,9 @@
+vnum: 2309
+name: Cell 2187
+description: |
+  A small white cell with a metal shelf for a bed and nothing else. The
+  door has been blasted open from outside. Scratched into the wall by
+  the shelf, in a careful hand, are the words: AREN'T YOU A LITTLE
+  SHORT. The corridor is north.
+exits:
+  north: 2308

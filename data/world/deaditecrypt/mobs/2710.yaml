@@ -1,0 +1,19 @@
+vnum: 2710
+name: the skeleton general
+keywords: [skeleton, general, bones, dead]
+description: The skeleton general stands over the war table, a shotgun slung across its back.
+look: |
+  The tallest of the dead, in a cloak of red rags and a crown of rusted
+  iron, bent over a map of the castle with a candle stub. It is planning
+  the siege, and it is not bad at it. Slung across its back, on a strap
+  of somebody's belt, is a sawed-off shotgun it took from a man who will
+  want it back.
+level: 17
+flags: [assist]
+health: 550
+silver: 100
+armor:
+  defense: 9
+attack:
+  kind: slash
+  verb: slash

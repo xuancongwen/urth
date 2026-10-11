@@ -1,0 +1,18 @@
+vnum: 1803
+name: Confessor Hallam
+keywords: [confessor, hallam, priest, ministorum, ecclesiarch]
+description: Confessor Hallam kneels at the shrine of power cells, chanting under his breath.
+look: |
+  A barrel of a man in red and white vestments over carapace armour,
+  with an eviscerator propped against the shrine where a lesser priest
+  would lean a staff. He hears confessions, says the rites over the
+  dead, and buys daemon ichor off anyone who brings it in so he can burn
+  it properly, paying in the Emperor's blessings and very good
+  chainswords. Type 'list' to see what he offers.
+level: 30
+flags: [peaceful]
+attack:
+  verb: smite
+trades:
+  - { item: 1816, silver: 400 }
+  - { item: 1815, silver: 1500, items: [1805, 1805, 1805] }

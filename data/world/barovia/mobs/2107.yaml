@@ -1,0 +1,14 @@
+vnum: 2107
+name: a zombie
+keywords: [zombie, corpse, villager, dead]
+description: A zombie in a villager's smock sways in place, groaning.
+look: |
+  A dead villager, grey and swollen, its smock caked with grave dirt and
+  its fingers worn to the bone from digging. Its jaw hangs loose. It
+  does not seem to know where it is or why, only that you are warm and
+  it is not.
+level: 15
+silver: 6
+attack:
+  kind: blunt
+  verb: claw

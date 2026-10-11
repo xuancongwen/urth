@@ -1,0 +1,18 @@
+vnum: 2913
+name: Big Grunt
+keywords: [big, chief, warlord]
+description: Big Grunt sits on an upturned hut, picking his tusks with a great double axe.
+look: |
+  A grunt twice the size of the others and three times as ugly, wearing
+  the shield of some dead hero as a hat. He has the warrior's axe, and
+  he has never worked out how to throw it so it comes back, so he uses
+  it to pick his teeth and to hit people. The second he does very well.
+level: 31
+flags: [assist]
+health: 3000
+silver: 200
+armor:
+  defense: 20
+attack:
+  kind: blunt
+  verb: club

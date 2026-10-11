@@ -1,0 +1,16 @@
+vnum: 2833
+name: a king's guard halberd
+keywords: [king's, kings, guard, halberd, polearm]
+description: A halberd with a gilt crescent blade lies here.
+look: |
+  The halberd of the Cow King's own guard, its crescent blade washed
+  with gilt, a little crown stamped where the head meets the haft.
+type: weapon
+weight: 10
+level: 27
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

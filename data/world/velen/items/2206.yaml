@@ -1,0 +1,12 @@
+vnum: 2206
+name: a storm lantern
+keywords: [storm, lantern, lamp, light]
+description: A tin storm lantern lies here, its glass smoky.
+look: |
+  A tin lantern with a glass chimney and a wire guard, the kind
+  ferrymen hang on their prows. It burns tallow and smells of it, and
+  throws a warm yellow circle about as wide as you are brave.
+type: light
+weight: 2
+burn: 1500
+value: 30

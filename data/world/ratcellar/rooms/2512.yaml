@@ -1,0 +1,14 @@
+vnum: 2512
+name: The Gnawed Tunnels
+description: |
+  The passage here was not built and was not dug. It was chewed. The
+  walls are ridged all over with the marks of teeth, and in places the
+  teeth have gone through old foundations, old coffins, and an old
+  strongbox, empty. A warm draught blows from the east, and with it a
+  sound like a great many small things breathing at once. The warren
+  is west, a side burrow drops away south, and the tunnel ends east.
+exits:
+  west: 2511
+  south: 2513
+  east: 2514
+flags: [dark]

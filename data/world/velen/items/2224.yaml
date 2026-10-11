@@ -1,0 +1,15 @@
+vnum: 2224
+name: a Wild Hunt skull helm
+keywords: [wild, hunt, skull, helm, helmet]
+description: A black helm shaped like a horned skull lies here.
+look: |
+  The helm of a rider of the Wild Hunt, black plate shaped like the
+  skull of some horned beast, with a slit for the eyes that shows only
+  darkness from outside. Wearing it, you can hear the hounds, very far
+  away, and they can hear you.
+type: armor
+slot: head
+weight: 4
+level: 35
+baseline: plate
+flags: [drop]

@@ -1,0 +1,13 @@
+vnum: 2521
+name: a studded leather vest
+keywords: [studded, leather, vest]
+description: A leather vest studded with rusty rivets lies here.
+look: |
+  A vest of boiled leather set all over with iron studs, half of them
+  rusted to orange stains. A sellsword's, most likely, pawned for a
+  drink and stored where pawned things go.
+type: armor
+slot: body
+level: 5
+baseline: medium
+flags: [drop]

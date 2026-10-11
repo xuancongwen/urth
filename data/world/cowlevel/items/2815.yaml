@@ -1,0 +1,17 @@
+vnum: 2815
+name: a hayfork
+keywords: [hay, hayfork, fork, pitchfork]
+description: A long iron hayfork lies here, its tines bent.
+look: |
+  A three-tined hayfork on a long ash handle. The farmer who owned it
+  got one good thrust in. The bovine who took it from him kept it, which
+  says something.
+type: weapon
+weight: 6
+level: 21
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: fork

@@ -1,0 +1,33 @@
+vnum: 2024
+name: Durin's axe
+keywords: [durin's, durins, durin, axe]
+description: A great axe of dark steel and mithril lies here, untouched by the fire.
+look: |
+  The axe of Durin the Deathless, father of the Longbeards, who woke
+  under Mount Gundabad and walked to the Mirrormere and looked in and
+  saw a crown of stars. It passed from king to king of his line, down
+  to Durin the Sixth, who was slain by the thing in the deep, and it
+  was lost with him. Its blade is dark steel edged with mithril, and
+  the seven stars of Durin are set in its cheek. It does not belong to
+  you. Carry it well.
+type: weapon
+weight: 6
+level: 50
+baseline: axe
+value: 20000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2.0 }
+  - kind: critMult
+    params: { amount: 0.4 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }
+  - kind: soak
+    params: { power: 0.08 }

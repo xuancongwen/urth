@@ -1,0 +1,14 @@
+vnum: 2016
+name: a war-helm of the Dwarrowdelf
+keywords: [war-helm, war, helm, dwarrowdelf, dwarf]
+description: A dwarf war-helm with a mask of steel lies here.
+look: |
+  A tall helm with a face-mask of steel worked into a bearded face,
+  made in Moria before the fall. The lining is long gone; the steel
+  has not rusted at all.
+type: armor
+slot: head
+weight: 5
+level: 28
+baseline: plate
+flags: [drop]

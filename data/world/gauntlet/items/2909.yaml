@@ -1,0 +1,25 @@
+vnum: 2909
+name: Thor's axe
+keywords: [thor's, thor, axe, battleaxe, warrior]
+description: A great double-bitted axe with a knotwork haft lies here.
+look: |
+  A broad two-headed axe of dark iron, its haft wound in leather and
+  carved with knotwork worn shallow by one enormous hand. Thor the
+  Warrior carried it through more levels than anyone has counted, and
+  threw it, and it always came back. The Big Grunt took it off him on a
+  day the warrior was about to die. It hits like a falling wall and it
+  makes its wielder hard to put down.
+type: weapon
+weight: 12
+level: 31
+baseline: axe
+value: 3200
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: "hurled axe, spinning back to your hand" }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

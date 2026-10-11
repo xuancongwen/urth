@@ -1,0 +1,17 @@
+vnum: 2119
+name: a Barovian boar spear
+keywords: [barovian, boar, spear]
+description: A heavy spear with a crossbar under its head lies here.
+look: |
+  A hunting spear with a broad leaf-shaped head and a stout iron
+  crossbar to stop a charging boar from running up the shaft. Barovians
+  use it for things bigger than boars.
+type: weapon
+weight: 6
+level: 23
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

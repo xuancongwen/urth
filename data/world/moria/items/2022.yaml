@@ -1,0 +1,30 @@
+vnum: 2022
+name: Orcrist
+keywords: [orcrist, goblin-cleaver, biter, sword, elven, blade]
+description: A slender elven sword lies here, glowing a faint blue at the edge.
+look: |
+  The Goblin-cleaver, sister-blade to Glamdring, made in Gondolin and
+  found in the same troll-hoard. It was Thorin Oakenshield's, and after
+  him it lay on his tomb in the Lonely Mountain, and Balin's company
+  carried it south for luck when they went to win back Moria. The luck
+  ran out. Like Sting and Glamdring, it glows a cold blue when orcs are
+  near, so that none of them can creep up on its bearer; the goblins
+  call it Biter and run from it.
+type: weapon
+weight: 3
+level: 22
+baseline: standard
+value: 3000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: detectHidden
+  - kind: crit
+    params: { chance: 0.06, mult: 2.0 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

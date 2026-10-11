@@ -1,0 +1,12 @@
+vnum: 2329
+name: The Trench
+description: |
+  A canyon cut into the station's skin, deep and straight and dark, its
+  walls studded with gun towers and pipes and little lights. It runs on
+  and on toward a vanishing point, and the turbolasers along its rim
+  keep up a steady fire at nothing you can see. It is a very bad place
+  to be if you are in a hurry and someone is behind you. The battery is
+  west, and the trench goes on east.
+exits:
+  east: 2330
+  west: 2328

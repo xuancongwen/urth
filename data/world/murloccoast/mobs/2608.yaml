@@ -1,0 +1,16 @@
+vnum: 2608
+name: a makrura snapclaw
+keywords: [makrura, snapclaw, crawler, lobster]
+description: A makrura snapclaw rears up among the rocks, claws clacking.
+look: |
+  A crawler the size of a pony: a lobster's armored body on a crab's
+  many legs, with a face of feelers and little black eyes on stalks and
+  two great claws held up like a boxer's fists. It is not hungry. It is
+  just angry, all the time, at everything.
+level: 9
+silver: 4
+armor:
+  defense: 5
+attack:
+  kind: claw
+  verb: pinch

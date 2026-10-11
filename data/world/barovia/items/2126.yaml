@@ -1,0 +1,13 @@
+vnum: 2126
+name: a rotting livery tabard
+keywords: [rotting, livery, tabard, surcoat]
+description: A mouldering red tabard with a black crest lies here.
+look: |
+  A guardsman's tabard in the red and black of the house of von
+  Zarovich, rotten through and stiff with old blood. It still keeps off
+  a blow, somehow, as if the house it serves will not allow it to fail.
+type: armor
+slot: body
+weight: 2
+level: 17
+baseline: cloth

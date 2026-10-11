@@ -1,0 +1,13 @@
+vnum: 2502
+name: The Wine Racks
+description: |
+  Racks of dark wood run from floor to ceiling, a bottle in every cell,
+  and every bottle furred with grey dust except where small feet have
+  run along the necks. A good number lie smashed on the flags below,
+  and the smell is of spilled claret and wet fur. The innkeeper keeps
+  his good vintage down here somewhere, if the rats have left him any.
+  The aisle runs east to the broken casks; the main cellar is south.
+exits:
+  south: 2501
+  east: 2503
+flags: [dark]

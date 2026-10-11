@@ -1,0 +1,19 @@
+vnum: 2607
+name: a murloc tiderunner
+keywords: [murloc, tiderunner, runner]
+description: A murloc tiderunner darts through the water like a fish.
+look: |
+  A sleek blue-green murloc with long webbed feet and fins along its
+  forearms, built for the water rather than the beach. It moves in
+  bursts, and between the bursts you lose track of it. It carries a
+  barbed spear and is very good with it.
+level: 11
+flags: [assist]
+silver: 10
+stats: {dexterity: 15}
+attack:
+  kind: pierce
+  verb: lunge
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

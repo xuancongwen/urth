@@ -1,0 +1,14 @@
+vnum: 2214
+name: a Temerian gambeson
+keywords: [temerian, gambeson, padded, jacket]
+description: A padded blue gambeson stitched with lilies lies here.
+look: |
+  A quilted jacket of blue linen stuffed with wool, the lilies of
+  Temeria stitched on the breast. Temeria is gone; the gambeson is
+  still warm. The innkeeper takes them off dead soldiers' widows for a
+  fair price and sells them on for a better one.
+type: armor
+slot: body
+weight: 4
+level: 11
+baseline: medium

@@ -1,0 +1,15 @@
+vnum: 2712
+name: a notched skeleton sword
+keywords: [notched, skeleton, sword, blade]
+description: A notched and tarnished sword lies here.
+look: |
+  A plain soldier's sword, tarnished black, its edge notched in a dozen
+  places from a dozen wars. The dead do not maintain their weapons, but
+  they do not stop using them either.
+type: weapon
+level: 14
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

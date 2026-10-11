@@ -1,0 +1,14 @@
+vnum: 2106
+name: Church Lane
+description: |
+  A narrow lane runs down from the square between leaning houses, past a
+  butcher's shop with nothing hanging in it. East, at the top of a short
+  rise, a small stone church squats behind a low wall, its bell tower
+  crooked and its windows lit by candles. From under the church floor,
+  faint but unmistakable, comes the sound of someone screaming. Nobody
+  on the lane seems to hear it. The square is north; the lane goes on
+  south to the edge of the village.
+exits:
+  north: 2103
+  east: 2107
+  south: 2108

@@ -1,0 +1,15 @@
+vnum: 2202
+name: the Bloody Baron
+keywords: [bloody, baron, phillip, strenger]
+description: The Bloody Baron sits at his high table, a cup in one fist and a scowl in the other.
+look: |
+  Phillip Strenger, lord of Crow's Perch, a bear of a man with a
+  bristling beard, a fur mantle, and a face red from wine and temper.
+  He is drinking because his wife and daughter are gone, and his wife
+  and daughter are gone because of the drinking, and he knows it, and
+  it does not help. He is courteous to guests. He is less courteous to
+  questions about his family.
+level: 25
+flags: [peaceful]
+attack:
+  verb: punch

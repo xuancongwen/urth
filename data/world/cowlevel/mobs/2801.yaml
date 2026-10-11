@@ -1,0 +1,15 @@
+vnum: 2801
+name: a hell bovine archer
+keywords: [hell, bovine, archer, cow]
+description: A hell bovine archer nocks an arrow the length of a spear.
+look: |
+  A lean, rangy hell bovine with a quiver of arrows on its back and a
+  longbow of horn and oak in its hands. It draws with a grunt, aims with
+  one eye shut, and does not appear to need the other. The herd keeps it
+  behind the halberds, chewing thoughtfully.
+level: 21
+flags: [assist]
+silver: 28
+attack:
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,15 @@
+vnum: 2932
+name: a bearded hand axe
+keywords: [bearded, hand, axe]
+description: A bearded hand axe lies here.
+look: |
+  A short-hafted axe with a hooked lower edge, good for pulling a
+  shield down as well as splitting what is behind it.
+type: weapon
+level: 31
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

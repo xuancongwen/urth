@@ -1,0 +1,12 @@
+vnum: 2904
+name: Level 1, the Exit
+description: |
+  The maze ends at a square of floor painted in faded letters: EXIT.
+  In the middle of it a shaft drops away into the dark, with iron rungs
+  set in its side, and a cold wind comes up it smelling of smoke and
+  wet clay. Faint, from somewhere below, comes a sound like a great many
+  small clubs being tapped against a great many small palms. The maze
+  is south.
+exits:
+  south: 2901
+  down: 2905

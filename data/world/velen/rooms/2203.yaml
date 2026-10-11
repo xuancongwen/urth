@@ -1,0 +1,11 @@
+vnum: 2203
+name: The Track to Crow's Perch
+description: |
+  A rutted track climbing a bare hill between stumps, the trees here long
+  since cut for palisades. Pikes along the verge carry the Baron's colours,
+  red and gold gone brown with rain, and one or two carry the heads of
+  men who did not respect them. The keep looms at the top to the west.
+  The crossroads are back east.
+exits:
+  east: 2200
+  west: 2204

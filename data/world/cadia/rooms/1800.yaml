@@ -1,0 +1,15 @@
+vnum: 1800
+name: The Trench Mouth
+description: |
+  The door from the stair opens onto duckboards laid over mud the colour
+  of old tea, and the sky above the trench walls is wrong: a bruise of
+  purple and red that takes up half of heaven and seems to be looking
+  down. The Eye of Terror. Somewhere west, guns the size of houses are
+  firing, and every few seconds the mud shivers. A stencilled board on
+  a post reads CADIA STANDS, and someone has added underneath, in chalk,
+  FOR NOW. The stair is back east; the trench runs west.
+exits:
+  east: 10
+  west: 1801
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

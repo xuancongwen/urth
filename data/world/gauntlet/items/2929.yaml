@@ -1,0 +1,15 @@
+vnum: 2929
+name: a spiked war club
+keywords: [spiked, war, club]
+description: A knobbled war club studded with iron spikes lies here.
+look: |
+  A grunt's club, or one very like it: a length of hard root with
+  iron nails driven through the head and bent over. Crude. Effective.
+type: weapon
+level: 30
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

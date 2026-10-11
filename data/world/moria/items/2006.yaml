@@ -1,0 +1,17 @@
+vnum: 2006
+name: a dwarf-forged battle axe
+keywords: [dwarf-forged, dwarf, battle, axe]
+description: A broad-bladed dwarf axe lies here, its edge bright.
+look: |
+  A single bearded blade on a haft of iron-shod ash, the head forged
+  at the camp's own anvil from orc iron melted and folded until the
+  slag gave up. Baruk Khazad, says the rune on the cheek: axes of the
+  dwarves.
+type: weapon
+weight: 6
+level: 20
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew

@@ -1,0 +1,13 @@
+vnum: 1719
+name: The Throat of the Hole
+description: |
+  The bottom of the slope, where the hole narrows into a tunnel. The
+  walls are ribbed and wet, smoothed by the passage of a great many
+  bodies with a great many legs. There is no light down here at all
+  except what you brought. The clicking from above is louder now, and
+  it comes from everywhere. The slope climbs up to the surface; the
+  tunnel runs north.
+exits:
+  up: 1715
+  north: 1720
+flags: [dark]

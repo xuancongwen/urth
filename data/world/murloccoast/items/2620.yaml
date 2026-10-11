@@ -1,0 +1,13 @@
+vnum: 2620
+name: a pair of sharkskin leggings
+keywords: [sharkskin, leggings, legs]
+description: A pair of grey sharkskin leggings lies here.
+look: |
+  Close-fitting leggings of sharkskin, tough enough to wade through a
+  reef in. The seams are tarred.
+type: armor
+slot: legs
+weight: 2
+level: 10
+baseline: light
+flags: [drop]

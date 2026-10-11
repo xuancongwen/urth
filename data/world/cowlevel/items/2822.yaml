@@ -1,0 +1,13 @@
+vnum: 2822
+name: a pair of bovine plate greaves
+keywords: [bovine, plate, greaves, legs]
+description: A pair of heavy plate greaves lies here.
+look: |
+  Plate greaves shaped for a leg that bends the wrong way at the bottom.
+  They have been beaten more or less straight.
+type: armor
+slot: legs
+weight: 8
+level: 23
+baseline: plate
+flags: [drop]

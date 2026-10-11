@@ -1,0 +1,12 @@
+vnum: 2025
+name: a torn page from the Book of Mazarbul
+keywords: [torn, page, book, mazarbul, leaf]
+description: A torn and blood-stained page of runes lies here.
+look: |
+  A leaf torn from the Book of Mazarbul, stained dark and burned at one
+  corner. Most of it is illegible. You can make out the end: drums,
+  drums in the deep. They are coming. Somebody at the camp outside the
+  West-gate would give a great deal to read it.
+type: other
+weight: 0
+flags: [quest]

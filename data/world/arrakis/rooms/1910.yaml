@@ -1,0 +1,13 @@
+vnum: 1910
+name: The Old Cave Passage
+description: |
+  An old passage the sietch stopped using, for reasons it does not
+  discuss. There is no light at all. Your footsteps come back to you
+  wrong, a little late, as if something were walking just behind you to
+  the same rhythm. The walls are scored with marks that might be tally
+  counts, or claw marks, or both. The outer hall is back south; the
+  passage climbs north into the dark.
+exits:
+  south: 1901
+  north: 1911
+flags: [dark]

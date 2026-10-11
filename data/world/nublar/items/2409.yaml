@@ -1,0 +1,17 @@
+vnum: 2409
+name: a tranquilizer rifle
+keywords: [tranquilizer, tranq, dart, rifle, gun]
+description: A bolt-action rifle with a fat dart barrel lies here.
+look: |
+  A compressed-gas rifle with a long barrel and a scope, loaded with a
+  dart the size of a cigar. The label on the stock gives dosages by
+  animal, from compsognathus at the top down to tyrannosaur at the bottom,
+  where someone has written: run.
+type: weapon
+weight: 4
+level: 14
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: dart

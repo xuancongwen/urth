@@ -1,0 +1,11 @@
+vnum: 2715
+name: a rusted mail coif
+keywords: [rusted, mail, coif, hood]
+description: A hood of rusted chain mail lies here.
+look: |
+  A hood of riveted mail, rusted orange and stiff, with a skull's worth
+  of dust still inside it. Give it a shake first.
+type: armor
+slot: head
+level: 15
+baseline: medium

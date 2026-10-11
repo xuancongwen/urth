@@ -1,0 +1,10 @@
+vnum: 2414
+name: The Brachiosaur Meadow
+description: |
+  A wide sunlit meadow with one enormous tree standing alone in the middle
+  of it, its lower branches stripped bare to a height of forty feet. The
+  grass is flattened in dinner-plate footprints you could bathe in. It is
+  very quiet, and very peaceful, and you find you have taken your hat off
+  without meaning to. The river is south.
+exits:
+  south: 2413

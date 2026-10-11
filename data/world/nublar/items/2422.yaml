@@ -1,0 +1,17 @@
+vnum: 2422
+name: a snapped fence post
+keywords: [snapped, fence, post, concrete, club]
+description: A snapped length of concrete fence post lies here, cables trailing.
+look: |
+  A length of reinforced concrete fence post, snapped at both ends,
+  trailing steel cable. It weighs as much as a person, and a person who
+  can swing it can swing it at anything on the island.
+type: weapon
+weight: 12
+level: 40
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: crush

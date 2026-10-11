@@ -1,0 +1,13 @@
+vnum: 1701
+name: a suit of Mobile Infantry body armor
+keywords: [mobile, infantry, mi, body, armor, armour, vest]
+description: A grey set of trooper's body armor lies here, the straps undone.
+look: |
+  Ceramic plates in a grey padded vest, cut to leave the arms free for
+  shooting. It will stop a rifle round. It will not stop a warrior bug,
+  but the recruiting films do not say that, and neither does anyone at
+  the fire base.
+type: armor
+slot: body
+level: 16
+baseline: medium

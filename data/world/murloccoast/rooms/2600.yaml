@@ -1,0 +1,13 @@
+vnum: 2600
+name: The Dune Path
+description: |
+  The cart track out of the wheat fields gives up here and becomes two
+  ruts in pale sand. Marram grass hisses on the dunes on either side,
+  and the wind comes off the sea with salt in it and something else,
+  something like a fish market left out in the sun. Far off to the
+  west, under the gulls, a high gargling chorus rises and falls. The
+  wheat fields are east. The path runs west into the dunes.
+exits:
+  east: 1411
+  west: 2601
+position: {x: 0, y: 0, z: 0}

@@ -1,0 +1,11 @@
+vnum: 2222
+name: The Leshen's Grove
+description: |
+  A clearing ringed by standing stones, with one great dead oak at its
+  heart, its trunk hung with bones, its roots wrapped around the bones
+  of something else. Crows sit in every branch and watch you with the
+  same attention, as if through one pair of eyes. The ground is soft and
+  warm. This is the wood's heart, and the wood knows you are in it. The
+  way out is south.
+exits:
+  south: 2221

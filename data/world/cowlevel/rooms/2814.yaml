@@ -1,0 +1,10 @@
+vnum: 2814
+name: The Barn
+description: |
+  A tall red barn, the paint blistered by the heat from the farmhouse.
+  Inside, the stalls have been kicked to kindling and the hayloft serves
+  as a barracks: bedrolls of cowhide, which is a thought you would
+  rather not finish, and a whetstone worn into a saddle shape from long
+  use on halberd blades. The burning farmhouse is north.
+exits:
+  north: 2804

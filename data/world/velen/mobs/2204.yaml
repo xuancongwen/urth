@@ -1,0 +1,15 @@
+vnum: 2204
+name: a drowner
+keywords: [drowner, drowned]
+description: A drowner hunches in the shallows, gills fluttering.
+look: |
+  A thing that was a man once, before the river had him: grey-green and
+  bloated, with a fish's slack mouth full of needle teeth, webbed claws,
+  and eyes like boiled eggs. It moves in short wet lunges, and it never
+  comes alone, because the river never takes just one.
+level: 6
+flags: [assist]
+silver: 4
+attack:
+  kind: claw
+  verb: claw

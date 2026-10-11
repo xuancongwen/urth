@@ -1,0 +1,16 @@
+vnum: 1712
+name: a Morita Mk III assault rifle
+keywords: [morita, mk, iii, assault, rifle, gun]
+description: A heavy Morita with an underslung launcher tube lies here.
+look: |
+  The improved Morita: a longer barrel, a bigger magazine, a launcher
+  tube under the barrel, and a sight that actually works. The
+  quartermaster will not issue them to new troopers, on the grounds that
+  new troopers do not live long enough to be worth one.
+type: weapon
+level: 28
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: burst

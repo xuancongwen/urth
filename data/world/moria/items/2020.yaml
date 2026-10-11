@@ -1,0 +1,28 @@
+vnum: 2020
+name: a mithril shirt of the Dwarrowdelf
+keywords: [mithril, shirt, coat, mail, dwarrowdelf, true-silver]
+description: A shirt of silver rings lies here, shining like moonlight on still water.
+look: |
+  A coat of mail made in Moria in the days of its glory, of rings of
+  true-silver so fine and close that it pours over your hand like water.
+  It weighs about as much as a linen shirt. It was a dwarf-prince's,
+  and he went down into the lake wearing it, and the lake gave the
+  shirt back and kept him. Nothing short of a troll's spear will trouble
+  you in it, and even that will only knock the wind out of you.
+type: armor
+slot: body
+weight: 1
+level: 30
+baseline: light
+value: 5000
+rarity: rare
+armor:
+  defense: 28
+  spread: 0.1
+effects:
+  - kind: soak
+    params: { power: 0.12 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

@@ -1,0 +1,15 @@
+vnum: 2216
+name: a bandit's hatchet
+keywords: [bandit's, bandit, hatchet, axe]
+description: A notched woodsman's hatchet lies here.
+look: |
+  A woodsman's hatchet, short-hafted and notched along the edge, that
+  has split more doors than logs since its owner gave up honest work.
+type: weapon
+weight: 3
+level: 14
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

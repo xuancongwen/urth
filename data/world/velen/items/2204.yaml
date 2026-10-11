@@ -1,0 +1,24 @@
+vnum: 2204
+name: the Crones' rune
+keywords: [crones', crones, rune, stone, ladies]
+description: A flat black stone carved with a rune lies here, and the air around it is cold.
+look: |
+  A flat stone the size of a child's hand, black and smooth as if it had
+  been held for a hundred years, carved with a single rune that does not
+  stay the same shape while you look at it. The Ladies of the Wood kept
+  it by the cauldron. Held, it whispers. Things near its bearer wither
+  and rot, and what they lose, the bearer gains.
+type: armor
+slot: hold
+weight: 1
+level: 36
+value: 9000
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: creeping rot }
+  - kind: leech
+    params: { fraction: 0.08 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

@@ -1,0 +1,12 @@
+vnum: 1805
+name: a vial of daemon ichor
+keywords: [vial, daemon, demon, ichor, blood]
+description: A stoppered vial of smoking black ichor lies here.
+look: |
+  The blood of a daemon, black and faintly luminous, sealed in a glass
+  vial that frosts on the outside and is hot to the touch. It moves
+  against the glass when you are not looking at it. The Ministorum
+  would very much like it burned, and will pay well to do the burning.
+type: other
+weight: 1
+value: 60

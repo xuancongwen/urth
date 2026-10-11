@@ -1,0 +1,13 @@
+vnum: 2831
+name: a pair of bovine plate sabatons
+keywords: [bovine, plate, sabatons, boots]
+description: A pair of heavy plate sabatons lies here.
+look: |
+  Plate sabatons with cloven toes, refitted for feet by somebody with a
+  hammer and a great deal of patience.
+type: armor
+slot: feet
+weight: 5
+level: 26
+baseline: plate
+flags: [drop]

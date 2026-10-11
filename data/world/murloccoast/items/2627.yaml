@@ -1,0 +1,17 @@
+vnum: 2627
+name: a whaler's harpoon
+keywords: [whaler's, whaler, harpoon]
+description: A heavy harpoon with a toggled iron head lies here.
+look: |
+  A thick oak shaft and a head of iron with a toggle that turns
+  sideways once it is in. A ring at the butt once took a line. It is
+  made to hold a whale. It holds smaller things very well.
+type: weapon
+weight: 6
+level: 13
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: harpoon

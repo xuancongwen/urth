@@ -1,0 +1,12 @@
+vnum: 2322
+name: a smuggler's armoured vest
+keywords: [smuggler's, smuggler, armoured, armored, vest]
+description: A battered armoured vest with too many pockets lies here.
+look: |
+  A spacer's vest with flexible plates sewn into the lining and a pocket
+  for everything, including several things that are nobody's business.
+  It has clearly been shot at, and it has clearly worked.
+type: armor
+slot: body
+level: 18
+baseline: medium

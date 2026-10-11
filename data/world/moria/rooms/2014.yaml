@@ -1,0 +1,13 @@
+vnum: 2014
+name: The Twenty-first Hall of the North End
+description: |
+  A hall so large that your light reaches neither wall nor roof, held up
+  by a forest of pillars carved like trees of stone. High in the east
+  wall a slanting window lets in a pale shaft of daylight, and in it
+  the dust turns and glitters. Without it you would believe there was
+  no such thing as day. A crack runs across the floor to the south,
+  the hall goes on east under a doorway, and the arches are west.
+exits:
+  west: 2011
+  east: 2017
+  south: 2018

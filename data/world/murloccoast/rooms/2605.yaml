@@ -1,0 +1,13 @@
+vnum: 2605
+name: Shell Beach
+description: |
+  Here the sand is half shells, white and pink and crunching underfoot,
+  heaped into drifts by the tide. Someone has lined a few of the
+  prettiest along a rock in a careful row, the way a child would. Murloc
+  spear points lie broken among them. South, the beach breaks up into
+  rocks and pools. East is the tide line, and west the smoke of a
+  murloc village rises from behind a sandbar.
+exits:
+  east: 2604
+  south: 2606
+  west: 2607

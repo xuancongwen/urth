@@ -1,0 +1,14 @@
+vnum: 2614
+name: a cork-float belt
+keywords: [cork, float, belt]
+description: A belt strung with cork floats lies here.
+look: |
+  A wide belt of tarred canvas with a row of cork floats sewn along it,
+  worn by fishermen who cannot swim, which is most of them. It turns a
+  blade badly and a wave well.
+type: armor
+slot: belt
+weight: 1
+level: 8
+baseline: light
+flags: [drop]

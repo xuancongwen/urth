@@ -1,0 +1,12 @@
+vnum: 2952
+name: a pair of plate boots
+keywords: [plate, boots]
+description: A pair of steel plate boots stands here.
+look: |
+  Steel boots with articulated toes and a high cuff, heavy enough to
+  slow you down and worth it on the last levels.
+type: armor
+slot: feet
+level: 37
+baseline: plate
+flags: [drop]

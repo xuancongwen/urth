@@ -1,0 +1,11 @@
+vnum: 2303
+name: The Bay Control Room
+description: |
+  A narrow control room above the docking bay, all consoles and a long
+  slanted window looking down on the freighter. A coffee-coloured stain
+  spreads across one console where somebody left a cup when the alarm
+  went off. A comm panel blinks with a call nobody has answered: a
+  supervisor somewhere wants to know why a trooper is not at his post. A
+  turbolift shaft goes back down to the bay.
+exits:
+  down: 2304

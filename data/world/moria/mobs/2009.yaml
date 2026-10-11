@@ -1,0 +1,14 @@
+vnum: 2009
+name: an orc archer
+keywords: [orc, archer, bowman]
+description: An orc archer squints down an arrow at you from the shadows.
+look: |
+  A hunched orc in a leather jerkin, a quiver of black-fletched arrows
+  on its hip and a horn bow in its fist. It does not like to fight
+  close, and it does not like daylight, and it does not like you.
+level: 18
+flags: [assist]
+silver: 18
+attack:
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,14 @@
+vnum: 2506
+name: a ratcatcher's leather apron
+keywords: [ratcatcher, ratcatcher's, leather, apron]
+description: A heavy leather apron, much scratched, lies here.
+look: |
+  A thick cowhide apron that hangs from neck to shin, its lower half
+  scored all over with the fine parallel scratches of teeth that never
+  got through. Old Nettle keeps a stack of them, and her boy at the
+  counter hands one over for rat tails, since tails are proof of work.
+type: armor
+slot: body
+weight: 4
+level: 3
+baseline: light

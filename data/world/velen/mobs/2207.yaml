@@ -1,0 +1,15 @@
+vnum: 2207
+name: a ghoul
+keywords: [ghoul, corpse-eater]
+description: A ghoul snuffles along a grave trench on all fours.
+look: |
+  A lean grey thing the size of a man, shaped like one gone wrong, with
+  a hairless hide, long limbs, and a jaw that opens far too wide. It
+  follows the armies and eats what they leave. Here, they left a great
+  deal, and it has grown fat and confident on it.
+level: 12
+flags: [assist]
+silver: 8
+attack:
+  kind: bite
+  verb: bite

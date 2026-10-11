@@ -1,0 +1,13 @@
+vnum: 2820
+name: a bovine plate helm
+keywords: [bovine, plate, helm, helmet]
+description: A plate helm with two holes for horns lies here.
+look: |
+  A great helm of hammered iron with two holes cut in the crown for
+  horns. On a human head they let in the rain.
+type: armor
+slot: head
+weight: 4
+level: 22
+baseline: plate
+flags: [drop]

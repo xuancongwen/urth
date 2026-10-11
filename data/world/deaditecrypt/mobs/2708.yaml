@@ -1,0 +1,22 @@
+vnum: 2708
+name: the Pit witch
+keywords: [pit, witch, hag, crone]
+description: The Pit witch crouches by her green fire, cackling over her treasures.
+look: |
+  A withered hag with long grey hair matted with mud, eyes that shine
+  green in the firelight, and fingers like roots. She has lived at the
+  bottom of the pit since before the castle was built, and she has
+  collected things that fell in: rings, swords, men. The latest of those
+  things is a chainsaw. She is very attached to it.
+level: 18
+flags: [assist]
+health: 750
+silver: 120
+armor:
+  defense: 10
+attack:
+  kind: slash
+  verb: rake
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }

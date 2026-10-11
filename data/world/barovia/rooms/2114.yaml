@@ -1,0 +1,12 @@
+vnum: 2114
+name: The Trail by Tser Falls
+description: |
+  A narrow trail climbs over wet rock beside a waterfall that drowns
+  every other sound. The spray soaks you through in a moment. Someone
+  has strung a rope along the cliff as a handrail, and someone else has
+  cut it, neatly, and left the end where you would grab for it. The
+  encampment is east, and the trail goes on west to a hollow above the
+  falls.
+exits:
+  east: 2112
+  west: 2115

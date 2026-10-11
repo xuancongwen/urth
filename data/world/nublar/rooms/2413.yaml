@@ -1,0 +1,11 @@
+vnum: 2413
+name: The River Shallows
+description: |
+  The river runs wide and slow over gravel here, knee-deep and warm. Reeds
+  grow thick on both banks, flattened in broad paths where heavy animals
+  come down to drink. Crested heads rise above the reeds now and then and
+  honk, and the sound rolls away down the valley. North, the trees open on
+  a sunlit meadow. The bridge is south.
+exits:
+  north: 2414
+  south: 2412

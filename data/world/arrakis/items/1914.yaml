@@ -1,0 +1,17 @@
+vnum: 1914
+name: a maula pistol
+keywords: [maula, pistol, gun]
+description: A spring-loaded maula pistol lies here.
+look: |
+  A crude spring-gun that throws poisoned darts. The Fremen do not
+  like them; renegades do not care what the Fremen like. It is quiet,
+  it never needs a power cell, and in the dark it is very hard to see
+  coming.
+type: weapon
+weight: 1
+level: 28
+baseline: standard
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,11 @@
+vnum: 2428
+name: The Tour Road, the Washed-out Bend
+description: |
+  The road bends hard through a cutting, its surface broken and washed out
+  by the storm, the guide rail torn up and twisted. A jeep's side mirror
+  lies in the mud, its glass unbroken, still bearing its little printed
+  warning: OBJECTS IN MIRROR ARE CLOSER THAN THEY APPEAR. It has never
+  been more correct. The road runs east, and west down to the river.
+exits:
+  east: 2425
+  west: 2429

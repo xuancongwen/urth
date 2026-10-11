@@ -1,0 +1,17 @@
+vnum: 2630
+name: a whaler's flensing axe
+keywords: [whaler's, whaler, flensing, axe]
+description: A long-hafted axe with a broad curved blade lies here.
+look: |
+  A whaling ship's flensing blade, made for stripping blubber in long
+  sheets: a broad, curved edge on a long haft. Nobody should be
+  allowed to use it on anything that is still moving.
+type: weapon
+weight: 5
+level: 14
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

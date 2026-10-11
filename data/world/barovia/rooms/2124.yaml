@@ -1,0 +1,11 @@
+vnum: 2124
+name: The Audience Hall
+description: |
+  A long hall with a dais at its far end and a high-backed throne of
+  black wood on it, empty. A fire burns in a hearth big enough to roast
+  an ox, and gives no warmth. A portrait over the mantel shows a
+  handsome, hollow-cheeked nobleman in black, and the eyes follow you. A
+  stair behind the dais climbs into the tower. The entry hall is north.
+exits:
+  north: 2121
+  up: 2125

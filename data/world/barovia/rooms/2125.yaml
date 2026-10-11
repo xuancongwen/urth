@@ -1,0 +1,12 @@
+vnum: 2125
+name: The Tower Stair
+description: |
+  A spiral stair winds up the inside of the high tower, past arrow slits
+  that show nothing but cloud. The steps are worn into hollows by four
+  centuries of the same feet. Halfway up there is a landing, a velvet
+  couch, and a mirror that reflects the couch and the stair and not you.
+  The stair goes on up to the top of the tower and down to the audience
+  hall.
+exits:
+  down: 2124
+  up: 2126

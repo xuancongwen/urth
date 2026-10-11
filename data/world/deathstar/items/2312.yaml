@@ -1,0 +1,12 @@
+vnum: 2312
+name: an Imperial gunner's helmet
+keywords: [imperial, gunner's, gunner, helmet]
+description: A domed black gunner's helmet lies here.
+look: |
+  A big black dome of a helmet with a wraparound visor, built to keep
+  flash and noise out of the head of the person firing the gun. It is
+  uncomfortably heavy.
+type: armor
+slot: head
+level: 32
+baseline: heavy

@@ -1,0 +1,15 @@
+vnum: 2923
+name: a pitted iron mace
+keywords: [pitted, iron, mace]
+description: A pitted iron mace lies here.
+look: |
+  A flanged mace of black iron, pitted with rust and heavier at the
+  head than it looks. Good against things made of bone.
+type: weapon
+level: 28
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

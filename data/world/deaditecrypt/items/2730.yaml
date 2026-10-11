@@ -1,0 +1,12 @@
+vnum: 2730
+name: a castle mail hauberk
+keywords: [castle, mail, hauberk, chainmail]
+description: A long coat of riveted mail lies here.
+look: |
+  A knee-length hauberk of riveted rings, the castle's best, oiled and
+  sound. It is heavy and it jingles, and the dead have a hard time
+  finding anything soft under it.
+type: armor
+slot: body
+level: 20
+baseline: heavy

@@ -1,0 +1,12 @@
+vnum: 2939
+name: a full helm
+keywords: [full, helm, helmet]
+description: A closed steel helm lies here.
+look: |
+  A steel helm that closes all the way round, with a narrow eye slit
+  and air holes punched in a cross. Rocks bounce off it.
+type: armor
+slot: head
+level: 33
+baseline: plate
+flags: [drop]

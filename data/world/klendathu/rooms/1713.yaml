@@ -1,0 +1,12 @@
+vnum: 1713
+name: The Crash Site
+description: |
+  A drop ship lies here on its back, broken in two, its belly stitched
+  with holes the size of a fist. The plasma bugs got it on the way down.
+  Fires still burn in the wreck and nobody has come to put them out.
+  Scattered around it are crates of supplies, opened from the inside by
+  something with mandibles. The rock arches are west, and a trail of
+  boot prints leads east toward a bunker on a rise.
+exits:
+  west: 1709
+  east: 1714

@@ -1,0 +1,13 @@
+vnum: 1908
+name: The Funeral Plain
+description: |
+  A flat, featureless pan of grey sand so wide the horizon seems to curve.
+  The Fremen named it, and they do not explain why. Boot prints cross it in
+  neat military files, and a Harkonnen marker beacon blinks red on a pole,
+  staking a claim to nothing. A track of ornithopter skids leads north to
+  a hidden landing. The broken land is west, and east lies the wreck of
+  something very large.
+exits:
+  west: 1907
+  east: 1909
+  north: 1915

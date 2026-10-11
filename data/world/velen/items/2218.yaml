@@ -1,0 +1,17 @@
+vnum: 2218
+name: a reaper's scythe
+keywords: [reaper's, reaper, scythe]
+description: A long field scythe lies here, its blade bright.
+look: |
+  A harvest scythe with a long curved blade, left in the rye by
+  whoever was mowing when the noonday heat went wrong. It was meant for
+  wheat. It does not mind.
+type: weapon
+weight: 6
+level: 17
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: reap

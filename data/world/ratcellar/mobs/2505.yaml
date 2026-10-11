@@ -1,0 +1,18 @@
+vnum: 2505
+name: a swarm of rats
+keywords: [swarm, rats, rat]
+description: A swarm of rats pours along the floor like a brown, squeaking carpet.
+look: |
+  Not one rat but forty, or sixty, moving together the way water
+  does, over and around and under each other, a living tide of fur and
+  tails and teeth. It has no mind, only appetite, and it goes where
+  the smell of food goes. At the moment that is you.
+level: 3
+flags: [assist, wander]
+health: 70
+attack:
+  kind: bite
+  verb: nibble
+effects:
+  - kind: attacks
+    params: { amount: 1 }

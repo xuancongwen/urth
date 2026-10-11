@@ -1,0 +1,16 @@
+vnum: 2520
+name: a rusty pitchfork
+keywords: [rusty, pitchfork, fork]
+description: A rusty two-tined pitchfork lies here.
+look: |
+  A hay fork with one tine snapped off and the other two bent slightly
+  apart, as if they disagree. Long enough to keep a rat at a distance,
+  which is the whole point.
+type: weapon
+level: 5
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: jab

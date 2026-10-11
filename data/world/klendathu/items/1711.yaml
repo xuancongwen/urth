@@ -1,0 +1,13 @@
+vnum: 1711
+name: a pair of ceramic trooper greaves
+keywords: [ceramic, trooper, greaves, leg, plates]
+description: A pair of grey ceramic leg plates lies here.
+look: |
+  Thick ceramic plates for the thighs and shins, issued to troopers who
+  complained that warrior bugs go for the legs. They do. These have the
+  scratches to prove it.
+type: armor
+slot: legs
+level: 26
+baseline: heavy
+flags: [drop]

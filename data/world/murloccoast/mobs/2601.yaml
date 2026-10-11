@@ -1,0 +1,17 @@
+vnum: 2601
+name: the ghost of Captain Grayson
+keywords: [ghost, captain, grayson, spirit]
+description: The ghost of Captain Grayson stands at the rail, staring out to sea.
+look: |
+  A sea captain in a long coat and a tricorn hat, grey and translucent,
+  water running from his beard and pooling nowhere. His ship went down
+  off this coast, and he has kept the light ever since, out of habit or
+  out of guilt. He is glad of the company. For a few coins he will teach
+  you how a sailor keeps his feet on a heaving deck and how he takes
+  another man's from under him.
+level: 15
+flags: [peaceful]
+teaches: [dodge, trip]
+attack:
+  kind: cold
+  verb: chill

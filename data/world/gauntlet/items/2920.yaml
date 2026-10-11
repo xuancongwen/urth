@@ -1,0 +1,15 @@
+vnum: 2920
+name: a dungeon shortsword
+keywords: [dungeon, shortsword, sword]
+description: A short, plain sword lies here.
+look: |
+  A soldier's shortsword of good grey steel, nicked along both edges.
+  Every level has a few of these lying about. Nobody asks whose.
+type: weapon
+level: 27
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,15 @@
+vnum: 2317
+name: an Imperial gunner
+keywords: [imperial, gunner, crewman, crew]
+description: An Imperial gunner in a black helmet works the firing levers.
+look: |
+  A gunner in a black dome of a helmet and a black uniform, both hands
+  on the levers of a weapon big enough to kill a world. He has been told
+  that the station is fully operational, and he is proud of it in the
+  way of a man who has never thought about what the light hits.
+level: 32
+flags: [assist]
+silver: 160
+attack:
+  kind: blunt
+  verb: club

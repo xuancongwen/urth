@@ -1,0 +1,16 @@
+vnum: 2909
+name: Level 3, the Dark Level
+description: |
+  Someone has turned the lights off on this level. The walls are still
+  here, you find, by walking into them: cold stone blocks in the black,
+  closer than you thought. Now and then a red glow flares somewhere
+  east and lights the corridor for a heartbeat, then dies. A door stands
+  shut in the north wall, iron-banded, with a keyhole the size of a
+  thumb. The shaft climbs back up.
+exits:
+  up: 2908
+  east: 2910
+  north: 2912
+doors:
+  north: {name: the exit door, closed: true, locked: true, key: 2900}
+flags: [dark]

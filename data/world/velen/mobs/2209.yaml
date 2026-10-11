@@ -1,0 +1,15 @@
+vnum: 2209
+name: a deserter
+keywords: [deserter, soldier, redanian, nilfgaardian]
+description: A deserter in a mismatched uniform warms his hands at the fire.
+look: |
+  A soldier with no army, his tabard turned inside out to hide whose it
+  was. He has been a Redanian, a Temerian, and briefly a Nilfgaardian,
+  and he has run from all three. He has stopped running now. He has
+  found a place where he can be the one with the sword.
+level: 14
+flags: [assist]
+silver: 25
+attack:
+  kind: slash
+  verb: slash

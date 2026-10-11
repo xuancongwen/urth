@@ -9,3 +9,4 @@ description: |
 exits:
   north: 1410
   east: 1412
+  west: 2600

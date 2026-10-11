@@ -1,0 +1,16 @@
+vnum: 2308
+name: a length of durasteel pipe
+keywords: [length, durasteel, pipe, bar]
+description: A length of bent durasteel pipe lies here in the muck.
+look: |
+  A heavy pipe wrenched out of the compactor's scrap, bent near one end
+  and crusted with something you would rather not identify. It makes a
+  fine club, and it is longer than it looks when the walls are closing
+  in.
+type: weapon
+level: 26
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

@@ -1,0 +1,13 @@
+vnum: 2002
+name: a lump of mithril ore
+keywords: [lump, mithril, ore, true-silver, truesilver]
+description: A lump of dark rock threaded with bright grey metal lies here.
+look: |
+  A fist of black stone with a vein of true-silver running through it,
+  bright as a new coin and light as a feather for its size. Mithril is
+  found nowhere else in the world. Even a lump this small is worth
+  a fortune to any dwarf with a forge, and the trader at the camp is
+  any dwarf with a forge.
+type: other
+weight: 2
+value: 40

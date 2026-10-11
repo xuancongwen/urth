@@ -1,0 +1,17 @@
+vnum: 2307
+name: Detention Block AA-23
+description: |
+  The detention level's control station: a horseshoe of consoles, a bank
+  of monitors showing empty cells, and a blaster-scarred comm unit that
+  has had a very confusing conversation recently ("Everything is under
+  control. Situation normal.") A security camera on the ceiling turns to
+  follow you. The cell block runs west, a heavy door to the south is
+  marked with the Imperial crest and the word INTERROGATION, a lift goes
+  up, and a maintenance hatch in the floor leads down.
+exits:
+  south: 2310
+  west: 2308
+  up: 2306
+  down: 2312
+doors:
+  south: {name: the interrogation door}

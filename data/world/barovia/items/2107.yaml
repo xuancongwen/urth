@@ -1,0 +1,15 @@
+vnum: 2107
+name: a blessed mail shirt
+keywords: [blessed, mail, shirt, chainmail, hauberk]
+description: A shirt of oiled chain mail lies here, a sun stamped on every tenth ring.
+look: |
+  A chain shirt that Father Donavich has blessed, ring by ring, with
+  holy water and grave dirt boiled together in a way you would rather
+  not ask about. Every tenth ring is stamped with the morning lord's
+  sun. It is heavy and it is cold and it has never once let a fang
+  through.
+type: armor
+slot: body
+weight: 12
+level: 20
+baseline: medium

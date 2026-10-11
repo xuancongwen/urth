@@ -1,0 +1,14 @@
+vnum: 2021
+name: The Second Hall
+description: |
+  A lofty hall lit by a fierce red glow. Across its floor runs a wide
+  fissure, and from it comes the light: fire, deep down, and now and
+  then a lick of flame and a puff of fumes. Doors open north to the
+  forges and south to a hall where drums are beating. The glow is
+  brightest east, where the hall ends at a narrow way out over the dark.
+  The Hall of Pillars is west.
+exits:
+  west: 2020
+  east: 2023
+  north: 2027
+  south: 2028

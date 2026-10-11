@@ -1,0 +1,15 @@
+vnum: 2906
+name: a grunt
+keywords: [grunt, brute]
+description: A grunt shoulders toward you, club up, red eyes fixed on your food.
+look: |
+  Short, wide, and the colour of a bruise, with a jaw like a shovel and
+  two yellow tusks in it, and a knobbed club in one fist. Grunts do not
+  think. They walk at you and swing. Then the next one does.
+level: 30
+flags: [assist]
+health: 750
+silver: 15
+attack:
+  kind: blunt
+  verb: club

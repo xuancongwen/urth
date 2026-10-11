@@ -1,0 +1,16 @@
+vnum: 2424
+name: a raptor-claw spear
+keywords: [raptor-claw, raptor, claw, spear]
+description: A spear tipped with a black hooked claw lies here.
+look: |
+  A shaft of ash cut from the jungle and tipped with a raptor's sickle
+  claw, lashed tight with wet hide and left to shrink. It is light and
+  long and wicked.
+type: weapon
+weight: 3
+level: 24
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

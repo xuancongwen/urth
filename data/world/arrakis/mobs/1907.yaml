@@ -1,0 +1,14 @@
+vnum: 1907
+name: a sandtrout
+keywords: [sandtrout, trout, larva, worm]
+description: A leathery sandtrout humps through the sand towards you.
+look: |
+  A flat, leathery thing the size of a dog, half sand and half skin,
+  that ripples over the dunes like spilled oil. It is the young of the
+  great worm, and it lives for water: it seals itself around any it
+  finds and drinks it dry. You are mostly water.
+level: 18
+silver: 15
+attack:
+  kind: blunt
+  verb: smother

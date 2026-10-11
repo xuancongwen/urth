@@ -1,0 +1,15 @@
+vnum: 2306
+name: an EC-17 hold-out blaster
+keywords: [ec-17, ec17, hold-out, holdout, blaster, pistol]
+description: A small scout trooper's hold-out blaster lies here.
+look: |
+  A slim pistol that a scout trooper carries in a boot holster for when
+  the speeder bike is gone and the trees are full of something. It fires
+  fast and light.
+type: weapon
+level: 22
+baseline: dagger
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot

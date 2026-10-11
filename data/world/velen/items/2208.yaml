@@ -1,0 +1,12 @@
+vnum: 2208
+name: a deck of gwent cards
+keywords: [deck, gwent, cards, card]
+description: A deck of painted gwent cards lies here, held with a ribbon.
+look: |
+  A deck of gwent cards, hand-painted, worn soft at the corners: Northern
+  Realms, mostly, with a single Nilfgaardian spy shuffled in by someone
+  with a sense of humour. Everyone in Velen plays. Nobody in Velen admits
+  to losing.
+type: other
+weight: 0
+value: 20

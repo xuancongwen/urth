@@ -1,0 +1,16 @@
+vnum: 2223
+name: a Wild Hunt longsword
+keywords: [wild, hunt, longsword, sword]
+description: A long black sword with a jagged edge lies here.
+look: |
+  A rider's longsword of the Wild Hunt, black and cold, its edge
+  worked into jagged teeth like an icicle. It was forged somewhere the
+  sun does not reach, and it hums very faintly in the wind.
+type: weapon
+weight: 4
+level: 33
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

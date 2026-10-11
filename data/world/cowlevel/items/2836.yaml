@@ -1,0 +1,13 @@
+vnum: 2836
+name: a gilded bovine helm
+keywords: [gilded, bovine, helm, helmet]
+description: A gilded plate helm with horn holes lies here.
+look: |
+  A plate helm washed in gold, a ring of little crowns around the brow.
+  Whoever wore it stood very close to the king.
+type: armor
+slot: head
+weight: 5
+level: 28
+baseline: plate
+flags: [drop]

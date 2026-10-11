@@ -1,0 +1,12 @@
+vnum: 2310
+name: a death trooper helmet
+keywords: [death, trooper, helmet]
+description: A black helmet with a narrow green-lit visor lies here.
+look: |
+  A black helmet, sleeker and nastier than a stormtrooper's, with a
+  narrow visor and a vocoder that turns the wearer's voice into a hiss
+  of static. The lining smells of nothing at all.
+type: armor
+slot: head
+level: 30
+baseline: heavy

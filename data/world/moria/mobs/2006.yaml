@@ -1,0 +1,13 @@
+vnum: 2006
+name: a grey wolf
+keywords: [grey, gray, wolf]
+description: A grey wolf circles at the edge of your light, head low.
+look: |
+  A gaunt grey wolf of the Misty Mountains, ribs showing under a mangy
+  coat. It came in from the snow and stayed, because the orcs leave a
+  lot of meat about. It is hungry. It is always hungry.
+level: 15
+flags: [assist]
+attack:
+  kind: bite
+  verb: bite

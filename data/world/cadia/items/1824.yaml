@@ -1,0 +1,12 @@
+vnum: 1824
+name: a pair of brass greaves
+keywords: [brass, greaves, leg, plates]
+description: A pair of brass leg plates, engraved with skulls, lies here.
+look: |
+  Greaves of beaten brass from the forges of Khorne, every inch
+  engraved with skulls. They are hot to the touch and do not cool.
+type: armor
+slot: legs
+level: 55
+baseline: plate
+flags: [drop]

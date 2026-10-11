@@ -1,0 +1,11 @@
+vnum: 2809
+name: The Meadow Ring, South Stones
+description: |
+  The southern stones of the ring, the grass between them trodden into a
+  hard bare path that leaves the ring westward toward a glow of torches.
+  The air smells of sweat, leather, and old straw. The ring runs east
+  and north.
+exits:
+  east: 2806
+  north: 2808
+  west: 2810

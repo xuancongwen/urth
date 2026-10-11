@@ -1,0 +1,13 @@
+vnum: 1821
+name: The Inner Bastion
+description: |
+  The kasr's last line: a bastion wall forty feet high, its gun towers
+  silent and its gates thrown open from the inside. Black Legion
+  banners hang from the battlements. To the north a great black spire
+  rises over the wall, older than the kasr and older than the Imperium,
+  humming at the edge of hearing. West, past the gates, the ground turns
+  red. The cathedral is east.
+exits:
+  north: 1822
+  east: 1820
+  west: 1824

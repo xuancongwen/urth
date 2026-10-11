@@ -1,0 +1,15 @@
+vnum: 2804
+name: a hell bovine reaver
+keywords: [hell, bovine, reaver, cow]
+description: A scarred hell bovine reaver watches the stones, axe in hand.
+look: |
+  An old hell bovine, grey around the muzzle and missing the tip of one
+  horn, with a poleaxe slung over its shoulder and a necklace of
+  adventurers' rings. It guards the meadow ring as if it were a temple,
+  which to the herd it may be.
+level: 24
+flags: [assist]
+silver: 38
+attack:
+  kind: slash
+  verb: hack

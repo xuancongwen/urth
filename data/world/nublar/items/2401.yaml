@@ -1,0 +1,20 @@
+vnum: 2401
+name: Hammond's amber-topped cane
+keywords: [hammond's, hammond, amber-topped, amber, cane, walking, stick]
+description: A walking cane topped with a golden lump of amber leans here.
+look: |
+  A slender cane of polished dark wood with a knob of honey-gold amber for
+  a handle, and inside the amber, perfectly preserved, a mosquito that bit
+  something very large a very long time ago. John Hammond had it made for
+  himself and spared no expense. Leaning on it, you feel that anything can
+  be built, sold, and explained away, and people believe you when you say
+  so.
+type: armor
+slot: hold
+weight: 2
+level: 20
+value: 3000
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }

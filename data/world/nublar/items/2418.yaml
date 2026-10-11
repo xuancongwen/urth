@@ -1,0 +1,13 @@
+vnum: 2418
+name: a raptor handler's helmet
+keywords: [raptor, handler's, handler, helmet, cage]
+description: A helmet with a steel cage over the face lies here.
+look: |
+  A hard helmet with a welded steel cage across the face, the kind the
+  handlers wear to feed the raptors. One bar of the cage is bent inward,
+  and the paint is scraped off in four long lines.
+type: armor
+slot: head
+weight: 3
+level: 22
+baseline: heavy

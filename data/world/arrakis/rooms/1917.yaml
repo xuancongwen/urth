@@ -1,0 +1,13 @@
+vnum: 1917
+name: Before the Blast Doors
+description: |
+  The forward base squats against an outcrop of rock, all plasteel and
+  sand-scoured armor, the griffin of House Harkonnen painted over the
+  gate in blue. The blast doors are twice the height of a man and sealed
+  against the sand. Sergeants bark at the troopers here, and the troopers
+  bark at the sand. The picket line is back west, and the base is east.
+exits:
+  west: 1916
+  east: 1920
+doors:
+  east: {name: the blast door, closed: true}

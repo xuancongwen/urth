@@ -1,0 +1,15 @@
+vnum: 2631
+name: a reef-plate cuirass
+keywords: [reef, plate, cuirass, breastplate]
+description: A breastplate crusted with coral and barnacles lies here.
+look: |
+  A ship's officer's breastplate that spent years on the sea floor and
+  came back heavier. The coral has fused to the steel in a thick, hard
+  crust. Scrubbing it off would take a month, and the crust is the
+  best part.
+type: armor
+slot: body
+weight: 8
+level: 14
+baseline: heavy
+flags: [drop]

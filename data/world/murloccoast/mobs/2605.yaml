@@ -1,0 +1,16 @@
+vnum: 2605
+name: a murloc coastrunner
+keywords: [murloc, coastrunner, runner]
+description: A murloc coastrunner scampers past at a flat run, flippers slapping the sand.
+look: |
+  A lean, long-legged murloc that runs messages, or perhaps just runs,
+  up and down the shore between the villages all day. It is never out
+  of breath and never quiet, and it carries a spear the way a postman
+  carries a stick.
+level: 10
+flags: [assist, wander]
+silver: 8
+stats: {dexterity: 14}
+attack:
+  kind: pierce
+  verb: jab

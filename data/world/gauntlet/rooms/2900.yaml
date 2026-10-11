@@ -1,0 +1,16 @@
+vnum: 2900
+name: The Coin Slot
+description: |
+  A low stone antechamber at the bottom of a narrow stair, lit by a hard
+  flicker that comes from nowhere in particular. Set into the far wall
+  is a brass slot the width of a thumb, and above it, cut into the
+  stone in square blocky letters, two words: INSERT COIN. The floor
+  is worn smooth in front of it by a great many feet that came back
+  for another go. Nothing down here will draw a weapon; the Voice will
+  not allow it. The stair climbs back up, and an archway north opens
+  on the first level.
+exits:
+  up: 10
+  north: 2901
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

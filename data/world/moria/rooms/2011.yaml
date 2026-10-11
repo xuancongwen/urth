@@ -1,0 +1,13 @@
+vnum: 2011
+name: The Three Arches
+description: |
+  Three passages meet under three arches carved with runes too worn to
+  read. One leads north and upward, toward a dry clatter of arrows on
+  stone; one runs east, wide and level; one goes back west toward the
+  gate. Gandalf would know which to take. You have to guess, and the
+  orcs who scratched arrows on the pillars are not to be trusted.
+exits:
+  west: 2009
+  east: 2014
+  north: 2015
+flags: [dark]

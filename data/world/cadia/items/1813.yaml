@@ -1,0 +1,13 @@
+vnum: 1813
+name: a suit of Kasrkin carapace armour
+keywords: [kasrkin, carapace, armour, armor, breastplate]
+description: A suit of rigid grey carapace armour lies here.
+look: |
+  Moulded ceramite plates over a sealed bodyglove, the armour of the
+  Kasrkin, Cadia's best. It is heavier than flak and stops what flak
+  only slows. The Munitorum issues it to storm troopers, and to anyone
+  else who brings in enough promethium to make the paperwork go away.
+type: armor
+slot: body
+level: 32
+baseline: heavy

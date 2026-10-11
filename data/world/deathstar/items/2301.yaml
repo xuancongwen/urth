@@ -1,0 +1,13 @@
+vnum: 2301
+name: a stormtrooper chestplate
+keywords: [stormtrooper, chestplate, chest, plate, armor, armour]
+description: A white stormtrooper chestplate lies here.
+look: |
+  The chest and back plates of a stormtrooper's armour, white plastoid
+  over a black bodyglove, buckled at the sides. It turns a glancing
+  bolt, and it makes a great deal of noise when its wearer runs, which
+  is often.
+type: armor
+slot: body
+level: 16
+baseline: medium

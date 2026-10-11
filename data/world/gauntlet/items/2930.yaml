@@ -1,0 +1,12 @@
+vnum: 2930
+name: a riveted breastplate
+keywords: [riveted, breastplate, plate]
+description: A riveted iron breastplate lies here.
+look: |
+  Two shaped plates of iron riveted together down the middle, with
+  straps at the sides. Plain work, honestly done.
+type: armor
+slot: body
+level: 30
+baseline: medium
+flags: [drop]

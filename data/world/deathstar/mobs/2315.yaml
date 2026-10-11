@@ -1,0 +1,17 @@
+vnum: 2315
+name: an IT-O interrogation droid
+keywords: [it-o, ito, interrogation, droid, interrogator]
+description: A black spherical interrogation droid floats here, a needle extended.
+look: |
+  A black sphere the size of a head, floating on repulsors, bristling
+  with a needle, a laser scalpel, a drug injector, and a speaker that
+  will calmly explain each one in turn. It is not cruel. It is simply
+  very good at what it was built for.
+level: 28
+health: 1300
+silver: 60
+attack:
+  kind: pierce
+  verb: inject
+effects:
+  - { kind: envenom, params: { power: 0.08, rounds: 3, maxStacks: 2 } }

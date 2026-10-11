@@ -1,0 +1,12 @@
+vnum: 2117
+name: The Werewolf Den
+description: |
+  A gully under a fallen pine has been dug out into a deep, stinking
+  den, littered with bones and the rags of clothes that were torn off in
+  a hurry. A few sleeping furs lie around a dead fire. The walls are
+  scratched with tally marks, hundreds of them, in groups of five. The
+  people who live here are people only part of the time, and they hate
+  the man in the castle almost as much as they hate you. The road is
+  east.
+exits:
+  east: 2116

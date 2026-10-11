@@ -1,0 +1,11 @@
+vnum: 1703
+name: a Morita magazine
+keywords: [morita, magazine, mag, ammo, ammunition, clip]
+description: A long box magazine of Morita ammunition lies here.
+look: |
+  A curved box magazine, packed tight with heavy rounds. Troopers carry
+  as many as they can and run out anyway. It is not much use without a
+  Morita, and not much use with one for very long.
+type: other
+weight: 1
+value: 5

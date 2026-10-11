@@ -1,0 +1,12 @@
+vnum: 2719
+name: a pair of bone bracers
+keywords: [bone, bracers]
+description: A pair of bracers ribbed with bone lies here.
+look: |
+  Leather bracers ribbed with strips of polished bone, the work of the
+  wise man's patience and the dead's carelessness. They fit snugly and
+  turn an edge.
+type: armor
+slot: arms
+level: 16
+baseline: medium

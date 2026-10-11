@@ -1,0 +1,13 @@
+vnum: 1824
+name: The Field of Skulls
+description: |
+  Beyond the bastion the earth is red, and not from clay. Skulls lie
+  everywhere, piled in cairns, laid in rows, and stacked into towers
+  taller than a man, and fresh ones are added as you watch. The air
+  tastes of copper. South, the ground falls into a crater with a brass
+  throne at its heart. West, through smoke and lightning, the Black
+  Legion holds the old Cadian Gate. The bastion is east.
+exits:
+  south: 1825
+  east: 1821
+  west: 1826

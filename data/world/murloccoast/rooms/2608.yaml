@@ -1,0 +1,11 @@
+vnum: 2608
+name: The Drying Racks
+description: |
+  Frames of lashed driftwood stand in rows, hung thick with split fish,
+  eels, and strips of something you would rather not identify, all of it
+  curing in the wind and the flies. The smell has weight. A cookfire
+  pit full of grey ash and fishbones sits among the racks. The
+  outskirts are south, and the spawning pools gleam to the west.
+exits:
+  south: 2607
+  west: 2610

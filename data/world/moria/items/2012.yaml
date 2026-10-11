@@ -1,0 +1,13 @@
+vnum: 2012
+name: an orc-iron helm
+keywords: [orc-iron, orc, iron, helm, helmet]
+description: A heavy black helm with a face-guard lies here.
+look: |
+  A pot of black orc iron with a beaked face-guard and a red eye
+  painted on the brow. It is badly made and very thick, and it rings
+  like a bell when struck.
+type: armor
+slot: head
+weight: 5
+level: 20
+baseline: heavy

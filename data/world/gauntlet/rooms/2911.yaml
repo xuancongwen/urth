@@ -1,0 +1,11 @@
+vnum: 2911
+name: Level 3, the Furnace
+description: |
+  A vaulted chamber of black stone with a pit at its centre so deep and
+  so bright that it lights nothing around it, only itself. Heat comes up
+  off it in waves you can see. The walls are hung with chains, and from
+  the chains hang the scorched shields of heroes who came this far and
+  no farther. The pits are west.
+exits:
+  west: 2910
+flags: [dark]

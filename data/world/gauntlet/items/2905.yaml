@@ -1,0 +1,12 @@
+vnum: 2905
+name: a wisp of ectoplasm
+keywords: [wisp, ectoplasm, ghost, slime]
+description: A wisp of pale grey ectoplasm clings to the floor here.
+look: |
+  What is left when a ghost is struck down: a cold, faintly luminous
+  smear of something between smoke and jelly that holds together if you
+  do not look at it too hard. The provisioner by the coin slot buys it
+  by the jar. He says it is for polishing armor. He does not say how.
+type: other
+weight: 1
+value: 10

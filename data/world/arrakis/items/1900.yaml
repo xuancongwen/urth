@@ -1,0 +1,15 @@
+vnum: 1900
+name: a measure of spice
+keywords: [measure, spice, melange]
+description: A small heap of rust-orange spice lies here, smelling of cinnamon.
+look: |
+  Raw melange, scooped from a spice blow: a gritty, rust-orange powder
+  that smells of cinnamon and something you cannot name. It extends
+  life, opens the mind, and turns the eyes blue. The whole known
+  universe runs on it, and every great House would kill you for this
+  handful. Several have.
+type: material
+material: spice
+rarity: common
+weight: 1
+value: 20

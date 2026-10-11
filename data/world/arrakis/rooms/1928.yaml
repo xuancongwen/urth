@@ -1,0 +1,12 @@
+vnum: 1928
+name: The Deep Desert
+description: |
+  The heart of the desert, where the dunes stand three hundred metres high
+  and nothing grows and nothing is meant to. This is the domain of
+  Shai-Hulud, the Old Man of the Desert, the Maker, and the Fremen pray
+  to it before they come here and after they leave. The sand hisses
+  around your feet. The dunes go north, west, and east.
+exits:
+  north: 1925
+  west: 1927
+  east: 1929

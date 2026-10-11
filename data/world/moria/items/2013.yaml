@@ -1,0 +1,16 @@
+vnum: 2013
+name: a broad Uruk falchion
+keywords: [broad, uruk, falchion, sword, blade]
+description: A short, broad-bladed falchion lies here.
+look: |
+  The weapon of the great orcs: short, broad, and heavy at the tip, a
+  meat-cleaver grown up into a sword. The edge is better kept than its
+  owner was.
+type: weapon
+weight: 5
+level: 22
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave

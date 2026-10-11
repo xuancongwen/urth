@@ -4,8 +4,13 @@ description: |
   The common room of the Grunting Boar is low, warm, and loud. A fire
   roars in a hearth big enough to roast the inn's namesake, and the
   tables are carved with generations of initials. Temple Square lies to
-  the west; the bar itself is through a wide arch to the east.
+  the west; the bar itself is through a wide arch to the east. A
+  trapdoor in the floor by the hearth leads down to the cellar, and
+  from under it comes a faint and constant squeaking.
 exits:
   east: 3007
   west: 3005
+  down: 2500
+doors:
+  down: {name: the cellar trapdoor, closed: true}
 flags: [safe]

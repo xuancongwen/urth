@@ -1,0 +1,23 @@
+vnum: 1809
+name: a power fist
+keywords: [power, fist, powerfist, gauntlet, klaw]
+description: An enormous armoured gauntlet lies here, crackling at the knuckles.
+look: |
+  A Guard sergeant's power fist, a gauntlet the size of a man's head
+  wrapped in a disruption field that makes the air around the knuckles
+  ripple. The Nob tore it off the sergeant along with most of the arm,
+  and has since repainted it red. Worn, it turns a punch into the end
+  of a tank's armour, provided you put everything you have into the
+  swing and do not much mind what comes back.
+type: armor
+slot: hands
+weight: 6
+level: 36
+baseline: heavy
+value: 5000
+effects:
+  - kind: unarmedMult
+    params: { mult: 1.25 }
+  - kind: powerAttack
+    params: { mult: 1.15, dodge: -0.04 }
+  - { kind: stat, params: { stat: strength, amount: 3 } }

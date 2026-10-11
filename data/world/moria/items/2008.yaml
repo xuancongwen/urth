@@ -1,0 +1,16 @@
+vnum: 2008
+name: a goblin scimitar
+keywords: [goblin, scimitar, sword, blade]
+description: A crooked goblin scimitar lies here.
+look: |
+  A curved, notched blade of black iron, hammered out cold by someone
+  who did not care. It is sharp along about half its length. Goblins
+  like it that way: it makes the wound uglier.
+type: weapon
+weight: 3
+level: 11
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

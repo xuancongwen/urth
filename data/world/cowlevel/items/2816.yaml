@@ -1,0 +1,12 @@
+vnum: 2816
+name: a pair of cowhide leggings
+keywords: [cowhide, leggings, legs, hide]
+description: A pair of cowhide leggings lies here.
+look: |
+  Leggings of patched cowhide, the hair worn off the knees.
+type: armor
+slot: legs
+weight: 3
+level: 21
+baseline: light
+flags: [drop]

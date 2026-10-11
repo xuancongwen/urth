@@ -1,0 +1,16 @@
+vnum: 1913
+name: a Fremen renegade
+keywords: [fremen, renegade, outcast]
+description: A Fremen renegade crouches in the dark, crysknife drawn.
+look: |
+  A Fremen cast out of his tribe for breaking the water discipline: he
+  stole, or he took a life outside the law, or he sold his people to
+  the Harkonnens for credits. His stillsuit leaks, his eyes are blue
+  within blue, and he has nothing left to lose but your water, which
+  he means to take.
+level: 28
+flags: [assist]
+silver: 100
+attack:
+  kind: pierce
+  verb: stab

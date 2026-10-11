@@ -1,0 +1,17 @@
+vnum: 2000
+name: Below the Walls of Moria
+description: |
+  The passage from the landing ends in open air, cold and grey, at the
+  foot of a cliff that goes straight up into cloud. Here the Sirannon
+  once ran down in falls beside a road of the dwarves; now its bed is a
+  dry trough of stones, and the road is a rumour of paving under the
+  weeds. The mountain is all wall, sheer and smooth and blind. A trodden
+  path climbs north to a ring of tents and a thread of smoke, and the
+  old road goes east along the cliff toward the smell of standing
+  water. The landing is back west.
+exits:
+  west: 9
+  north: 2002
+  east: 2001
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

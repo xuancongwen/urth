@@ -1,0 +1,15 @@
+vnum: 2503
+name: a sewer rat
+keywords: [sewer, rat]
+description: A wet grey sewer rat hunches on the ledge, teeth bared.
+look: |
+  Leaner and meaner than its cousins in the cellar, slick with sewer
+  water, its fur in spikes. One ear is half gone and the rest of it
+  does not look as if it lost that fight. Its teeth are yellow and
+  long and very busy.
+level: 3
+flags: [assist]
+silver: 3
+attack:
+  kind: bite
+  verb: bite

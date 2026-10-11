@@ -1,0 +1,21 @@
+vnum: 2914
+name: the Demon Mother
+keywords: [mother, matriarch, queen]
+description: The Demon Mother lounges at the edge of the furnace, a valkyrie's sword across her knees.
+look: |
+  A demon the size of a draught horse, red as a coal, with a crown of
+  horns and a belly full of fire that shows through her skin. Every
+  demon in the pits is one of hers, and she is proud of all of them.
+  She keeps Thyra's sword across her knees and runs a claw along it now
+  and then, as if hoping it will soften.
+level: 32
+health: 2700
+silver: 220
+armor:
+  defense: 20
+attack:
+  kind: fire
+  verb: rake
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 0.8, verb: "gout of pit fire" }

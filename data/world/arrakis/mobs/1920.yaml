@@ -1,0 +1,27 @@
+vnum: 1920
+name: Shai-Hulud
+keywords: [shai-hulud, shai, hulud, sandworm, worm, maker, old, man]
+description: Shai-Hulud, a sandworm vast as a city wall, rears out of the dunes.
+look: |
+  The Old Man of the Desert, the Maker, grandfather of the desert: a
+  sandworm four hundred metres long, its ringed body the colour of the
+  sand it swims in, its mouth a cavern ringed with a thousand crystal
+  teeth, and behind them a furnace glow and a smell of cinnamon and
+  burnt flint. The Fremen say it is god. Looking up at it, you are not
+  inclined to argue. It goes where it pleases, and it pleases to go
+  wherever something is beating a rhythm on the sand.
+level: 60
+flags: [wander]
+health: 90000
+silver: 2000
+armor:
+  defense: 1000
+attack:
+  kind: bite
+  verb: engulf
+effects:
+  - kind: soak
+    params: { power: 0.2 }
+  - kind: aura
+    params: { power: 0.25, verb: storm of hissing sand }
+  - { kind: steady, params: { chance: 0.5 } }

@@ -1,0 +1,15 @@
+vnum: 1700
+name: The Drop-Ship Pad
+description: |
+  A square of fused glass the size of a parade ground, blackened in
+  rings where the drop ships have come down hot. The sky above is the
+  colour of a bruise, and the light that leaks through it is the dull
+  orange of a dying fire. Fuel lines snake across the glass to a bowser
+  truck with FEDERAL FLEET stencilled on its flank. A hatch south leads
+  back into the quiet of the hall. The fire base compound is north, and
+  the drill ground lies east.
+exits:
+  south: 10
+  north: 1701
+  east: 1704
+position: {x: 0, y: 0, z: 0}

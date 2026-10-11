@@ -1,0 +1,25 @@
+vnum: 2017
+name: the orc chieftain of Moria
+keywords: [orc, chieftain, chief, moria, king]
+description: The orc chieftain of Moria sprawls on a dwarf-lord's chair, a bundle of rags across his knees.
+look: |
+  The master of every orc in Moria, nearly as tall as a man, swart and
+  broad, with a face like a split boulder and a mail coat that reaches
+  his ankles. Across his knees lies a long bundle of rags, and the rags
+  glow faintly blue: a sword out of the elder days that he took from
+  the Misty Mountain goblins, who took it from somewhere else. He calls
+  it Beater, and he has never once drawn it.
+level: 28
+flags: [assist]
+health: 1600
+silver: 200
+armor:
+  defense: 42
+attack:
+  kind: pierce
+  verb: spear
+effects:
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.8 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2.0 }

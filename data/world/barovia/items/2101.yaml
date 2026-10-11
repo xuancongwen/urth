@@ -1,0 +1,12 @@
+vnum: 2101
+name: a hooded lantern
+keywords: [hooded, lantern, lamp, light]
+description: A tin lantern with a hinged hood lies here.
+look: |
+  A tin lantern with a shutter on one side, so you can show a light or
+  hide it. In Barovia most people choose to hide it. The wick is fresh
+  and the reservoir full of oil that smells faintly of fish.
+type: light
+weight: 2
+burn: 1500
+value: 30

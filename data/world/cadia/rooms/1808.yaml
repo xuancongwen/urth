@@ -1,0 +1,10 @@
+vnum: 1808
+name: The Valkyrie Wreck
+description: |
+  An Imperial Valkyrie lies nose down where it ploughed into the field,
+  wings snapped, the troop bay torn open along one side. Its drop
+  harnesses dangle empty; the Elysians it carried got out, or did not.
+  Cultists have made it a shrine, scratching their star into the armour
+  plates and stringing the cockpit with trophies. The fields are south.
+exits:
+  south: 1807

@@ -1,0 +1,16 @@
+vnum: 1904
+name: a fixed crysknife
+keywords: [fixed, crysknife, knife]
+description: A milky-white curved knife lies here.
+look: |
+  A crysknife treated so that it will keep without its owner: the kind
+  the Fremen give to outworlders they trust, but not very much. A true
+  crysknife dissolves when its owner dies. This one will outlast you,
+  which is the point the Fremen are making.
+type: weapon
+level: 18
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

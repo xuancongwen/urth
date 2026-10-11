@@ -1,0 +1,13 @@
+vnum: 2707
+name: The Marshalling Ground
+description: |
+  The far end of the hall widens into a square where the dead have been
+  drilling. You can tell because the dust is trodden into straight
+  lines, and because a skeleton with a captain's crest is still shouting
+  orders at nobody, its jaw clacking. Weapon racks of lashed bones line
+  the walls. A ramp of packed earth runs down into the deeper crypt, and
+  the hall is east.
+exits:
+  east: 2706
+  down: 2709
+flags: [dark]

@@ -1,0 +1,12 @@
+vnum: 2610
+name: The Spawning Pools
+description: |
+  A lagoon cut off from the sea by a sandbar, warm and still and green.
+  Clusters of clear eggs cling to the reeds in the shallows, each with a
+  small dark comma twitching inside. Murlocs crouch along the edges,
+  stirring the water with their spears and keeping watch. They are very
+  touchy about the eggs. The drying racks are east, and the village
+  heart is south.
+exits:
+  east: 2608
+  south: 2609

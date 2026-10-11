@@ -1,0 +1,10 @@
+vnum: 2606
+name: The Tide Pools
+description: |
+  Black rock shelves step down into the sea, every hollow in them a
+  pool full of anemones, darting shrimp, and green weed waving in the
+  slack water. Some of the pools are larger than they look, and some of
+  the rocks have legs. Shells the size of shields lie in the shallows,
+  and not all of them are empty. Shell Beach is north.
+exits:
+  north: 2605

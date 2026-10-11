@@ -1,0 +1,25 @@
+vnum: 1923
+name: Feyd-Rautha's poisoned blade
+keywords: [feyd-rautha's, feyd, rautha, feyd's, poisoned, blade, knife]
+description: A slim white knife with a dark stain at the tip lies here.
+look: |
+  The na-Baron's arena knife: a slender white blade with a hollow
+  channel along its spine, filled with a poison the colour of old
+  tea. Feyd-Rautha carries it in his left hand while the crowd watches
+  the right. It is quick and light, and every cut it makes keeps on
+  cutting after it leaves the wound.
+type: weapon
+weight: 1
+level: 44
+baseline: dagger
+value: 6000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: slice
+effects:
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: dodge, params: { amount: 0.03 } }

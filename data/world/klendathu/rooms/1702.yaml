@@ -1,0 +1,13 @@
+vnum: 1702
+name: The Supply Bunker
+description: |
+  A bunker dug into the red earth and roofed with tanker shell, which
+  the engineers swear is stronger than anything the Federation makes.
+  Crates of Morita magazines are stacked to the ceiling, each stamped
+  with a serial number and a smiling cartoon trooper giving a thumbs up.
+  A counter of ammunition boxes divides the quartermaster from the
+  customers. Nobody fights in here; there is too much that explodes. The
+  compound is east.
+exits:
+  east: 1701
+flags: [safe]

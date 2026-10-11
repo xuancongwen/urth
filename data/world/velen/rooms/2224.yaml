@@ -1,0 +1,12 @@
+vnum: 2224
+name: The Bog Causeway
+description: |
+  A causeway of rotting logs laid across the bog, sinking under each step
+  and coming up again with a sigh. Things in the fog keep pace with you,
+  always just out of sight. A child's rag doll hangs on a stake beside
+  the way, stitched with care, its button eyes missing. The bog's edge is
+  west. East, a great hillock rises from the water, its top crowned with
+  a gnarled old tree.
+exits:
+  west: 2223
+  east: 2225

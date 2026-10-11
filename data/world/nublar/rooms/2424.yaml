@@ -1,0 +1,11 @@
+vnum: 2424
+name: The Raptor Nest
+description: |
+  A hollow in the jungle floor, scraped bare and lined with bones, some of
+  them cattle and some of them not. Mounds of earth hold clutches of
+  speckled eggs, warm to the touch. Somebody's lunch box lies crushed by
+  one of the mounds. Whoever made this place made it carefully, and chose
+  it well: there is one way in and the ferns watch it. The ferns are
+  north.
+exits:
+  north: 2421

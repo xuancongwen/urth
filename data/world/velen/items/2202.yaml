@@ -1,0 +1,21 @@
+vnum: 2202
+name: a wolf school medallion
+keywords: [wolf, school, medallion, amulet, pendant]
+description: A silver medallion in the shape of a snarling wolf's head lies here on a broken chain.
+look: |
+  The medallion of a witcher of the School of the Wolf: a snarling
+  wolf's head in dull silver, the size of your palm, on a chain mended
+  more than once. It hums against the chest when magic is near, and
+  trembles when something hides, as if it wants to growl. The griffin
+  took it from a witcher it killed and keeps it in its nest, because it
+  shines.
+type: armor
+slot: neck
+weight: 0
+level: 18
+value: 1500
+effects:
+  - kind: detectInvisible
+  - kind: detectHidden
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

@@ -1,0 +1,9 @@
+vnum: 2812
+name: The Bovine War Camp
+description: |
+  Tents of stitched cowhide stand in neat rows, and the herd's gear is
+  stacked outside them: halberds in racks, armour on stands, and quivers
+  of arrows each as long as a spear. Cauldrons bubble over fires. You do
+  not look into them. The champions' ground is south.
+exits:
+  south: 2811

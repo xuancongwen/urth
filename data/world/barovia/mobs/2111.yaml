@@ -1,0 +1,18 @@
+vnum: 2111
+name: a werewolf
+keywords: [werewolf, wolf, lycanthrope, man]
+description: A werewolf hunches on its haunches, gnawing on something that screams.
+look: |
+  Half a man and half a wolf, eight feet tall when it stands, with a
+  wolf's long jaws on a man's shoulders and hands that end in black
+  claws. Rags of a woodsman's clothes still hang off it. Cuts close on
+  it as you watch, and it laughs, in a voice that is almost human.
+level: 22
+flags: [wander]
+silver: 20
+attack:
+  kind: claw
+  verb: rake
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }

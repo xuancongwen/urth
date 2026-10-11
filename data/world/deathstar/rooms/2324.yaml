@@ -1,0 +1,13 @@
+vnum: 2324
+name: Superlaser Fire Control
+description: |
+  A long gallery of consoles manned by gunners in black helmets, facing
+  a great green shaft of light that runs through the heart of the
+  station. Every console has its levers, and every lever has its gunner.
+  Overhead a voice counts down: stand by, commence primary ignition. The
+  overbridge is east, a pair of red-guarded doors lead west, and the
+  gantry is north.
+exits:
+  north: 2323
+  east: 2325
+  west: 2326

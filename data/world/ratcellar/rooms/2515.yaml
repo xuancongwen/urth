@@ -1,0 +1,12 @@
+vnum: 2515
+name: The Web-Choked Drain
+description: |
+  The culvert ends in a round chamber where three drains come together
+  and none of them go anywhere any more. Webs fill it, sheet on sheet,
+  grey and thick as sailcloth, and in the webs hang bundles the size of
+  a cat, wrapped and quite still. The bundles are rats. Most of them.
+  The culvert is south, and the way out is the only part of the room
+  without webs, for now.
+exits:
+  south: 2508
+flags: [dark]

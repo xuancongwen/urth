@@ -1,0 +1,13 @@
+vnum: 2211
+name: The Edge of the Old Battlefield
+description: |
+  Open ground churned by armies, where the Nilfgaardians met the
+  Redanians last spring and neither side stayed to bury anyone. Broken
+  pikes stand in the mud like reeds. A banner with a black sun lies
+  trampled into a puddle beside a banner with a white eagle, and the
+  crows have made no distinction. The road goes north to a burned village
+  and south to the hollow. Grave mounds rise to the east.
+exits:
+  south: 2209
+  east: 2212
+  north: 2213

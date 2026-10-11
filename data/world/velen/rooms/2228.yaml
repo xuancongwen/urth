@@ -1,0 +1,12 @@
+vnum: 2228
+name: The Hollow Under the Hillock
+description: |
+  A tunnel of roots and black earth twisting down into the hill, lit by
+  nothing at all. The roots are woven, not grown, in patterns that tighten
+  around you as you pass. Small bones crunch underfoot, too small. The
+  smell of a stewpot drifts from the east, rich and savoury, and that is
+  the worst part. The hole to the hillock's top is up.
+exits:
+  up: 2225
+  east: 2229
+flags: [dark]

@@ -1,0 +1,24 @@
+vnum: 2115
+name: Ludmilla Vilisevic
+keywords: [ludmilla, vilisevic, bride, vampire]
+description: Ludmilla Vilisevic sits on the edge of her empty coffin, cradling a velvet bundle.
+look: |
+  The first of the count's brides, a pale beauty in a gown of white silk
+  gone grey with dust, a silver circlet in her black hair. She was a
+  noblewoman of the Barovian court once and she has never forgiven him
+  for forgetting her. She cradles a bundle of black velvet that glows
+  through the cloth, and she cannot bear to touch it, and she will not
+  let it go.
+level: 34
+flags: [assist]
+health: 2000
+silver: 250
+stats: {dexterity: 14, charisma: 16}
+attack:
+  kind: claw
+  verb: rake
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: regen
+    params: { fraction: 0.01 }

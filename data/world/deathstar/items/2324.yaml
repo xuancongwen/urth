@@ -1,0 +1,15 @@
+vnum: 2324
+name: an A280 blaster rifle
+keywords: [a280, blaster, rifle]
+description: A long rebel blaster rifle lies here.
+look: |
+  A long, accurate rifle of the sort the Rebellion steals from the same
+  arms makers who supply the Empire. This one has been tuned by a
+  wookiee, which mostly involved hitting it.
+type: weapon
+level: 26
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

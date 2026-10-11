@@ -1,0 +1,16 @@
+vnum: 2830
+name: a champion's war maul
+keywords: [champion's, champions, war, maul, hammer]
+description: A huge iron-headed maul lies here.
+look: |
+  A maul with a head the size of a milk churn. It is for knocking things
+  flat and keeping them there.
+type: weapon
+weight: 15
+level: 26
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: pound

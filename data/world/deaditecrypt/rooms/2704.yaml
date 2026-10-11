@@ -1,0 +1,11 @@
+vnum: 2704
+name: The Hall of Skulls
+description: |
+  A narrow, high chamber whose ceiling is a mosaic of skulls, thousands
+  of them, set jaw-down so that they look like they are laughing at
+  something on the floor, and the floor is you. Arrow slits have been
+  chipped between them at odd heights. Someone up there has a bow. The
+  ossuary is back to the south.
+exits:
+  south: 2703
+flags: [dark]

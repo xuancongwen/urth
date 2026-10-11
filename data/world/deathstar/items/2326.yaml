@@ -1,0 +1,11 @@
+vnum: 2326
+name: an Imperial access card
+keywords: [imperial, access, card, keycard]
+description: A small coded access card lies here.
+look: |
+  A thin rectangle of coded plastic with a magnetic strip and an
+  Imperial crest. It opens doors somewhere on this station, and it can
+  be sold on to people who would like to open them too.
+type: other
+weight: 0
+value: 20

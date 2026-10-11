@@ -1,0 +1,11 @@
+vnum: 2614
+name: The Sunken Reef
+description: |
+  At low tide the reef is a garden just under the water: fans of red
+  coral, brain-shaped boulders, forests of swaying weed, and between
+  them sand channels where the murlocs run fish into their nets. You
+  stand on its crown with the swell at your chest. Tiderunners dart
+  through the channels faster than anything on two legs should. The
+  shallows are up toward the beach.
+exits:
+  up: 2612

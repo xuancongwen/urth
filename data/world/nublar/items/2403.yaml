@@ -1,0 +1,27 @@
+vnum: 2403
+name: a raptor claw dagger
+keywords: [raptor, claw, dagger, sickle, toe]
+description: A long hooked sickle claw, bound to a grip of hide, lies here.
+look: |
+  The great killing claw from the second toe of the raptor matriarch, as
+  long as your hand and curved like a sickle, its inner edge sharp enough
+  to open a man with a flick. It has been bound into a grip of dinosaur
+  hide. It is a weapon for someone quick, who strikes from the side and
+  goes for the soft parts, as she did.
+type: weapon
+weight: 1
+level: 26
+baseline: dagger
+value: 3200
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.3 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

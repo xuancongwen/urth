@@ -1,0 +1,13 @@
+vnum: 2113
+name: a letter from Kolyan Indirovich
+keywords: [letter, kolyan, indirovich, note, envelope]
+description: A folded letter, sealed with a smear of red wax, lies here.
+look: |
+  A letter on cheap paper in a shaky hand, signed Kolyan Indirovich,
+  Burgomaster of Barovia. It begs any hero who reads it to come and save
+  his daughter Ireena from the devil who has bitten her. The burgomaster
+  has been dead for three weeks. His son Ismark would very much like it
+  back.
+type: other
+weight: 0
+flags: [quest]

@@ -1,0 +1,20 @@
+vnum: 1711
+name: Lieutenant Rasczak
+keywords: [lieutenant, lt, rasczak, jean, officer]
+description: Lieutenant Rasczak sits propped against the sandbags, a pistol in his lap.
+look: |
+  The commander of Rasczak's Roughnecks, and before that a schoolteacher
+  who taught history and moral philosophy and lost a hand doing
+  something he never talked about. A warrior bug took both his legs
+  below the knee. He has tied them off himself. He is very pale, quite
+  calm, and still in command. He looks up at you. "I'd do the same for
+  you." He means it. He keeps the pistol in his lap, all the same.
+level: 28
+health: 1400
+silver: 150
+attack:
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

@@ -1,0 +1,15 @@
+vnum: 2916
+name: a pair of seeing spectacles
+keywords: [seeing, spectacles, glasses, lenses]
+description: A pair of round spectacles with smoked lenses lies folded here.
+look: |
+  Round lenses of smoked crystal in thin wire frames, the kind a wizard
+  might wear to read small print. Through them the empty air of the
+  sorcerers' hall is not empty at all. The provisioner swears they were
+  not taken from a dead sorcerer, and then changes the subject.
+type: armor
+slot: face
+weight: 1
+value: 250
+effects:
+  - { kind: detectInvisible }

@@ -1,0 +1,18 @@
+vnum: 1912
+name: Staban Tuek
+keywords: [staban, tuek, smuggler]
+description: Staban Tuek the smuggler leans on his ornithopter, counting spice.
+look: |
+  A wiry, sharp-faced man in a smuggler's flight suit with a pistol on
+  each hip and a thumper slung over his shoulder. His father ran the
+  biggest smuggling ring on Arrakis, and Staban intends to run a bigger
+  one. He pays everybody off, and the people he cannot pay off, he
+  sends a worm.
+level: 26
+health: 900
+silver: 300
+attack:
+  kind: pierce
+  verb: shoot
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }

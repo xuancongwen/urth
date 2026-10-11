@@ -1,0 +1,16 @@
+vnum: 1715
+name: a TW-203 flamethrower
+keywords: [tw-203, tw203, flamethrower, flamer, thrower]
+description: A flamethrower with a hissing pilot light lies here, its fuel hose coiled.
+look: |
+  A two-handed flame gun fed from a tank filled, by the fire base
+  engineers, with what they drain from tanker bug glands. It throws the
+  bugs' own fire back at them. The manual says not to use it in a
+  tunnel. The engineers have crossed that out.
+type: weapon
+level: 34
+baseline: heavy
+weapon:
+  hands: 2
+  kind: fire
+  verb: scorch

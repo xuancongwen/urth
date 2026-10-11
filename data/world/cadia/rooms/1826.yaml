@@ -1,0 +1,12 @@
+vnum: 1826
+name: The Fallen Cadian Gate
+description: |
+  The Cadian Gate: not a gate at all, but the name of the only safe way
+  out of the Eye, held for ten thousand years by the planet behind you.
+  The fortress that watched it is a heap of rockcrete, and over the heap
+  the Black Legion has planted a standard of eight points. Huge figures
+  in black Terminator plate stand among the ruins like monuments. The
+  field of skulls is east, and the breach is west.
+exits:
+  east: 1824
+  west: 1827

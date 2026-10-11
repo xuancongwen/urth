@@ -1,0 +1,14 @@
+vnum: 1718
+name: a Federation heavy assault suit
+keywords: [federation, heavy, assault, suit, armor, armour]
+description: A massive grey assault suit stands here, open down the back.
+look: |
+  The armor the recruiting posters promised: a full suit of plate over
+  a padded frame, built for the second wave of the war and issued too
+  late for the first. It is heavy enough to slow you down, and thick
+  enough that it does not matter.
+type: armor
+slot: body
+level: 42
+baseline: plate
+flags: [drop]

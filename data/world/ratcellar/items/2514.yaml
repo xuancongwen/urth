@@ -1,0 +1,12 @@
+vnum: 2514
+name: a pair of muddy boots
+keywords: [muddy, boots, pair]
+description: A pair of boots caked in sewer mud lies here.
+look: |
+  Stout boots under a crust of mud you do not want to identify. They
+  were somebody's best, once. Scrape them first.
+type: armor
+slot: feet
+level: 2
+baseline: light
+flags: [drop]

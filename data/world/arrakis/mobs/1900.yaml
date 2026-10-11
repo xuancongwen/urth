@@ -1,0 +1,24 @@
+vnum: 1900
+name: Farok the water-seller
+keywords: [farok, water-seller, water, seller, merchant]
+description: Farok the water-seller sits cross-legged among his literjons, counting rings.
+look: |
+  An old Fremen with a face like a dry riverbed and eyes blue within
+  blue, his stillsuit patched at every seam. He sells water, glowglobes
+  and stillsuits to the sietch and, at a markup, to outworlders. He
+  likes spice better than coin: bring him melange from the blows and
+  he will part with things he would not sell for silver. The spice
+  must flow, he says, mostly towards him. Type 'list' to see his wares.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1901, silver: 30 }
+  - { item: 1902, silver: 10 }
+  - { item: 1906, silver: 60 }
+  - { item: 1904, silver: 200 }
+  - { item: 1903, silver: 150, items: [1900, 1900] }
+  - { item: 1905, silver: 250, items: [1900, 1900, 1900, 1900] }
+  - { item: 1901, items: [1900] }
+  - { item: 1902, items: [1900] }

@@ -1,0 +1,18 @@
+vnum: 2905
+name: a great bone pile
+keywords: [great, bone, pile, bones, generator]
+description: A great pile of bones rises waist high by the exit, groaning softly.
+look: |
+  A mound of yellowed bones as tall as your waist, from some bigger and
+  older dead than the rest, packed so tight that the whole heap rings
+  when struck. Grim ghosts pour out of the gaps. Knock it down and they
+  stop coming.
+level: 30
+health: 1900
+xp: 150
+attack:
+  damage: 1
+  verb: rattle
+armor:
+  defense: 16
+spawns: { mob: 2904, every: 4, max: 3 }

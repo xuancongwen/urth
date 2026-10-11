@@ -1,0 +1,11 @@
+vnum: 2215
+name: The Rye Field
+description: |
+  A field of rye gone to seed, unharvested, the stalks bowed and rattling.
+  The sun stands at its height and the heat is wrong, too still, too
+  white. A scarecrow at the field's middle has been dressed in a bridal
+  gown. The village is west; a well stands at the far end of the field to
+  the east.
+exits:
+  west: 2213
+  east: 2216

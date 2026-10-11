@@ -1,0 +1,12 @@
+vnum: 2118
+name: The Switchback Road
+description: |
+  The road leaves the trees and climbs a bare shoulder of rock in tight
+  switchbacks, with a sheer drop on one side and nothing on the other
+  but wind. Below, the valley is a bowl of fog with the village roofs
+  poking through. Above, Castle Ravenloft stands on its pillar of stone,
+  and its windows are lit. The woods are north; the road climbs south to
+  the castle gate.
+exits:
+  north: 2116
+  south: 2119

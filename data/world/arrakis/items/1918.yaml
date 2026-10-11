@@ -1,0 +1,18 @@
+vnum: 1918
+name: a sandworm's tooth
+keywords: [sandworm's, sandworm, worm, tooth, fang]
+description: A long, milky-white tooth, curved like a sickle, lies here.
+look: |
+  One of the thousand crystal teeth that ring a sandworm's mouth, as
+  long as your arm and sharp along the whole inner curve. Fremen grind
+  these into crysknives. This one has not been ground into anything
+  yet, and it is still sharp enough to carve the air.
+type: weapon
+weight: 2
+level: 60
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: rip

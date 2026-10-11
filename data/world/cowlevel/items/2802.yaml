@@ -1,0 +1,20 @@
+vnum: 2802
+name: the Cow King's horns
+keywords: [cow, king's, kings, horns, helm, hat]
+description: A battered war hat with a great pair of horns lies here.
+look: |
+  A leather war hat studded with iron, with two horns as long as your
+  forearm set into it, both of them the Cow King's own. It is one of
+  three pieces of the Cow King's leathers, and it has been rammed into a
+  great many people. Anyone who strikes its wearer feels the horns
+  answer.
+type: armor
+slot: head
+weight: 3
+level: 27
+baseline: medium
+value: 2200
+effects:
+  - { kind: thorns, params: { fraction: 0.2, verb: goring horns } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

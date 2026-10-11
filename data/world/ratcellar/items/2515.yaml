@@ -1,0 +1,16 @@
+vnum: 2515
+name: a rusty short sword
+keywords: [rusty, short, sword]
+description: A rusty short sword lies here.
+look: |
+  A plain soldier's short sword, red with rust from tip to crossguard.
+  Someone hid it in the cellar to keep it from the watch, and the
+  cellar kept it.
+type: weapon
+level: 3
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,18 @@
+vnum: 2124
+name: a von Zarovich greatsword
+keywords: [von, zarovich, greatsword, sword]
+description: A great two-handed sword with a bat-winged crossguard lies here.
+look: |
+  A sword as long as a man, its crossguard spread like a bat's wings,
+  its blade engraved with the battles of the von Zarovich line from one
+  end to the other. Strahd carried one like it when he conquered this
+  valley, when he was alive and it was a war.
+type: weapon
+weight: 14
+level: 45
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

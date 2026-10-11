@@ -1,0 +1,11 @@
+vnum: 2207
+name: The Reed Beds
+description: |
+  Reeds taller than a man, and between them channels of black water that
+  might be a foot deep or might go down forever. Every so often the reeds
+  shiver where there is no wind, and a gurgle carries across the water
+  like a drowned man trying to speak. Bones are scattered on a hummock,
+  picked very clean. The road is west; a ruined mill stands to the east.
+exits:
+  west: 2206
+  east: 2208

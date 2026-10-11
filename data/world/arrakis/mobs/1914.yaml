@@ -1,0 +1,21 @@
+vnum: 1914
+name: the renegade naib
+keywords: [renegade, naib, outcast, leader]
+description: The renegade naib sits on a crate of stolen water, turning a crysknife in his hands.
+look: |
+  He led a sietch once, before he sold its secrets to the Harkonnens and
+  was found out. They cast him into the desert to die, and he did not.
+  He is old and lean and very fast, and he still carries the crysknife
+  his tribe should have taken back from him, ground from the tooth of
+  a maker. He is waiting to see whether you are worth his time.
+level: 28
+flags: [assist]
+health: 1300
+silver: 300
+attack:
+  kind: pierce
+  verb: stab
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: dodge, params: { amount: 0.04 } }

@@ -1,0 +1,22 @@
+vnum: 2604
+name: a fish on a stick
+keywords: [fish, stick, club]
+description: A large, stiff, dried fish is lashed to a stout stick here.
+look: |
+  A whole cod, salted and dried as hard as oak, lashed head-first to a
+  length of ship's spar with tarred rope. It is a club, a meal, and a
+  statement. Murlocs consider it the height of the armourer's art, and
+  when it connects squarely there is a wet, ringing smack that leaves
+  people dazed and gulls interested.
+type: weapon
+weight: 4
+level: 12
+baseline: mace
+value: 600
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smack
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

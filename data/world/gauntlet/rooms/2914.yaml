@@ -1,0 +1,10 @@
+vnum: 2914
+name: Level 4, the Lobbers' Gallery
+description: |
+  A gallery of stone walls in rows, like the backs of pews, and behind
+  each row crouches something with long arms and a sack of rocks. They
+  never come out from behind the walls. They never need to. The floor
+  between the rows is a rubble of thrown stone and the occasional helmet
+  with a dent in the top of it. The crossfire is east.
+exits:
+  east: 2913

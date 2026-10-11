@@ -1,0 +1,17 @@
+vnum: 2015
+name: a dwarf war-mattock
+keywords: [dwarf, war-mattock, war, mattock, pick]
+description: A great war-mattock of dwarf make lies here among the slag.
+look: |
+  A miner's pick made for war: a long iron haft and a head with a spike
+  on one side and a broad blade on the other, both edged. It belonged to
+  one of Balin's folk. It still has his name on it, and a good deal of
+  orc.
+type: weapon
+weight: 9
+level: 26
+baseline: heavy
+weapon:
+  hands: 2
+  kind: pierce
+  verb: smash

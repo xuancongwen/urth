@@ -1,0 +1,12 @@
+vnum: 1806
+name: The Wire
+description: |
+  Coils of razor wire, three deep, staked across the mud with iron
+  pickets, and caught on them all the things the wire catches: rags,
+  helmets, a boot with something still in it. Craters have filled with
+  rainwater gone a sullen rust colour. A cultist's eight-pointed star
+  has been daubed on a picket in something that dried brown. The Cadian
+  line is east. The fields open to the west.
+exits:
+  east: 1804
+  west: 1807

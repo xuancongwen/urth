@@ -1,0 +1,11 @@
+vnum: 1726
+name: The Larder
+description: |
+  A side chamber where the colony keeps what it means to eat later.
+  Troopers, mostly, cocooned to the walls in hardened spit, some of
+  them with their helmets still on. Every one has a neat round hole in
+  the top of the skull. The resin creaks as the cocoons settle. The
+  antechamber is east.
+exits:
+  east: 1724
+flags: [dark]

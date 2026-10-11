@@ -1,0 +1,16 @@
+vnum: 2217
+name: a deserter's arming sword
+keywords: [deserter's, deserter, arming, sword]
+description: A plain arming sword with its unit badge scratched off lies here.
+look: |
+  A soldier's arming sword, plain and serviceable, with a bare patch on
+  the pommel where somebody filed off the regiment's badge before he
+  walked away from it. The edge is better kept than the man was.
+type: weapon
+weight: 3
+level: 15
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

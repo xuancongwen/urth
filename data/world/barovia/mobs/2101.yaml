@@ -1,0 +1,17 @@
+vnum: 2101
+name: Ismark Kolyanovich
+keywords: [ismark, kolyanovich, lesser]
+description: Ismark Kolyanovich broods over a mug of wine in the corner.
+look: |
+  A tall young man with his father's broad shoulders and none of his
+  father's luck, a longsword at his hip and dark rings under his eyes.
+  The village calls him Ismark the Lesser, behind his back and lately to
+  his face. His father the burgomaster is dead, and his sister Ireena
+  has been bitten twice by the master of the castle, and he has been
+  drinking here every night looking for someone brave or foolish enough
+  to help. Once his father sent a letter out into the mists asking for
+  heroes. If you have it, he would like to see it.
+level: 18
+flags: [peaceful]
+attack:
+  verb: slash

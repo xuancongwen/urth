@@ -1,0 +1,13 @@
+vnum: 2303
+name: an astromech droid
+keywords: [astromech, droid, r2, r2-d2, artoo]
+description: A squat blue and white astromech droid whistles and rocks on its treads.
+look: |
+  A domed barrel of a droid, blue and white, with a single red eye and a
+  great many arms hidden behind little panels. It has been plugged into
+  the station's computer through a socket it should not have access to,
+  and it whistles a long string of notes that is almost certainly rude.
+level: 20
+flags: [peaceful]
+attack:
+  verb: zap

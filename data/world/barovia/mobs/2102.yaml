@@ -1,0 +1,16 @@
+vnum: 2102
+name: Father Donavich
+keywords: [father, donavich, priest]
+description: Father Donavich kneels at the altar, praying loudly over the screams.
+look: |
+  A gaunt, grey priest in a threadbare cassock, his hands raw from
+  wringing. He prays loudly and constantly, and the screaming under the
+  floor quiets while he does. That is his son Doru down there, though he
+  will not say so. For a donation to the church he will teach you to
+  heal quickly and to throw yourself in front of a blow meant for a
+  friend, the only two things his faith still does reliably.
+level: 20
+flags: [peaceful]
+teaches: [fast_healing, rescue]
+attack:
+  verb: punch

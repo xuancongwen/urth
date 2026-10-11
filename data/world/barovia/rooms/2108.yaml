@@ -1,0 +1,12 @@
+vnum: 2108
+name: The South Edge of the Village
+description: |
+  The last houses of Barovia give out here, and the street turns back
+  into road. A dead tree leans over a well with a rotted lid, and a
+  scarecrow stands in a field of black stubble with its sackcloth head
+  turned toward the road. You are almost sure it was facing the other
+  way a moment ago. The village is north; the road runs south into the
+  trees.
+exits:
+  north: 2106
+  south: 2109

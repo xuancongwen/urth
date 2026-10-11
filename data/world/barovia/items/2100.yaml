@@ -1,0 +1,12 @@
+vnum: 2100
+name: a flask of holy water
+keywords: [flask, holy, water]
+description: A small glass flask of holy water lies here, stoppered with wax.
+look: |
+  A flask of clear water blessed at the altar of the church in Barovia,
+  with a sprig of dried thyme in it and a wax seal stamped with the
+  morning lord's sun. The villagers splash it on their doorsteps every
+  night. It does not seem to help them, but they keep doing it.
+type: other
+weight: 1
+value: 25

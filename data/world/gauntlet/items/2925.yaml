@@ -1,0 +1,12 @@
+vnum: 2925
+name: a pair of padded gloves
+keywords: [padded, gloves]
+description: A pair of padded gloves lies here.
+look: |
+  Quilted canvas gloves with leather palms, worn through at the
+  trigger finger of a crossbowman.
+type: armor
+slot: hands
+level: 28
+baseline: light
+flags: [drop]

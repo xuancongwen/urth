@@ -1,0 +1,13 @@
+vnum: 2421
+name: The Tall Ferns
+description: |
+  Ferns close over your head on every side, and you can see perhaps an
+  arm's length. The ground is soft, and the silence is the wrong kind: no
+  birds, no insects. Something ahead of you shakes the ferns, plainly, as
+  if to be seen. It is never the one you should be watching. The pen is
+  north, a roofed shed shows through the leaves to the west, and a beaten
+  trail runs south.
+exits:
+  north: 2420
+  south: 2424
+  west: 2422

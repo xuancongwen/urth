@@ -1,0 +1,15 @@
+vnum: 2301
+name: The Freighter's Main Hold
+description: |
+  The freighter's hold is a curving corridor of scuffed panels, loose
+  cables, and equipment that has been repaired with more confidence than
+  care. Two deck plates near the ramp are pried up, showing the shallow
+  smuggling compartment under the floor where you rode in, wedged
+  between a spice crate and somebody's spare boots. It smells of hot
+  circuits and wookiee. Nobody fights in here; the captain has made it
+  very clear he will shoot first. The ramp leads west down to the bay,
+  and the lounge is east.
+exits:
+  east: 2302
+  west: 2300
+flags: [safe]

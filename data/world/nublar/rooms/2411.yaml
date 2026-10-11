@@ -1,0 +1,10 @@
+vnum: 2411
+name: The Triceratops Paddock
+description: |
+  An open grazing ground ringed with palms, its grass cropped short. A
+  pile of dung the size of a haystack steams in the middle of it, and
+  beside the pile someone has dropped a long cattle prod in the mud.
+  Berries of a purple-leaved shrub lie scattered and trampled. The ground
+  trembles when the paddock's residents shift. The road is north.
+exits:
+  north: 2410

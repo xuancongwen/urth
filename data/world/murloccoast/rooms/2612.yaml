@@ -1,0 +1,11 @@
+vnum: 2612
+name: The Shallows
+description: |
+  You wade out to your knees, then your waist, through water so clear
+  you can see your own feet and the crabs scuttling from them. The sea
+  floor drops away ahead in a ragged edge where a reef of coral and
+  stone rises nearly to the surface. Quick shapes flicker along it. The
+  wreck and the beach are north. Down, the water deepens over the reef.
+exits:
+  north: 2611
+  down: 2614

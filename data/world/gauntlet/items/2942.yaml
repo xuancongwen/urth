@@ -1,0 +1,12 @@
+vnum: 2942
+name: a pair of plate legguards
+keywords: [plate, legguards, leggings]
+description: A pair of plate legguards lies here.
+look: |
+  Steel thigh and shin plates on a leather backing, with a domed
+  knee cop that has been hammered back into shape at least once.
+type: armor
+slot: legs
+level: 34
+baseline: plate
+flags: [drop]

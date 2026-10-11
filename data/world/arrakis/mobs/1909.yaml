@@ -1,0 +1,15 @@
+vnum: 1909
+name: a Harkonnen spice-guard
+keywords: [harkonnen, spice-guard, spice, guard, trooper]
+description: A Harkonnen spice-guard in a filter mask watches the sacks.
+look: |
+  A trooper detailed to guard the spice, which means he is trusted, which
+  on Giedi Prime means he has been caught stealing only once. He wears
+  a filter mask against the melange dust and a cuirass against the
+  Fremen, and neither fits.
+level: 22
+flags: [assist]
+silver: 110
+attack:
+  kind: pierce
+  verb: stab

@@ -1,0 +1,22 @@
+vnum: 2117
+name: Volenta Popofsky
+keywords: [volenta, popofsky, bride, vampire]
+description: Volenta Popofsky reclines on the velvet couch, grinning with too many teeth.
+look: |
+  The youngest of the brides, a wild-eyed thing with tangled blonde hair
+  under a crooked silver circlet, who giggles and cannot sit still. She
+  was the cruellest of them alive, and she has had a long time to
+  practise since. She likes to play with her food.
+level: 34
+flags: [assist]
+health: 2000
+silver: 250
+stats: {dexterity: 16, charisma: 14}
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: regen
+    params: { fraction: 0.01 }

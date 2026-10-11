@@ -1,0 +1,16 @@
+vnum: 1703
+name: Colonel Carl Jenkins
+keywords: [colonel, carl, jenkins, psi, ops, intelligence]
+description: Colonel Carl Jenkins of Military Intelligence stands by the screen in a long black coat.
+look: |
+  A thin young man in the long black leather coat of Military
+  Intelligence, with pale eyes and the air of someone who already knows
+  what you are going to say. He is psychic, officially. He looks at the
+  Federal Network screen, then at you, and smiles very slightly. "The
+  Brain Bug is down there. We need to know how it thinks. Would you like
+  to know more?"
+level: 30
+flags: [peaceful]
+attack:
+  kind: psionic
+  verb: stare

@@ -1,0 +1,14 @@
+vnum: 2905
+name: Level 2, the Landing
+description: |
+  The rungs end in a crossroads of stone corridors walled in the same
+  grey blocks as the level above, only darker and closer, and the floor
+  here is tracked with broad bare footprints. East, smoke rises over the
+  wall from a cluster of crude huts. West, a heavy door stands shut in
+  the stone. North, the maze bends away into deeper gloom. The shaft
+  climbs back up.
+exits:
+  up: 2904
+  east: 2906
+  west: 2907
+  north: 2908

@@ -1,0 +1,14 @@
+vnum: 2407
+name: The Tour Road, Gallimimus Overlook
+description: |
+  The road crests a rise and the trees fall away below you into a wide
+  green valley. A fallen log lies across the verge where tourists are
+  meant to stop and take pictures. To the north, behind a high fence hung
+  with warning signs, dense jungle and a small painted plaque: the
+  dilophosaur paddock. South, a trail drops into the valley. The road runs
+  east and west.
+exits:
+  north: 2409
+  east: 2405
+  south: 2408
+  west: 2410

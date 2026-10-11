@@ -1,0 +1,14 @@
+vnum: 2203
+name: a Crow's Perch guard
+keywords: [guard, soldier, crow's, perch, baron's]
+description: A guard in the Baron's colours leans on a halberd.
+look: |
+  A soldier of the Baron's, in a red and gold tabard over mail that
+  has seen action and kept its rust. He used to be a bandit, before the
+  Baron offered him the choice of a tabard or a rope. He took the
+  tabard, and does not seem sure it was the better deal.
+level: 20
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: thrust

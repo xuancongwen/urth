@@ -1,0 +1,15 @@
+vnum: 2502
+name: a cellar rat
+keywords: [cellar, rat]
+description: A fat brown cellar rat sits up on its haunches and twitches its whiskers at you.
+look: |
+  A brown rat the size of a loaf, sleek and well fed on the Grunting
+  Boar's ale, cheese, and sausages. It has no fear of you at all. It
+  has never needed any. Where there is one, there are its cousins,
+  and they will all come if it squeaks.
+level: 2
+flags: [assist]
+silver: 2
+attack:
+  kind: bite
+  verb: bite

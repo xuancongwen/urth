@@ -1,0 +1,15 @@
+vnum: 1905
+name: The Door Seal
+description: |
+  A narrow chamber between two doors, where the sietch keeps its water in
+  and the desert out. The outer door is a seal of plastic and rock that
+  fits its frame like a lid on a jar. Every Fremen who passes touches the
+  frame and says nothing. Pegs along the wall hold spare nose plugs and
+  catchpockets. East, beyond the seal, is the open desert; west is the
+  cavern.
+exits:
+  west: 1902
+  east: 1906
+flags: [safe]
+doors:
+  east: {name: the door seal, closed: true}

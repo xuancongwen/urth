@@ -1,0 +1,10 @@
+vnum: 2314
+name: The Pilots' Ready Room
+description: |
+  Rows of benches facing a tactical display that shows the station's
+  trench in a long green wireframe. Flight helmets hang in a row on
+  hooks, every one exactly alike. A pilot's rota on the wall assigns the
+  whole of Black Squadron to perimeter patrol, with a note at the bottom
+  in a different hand: Lord Vader will be flying. The hangar is north.
+exits:
+  north: 2313

@@ -1,0 +1,12 @@
+vnum: 2804
+name: The Burning Farmstead
+description: |
+  A farmhouse burns here and does not burn down. The flames stand up
+  from its roof beams in a steady sheet, the timbers glow and never
+  fall, and the heat on your face is real enough. A painted sign over
+  the door says FRESH MILK. Somebody has crossed out MILK and written
+  something else in a language with too many horns in it. The fields are
+  north, and a barn stands to the south.
+exits:
+  north: 2802
+  south: 2814

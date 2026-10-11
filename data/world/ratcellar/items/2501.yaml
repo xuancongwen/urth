@@ -1,0 +1,11 @@
+vnum: 2501
+name: a rat tail
+keywords: [rat, tail]
+description: A long, naked rat tail lies here like a bit of string.
+look: |
+  Pink, scaly, and longer than seems necessary. The innkeeper's boy has
+  been promised a copper a tail by his father, and has worked out that
+  he can do better by paying you in kind.
+type: other
+weight: 0
+value: 2

@@ -1,0 +1,11 @@
+vnum: 2411
+name: a strip of dinosaur hide
+keywords: [strip, dinosaur, hide, skin, leather]
+description: A rough strip of pebbled dinosaur hide lies here.
+look: |
+  A strip of thick, pebbled hide, grey-green on one side and pink on the
+  other, cut from a grazer. It is as tough as saddle leather and smells of
+  the paddock. The gift shop will take it in trade.
+type: other
+weight: 2
+value: 10

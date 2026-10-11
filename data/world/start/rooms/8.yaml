@@ -11,6 +11,7 @@ description: |
   pressure seal and a stencilled warning in a language of numbers.
 exits:
   up: 7
+  down: 9
   north: 1400
   east: 1100
   south: 1300

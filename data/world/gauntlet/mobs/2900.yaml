@@ -1,0 +1,17 @@
+vnum: 2900
+name: the Voice
+keywords: [voice, narrator, announcer]
+description: A great booming Voice fills the antechamber, coming from nowhere at all.
+look: |
+  There is nobody there. There is only the Voice, deep and slow and
+  slightly too loud, as if it were coming out of a box with a cloth
+  front. It announces things. It has announced, over the years, that
+  the elf needs food badly, that the warrior is about to die, and that
+  the red warrior shot the food, which he did. It will teach you to
+  heal fast and to catch your breath mid-fight, for coin, because it
+  is tired of announcing the other thing.
+level: 30
+flags: [peaceful]
+teaches: [fast_healing, second_wind]
+attack:
+  verb: boom

@@ -1,0 +1,19 @@
+vnum: 2804
+name: the Cow King's hooves
+keywords: [cow, king's, kings, hooves, boots]
+description: A pair of heavy boots shod with iron hoof-plates lies here.
+look: |
+  Heavy boots of hide with iron plates nailed to the soles in the shape
+  of cloven hooves. The third piece of the Cow King's leathers. They
+  make an alarming noise on a stone floor and let you move with a bull's
+  sudden speed, which surprises everyone, including the bull.
+type: armor
+slot: feet
+weight: 4
+level: 27
+baseline: heavy
+value: 2200
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.03 } }

@@ -1,0 +1,16 @@
+vnum: 1709
+name: a hopper's leg spike
+keywords: [hopper's, hopper, leg, spike]
+description: A thin, barbed leg spike lies here.
+look: |
+  A hopper's hind leg spike, light and hollow and very sharp, with a
+  row of tiny barbs that point backward. It is quick in the hand and
+  quicker coming out than going in, which is the problem.
+type: weapon
+weight: 1
+level: 24
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

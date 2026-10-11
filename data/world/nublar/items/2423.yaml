@@ -1,0 +1,13 @@
+vnum: 2423
+name: a dinosaur-hide duster
+keywords: [dinosaur-hide, dinosaur, hide, duster, coat]
+description: A long duster coat of pebbled grey hide lies here.
+look: |
+  A long riding coat made by the gift shop's back room from the hides of
+  the park's grazers, stitched double and oiled. It is heavy, it smells
+  faintly of triceratops, and claws skid off it.
+type: armor
+slot: body
+weight: 6
+level: 18
+baseline: heavy

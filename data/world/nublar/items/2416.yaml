@@ -1,0 +1,16 @@
+vnum: 2416
+name: a cattle prod
+keywords: [cattle, prod, shock, stick]
+description: A long electric cattle prod lies here.
+look: |
+  A yard of fibreglass shaft with a battery handle and two brass prongs at
+  the tip, the sort the veterinary staff use to move a reluctant three-
+  horned animal along. It crackles when it lands.
+type: weapon
+weight: 3
+level: 15
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: jolt

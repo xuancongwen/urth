@@ -1,0 +1,13 @@
+vnum: 2425
+name: The Tour Road, the Tyrannosaur Paddock
+description: |
+  The road runs beside a concrete wall topped with a tall electric fence,
+  the cables slack between their posts. A rain-streaked tour jeep sits
+  abandoned on the guide rail with its roof crushed. In a puddle in the
+  road, a ring of ripples spreads, and spreads again, in time with
+  something heavy walking. South, the fence is torn open where a goat was
+  once tied. The gate is east, and the road goes on west.
+exits:
+  east: 2419
+  south: 2426
+  west: 2428

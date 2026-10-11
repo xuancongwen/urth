@@ -1,0 +1,27 @@
+vnum: 2416
+name: the Tyrannosaurus rex
+keywords: [tyrannosaurus, rex, t-rex, trex, tyrant, dinosaur]
+description: The Tyrannosaurus rex stands in the rain, absolutely still, watching for movement.
+look: |
+  Seven tons of tyrant lizard, twenty feet tall at the hip, with a head
+  the size of a car and a mouth that could close over you whole. The great
+  eye is yellow and slit and does not blink. Its vision is based on
+  movement, someone told you, and you are very nearly sure that is not
+  true. When it roars, the puddles shiver into rings. Objects in mirror
+  are closer than they appear.
+level: 40
+flags: [wander]
+health: 9000
+silver: 900
+armor:
+  defense: 160
+attack:
+  kind: pierce
+  verb: bite
+effects:
+  - kind: soak
+    params: { power: 0.2 }
+  - kind: proc
+    params: { verb: bone-crushing bite, chance: 0.15, power: 1.5 }
+  - kind: steady
+    params: { chance: 0.5 }

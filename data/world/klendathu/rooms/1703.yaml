@@ -1,0 +1,15 @@
+vnum: 1703
+name: The Briefing Bunker
+description: |
+  Benches face a wall-sized Federal Network screen that never turns off.
+  On it, an announcer with perfect teeth explains that the bugs started
+  it, over footage of happy children handing ammunition to troopers. A
+  banner crawls along the bottom: SERVICE GUARANTEES CITIZENSHIP. WOULD
+  YOU LIKE TO KNOW MORE? Somebody has written YES in marker on the
+  frame, and somebody else has written NO under it. The air is cool and
+  nobody fights here. The compound is west, and a ramp climbs south to
+  the drill ground.
+exits:
+  west: 1701
+  south: 1704
+flags: [safe]

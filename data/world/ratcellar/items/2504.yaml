@@ -1,0 +1,21 @@
+vnum: 2504
+name: the Rat King's crown
+keywords: [rat, king, king's, crown, tin]
+description: A tin pageant crown, gnawed all round the rim, lies here.
+look: |
+  A tin crown from some harvest pageant, painted gold once, its points
+  gnawed to stubs and its band stuffed with greasy rat fur to make it
+  fit a head that was never one head. It smells terrible. Whoever wears
+  it stands a little straighter and is somehow harder to put down,
+  which is what the Rat King found too. All hail.
+type: armor
+slot: head
+weight: 1
+level: 6
+baseline: light
+value: 300
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 1 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }

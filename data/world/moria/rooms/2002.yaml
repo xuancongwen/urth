@@ -1,0 +1,15 @@
+vnum: 2002
+name: The Camp of the Erebor Dwarves
+description: |
+  A dozen dwarf-tents of oiled hide stand in a ring on a shelf of flat
+  rock, guy-ropes pegged into cracks with iron spikes. A fire of
+  carefully hoarded wood burns in the middle, and around it sit dwarves
+  in travel-stained hoods, sharpening things. They came from the Lonely
+  Mountain looking for Balin son of Fundin, who went into Moria thirty
+  years ago and stopped writing. No blade is drawn in this camp unless
+  the captain says so. The trader's awning is east, and the path runs
+  back down south to the road.
+exits:
+  south: 2000
+  east: 2003
+flags: [safe]

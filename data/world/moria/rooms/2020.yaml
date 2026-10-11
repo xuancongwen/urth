@@ -1,0 +1,14 @@
+vnum: 2020
+name: The Hall of Pillars
+description: |
+  Twin rows of pillars, each as thick as a tower, march away east
+  between walls polished like black glass. Your light makes a small
+  bubble in them and the dark presses in behind it. Orc-fires have
+  scorched the pillars at their feet. A broad doorway to the south
+  is hung with a curtain of chains, and red light glows faintly at the
+  hall's eastern end. The Passage of Records is west.
+exits:
+  west: 2017
+  east: 2021
+  south: 2022
+flags: [dark]

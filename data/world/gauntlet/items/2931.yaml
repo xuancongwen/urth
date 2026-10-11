@@ -1,0 +1,12 @@
+vnum: 2931
+name: a pair of iron vambraces
+keywords: [iron, vambraces, bracers]
+description: A pair of iron vambraces lies here.
+look: |
+  Forearm guards of curved iron, scored crosswise where they have
+  turned blades and teeth.
+type: armor
+slot: arms
+level: 30
+baseline: medium
+flags: [drop]

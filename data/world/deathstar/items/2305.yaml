@@ -1,0 +1,12 @@
+vnum: 2305
+name: a TIE pilot's flight suit
+keywords: [tie, pilot's, pilot, flight, suit]
+description: A black pressurized flight suit lies here, crumpled like a shed skin.
+look: |
+  A black flight suit with a ribbed pressure layer and a chest box of
+  switches. It will keep you alive in vacuum for a little while, which
+  is all a TIE pilot is ever expected to need.
+type: armor
+slot: body
+level: 21
+baseline: light

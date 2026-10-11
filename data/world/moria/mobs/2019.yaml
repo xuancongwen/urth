@@ -1,0 +1,32 @@
+vnum: 2019
+name: Durin's Bane
+keywords: [durin's, durins, bane, balrog, demon, shadow, flame]
+description: Durin's Bane stands upon the bridge, a shadow wreathed in flame, its whip of fire uncoiling.
+look: |
+  A Balrog of Morgoth, a demon of the ancient world, which hid at the
+  roots of the mountains from the war of wrath and woke when the dwarves
+  delved too deep for mithril. It is like a great shadow, in the middle
+  of which is a dark form, of man-shape maybe, yet greater; and a power
+  and terror seem to be in it and to go before it. Its mane kindles,
+  and in its right hand is a blade like a stabbing tongue of fire, in
+  its left a whip of many thongs. It slew Durin the Sixth and his son
+  after him, and the dwarves fled. You cannot pass.
+level: 50
+health: 25000
+silver: 2000
+armor:
+  defense: 360
+attack:
+  kind: fire
+  verb: lash
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: shadow and flame }
+  - kind: ignite
+    params: { power: 0.1, rounds: 3, maxStacks: 3 }
+  - kind: soak
+    params: { power: 0.15 }
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: lastStand
+    params: { threshold: 0.25, mult: 0.8 }

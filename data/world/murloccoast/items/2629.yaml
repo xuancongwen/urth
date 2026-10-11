@@ -1,0 +1,14 @@
+vnum: 2629
+name: a scale mantle
+keywords: [scale, mantle, pauldrons]
+description: A shoulder mantle of large scales lies here.
+look: |
+  A short cape of leather sewn thick with scales as big as your palm,
+  covering the shoulders and the top of the arms. The murloc oracles
+  wear them as a mark of rank. It fits you rather better.
+type: armor
+slot: shoulders
+weight: 3
+level: 13
+baseline: medium
+flags: [drop]

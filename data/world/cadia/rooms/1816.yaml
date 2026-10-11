@@ -1,0 +1,12 @@
+vnum: 1816
+name: Da Manufactorum
+description: |
+  A Mechanicus manufactorum that the Orks have taken over and are
+  improving. Conveyor belts still run, carrying nothing, and a stamping
+  press bangs away on its own. Every surface has been painted red,
+  because red ones go faster, and someone has bolted a horned skull over
+  the door. Scrap is piled in heaps. The street is south, and a ramp of
+  welded plates leads north to the Ork fort.
+exits:
+  north: 1817
+  south: 1812

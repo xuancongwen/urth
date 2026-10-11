@@ -1,0 +1,16 @@
+vnum: 2501
+name: The Cellar
+description: |
+  A long, low room with a vaulted brick ceiling sweating in the damp.
+  Barrels of ale stand in ranks along the walls, and every one of them
+  has a neat round hole gnawed through the bottom stave, just above the
+  floor, at exactly the height of a rat who knows what he wants. The
+  floor is sticky. The arch back to the stair is west; wine racks loom
+  to the north, the root cellar is south, and something has knocked a
+  hole in the far wall to the east.
+exits:
+  west: 2500
+  north: 2502
+  south: 2504
+  east: 2505
+flags: [dark]

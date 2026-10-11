@@ -1,0 +1,16 @@
+vnum: 2105
+name: a dire wolf
+keywords: [dire, wolf, wolves]
+description: A dire wolf pads through the trees, head low, watching you.
+look: |
+  A grey wolf the size of a pony, with a ruff of black fur and yellow
+  eyes that hold your gaze a moment too long, like a dog's, and then a
+  moment longer, like nothing a dog has ever done. The wolves of the
+  Svalich Woods are the count's children, and they hunt where he tells
+  them to. Where there is one, the rest are close.
+level: 12
+flags: [assist, wander]
+silver: 5
+attack:
+  kind: bite
+  verb: bite

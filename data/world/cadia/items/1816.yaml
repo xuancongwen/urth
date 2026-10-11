@@ -1,0 +1,18 @@
+vnum: 1816
+name: a purity seal
+keywords: [purity, seal, wax, scripture]
+description: A disc of red wax with a strip of parchment lies here.
+look: |
+  A seal of red wax stamped with the aquila, with a strip of vellum
+  bearing a litany of steadfastness hanging from it. Pinned at the
+  throat, it does not stop anything a shell can do. It does make it
+  much harder to run, and on Cadia that is most of what courage is.
+type: armor
+slot: neck
+weight: 0
+level: 30
+value: 400
+effects:
+  - kind: steady
+    params: { chance: 0.25 }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

@@ -1,0 +1,57 @@
+interval_seconds: 120
+resets:
+  # --- the coin slot ---
+  - { mob: 2900, room: 2900 }                                   # the Voice, who teaches fast healing and second wind
+  - { mob: 2901, room: 2900 }                                   # Gorm the provisioner beside the coin slot
+  # --- level 1: ghosts ---
+  - { mob: 2903, room: 2902 }                                   # a small bone pile in the bone yard, spawning faint ghosts
+  - { mob: 2905, room: 2904 }                                   # a great bone pile at the exit, spawning grim ghosts
+  - { mob: 2902, room: 2901, max: 5, equip: [{ item: 2905 }] }  # faint ghosts loose in the maze, each trailing ectoplasm
+  - { mob: 2902, room: 2901, max: 5, equip: [{ item: 2905 }] }
+  - { mob: 2902, room: 2901, max: 5, equip: [{ item: 2905 }] }
+  - { mob: 2902, room: 2902, max: 5, equip: [{ item: 2905 }] }  # and two more over the bones
+  - { mob: 2902, room: 2902, max: 5, equip: [{ item: 2905 }] }
+  - { mob: 2904, room: 2904, max: 3, equip: [{ item: 2905 }] }  # grim ghosts waiting at the exit
+  - { mob: 2904, room: 2904, max: 3, equip: [{ item: 2905 }] }
+  - { item: 2900, room: 2902 }                                  # a gold key dropped among the bones
+  - { item: 2901, room: 2903 }                                  # roast chicken on the treasure room shelf
+  - { item: 2903, room: 2903 }                                  # and a magic potion beside it
+  # --- level 2: grunts ---
+  - { mob: 2907, room: 2906, max: 2 }                           # a grunt hut in the yard
+  - { mob: 2907, room: 2908, max: 2 }                           # and one blocking the club run
+  - { mob: 2913, room: 2906, equip: [{ item: 2909 }, { item: 2906 }, { item: 2906 }] }   # Big Grunt, keeping Thor's axe
+  - { mob: 2906, room: 2905, max: 8, equip: [{ item: 2906 }, { item: 2900 }] }   # grunts on the landing, one with a key off a dead hero
+  - { mob: 2906, room: 2905, max: 8, equip: [{ item: 2906 }] }
+  - { mob: 2906, room: 2906, max: 8, equip: [{ item: 2906 }] }  # grunts about the huts
+  - { mob: 2906, room: 2906, max: 8, equip: [{ item: 2906 }] }
+  - { mob: 2906, room: 2908, max: 8, equip: [{ item: 2906 }] }  # grunts on the club run
+  - { mob: 2906, room: 2908, max: 8, equip: [{ item: 2906 }] }
+  - { mob: 2917, room: 2905 }                                   # a thief, who wanders the levels
+  - { item: 2901, room: 2907 }                                  # the larder: roast chicken
+  - { item: 2902, room: 2907 }                                  # and a jug of cider
+  - { item: 2904, room: 2908 }                                  # a torch left at the shaft to the dark level
+  # --- level 3: demons, in the dark ---
+  - { mob: 2909, room: 2910, max: 2 }                           # a demon pit in the pits
+  - { mob: 2909, room: 2911, max: 2 }                           # and one by the furnace
+  - { mob: 2914, room: 2911, equip: [{ item: 2910 }, { item: 2907 }, { item: 2907 }] }   # the Demon Mother, keeping Thyra's sword
+  - { mob: 2908, room: 2909, max: 7, equip: [{ item: 2907 }] }  # demons in the dark corridor
+  - { mob: 2908, room: 2910, max: 7, equip: [{ item: 2907 }] }  # demons among the pits
+  - { mob: 2908, room: 2910, max: 7, equip: [{ item: 2907 }] }
+  - { mob: 2908, room: 2911, max: 7, equip: [{ item: 2907 }] }  # demons at the furnace
+  - { mob: 2908, room: 2911, max: 7, equip: [{ item: 2907 }] }
+  - { item: 2902, room: 2912 }                                  # a jug of cider at the exit, for anyone who found the key
+  # --- level 4: lobbers and sorcerers ---
+  - { mob: 2910, room: 2913, max: 5 }                           # lobbers behind the crossfire walls
+  - { mob: 2910, room: 2913, max: 5 }
+  - { mob: 2910, room: 2914, max: 5 }                           # lobbers in their gallery
+  - { mob: 2910, room: 2914, max: 5 }
+  - { mob: 2910, room: 2914, max: 5 }
+  - { mob: 2915, room: 2914, equip: [{ item: 2911 }] }          # the Lobber King, keeping Questor's bow
+  - { mob: 2911, room: 2915, max: 3 }                           # invisible sorcerers in their hall
+  - { mob: 2911, room: 2915, max: 3 }
+  - { mob: 2911, room: 2915, max: 3 }
+  - { mob: 2916, room: 2915, equip: [{ item: 2912 }] }          # the Sorcerer Supreme, keeping Merlin's staff
+  - { item: 2903, room: 2916 }                                  # the vault: a magic potion
+  - { item: 2901, room: 2916 }                                  # and a roast chicken, which nobody had better shoot
+  # --- the last level ---
+  - { mob: 2912, room: 2917, equip: [{ item: 2913, slot: neck }] }   # Death, wearing the amulet of invulnerability

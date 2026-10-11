@@ -1,0 +1,13 @@
+vnum: 2323
+name: a patched stormtrooper cuirass
+keywords: [patched, stormtrooper, cuirass, armor, armour]
+description: A mismatched white cuirass of riveted armour plates lies here.
+look: |
+  A cuirass built from stormtrooper plates, riveted over a smuggler's
+  padded vest, three layers deep where it counts. It is ugly, it does
+  not match, and it stops more than a stormtrooper's own armour ever
+  did.
+type: armor
+slot: body
+level: 22
+baseline: heavy

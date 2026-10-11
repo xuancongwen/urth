@@ -1,0 +1,15 @@
+vnum: 2302
+name: a stormtrooper's blaster carbine
+keywords: [stormtrooper's, stormtrooper, blaster, carbine]
+description: A black blaster carbine with a folding stock lies here.
+look: |
+  A short, boxy blaster carbine with a scope on top and a folding stock.
+  The scope is out of true. Everyone's scope is out of true. Nobody in
+  the Empire has ever filed a complaint about it.
+type: weapon
+level: 17
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

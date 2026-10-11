@@ -1,0 +1,13 @@
+vnum: 1907
+name: The Broken Land
+description: |
+  A maze of low ridges and wind-cut gullies, where the rock shows through
+  the sand like bone through skin. A hawk rides the thermals overhead,
+  patient as a tax collector. The wind never stops; it just changes its
+  mind. To the south the sand turns a strange rust colour, and the air
+  smells of cinnamon. The Shield Wall is west; the gullies open east onto
+  a wide flat plain.
+exits:
+  west: 1906
+  east: 1908
+  south: 1914

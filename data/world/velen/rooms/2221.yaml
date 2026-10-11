@@ -1,0 +1,11 @@
+vnum: 2221
+name: The Deep Woods
+description: |
+  The woods close in until the path is only an idea. Antlers and skulls
+  are hung in the branches, bound with twine and red cloth: offerings, or
+  warnings, or both. The trees creak when there is no wind, and the roots
+  underfoot shift, very slightly, when you are not looking down. The
+  path goes north toward a ring of stones, and south out of the wood.
+exits:
+  south: 2219
+  north: 2222

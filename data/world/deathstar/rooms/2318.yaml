@@ -1,0 +1,11 @@
+vnum: 2318
+name: The Maintenance Hatch
+description: |
+  Past the hatch the polish stops. A crawlway of bare metal runs west,
+  lined with conduits that hum and give off a faint warmth, and it is
+  completely dark. The command corridor is a rectangle of light to the
+  east.
+exits:
+  east: 2316
+  west: 2319
+flags: [dark]

@@ -1,0 +1,15 @@
+vnum: 2522
+name: a notched meat cleaver
+keywords: [notched, meat, cleaver]
+description: A heavy cleaver with a notched edge lies here.
+look: |
+  The inn's second-best cleaver, which went missing the night of the
+  great sausage theft. The notches in the edge are recent.
+type: weapon
+level: 6
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave

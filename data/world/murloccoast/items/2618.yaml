@@ -1,0 +1,17 @@
+vnum: 2618
+name: a murloc war spear
+keywords: [murloc, war, spear]
+description: A short spear with a jagged stone head lies here.
+look: |
+  Shorter than a man would make it, with a head of knapped flint and a
+  shaft wrapped in eel skin for grip. A cluster of tiny fish bones is
+  tied below the head for luck. The luck did not hold.
+type: weapon
+weight: 3
+level: 10
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

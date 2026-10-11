@@ -1,0 +1,12 @@
+vnum: 2319
+name: a glow rod
+keywords: [glow, rod, light, torch]
+description: A glow rod lies here, casting a cold white light.
+look: |
+  A rod of tough plastoid as long as a forearm, one end glowing a cold
+  bright white. It is the galaxy's flashlight, and every ship worth
+  flying has three of them in a locker somewhere.
+type: light
+weight: 1
+burn: 1500
+value: 25

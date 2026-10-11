@@ -1,0 +1,11 @@
+vnum: 2214
+name: The Deserters' Camp
+description: |
+  A camp of lean-tos and stolen wagons in a clearing, with a fire, a pot,
+  and a pile of loot sorted by value: armor here, boots there, a set of
+  silver spoons, a witcher's saddlebags. Men in the remains of three
+  different uniforms sit around the fire, and every one of them has a
+  hand near a blade. A gibbet at the clearing's edge holds a man in a
+  fourth uniform. The village is back east.
+exits:
+  east: 2213

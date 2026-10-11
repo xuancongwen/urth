@@ -1,0 +1,14 @@
+vnum: 2125
+name: a suit of von Zarovich warplate
+keywords: [von, zarovich, warplate, plate, armor]
+description: A black suit of full plate with a bat crest on the breast lies here.
+look: |
+  Full plate of black steel, fluted and engraved, with a bat in red
+  enamel on the breast. It is the armor of a conqueror, and it was made
+  to outlast him. It did.
+type: armor
+slot: body
+weight: 24
+level: 45
+baseline: plate
+flags: [drop]

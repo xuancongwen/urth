@@ -1,0 +1,10 @@
+vnum: 1923
+name: The Guest Chamber
+description: |
+  A chamber hung with black cloth and lit by a single amber glowglobe. A
+  chair of plain wood stands in the middle, and beside it a small box of
+  green metal, the size of a hand. The air smells of melange and of
+  something older. The silence here has weight: it waits for you to fill
+  it, and listens closely when you do. The hall is north.
+exits:
+  north: 1921

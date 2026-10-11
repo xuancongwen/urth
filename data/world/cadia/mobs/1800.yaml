@@ -1,0 +1,24 @@
+vnum: 1800
+name: Quartermaster Venn
+keywords: [quartermaster, venn, munitorum, clerk]
+description: Quartermaster Venn stamps a requisition slip, then another, then another.
+look: |
+  A narrow, grey man in a Munitorum greatcoat with ink to the elbows and
+  a bionic eye that whirs as it reads serial numbers. He has supplied
+  this trench through four counter-attacks and a daemon incursion and
+  has lost, in that time, not a single form. He will sell to anyone
+  with coin, and he will trade the good kit from the back for promethium,
+  because the tanks are thirsty and the cults keep stealing it.
+  Type 'list' to see what he has.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1802, silver: 30 }
+  - { item: 1802, items: [1804] }
+  - { item: 1803, silver: 400 }
+  - { item: 1801, silver: 550 }
+  - { item: 1800, silver: 600 }
+  - { item: 1813, silver: 800, items: [1804, 1804, 1804] }
+  - { item: 1814, silver: 900, items: [1804, 1804] }

@@ -1,0 +1,12 @@
+vnum: 1805
+name: The Field Chapel
+description: |
+  A hollow in the trench wall, roofed with corrugated plasteel and
+  consecrated with whatever was to hand: an aquila cut from a ration
+  tin, candles made from lasgun lubricant, and a small shrine to the
+  Emperor built of spent power cells stacked like bricks. Hundreds of
+  names are scratched into the walls, some of them still fresh. Incense
+  covers the smell of the trench, almost. The firestep is south.
+exits:
+  south: 1804
+flags: [safe]

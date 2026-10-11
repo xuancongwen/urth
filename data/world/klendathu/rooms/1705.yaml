@@ -1,0 +1,13 @@
+vnum: 1705
+name: The Perimeter Wire
+description: |
+  Three rings of razor wire, a trench, and a line of sandbagged gun
+  positions face north into the dust. The guns are pointed at nothing in
+  particular, which on Klendathu means they are pointed at everything.
+  Spent Morita brass lies ankle deep in the trench. Beyond the wire the
+  plain is pocked with holes the width of a man, and none of them were
+  there yesterday. The compound is south, and a gap in the wire opens
+  north.
+exits:
+  south: 1701
+  north: 1706

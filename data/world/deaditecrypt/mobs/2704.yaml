@@ -1,0 +1,14 @@
+vnum: 2704
+name: a skeleton archer
+keywords: [skeleton, archer, bowman, bones, dead]
+description: A skeleton archer nocks an arrow, empty eye sockets on you.
+look: |
+  A skeleton with a longbow and a quiver of black-fletched arrows, which
+  it draws to the ear with a creak of dry tendon. It has no eyes, and
+  its aim is excellent anyway.
+level: 16
+flags: [assist]
+silver: 30
+attack:
+  kind: pierce
+  verb: shoot

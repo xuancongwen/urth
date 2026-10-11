@@ -1,0 +1,15 @@
+vnum: 2717
+name: a skeleton archer's longbow
+keywords: [skeleton, archer's, archer, longbow, bow]
+description: A tall yew longbow, its string of gut, lies here.
+look: |
+  A yew longbow taller than a man, strung with dried gut, the grip
+  wrapped in leather that has worn through to the wood. The arrows that
+  go with it are mostly in the walls.
+type: weapon
+level: 16
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

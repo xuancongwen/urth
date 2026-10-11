@@ -1,0 +1,11 @@
+vnum: 2115
+name: The Bandits' Hollow
+description: |
+  A hollow in the rocks above the falls, hidden from the road, where a
+  single black wagon is drawn up beside a cold firepit. Stolen goods are
+  piled under oilcloth: saddles, candlesticks, a child's rocking horse.
+  These are not Madam Eva's people. They sell travellers to the castle
+  for gold, and they have been doing it for years. The trail goes back
+  east.
+exits:
+  east: 2114

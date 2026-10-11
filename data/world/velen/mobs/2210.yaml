@@ -1,0 +1,17 @@
+vnum: 2210
+name: Captain Vlodek the Turncoat
+keywords: [captain, vlodek, turncoat, deserter]
+description: Captain Vlodek sits on a looted strongbox, admiring a witcher's sword.
+look: |
+  A broad, scarred man with a captain's sash he did not earn and a
+  witcher's sword on his knees that he did not either. He tells anyone
+  who will listen that he killed the witcher himself, in single combat.
+  The truth involves a crossbow, a latrine, and nine men. He will kill
+  you to keep the story going.
+level: 15
+flags: [assist]
+health: 450
+silver: 80
+attack:
+  kind: slash
+  verb: slash

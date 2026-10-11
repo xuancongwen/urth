@@ -1,0 +1,15 @@
+vnum: 1709
+name: a hopper bug
+keywords: [hopper, bug, flyer, arachnid]
+description: A hopper bug swoops low overhead on rattling wings.
+look: |
+  A warrior bug with wings: long, papery, veined things that let it
+  glide down from the cliffs and snatch a trooper off the ground. Its
+  legs are thinner than a warrior's and end in barbed spikes. It never
+  stays anywhere long. Look up.
+level: 24
+flags: [wander]
+silver: 30
+attack:
+  kind: pierce
+  verb: skewer

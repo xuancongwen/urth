@@ -1,0 +1,12 @@
+vnum: 2504
+name: The Root Cellar
+description: |
+  Shelves of turnips, onions in strings, sacks of potatoes, and a row
+  of cheeses on a board, or rather the rinds of cheeses, hollowed out
+  from beneath and left standing like little yellow tents. The earth
+  floor is riddled with holes the size of a fist. It is cold here, and
+  it smells of soil and of mice that were eaten by rats. The cellar is
+  north.
+exits:
+  north: 2501
+flags: [dark]

@@ -1,0 +1,17 @@
+vnum: 2604
+name: a murloc warrior
+keywords: [murloc, warrior]
+description: A murloc warrior slaps its chest and bellows a gargling war cry.
+look: |
+  A thickset murloc with a darker hide, scarred across the snout, a
+  shield of turtle shell strapped to one arm and a crest of spines
+  standing straight up. Murlocs do not have generals. They have the
+  biggest one, and this is one of the bigger ones. Mrglglgl.
+level: 10
+flags: [assist]
+silver: 10
+armor:
+  defense: 4
+attack:
+  kind: pierce
+  verb: stab

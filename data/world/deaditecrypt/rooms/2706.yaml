@@ -1,0 +1,14 @@
+vnum: 2706
+name: The Hall of the Dead
+description: |
+  A colonnade of squat pillars runs away into the dark, each carved with
+  the face of the knight buried beneath it. The faces are worn, but the
+  expressions have all been chiselled into the same one, and it is not
+  peace. Effigies lie on the tombs between the pillars, and some of the
+  tombs are open. The stairs are east, the hall goes on to the west, and
+  to the south the floor ends at a ragged edge.
+exits:
+  east: 2702
+  west: 2707
+  south: 2708
+flags: [dark]

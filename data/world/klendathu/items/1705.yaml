@@ -1,0 +1,12 @@
+vnum: 1705
+name: a hopper bug wing
+keywords: [hopper, bug, wing, membrane]
+description: A long, papery wing streaked with veins lies here.
+look: |
+  A hopper's wing, longer than a man and thin as paper, its leading
+  edge stiffened by a hard ridge of chitin. It is surprisingly tough.
+  The engineers at the fire base want them for something they will not
+  explain.
+type: other
+weight: 1
+value: 25

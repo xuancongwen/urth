@@ -1,0 +1,11 @@
+vnum: 2416
+name: The Aviary Gate
+description: |
+  A steel cage door in a wall of netting, propped open with a fire
+  extinguisher. Inside, the dome rises so high it has its own weather,
+  mist curling among the girders. A catwalk climbs from just inside the
+  gate into the mist. A sign on the door reads PLEASE KEEP THIS DOOR
+  CLOSED AT ALL TIMES. The service track goes south to the road.
+exits:
+  south: 2415
+  up: 2417

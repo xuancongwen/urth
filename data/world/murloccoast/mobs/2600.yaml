@@ -1,0 +1,21 @@
+vnum: 2600
+name: Fisherman Haldren
+keywords: [fisherman, haldren, merchant]
+description: Fisherman Haldren sits on a barrel by the brazier, mending a net.
+look: |
+  A leathery old Westfall man in an oilskin and a knitted cap, with a
+  pipe he never lights and a gaff hook he never puts down. He came out
+  here to fish in peace and found the beach full of murlocs, so now he
+  buys their fins off anyone who will go and get them, and sells them
+  the things they will need to get more. He talks about the murlocs the
+  way other men talk about the weather. Type 'list' to see what he has.
+level: 14
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2601, silver: 25 }
+  - { item: 2612, silver: 160 }
+  - { item: 2617, silver: 60, items: [2602, 2602] }
+  - { item: 2622, silver: 120, items: [2600, 2600, 2600, 2600] }
+  - { item: 2625, silver: 250, items: [2600, 2600, 2600, 2606] }

@@ -1,0 +1,13 @@
+vnum: 2415
+name: a yellow rain slicker
+keywords: [yellow, rain, slicker, raincoat, coat]
+description: A bright yellow rain slicker lies here in a crumpled heap.
+look: |
+  A hooded yellow slicker of heavy rubberized cloth, a size too big, with
+  a candy wrapper and a car key in the pocket. It keeps off the rain, and
+  the tropics have a great deal of rain.
+type: armor
+slot: body
+weight: 3
+level: 11
+baseline: light

@@ -1,0 +1,23 @@
+vnum: 1917
+name: the Sardaukar Bashar
+keywords: [sardaukar, bashar, officer, imperial]
+description: The Sardaukar Bashar stands at his map table, very still.
+look: |
+  A Bashar of the Sardaukar, commander of a legion, sent by the Emperor
+  to help the Harkonnens and to watch them. He is grey at the temples,
+  grey in his uniform, and grey in his eyes, and he carries a plain
+  grey sword that has never once been used for show. He nods to you
+  as one professional to another, and draws it.
+level: 38
+flags: [assist]
+health: 3800
+silver: 500
+armor:
+  defense: 120
+attack:
+  kind: slash
+  verb: cut
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: steady, params: { chance: 0.4 } }

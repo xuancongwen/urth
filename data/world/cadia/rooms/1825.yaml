@@ -1,0 +1,10 @@
+vnum: 1825
+name: The Brass Throne
+description: |
+  A crater blasted so deep that bedrock shows at the bottom, and in it
+  a throne of brass and skulls that was not here an hour ago. The heat
+  makes the air shimmer. Blood runs down the crater walls in streams
+  and pools around the throne's feet, where it boils. Something very
+  large has been sitting on it. The field of skulls is north.
+exits:
+  north: 1824

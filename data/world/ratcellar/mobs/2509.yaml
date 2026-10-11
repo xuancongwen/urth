@@ -1,0 +1,24 @@
+vnum: 2509
+name: the Rat King
+keywords: [rat, king, knot]
+description: The Rat King squats upon its throne of bones, a dozen heads turning to you at once.
+look: |
+  Not a rat but a knot of them: a dozen great black rats bound together
+  at the tails in a single snarl of gristle, dung, and old blood, so
+  tight that no rat of them could ever leave. They move as one thing,
+  heaving across the dais on forty-eight legs, and squeak in a horrible
+  sort of unison. A tin crown sits crookedly on the biggest head. The
+  other rats of the cellar bring it food, and it rules them by being
+  the only thing down here they are afraid of.
+level: 6
+health: 220
+silver: 60
+stats: { constitution: 14, strength: 12 }
+armor:
+  defense: 6
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: dot
+    params: { damage: 2 }

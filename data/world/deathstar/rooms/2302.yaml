@@ -1,0 +1,13 @@
+vnum: 2302
+name: The Freighter's Lounge
+description: |
+  A cramped round lounge with a padded bench curving around a
+  holographic game table, its little monsters frozen mid-lunge. A
+  training remote hovers over a crate, humming to itself. The bulkheads
+  are patched in three different colours of paint, and a panel by the
+  hatch is held shut with a hydrospanner jammed through the handle. It
+  is warm in here, and quiet, and the station outside feels a long way
+  off. The hold is west.
+exits:
+  west: 2301
+flags: [safe]

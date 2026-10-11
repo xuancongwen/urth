@@ -1,0 +1,15 @@
+vnum: 2802
+name: a hell bovine bruiser
+keywords: [hell, bovine, bruiser, cow]
+description: A hulking hell bovine paws the mud and lowers its horns.
+look: |
+  Bigger than the others, if that is possible, with a neck like a tree
+  stump and a set of horns that has clearly been through a few fences.
+  It has not bothered with a halberd. It does not feel it is missing
+  anything.
+level: 22
+flags: [assist]
+silver: 30
+attack:
+  kind: pierce
+  verb: gore

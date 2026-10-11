@@ -1,0 +1,11 @@
+vnum: 2325
+name: a stormtrooper armour plate
+keywords: [stormtrooper, armour, armor, plate, plastoid]
+description: A curved plate of white stormtrooper armour lies here.
+look: |
+  A plate of white plastoid knocked off a stormtrooper's armour,
+  slightly scorched. They come off quite easily. Smugglers collect them,
+  for patching hulls and patching themselves.
+type: other
+weight: 2
+value: 15

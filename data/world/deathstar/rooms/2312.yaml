@@ -1,0 +1,12 @@
+vnum: 2312
+name: A Maintenance Shaft Under the Cells
+description: |
+  A cramped shaft of pipes and cable trays under the detention level,
+  pitch black except for the odd status light. Water drips from the
+  compactor hatch to the west and runs along the floor in a dark
+  trickle. Rungs in the wall lead up to a hatch in the control station's
+  floor.
+exits:
+  west: 2311
+  up: 2307
+flags: [dark]

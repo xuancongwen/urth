@@ -1,0 +1,9 @@
+vnum: 2427
+name: Below the Paddock Wall
+description: |
+  The foot of the concrete drop, deep in the jungle canopy. A tour jeep
+  hangs nose-down in the branches of a tall tree overhead, creaking, its
+  doors open and its seats empty. Rain drips from its bumper in a steady
+  patter. The wall climbs back up to the paddock.
+exits:
+  up: 2426

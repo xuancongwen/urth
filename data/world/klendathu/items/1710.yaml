@@ -1,0 +1,14 @@
+vnum: 1710
+name: a pair of Mobile Infantry jump boots
+keywords: [mobile, infantry, mi, jump, boots]
+description: A pair of scuffed grey jump boots lies here.
+look: |
+  Heavy grey boots with armored shins and ceramic toecaps, laced up
+  past the ankle. They have been through a drop, a march, and at least
+  one bug. The left one has a hole in the heel that goes all the way
+  through.
+type: armor
+slot: feet
+level: 22
+baseline: medium
+flags: [drop]

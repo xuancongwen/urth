@@ -1,0 +1,14 @@
+vnum: 2213
+name: The Burned Village
+description: |
+  What is left of a village after soldiers came through it twice: chimneys
+  standing alone, a well with no bucket, a chapel to the Eternal Fire with
+  no roof. Someone has painted on a door: WE HAVE NOTHING LEFT. Someone
+  else has painted under it: PROVE IT. Smoke rises from a camp in the
+  trees to the west. Fields stretch east. North, the road climbs onto a
+  ridge. The battlefield is south.
+exits:
+  south: 2211
+  west: 2214
+  east: 2215
+  north: 2217

@@ -1,0 +1,12 @@
+vnum: 2714
+name: The Barracks of the Dead
+description: |
+  Stone bunks in tiers, five high, each with a skeleton lying in it in
+  armor, and every few minutes another one sits up, swings its legs
+  over, and reports for duty. A great table at the end of the room is
+  covered with a map of the castle above, drawn in charcoal, with
+  arrows. A rack of old weapons stands by the door. The antechamber is
+  south.
+exits:
+  south: 2713
+flags: [dark]

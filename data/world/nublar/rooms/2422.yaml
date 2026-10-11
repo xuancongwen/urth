@@ -1,0 +1,12 @@
+vnum: 2422
+name: The Maintenance Shed
+description: |
+  A long, black shed of pipes, catwalks, and dripping machinery, without a
+  single working light. Steam hisses from valves you cannot see. Water
+  stands on the floor in sheets that ripple when nothing has touched them.
+  Somewhere a chain clinks. The doorway east lets in a grey square of
+  jungle, and a hatch in the floor leads down to the generators.
+exits:
+  east: 2421
+  down: 2423
+flags: [dark]

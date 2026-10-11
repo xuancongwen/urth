@@ -1,0 +1,19 @@
+vnum: 2213
+name: a foglet
+keywords: [foglet, fog, wisp]
+description: A foglet waits in the mist, almost not there.
+look: |
+  A long, thin, grey thing like a man drawn out by a fist on either
+  end, with arms down to its ankles and a mouth full of thorns. It
+  makes the fog, and hides in it, and lures travellers off the
+  causeway with a lantern's glow it makes out of nothing. You can see
+  the fog through it.
+level: 20
+flags: [assist]
+silver: 25
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

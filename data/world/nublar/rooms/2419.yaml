@@ -1,0 +1,14 @@
+vnum: 2419
+name: The Tour Road, Raptor Pen Turnoff
+description: |
+  The road narrows between walls of jungle. South, a service road runs to
+  a concrete compound under a gantry crane, ringed with a double fence so
+  high and so heavily wired that it looks less like a pen than a prison.
+  West, a tall gate across the tour road carries a sign: CAUTION,
+  TYRANNOSAUR PADDOCK, REMAIN IN YOUR VEHICLE. The road runs back east.
+exits:
+  east: 2415
+  south: 2420
+  west: 2425
+doors:
+  west: {name: the paddock gate, closed: true}

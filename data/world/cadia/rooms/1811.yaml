@@ -1,0 +1,13 @@
+vnum: 1811
+name: The Breach of Kasr Myrak
+description: |
+  The curtain wall of Kasr Myrak was forty feet of rockcrete and
+  adamantium, and something has opened a gap in it you could march a
+  regiment through. Rubble spills down in a ramp. Shattered statues of
+  Cadian heroes lie among it, their faces turned up toward the Eye as if
+  to argue. To the north a gun emplacement sits silent on a stub of
+  wall. The fields are east and the ruins of the kasr are west.
+exits:
+  north: 1828
+  east: 1807
+  west: 1812

@@ -1,0 +1,12 @@
+vnum: 1904
+name: The Training Floor
+description: |
+  A flat stretch of packed sand under a rock ceiling scarred by a thousand
+  missed blows. Wooden dummies stand at one end, wearing old shield belts
+  that hum faintly. Young Fremen practise here in pairs, knife against
+  knife, slow and then fast and then slow again. The lesson painted on the
+  wall is short: THE SLOW BLADE PENETRATES THE SHIELD. The cavern is back
+  north.
+exits:
+  north: 1902
+flags: [safe]

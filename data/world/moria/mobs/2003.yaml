@@ -1,0 +1,15 @@
+vnum: 2003
+name: a cave goblin
+keywords: [cave, goblin, orc, snaga]
+description: A cave goblin crouches in the dark, blinking at your light.
+look: |
+  A small, bandy-legged goblin with long arms, grey skin, and big pale
+  eyes made for the dark, which makes your light hurt it and makes it
+  angry. It wears scraps of stolen mail and grins with a great many
+  teeth. Where there is one there are a dozen more.
+level: 10
+flags: [assist]
+silver: 8
+attack:
+  kind: slash
+  verb: slash

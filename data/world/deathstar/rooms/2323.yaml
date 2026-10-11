@@ -1,0 +1,12 @@
+vnum: 2323
+name: The Far Gantry
+description: |
+  A gantry on the far side of the reactor shaft, where you land hard
+  against the door. Beyond it a broad passage runs south toward the
+  superlaser, its walls lined with power conduits that glow brighter
+  with every few seconds. A turbolift goes up to the surface batteries.
+  The reactor shaft is north.
+exits:
+  north: 2322
+  south: 2324
+  up: 2328

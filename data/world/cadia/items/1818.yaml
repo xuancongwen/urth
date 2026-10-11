@@ -1,0 +1,12 @@
+vnum: 1818
+name: a rotted Guard greatcoat
+keywords: [rotted, guard, greatcoat, coat]
+description: A Cadian greatcoat, black with grave mould, lies here.
+look: |
+  A long olive greatcoat dug up with its owner, who no longer needs it.
+  It is heavy with damp and smells of the pit, but the weave holds.
+type: armor
+slot: body
+level: 27
+baseline: light
+flags: [drop]

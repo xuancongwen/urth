@@ -1,0 +1,10 @@
+vnum: 2915
+name: Level 4, the Sorcerers' Hall
+description: |
+  A long hall of polished black stone, faintly cold, where robed figures
+  stand, and then do not stand, and then stand again a little closer
+  than before. Runes are scratched into the floor in rings, and the
+  rings are scorched at their centres. Your shadow on the wall moves a
+  moment after you do. The crossfire is west.
+exits:
+  west: 2913

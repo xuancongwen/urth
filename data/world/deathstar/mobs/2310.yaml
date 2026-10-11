@@ -1,0 +1,15 @@
+vnum: 2310
+name: an Imperial technician
+keywords: [imperial, technician, tech, engineer]
+description: An Imperial technician in a grey jumpsuit fiddles with a panel.
+look: |
+  A thin, tired technician in a grey jumpsuit and a black cap, with a
+  toolbelt and the look of someone who has been on shift since the
+  station was finished. He would very much prefer not to fight you, but
+  the officers are watching.
+level: 19
+flags: [assist]
+silver: 60
+attack:
+  kind: blunt
+  verb: whack

@@ -5,8 +5,13 @@ description: |
   to hang. Beyond it the old graveyard runs downhill, the markers
   tilted like bad teeth, several of the graves open and not from the
   outside. A crate turned on its end serves someone as a shop counter.
+  West against the wall hangs a ragged oval of red light, humming like
+  a hive, that everyone in the village walks past without looking at.
   The village is north; south, through the graves, the cathedral waits.
 exits:
   north: 1304
   south: 1309
+  west: 2800
+doors:
+  west: {name: a shimmering red portal, closed: true, locked: true, pickproof: true, key: 2800}
 flags: [safe]

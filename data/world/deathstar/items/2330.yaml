@@ -1,0 +1,22 @@
+vnum: 2330
+name: a Royal Guard force pike
+keywords: [royal, guard, force, pike, spear]
+description: A long pike with a crackling vibro-head lies here.
+look: |
+  A slim black pike longer than a man is tall, its head a vibrating
+  blade wrapped in a coil that throws a jolt into whatever it touches.
+  The Emperor's Royal Guard train with it for years before they are
+  allowed to stand still holding one.
+type: weapon
+weight: 3
+level: 38
+baseline: spear
+value: 4000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: crackling shock } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }

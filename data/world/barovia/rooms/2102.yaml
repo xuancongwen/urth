@@ -1,0 +1,13 @@
+vnum: 2102
+name: The Gates of Barovia
+description: |
+  Two stone pillars flank the road, each topped with a statue of an
+  armed guardian whose head has long since fallen off and rolled into
+  the ditch. A pair of iron gates hangs between them, rusted open.
+  Beyond, the road becomes a muddy street between shuttered houses, and
+  the smell of chimney smoke and wet thatch drifts up to meet you. No
+  one has come out to greet a visitor in a very long time. The woods are
+  north; the village lies south.
+exits:
+  north: 2101
+  south: 2103

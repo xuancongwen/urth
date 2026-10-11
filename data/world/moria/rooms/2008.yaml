@@ -1,0 +1,14 @@
+vnum: 2008
+name: The Great Stair
+description: |
+  Two hundred broad steps, each worn into a shallow dish by the feet of
+  a kingdom, climb east into the mountain. Every few steps a niche in
+  the wall once held a lamp; now they hold goblin litter. The echoes
+  here are long and come back changed. A low door opens north into a
+  guardroom, the stair runs down west toward the gate, and the passage
+  goes on east at the top.
+exits:
+  west: 2007
+  east: 2009
+  north: 2010
+flags: [dark]

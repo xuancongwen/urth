@@ -1,0 +1,11 @@
+vnum: 2810
+name: The Trampled Field
+description: |
+  Nothing grows here any more. The ground has been stamped hard and flat
+  as a threshing floor by thousands of hooves at drill, and the marks of
+  it run in lines, in ranks, in wheeling squares. These are not cattle.
+  These are soldiers who happen to be cattle. The stones of the ring are
+  east; the torches burn to the west.
+exits:
+  east: 2809
+  west: 2811

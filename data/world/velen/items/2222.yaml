@@ -1,0 +1,13 @@
+vnum: 2222
+name: a pair of Wild Hunt gauntlets
+keywords: [wild, hunt, gauntlets, gloves]
+description: A pair of spiked black gauntlets lies here, rimed with frost.
+look: |
+  Gauntlets of the Wild Hunt's riders, black plate with spiked knuckles
+  and frost that grows back as fast as you rub it off. Your fingers ache
+  with cold inside them, and grip all the harder for it.
+type: armor
+slot: hands
+weight: 3
+level: 31
+baseline: plate

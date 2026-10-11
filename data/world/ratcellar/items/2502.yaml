@@ -1,0 +1,12 @@
+vnum: 2502
+name: a skein of spider silk
+keywords: [skein, spider, silk, web]
+description: A grey skein of spider silk lies here in a sticky coil.
+look: |
+  Cellar spider silk, drawn off the spinnerets and wound round two
+  fingers into a skein. It is stronger than any thread on the market
+  and smells faintly of rat. Old Nettle the ratcatcher can do something
+  with it.
+type: other
+weight: 0
+value: 6

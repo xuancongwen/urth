@@ -1,0 +1,12 @@
+vnum: 1707
+name: The Spires
+description: |
+  Pillars of grey stone, tall as towers and thin as needles, stand in a
+  crowd here, and the wind moans through the gaps between them. They are
+  not stone. Up close they are built of chewed rock and something like
+  spit, layer on layer, and they are hollow, and something inside is
+  scratching. The killing field is east; the spires thin out westward
+  into a gully.
+exits:
+  east: 1706
+  west: 1708

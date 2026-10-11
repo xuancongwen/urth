@@ -1,0 +1,15 @@
+vnum: 1816
+name: a bloodletter
+keywords: [bloodletter, daemon, demon, khorne, lesser]
+description: A bloodletter stalks among the skulls, hellblade dragging a red line in the earth.
+look: |
+  A lesser daemon of Khorne, red-skinned and lean, with a long-jawed
+  face, swept-back horns, and a black sword whose edge glows like a
+  coal. It moves in sudden lunges. It smells of hot iron, and when it
+  is wounded it bleeds smoke.
+level: 50
+flags: [assist]
+silver: 60
+attack:
+  kind: slash
+  verb: hack

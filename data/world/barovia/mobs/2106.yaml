@@ -1,0 +1,14 @@
+vnum: 2106
+name: a great dire wolf
+keywords: [great, dire, wolf, wolves]
+description: A great dire wolf stands in the road, hackles raised, growling low.
+look: |
+  A wolf as big as a horse, grey going white at the muzzle, scarred all
+  over from a life of winning. It does not snarl or bark. It just
+  watches you and waits for the others to come up on your flanks.
+level: 14
+flags: [assist, wander]
+silver: 8
+attack:
+  kind: bite
+  verb: bite

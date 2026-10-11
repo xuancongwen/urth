@@ -1,0 +1,15 @@
+vnum: 2703
+name: a skeleton warrior
+keywords: [skeleton, warrior, bones, dead]
+description: A skeleton warrior in a rusted coif stands in rank here, sword at the ready.
+look: |
+  A skeleton in a mail coif and the rags of a surcoat, who was a soldier
+  in life and has picked the habit straight back up. It stands in rank,
+  turns when its fellows turn, and attacks when they attack. It is
+  missing two ribs, which have not slowed it down.
+level: 15
+flags: [assist]
+silver: 25
+attack:
+  kind: slash
+  verb: slash

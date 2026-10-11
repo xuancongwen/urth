@@ -1,0 +1,25 @@
+vnum: 2901
+name: Gorm the provisioner
+keywords: [gorm, provisioner, dwarf, merchant]
+description: Gorm the provisioner sits on an upturned chest beside the coin slot, counting.
+look: |
+  A short, broad dwarf in a leather apron, with a beard tucked into his
+  belt and a pencil behind each ear. He has set up shop at the bottom of
+  the stair because every hero who comes down it is about to need keys,
+  food, and potions, and will pay anything for them on the way back up.
+  He buys ectoplasm, grunt tusks, and demon horn, and turns them into
+  armor in the back. Type 'list' to see what he has.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2900, silver: 60 }
+  - { item: 2900, items: [2905, 2905] }
+  - { item: 2901, silver: 25 }
+  - { item: 2902, silver: 20 }
+  - { item: 2903, silver: 90 }
+  - { item: 2904, silver: 30 }
+  - { item: 2916, silver: 300 }
+  - { item: 2914, silver: 450, items: [2906, 2906, 2906] }
+  - { item: 2915, silver: 550, items: [2907, 2907, 2905, 2905] }

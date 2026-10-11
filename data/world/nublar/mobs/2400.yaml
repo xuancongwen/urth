@@ -1,0 +1,18 @@
+vnum: 2400
+name: John Hammond
+keywords: [john, hammond, old, man]
+description: John Hammond beams at his skeletons, leaning on an amber-topped cane.
+look: |
+  A small, white-bearded old Scotsman in a white suit and a panama hat, as
+  pleased with everything as a boy with a new train set. He started out
+  with a flea circus, he will tell you, and here he has made something
+  real, something you can touch. He spared no expense. He does not want to
+  hear about the fences. He would, however, give a great deal, even his
+  own cane, to have back what Nedry took from the cold room. Type 'list'
+  to see what he offers.
+level: 20
+flags: [peaceful]
+attack:
+  verb: tap
+trades:
+  - { item: 2401, items: [2402] }

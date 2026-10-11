@@ -1,0 +1,17 @@
+vnum: 2910
+name: a lobber
+keywords: [lobber, thrower]
+description: A lobber crouches behind a low wall, a rock cocked over its shoulder.
+look: |
+  A hunched, long-armed thing with a sack of stones on its back and the
+  patience of a fisherman. It never steps out from behind its wall. It
+  lobs rocks over it in high slow arcs that come down on top of your
+  head while you are looking for a way round.
+level: 32
+flags: [assist]
+silver: 20
+attack:
+  kind: blunt
+  verb: lobbed rock
+effects:
+  - { kind: dodge, params: { amount: 0.08 } }

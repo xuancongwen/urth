@@ -1,0 +1,24 @@
+vnum: 2000
+name: Draupnir the trader
+keywords: [draupnir, trader, merchant, dwarf]
+description: Draupnir the trader stands behind his trestle, weighing something on his scales.
+look: |
+  A broad dwarf with a forked grey beard tucked into his belt and a
+  leather apron scorched in a hundred places. He came south with the
+  others to find Balin and brought a forge with him, because somebody
+  ought to make a profit out of all this grief. He sells light and mail
+  for silver, and he will do much better by you if you bring him what
+  the mountain gives up: true-silver ore from the old workings, and
+  the black iron the orcs carry. Type 'list' to see what he has.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2000, silver: 6 }
+  - { item: 2001, silver: 40 }
+  - { item: 2001, items: [2003, 2003, 2003] }
+  - { item: 2005, silver: 180 }
+  - { item: 2004, silver: 350 }
+  - { item: 2006, silver: 400, items: [2003, 2003] }
+  - { item: 2007, silver: 450, items: [2002, 2002, 2003, 2003] }

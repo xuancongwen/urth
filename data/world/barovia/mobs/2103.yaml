@@ -1,0 +1,17 @@
+vnum: 2103
+name: Madam Eva
+keywords: [madam, eva, seer, fortune, teller, vistani]
+description: Madam Eva sits behind her table, shuffling a deck of tarokka cards.
+look: |
+  An old woman in a shawl of black lace, her face a map of wrinkles and
+  her eyes bright and black and amused. She has been old for as long as
+  anyone in Barovia can remember, and she has been expecting you. She
+  turns over a card: the Mists. Another: the Raven. A third, and she
+  smiles, and puts it back without showing you. "The cards say you will
+  find the light in the hands of a thief, the symbol in the arms of a
+  bride, and the devil at the very top of his tower," she says. "They
+  also say you will not listen. Sit, sit."
+level: 30
+flags: [peaceful]
+attack:
+  verb: slap

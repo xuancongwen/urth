@@ -1,0 +1,12 @@
+vnum: 1725
+name: The Brain Bug's Cavern
+description: |
+  A cavern the size of a cathedral, warm and wet and stinking of rot.
+  In the centre squats the Brain Bug: a vast swollen sack of flesh with
+  a puckered mouth and a face that is almost a face, surrounded by the
+  husks of troopers who have been, in the most literal sense, picked
+  over. When it looks at you, you feel it look. It is afraid. It is
+  also very, very hungry. The antechamber is south.
+exits:
+  south: 1724
+flags: [dark]

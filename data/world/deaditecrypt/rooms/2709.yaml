@@ -1,0 +1,12 @@
+vnum: 2709
+name: The Deep Crypt Passage
+description: |
+  A tunnel hacked rather than built, its walls raw earth held up by
+  coffin lids nailed into a kind of shoring. Roots hang through the
+  ceiling, and so does the occasional hand. Something flaps in the dark
+  above, a sound like a bat but heavier, and laughs. The ramp climbs
+  back up, and the passage runs west toward a gate.
+exits:
+  up: 2707
+  west: 2712
+flags: [dark]

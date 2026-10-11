@@ -1,0 +1,17 @@
+vnum: 1800
+name: an M36 lasgun
+keywords: [m36, lasgun, las, rifle, gun]
+description: A lasgun with a scuffed wooden stock lies here, its charge pack seated.
+look: |
+  The Kantrael-pattern M36, the most common weapon in the galaxy and
+  quite possibly the most cleaned. It throws a bolt of red light with a
+  crack like a whip, and its charge pack can be topped up by leaving it
+  in a fire, which on Cadia is never hard. The Guard calls it a
+  flashlight. The Guard also wins with it.
+type: weapon
+level: 24
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: las-shot

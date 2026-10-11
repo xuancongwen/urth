@@ -1,0 +1,14 @@
+vnum: 2015
+name: a tentacle of the Watcher
+keywords: [tentacle, watcher, arm]
+description: A long sinuous tentacle, pale green and wet, gropes along the water toward you.
+look: |
+  One of the Watcher's many arms, as thick as your leg at the root and
+  fingered at the tip, pale green and luminous and wet. It feels for
+  you blindly through the weeds, and when it finds you it squeezes.
+  There is more of it under the water than you would like.
+level: 26
+silver: 0
+attack:
+  kind: blunt
+  verb: lash

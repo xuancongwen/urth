@@ -1,0 +1,12 @@
+vnum: 2603
+name: The Lamp Gallery
+description: |
+  At the top of the stair the great lamp sits in its cage of brass and
+  glass, unlit by day, smelling of whale oil. A narrow iron gallery runs
+  round the outside, and from it you can see the whole coast: the dunes,
+  the long wet beach, the domed mud huts of the murloc villages steaming
+  in the sun, and at the far western end a dark headland with the sea
+  sucking at a cave mouth beneath it. The stair goes back down.
+exits:
+  down: 2602
+flags: [safe]

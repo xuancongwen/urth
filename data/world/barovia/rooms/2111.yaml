@@ -1,0 +1,11 @@
+vnum: 2111
+name: The Road along the Ivlis
+description: |
+  The road follows the River Ivlis west, the water black and fast and
+  loud over the stones. Willows trail their branches in it. The far bank
+  is all pine and shadow, and twice you see grey shapes padding along
+  it, keeping pace with you. Woodsmoke and fiddle music drift up the
+  road from the west. The crossroads are east.
+exits:
+  east: 2109
+  west: 2112

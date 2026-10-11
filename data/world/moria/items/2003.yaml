@@ -1,0 +1,13 @@
+vnum: 2003
+name: a bar of orc iron
+keywords: [bar, orc, iron, pig, ingot]
+description: A rough bar of black orc iron lies here.
+look: |
+  A crude ingot of iron, black and pitted, smelted by orcs in some
+  sulphurous pit and full of slag. No dwarf would make a blade of it as
+  it is, but melted down and worked again it makes good enough rivets,
+  and the dwarves at the camp would rather have it than let the orcs
+  keep it.
+type: other
+weight: 4
+value: 8

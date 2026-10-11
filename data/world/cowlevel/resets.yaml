@@ -1,0 +1,56 @@
+interval_seconds: 120
+resets:
+  # --- the fields ---
+  - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields
+  - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields
+  - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields
+  - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields
+  - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields
+  - { mob: 2800, room: 2802, max: 7 }         # hell bovines in the moonlit grass
+  - { mob: 2800, room: 2802, max: 7 }         # hell bovines in the moonlit grass
+  - { mob: 2801, room: 2802, max: 5 }         # archers behind them
+  - { mob: 2801, room: 2802, max: 5 }         # archers behind them
+  - { mob: 2801, room: 2802, max: 5 }         # archers behind them
+  - { mob: 2801, room: 2803, max: 5 }         # archers on the pen rails
+  - { mob: 2801, room: 2803, max: 5 }         # archers on the pen rails
+  - { mob: 2802, room: 2803, max: 6 }         # bruisers in the cow pen
+  - { mob: 2802, room: 2803, max: 6 }         # bruisers in the cow pen
+  - { mob: 2802, room: 2803, max: 6 }         # bruisers in the cow pen
+  - { mob: 2802, room: 2803, max: 6 }         # bruisers in the cow pen
+  - { mob: 2802, room: 2804, max: 6 }         # bruisers by the burning farmhouse
+  - { mob: 2802, room: 2804, max: 6 }         # bruisers by the burning farmhouse
+  - { mob: 2808, room: 2805, max: 2 }         # a stray, wandering off from the clover
+  - { mob: 2808, room: 2806, max: 2 }         # another, wandering the ring
+  - { mob: 2803, room: 2804, max: 9 }         # halberdiers at the farmstead
+  - { mob: 2803, room: 2804, max: 9 }         # halberdiers at the farmstead
+  - { mob: 2803, room: 2814, max: 9 }         # halberdiers bunked in the barn
+  - { mob: 2803, room: 2814, max: 9 }         # halberdiers bunked in the barn
+  - { mob: 2803, room: 2814, max: 9 }         # halberdiers bunked in the barn
+  - { mob: 2803, room: 2814, max: 9 }         # halberdiers bunked in the barn
+  - { mob: 2803, room: 2805, max: 9 }         # halberdiers drilling in the open field
+  - { mob: 2803, room: 2805, max: 9 }         # halberdiers drilling in the open field
+  - { mob: 2803, room: 2805, max: 9 }         # halberdiers drilling in the open field
+  # --- the meadow ring ---
+  - { mob: 2804, room: 2806, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2806, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2807, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2807, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2808, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2808, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2809, max: 8 }         # reavers guarding the stones
+  - { mob: 2804, room: 2809, max: 8 }         # reavers guarding the stones
+  # --- the champions and the king ---
+  - { mob: 2805, room: 2810, max: 7 }         # champions on the trampled field
+  - { mob: 2805, room: 2810, max: 7 }         # champions on the trampled field
+  - { mob: 2805, room: 2810, max: 7 }         # champions on the trampled field
+  - { mob: 2805, room: 2810, max: 7 }         # champions on the trampled field
+  - { mob: 2805, room: 2812, max: 7 }         # champions in the war camp
+  - { mob: 2805, room: 2812, max: 7 }         # champions in the war camp
+  - { mob: 2805, room: 2812, max: 7 }         # champions in the war camp
+  - { mob: 2806, room: 2811, max: 6 }         # war champions on their ground
+  - { mob: 2806, room: 2811, max: 6 }         # war champions on their ground
+  - { mob: 2806, room: 2811, max: 6 }         # war champions on their ground
+  - { mob: 2806, room: 2812, max: 6 }         # a war champion at the tents
+  - { mob: 2806, room: 2813, max: 6 }         # war champions guarding the throne
+  - { mob: 2806, room: 2813, max: 6 }         # war champions guarding the throne
+  - { mob: 2807, room: 2813, equip: [{ item: 2802, slot: head }, { item: 2803, slot: body }, { item: 2804, slot: feet }] }   # the Cow King on his throne, in all three pieces of his leathers

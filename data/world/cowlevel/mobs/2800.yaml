@@ -1,0 +1,16 @@
+vnum: 2800
+name: a hell bovine
+keywords: [hell, bovine, cow]
+description: A hell bovine stands on its hind legs here, halberd in hand. "Moo."
+look: |
+  A cow, in the sense that a siege tower is a shed. It stands upright on
+  two hooves, eight feet tall, built like a barn door, and holds a
+  halberd in hands that have no business holding anything. Its eyes are
+  mild and brown and entirely without mercy. Where there is one, there
+  are twenty.
+level: 20
+flags: [assist]
+silver: 25
+attack:
+  kind: slash
+  verb: chop

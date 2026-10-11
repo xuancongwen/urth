@@ -1,0 +1,23 @@
+vnum: 2016
+name: the cave troll
+keywords: [cave, troll]
+description: The cave troll stands over Balin's tomb, a chain on its ankle and a book in its fist.
+look: |
+  A troll of the deep caves, twice the height of a man, with a grey hide
+  like the rock it came out of and a skull too small for its jaw. The
+  orcs keep it on a chain and let it loose when they want a door broken.
+  It has found the Book of Mazarbul and holds it the way a child holds a
+  rag, and it will not let it go. Its huge flat feet are toeless.
+level: 26
+health: 1800
+silver: 120
+armor:
+  defense: 40
+attack:
+  kind: blunt
+  verb: club
+effects:
+  - kind: soak
+    params: { power: 0.1 }
+  - kind: crit
+    params: { chance: 0.1, mult: 2.0 }

@@ -1,0 +1,16 @@
+vnum: 2403
+name: Dennis Nedry
+keywords: [dennis, nedry, programmer, fat, man]
+description: Dennis Nedry hunches over his keyboard, sweating, glancing at the clock.
+look: |
+  A heavy, sweating programmer in a crumpled shirt, surrounded by candy
+  wrappers and soda cups, typing very fast with one eye on the clock and
+  the other on a can of shaving cream by his elbow. He is owed more money
+  than he is paid and has decided to fix that tonight. If you look at the
+  can, he says, in a tone meant to be friendly: ah, ah, ah, you didn't say
+  the magic word.
+level: 12
+health: 280
+silver: 140
+attack:
+  verb: slap

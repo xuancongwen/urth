@@ -1,0 +1,11 @@
+vnum: 2024
+name: The First Hall
+description: |
+  A vast hall beyond the bridge, very high, with a grey light coming
+  dimly from the east. The dwarves built their great gate here at the
+  mountain's eastern feet, and the road to it is broad and straight.
+  The air is fresher with every step. The bridge and its fire are west;
+  the light is east.
+exits:
+  west: 2023
+  east: 2025

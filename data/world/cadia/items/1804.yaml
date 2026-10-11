@@ -1,0 +1,12 @@
+vnum: 1804
+name: a canister of promethium
+keywords: [canister, promethium, fuel, can]
+description: A dented canister of promethium lies here, sloshing.
+look: |
+  A steel jerrycan of promethium, the fuel that runs the Imperium's
+  tanks, its flamers, and most of its funeral pyres. It smells sharp
+  enough to make your eyes water. The Munitorum wants every drop back
+  and will trade for it.
+type: other
+weight: 5
+value: 30

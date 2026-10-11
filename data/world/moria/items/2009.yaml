@@ -1,0 +1,12 @@
+vnum: 2009
+name: a hide-covered goblin shield
+keywords: [hide-covered, hide, goblin, shield]
+description: A round goblin shield covered in raw hide lies here.
+look: |
+  A round of planks bound with iron and covered with a hide that was not
+  cured first. It has a red eye daubed in the middle. It smells.
+type: armor
+slot: shield
+weight: 5
+level: 14
+baseline: shield

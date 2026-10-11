@@ -1,0 +1,20 @@
+vnum: 2332
+name: Darth Vader's helmet
+keywords: [darth, vader's, vader, helmet, mask]
+description: A black helmet and breathing mask lies here, staring up at you.
+look: |
+  A black helmet flared like a samurai's and a mask with a triangular
+  grille, sealed together, the life support of a man who should be dead.
+  It is heavy, and very cold. Wearing it, you hear your own breathing,
+  slow and loud, and the blows that land on you seem far away.
+type: armor
+slot: head
+weight: 4
+level: 55
+baseline: plate
+value: 10000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: protect, params: { mult: 0.92 } }
+  - { kind: steady, params: { chance: 0.4 } }

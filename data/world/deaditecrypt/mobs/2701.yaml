@@ -1,0 +1,16 @@
+vnum: 2701
+name: Lord Arthur
+keywords: [lord, arthur, knight]
+description: Lord Arthur stands by the banners in a dented breastplate, sword on his hip.
+look: |
+  A broad, red-bearded lord in a dented breastplate, who has spent the
+  past week fighting the dead, the Duke Henry, and a loud stranger with
+  a boomstick, and has come to respect only the last of those. He has
+  led men into this crypt and brought some of them out. He will teach
+  you to knock a skeleton off its feet with your shoulder, and to step
+  between a friend and the thing trying to eat him, for coin.
+level: 20
+flags: [peaceful]
+teaches: [bash, rescue]
+attack:
+  verb: punch

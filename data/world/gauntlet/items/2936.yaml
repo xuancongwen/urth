@@ -1,0 +1,13 @@
+vnum: 2936
+name: a banded hauberk
+keywords: [banded, hauberk, mail]
+description: A banded hauberk lies here in a heavy heap.
+look: |
+  Mail reinforced with bands of steel at the chest and back. It
+  weighs as much as a small hero and stops most of what a big one
+  could swing.
+type: armor
+slot: body
+level: 32
+baseline: heavy
+flags: [drop]

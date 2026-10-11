@@ -1,0 +1,12 @@
+vnum: 2420
+name: The Raptor Pen
+description: |
+  A long concrete compound under a gantry crane, its fence posts sunk in
+  deep footings because, a stencil explains, they tested the fences for
+  weaknesses. Systematically. A feeding chute hangs from the crane, its
+  cage empty and its chains swinging. A handler's caged helmet lies
+  crushed against the inner fence. The service road is north, and a gap in
+  the fence opens south into tall ferns.
+exits:
+  north: 2419
+  south: 2421

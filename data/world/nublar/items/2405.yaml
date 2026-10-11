@@ -1,0 +1,13 @@
+vnum: 2405
+name: a speckled velociraptor egg
+keywords: [speckled, velociraptor, raptor, egg]
+description: A speckled egg, warm and slightly larger than a goose's, lies here.
+look: |
+  A velociraptor egg, mottled grey and brown, warm, and heavier than it
+  looks. Something inside it shifts when you tilt it. The park's
+  geneticists swear every animal on the island is female and cannot breed.
+  Somebody back at the visitor center would very much like this egg, and
+  very much like nobody else to see it.
+type: other
+weight: 1
+flags: [quest]

@@ -1,0 +1,11 @@
+vnum: 1926
+name: The Deep Spice Blow
+description: |
+  A fresh blow, so fresh the sand still steams. Raw spice lies in drifts,
+  orange and gold, worth a small fortune for every handful and a large
+  one for every sack. Nobody has staked it yet. Nobody, looking at the
+  long trough in the dunes beside it, has wanted to. The Harkonnen field
+  is north, and the dunes go on south.
+exits:
+  north: 1918
+  south: 1929

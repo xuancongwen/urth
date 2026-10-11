@@ -1,0 +1,15 @@
+vnum: 2935
+name: a twin-headed flail
+keywords: [twin-headed, twin, flail]
+description: A flail with two spiked heads lies here.
+look: |
+  Two iron balls on short chains from one haft. It goes round
+  shields and over walls, and sometimes into its owner's knee.
+type: weapon
+level: 32
+baseline: flail
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

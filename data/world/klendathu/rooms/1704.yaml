@@ -1,0 +1,13 @@
+vnum: 1704
+name: The Drill Ground
+description: |
+  A flat square of packed dust ringed with targets shaped like warrior
+  bugs, every one shot to lace. A wooden post in the middle has been
+  used for knife practice so often it is now mostly toothpicks. Troopers
+  in grey body armour run, crawl, shout, and run again, and they do all
+  of it faster when the man in the middle of the square looks at them.
+  The landing pad is west, and a ramp leads north to the briefing
+  bunker.
+exits:
+  north: 1703
+  west: 1700

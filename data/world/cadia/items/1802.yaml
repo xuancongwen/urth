@@ -1,0 +1,13 @@
+vnum: 1802
+name: a lumen
+keywords: [lumen, lamp, light, torch, glowlamp]
+description: A stubby Guard-issue lumen lies here, still glowing.
+look: |
+  A rugged hand lamp in olive casing, with a clip for a webbing strap
+  and a litany of illumination printed on the side for when the battery
+  runs low. It throws a steady yellow beam. In the catacombs under the
+  kasr, it is worth more than a lasgun.
+type: light
+weight: 1
+burn: 1500
+value: 30

@@ -1,0 +1,12 @@
+vnum: 2204
+name: The Courtyard of Crow's Perch
+description: |
+  A courtyard of packed earth inside a timber palisade, ringed with
+  barracks, a smithy, and a kennel where the hounds have stopped barking
+  because nobody feeds them on time any more. Soldiers dice on a barrel.
+  The keep's main doors stand open to the north, and through them comes
+  a smell of roast meat and spilled wine. The gate and the track are
+  east.
+exits:
+  east: 2203
+  north: 2205

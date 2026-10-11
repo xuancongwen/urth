@@ -1,0 +1,12 @@
+vnum: 1702
+name: a trooper's field light
+keywords: [trooper's, trooper, field, light, lamp, torch]
+description: A rugged field light with a shoulder clip lies here.
+look: |
+  A fat, rubber-cased lamp that clips to a trooper's armor and throws a
+  white beam a long way into a bug tunnel. It is rated for twelve hours,
+  which the manual describes as longer than you will need.
+type: light
+weight: 1
+burn: 1500
+value: 30

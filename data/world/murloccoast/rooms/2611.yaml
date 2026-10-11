@@ -1,0 +1,13 @@
+vnum: 2611
+name: The Shipwreck
+description: |
+  A merchant cog lies on her side in the sand, broken-backed, her ribs
+  showing through the planking like a beached whale's. Barnacles crust
+  the hull to the waterline, and the murlocs have moved into her hold
+  and made it theirs, with a kelp curtain for a door. A figurehead of a
+  woman holding a lantern stares at the sky. The village is east. The
+  shallows are south, and a headland climbs to the west.
+exits:
+  east: 2609
+  south: 2612
+  west: 2613

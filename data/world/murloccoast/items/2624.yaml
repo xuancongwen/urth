@@ -1,0 +1,17 @@
+vnum: 2624
+name: a fisherman's trident
+keywords: [fisherman's, fisherman, trident, fork]
+description: A three-pronged trident lies here.
+look: |
+  A long iron fork with three barbed tines, made for spearing big fish
+  from a boat. Two hands and a good stance, and it goes through most
+  things.
+type: weapon
+weight: 5
+level: 12
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: skewer

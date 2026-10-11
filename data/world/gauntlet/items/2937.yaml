@@ -1,0 +1,12 @@
+vnum: 2937
+name: a pair of steel sabatons
+keywords: [steel, sabatons, boots]
+description: A pair of steel sabatons stands here.
+look: |
+  Articulated steel shoes with pointed toes, loud on stone and
+  very good at being stood on by grunts.
+type: armor
+slot: feet
+level: 32
+baseline: heavy
+flags: [drop]

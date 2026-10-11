@@ -1,0 +1,14 @@
+vnum: 2509
+name: The Flooded Cistern
+description: |
+  A great square cistern, its vault held up by pillars standing in
+  still water up to your waist. The water is very cold and very clear,
+  and you can see the bottom, and the bones on the bottom, and the
+  pale shapes that are not bones and move. Ripples spread from the
+  pillars where something has just slipped in. Steps lead up north to
+  the junction; a broken pipe on the west side opens into a dry room
+  that someone has made into a den.
+exits:
+  north: 2507
+  west: 2510
+flags: [dark]

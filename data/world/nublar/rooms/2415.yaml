@@ -1,0 +1,13 @@
+vnum: 2415
+name: The Tour Road, Aviary Turnoff
+description: |
+  The road runs along a ridge with the jungle falling away on both sides.
+  North, a service track climbs toward a great geodesic dome of steel and
+  netting perched on the cliffs, glinting in the haze. Its gate stands
+  open. The wind carries a smell of fish and guano, and every so often a
+  shadow crosses the road too fast to look at. The road runs east and
+  west.
+exits:
+  north: 2416
+  east: 2412
+  west: 2419

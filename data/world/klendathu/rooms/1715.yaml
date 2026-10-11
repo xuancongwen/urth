@@ -1,0 +1,12 @@
+vnum: 1715
+name: The Great Bug Hole
+description: |
+  A hole in the ground wide enough to lose a drop ship in, its lip
+  built up into a rim of chewed stone like the mouth of a volcano. The
+  walls slope steeply down into a darkness that the orange daylight
+  gives up on almost at once. A cold wind breathes out of it and then,
+  slowly, breathes back in. Somebody has spray-painted an arrow pointing
+  down, and next to it the words BRAIN BUG? The hive mounds are south.
+exits:
+  south: 1712
+  down: 1719

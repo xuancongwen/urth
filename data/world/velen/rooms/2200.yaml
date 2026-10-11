@@ -1,0 +1,17 @@
+vnum: 2200
+name: The Crossroads
+description: |
+  A muddy crossroads under a grey sky, with a signpost leaning so far
+  over that it points mostly at the ground. Two arms of it still read:
+  OXENFURT, which has been crossed out, and NOVIGRAD, which has been
+  crossed out more firmly. A hanged man turns slowly on the oak beside
+  the road, and the crows on his shoulders do not look up. East is the
+  inn, and its smoke. West, a track climbs toward a keep on a hill. North
+  the road runs down to the river. A plain door south leads back to the
+  stair below Urth.
+exits:
+  south: 9
+  north: 2206
+  east: 2201
+  west: 2203
+position: {x: 0, y: 0, z: 0}

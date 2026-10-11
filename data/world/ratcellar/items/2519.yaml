@@ -1,0 +1,13 @@
+vnum: 2519
+name: a pair of sewerman's waders
+keywords: [sewerman's, sewerman, waders, pair]
+description: A pair of tarred leather waders lies here, still damp.
+look: |
+  Thigh-high waders of tarred leather, the kind the city's sewermen
+  wear and nobody else would. They are watertight. That is the most
+  anyone can say for them.
+type: armor
+slot: legs
+level: 4
+baseline: light
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 1903
+name: The Water-Seller's Alcove
+description: |
+  A low alcove behind a hanging of dyed spice-cloth, cool by the standards
+  of Arrakis, which is to say merely hot. Literjons of water stand in a
+  locked rack along the back wall, each sealed and stamped with the
+  tribe's mark. Stillsuits hang from pegs like flayed men. A tray of
+  glowglobes bobs gently against the ceiling, tethered on strings. The
+  cavern is back south.
+exits:
+  south: 1902
+flags: [safe]

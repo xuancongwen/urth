@@ -1,0 +1,12 @@
+vnum: 2207
+name: a flask of Swallow
+keywords: [flask, swallow, potion, decoction]
+description: A small flask of cloudy green liquid lies here.
+look: |
+  A witcher's potion in a stoppered flask, sealed with green wax and
+  labelled with a little drawing of a bird. The label also says, in
+  smaller letters, NOT FOR HUMAN CONSUMPTION, which has never stopped
+  anyone at the inn trying.
+type: other
+weight: 1
+value: 40

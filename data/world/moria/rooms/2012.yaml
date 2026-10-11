@@ -1,0 +1,12 @@
+vnum: 2012
+name: The Wolf-holes
+description: |
+  A natural cave the passage broke into by accident, its floor deep in
+  gnawed bones and old straw. Yellow eyes catch whatever light you
+  carry and slide away. The smell of wolf is so thick it is almost
+  warm. A tunnel goes on down to the south, and the passage is back
+  north.
+exits:
+  north: 2009
+  south: 2013
+flags: [dark]

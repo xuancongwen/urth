@@ -1,0 +1,17 @@
+vnum: 1700
+name: Career Sergeant Zim
+keywords: [career, sergeant, zim, drill, instructor]
+description: Career Sergeant Zim stands in the middle of the drill ground, watching everyone at once.
+look: |
+  A lean, hard man with a square jaw, a flat voice, and the stillness of
+  someone who has never once been surprised. He trained half the
+  troopers on this planet and he has a low opinion of all of them. He
+  will teach you to knock a bug off its feet with your shoulder, and to
+  step in front of a buddy who is about to be eaten, for coin, because
+  the Federation does not pay him enough to do it for free. "The enemy
+  cannot push a button if you disable his hand."
+level: 30
+flags: [peaceful]
+teaches: [bash, rescue]
+attack:
+  verb: punch

@@ -1,0 +1,22 @@
+vnum: 2413
+name: the clever girl
+keywords: [clever, girl, velociraptor, raptor, dinosaur]
+description: A velociraptor watches you from the ferns to your left. Clever girl.
+look: |
+  A big, scarred raptor with a torn green webbing sling still caught on
+  one foreclaw, the one that took Muldoon's gun. While you looked at her
+  sister in front of you, she came round the side, quiet as smoke. She
+  looks at you the way you would look at a door you are working out how to
+  open.
+level: 24
+flags: [assist]
+health: 900
+silver: 120
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

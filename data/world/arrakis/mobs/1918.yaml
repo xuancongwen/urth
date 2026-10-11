@@ -1,0 +1,22 @@
+vnum: 1918
+name: Reverend Mother Mohiam
+keywords: [reverend, mother, mohiam, gaius, helen, bene, gesserit, witch]
+description: Reverend Mother Mohiam sits in the plain wooden chair, waiting for you.
+look: |
+  An old woman in a black aba robe, her face a web of wrinkles around
+  eyes that are bright and black and very interested in you. She is
+  the Emperor's Truthsayer, a Bene Gesserit of the highest rank, and
+  she has come to Arrakis to see something for herself. On a cord at
+  her wrist hangs a needle with a drop of something on its tip. "Put
+  your hand in the box," she says, in a voice you find you want to
+  obey.
+level: 42
+health: 4200
+silver: 400
+attack:
+  kind: psionic
+  verb: Voice
+effects:
+  - kind: proc
+    params: { verb: command in the Voice, chance: 0.15, power: 1.0 }
+  - { kind: dodge, params: { amount: 0.05 } }

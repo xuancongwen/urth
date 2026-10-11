@@ -1,0 +1,14 @@
+vnum: 1710
+name: a digger bug
+keywords: [digger, bug, arachnid, worker]
+description: A digger bug heaves itself out of the soft earth, spraying red dirt.
+look: |
+  A squat, broad bug with shovel-shaped forelimbs and no eyes worth the
+  name, built for tunnelling rather than fighting. It fights anyway. It
+  chews the rock that the colony is built from and spits it out wet,
+  and it is perfectly willing to do the same with you.
+level: 22
+silver: 20
+attack:
+  kind: blunt
+  verb: batter

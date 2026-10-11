@@ -1,0 +1,14 @@
+vnum: 2121
+name: a black velvet doublet
+keywords: [black, velvet, doublet]
+description: A black velvet doublet with jet buttons lies here.
+look: |
+  A court doublet of black velvet with jet buttons and a high lace
+  collar, cut for some guest at a ball four hundred years ago and never
+  returned to the wardrobe. It is very dusty and very well made.
+type: armor
+slot: body
+weight: 2
+level: 28
+baseline: cloth
+flags: [drop]

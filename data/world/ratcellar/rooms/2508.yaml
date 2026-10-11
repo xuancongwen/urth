@@ -1,0 +1,12 @@
+vnum: 2508
+name: The Drowned Culvert
+description: |
+  A narrow brick culvert, knee deep in cold black water, the roof low
+  enough to brush your hair. Things float past: straw, a shoe, a rat
+  that is not swimming any more. Grey strands of web hang from the
+  ceiling ahead and stick to your face. The junction is south; the
+  culvert narrows to the north, where the webs grow thick.
+exits:
+  south: 2507
+  north: 2515
+flags: [dark]

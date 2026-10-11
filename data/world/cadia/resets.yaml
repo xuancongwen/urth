@@ -1,0 +1,91 @@
+interval_seconds: 300
+resets:
+  # --- the Cadian line ---
+  - { mob: 1800, room: 1802 }   # the quartermaster in his dugout
+  - { mob: 1801, room: 1803 }   # the Commissar, who teaches berserk and rescue
+  - { mob: 1803, room: 1805 }   # the confessor at his shrine
+  - { mob: 1819, room: 1801 }   # a servo-skull that wanders the line
+  - { mob: 1802, room: 1800, max: 6 }   # a sentry at the trench mouth
+  - { mob: 1802, room: 1801, max: 6 }   # troopers in the fire trench
+  - { mob: 1802, room: 1801, max: 6 }   # and another
+  - { mob: 1802, room: 1801, max: 6 }   # and another
+  - { mob: 1802, room: 1804, max: 6 }   # troopers on the firestep
+  - { mob: 1802, room: 1804, max: 6 }   # and another
+  # --- the Elysion Fields ---
+  - { mob: 1804, room: 1806, max: 9 }   # cultists in the wire
+  - { mob: 1804, room: 1806, max: 9 }   # and another
+  - { mob: 1804, room: 1806, max: 9 }   # and another
+  - { mob: 1804, room: 1807, max: 9 }   # cultists in the craters
+  - { mob: 1804, room: 1807, max: 9 }   # and another
+  - { mob: 1805, room: 1807, max: 6, equip: [{ item: 1804 }] }   # traitor guardsmen, with stolen fuel
+  - { mob: 1805, room: 1807, max: 6, equip: [{ item: 1804 }] }   # and another
+  - { mob: 1806, room: 1808, equip: [{ item: 1808 }, { item: 1804 }] }   # the demagogue on the wreck, waving the bolt pistol
+  - { mob: 1805, room: 1808, max: 6 }   # his traitor guard
+  - { mob: 1805, room: 1808, max: 6 }   # and another
+  - { mob: 1804, room: 1808, max: 9 }   # and a cultist
+  - { item: 1802, room: 1808 }   # a lumen dropped by an Elysian
+  - { mob: 1805, room: 1828, max: 6, equip: [{ item: 1804 }] }   # traitors holding the silent battery
+  - { mob: 1805, room: 1828, max: 6, equip: [{ item: 1804 }] }   # and another
+  - { mob: 1804, room: 1828, max: 9 }   # cultists in the battery
+  - { mob: 1804, room: 1828, max: 9 }   # and another
+  - { item: 1804, room: 1828 }   # a drum of promethium by the guns
+  # --- the dead ---
+  - { mob: 1807, room: 1809, max: 13 }   # plague zombies in the craters
+  - { mob: 1807, room: 1809, max: 13 }   # and another
+  - { mob: 1807, room: 1809, max: 13 }   # and another
+  - { mob: 1807, room: 1810, max: 13 }   # a pack of them round the pit
+  - { mob: 1807, room: 1810, max: 13 }   # and another
+  - { mob: 1807, room: 1810, max: 13 }   # and another
+  - { mob: 1807, room: 1810, max: 13 }   # and another
+  - { mob: 1807, room: 1811, max: 13 }   # shambling through the breach
+  - { mob: 1807, room: 1811, max: 13 }   # and another
+  - { mob: 1807, room: 1813, max: 13 }   # in the dark of the bunker
+  - { mob: 1807, room: 1813, max: 13 }   # and another
+  - { mob: 1807, room: 1814, max: 13 }   # in the catacombs
+  - { mob: 1807, room: 1814, max: 13 }   # and another
+  - { mob: 1817, room: 1815, equip: [{ item: 1807 }] }   # Lieutenant Dravik in the ossuary, with his chainsword
+  - { mob: 1804, room: 1815, max: 9 }   # his congregation
+  - { item: 1802, room: 1813 }   # a dead officer's lumen in the bunker
+  # --- the Orks ---
+  - { mob: 1808, room: 1812, max: 6, equip: [{ item: 1804 }] }   # an Ork boy in the street, with a can of fuel to drink
+  - { mob: 1808, room: 1816, max: 6 }   # boyz in the manufactorum
+  - { mob: 1808, room: 1816, max: 6 }   # and another
+  - { mob: 1808, room: 1816, max: 6 }   # and another
+  - { mob: 1809, room: 1816, max: 4, equip: [{ item: 1804 }] }   # shoota boyz, fuel for the trukk
+  - { mob: 1809, room: 1816, max: 4, equip: [{ item: 1804 }] }   # and another
+  - { mob: 1808, room: 1817, max: 6 }   # boyz in the fort
+  - { mob: 1808, room: 1817, max: 6 }   # and another
+  - { mob: 1809, room: 1817, max: 4 }   # shoota boyz on the walls
+  - { mob: 1809, room: 1817, max: 4 }   # and another
+  - { mob: 1810, room: 1817, max: 5 }   # 'ard boyz at the gate
+  - { mob: 1810, room: 1817, max: 5 }   # and another
+  - { mob: 1810, room: 1817, max: 5 }   # and another
+  - { mob: 1810, room: 1818, max: 5 }   # 'ard boyz guarding the boss
+  - { mob: 1810, room: 1818, max: 5 }   # and another
+  - { mob: 1811, room: 1818, equip: [{ item: 1809 }, { item: 1804 }, { item: 1804 }] }   # Nob Gutrippa on his throne, wearing the power fist
+  # --- the Black Legion ---
+  - { mob: 1812, room: 1819, max: 9 }   # Chaos Space Marines in the square
+  - { mob: 1812, room: 1819, max: 9 }   # and another
+  - { mob: 1812, room: 1820, max: 9 }   # in the cathedral
+  - { mob: 1812, room: 1820, max: 9 }   # and another
+  - { mob: 1812, room: 1820, max: 9 }   # and another
+  - { mob: 1812, room: 1821, max: 9 }   # on the bastion
+  - { mob: 1812, room: 1821, max: 9 }   # and another
+  - { mob: 1812, room: 1822, max: 9 }   # at the foot of the pylon
+  - { mob: 1812, room: 1822, max: 9 }   # and another
+  - { mob: 1813, room: 1823, equip: [{ item: 1810 }, { item: 1805 }, { item: 1805 }] }   # Zaraphiston at the pylon, with the shard he cut from it
+  # --- the Blood God ---
+  - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # bloodletters on the field of skulls
+  - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # and another
+  - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # and another
+  - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # and another
+  - { mob: 1816, room: 1825, max: 6, equip: [{ item: 1805 }] }   # bloodletters at the throne
+  - { mob: 1816, room: 1825, max: 6, equip: [{ item: 1805 }] }   # and another
+  - { mob: 1814, room: 1825, equip: [{ item: 1811 }, { item: 1805 }, { item: 1805 }, { item: 1805 }] }   # the Bloodthirster and its axe
+  # --- the Gate and the breach ---
+  - { mob: 1818, room: 1826, max: 5 }   # Justaerin Terminators in the ruins of the Gate
+  - { mob: 1818, room: 1826, max: 5 }   # and another
+  - { mob: 1818, room: 1826, max: 5 }   # and another
+  - { mob: 1818, room: 1827, max: 5 }   # Abaddon's bodyguard
+  - { mob: 1818, room: 1827, max: 5 }   # and another
+  - { mob: 1815, room: 1827, equip: [{ item: 1812 }] }   # Abaddon the Despoiler, wearing the Talon of Horus

@@ -1,0 +1,12 @@
+vnum: 2948
+name: a pair of plate spaulders
+keywords: [plate, spaulders, shoulders]
+description: A pair of plate spaulders lies here.
+look: |
+  Layered shoulder plates that fan down over the upper arm, built
+  for someone who expects things to fall on them from above.
+type: armor
+slot: shoulders
+level: 36
+baseline: plate
+flags: [drop]

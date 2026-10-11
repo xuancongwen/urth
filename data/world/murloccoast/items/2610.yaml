@@ -1,0 +1,17 @@
+vnum: 2610
+name: a driftwood fishing spear
+keywords: [driftwood, fishing, spear]
+description: A fishing spear of grey driftwood lies here.
+look: |
+  A crooked length of sea-bleached driftwood with a point of filed
+  bone lashed to one end. It was made by someone with webbed hands and
+  no patience. It stabs fish. It stabs other things as well.
+type: weapon
+weight: 3
+level: 7
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab

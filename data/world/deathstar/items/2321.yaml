@@ -1,0 +1,15 @@
+vnum: 2321
+name: a DL-44 heavy blaster pistol
+keywords: [dl-44, dl44, heavy, blaster, pistol]
+description: A heavy blaster pistol with a long flash suppressor lies here.
+look: |
+  A DL-44: a heavily modified blaster pistol with a scope, a long
+  barrel, and a reputation. It is illegal in a dozen systems, which is
+  exactly why the captain has a spare.
+type: weapon
+level: 20
+baseline: standard
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot

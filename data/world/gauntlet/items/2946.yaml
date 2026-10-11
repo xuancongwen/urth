@@ -1,0 +1,12 @@
+vnum: 2946
+name: a pair of plated vambraces
+keywords: [plated, vambraces, bracers]
+description: A pair of plated vambraces lies here.
+look: |
+  Forearm plates with a hinged elbow cop, heavy enough to block a
+  club and cold to the touch.
+type: armor
+slot: arms
+level: 35
+baseline: plate
+flags: [drop]

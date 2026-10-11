@@ -1,0 +1,14 @@
+vnum: 2225
+name: a griffin-hide jacket
+keywords: [griffin-hide, griffin, hide, jacket]
+description: A tawny jacket of griffin hide lies here.
+look: |
+  A riding jacket cut from griffin hide, tawny and tough, with a collar
+  of the beast's small feathers. The innkeeper's man in Oxenfurt makes
+  them, when someone brings him the feathers and the innkeeper brings
+  him the someone.
+type: armor
+slot: body
+weight: 4
+level: 19
+baseline: light

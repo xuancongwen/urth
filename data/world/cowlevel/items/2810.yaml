@@ -1,0 +1,17 @@
+vnum: 2810
+name: a notched bovine halberd
+keywords: [notched, bovine, halberd, polearm]
+description: A notched halberd with a cracked haft lies here.
+look: |
+  A plain halberd, the blade notched like a saw and the haft cracked and
+  bound with rawhide. It was made for hands with two fingers and a great
+  deal of strength.
+type: weapon
+weight: 10
+level: 19
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: chop

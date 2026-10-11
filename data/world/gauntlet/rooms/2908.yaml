@@ -1,0 +1,11 @@
+vnum: 2908
+name: Level 2, the Club Run
+description: |
+  A long corridor of the maze where the walls lean close, and the stone
+  is pitted all along its length at knee height where grunts have
+  swung their clubs at whatever came through. A painted EXIT square lies
+  at the far end over another shaft, rungs going down into a red glow
+  and a smell of brimstone. The landing is south.
+exits:
+  south: 2905
+  down: 2909

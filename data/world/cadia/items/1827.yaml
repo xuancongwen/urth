@@ -1,0 +1,13 @@
+vnum: 1827
+name: a suit of Black Legion Terminator plate
+keywords: [black, legion, terminator, plate, armour, armor]
+description: A hulking suit of black and gold Terminator armour stands here, empty.
+look: |
+  Tactical Dreadnought armour of the Justaerin, Abaddon's own guard,
+  black as a hole in the world and trimmed in tarnished gold. You climb
+  into it rather than wear it.
+type: armor
+slot: body
+level: 65
+baseline: plate
+flags: [drop]

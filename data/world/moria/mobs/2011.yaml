@@ -1,0 +1,15 @@
+vnum: 2011
+name: an orc drummer
+keywords: [orc, drummer, drum]
+description: An orc drummer pounds a great drum with two thighbones, doom, doom.
+look: |
+  A huge-shouldered orc stripped to the waist, beating a drum of hide
+  stretched over a dwarf's shield with two long bones. It does not look
+  up from its work. The drumming is the point: every orc in the deep
+  hears it and comes.
+level: 20
+flags: [assist]
+silver: 15
+attack:
+  kind: blunt
+  verb: club

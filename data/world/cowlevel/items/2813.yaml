@@ -1,0 +1,13 @@
+vnum: 2813
+name: a pair of cowhide boots
+keywords: [cowhide, boots, hide]
+description: A pair of cowhide boots lies here.
+look: |
+  Calf-high boots of doubled cowhide, stitched with sinew. They are
+  surprisingly comfortable.
+type: armor
+slot: feet
+weight: 2
+level: 20
+baseline: light
+flags: [drop]

@@ -1,0 +1,17 @@
+vnum: 2219
+name: a Redanian crossbow
+keywords: [redanian, crossbow, bow]
+description: A heavy crossbow with a steel prod lies here.
+look: |
+  A Redanian arbalest with a steel prod and a stirrup at the nose, made
+  to punch through mail at a hundred paces. At closer range than that it
+  is mostly a very expensive club, but a good one.
+type: weapon
+weight: 6
+level: 19
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

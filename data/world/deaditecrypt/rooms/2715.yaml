@@ -1,0 +1,12 @@
+vnum: 2715
+name: The Necronomicon's Altar
+description: |
+  A round chamber under a dome of black stone, and in the middle of it a
+  plinth, and on the plinth, nothing, because the book is in someone's
+  hands. Three graves have been dug in the floor around it, each with a
+  book-shaped hollow in the bottom; only one of the three was ever real.
+  The air is wrong here: cold, and moving, and full of whispering in a
+  language your teeth seem to understand. The antechamber is east.
+exits:
+  east: 2713
+flags: [dark]

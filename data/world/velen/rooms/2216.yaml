@@ -1,0 +1,11 @@
+vnum: 2216
+name: The Dry Well
+description: |
+  A stone well at the edge of the rye, its windlass rotted and its rope
+  gone. Wildflowers have been laid on the rim, and some of them are fresh.
+  Down in the dark there is no water, only a glint of something on a
+  chain. At midday the air above the well shimmers like heat over a road,
+  and in the shimmer a woman's shape walks round and round. The field is
+  west.
+exits:
+  west: 2215

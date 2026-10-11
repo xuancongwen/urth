@@ -1,0 +1,11 @@
+vnum: 1818
+name: Da Big Gun Pit
+description: |
+  A crater with a looted Basilisk at its centre, the barrel painted
+  with teeth and the hull with a tally of kills that is mostly
+  exaggeration. Before it stands a throne of scrap and Guardsman
+  helmets, built for someone much bigger than you. The ground is
+  covered in spent shell casings, bones, and the teeth Orks use for
+  money. The fort is east.
+exits:
+  east: 1817

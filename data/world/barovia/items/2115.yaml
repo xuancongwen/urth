@@ -1,0 +1,16 @@
+vnum: 2115
+name: a gravedigger's mattock
+keywords: [gravedigger's, gravedigger, mattock, pick]
+description: A heavy mattock caked with black earth lies here.
+look: |
+  A gravedigger's mattock, pick on one side and adze on the other, with
+  a long ash handle. The digging end is clean. The other end is not.
+type: weapon
+weight: 10
+level: 16
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash

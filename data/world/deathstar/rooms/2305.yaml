@@ -1,0 +1,14 @@
+vnum: 2305
+name: A Corridor Junction
+description: |
+  Four corridors meet here under a ceiling of recessed lights. A wall
+  directory lists the decks in Imperial numerals, which helps nobody,
+  since there are eighty-four of them and every corridor looks the same.
+  Painted arrows on the floor point west to the turbolifts, east to the
+  fighter hangar, and south toward the command sections. The bay is
+  north.
+exits:
+  north: 2304
+  east: 2313
+  south: 2315
+  west: 2306

@@ -1,0 +1,17 @@
+vnum: 2621
+name: a coral-headed club
+keywords: [coral, headed, club]
+description: A club with a knob of red coral lies here.
+look: |
+  A short haft of whalebone with a fist of red coral bound to its end.
+  The coral is sharp and heavy and grows back, a little, if you leave
+  it in salt water.
+type: weapon
+weight: 4
+level: 11
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

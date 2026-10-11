@@ -1,0 +1,13 @@
+vnum: 1906
+name: a Fremkit
+keywords: [fremkit, kit, pack, bag]
+description: A canvas Fremkit lies here, its straps neatly tied.
+look: |
+  The pack every Fremen carries into the desert: paracompass, sand
+  snork, a thumper or two, stillsuit patches, a baradye pistol, and
+  room for whatever the desert gives you. Its pockets are sewn shut
+  against the sand.
+type: container
+capacity: 50
+weight: 2
+value: 60

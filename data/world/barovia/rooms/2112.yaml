@@ -1,0 +1,14 @@
+vnum: 2112
+name: The Tser Pool Encampment
+description: |
+  A ring of painted Vistani wagons stands around a great bonfire by a
+  still, dark pool where the river widens. Horses crop the grass inside
+  the ring, and a fiddler plays a tune that is cheerful only if you do
+  not listen too closely. The Vistani watch you with interest, the way a
+  card player watches the deal. A large tent of patched silk stands to
+  the south with a lantern burning at its flap. The road runs east back
+  to the crossroads, and a trail climbs west beside the falls.
+exits:
+  east: 2111
+  south: 2113
+  west: 2114

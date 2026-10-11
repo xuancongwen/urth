@@ -1,0 +1,18 @@
+vnum: 2909
+name: a demon pit
+keywords: [pit, hole, generator]
+description: A demon pit smoulders in the floor, red light welling up out of it.
+look: |
+  A ragged hole in the stone, rimmed with slag, full of a churning red
+  light that hurts to look at. Every so often a pair of horns comes up
+  over the lip, then a grin, then the rest of a demon. Throw enough at
+  the rim and it caves in.
+level: 31
+health: 2200
+xp: 155
+attack:
+  damage: 1
+  verb: spit
+armor:
+  defense: 18
+spawns: { mob: 2908, every: 5, max: 3 }

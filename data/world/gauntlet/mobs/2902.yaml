@@ -1,0 +1,15 @@
+vnum: 2902
+name: a faint ghost
+keywords: [faint, ghost, spirit]
+description: A faint ghost drifts toward you, arms out, mouth open on nothing.
+look: |
+  A thin grey shape with a hollow face and long trailing arms, more
+  smoke than spirit. It does not fight so much as touch, and where it
+  touches, the cold goes in. One is nothing. They are never one.
+level: 28
+flags: [assist]
+health: 600
+silver: 10
+attack:
+  kind: cold
+  verb: chilling touch

@@ -1,0 +1,10 @@
+vnum: 2418
+name: The Pteranodon Rookery
+description: |
+  The catwalk ends at a rock ledge built into the top of the dome, where
+  nests of sticks and wire are wedged into every crack. The stink of fish
+  is overwhelming. Long-beaked shapes perch on the girders above you with
+  their wings folded like umbrellas, watching you with one eye each. The
+  catwalk runs back south.
+exits:
+  south: 2417

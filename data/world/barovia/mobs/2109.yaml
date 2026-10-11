@@ -1,0 +1,15 @@
+vnum: 2109
+name: a Vistani bandit
+keywords: [vistani, bandit, thief, brigand]
+description: A Vistani bandit leans on the wagon, flipping a knife.
+look: |
+  A hard-faced man in a bright scarf and a coat with too many pockets, a
+  curved knife spinning in his fingers. Not every Vistani is a friend to
+  the people of Barovia. This band sells lost travellers to the castle
+  for gold, and you look like a lost traveller.
+level: 18
+flags: [assist]
+silver: 30
+attack:
+  kind: pierce
+  verb: stab

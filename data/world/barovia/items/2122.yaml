@@ -1,0 +1,14 @@
+vnum: 2122
+name: a gilded Ravenloft breastplate
+keywords: [gilded, ravenloft, breastplate, plate]
+description: A heavy breastplate chased in tarnished gold lies here.
+look: |
+  Plate from the armory of Ravenloft, made for an officer of the count's
+  army when the count still had a living army. The gilt is tarnished
+  black and the steel under it is perfect.
+type: armor
+slot: body
+weight: 18
+level: 33
+baseline: plate
+flags: [drop]

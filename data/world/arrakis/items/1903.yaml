@@ -1,0 +1,15 @@
+vnum: 1903
+name: a sietch-made stillsuit
+keywords: [sietch-made, sietch, stillsuit, suit]
+description: A grey-brown stillsuit lies here, folded the Fremen way.
+look: |
+  A close-fitting body suit of layered micro-sandwich fabric that
+  catches the wearer's sweat, filters it, and pumps it back as water to
+  a catchpocket at the hip. A tube runs up to the mouth. A good suit
+  loses a thimble of water a day. This one is good, and the fabric
+  turns a blade better than you would think.
+type: armor
+slot: body
+level: 16
+baseline: light
+weight: 3

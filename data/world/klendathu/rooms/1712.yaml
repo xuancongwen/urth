@@ -1,0 +1,14 @@
+vnum: 1712
+name: The Hive Mounds
+description: |
+  The heart of the bug colony on the surface: a field of domes and
+  chimneys of chewed red stone, rising like a city built by termites
+  that had read about cities and missed the point. Warm air breathes out
+  of the chimneys, and with it a sound of clicking, endlessly, from below.
+  A burrow field is west, rock arches lie south, a trench of glassy
+  scorch runs east, and a great dark hole opens to the north.
+exits:
+  west: 1718
+  south: 1709
+  east: 1716
+  north: 1715

@@ -1,0 +1,24 @@
+vnum: 2300
+name: Han Solo
+keywords: [han, solo, captain, smuggler]
+description: Han Solo leans against a bulkhead with his thumbs hooked in his gun belt.
+look: |
+  A lanky smuggler in a white shirt and a black vest, a blaster slung
+  low on his hip in a holster that has been tied down. He has the easy
+  slouch of a man who has talked his way out of worse than this, and the
+  quick eyes of one who has also had to shoot his way out. He has a bad
+  feeling about all of this, and some spare gear he would rather sell
+  than carry. Bring him stormtrooper plates or access cards and he will
+  deal. Type 'list' to see what he has.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2319, silver: 25 }
+  - { item: 2320, silver: 30 }
+  - { item: 2322, silver: 320 }
+  - { item: 2321, silver: 450 }
+  - { item: 2323, silver: 300, items: [2325, 2325, 2325] }
+  - { item: 2324, silver: 450, items: [2326, 2326, 2325] }
+  - { item: 2319, items: [2325] }

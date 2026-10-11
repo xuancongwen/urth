@@ -1,0 +1,12 @@
+vnum: 1716
+name: The Tanker Trench
+description: |
+  A trench as wide as a road, its walls melted into glass and its floor
+  scorched black. It was not dug; it was burned. The smell is chemical
+  and sour and catches at the back of the throat. Bits of armour lie
+  along the trench, half melted into the floor. Something heavy has
+  been back and forth here many times. The hive mounds are west, and
+  the trench opens east onto a plain of very large bugs.
+exits:
+  west: 1712
+  east: 1717

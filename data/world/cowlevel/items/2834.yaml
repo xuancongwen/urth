@@ -1,0 +1,14 @@
+vnum: 2834
+name: a bovine war plate
+keywords: [bovine, war, plate, armor, breastplate]
+description: A suit of thick bovine war plate lies here.
+look: |
+  Heavy war plate from the guard of the Cow King, the breast embossed
+  with a crowned cow's head. It has been dented and hammered out more
+  times than you can count.
+type: armor
+slot: body
+weight: 20
+level: 27
+baseline: plate
+flags: [drop]

@@ -1,0 +1,13 @@
+vnum: 2518
+name: a pair of barrel-hoop bracers
+keywords: [barrel-hoop, barrel, hoop, bracers, pair]
+description: Two iron barrel hoops, bent into bracers, lie here.
+look: |
+  Somebody took the hoops off a broken cask, hammered them to fit a
+  forearm, and lined them with sacking. Crude, but the rats break their
+  teeth on them.
+type: armor
+slot: arms
+level: 4
+baseline: medium
+flags: [drop]

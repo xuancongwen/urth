@@ -1,0 +1,11 @@
+vnum: 2129
+name: The Brides' Tomb
+description: |
+  A wide tomb with two coffins side by side under a stone canopy carved
+  with roses and serpents. Both lids are open. Silk gowns and jewel
+  boxes lie scattered as if someone was dressing for a ball in the dark
+  and did not care to tidy up. The air smells of perfume over rot. The
+  catacombs are west.
+exits:
+  west: 2127
+flags: [dark]

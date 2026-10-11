@@ -1,0 +1,16 @@
+vnum: 2103
+name: a silvered dagger
+keywords: [silvered, dagger, knife, silver]
+description: A slim dagger with a silvered blade lies here.
+look: |
+  A narrow dagger, silvered to the hilt, balanced for quick work. The
+  crossguard is shaped like two tiny wolves biting each other's tails.
+type: weapon
+weight: 1
+level: 19
+baseline: dagger
+value: 450
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

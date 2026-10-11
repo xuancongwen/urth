@@ -1,0 +1,12 @@
+vnum: 1710
+name: The Red Canyon
+description: |
+  The canyon walls are red and sheer, and pocked high up with round
+  holes like the nest of some enormous wasp. From the holes comes a
+  dry rustle of wings. Every so often something leaves one, glides the
+  width of the canyon, and goes into another. The floor is scattered
+  with shed wing membrane, thin as paper. The gully is south; the canyon
+  rises north to a ledge.
+exits:
+  south: 1708
+  north: 1711

@@ -1,0 +1,22 @@
+vnum: 2912
+name: Death
+keywords: [death, reaper]
+description: Death waits in the middle of the floor, hooded and patient, and the clock ticks.
+look: |
+  A tall shape in a grey hooded robe, all bones and stillness under the
+  cloth, and where the face should be there is only a darkness that
+  looks back. Death does not swing. Death touches, and with each touch
+  your health runs out of you and into it, and it grows no older. The
+  old heroes could not kill Death with arrows or axes or spells. They
+  used a magic potion and ran. You do not have that kind of potion.
+level: 36
+health: 5600
+silver: 600
+armor:
+  defense: 30
+attack:
+  kind: drain
+  verb: draining touch
+effects:
+  - kind: leech
+    params: { fraction: 0.25 }

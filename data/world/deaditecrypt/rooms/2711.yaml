@@ -1,0 +1,12 @@
+vnum: 2711
+name: The Witch's Hollow
+description: |
+  A cave scooped out of the pit wall, hung with dried things on strings:
+  herbs, rats, a few objects you would rather were herbs. A green fire
+  burns in a ring of stones without any wood. In a nest of rags at the
+  back lie things she has dragged down here from the living over the
+  years, including a steel shape that looks very much like a chainsaw.
+  The pit is east.
+exits:
+  east: 2710
+flags: [dark]

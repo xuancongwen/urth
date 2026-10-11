@@ -1,0 +1,18 @@
+vnum: 2307
+name: a stormtrooper squad leader
+keywords: [stormtrooper, squad, leader, trooper, imperial]
+description: A stormtrooper with an orange pauldron barks orders at nobody in particular.
+look: |
+  A stormtrooper like any other, except for the orange pauldron on one
+  shoulder and the conviction that he is in charge. He waves his men
+  forward with great authority and then shoots at the wall behind you.
+level: 16
+flags: [assist]
+silver: 60
+armor:
+  defense: 17
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: blind, params: { miss: 0.25 } }

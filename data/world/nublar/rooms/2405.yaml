@@ -1,0 +1,13 @@
+vnum: 2405
+name: The Tour Road, the Garage
+description: |
+  The paved road leaves the visitor center past a row of electric tour
+  jeeps parked in their charging bays, each painted with the park's red-
+  and-yellow logo and each with its doors open. The guide rail between the
+  wheels runs off west into the trees. Small birdlike footprints cross the
+  wet paint in a hundred places. The rotunda is east, the road goes on
+  west, and a narrow path ducks north into the ferns.
+exits:
+  north: 2406
+  east: 2401
+  west: 2407

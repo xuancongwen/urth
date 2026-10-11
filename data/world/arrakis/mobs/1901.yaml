@@ -1,0 +1,18 @@
+vnum: 1901
+name: Chani
+keywords: [chani, fremen, woman, trainer]
+description: Chani watches the young fighters with her arms folded, unimpressed.
+look: |
+  A slight young Fremen woman with red-tinged hair and a crysknife at
+  her hip, the daughter of Liet-Kynes, and one of the best knife-fighters
+  in the sietch. She teaches outworlders for silver, because the tribe
+  needs the silver and because watching them learn is the only
+  entertainment on the training floor. She will show you how to draw a
+  guard with a feint, and how to put a knife in a back that is not
+  looking. Type 'practice' to see what she teaches.
+level: 30
+flags: [peaceful]
+teaches: [feint, backstab]
+attack:
+  kind: pierce
+  verb: stab

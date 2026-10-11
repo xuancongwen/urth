@@ -1,0 +1,16 @@
+vnum: 2309
+name: an interrogator's vibro-scalpel
+keywords: [interrogator's, interrogator, vibro-scalpel, vibroscalpel, scalpel]
+description: A thin humming scalpel lies here.
+look: |
+  A slender surgical blade that vibrates so fast it seems to blur. It
+  was designed for very small, very precise cuts, and it is still good
+  at them.
+type: weapon
+level: 28
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: slice

@@ -1,0 +1,11 @@
+vnum: 2513
+name: The Nest of Bones
+description: |
+  A round burrow lined with bones: chicken, dog, horse, and some you do
+  not look at closely, all gnawed clean and packed into the walls like
+  wattle. It is where the biggest rats come to sleep, and it is warm,
+  and it stinks. A collar with a little brass bell hangs from a rib by
+  the entrance. The tunnel is north.
+exits:
+  north: 2512
+flags: [dark]

@@ -1,0 +1,16 @@
+vnum: 1812
+name: a Chaos Space Marine
+keywords: [chaos, space, marine, black, legion, traitor, astartes]
+description: A Chaos Space Marine of the Black Legion stands watch, eye-lenses glowing red.
+look: |
+  Eight feet of ceramite in black and tarnished gold, horns curling
+  from the helm, the eight-pointed star where the aquila used to be. He
+  was a Son of Horus ten thousand years ago, and he remembers Horus.
+  He has spent every one of those years in the Eye, hating, and you can
+  feel it rolling off him like heat off a forge.
+level: 42
+flags: [assist]
+silver: 120
+attack:
+  kind: pierce
+  verb: bolt

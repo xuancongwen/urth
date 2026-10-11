@@ -1,0 +1,11 @@
+vnum: 2705
+name: a deadite's black claw
+keywords: [deadite's, deadite, black, claw, nail]
+description: A long, black, curling fingernail lies here.
+look: |
+  A fingernail as long as a finger, black and hooked and still twitching
+  faintly at the root. Deadites grow them overnight. The wise man wants
+  them for something he will not explain, and pays well.
+type: other
+weight: 0
+value: 15

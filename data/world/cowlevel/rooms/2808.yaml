@@ -1,0 +1,10 @@
+vnum: 2808
+name: The Meadow Ring, West Stones
+description: |
+  The western stones lean outward, as if something in the middle of the
+  ring once pushed. Between two of them hangs a bell on a rope, a church
+  bell, stolen from somewhere and rung so often its rope is frayed to a
+  thread. The ring runs east and south.
+exits:
+  east: 2807
+  south: 2809

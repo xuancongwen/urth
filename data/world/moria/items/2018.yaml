@@ -1,0 +1,13 @@
+vnum: 2018
+name: fire-blackened dwarf-lord's plate
+keywords: [fire-blackened, dwarf-lord's, dwarf, lord, plate, armor, armour]
+description: A suit of scorched dwarf plate lies here, still warm.
+look: |
+  The plate of one of Durin's lords, blackened by a fire that was not
+  any smith's. It was very fine once. It is still very strong.
+type: armor
+slot: body
+weight: 18
+level: 50
+baseline: plate
+flags: [drop]

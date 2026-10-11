@@ -1,0 +1,17 @@
+vnum: 2019
+name: a deep-forged greataxe
+keywords: [deep-forged, deep, greataxe, axe]
+description: A huge double-bladed axe of dark steel lies here.
+look: |
+  A greataxe forged in the deepest smithies of Khazad-dum, its blades
+  wide as a shield and its haft wrapped in dragon-skin. It took two
+  dwarves to make and takes one strong arm to swing.
+type: weapon
+weight: 10
+level: 49
+baseline: axe
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+flags: [drop]

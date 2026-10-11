@@ -1,0 +1,13 @@
+vnum: 2004
+name: a shirt of dwarf-mail
+keywords: [shirt, dwarf-mail, dwarf, mail, hauberk, coat]
+description: A short, heavy shirt of fine steel rings lies here.
+look: |
+  Dwarf-mail of the Iron Hills: small rings, tightly riveted, cut short
+  for a dwarf's legs and long in the arm. It is heavy, and it does not
+  care what hits it.
+type: armor
+slot: body
+weight: 12
+level: 14
+baseline: medium

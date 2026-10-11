@@ -1,0 +1,13 @@
+vnum: 2001
+name: a dwarf lantern
+keywords: [dwarf, dwarven, lantern, lamp, light]
+description: A squat brass lantern with a horn shutter sits here.
+look: |
+  A heavy brass lantern made in the Iron Hills, with a horn shutter you
+  can close to a slit and a handle shaped for a gloved hand. Its wick
+  is thick and its oil reservoir deep. It throws a warm, steady light,
+  which in Moria is the kind of thing worth more than gold.
+type: light
+weight: 2
+burn: 2000
+value: 40

@@ -1,0 +1,15 @@
+vnum: 2014
+name: an orc of the Black Pit
+keywords: [orc, black, pit, warrior]
+description: An orc of the Black Pit stands guard in long black mail.
+look: |
+  A big orc of the deep places, where the dwarves called the halls the
+  Black Pit after they fled. It is armoured head to knee in orc-mail and
+  carries a curved sword, and it has come up from below because the
+  drums told it to.
+level: 24
+flags: [assist]
+silver: 30
+attack:
+  kind: slash
+  verb: slash

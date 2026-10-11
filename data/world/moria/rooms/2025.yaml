@@ -1,0 +1,11 @@
+vnum: 2025
+name: The Dimrill Gate
+description: |
+  The Great Gates of Moria stand broken and open on the morning, and
+  through them you can see the long valley of the Dimrill Dale, the
+  Mirrormere far below, and the white tops of the mountains in the sun.
+  It is the best thing you have seen in a long while. The road down is
+  blocked by a fall of rock the orcs have built up into a wall; one day
+  someone will clear it. The First Hall is back west.
+exits:
+  west: 2024

@@ -1,0 +1,25 @@
+vnum: 1722
+name: the Mobile Infantry helmet
+keywords: [mobile, infantry, mi, helmet, helm]
+description: A grey trooper's helmet with a cracked camera on the brow lies here.
+look: |
+  A Mobile Infantry helmet, grey ceramic with a chin cup and a combat
+  camera mounted over the brow, its lens cracked. The name stencilled
+  across the back has been eaten away by tanker acid. The camera still
+  works: it picks out bugs dug into the walls before they move, and
+  everything it records is property of the Federal Network. It shrugs
+  off fire better than it should.
+type: armor
+slot: head
+weight: 2
+level: 32
+baseline: heavy
+value: 3500
+effects:
+  - kind: detectHidden
+  - kind: protect
+    params: { mult: 0.92 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

@@ -1,0 +1,12 @@
+vnum: 2013
+name: The Old Mithril Workings
+description: |
+  The dwarves came down here following a vein of true-silver, and the
+  vein is still there: a thread of bright grey metal in the black rock,
+  catching your light like a cat's eye. Abandoned picks and a toppled
+  ore-cart lie where they were dropped. This is what made Moria rich,
+  and this is what woke what lived below it. The tunnel climbs back
+  north.
+exits:
+  north: 2012
+flags: [dark]

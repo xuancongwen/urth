@@ -1,0 +1,29 @@
+vnum: 2118
+name: Strahd von Zarovich
+keywords: [strahd, von, zarovich, count, vampire, devil]
+description: Strahd von Zarovich stands at the battlements, turning a page of his journal, and does not look up.
+look: |
+  Tall, lean, and dressed in black, with a hawk's face, a high pale
+  forehead, and dark hair swept back from a widow's peak. He was a
+  soldier before he was a count and a count before he was anything else,
+  and he carries himself like all three. When he finally looks at you
+  his eyes are red at the centre, like coals, and terribly interested.
+  "I am the ancient," he says. "I am the land. And you are a guest in my
+  house." Every wound you give him closes. Every wound he gives you
+  feeds him.
+level: 45
+flags: [assist]
+health: 14000
+stats: {strength: 18, constitution: 18, dexterity: 16, intelligence: 20, charisma: 20}
+silver: 1000
+xp: 30000
+attack:
+  kind: claw
+  verb: rake
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: leech
+    params: { fraction: 0.15 }
+  - kind: regen
+    params: { fraction: 0.01 }

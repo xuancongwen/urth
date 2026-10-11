@@ -1,0 +1,19 @@
+vnum: 2402
+name: a can of Barbasol shaving cream
+keywords: [barbasol, can, shaving, cream, embryos, cryo]
+description: A can of Barbasol shaving cream lies here, frosted with cold.
+look: |
+  An ordinary can of Barbasol shaving cream, red and white and striped,
+  except that it is cold enough to hurt your fingers and the bottom
+  unscrews. Inside, in neat frozen rows, are fifteen dinosaur embryos that
+  Dennis Nedry was going to sell to a rival for a great deal of money.
+  Somebody would pay well to have them back. Held, the cold of it keeps
+  your head clear and your hands quick.
+type: armor
+slot: hold
+weight: 1
+level: 12
+value: 1500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

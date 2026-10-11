@@ -1,0 +1,13 @@
+vnum: 2606
+name: a lumpy pearl
+keywords: [lumpy, pearl]
+description: A lumpy grey pearl the size of a grape lies here.
+look: |
+  Not a jeweller's pearl: it is grey, lopsided, and pocked like a
+  potato. But it is a pearl, and the murloc oracles hoard them and
+  string them on their staves, and the fisherman knows a man in
+  Stormwind who will not ask where they came from.
+type: other
+weight: 1
+value: 20
+rarity: uncommon

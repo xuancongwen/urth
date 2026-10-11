@@ -1,0 +1,15 @@
+vnum: 2421
+name: a 10,000-volt warning sign
+keywords: [volts, warning, sign, volt, shield]
+description: A metal sign with a lightning bolt on it lies here.
+look: |
+  A heavy steel sign from the paddock fence, painted yellow with a black
+  lightning bolt and the words DANGER 10,000 VOLTS. Somebody has punched
+  two holes in it and threaded a strap through. It has stopped bigger
+  things than you.
+type: armor
+slot: shield
+weight: 6
+level: 40
+baseline: shield
+flags: [drop]

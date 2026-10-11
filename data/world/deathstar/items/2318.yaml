@@ -1,0 +1,16 @@
+vnum: 2318
+name: a heavy vibro-axe
+keywords: [heavy, vibro-axe, vibroaxe, axe]
+description: A long-hafted axe with a humming blade lies here.
+look: |
+  A brutal long-hafted axe with a vibrating edge, the sort of weapon
+  carried by those who have stopped worrying about subtlety. The blade
+  hums when it is moved and screams when it lands.
+type: weapon
+level: 54
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

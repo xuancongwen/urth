@@ -1,0 +1,31 @@
+vnum: 1723
+name: the Roughnecks' Morita
+keywords: [roughnecks', roughnecks, roughneck, morita, assault, rifle, gun]
+description: A battered Morita assault rifle, its stock covered in carved names, lies here.
+look: |
+  A Morita Mk III that has been carried by a great many troopers, one
+  after another. Its stock is carved all over with their names, and the
+  newest ones are the deepest. The Brain Bug kept it, the way it keeps
+  everything it takes from the people it eats. It fires long hard
+  bursts, its underslung launcher throws a grenade into the middle of a
+  swarm now and then, and it shoots best for someone who keeps moving.
+type: weapon
+weight: 4
+level: 42
+baseline: standard
+value: 8000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: burst
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.5, verb: underslung grenade }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

@@ -1,0 +1,17 @@
+vnum: 1806
+name: the cult demagogue
+keywords: [cult, demagogue, preacher, heretic, prophet]
+description: The cult demagogue stands on the Valkyrie's wing, preaching to the sky.
+look: |
+  A gaunt man in the remains of a Ministorum robe, its white dyed red,
+  standing on the wreck and shouting the names of the Dark Gods with
+  great conviction and very little pronunciation. He has a bolt pistol
+  he waves for emphasis, and he is certain he took it from an Astartes.
+  He took it from a dead Commissar.
+level: 24
+flags: [assist]
+health: 1100
+silver: 150
+attack:
+  kind: pierce
+  verb: bolt

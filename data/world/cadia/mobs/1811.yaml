@@ -1,0 +1,24 @@
+vnum: 1811
+name: Nob Gutrippa
+keywords: [nob, gutrippa, ork, boss, greenskin]
+description: Nob Gutrippa lounges on a throne of helmets, flexing a crackling power fist.
+look: |
+  The biggest Ork in the kasr, which is saying a great deal, scarred
+  and armoured and wearing a Guard sergeant's power fist he has had
+  painted red and modified with extra spikes. He is waiting for the
+  Warboss to arrive, and until then he is the boss, and he will knock
+  the head off anyone who says otherwise. He thinks you might. He is
+  hoping you might.
+level: 36
+health: 6000
+stats: {strength: 17, constitution: 16}
+silver: 300
+armor:
+  defense: 100
+attack:
+  kind: blunt
+  verb: krump
+effects:
+  - kind: soak
+    params: { power: 0.1 }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

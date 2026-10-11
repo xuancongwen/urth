@@ -1,0 +1,13 @@
+vnum: 1706
+name: The Killing Field
+description: |
+  Open ground of red grit and pale stone, flat enough to see a long way
+  and littered with what can be seen: torn grey armour, shattered
+  carapace, bent rifles, and the long jointed legs of warrior bugs,
+  still twitching where they lie. The ground trembles faintly underfoot,
+  all the time, like a drum being played very far away. The wire is
+  south, rock arches rise north, and stone spires stand to the west.
+exits:
+  south: 1705
+  west: 1707
+  north: 1709

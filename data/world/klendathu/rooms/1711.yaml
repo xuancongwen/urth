@@ -1,0 +1,12 @@
+vnum: 1711
+name: The Hopper Roost
+description: |
+  A broad ledge at the top of the canyon, white with droppings and
+  scattered with the leftovers of a great many meals, some of them
+  wearing armour. The wind up here never stops, and the hoppers ride
+  it, wheeling and diving. From the lip you can see the fire base far to
+  the south, its floodlights small and stubborn. The canyon drops away
+  south; a field of mounds stretches east.
+exits:
+  south: 1710
+  east: 1718

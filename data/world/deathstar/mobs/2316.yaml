@@ -1,0 +1,16 @@
+vnum: 2316
+name: a death trooper
+keywords: [death, trooper, black, imperial]
+description: A death trooper in matte black armour stands here without a sound.
+look: |
+  A tall soldier in armour so black it seems to soak up the light, the
+  helmet's narrow visor lit faintly green. Death troopers are the
+  Empire's best, picked for size and skill and loyalty, and they speak
+  only in a hiss of encrypted static. Unlike the white ones, they do not
+  miss.
+level: 30
+flags: [assist]
+silver: 180
+attack:
+  kind: fire
+  verb: shoot

@@ -1,0 +1,14 @@
+vnum: 2505
+name: The Collapsed Wall
+description: |
+  The cellar's east wall has come down in a slope of brick and mortar,
+  and behind it is not earth but an older wall, of bigger stones, with
+  a black opening in it that breathes cold air that smells of drains.
+  Nobody at the inn knew this was here. The rats did. Their trails are
+  worn smooth across the rubble. The cellar is west, the broken casks
+  north, and the old sewer east, through the hole.
+exits:
+  west: 2501
+  north: 2503
+  east: 2506
+flags: [dark]

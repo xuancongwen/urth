@@ -1,0 +1,25 @@
+vnum: 2218
+name: Imlerith of the Wild Hunt
+keywords: [imlerith, general, wild, hunt]
+description: Imlerith of the Wild Hunt stands before the altar, his great mace on his shoulder.
+look: |
+  The Wild Hunt's general, a giant of an elf in black plate thick as a
+  door, spiked at every edge and rimed with frost. His helm is a crown
+  of iron horns, and his mace is the size of a child. He has come to
+  Bald Mountain to meet the Crones, and to collect what they promised
+  him. He has done this on a hundred worlds. He has never lost.
+level: 34
+flags: [assist]
+health: 3500
+silver: 600
+armor:
+  defense: 85
+attack:
+  kind: blunt
+  verb: smash
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - kind: soak
+    params: { power: 0.15 }
+  - kind: regen
+    params: { fraction: 0.005 }

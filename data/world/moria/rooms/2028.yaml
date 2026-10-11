@@ -1,0 +1,10 @@
+vnum: 2028
+name: The Drum Hall
+description: |
+  A low hall that thunders. Great drums of hide stretched over dwarf
+  shields stand in a row, and the orcs beat them: doom, boom, doom, until
+  the floor shivers and your teeth ache and you cannot think. This is
+  where the drums in the deep come from. The Second Hall is back north.
+exits:
+  north: 2021
+flags: [dark]

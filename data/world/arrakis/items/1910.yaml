@@ -1,0 +1,13 @@
+vnum: 1910
+name: a Harkonnen trooper's cuirass
+keywords: [harkonnen, trooper's, trooper, cuirass, armor, armour]
+description: A blue-enamelled cuirass lies here, the griffin on its chest.
+look: |
+  A breastplate of blue-enamelled plasteel, with the griffin of House
+  Harkonnen raised on the chest and a cooling vent at the back that
+  does not work. The trooper who wore it sweated through every minute
+  on Arrakis, and you can tell.
+type: armor
+slot: body
+level: 21
+baseline: medium

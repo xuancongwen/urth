@@ -1,0 +1,15 @@
+vnum: 2319
+name: a Royal Guard
+keywords: [royal, guard, crimson, imperial]
+description: A Royal Guard in crimson robes stands perfectly still, force pike upright.
+look: |
+  A tall figure robed and cloaked in deep red from crown to floor, the
+  face hidden behind a smooth red helmet with a black slit. The
+  Emperor's own guard, trained in secret and never seen to speak. He has
+  not moved since you came in. He does not need to.
+level: 38
+flags: [assist]
+silver: 250
+attack:
+  kind: pierce
+  verb: thrust

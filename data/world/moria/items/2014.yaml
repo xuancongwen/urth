@@ -1,0 +1,13 @@
+vnum: 2014
+name: a coat of orc-mail
+keywords: [coat, orc-mail, orc, mail]
+description: A long coat of blackened mail lies here.
+look: |
+  Black rings, big and crudely riveted, hung on a coat of leather that
+  reaches to the knees. It is heavy and noisy and stinks of its last
+  owner, and it will turn a sword.
+type: armor
+slot: body
+weight: 14
+level: 24
+baseline: heavy

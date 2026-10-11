@@ -1,0 +1,17 @@
+vnum: 2611
+name: Old Murk-Eye
+keywords: [old, murk-eye, murk, eye, murloc]
+description: Old Murk-Eye squats in the wreck's shadow, one milky eye rolling.
+look: |
+  An ancient murloc, grey around the snout, blind in one eye and
+  missing half his crest. He has outlived every murloc he grew up
+  with, and every adventurer who came for him, and he carries the
+  reason over his shoulder: a whole dried fish lashed to a stick, which
+  he swings with terrible conviction.
+level: 12
+flags: [assist]
+health: 260
+silver: 40
+attack:
+  kind: blunt
+  verb: smack

@@ -1,0 +1,16 @@
+vnum: 2500
+name: The Foot of the Cellar Stair
+description: |
+  Twelve worn steps come down from the trapdoor and stop on a floor of
+  packed earth. A lantern hangs from a hook in the beam, and in its
+  light you can see barrels, a broom nobody has used in years, and a
+  chalk tally on the wall that reads RATS: and then a great many lines,
+  crossed out, recounted, and finally given up on. Somebody has set a
+  stool here and a crate for a counter. This is as far down as the
+  lantern reaches, and as far as the rats will come; past the arch to
+  the east the cellar is black. The stair goes back up to the inn.
+exits:
+  up: 3006
+  east: 2501
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

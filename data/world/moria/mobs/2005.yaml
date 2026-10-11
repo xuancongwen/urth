@@ -1,0 +1,16 @@
+vnum: 2005
+name: the goblin chief of the West-gate
+keywords: [goblin, chief, boss, orc]
+description: The goblin chief of the West-gate lounges on a guardroom bench, picking his teeth with a dwarf's knife.
+look: |
+  Bigger than the others and a good deal fatter, with a crown that is
+  really a dwarf's helmet hammered flat, the chief of the gate-goblins
+  rules the first halls by eating anyone who argues. He has a shield,
+  which makes him a strategist.
+level: 14
+flags: [assist]
+health: 340
+silver: 40
+attack:
+  kind: slash
+  verb: hack

@@ -1,0 +1,23 @@
+vnum: 2500
+name: Pip, the innkeeper's boy
+keywords: [pip, innkeeper's, innkeeper, boy, potboy]
+description: Pip, the innkeeper's boy, sits on a crate at the foot of the stair, clutching a candle and looking hopeful.
+look: |
+  A skinny boy of ten in an apron three sizes too big, with a scab on
+  his chin and a wooden sword through his belt. His father sent him
+  down to deal with the rats a week ago. He has dealt with them by
+  sitting on this crate and waiting for an adventurer, and here you
+  are. "There's ten of them," he tells you, very seriously. "Maybe
+  more than ten. Please. Da says if I don't clear the cellar I'm on
+  pots till I'm forty." He has candles to sell, and Old Nettle's gear
+  to trade for rat tails and spider silk. Type 'list' to see what he
+  has.
+level: 3
+flags: [peaceful]
+attack:
+  verb: poke
+trades:
+  - { item: 2500, silver: 6 }
+  - { item: 2506, silver: 20, items: [2501, 2501, 2501, 2501, 2501, 2501] }
+  - { item: 2507, silver: 30, items: [2501, 2501, 2501, 2501, 2501, 2501, 2501, 2501] }
+  - { item: 2508, silver: 30, items: [2502, 2502, 2502] }

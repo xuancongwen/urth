@@ -1,0 +1,12 @@
+vnum: 1822
+name: The Foot of the Pylon
+description: |
+  The pylon is a needle of black stone the height of a hive spire,
+  without seam or joint. Nobody on Cadia ever knew who built it, only
+  that it kept the Eye from swallowing the world. It is cracked now, and
+  through the crack a sick green light pulses. Black Legion sentries
+  watch from its base. A spiral of iron scaffold climbs the pylon's
+  flank. The bastion is south.
+exits:
+  south: 1821
+  up: 1823

@@ -1,0 +1,17 @@
+vnum: 2913
+name: Level 4, the Crossfire
+description: |
+  The maze on this level is all short walls, too high to see over and
+  too low to stop anything thrown. Rocks come over them from both sides
+  in lazy arcs and crack against the floor, which is littered with their
+  pieces. West, the walls stand thick with hunched shapes behind them.
+  East, the air shimmers as if something there keeps not quite being.
+  North, a heavy door is shut on the treasure vault. The shaft climbs
+  back up.
+exits:
+  up: 2912
+  west: 2914
+  east: 2915
+  north: 2916
+doors:
+  north: {name: the vault door, closed: true, locked: true, key: 2900}

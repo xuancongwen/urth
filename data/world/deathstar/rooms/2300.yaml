@@ -1,0 +1,17 @@
+vnum: 2300
+name: Docking Bay 327
+description: |
+  A hangar bay big enough to swallow a city block, its floor polished
+  black and its walls ribbed with grey girders that climb out of sight.
+  The magnetic field over the bay mouth shimmers faintly, and beyond it
+  there are stars, and nothing else. A battered disc-shaped freighter
+  squats in the middle of the deck where the tractor beam set it down,
+  its boarding ramp lowered to the east. A sign on the bulkhead says the
+  ship has been searched and found empty, which is what a good smuggling
+  compartment is for. A plain grey hatch leads north, back the way you
+  came, and the bay's blast doors open south into the station.
+exits:
+  north: 10
+  east: 2301
+  south: 2304
+position: {x: 0, y: 0, z: 0}

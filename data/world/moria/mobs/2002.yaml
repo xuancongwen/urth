@@ -1,0 +1,13 @@
+vnum: 2002
+name: a dwarf of Erebor
+keywords: [dwarf, erebor, sentry, guard]
+description: A hooded dwarf of Erebor stands watch with a mattock over his shoulder.
+look: |
+  A stout dwarf in a hooded travelling cloak over mail, with a beard
+  tucked into his belt and a mattock on his shoulder. He looks at the
+  wall of the mountain the way you might look at a friend's grave. When
+  you ask about Balin he shakes his head and says nothing.
+level: 20
+flags: [peaceful]
+attack:
+  verb: punch

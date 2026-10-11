@@ -1,0 +1,15 @@
+vnum: 1913
+name: a Holtzman shield belt
+keywords: [holtzman, shield, belt]
+description: A heavy belt with a humming generator at the buckle lies here.
+look: |
+  A personal shield generator worn at the waist, the kind every
+  duellist off-world trusts with his life. Switched on, it throws a
+  shimmering field that stops anything fast. In the desert it also
+  calls every worm for kilometres, so it is usually switched off and
+  worn for the armored plates on the belt itself.
+type: armor
+slot: belt
+weight: 3
+level: 27
+baseline: heavy

@@ -1,0 +1,15 @@
+vnum: 1817
+name: "a cultist's autogun"
+keywords: [cultist's, cultist, autogun, auto, gun, rifle]
+description: A crude autogun with a star scratched into its stock lies here.
+look: |
+  A cheap slug-thrower from some hive's backstreet forge, its stock
+  scratched with the eight-pointed star. It jams if you look at it wrong.
+type: weapon
+level: 23
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: spray

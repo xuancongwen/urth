@@ -1,0 +1,15 @@
+vnum: 2504
+name: a giant rat
+keywords: [giant, rat]
+description: A giant rat the size of a terrier noses at the air and turns toward you.
+look: |
+  A rat as big as a small dog, with a dog's shoulders and none of a
+  dog's manners. Its tail is as long as your arm and as thick as a
+  thumb at the root. The warren breeds them big, and this one has
+  been eating well.
+level: 4
+flags: [assist]
+silver: 5
+attack:
+  kind: bite
+  verb: bite

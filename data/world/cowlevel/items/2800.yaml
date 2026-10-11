@@ -1,0 +1,18 @@
+vnum: 2800
+name: Wirt's leg
+keywords: [wirt's, wirts, wirt, leg, peg]
+description: A wooden peg leg lies here, a strap and buckle at the top.
+look: |
+  A peg leg of turned ash, worn smooth at the knee cup and scuffed at
+  the foot, with a leather strap to buckle it on. It was Wirt's spare,
+  and he will not tell you why it hums faintly when you hold it near the
+  graveyard wall. As a club it is not much. As something else, it is the
+  only one there is.
+type: weapon
+weight: 3
+level: 5
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

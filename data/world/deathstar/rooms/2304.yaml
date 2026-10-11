@@ -1,0 +1,13 @@
+vnum: 2304
+name: The Blast Door Corridor
+description: |
+  Past the bay's blast doors runs a wide corridor of grey panels lit by
+  white strips in the ceiling, every surface clean enough to see your
+  face in. Somewhere a ventilator breathes in a long slow rhythm. The
+  corridor is exactly as wide as a squad of stormtroopers marching four
+  abreast, which is not an accident. The bay is north, a turbolift goes
+  up to its control room, and the corridor goes on south.
+exits:
+  north: 2300
+  south: 2305
+  up: 2303

@@ -1,0 +1,12 @@
+vnum: 2524
+name: a cask-lid shield
+keywords: [cask-lid, cask, lid, shield]
+description: The round oak lid of a cask, with a strap nailed on, lies here.
+look: |
+  The head of an ale cask, two inches of seasoned oak, with a leather
+  strap nailed across the back. It still says BOAR in burnt letters.
+type: armor
+slot: shield
+level: 6
+baseline: shield
+flags: [drop]

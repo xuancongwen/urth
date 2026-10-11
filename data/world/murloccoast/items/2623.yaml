@@ -1,0 +1,13 @@
+vnum: 2623
+name: a pair of scale vambraces
+keywords: [scale, vambraces, bracers]
+description: A pair of scaled forearm guards lies here.
+look: |
+  Leather guards for the forearms, faced with overlapping scales the
+  size of thumbnails. Something big gave these up, and not willingly.
+type: armor
+slot: arms
+weight: 2
+level: 11
+baseline: medium
+flags: [drop]

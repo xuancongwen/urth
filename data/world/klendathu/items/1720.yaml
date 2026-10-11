@@ -1,0 +1,13 @@
+vnum: 1720
+name: a tactical nuke charge
+keywords: [tactical, nuke, nuclear, charge, bomb]
+description: A squat cylinder with a yellow trefoil and a dead timer lies here.
+look: |
+  A combat engineer's tactical nuclear charge, about the size of a
+  trooper's pack, with a keypad, a timer, and a very large yellow
+  warning sticker. The timer reads 00:00 and nothing has happened, which
+  is either a stroke of luck or a design flaw. It is very heavy. The
+  quartermaster would rather you did not bring it back.
+type: other
+weight: 30
+value: 100

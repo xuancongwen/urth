@@ -1,0 +1,13 @@
+vnum: 2010
+name: a warg-hide cloak
+keywords: [warg-hide, warg, hide, cloak, mantle]
+description: A shaggy grey cloak of warg-hide lies here.
+look: |
+  The pelt of a warg, roughly scraped and tied at the throat with a
+  thong, its head still on and worn as a hood if you have no shame.
+  It sheds rain and the odd bite. Wolves will not like you.
+type: armor
+slot: shoulders
+weight: 4
+level: 16
+baseline: light

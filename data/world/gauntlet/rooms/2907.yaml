@@ -1,0 +1,13 @@
+vnum: 2907
+name: Level 2, the Larder
+description: |
+  A cool stone storeroom behind a locked door, where the grunts keep
+  what they took from heroes who did not make it to the exit. Sacks of
+  coin lean against the walls. A hook in the ceiling is hung with roast
+  fowl, still warm by some magic of the place, and a stone jug sweats
+  on a shelf. Scratched over the door on the inside, in a desperate
+  hand: ELF NEEDS FOOD BADLY. The landing is east.
+exits:
+  east: 2905
+doors:
+  east: {name: the larder door, closed: true, locked: true, key: 2900}

@@ -1,0 +1,13 @@
+vnum: 1901
+name: a glowglobe
+keywords: [glowglobe, glow, globe, light, lamp]
+description: A small glowglobe floats here at knee height, glowing yellow.
+look: |
+  A sphere the size of a fist, buoyed on its own suspensor field so it
+  bobs along at your shoulder when you walk. Twist the ring at its
+  equator to tune it from a dim amber to a hard white. The Fremen make
+  them by the thousand and still charge outworlders for them.
+type: light
+weight: 0
+burn: 2400
+value: 30

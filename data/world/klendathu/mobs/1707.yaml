@@ -1,0 +1,15 @@
+vnum: 1707
+name: a blooded warrior bug
+keywords: [blooded, warrior, bug, arachnid]
+description: A blooded warrior bug rears up, the shell of its forelegs crusted with dried blood.
+look: |
+  A warrior bug that has fought before and won: its shell is scarred and
+  chipped, its forelimb spikes are stained dark to the second joint, and
+  it moves with less waste than the young ones. It has learned that the
+  grey things with the loud sticks go down if you take their legs.
+level: 18
+flags: [assist]
+silver: 20
+attack:
+  kind: pierce
+  verb: impale

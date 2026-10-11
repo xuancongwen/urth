@@ -1,0 +1,15 @@
+vnum: 1823
+name: a hellblade
+keywords: [hellblade, hell, blade, sword]
+description: A long black sword with a blood-red edge lies here.
+look: |
+  The blade of a bloodletter, cast from brass and blackened iron, with
+  an edge that glows like a coal. It is plain as daemon weapons go.
+type: weapon
+level: 50
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

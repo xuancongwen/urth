@@ -1,0 +1,15 @@
+vnum: 1917
+name: a pair of arena vambraces
+keywords: [arena, vambraces, bracers, arm, guards]
+description: A pair of black-lacquered arm guards lies here.
+look: |
+  Arm guards from the slave-pits of Giedi Prime, black lacquer over
+  steel, cut away at the inside of the elbow to let a duellist move
+  fast. Each is scored with a neat tally of notches. You stop counting
+  at forty.
+type: armor
+slot: arms
+weight: 2
+level: 43
+baseline: heavy
+flags: [drop]

@@ -1,0 +1,24 @@
+vnum: 2109
+name: the Holy Symbol of Ravenkind
+keywords: [holy, symbol, ravenkind, amulet, raven]
+description: A platinum sunburst set with a great yellow stone lies here, glowing.
+look: |
+  A sunburst of platinum the size of your palm, set with a single great
+  topaz that holds a light of its own. It belonged to the Order of the
+  Silver Dragon, and before that to the priests of the morning lord, and
+  it has burned vampires to ash in the hands of better people than you.
+  Ludmilla keeps it wrapped in black velvet because she cannot bear to
+  touch it, and cannot bear to let anyone else have it. Held up, it
+  blazes with a holy light that scorches every foe near you, and it
+  fills your mind with a calm that is not quite yours.
+type: armor
+slot: hold
+weight: 1
+level: 34
+value: 6000
+effects:
+  - kind: aura
+    params: { power: 0.25, verb: blaze of holy radiance }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: protect, params: { mult: 0.95 } }

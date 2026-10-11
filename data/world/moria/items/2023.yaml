@@ -1,0 +1,27 @@
+vnum: 2023
+name: the Book of Mazarbul
+keywords: [book, mazarbul, records, chronicle]
+description: A great book, slashed and stabbed and partly burned, lies here.
+look: |
+  The chronicle of Balin's colony, kept by Ori and others in runes of
+  Moria and Dale and sometimes in Elvish: the coming to Dimrill Dale,
+  the taking of the Twenty-first Hall, the finding of true-silver, the
+  death of Balin by the Mirrormere, and at the last, in a hand that
+  shakes, we cannot get out. Holding it, you feel the weight of every
+  dwarf who wrote in it, and you think more clearly, and you stand a
+  little straighter.
+type: armor
+slot: hold
+weight: 3
+level: 26
+value: 3500
+rarity: rare
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.8 }

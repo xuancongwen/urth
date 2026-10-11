@@ -1,0 +1,27 @@
+vnum: 1811
+name: the axe of the Bloodthirster
+keywords: [axe, bloodthirster, khorne, daemon, brass]
+description: A brass axe as long as a man, its edge weeping blood, lies here.
+look: |
+  The great axe of a Bloodthirster of Khorne, forged in the brass
+  furnaces at the foot of the Skull Throne and quenched in the blood of a
+  world. It is far too large for you, and lifts anyway, as if it wants
+  to be used. Every wound it opens feeds the hand that holds it, and it
+  hits like the end of an argument.
+type: weapon
+weight: 12
+level: 55
+baseline: heavy
+value: 15000
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - { kind: stat, params: { stat: strength, amount: 3 } }

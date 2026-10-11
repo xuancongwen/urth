@@ -1,0 +1,14 @@
+vnum: 2217
+name: Mudplough Ridge
+description: |
+  A bare, windy ridge above the valley, where you can see all of Velen at
+  once and wish you could not. To the west a dark forest crowds the
+  slope, unnaturally still. To the east the land sinks into a fog-bound
+  bog. North, a crag of grey rock rises with something huge circling it.
+  Feathers the length of your arm skitter along the ground. The village is
+  south, down the slope.
+exits:
+  south: 2213
+  north: 2218
+  west: 2219
+  east: 2223

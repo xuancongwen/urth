@@ -1,0 +1,15 @@
+vnum: 1908
+name: a Harkonnen trooper
+keywords: [harkonnen, trooper, soldier, guard]
+description: A Harkonnen trooper in blue stands here, sweating under his helmet.
+look: |
+  A big man in blue Harkonnen fatigues, picked from the prisons of Giedi
+  Prime for his size and his lack of curiosity. He has been told the
+  Fremen are savages who will run at the sight of a uniform. He has
+  been on Arrakis long enough to have stopped believing it.
+level: 20
+flags: [assist]
+silver: 90
+attack:
+  kind: pierce
+  verb: stab

@@ -1,0 +1,21 @@
+vnum: 2113
+name: a vampire spawn
+keywords: [vampire, spawn, vampyr]
+description: A vampire spawn crouches in the shadows, pale and hungry.
+look: |
+  A dead thing that was a person once, a guest of the castle who never
+  left. It has the count's pallor and none of his manners: the face is a
+  starved mask, the lips drawn back from long teeth, the fingers hooked.
+  It moves very fast when it moves at all, and every bite makes it
+  stronger.
+level: 28
+flags: [assist]
+silver: 40
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }
+  - kind: regen
+    params: { fraction: 0.01 }

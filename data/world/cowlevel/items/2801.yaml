@@ -1,0 +1,12 @@
+vnum: 2801
+name: a dented cowbell
+keywords: [dented, cowbell, bell]
+description: A dented brass cowbell on a leather collar lies here.
+look: |
+  A brass cowbell big enough to hold a pint, dented on one side as if it
+  stopped a blade, on a collar of thick red leather. The collar is far
+  too big for any cow you have ever seen. A farmer in Khanduras has been
+  telling everyone at the inn that his herd vanished one night in a
+  flash of red light, and nobody believes him. This might help.
+type: other
+flags: [quest]

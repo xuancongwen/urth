@@ -1,0 +1,20 @@
+vnum: 2913
+name: the amulet of invulnerability
+keywords: [amulet, invulnerability, gold, charm]
+description: A heavy gold amulet set with a white stone lies in the dust here.
+look: |
+  A disc of old gold on a short chain, set with a milk-white stone that
+  goes clear when danger is near. While it is worn, blows that should
+  land seem to land on someone else. Death has worn it longer than
+  anyone has been keeping score, which is part of why nobody has ever
+  managed to make Death go away for good.
+type: armor
+slot: neck
+weight: 1
+level: 36
+value: 6000
+effects:
+  - { kind: protect, params: { mult: 0.88 } }
+  - kind: soak
+    params: { power: 0.08 }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

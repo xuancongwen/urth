@@ -1,0 +1,14 @@
+vnum: 1908
+name: a pair of sandtrout-skin gloves
+keywords: [sandtrout-skin, sandtrout, skin, gloves]
+description: A pair of rubbery, leathery gloves lies here.
+look: |
+  Gloves made from the skin of a sandtrout, which seals itself around
+  anything wet. Fremen children play at wearing them as living gloves.
+  Dried and tanned they keep their grip and their toughness, and they
+  are faintly, unpleasantly warm.
+type: armor
+slot: hands
+weight: 0
+level: 17
+baseline: light

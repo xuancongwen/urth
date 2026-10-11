@@ -1,0 +1,13 @@
+vnum: 2220
+name: a pair of bog-iron greaves
+keywords: [bog-iron, bog, iron, greaves]
+description: A pair of dark, pitted iron greaves lies here.
+look: |
+  Leg plates hammered from bog iron, dark and pitted, still smelling of
+  peat. Heavy and ugly and very hard to bite through.
+type: armor
+slot: legs
+weight: 6
+level: 21
+baseline: heavy
+flags: [drop]

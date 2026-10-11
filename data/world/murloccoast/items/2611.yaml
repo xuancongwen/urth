@@ -1,0 +1,14 @@
+vnum: 2611
+name: an oilskin coat
+keywords: [oilskin, coat]
+description: A stiff yellow oilskin coat lies in a heap here.
+look: |
+  A fisherman's long coat of waxed canvas, stiff as a board and
+  stinking of fish oil. It keeps out the rain and the spray, and a
+  little of a murloc's spear, if the murloc is small.
+type: armor
+slot: body
+weight: 4
+level: 7
+baseline: cloth
+flags: [drop]

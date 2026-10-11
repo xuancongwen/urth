@@ -1,0 +1,11 @@
+vnum: 2320
+name: a medpac
+keywords: [medpac, medkit, kit, bacta]
+description: A small white medpac with a red stripe lies here.
+look: |
+  A pouch of bacta patches, a hypo of painkiller, and a diagnostic
+  strip. It is sealed, which in this galaxy is rarer than you would
+  hope.
+type: other
+weight: 1
+value: 30

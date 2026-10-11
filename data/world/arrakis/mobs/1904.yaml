@@ -1,0 +1,14 @@
+vnum: 1904
+name: a desert scorpion
+keywords: [desert, scorpion]
+description: A pale desert scorpion sits on a warm stone, tail curled high.
+look: |
+  As long as your forearm and the colour of old bone, with claws like
+  pliers and a tail that never stops twitching. It has lived its whole
+  life on a planet that wants it dead, and it has drawn certain
+  conclusions about strangers.
+level: 14
+silver: 10
+attack:
+  kind: pierce
+  verb: sting

@@ -1,0 +1,15 @@
+vnum: 1901
+name: The Outer Hall of Sietch Tabr
+description: |
+  A long hall cut into the living rock, its ceiling lost in shadow and its
+  floor laid with worn spice-fibre rugs. Glowglobes drift at shoulder
+  height on their suspensors, tuned low and yellow. Fremen pass you without
+  a glance, their eyes blue within blue from a lifetime of the spice. A
+  painted sign over an old side passage to the north reads, in three
+  languages, NOT USED. Somebody has added, in a fourth, AND NOT SAFE. The
+  hall opens east into the great cavern; the crack is back west.
+exits:
+  west: 1900
+  east: 1902
+  north: 1910
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 2503
+name: The Broken Casks
+description: |
+  Three great casks lie on their sides here, staved in, their hoops
+  rolled off into corners. The rats have made the biggest one into a
+  kind of tavern of their own: there is straw inside, and crusts, and a
+  thimble someone is clearly using as a tankard. The wine racks are
+  west, and a gap in the rubble leads south toward the broken wall.
+exits:
+  west: 2502
+  south: 2505
+flags: [dark]

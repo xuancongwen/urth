@@ -1,0 +1,18 @@
+vnum: 1818
+name: a Justaerin Terminator
+keywords: [justaerin, terminator, chaos, black, legion, bodyguard]
+description: A Justaerin Terminator stands among the ruins like a statue of black iron.
+look: |
+  One of Abaddon's own bodyguard, in Tactical Dreadnought armour as
+  black as the space between stars, trimmed in tarnished gold. He has
+  stood at the Warmaster's shoulder since the Horus Heresy. He does not
+  move until he has to, and then he does not stop.
+level: 60
+flags: [assist]
+silver: 200
+attack:
+  kind: pierce
+  verb: reaper burst
+effects:
+  - kind: soak
+    params: { power: 0.1 }

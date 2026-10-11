@@ -1,0 +1,16 @@
+vnum: 2710
+name: a rusted gladius
+keywords: [rusted, gladius, sword]
+description: A short, rust-pitted sword lies here.
+look: |
+  A short stabbing sword of the old kind, its edge eaten by rust and its
+  grip rotted to the tang. Somebody has been buried with it for a very
+  long time. It is still sharp enough to matter.
+type: weapon
+level: 13
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

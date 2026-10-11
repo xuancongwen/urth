@@ -1,0 +1,14 @@
+vnum: 2508
+name: a pair of spider-silk gloves
+keywords: [spider, silk, gloves, pair]
+description: A pair of fine grey gloves lies here.
+look: |
+  Gloves woven from cellar spider silk, grey and slightly sticky, so
+  fine you can feel a coin through them and so tough that a rat's bite
+  just slides. Old Nettle makes them on winter evenings, and the boy
+  at the counter takes payment in silk.
+type: armor
+slot: hands
+weight: 0
+level: 5
+baseline: light

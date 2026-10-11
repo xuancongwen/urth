@@ -1,0 +1,16 @@
+vnum: 2818
+name: a bovine war axe
+keywords: [bovine, war, axe]
+description: A broad-bladed war axe lies here.
+look: |
+  A single-bitted axe with a blade as wide as a plough share. Possibly
+  it was a plough share.
+type: weapon
+weight: 7
+level: 22
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

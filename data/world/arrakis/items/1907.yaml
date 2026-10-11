@@ -1,0 +1,17 @@
+vnum: 1907
+name: a scorpion's stinger
+keywords: [scorpion, scorpion's, stinger, sting, barb]
+description: A curved, glassy scorpion stinger lies here.
+look: |
+  The tail-barb of a desert scorpion, as long as your finger and hollow
+  at the root where the venom gland was. Bound to a short handle with
+  sinew, it makes a nasty little stabbing blade, though the venom has
+  long since dried.
+type: weapon
+weight: 0
+level: 15
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: sting

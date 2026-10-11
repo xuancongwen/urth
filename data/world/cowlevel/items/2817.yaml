@@ -1,0 +1,17 @@
+vnum: 2817
+name: a bovine longbow
+keywords: [bovine, longbow, bow]
+description: A huge longbow of horn and oak lies here.
+look: |
+  A longbow taller than you are, strung with braided gut and backed with
+  horn. It takes the strength of a bull to draw, which is how it was
+  meant.
+type: weapon
+weight: 4
+level: 21
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

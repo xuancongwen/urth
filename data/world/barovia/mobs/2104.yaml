@@ -1,0 +1,14 @@
+vnum: 2104
+name: a Vistani fiddler
+keywords: [vistani, fiddler, musician]
+description: A Vistani fiddler saws out a jig by the bonfire.
+look: |
+  A lean young man in a red vest and a hat with a feather in it, playing
+  a fiddle so old it has gone black. He grins at you without missing a
+  note. The Vistani come and go through the mists as they please, the
+  only people in Barovia who can, and they do not seem to feel sorry for
+  anyone who cannot.
+level: 14
+flags: [peaceful]
+attack:
+  verb: punch

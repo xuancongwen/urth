@@ -1,0 +1,10 @@
+vnum: 2813
+name: The Throne Field
+description: |
+  On a mound of earth at the end of the fields stands a throne built of
+  cart wheels, plough blades, and the skulls of things that were not
+  cows, and on it sits a bull in a crown. A banner over the mound shows
+  a cow's head crowned in gold. The ground around the throne is beaten
+  into a ring, and the champions' ground is east. Moo.
+exits:
+  east: 2811

@@ -1,0 +1,11 @@
+vnum: 2721
+name: a skull-crested helm
+keywords: [skull-crested, skull, crested, helm, helmet]
+description: A dented iron helm with a skull for a crest lies here.
+look: |
+  A dented iron helm with a real human skull riveted to the top as a
+  crest, which tells everyone exactly what sort of officer wore it.
+type: armor
+slot: head
+level: 17
+baseline: heavy

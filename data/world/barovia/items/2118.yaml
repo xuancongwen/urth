@@ -1,0 +1,14 @@
+vnum: 2118
+name: a pair of werewolf-hide leggings
+keywords: [werewolf-hide, werewolf, hide, leggings]
+description: A pair of leggings of coarse brown hide lies here.
+look: |
+  Leggings of thick brown hide, rough with bristles that never quite
+  stop growing. Whoever skinned the beast did it while it was a beast;
+  that much is clear from the size.
+type: armor
+slot: legs
+weight: 4
+level: 23
+baseline: medium
+flags: [drop]

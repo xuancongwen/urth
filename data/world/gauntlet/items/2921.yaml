@@ -1,0 +1,12 @@
+vnum: 2921
+name: a studded leather jerkin
+keywords: [studded, leather, jerkin]
+description: A studded leather jerkin lies here.
+look: |
+  Boiled leather set with iron studs, stiff at the shoulders and
+  scuffed at the elbows from crawling through mazes.
+type: armor
+slot: body
+level: 27
+baseline: light
+flags: [drop]

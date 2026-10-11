@@ -1,0 +1,16 @@
+vnum: 1909
+name: a Harkonnen kindjal
+keywords: [harkonnen, kindjal, dagger, knife]
+description: A short, double-edged kindjal lies here.
+look: |
+  A short, double-edged blade with a slight curve and a hilt stamped
+  with the blue griffin of House Harkonnen. Every trooper carries one,
+  for close work inside shields, and for the other kind of close work
+  the Baron is fond of.
+type: weapon
+level: 20
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

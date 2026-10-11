@@ -1,0 +1,13 @@
+vnum: 2008
+name: a great bat
+keywords: [great, bat]
+description: A great bat flits past, close enough that you feel the wind of it.
+look: |
+  A bat with a wingspan wider than your arms, leathery and silent, with
+  a snout full of needles. It hunts the halls by sound, and it has
+  learned that things carrying lights are slow.
+level: 16
+flags: [wander]
+attack:
+  kind: bite
+  verb: bite

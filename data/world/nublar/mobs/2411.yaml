@@ -1,0 +1,15 @@
+vnum: 2411
+name: a pteranodon
+keywords: [pteranodon, flyer, dinosaur, pterosaur]
+description: A pteranodon unfolds its leathery wings on a girder overhead.
+look: |
+  A flying reptile with a wingspan wider than a car, a long toothless beak
+  like a pickaxe, and a backswept crest. It is all skin and hollow bone,
+  light as paper and quick as a hawk, and when it drops off the girder it
+  comes straight at your eyes.
+level: 18
+flags: [assist]
+silver: 25
+attack:
+  kind: pierce
+  verb: stab

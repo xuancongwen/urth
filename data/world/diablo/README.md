@@ -43,7 +43,9 @@ Merchants (`list`, `buy`, `sell`):
 - Adria (1307): a black mushroom (grotto, 1319) plus 200 silver for the
   ring of the dark eye; two demon hearts plus 500 silver for the witch's
   staff; Diablo's red soulstone plus two demon hearts for Arkaine's Valor.
-- Wirt (1308): a ring of the zodiac, for 1500 silver and no questions.
+- Wirt (1308): a ring of the zodiac, for 1500 silver and no questions;
+  his spare leg (2800), 500 silver, the key to the red portal west of
+  the graveyard wall, which opens on the Secret Cow Level (`cowlevel`).
 
 Map (x east, y south; north is up):
 

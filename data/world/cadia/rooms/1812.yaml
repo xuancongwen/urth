@@ -1,0 +1,15 @@
+vnum: 1812
+name: Rubble Street
+description: |
+  A street of hab-blocks with their fronts sheared off, so that every
+  floor is a stage set: a kitchen, a bedroom, a shrine, a cot, all open
+  to the weather. Barricades of furniture and burned-out cars cross the
+  road every few yards. North, crude glyphs and the racket of drums mark
+  where the Orks have dug in around a manufactorum. A bunker entrance
+  gapes to the south. The breach is east, and the cathedral square
+  opens to the west.
+exits:
+  north: 1816
+  south: 1813
+  east: 1811
+  west: 1819

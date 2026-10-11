@@ -1,0 +1,15 @@
+vnum: 2205
+name: a water hag
+keywords: [water, hag, hag]
+description: A water hag squats in the ruin of the mill, picking at a bone.
+look: |
+  A hunched, sagging crone of a monster with grey skin, a nest of weedy
+  hair, and long arms that end in long claws. She hurls mud with a
+  thrower's arm and then comes in to finish what the mud began. The
+  drowners give her room, and bring her things.
+level: 9
+flags: [assist]
+silver: 10
+attack:
+  kind: claw
+  verb: rake

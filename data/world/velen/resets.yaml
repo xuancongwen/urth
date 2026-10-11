@@ -1,0 +1,62 @@
+interval_seconds: 300
+resets:
+  # --- the Inn at the Crossroads ---
+  - { mob: 2200, room: 2201 }                                   # the innkeeper behind his counter
+  - { mob: 2201, room: 2202 }                                   # Vesemir in the yard, who teaches riposte and dodge
+  # --- Crow's Perch ---
+  - { mob: 2202, room: 2205 }                                   # the Bloody Baron at his high table
+  - { mob: 2203, room: 2204, max: 3 }                           # guards dicing in the courtyard
+  - { mob: 2203, room: 2204, max: 3 }
+  - { mob: 2203, room: 2205, max: 3 }                           # and one at the Baron's elbow
+  # --- the river ---
+  - { mob: 2204, room: 2206, max: 5, equip: [{ item: 2209 }] }  # drowners on the river road, each with a brain worth a reward
+  - { mob: 2204, room: 2206, max: 5, equip: [{ item: 2209 }] }
+  - { mob: 2204, room: 2207, max: 5, equip: [{ item: 2209 }] }  # drowners in the reeds
+  - { mob: 2204, room: 2207, max: 5, equip: [{ item: 2209 }] }
+  - { mob: 2204, room: 2207, max: 5, equip: [{ item: 2209 }] }
+  - { mob: 2205, room: 2208, max: 2, equip: [{ item: 2209 }] }  # water hags in the mill, hoarding what the drowners bring
+  - { mob: 2205, room: 2208, max: 2, equip: [{ item: 2209 }] }
+  # --- the nekkers ---
+  - { mob: 2206, room: 2209, max: 7, equip: [{ item: 2210 }] }  # nekkers in the hollow
+  - { mob: 2206, room: 2209, max: 7, equip: [{ item: 2210 }] }
+  - { mob: 2206, room: 2209, max: 7, equip: [{ item: 2210 }] }
+  - { mob: 2206, room: 2210, max: 7, equip: [{ item: 2210 }] }  # and more in the warren, in the dark
+  - { mob: 2206, room: 2210, max: 7, equip: [{ item: 2210 }] }
+  - { mob: 2206, room: 2210, max: 7, equip: [{ item: 2210 }] }
+  - { mob: 2206, room: 2210, max: 7, equip: [{ item: 2210 }] }
+  # --- the battlefield ---
+  - { mob: 2207, room: 2211, max: 5 }                           # ghouls on the battlefield
+  - { mob: 2207, room: 2211, max: 5 }
+  - { mob: 2207, room: 2212, max: 5 }                           # ghouls feeding in the graves
+  - { mob: 2207, room: 2212, max: 5 }
+  - { mob: 2207, room: 2212, max: 5 }
+  # --- the burned village and the deserters ---
+  - { mob: 2208, room: 2213, max: 3, equip: [{ item: 2216, slot: wield }] }   # bandits picking over the ashes
+  - { mob: 2208, room: 2213, max: 3, equip: [{ item: 2216, slot: wield }] }
+  - { mob: 2208, room: 2213, max: 3, equip: [{ item: 2216, slot: wield }] }
+  - { mob: 2209, room: 2214, max: 3, equip: [{ item: 2217, slot: wield }] }   # deserters round the fire
+  - { mob: 2209, room: 2214, max: 3, equip: [{ item: 2217, slot: wield }] }
+  - { mob: 2209, room: 2214, max: 3, equip: [{ item: 2217, slot: wield }] }
+  - { mob: 2210, room: 2214, equip: [{ item: 2217, slot: wield }, { item: 2200 }] }   # Captain Vlodek, and the witcher's steel sword he brags about
+  # --- the rye field ---
+  - { mob: 2211, room: 2216 }                                   # the noonwraith at the well
+  # --- the ridge and the crag ---
+  - { mob: 2212, room: 2218, equip: [{ item: 2202 }, { item: 2211 }, { item: 2211 }] }   # the griffin, keeping the wolf medallion and shedding feathers
+  # --- the woods ---
+  - { mob: 2214, room: 2220, equip: [{ item: 2201 }] }          # the werewolf, and the silver sword of the witcher it ate
+  - { mob: 2215, room: 2222 }                                   # the leshen in its grove
+  # --- Crookback Bog ---
+  - { mob: 2213, room: 2223, max: 4 }                           # foglets at the bog's edge
+  - { mob: 2213, room: 2223, max: 4 }
+  - { mob: 2213, room: 2224, max: 4 }                           # foglets on the causeway
+  - { mob: 2213, room: 2224, max: 4 }
+  # --- Bald Mountain ---
+  - { mob: 2216, room: 2226, max: 3 }                           # hounds of the Hunt on the slopes
+  - { mob: 2216, room: 2226, max: 3 }
+  - { mob: 2216, room: 2226, max: 3 }
+  - { mob: 2217, room: 2226, max: 3, equip: [{ item: 2223, slot: wield }, { item: 2222, slot: hands }] }   # Hunt warriors
+  - { mob: 2217, room: 2227, max: 3, equip: [{ item: 2223, slot: wield }, { item: 2222, slot: hands }] }
+  - { mob: 2217, room: 2227, max: 3, equip: [{ item: 2223, slot: wield }, { item: 2222, slot: hands }] }
+  - { mob: 2218, room: 2227, equip: [{ item: 2203 }] }          # Imlerith at the altar, his mace on his shoulder
+  # --- under the hillock ---
+  - { mob: 2219, room: 2229, equip: [{ item: 2204 }] }          # the Crones at their cauldron, and their rune

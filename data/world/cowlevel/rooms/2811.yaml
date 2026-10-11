@@ -1,0 +1,12 @@
+vnum: 2811
+name: The Champions' Ground
+description: |
+  Torches on tall poles ring a stretch of bare earth where the biggest
+  of the herd prove themselves on one another. The dirt is dark in
+  patches and a broken horn the length of your arm lies at the edge of
+  the ring like a trophy. A camp of hide tents sprawls to the north, and
+  to the west a single great banner stands over a mound.
+exits:
+  east: 2810
+  north: 2812
+  west: 2813

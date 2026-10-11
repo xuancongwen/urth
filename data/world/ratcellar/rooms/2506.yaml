@@ -1,0 +1,13 @@
+vnum: 2506
+name: The Old Sewer
+description: |
+  A barrel-vaulted tunnel of green-slimed stone, older than the inn and
+  probably older than the city. A channel down the middle carries a
+  sluggish stream of something you decide not to name, and a ledge on
+  either side carries you, more or less. Everything echoes: your steps,
+  the drip, and a constant small chittering just ahead of the light.
+  The hole into the cellar is west; the tunnel goes on east.
+exits:
+  west: 2505
+  east: 2507
+flags: [dark]

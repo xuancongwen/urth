@@ -1,0 +1,21 @@
+vnum: 2318
+name: Grand Moff Tarkin
+keywords: [grand, moff, tarkin, wilhuff, governor]
+description: Grand Moff Tarkin stands at the viewport, hands behind his back.
+look: |
+  A gaunt, grey man with hollow cheeks and a voice like a knife being
+  drawn, in an officer's grey uniform that has been fitted to him like
+  armour. He is not a fighter, and he knows it. He also wears several
+  layers of armourweave under the uniform, keeps his back to a wall of
+  guns, and regards you as he would regard a figure on a report. He is
+  holding the cylinder that opens every door on this station.
+level: 35
+health: 1300
+silver: 500
+armor:
+  defense: 130
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: protect, params: { mult: 0.85 } }

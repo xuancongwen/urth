@@ -1,0 +1,10 @@
+vnum: 2325
+name: The Overbridge
+description: |
+  The station's command bridge, a long platform overlooking a sunken
+  crew pit and a vast viewport full of stars. In the viewport a green
+  and blue planet turns slowly, unaware. The officers here stand very
+  straight. Whoever runs this place prefers his subordinates afraid, and
+  it has worked. Fire control is west.
+exits:
+  west: 2324

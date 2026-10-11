@@ -1,0 +1,18 @@
+vnum: 2329
+name: Tarkin's code cylinder
+keywords: [tarkin's, tarkin, code, cylinder]
+description: A small silver code cylinder lies here.
+look: |
+  A slim silver cylinder that slots into any terminal on the station and
+  opens it, because it belonged to the man who commands it. Holding it,
+  you find yourself standing straighter and speaking more coldly, and
+  other people find themselves listening.
+type: armor
+slot: hold
+weight: 0
+level: 35
+value: 3000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: steady, params: { chance: 0.3 } }

@@ -1,0 +1,12 @@
+vnum: 1722
+name: The Sapper's Gallery
+description: |
+  A side gallery where a team of combat engineers got further than
+  anyone else and then stopped. Their packs are still here, and the
+  coils of det cord they were laying, and the scorch marks where they
+  made their last stand. Their bodies are not. Scratched into the wall
+  with a knife are the words WE GOT CLOSE. The branching tunnels are
+  west.
+exits:
+  west: 1720
+flags: [dark]

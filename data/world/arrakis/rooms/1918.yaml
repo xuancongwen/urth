@@ -1,0 +1,11 @@
+vnum: 1918
+name: The Harkonnen Spice Field
+description: |
+  A second spice blow, staked out and fenced by the Harkonnens with poles
+  and wire, as if the desert cared. Spice-guards in filter masks shovel
+  melange into sacks under the eye of a foreman's drone. Half the sacks
+  go to the Baron and the other half go missing. Sandtrout wriggle under
+  the wire anyway. The wreck is north, and the deep desert opens south.
+exits:
+  north: 1909
+  south: 1926

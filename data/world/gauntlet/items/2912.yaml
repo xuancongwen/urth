@@ -1,0 +1,25 @@
+vnum: 2912
+name: Merlin's staff
+keywords: [merlin's, merlin, staff, wizard]
+description: A gnarled wizard's staff topped with a clouded crystal lies here.
+look: |
+  A knotted length of blackthorn taller than you are, capped with a
+  lump of crystal in which a small storm seems to be going on. Merlin
+  the Wizard carried it, and leaned on it, and pointed it at things
+  that stopped existing shortly afterward. The Sorcerer Supreme took it
+  for himself and has never been able to make it do more than glow.
+  It knows its old tricks, all the same.
+type: weapon
+weight: 4
+level: 34
+baseline: staff
+value: 3800
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - kind: proc
+    params: { chance: 0.25, power: 1.2, verb: "crackle of wizard's lightning" }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

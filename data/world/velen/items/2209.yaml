@@ -1,0 +1,12 @@
+vnum: 2209
+name: a drowner brain
+keywords: [drowner, brain]
+description: A grey, glistening drowner brain lies here, smelling of the river.
+look: |
+  The brain of a drowner, about the size of a fist and the colour of
+  river mud, wrapped in a strip of sacking that has given up. Alchemists
+  and witchers want them for decoctions. The innkeeper wants them as
+  proof, so he can pay out on the mill contract.
+type: other
+weight: 1
+value: 8

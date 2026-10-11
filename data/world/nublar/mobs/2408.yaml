@@ -1,0 +1,14 @@
+vnum: 2408
+name: a triceratops
+keywords: [triceratops, trike, dinosaur, horned]
+description: A triceratops grazes here, its three horns lowered toward the grass.
+look: |
+  A huge, heavy grazer the size of an elephant, with a great bony frill
+  behind its head and three horns, two of them as long as spears. Its skin
+  is pebbled grey and hot to the touch. It breathes like a bellows and is
+  not in a good mood, having eaten the wrong berries.
+level: 14
+silver: 20
+attack:
+  kind: pierce
+  verb: gore

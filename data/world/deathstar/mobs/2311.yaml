@@ -1,0 +1,15 @@
+vnum: 2311
+name: a TIE fighter pilot
+keywords: [tie, fighter, pilot, imperial]
+description: A TIE fighter pilot in black flight gear strides between the racks.
+look: |
+  A pilot in a black flight suit and a sealed helmet with breathing
+  hoses, moving with the brisk, faintly contemptuous energy of someone
+  who flies a ship with no shields and expects to win anyway. The
+  Imperial crest on his helmet catches the light.
+level: 20
+flags: [assist]
+silver: 80
+attack:
+  kind: fire
+  verb: shoot

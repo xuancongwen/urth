@@ -1,0 +1,15 @@
+vnum: 2406
+name: a gallimimus
+keywords: [gallimimus, galli, dinosaur, ostrich]
+description: A gallimimus stalks past on long legs, head bobbing like an ostrich's.
+look: |
+  A long-legged, long-necked dinosaur the size of a horse, built like an
+  ostrich with a lizard's tail. It moves in sudden darting runs, all at
+  once and in the same direction as its flock, and a stampede of them will
+  flatten anything in the way. They're flocking this way.
+level: 8
+flags: [wander]
+silver: 10
+attack:
+  kind: blunt
+  verb: kick

@@ -1,0 +1,12 @@
+vnum: 2806
+name: The Meadow Ring, East Stones
+description: |
+  You stand among the eastern stones of a great ring, each stone taller
+  than a man and carved with spirals that look, if you squint, rather
+  like horns. The grass inside the ring grows in a perfect circle,
+  darker and thicker than outside it. The ring runs on north and west,
+  and the open field is east.
+exits:
+  east: 2805
+  north: 2807
+  west: 2809

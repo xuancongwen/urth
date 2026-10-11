@@ -1,0 +1,25 @@
+vnum: 1813
+name: Zaraphiston the sorcerer
+keywords: [zaraphiston, sorcerer, chaos, black, legion]
+description: Zaraphiston the sorcerer carves runes into the pylon, chanting in a voice like broken glass.
+look: |
+  A Chaos Space Marine in robes over his armour, the plates grown over
+  with ruby-red runes and his staff topped with a horned skull that
+  watches you independently. He is one of Abaddon's sorcerers, and he
+  is unpicking the pylon a rune at a time, letting the warp in. Blue
+  fire crawls across his gauntlets. He does not stop chanting to look
+  at you, which is not the same as not seeing you.
+level: 46
+health: 17000
+stats: {intelligence: 18, wisdom: 16, constitution: 14}
+silver: 500
+attack:
+  kind: psionic
+  verb: warp lightning
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: crawl of warp fire }
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: doombolt }
+  - kind: regen
+    params: { fraction: 0.01 }

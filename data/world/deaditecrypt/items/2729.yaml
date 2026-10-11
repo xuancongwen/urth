@@ -1,0 +1,16 @@
+vnum: 2729
+name: a deadite-slaying war axe
+keywords: [deadite-slaying, war, axe]
+description: A broad-bladed war axe lies here.
+look: |
+  A bearded war axe with a broad, crescent blade and a haft wrapped in
+  wire. It was made for taking heads off, and down here that is the only
+  thing that settles an argument for good.
+type: weapon
+level: 20
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

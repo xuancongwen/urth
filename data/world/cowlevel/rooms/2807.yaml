@@ -1,0 +1,10 @@
+vnum: 2807
+name: The Meadow Ring, North Stones
+description: |
+  The northern arc of the ring. One stone has fallen and lies split in
+  two, and a herd has worn a path between the halves. Bones lie in the
+  grass here, picked clean and stacked with odd neatness: adventurers,
+  by the boots. The stones run on west and south.
+exits:
+  south: 2806
+  west: 2808

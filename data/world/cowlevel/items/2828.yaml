@@ -1,0 +1,13 @@
+vnum: 2828
+name: a pair of bovine plate gauntlets
+keywords: [bovine, plate, gauntlets]
+description: A pair of plate gauntlets lies here.
+look: |
+  Plate gauntlets with three thick fingers each. You can get two of
+  yours into every one.
+type: armor
+slot: hands
+weight: 3
+level: 25
+baseline: plate
+flags: [drop]

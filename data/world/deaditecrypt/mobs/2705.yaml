@@ -1,0 +1,15 @@
+vnum: 2705
+name: a deadite
+keywords: [deadite, dead, ghoul, corpse]
+description: A deadite lurches toward you, white-eyed and cackling.
+look: |
+  A corpse that has been possessed rather than merely raised: grey skin,
+  white rolled-back eyes, black claws, and a voice that is not its own.
+  It giggles. It calls you by name, which it should not know. It tells
+  you it is going to swallow your soul, and it means it.
+level: 16
+flags: [assist]
+silver: 30
+attack:
+  kind: slash
+  verb: claw

@@ -1,0 +1,15 @@
+vnum: 2311
+name: a DLT-19D heavy blaster
+keywords: [dlt-19d, dlt-19, heavy, blaster, rifle]
+description: A long, heavy blaster rifle lies here.
+look: |
+  A long-barrelled heavy blaster with a bipod folded under the barrel
+  and a power pack the size of a brick. It hits like a bantha, and about
+  as slowly.
+type: weapon
+level: 31
+baseline: heavy
+weapon:
+  hands: 2
+  kind: fire
+  verb: blast

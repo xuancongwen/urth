@@ -1,0 +1,10 @@
+vnum: 2327
+name: The Meditation Chamber
+description: |
+  A black chamber, round and nearly empty, where a sealed pod like a
+  great jaw stands open on a dais. Hissing apparatus lines the walls,
+  feeding air to the one who sits here. The breathing fills the room,
+  slow and mechanical and very loud, and once you have heard it you
+  cannot stop hearing it. The antechamber is east.
+exits:
+  east: 2326

@@ -1,0 +1,13 @@
+vnum: 1915
+name: a Harkonnen officer's cuirass
+keywords: [harkonnen, officer's, officer, cuirass, armor, armour]
+description: A gilded breastplate with a captain's bars lies here.
+look: |
+  A heavier, better-made cousin of the troopers' plate, enamelled in
+  blue and edged in gold, with a captain's bars on the collar. The
+  padding has been replaced twice. Officers of House Harkonnen do not
+  last long, but their armor does.
+type: armor
+slot: body
+level: 32
+baseline: heavy

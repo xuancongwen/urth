@@ -1,0 +1,17 @@
+vnum: 2302
+name: the ghost of Ben Kenobi
+keywords: [ghost, ben, kenobi, obi-wan, hermit]
+description: The ghost of an old hermit sits on the bench, blue and faintly shining.
+look: |
+  An old man in a hermit's brown robes, translucent and edged with blue
+  light, sitting with his hands folded as though he had all the time in
+  the world, which he now does. He was struck down here, and became more
+  powerful than anyone could imagine, mostly in the matter of giving
+  advice. He will teach you to step aside from a blow and to turn a
+  blade with your own, for a modest donation. Use the Force, he says,
+  and also your feet.
+level: 40
+flags: [peaceful]
+teaches: [dodge, riposte]
+attack:
+  verb: touch

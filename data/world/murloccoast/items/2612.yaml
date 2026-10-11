@@ -1,0 +1,17 @@
+vnum: 2612
+name: a barbed fishing spear
+keywords: [barbed, fishing, spear]
+description: A fishing spear with a barbed iron head lies here.
+look: |
+  A proper fisherman's spear: an ash shaft and a forged head with a
+  barb on either side, so that what goes in stays on. It came from a
+  Westfall smithy. It ended up in a murloc's hands. Now it is yours.
+type: weapon
+weight: 3
+level: 8
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust

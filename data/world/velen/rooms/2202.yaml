@@ -1,0 +1,13 @@
+vnum: 2202
+name: The Inn Yard
+description: |
+  A yard of trampled straw behind the inn, with a well, a trough, and a
+  notice board nailed to the stable wall. The board is thick with
+  contracts, layered like shingles: a drowner problem at the mill, a
+  something in the fields at noon, a missing daughter, a missing goat, a
+  missing village. An old man in witcher's leathers sits on an upturned
+  bucket by the stable, sharpening a sword that is already sharp. The
+  common room is back west.
+exits:
+  west: 2201
+flags: [safe]

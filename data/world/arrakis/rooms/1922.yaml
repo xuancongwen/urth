@@ -1,0 +1,9 @@
+vnum: 1922
+name: The Bashar's Quarters
+description: |
+  A small room with a cot, a map table, and a rack of blades, every one
+  of them sharp. There is nothing personal here at all, except a single
+  pressed desert flower on the table under a glass, which tells you more
+  about its owner than you wanted to know. The hall is south.
+exits:
+  south: 1921

@@ -1,0 +1,14 @@
+vnum: 2625
+name: a scale hauberk
+keywords: [scale, hauberk, armor, armour]
+description: A shirt of overlapping green scales lies here.
+look: |
+  A hauberk of leather covered in big green-gold scales, overlapping
+  like a fish's own. It flexes when you move and turns a spear point
+  aside more often than not.
+type: armor
+slot: body
+weight: 6
+level: 12
+baseline: medium
+flags: [drop]

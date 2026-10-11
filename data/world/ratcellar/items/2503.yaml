@@ -1,0 +1,13 @@
+vnum: 2503
+name: a dusty bottle of the Boar's best
+keywords: [dusty, bottle, boar, boar's, best, wine, vintage]
+description: A dusty bottle with a red wax seal lies here, miraculously whole.
+look: |
+  A squat green bottle under an inch of dust, the wax seal stamped with
+  a boar's head. It is the last of a vintage the innkeeper laid down
+  the year his son was born, to open on the boy's wedding day. Somebody
+  at the Grunting Boar would very much like it back before the rats
+  work out how corks work.
+type: other
+weight: 1
+flags: [quest]

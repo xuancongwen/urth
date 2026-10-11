@@ -1,0 +1,14 @@
+vnum: 1704
+name: a Federal Network correspondent
+keywords: [federal, network, fednet, correspondent, reporter, cameraman]
+description: A Federal Network correspondent talks brightly into a camera, ducking whenever anything explodes.
+look: |
+  A reporter in a clean flak jacket with FEDNET across the back and
+  hair that has survived a drop. A cameraman follows him everywhere.
+  He is here to bring the war home to the people of the Federation, in
+  segments of ninety seconds or less, with music. He asks every trooper
+  who passes the same question: "Are you ready to do your part?"
+level: 16
+flags: [peaceful]
+attack:
+  verb: slap

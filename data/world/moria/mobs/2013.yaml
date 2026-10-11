@@ -1,0 +1,18 @@
+vnum: 2013
+name: Narzug the Uruk
+keywords: [narzug, uruk, captain, orc]
+description: Narzug the Uruk paces the passage, a slender elven sword wrapped in rags at his back.
+look: |
+  The captain who led the orcs that broke Balin's guard at the
+  Twenty-first Hall, and he will tell you so. He took a sword from
+  the dwarves that day and wears it on his back wrapped in rags,
+  because it glows when he holds it and burns his hand. He cannot bear
+  to throw it away and cannot bear to use it, so he fights with his own
+  falchion and keeps the elf-blade as a trophy.
+level: 22
+flags: [assist]
+health: 480
+silver: 60
+attack:
+  kind: slash
+  verb: cleave

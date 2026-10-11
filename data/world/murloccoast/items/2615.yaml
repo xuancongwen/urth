@@ -1,0 +1,17 @@
+vnum: 2615
+name: a gutting knife
+keywords: [gutting, knife, dagger]
+description: A thin, curved gutting knife lies here.
+look: |
+  A short curved blade on a cork handle, made for opening fish from
+  vent to gill in one stroke. It is very sharp and very quick, and it
+  does not much care what it opens.
+type: weapon
+weight: 1
+level: 9
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: slit

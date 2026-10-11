@@ -1,0 +1,13 @@
+vnum: 2616
+name: a pair of sharkskin gloves
+keywords: [sharkskin, gloves]
+description: A pair of grey sharkskin gloves lies here.
+look: |
+  Gloves of rough sharkskin with the rough side out, so a slippery
+  fish, or a slippery murloc, stays held.
+type: armor
+slot: hands
+weight: 1
+level: 9
+baseline: light
+flags: [drop]

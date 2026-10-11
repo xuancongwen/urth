@@ -1,0 +1,15 @@
+vnum: 1810
+name: an Ork 'ard boy
+keywords: [ork, ard, hard, boy, boyz, greenskin]
+description: An Ork 'ard boy clanks about in a suit of red scrap plates.
+look: |
+  A big Ork in 'eavy armour, plates of tank hull riveted over its hide
+  and painted red, a helmet like an upturned bucket on its head. It
+  walks into las-fire as if it were rain. It is louder than the others,
+  because the armour echoes.
+level: 34
+flags: [assist]
+silver: 50
+attack:
+  kind: blunt
+  verb: smash

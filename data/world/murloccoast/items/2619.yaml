@@ -1,0 +1,14 @@
+vnum: 2619
+name: a scale coif
+keywords: [scale, coif, hood]
+description: A hood of overlapping fish scales lies here.
+look: |
+  A close hood sewn from big silvery scales, each one punched and
+  laced to its neighbours. It shines like a mackerel and rattles like
+  one too.
+type: armor
+slot: head
+weight: 2
+level: 10
+baseline: medium
+flags: [drop]

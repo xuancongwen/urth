@@ -1,0 +1,10 @@
+vnum: 1929
+name: The Rim of the Erg
+description: |
+  A high dune crest at the edge of the deep desert, where you can see a
+  long way in every direction and nothing in any of them is friendly. Old
+  thumper stakes stand in a line along the crest, left by Fremen who rode
+  from here. The deep desert is west, and the spice blow north.
+exits:
+  west: 1928
+  north: 1926

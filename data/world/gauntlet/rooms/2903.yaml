@@ -1,0 +1,13 @@
+vnum: 2903
+name: Level 1, the Treasure Room
+description: |
+  A square stone room behind a stout door, piled with the sort of
+  treasure that exists to be run over: open chests spilling gold,
+  goblets, a heap of coins nobody has counted. Someone has left a plate
+  on a stone shelf, with a fork beside it, as if a meal were the most
+  valuable thing in the room. In here, it may be. The door leads back
+  west into the maze.
+exits:
+  west: 2901
+doors:
+  west: {name: the iron-bound door, closed: true, locked: true, key: 2900}

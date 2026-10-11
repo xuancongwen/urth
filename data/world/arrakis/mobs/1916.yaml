@@ -1,0 +1,19 @@
+vnum: 1916
+name: a Sardaukar trooper
+keywords: [sardaukar, trooper, soldier, imperial]
+description: A Sardaukar trooper sits in perfect stillness, a blade across his knees.
+look: |
+  A soldier of the Padishah Emperor, raised on the prison planet of
+  Salusa Secundus where six in thirteen die before they are grown. He
+  wears grey without insignia and has the flat, patient eyes of a man
+  who has never lost a fight and does not expect to start today.
+level: 38
+flags: [assist]
+health: 2500
+silver: 200
+attack:
+  kind: slash
+  verb: cut
+effects:
+  - { kind: steady, params: { chance: 0.25 } }
+  - { kind: dodge, params: { amount: 0.03 } }

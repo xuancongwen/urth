@@ -1,0 +1,11 @@
+vnum: 2128
+name: The Crypt of Ludmilla Vilisevic
+description: |
+  A crypt of black marble with a single coffin on a bier, lined in white
+  silk, and empty. Dried roses lie on the floor in heaps. A brass plaque
+  on the wall gives a name, Ludmilla Vilisevic, and under it a single
+  word: Beloved. Someone has scratched the word out. The catacombs are
+  east.
+exits:
+  east: 2127
+flags: [dark]

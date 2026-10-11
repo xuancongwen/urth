@@ -1,0 +1,26 @@
+vnum: 2018
+name: the Watcher in the Water
+keywords: [watcher, water, kraken, beast, thing]
+description: The Watcher in the Water heaves up out of the pool, its arms reaching for you.
+look: |
+  Something that crept out of the dark waters under the world, or was
+  driven up out of them, and found the dammed lake to its liking. You
+  never see all of it. You see the arms, twenty of them or more, pale
+  green and glistening, and behind them a great bulk under the water
+  with a stench like a drowned graveyard. It caught dwarves here for
+  years. It will catch you if you let it.
+level: 30
+health: 3000
+silver: 300
+armor:
+  defense: 50
+attack:
+  kind: blunt
+  verb: crush
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: soak
+    params: { power: 0.1 }

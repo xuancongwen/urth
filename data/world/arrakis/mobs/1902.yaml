@@ -1,0 +1,16 @@
+vnum: 1902
+name: Stilgar
+keywords: [stilgar, naib, fremen]
+description: Stilgar, naib of Sietch Tabr, stands on the speaking-rock, listening to everyone.
+look: |
+  A tall Fremen with a black beard, a hawk's face, and the stillness of
+  a man who has killed when it was needed and never when it was not.
+  He leads Sietch Tabr, and he will tell you, if you ask, that the
+  water of a man belongs to his tribe, that the desert is patient, and
+  that the spice must flow. He does not say who it must flow to. He is
+  watching you to decide whether you are worth your water.
+level: 40
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab

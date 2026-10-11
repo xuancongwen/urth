@@ -1,0 +1,11 @@
+vnum: 1925
+name: The Bled
+description: |
+  Flat open sand, the bled, where a man can be seen from a day away and
+  heard from further. Wind-polished stones lie scattered like dropped
+  coins. Far off, something moves under the sand, a long ripple that
+  travels against the wind, and then is gone. The erg is west and the
+  sand runs on south.
+exits:
+  west: 1919
+  south: 1928

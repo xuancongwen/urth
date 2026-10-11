@@ -1,0 +1,11 @@
+vnum: 2912
+name: Level 3, the Exit
+description: |
+  Beyond the locked door the lights come back on, as if they had only
+  been waiting for you to find a key. A painted EXIT square glows on the
+  floor around another shaft, and the rungs go down into a quieter dark
+  where something is lobbing stones over a wall, with a hollow knock
+  each time one lands. The dark level is south.
+exits:
+  south: 2909
+  down: 2913

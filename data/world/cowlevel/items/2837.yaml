@@ -1,0 +1,13 @@
+vnum: 2837
+name: a pair of cowhide pauldrons
+keywords: [cowhide, pauldrons, shoulders, hide]
+description: A pair of hardened cowhide pauldrons lies here.
+look: |
+  Pauldrons of boiled cowhide in many layers, as hard as wood and
+  lighter, branded with a crowned cow's head.
+type: armor
+slot: shoulders
+weight: 3
+level: 28
+baseline: medium
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 1913
+name: The Renegade Hold
+description: |
+  A dead-end chamber at the bottom of the old caves, closed off with a
+  curtain of hides. Stolen water fat-bags hang from the ceiling, and a
+  stack of Harkonnen credit-chits lies on a crate, which explains a great
+  deal. The renegades who live here broke the water discipline of their
+  tribes and were cast out. They have not forgiven anybody, including
+  you. The only way out is back west.
+exits:
+  west: 1912
+flags: [dark]

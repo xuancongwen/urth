@@ -1,0 +1,25 @@
+vnum: 1808
+name: a bolt pistol
+keywords: [bolt, pistol, boltpistol, gun, sidearm]
+description: A heavy, blocky bolt pistol lies here, the eagle on its grip worn smooth.
+look: |
+  A sidearm of the Adeptus Astartes cut down for a human hand, or so the
+  demagogue said; more likely a Commissar's, taken off a body. It fires
+  mass-reactive rounds the size of a thumb that punch in and then go
+  off, and it kicks like a grox. A little red light on the slide says
+  it is still loaded, which is the only kindness in it.
+type: weapon
+weight: 3
+level: 24
+baseline: standard
+value: 2500
+weapon:
+  hands: 1
+  kind: pierce
+  verb: bolt
+effects:
+  - kind: proc
+    params: { chance: 0.12, power: 0.9, verb: mass-reactive detonation }
+  - kind: crit
+    params: { chance: 0.07, mult: 2 }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

@@ -1,0 +1,14 @@
+vnum: 2628
+name: a reef-plate helm
+keywords: [reef, plate, helm, helmet]
+description: A heavy helm crusted with coral lies here.
+look: |
+  An old iron helm from some drowned ship, so overgrown with coral
+  and barnacle that the growth is now most of it. It is heavy and ugly
+  and very hard.
+type: armor
+slot: head
+weight: 4
+level: 13
+baseline: heavy
+flags: [drop]

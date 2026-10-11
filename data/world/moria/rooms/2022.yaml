@@ -1,0 +1,11 @@
+vnum: 2022
+name: The Chieftain's Hall
+description: |
+  The orcs have made a dwarf-lord's audience chamber into something like
+  a throne room and something like a midden. A great stone chair sits
+  at the far end, heaped with stolen cloaks and furs, and before it
+  stands a brazier full of broken furniture. Trophies hang on the walls:
+  dwarf beards, mostly. The way out is north through the chains.
+exits:
+  north: 2020
+flags: [dark]

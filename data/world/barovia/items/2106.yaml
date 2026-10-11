@@ -1,0 +1,14 @@
+vnum: 2106
+name: a wolfskin cloak
+keywords: [wolfskin, wolf, cloak, mantle]
+description: A heavy cloak of grey wolfskin lies here.
+look: |
+  Three wolf pelts stitched together into a cloak that hangs from the
+  shoulders to the knees, the heads still on and draped over your
+  shoulders like a mantle. It is warm, and it smells, and the wolves in
+  the woods do not seem to like it at all.
+type: armor
+slot: shoulders
+weight: 4
+level: 16
+baseline: light

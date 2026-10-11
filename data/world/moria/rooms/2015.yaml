@@ -1,0 +1,11 @@
+vnum: 2015
+name: The Ruined Armoury
+description: |
+  Racks of dwarf weapons once lined these walls. The orcs have taken
+  the good ones and broken the rest, and what remains is a floor of
+  snapped hafts, crushed helms, and mail rings scattered like seed. An
+  archer's stair climbs north to a gallery, and the arches are south.
+exits:
+  south: 2011
+  north: 2016
+flags: [dark]

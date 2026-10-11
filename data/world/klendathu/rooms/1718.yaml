@@ -1,0 +1,12 @@
+vnum: 1718
+name: The Burrow Field
+description: |
+  The ground here is soft, and it moves. Mounds of fresh red earth push
+  up and collapse again as things dig beneath them, and the holes they
+  leave fill back in from below. Every step might be the one that goes
+  through. A sapper's marker flag leans at an angle, its pole half
+  swallowed. The hopper roost is west, and the hive mounds rise to the
+  east.
+exits:
+  west: 1711
+  east: 1712

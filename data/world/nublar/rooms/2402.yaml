@@ -1,0 +1,11 @@
+vnum: 2402
+name: The Control Room
+description: |
+  A dim room of humming cabinets and curved desks, every surface covered
+  in monitors showing paddocks, fences, and the same three error messages.
+  Empty soft-drink cups stand in drifts beside one keyboard, and a sticky
+  note on its screen says DO NOT TOUCH. A wall map of the island glows
+  with green lines that should all be lit and are not. The air
+  conditioning roars. The rotunda is south.
+exits:
+  south: 2401

@@ -1,0 +1,23 @@
+vnum: 2415
+name: the spinosaurus
+keywords: [spinosaurus, spino, dinosaur, sail]
+description: The spinosaurus rises dripping from the river, its great sail spread.
+look: |
+  A predator longer than the tyrannosaur and nobody's idea of a park
+  attraction: a narrow crocodile snout full of conical teeth, forearms
+  with hooked claws like grappling irons, and a sail of spines and skin
+  along its back taller than a man. Nobody admits to having made it. It
+  has clearly not read the park map, which says it does not exist.
+level: 32
+health: 3600
+silver: 400
+armor:
+  defense: 75
+attack:
+  kind: pierce
+  verb: bite
+effects:
+  - kind: soak
+    params: { power: 0.12 }
+  - kind: proc
+    params: { verb: crushing jaws, chance: 0.15, power: 1.2 }

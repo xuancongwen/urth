@@ -1,0 +1,15 @@
+vnum: 2510
+name: a rusty paring knife
+keywords: [rusty, paring, knife]
+description: A small, rusty paring knife lies here.
+look: |
+  A kitchen knife that went down to the cellar with an apple and never
+  came back up. It is more rust than blade, but rust is sharp too.
+type: weapon
+level: 1
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

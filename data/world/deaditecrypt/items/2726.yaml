@@ -1,0 +1,16 @@
+vnum: 2726
+name: a castle-forged longsword
+keywords: [castle-forged, castle, forged, longsword, sword]
+description: A long, bright sword lies here.
+look: |
+  A longsword from the castle's own forge, the steel bright and the grip
+  new, carried down here by one of Arthur's men who did not come back
+  up. It is the best thing in the crypt that nobody has cursed.
+type: weapon
+level: 19
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,11 @@
+vnum: 2412
+name: a dinosaur claw
+keywords: [dinosaur, claw, talon]
+description: A curved black claw lies here.
+look: |
+  A curved black claw from a hunting dinosaur, hollow at the root and
+  sharp at the tip. The gift shop sells plastic copies by the hundred; the
+  real thing is worth a good deal more to the right person.
+type: other
+weight: 1
+value: 15

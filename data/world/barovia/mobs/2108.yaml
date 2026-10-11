@@ -1,0 +1,19 @@
+vnum: 2108
+name: a Strahd zombie
+keywords: [strahd, zombie, guard, dead]
+description: A Strahd zombie stands at attention in rotting livery, halberd-straight.
+look: |
+  One of the count's own guardsmen, dead for four centuries and still on
+  duty. The flesh has slumped off its bones in places and been tied back
+  on with leather cord. It keeps its back straight. When it hits you, it
+  hits like a soldier, and when you cut a piece off it, the piece keeps
+  fighting on the floor.
+level: 17
+flags: [assist]
+silver: 10
+attack:
+  kind: blunt
+  verb: club
+effects:
+  - kind: soak
+    params: { power: 0.1 }

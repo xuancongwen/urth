@@ -1,0 +1,12 @@
+vnum: 2934
+name: a chain veil
+keywords: [chain, veil, mask]
+description: A veil of fine chain lies here.
+look: |
+  A curtain of fine rings that hangs from a helm across the face,
+  leaving the eyes free. It jingles faintly when you breathe.
+type: armor
+slot: face
+level: 31
+baseline: medium
+flags: [drop]

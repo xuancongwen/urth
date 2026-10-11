@@ -1,0 +1,11 @@
+vnum: 1809
+name: The Shell Craters
+description: |
+  The ground here has been churned so often that nothing is where it
+  was, including the dead, who keep surfacing. Some of them do not stay
+  lying down. A sickly yellow mist sits in the bottoms of the craters
+  and buzzes faintly, the sound of a great many flies all agreeing about
+  something. The fields are north; the ground slopes south into a pit.
+exits:
+  north: 1807
+  south: 1810

@@ -1,0 +1,15 @@
+vnum: 2410
+name: a brachiosaurus
+keywords: [brachiosaurus, brachio, sauropod, dinosaur]
+description: A brachiosaurus stretches its neck high into the tree, chewing slowly.
+look: |
+  An animal so big your mind refuses it at first: a body like a hillside
+  on four pillar legs, and a neck that rises fifty feet into the branches
+  of the tree, where a small head chews leaves with tremendous patience.
+  It looks down at you once, decides you are not a leaf, and goes back to
+  eating. It's a dinosaur.
+level: 30
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: stomp

@@ -1,0 +1,15 @@
+vnum: 2702
+name: a skeleton
+keywords: [skeleton, bones, dead]
+description: A skeleton clatters toward you, jaw working, sword raised.
+look: |
+  A man's bones, held together by nothing at all, with a rusted sword in
+  one hand and a strip of burial cloth still caught on the ribs. It
+  laughs, or the jaw does something like laughing. When one moves, the
+  rest of them hear it.
+level: 14
+flags: [assist]
+silver: 20
+attack:
+  kind: slash
+  verb: slash

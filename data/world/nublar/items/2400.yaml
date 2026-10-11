@@ -1,0 +1,27 @@
+vnum: 2400
+name: Muldoon's shotgun
+keywords: [muldoon's, muldoon, shotgun, spas-12, spas, gun]
+description: A black combat shotgun with a folding stock lies here.
+look: |
+  A SPAS-12 combat shotgun, matte black, with a folding stock and a sling
+  of worn green webbing. Robert Muldoon carried it for twenty years of
+  hunting things that hunted back, and lost it in the ferns the night a
+  raptor came at him from the side while he watched the one in front. It
+  is loaded with solid slugs. It hits hardest when the thing in front of
+  you is already hurt, and the hand that holds it learns to look left.
+type: weapon
+weight: 4
+level: 24
+baseline: standard
+value: 2400
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.3 }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

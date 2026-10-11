@@ -1,0 +1,12 @@
+vnum: 2316
+name: a Royal Guard's helmet
+keywords: [royal, guard's, guard, helmet, helm]
+description: A smooth crimson helmet with a black slit visor lies here.
+look: |
+  A tall, smooth helmet of red-lacquered armour with a single narrow
+  black visor. There is no expression on it and never was.
+type: armor
+slot: head
+level: 37
+baseline: plate
+flags: [drop]

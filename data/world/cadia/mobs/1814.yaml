@@ -1,0 +1,24 @@
+vnum: 1814
+name: the Bloodthirster
+keywords: [bloodthirster, daemon, demon, khorne, greater]
+description: The Bloodthirster rises from the brass throne, wings spread, axe dripping.
+look: |
+  A Greater Daemon of Khorne, three times the height of a man, with the
+  head of a snarling hound, wings of leather and fire, and brass armour
+  riveted straight into red flesh. It carries an axe and a whip and
+  roars a single word over and over: BLOOD. It does not care whose. It
+  has been killing on Cadia for days and it is not tired.
+level: 55
+health: 90000
+stats: {strength: 20, constitution: 18, dexterity: 13}
+silver: 800
+armor:
+  defense: 600
+attack:
+  kind: slash
+  verb: cleave
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }

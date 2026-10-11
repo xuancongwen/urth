@@ -1,0 +1,15 @@
+vnum: 1919
+name: a plate of worm-ring hide
+keywords: [plate, worm-ring, worm, ring, hide, armor, armour]
+description: A curved slab of grey, pitted hide lies here.
+look: |
+  A section of a sandworm's ring segment, cut free and shaped to fit a
+  man's chest. It is harder than plasteel and lighter than you would
+  expect, and it is still very slightly warm, as if it remembered
+  being part of something enormous.
+type: armor
+slot: body
+weight: 8
+level: 60
+baseline: heavy
+flags: [drop]

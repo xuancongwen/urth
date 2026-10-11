@@ -1,0 +1,17 @@
+vnum: 2402
+name: Robert Muldoon
+keywords: [robert, muldoon, warden, game, hunter]
+description: Robert Muldoon, the game warden, studies a paddock map with his arms folded.
+look: |
+  A lean, weathered Kenyan-born game warden in khaki shorts and a bush
+  hat, with the flat calm of a man who has been charged by most of the
+  large animals on two continents. He respects the raptors more than
+  anyone on the island, which is to say he wants them all destroyed. He
+  lost his shotgun in the ferns to one of them, the clever one, and he
+  would like it back. For coin he will teach you to put an animal on the
+  ground and to cut it so it cannot run.
+level: 24
+flags: [peaceful]
+teaches: [trip, hamstring]
+attack:
+  verb: punch

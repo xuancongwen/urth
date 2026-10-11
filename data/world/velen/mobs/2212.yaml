@@ -1,0 +1,19 @@
+vnum: 2212
+name: a royal griffin
+keywords: [royal, griffin, beast]
+description: A royal griffin stalks the rock, wings half spread.
+look: |
+  A beast with the front half of an eagle and the back half of a lion
+  and the temper of both, its wings as wide as a barn, its beak like a
+  plough. Its mate was killed by some lord's hunters, and it has been
+  taking it out on the countryside ever since: sheep, horses, a witcher
+  or two. It does not stay in its nest for long.
+level: 18
+flags: [wander]
+health: 700
+silver: 40
+armor:
+  defense: 14
+attack:
+  kind: pierce
+  verb: tear

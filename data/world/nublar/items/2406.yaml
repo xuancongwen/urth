@@ -1,0 +1,13 @@
+vnum: 2406
+name: a heavy flashlight
+keywords: [heavy, flashlight, torch, light, lamp]
+description: A long black flashlight lies here.
+look: |
+  A long, heavy, black metal flashlight with a rubber grip and the park's
+  logo on the barrel, the kind that doubles as a club. It throws a hard
+  white beam a long way into the dark, which is not always the comfort you
+  hoped.
+type: light
+weight: 2
+value: 25
+burn: 1500

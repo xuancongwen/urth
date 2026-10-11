@@ -1,0 +1,15 @@
+vnum: 2001
+name: The Shore of the Dark Lake
+description: |
+  The valley floor has drowned. A wide still lake fills it from cliff to
+  cliff, black and oily, with no wind on it and no sound from it. Its
+  edge is a margin of slime and dead reeds, and the old road runs along
+  it on a thin causeway, toward two holly trees standing against the
+  cliff to the east. South, the shore slopes into weedy shallows where
+  the water is not quite still. Nobody in the camp will water a pony
+  here, and after a moment you see why: nothing grows in it, and nothing
+  swims.
+exits:
+  west: 2000
+  east: 2004
+  south: 2005

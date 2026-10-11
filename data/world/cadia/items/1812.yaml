@@ -1,0 +1,31 @@
+vnum: 1812
+name: the Talon of Horus
+keywords: [talon, horus, lightning, claw, combi-bolter, abaddon]
+description: A long-fingered lightning claw fused to a combi-bolter lies here, crackling.
+look: |
+  The weapon of the Warmaster Horus, taken from his corpse by the son
+  who killed him: a gauntlet of black ceramite ending in four long
+  blades sheathed in lightning, with a twin-barrelled bolter riding the
+  back of the wrist. Ten thousand years have not dulled it. The claws
+  find the gap in anything, the bolter speaks between strokes, and the
+  hand inside it grows stronger and harder to kill.
+type: weapon
+weight: 6
+level: 65
+baseline: standard
+value: 25000
+weapon:
+  hands: 1
+  kind: slash
+  verb: rake
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.4 }
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: burst from the combi-bolter }
+  - kind: leech
+    params: { fraction: 0.06 }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

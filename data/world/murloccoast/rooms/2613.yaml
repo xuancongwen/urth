@@ -1,0 +1,12 @@
+vnum: 2613
+name: The Headland
+description: |
+  A spine of dark rock juts into the sea, slick with spray and streaked
+  white by gulls. The waves boom against its foot and the whole
+  headland shivers with each one. On the seaward side a crack opens in
+  the rock, and a slick path of wet stone leads down into it, worn
+  smooth by many webbed feet. The gurgling from below never quite
+  stops. The wreck is east. The path goes down.
+exits:
+  east: 2611
+  down: 2615

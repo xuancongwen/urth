@@ -1,0 +1,16 @@
+vnum: 2700
+name: The Crypt Mouth
+description: |
+  A square shaft of old stone drops out of the graveyard above, and a
+  ladder of iron rungs runs down its side to a landing of cracked flags.
+  The daylight from the hole reaches about this far and gives up. The
+  air smells of wet earth and something sweeter underneath it, which you
+  decide not to think about. A carved lintel over a doorway to the east
+  has candlelight behind it. A stair of worn steps goes down into the
+  black, and someone has scratched on the wall beside it, in a hurried
+  hand: SAY THE WORDS. ALL OF THEM.
+exits:
+  up: 2110
+  east: 2701
+  down: 2702
+position: {x: 0, y: 0, z: 0}

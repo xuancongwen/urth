@@ -1,0 +1,30 @@
+vnum: 1721
+name: Lt. Rasczak's sidearm
+keywords: [lt., lt, rasczak's, rasczak, sidearm, pistol, gun]
+description: A heavy service pistol with a worn grip lies here.
+look: |
+  A big Mobile Infantry service pistol, plain and well kept, its grip
+  worn pale by one particular hand. Lieutenant Rasczak carried it in
+  three wars and a classroom. It shoots straight, it finishes what it
+  starts, and the man holding it finds that people do what he says,
+  and that he can go on fighting when he ought to be down.
+type: weapon
+weight: 2
+level: 28
+baseline: standard
+value: 3000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.3 }
+  - kind: lastStand
+    params: { threshold: 0.25, mult: 0.8 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

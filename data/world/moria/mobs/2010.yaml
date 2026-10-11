@@ -1,0 +1,14 @@
+vnum: 2010
+name: a Moria orc
+keywords: [moria, orc, soldier]
+description: A Moria orc in a black helm growls and hefts a jagged blade.
+look: |
+  A thick-bodied orc with a flat face and long arms, wearing a black
+  helm with the red eye painted on it. The orcs of Moria have lived in
+  the dwarves' halls for a thousand years and think of them as theirs.
+level: 20
+flags: [assist]
+silver: 20
+attack:
+  kind: slash
+  verb: slash

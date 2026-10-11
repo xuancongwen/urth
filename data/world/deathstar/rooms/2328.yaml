@@ -1,0 +1,12 @@
+vnum: 2328
+name: The Surface Turbolaser Battery
+description: |
+  You come out onto the surface of the station, under an open sky of
+  stars and a gun the size of a house. The plating stretches away in
+  every direction to a horizon that is much too close. Turbolaser crews
+  swing their guns and fire, and the bolts go streaking off into the
+  dark. East, a gash in the surface marks the equatorial trench. The
+  lift goes back down.
+exits:
+  east: 2329
+  down: 2323

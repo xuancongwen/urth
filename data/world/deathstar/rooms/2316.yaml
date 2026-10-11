@@ -1,0 +1,13 @@
+vnum: 2316
+name: The Command Corridor
+description: |
+  The corridor widens here and the lighting changes from white to a
+  cooler blue. Officers in grey tunics pass with datapads under their
+  arms and do not look at anyone. A pair of doors east opens on the
+  conference room. A maintenance hatch on the west wall has been left
+  unsealed. The corridor runs north, and south toward the reactor.
+exits:
+  north: 2315
+  east: 2317
+  south: 2321
+  west: 2318

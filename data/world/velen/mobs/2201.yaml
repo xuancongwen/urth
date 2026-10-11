@@ -1,0 +1,17 @@
+vnum: 2201
+name: Vesemir
+keywords: [vesemir, old, witcher, man]
+description: Vesemir sits on an upturned bucket, running a whetstone along his blade.
+look: |
+  An old witcher, the oldest you have seen, with a white moustache, a
+  face like a walnut, and yellow cat's eyes that miss nothing. He wears
+  the wolf of Kaer Morhen at his throat and two swords on his back, and
+  he has trained more witchers than are still alive. He will teach you
+  to turn a blade with your own and to be somewhere else when it lands,
+  for coin, and complain about how you hold your sword for free.
+level: 30
+flags: [peaceful]
+teaches: [riposte, dodge]
+attack:
+  kind: slash
+  verb: slash

@@ -1,0 +1,13 @@
+vnum: 2407
+name: an InGen ranger's jacket
+keywords: [ingen, ranger's, ranger, jacket, khaki]
+description: A khaki ranger's jacket with the InGen logo lies here.
+look: |
+  A khaki field jacket with a dozen pockets, epaulettes, and the InGen
+  logo stitched over the heart. The cloth is thick canvas, waxed against
+  the rain, and it has been snagged on a great many thorns.
+type: armor
+slot: body
+weight: 3
+level: 8
+baseline: light

@@ -1,0 +1,13 @@
+vnum: 2811
+name: a cowhide jerkin
+keywords: [cowhide, jerkin, hide]
+description: A jerkin of black-and-white cowhide lies here.
+look: |
+  A sleeveless jerkin of thick cowhide, the hair still on. You try not
+  to think about it.
+type: armor
+slot: body
+weight: 5
+level: 19
+baseline: light
+flags: [drop]

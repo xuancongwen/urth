@@ -1,0 +1,24 @@
+vnum: 1713
+name: the tanker bug
+keywords: [tanker, bug, arachnid, beetle]
+description: The tanker bug grinds forward like a living siege engine, fire dripping from its jaws.
+look: |
+  A beetle the size of a tank, which is where it gets the name, with a
+  domed shell plated like a bunker roof and a head built for ramming.
+  From a pair of nozzles under its jaws it sprays a stream of liquid
+  fire that sticks and keeps burning. Morita rounds bounce off it with
+  a sound like rain on a tin roof. Somewhere in its gut is the last
+  trooper who tried.
+level: 32
+health: 4300
+silver: 300
+armor:
+  defense: 30
+attack:
+  kind: fire
+  verb: spray fire
+effects:
+  - kind: ignite
+    params: { power: 0.12, rounds: 3, maxStacks: 2 }
+  - kind: soak
+    params: { power: 0.15 }

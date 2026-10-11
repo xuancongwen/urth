@@ -1,0 +1,16 @@
+vnum: 2001
+name: Andvari the shield-dwarf
+keywords: [andvari, shield-dwarf, shield, dwarf, captain, trainer]
+description: Andvari the shield-dwarf leans on a round shield taller than his chest, watching the cliff.
+look: |
+  The captain of the camp, a dwarf of Dain's household with an iron-grey
+  beard in two braids and a face like a closed door. He fought at the
+  Battle of Five Armies and does not talk about it. He will teach you
+  to take a blow on a shield the way the dwarves did at Azanulbizar,
+  and to break an orc's guard as you would split a log, for coin, so
+  that one of you at least comes back out of the mountain.
+level: 32
+flags: [peaceful]
+teaches: [shield_block, sunder]
+attack:
+  verb: punch

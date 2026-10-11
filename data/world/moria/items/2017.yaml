@@ -1,0 +1,17 @@
+vnum: 2017
+name: a drowned dwarf's axe
+keywords: [drowned, dwarf's, dwarf, axe]
+description: A dwarf axe furred with green weed lies here.
+look: |
+  A good dwarf axe that spent a long time at the bottom of the lake,
+  wrapped in weed. The edge is still keen. Whatever dragged its owner
+  under had no use for it.
+type: weapon
+weight: 6
+level: 30
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew
+flags: [drop]

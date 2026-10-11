@@ -1,0 +1,13 @@
+vnum: 2826
+name: a pair of cowhide bracers
+keywords: [cowhide, bracers, arms, hide]
+description: A pair of long cowhide bracers lies here.
+look: |
+  Bracers of layered cowhide that run from wrist to elbow, laced with
+  rawhide.
+type: armor
+slot: arms
+weight: 2
+level: 24
+baseline: medium
+flags: [drop]

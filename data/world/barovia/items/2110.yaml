@@ -1,0 +1,21 @@
+vnum: 2110
+name: the Tome of Strahd
+keywords: [tome, strahd, book, journal]
+description: A heavy book bound in black leather lies here, its clasp shaped like a bat.
+look: |
+  Strahd's own journal, four hundred years of it, written in a firm,
+  elegant hand that never changes. It tells of the war, and of his
+  brother Sergei, and of Tatyana, and of the pact he made in the Amber
+  Temple, and of every year since. To read it is to understand him a
+  little better than you would like. Held open in one hand it sharpens
+  the mind wonderfully, and you start to see the shapes of things that
+  are trying not to be seen.
+type: armor
+slot: hold
+weight: 3
+level: 45
+value: 5000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: detectHidden }

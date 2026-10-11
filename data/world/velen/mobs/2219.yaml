@@ -1,0 +1,28 @@
+vnum: 2219
+name: the Crones of Crookback Bog
+keywords: [crones, crone, ladies, wood, brewess, weavess, whispess]
+description: The Crones of Crookback Bog sit before the cauldron, three heads turning as one.
+look: |
+  The Ladies of the Wood: Brewess, Weavess, and Whispess, three old
+  women in rags, bent and stringy and very, very old, one with a nose
+  like a fish-hook, one with a mouth sewn shut, one with too many
+  teeth. They take children in and send them back out as something else.
+  They take offerings from the villages and send back favours, and
+  every favour has a price. They move together, speak together, and
+  strike together, and wherever one is wounded another one laughs.
+level: 36
+health: 6500
+silver: 800
+armor:
+  defense: 100
+attack:
+  kind: claw
+  verb: rend
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: soak
+    params: { power: 0.12 }
+  - kind: leech
+    params: { fraction: 0.08 }

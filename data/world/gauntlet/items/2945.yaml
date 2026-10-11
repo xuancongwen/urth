@@ -1,0 +1,12 @@
+vnum: 2945
+name: a plate cuirass
+keywords: [plate, cuirass]
+description: A steel plate cuirass lies here.
+look: |
+  Breast and back of heavy steel, shaped to the body and polished
+  once, long ago, before the levels got to it.
+type: armor
+slot: body
+level: 35
+baseline: plate
+flags: [drop]

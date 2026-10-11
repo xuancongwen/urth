@@ -1,0 +1,18 @@
+vnum: 2903
+name: a small bone pile
+keywords: [small, bone, pile, bones, generator]
+description: A small pile of bones shivers against the wall, and something grey rises out of it.
+look: |
+  A heap of skulls and long bones, stacked with care by no hand you
+  can see. Every few moments the whole heap shudders and a faint ghost
+  peels up off it like steam off a pot. It will keep doing that until
+  somebody kicks it apart. It does not fight back. It does not need to.
+level: 28
+health: 1500
+xp: 140
+attack:
+  damage: 1
+  verb: rattle
+armor:
+  defense: 14
+spawns: { mob: 2902, every: 4, max: 3 }

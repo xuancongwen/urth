@@ -1,0 +1,23 @@
+vnum: 1924
+name: a thumper
+keywords: [thumper, stake, drum]
+description: A spring-loaded stake with a clapper on top lies here.
+look: |
+  A Fremen thumper: a metal stake with a clockwork clapper that, once
+  wound and driven into the sand, beats a slow rhythm that every worm
+  for kilometres will come to. Staban Tuek uses it to lure worms away
+  from his smugglers' crawlers. Swung, it is a heavy club, and the
+  spring inside it hammers out a blow of its own now and then.
+type: weapon
+weight: 4
+level: 26
+baseline: mace
+value: 1500
+weapon:
+  hands: 1
+  kind: blunt
+  verb: thump
+effects:
+  - kind: proc
+    params: { chance: 0.12, power: 1.0, verb: thumping drumbeat }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

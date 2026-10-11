@@ -1,0 +1,10 @@
+vnum: 1828
+name: The Silent Battery
+description: |
+  An Earthshaker battery built into a stub of the wall, its four great
+  guns pointed east at a war that moved on without them. The cult that
+  took the battery left the crews at their posts, after a fashion, and
+  the flies have found them. Promethium drums are stacked against the
+  parapet, some of them leaking. The breach is south.
+exits:
+  south: 1811

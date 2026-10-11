@@ -1,0 +1,14 @@
+vnum: 2225
+name: The Whispering Hillock
+description: |
+  A hump of land in the bog, under a twisted tree with a face in its
+  bark, or what wants to be taken for a face. Ribbons and locks of hair
+  and children's teeth hang from its branches. A voice in the tree
+  whispers your name, then the names of people you have lost. Between
+  the roots a hole opens downward into the hill. North, a bare mountain
+  rises out of the fog, lit with a cold blue light. The causeway runs
+  west.
+exits:
+  west: 2224
+  north: 2226
+  down: 2228

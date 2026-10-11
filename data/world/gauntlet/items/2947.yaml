@@ -1,0 +1,15 @@
+vnum: 2947
+name: a great maul
+keywords: [great, maul, hammer]
+description: A great iron maul lies here.
+look: |
+  A sledge of black iron on a haft as long as a man, made for
+  knocking down walls. The walls down here are stone. It will do.
+type: weapon
+level: 36
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash

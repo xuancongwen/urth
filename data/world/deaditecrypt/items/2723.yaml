@@ -1,0 +1,16 @@
+vnum: 2723
+name: a witch's bone knife
+keywords: [witch's, witch, bone, knife]
+description: A thin knife of carved bone lies here.
+look: |
+  A slim knife carved from a single long bone and ground to a needle
+  point, the handle wound with a braid of grey hair. Quick, quiet, and
+  made for small, precise cuts.
+type: weapon
+level: 18
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

@@ -1,0 +1,12 @@
+vnum: 2211
+name: a griffin feather
+keywords: [griffin, feather, quill]
+description: A tawny feather as long as your arm lies here.
+look: |
+  A flight feather from a griffin, longer than your arm, stiff as a
+  board and tipped with gold. Fletchers would kill for a few. The
+  innkeeper knows a man in Oxenfurt who makes armor from them, and the
+  man owes him money.
+type: other
+weight: 1
+value: 30

@@ -1,0 +1,27 @@
+vnum: 2108
+name: the Sunsword
+keywords: [sunsword, sun, sword, blade]
+description: A sword hilt lies here, and from it springs a blade of pure sunlight.
+look: |
+  A hilt of polished platinum wrapped in gold wire, and from it a blade
+  of pure, warm, golden light that hums faintly and throws no shadow. It
+  was made for Sergei von Zarovich, Strahd's brother, and stolen, and
+  lost, and carried across half the valley in a Vistani bundle. Every
+  creature of the night in Barovia knows the colour of that light. Now
+  and then it flares like the dawn, and nothing that hides from you can
+  hide from it.
+type: weapon
+weight: 3
+level: 20
+baseline: standard
+value: 3000
+weapon:
+  hands: 1
+  kind: slash
+  verb: sear
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: flare of sunlight }
+  - kind: detectInvisible
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

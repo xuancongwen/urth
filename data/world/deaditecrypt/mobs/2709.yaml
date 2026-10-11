@@ -1,0 +1,24 @@
+vnum: 2709
+name: Evil Ash
+keywords: [evil, ash, bad, double]
+description: Evil Ash grins at you over the Necronomicon, a smirk on his rotting face.
+look: |
+  It is Ash, more or less: the chin, the jaw, the swagger, but with grey
+  skin, a rotted grin, and a crown of bone. He split off the real one in
+  a mirror and has been raising an army of the dead ever since. He holds
+  the Necronomicon to his chest and looks at you as if you were the joke
+  he has been waiting all week to tell. Good. Bad. He's the guy with the
+  book.
+level: 19
+health: 1200
+silver: 300
+armor:
+  defense: 13
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: soak
+    params: { power: 0.12 }
+  - kind: regen
+    params: { fraction: 0.01 }

@@ -1,0 +1,13 @@
+vnum: 2716
+name: a pair of grave-mouldered boots
+keywords: [grave-mouldered, mouldered, boots]
+description: A pair of mouldering riding boots lies here.
+look: |
+  Riding boots of good leather, gone soft and furred with grave mould.
+  The spurs are still bright. Their owner rode to war for a king whose
+  name nobody remembers.
+type: armor
+slot: feet
+level: 15
+baseline: light
+flags: [drop]

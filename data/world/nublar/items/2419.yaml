@@ -1,0 +1,16 @@
+vnum: 2419
+name: a ranger's combat knife
+keywords: [ranger's, ranger, combat, knife, bowie]
+description: A heavy combat knife lies here.
+look: |
+  A heavy bowie knife with a clip point and a knuckle guard, the steel
+  dark and the edge kept sharp by somebody who meant it.
+type: weapon
+weight: 1
+level: 25
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

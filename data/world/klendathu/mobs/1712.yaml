@@ -1,0 +1,15 @@
+vnum: 1712
+name: a tunnel warrior bug
+keywords: [tunnel, warrior, bug, arachnid]
+description: A tunnel warrior bug unfolds from a hollow in the wall.
+look: |
+  A warrior bug bred for the dark: pale, nearly white, and long in the
+  body, with legs that fold tight against the shell so it can lie flat
+  in a wall niche until something walks past. It hunts by vibration.
+  It already knows exactly where you are.
+level: 30
+flags: [assist]
+silver: 35
+attack:
+  kind: pierce
+  verb: stab

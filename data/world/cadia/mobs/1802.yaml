@@ -1,0 +1,15 @@
+vnum: 1802
+name: a Cadian Shock Trooper
+keywords: [cadian, shock, trooper, guardsman, soldier]
+description: A Cadian Shock Trooper checks the charge on her lasgun for the hundredth time.
+look: |
+  Olive fatigues, flak armour, a helmet pushed back off a face that is
+  too young and too calm. Every Cadian is born with a lasgun in reach
+  and a war in view, and she has been in this trench since she was
+  fifteen. Her eyes are violet, as Cadian eyes are. She nods at you the
+  way you nod at someone you expect to see dead by evening.
+level: 25
+flags: [peaceful]
+attack:
+  kind: fire
+  verb: las-shot

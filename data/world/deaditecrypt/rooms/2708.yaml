@@ -1,0 +1,13 @@
+vnum: 2708
+name: The Pit's Edge
+description: |
+  The floor of the hall simply stops at a jagged rim, as if something
+  had bitten a piece out of the world. Below is a pit, deep and wet, and
+  out of it come sounds: splashing, cackling, and a groan that might be
+  someone asking for help or might be someone pretending to. A rope is
+  knotted round a pillar and hangs over the edge, frayed in a way that
+  you would rather it was not. The hall is north.
+exits:
+  north: 2706
+  down: 2710
+flags: [dark]

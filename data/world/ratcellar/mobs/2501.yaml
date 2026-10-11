@@ -1,0 +1,17 @@
+vnum: 2501
+name: Old Nettle the ratcatcher
+keywords: [old, nettle, ratcatcher, catcher]
+description: Old Nettle the ratcatcher leans on the wall with a sack over her shoulder, and the sack wriggles.
+look: |
+  A small, bent woman in a leather apron and a hat with a dozen rat
+  tails tied round the brim like a fringe. A wire-haired terrier sits
+  on her boots and watches the arch with total concentration. She has
+  cleared every cellar in the city at least twice and is not, she
+  says, coming down here again for what the innkeeper is paying. She
+  will teach you, though, for coin: how to get out from under a rat
+  that jumps, and how to put your boot where its legs are.
+level: 8
+flags: [peaceful]
+teaches: [dodge, trip]
+attack:
+  verb: swat

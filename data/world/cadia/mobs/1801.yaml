@@ -1,0 +1,17 @@
+vnum: 1801
+name: Commissar Raskel
+keywords: [commissar, raskel, officer]
+description: Commissar Raskel stands with his hands behind his back, watching everyone at once.
+look: |
+  Black greatcoat, peaked cap, a face like a closed door. A bolt pistol
+  rides his hip with the flap unbuttoned, and the troopers say he has
+  shot more cowards than cultists, which he does not deny. He teaches
+  what the Guard needs: how to throw yourself into the fight with no
+  thought for living through it, and how to drag a comrade out of it
+  when the line breaks. For coin. The Emperor provides, but not
+  ammunition.
+level: 40
+flags: [peaceful]
+teaches: [berserk, rescue]
+attack:
+  verb: pistol-whip

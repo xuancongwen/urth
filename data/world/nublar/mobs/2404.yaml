@@ -1,0 +1,15 @@
+vnum: 2404
+name: a compsognathus
+keywords: [compsognathus, compy, dinosaur]
+description: A compsognathus no bigger than a chicken cocks its head at you.
+look: |
+  A little green dinosaur the size of a chicken, quick and birdlike, with
+  a long tail, bright eyes, and a mouth full of tiny needle teeth. It
+  chirps. It is cute. It is not alone, and the others are already working
+  round behind you.
+level: 4
+flags: [assist]
+silver: 4
+attack:
+  kind: bite
+  verb: nip

@@ -1,0 +1,11 @@
+vnum: 2327
+name: the Death Star plans
+keywords: [death, star, plans, data, tape, datatape]
+description: A small data tape lies here, labelled in Imperial code.
+look: |
+  A data tape no bigger than a playing card, holding the technical
+  readouts of this entire battle station. Somewhere in them, if anyone
+  looks closely, is a small thermal exhaust port. A great many people
+  died to get these, and someone is waiting for them.
+type: other
+flags: [quest]

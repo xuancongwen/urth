@@ -1,0 +1,13 @@
+vnum: 2322
+name: The Reactor Shaft
+description: |
+  The door opens onto a lip of metal over a chasm. The extending bridge
+  that should cross it has been retracted, and the far door is a long
+  leap away across a drop that goes all the way down to the reactor's
+  glow. There is no railing. There is, however, a grappling cable that
+  somebody left looped around a pipe overhead, and if you hold on tight
+  and do not think about it, you can swing across to the south. The
+  access corridor is north.
+exits:
+  north: 2321
+  south: 2323

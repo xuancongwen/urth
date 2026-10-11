@@ -1,0 +1,12 @@
+vnum: 2901
+name: a roast chicken
+keywords: [roast, chicken, food, fowl]
+description: A whole roast chicken sits here on a pewter plate, steaming.
+look: |
+  A plump golden bird on a pewter plate, still hot, the skin crackling
+  and glistening, as if it had come out of the oven a moment before you
+  found it and will stay that way forever. Every hero who sees it says
+  the same thing, and the thing is usually about the elf.
+type: other
+weight: 2
+value: 15

@@ -1,0 +1,17 @@
+vnum: 1708
+name: a warrior bug leg claw
+keywords: [warrior, bug, leg, claw, spike]
+description: A long jointed bug leg ending in a hooked spike lies here.
+look: |
+  The foreleg of a warrior bug, snapped at the joint: a shaft of shell
+  as long as a spear ending in a curved spike that goes through armor
+  like a nail through paper. Held at the joint, it makes a very serious
+  pike.
+type: weapon
+weight: 3
+level: 20
+baseline: spear
+weapon:
+  hands: 1
+  kind: pierce
+  verb: impale

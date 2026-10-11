@@ -1,0 +1,14 @@
+vnum: 1905
+name: a cielago
+keywords: [cielago, bat, desert]
+description: A cielago hangs from the rock, wings wrapped tight, watching you.
+look: |
+  A small desert bat with leathery wings and enormous ears, the kind
+  the Fremen train to carry messages between sietches. Wild ones live
+  in the old caves, and they are not interested in carrying anything
+  for you. They bite, and their screech makes your teeth ache.
+level: 15
+silver: 5
+attack:
+  kind: bite
+  verb: bite

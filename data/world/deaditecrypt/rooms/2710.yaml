@@ -1,0 +1,13 @@
+vnum: 2710
+name: The Pit
+description: |
+  The bottom of the pit is a slurry of mud, water, and old bones up to
+  your ankles. The walls are slick and lined with iron spikes that point
+  inward and down, to stop things climbing out, which did not stop the
+  things down here from wanting to. The dead in the pit are fresher than
+  the ones upstairs, and angrier. The rope goes up to the edge, and a
+  low cave opens to the west, lit by a green glow.
+exits:
+  up: 2708
+  west: 2711
+flags: [dark]

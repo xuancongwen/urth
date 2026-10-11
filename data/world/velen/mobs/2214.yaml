@@ -1,0 +1,18 @@
+vnum: 2214
+name: a werewolf
+keywords: [werewolf, wolf, lycanthrope, beast]
+description: A werewolf crouches in the bones of its den, eyes glowing.
+look: |
+  Seven feet of grey fur and muscle hunched on two legs, with a wolf's
+  head, a man's ribs, and hands that end in claws as long as knives.
+  It was a nobleman once, and somewhere under the fur it still is, and
+  it hates you a little more for it. Its wounds close as you watch.
+level: 22
+health: 950
+silver: 70
+attack:
+  kind: claw
+  verb: maul
+effects:
+  - kind: regen
+    params: { fraction: 0.015 }

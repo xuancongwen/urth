@@ -1,0 +1,17 @@
+vnum: 2103
+name: The Village Square of Barovia
+description: |
+  A muddy square ringed by tall, narrow houses, every window shuttered
+  and every door marked with a chalked sign against evil. A dry fountain
+  stands in the middle holding a pool of black leaves. West, lamplight
+  leaks under the door of a tavern with a painted sign of a dripping
+  grapevine. East, behind an iron fence, is the burgomaster's mansion,
+  its windows boarded from the inside. The street runs north to the
+  gates and south toward the church. High above the rooftops to the
+  south, on a needle of rock, the towers of Castle Ravenloft watch the
+  village like a cat watches a mousehole.
+exits:
+  north: 2102
+  west: 2104
+  east: 2105
+  south: 2106

@@ -1,0 +1,15 @@
+vnum: 1807
+name: a plague zombie
+keywords: [plague, zombie, dead, corpse, poxwalker]
+description: A plague zombie lurches toward you, swollen and buzzing with flies.
+look: |
+  What is left of a Cadian trooper, bloated and green and split along
+  the seams, his uniform rotted to strings. Nurgle's rot has hollowed
+  him out and filled him back up with something busier. He moans, and
+  others moan back from close by. Where there is one there are many.
+level: 26
+flags: [assist]
+silver: 15
+attack:
+  kind: blunt
+  verb: claw

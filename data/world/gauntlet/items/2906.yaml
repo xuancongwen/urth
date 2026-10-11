@@ -1,0 +1,12 @@
+vnum: 2906
+name: a grunt's tusk
+keywords: [grunt, grunt's, tusk, tooth]
+description: A short yellow tusk lies here, snapped off at the root.
+look: |
+  A thumb-length tusk of yellowed ivory, chipped at the tip from years
+  of being used to open things that were not meant to be opened by
+  teeth. Every grunt has two. The provisioner turns them into rivets,
+  and the rivets hold better than iron.
+type: other
+weight: 1
+value: 12

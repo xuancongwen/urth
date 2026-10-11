@@ -1,0 +1,16 @@
+vnum: 2606
+name: a murloc oracle
+keywords: [murloc, oracle, shaman]
+description: A murloc oracle shakes a staff strung with pearls and gurgles a chant.
+look: |
+  A hunched old murloc with a sagging crest, its hide painted in blue
+  mud spirals, leaning on a staff of driftwood hung with pearls and
+  fish skulls. When it chants the water around it rises in little
+  points, and frost forms on the wet sand. Murlocs fall silent when it
+  speaks. Then they all speak at once.
+level: 11
+flags: [assist]
+silver: 12
+attack:
+  kind: cold
+  verb: frost bolt

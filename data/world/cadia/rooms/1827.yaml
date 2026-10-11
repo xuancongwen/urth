@@ -1,0 +1,11 @@
+vnum: 1827
+name: The Eye-Facing Breach
+description: |
+  The last of the walls of Cadia, torn open toward the Eye of Terror.
+  Through the breach there is no horizon, only the Eye itself, a wound
+  in space full of colours that hurt to look at. The ground ends in a
+  cliff over nothing. Here, where a hundred generations of Cadians stood
+  to keep the galaxy out of that wound, the Warmaster of Chaos has come
+  to watch it all fall. The Gate is east.
+exits:
+  east: 1826

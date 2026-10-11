@@ -1,0 +1,16 @@
+vnum: 1821
+name: a Black Legion boltgun
+keywords: [black, legion, boltgun, bolter, gun]
+description: A massive black boltgun, its eagle chiselled off, lies here.
+look: |
+  A Space Marine's bolter in the black and gold of the Legion, so heavy
+  a mortal has to brace it against the hip. Where the aquila was, someone
+  has carved an eye.
+type: weapon
+level: 42
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: bolt

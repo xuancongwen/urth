@@ -1,0 +1,12 @@
+vnum: 1914
+name: The Spice Blow
+description: |
+  A wide bowl of sand stained rust and purple, where a pocket of pre-spice
+  mass deep below burst upward and threw melange across the dunes. The
+  smell of cinnamon is so strong it makes your eyes water. Little
+  leathery things wriggle through the sand: sandtrout, the larval worms,
+  drawn to the water you are carrying. Handfuls of raw spice lie for the
+  taking. The broken land is north and the open erg is south.
+exits:
+  north: 1907
+  south: 1919

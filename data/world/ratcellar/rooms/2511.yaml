@@ -1,0 +1,13 @@
+vnum: 2511
+name: The Rat Warren
+description: |
+  The tunnel opens into a cave the rats have made themselves, gnawing
+  through brick and mortar and clay until the old sewer is a honeycomb.
+  Holes open in every wall, at every height, and from every hole come
+  eyes. The floor is a soft, foul carpet of droppings, straw, and the
+  stuffing of every mattress the city ever threw away. The junction is
+  west; a wider passage goes on east.
+exits:
+  west: 2507
+  east: 2512
+flags: [dark]

@@ -1,0 +1,21 @@
+vnum: 2110
+name: Arrigal
+keywords: [arrigal, vistani, assassin, chief]
+description: Arrigal sits on the wagon step, a long bundle across his knees.
+look: |
+  A tall Vistani in black with a face like a closed door, the chief of
+  this band and the count's own spy among the wagons. He has a long
+  bundle wrapped in oilcloth across his knees, and light leaks from the
+  seams of it, gold and warm, which is not a colour you see much in
+  Barovia. He has been offered a great deal of money for whatever is in
+  it. He has not decided who to sell it to yet.
+level: 20
+flags: [assist]
+health: 600
+silver: 150
+stats: {dexterity: 14}
+attack:
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }

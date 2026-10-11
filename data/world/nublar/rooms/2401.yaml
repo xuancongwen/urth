@@ -1,0 +1,17 @@
+vnum: 2401
+name: The Visitor Center Rotunda
+description: |
+  A soaring hall of timber beams and glass, its floor polished to a shine.
+  Two skeletons stand in the middle of it, a tyrannosaur rearing over a
+  sauropod, wired together at the joints and looking faintly embarrassed
+  about it. A banner hangs from the gallery: WHEN DINOSAURS RULED THE
+  EARTH. Everything here is new and expensive and slightly unfinished, as
+  if the builders left in a hurry. Nobody fights in the rotunda; it would
+  scuff the floor. The control room is north, the gift shop south, the
+  gates east, and the tour road west.
+exits:
+  north: 2402
+  east: 2400
+  south: 2403
+  west: 2405
+flags: [safe]

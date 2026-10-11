@@ -1,0 +1,23 @@
+vnum: 2100
+name: Bildrath Cantemir
+keywords: [bildrath, cantemir, merchant, trader]
+description: Bildrath Cantemir sits by the fire behind a crate of goods, counting coins.
+look: |
+  A stout, sour man with a thick moustache and a ledger under his arm,
+  who has brought half his mercantile over to the tavern because nobody
+  in Barovia will walk to his shop any more. His prices are an outrage
+  and he knows it; he is the only shop in the valley and he knows that
+  too. He will take wolf pelts and grave dirt in trade, since the church
+  and the tanner pay him for both. Type 'list' to see what he has.
+level: 15
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2100, silver: 30 }
+  - { item: 2101, silver: 25 }
+  - { item: 2102, silver: 300 }
+  - { item: 2103, silver: 450 }
+  - { item: 2106, silver: 120, items: [2104, 2104, 2104] }
+  - { item: 2107, silver: 300, items: [2105, 2105, 2105, 2100] }
+  - { item: 2101, items: [2104, 2104] }

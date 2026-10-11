@@ -1,0 +1,21 @@
+vnum: 2700
+name: the wise man
+keywords: [wise, man, old, sage]
+description: A white-bearded wise man sits among the candles, muttering three words to himself.
+look: |
+  An old man in a brown robe and a skullcap, with a beard like a
+  waterfall and the patience of someone who has explained the same thing
+  to fools for forty years. He keeps the candles lit and the torches
+  stocked, and he will tell anyone who asks, and many who do not, that
+  the words are Klaatu barada nikto, and that all three of them matter.
+  He buys skulls and deadite claws and pays in good castle gear. Type
+  'list' to see what he has.
+level: 20
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2700, silver: 15 }
+  - { item: 2700, items: [2704] }
+  - { item: 2719, silver: 250, items: [2704, 2704] }
+  - { item: 2730, silver: 450, items: [2704, 2704, 2704, 2705, 2705] }

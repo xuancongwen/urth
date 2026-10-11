@@ -1,0 +1,50 @@
+interval_seconds: 300
+resets:
+  # --- the village of Barovia ---
+  - { mob: 2100, room: 2104 }                                   # Bildrath with his crate of overpriced goods
+  - { mob: 2101, room: 2104 }                                   # Ismark drinking in the corner
+  - { mob: 2102, room: 2107 }                                   # Father Donavich at the altar, who teaches
+  - { item: 2100, room: 2107 }                                  # a flask of holy water left on a pew
+  - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }  # zombies at the burgomaster's door
+  - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }
+  - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }
+  - { mob: 2107, room: 2110, max: 6, equip: [{ item: 2105 }] }  # zombies digging out of the graveyard
+  - { mob: 2107, room: 2110, max: 6, equip: [{ item: 2105 }] }
+  - { mob: 2107, room: 2110, max: 6, equip: [{ item: 2105 }] }
+  # --- the Svalich Woods ---
+  - { mob: 2105, room: 2101, max: 3, equip: [{ item: 2104 }] }  # dire wolves in the woods by the mists
+  - { mob: 2105, room: 2101, max: 3, equip: [{ item: 2104 }] }
+  - { mob: 2105, room: 2102, max: 3, equip: [{ item: 2104 }] }  # one sniffing at the village gate
+  - { mob: 2106, room: 2109, max: 3, equip: [{ item: 2104 }] }  # great dire wolves at the gallows
+  - { mob: 2106, room: 2111, max: 3, equip: [{ item: 2104 }] }  # and pacing the river road
+  - { mob: 2106, room: 2111, max: 3, equip: [{ item: 2104 }] }
+  # --- Tser Pool ---
+  - { mob: 2104, room: 2112 }                                   # the fiddler at the bonfire
+  - { mob: 2103, room: 2113 }                                   # Madam Eva and her cards
+  - { mob: 2109, room: 2114, max: 4, equip: [{ item: 2116, slot: wield }] }   # bandits on the falls trail
+  - { mob: 2109, room: 2114, max: 4, equip: [{ item: 2116, slot: wield }] }
+  - { mob: 2109, room: 2115, max: 4, equip: [{ item: 2116, slot: wield }] }   # and in their hollow
+  - { mob: 2109, room: 2115, max: 4, equip: [{ item: 2116, slot: wield }] }
+  - { mob: 2110, room: 2115, equip: [{ item: 2116, slot: wield }, { item: 2108 }] }   # Arrigal, with the Sunsword in a bundle
+  # --- the deep woods ---
+  - { mob: 2111, room: 2116, max: 4, equip: [{ item: 2104 }] }  # werewolves on the castle road
+  - { mob: 2111, room: 2116, max: 4, equip: [{ item: 2104 }] }
+  - { mob: 2111, room: 2117, max: 4, equip: [{ item: 2104 }] }  # werewolves in the den
+  - { mob: 2111, room: 2117, max: 4, equip: [{ item: 2104 }] }
+  - { mob: 2112, room: 2117, equip: [{ item: 2104 }, { item: 2104 }] }   # Kiril, the pack leader
+  # --- Castle Ravenloft ---
+  - { mob: 2108, room: 2120, max: 3, equip: [{ item: 2126, slot: body }, { item: 2105 }] }   # Strahd zombies on guard in the courtyard
+  - { mob: 2108, room: 2120, max: 3, equip: [{ item: 2126, slot: body }, { item: 2105 }] }
+  - { mob: 2108, room: 2120, max: 3, equip: [{ item: 2126, slot: body }, { item: 2105 }] }
+  - { mob: 2114, room: 2122, equip: [{ item: 2112 }] }          # Rahadin in his study, his scimitar by his hand
+  - { mob: 2113, room: 2123, max: 6 }                           # vampire spawn at their mock prayers
+  - { mob: 2113, room: 2123, max: 6 }
+  - { mob: 2113, room: 2124, max: 6 }                           # in the audience hall
+  - { mob: 2113, room: 2124, max: 6 }
+  - { mob: 2113, room: 2127, max: 6 }                           # in the catacombs
+  - { mob: 2113, room: 2129, max: 6 }                           # and in the brides' tomb
+  - { item: 2101, room: 2127 }                                  # a dropped lantern in the catacombs
+  - { mob: 2115, room: 2128, equip: [{ item: 2123, slot: head }, { item: 2109 }] }   # Ludmilla, keeping the Holy Symbol of Ravenkind
+  - { mob: 2116, room: 2129, equip: [{ item: 2123, slot: head }] }   # Anastrasya at her mirror
+  - { mob: 2117, room: 2125, equip: [{ item: 2123, slot: head }] }   # Volenta on the tower landing
+  - { mob: 2118, room: 2126, equip: [{ item: 2111 }, { item: 2110 }] }   # Strahd atop the tower, with his cloak and his journal

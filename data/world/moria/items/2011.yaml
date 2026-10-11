@@ -1,0 +1,17 @@
+vnum: 2011
+name: a black orc bow
+keywords: [black, orc, bow, horn, longbow]
+description: A black bow of horn and sinew lies here, unstrung.
+look: |
+  A short, thick bow of horn and sinew, lacquered black, with a pull
+  that only an orc's arms or a dwarf's would think comfortable. Its
+  arrows are black-fletched and barbed. Up close it is a cudgel with a
+  string on it.
+type: weapon
+weight: 3
+level: 18
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

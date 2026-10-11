@@ -1,0 +1,20 @@
+vnum: 2314
+name: the dianoga
+keywords: [dianoga, garbage, squid, tentacle, monster]
+description: A pale tentacle with a single eye on the end rises out of the filthy water.
+look: |
+  A huge, pale, many-armed thing that lives in the compactor's water and
+  eats what comes down the chute. Most of it stays under the surface. A
+  single eyestalk rises up to look at you, considers, and sinks again.
+  Then the tentacles come, around the legs and the waist and the throat,
+  and they pull you under.
+level: 26
+health: 1500
+silver: 40
+armor:
+  defense: 40
+attack:
+  kind: blunt
+  verb: crush
+effects:
+  - { kind: regen, params: { fraction: 0.01 } }

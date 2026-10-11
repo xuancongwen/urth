@@ -1,0 +1,22 @@
+vnum: 2328
+name: TK-421's E-11 blaster rifle
+keywords: [tk-421's, tk-421, tk421, e-11, e11, blaster, rifle]
+description: A white-scuffed E-11 blaster rifle lies here, its scope dead true.
+look: |
+  An E-11 blaster rifle, standard stormtrooper issue, except for one
+  thing: its scope is aligned. TK-421 had it fixed, quietly, and has
+  been hitting things ever since, which has done nothing for his
+  popularity. In the right hands it finds the gap in the armour and
+  keeps finding it.
+type: weapon
+weight: 3
+level: 18
+baseline: standard
+value: 2000
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

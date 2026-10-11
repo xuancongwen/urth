@@ -1,0 +1,25 @@
+vnum: 1807
+name: a Cadian chainsword
+keywords: [cadian, chainsword, chain, sword]
+description: A chainsword with an officer's aquila on the guard lies here, teeth still.
+look: |
+  An officer's chainsword, its housing chased with the Cadian eye and a
+  list of kasr names, its teeth of monomolecular adamantium. When the
+  rune on the grip is pressed it starts with a howl and does not cut so
+  much as chew, and it keeps chewing after it has bitten. The traitor
+  who carried it had it as a gift from his regiment. He kept it sharp.
+type: weapon
+weight: 4
+level: 28
+baseline: standard
+value: 3500
+weapon:
+  hands: 1
+  kind: slash
+  verb: rip
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 0.7, verb: shrieking chain-teeth }
+  - kind: crit
+    params: { chance: 0.06, mult: 2 }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

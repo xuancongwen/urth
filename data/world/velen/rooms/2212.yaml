@@ -1,0 +1,10 @@
+vnum: 2212
+name: The Mass Graves
+description: |
+  Long, shallow trenches, dug in a hurry and filled in a hurry, and now
+  dug open again from the inside. Lime has been thrown over everything
+  and has not helped. Things move between the trenches on all fours,
+  heads down, feeding. A shovel stands upright in the earth where the
+  gravedigger dropped it and ran. The battlefield is west.
+exits:
+  west: 2211

@@ -1,0 +1,11 @@
+vnum: 2417
+name: The Aviary Catwalk
+description: |
+  A narrow walkway of steel grating strung among the girders high above
+  the floor of the aviary, swaying with every step. Mist hides the ground.
+  The rail is slick with guano and the cables thrum in the wind. A
+  keeper's gloves lie on the grating where they were dropped. The catwalk
+  goes on north into the mist, and stairs lead down to the gate.
+exits:
+  north: 2418
+  down: 2416

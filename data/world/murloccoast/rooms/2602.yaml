@@ -1,0 +1,14 @@
+vnum: 2602
+name: The Lighthouse
+description: |
+  The ground floor of the lighthouse is one round room of whitewashed
+  stone, hung with nets, floats, and a ship's wheel nobody will ever
+  steer again. A brazier smoulders under a kettle. Barrels of salt and
+  barrels of fish stand against the wall, and the door has three bolts
+  on the inside, all of them recent. Murlocs do not come in here. The
+  fisherman has made very sure of that. A stair spirals up toward the
+  lamp, and the door opens south onto the dunes.
+exits:
+  south: 2601
+  up: 2603
+flags: [safe]

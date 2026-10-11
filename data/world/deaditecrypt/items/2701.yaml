@@ -1,0 +1,26 @@
+vnum: 2701
+name: the Necronomicon Ex-Mortis
+keywords: [necronomicon, ex-mortis, book, dead, naturom]
+description: A book bound in human skin lies here, its face twisted in a scream.
+look: |
+  The Book of the Dead: bound in human flesh, inked in blood, its cover
+  a face that was stretched over the boards while it still had opinions.
+  It is heavy and warm, and it breathes. Held, it pours out a whisper
+  that rots whatever stands near you, and the words in it crowd into
+  your head, clever and patient, and pull a little of every wound you
+  deal back into you. Somebody once said the words over it correctly.
+  Somebody else did not.
+type: armor
+slot: hold
+weight: 3
+level: 19
+value: 4000
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: whisper of the Necronomicon }
+  - kind: leech
+    params: { fraction: 0.06 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

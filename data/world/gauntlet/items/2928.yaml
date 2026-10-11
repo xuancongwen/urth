@@ -1,0 +1,12 @@
+vnum: 2928
+name: a wide leather belt
+keywords: [wide, leather, belt]
+description: A wide leather belt lies coiled here.
+look: |
+  A belt as wide as a hand, with a brass buckle and loops for keys,
+  of which a hero can never carry enough.
+type: armor
+slot: belt
+level: 29
+baseline: light
+flags: [drop]

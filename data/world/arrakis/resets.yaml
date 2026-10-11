@@ -1,0 +1,66 @@
+interval_seconds: 300
+resets:
+  # --- Sietch Tabr ---
+  - { mob: 1902, room: 1902 }                                   # Stilgar on the speaking-rock
+  - { mob: 1903, room: 1902, max: 3 }                           # Fremen in the great cavern
+  - { mob: 1903, room: 1902, max: 3 }
+  - { mob: 1903, room: 1901, max: 3 }                           # and one in the outer hall
+  - { mob: 1900, room: 1903 }                                   # Farok among his literjons
+  - { mob: 1901, room: 1904 }                                   # Chani on the training floor, who teaches feint and backstab
+  # --- the old caves (dark) ---
+  - { item: 1901, room: 1910 }                                  # a glowglobe someone dropped and did not come back for
+  - { mob: 1905, room: 1910, max: 5 }                           # cielago in the passage
+  - { mob: 1905, room: 1911, max: 5 }                           # and more at the roost
+  - { mob: 1905, room: 1911, max: 5 }
+  - { mob: 1905, room: 1911, max: 5 }
+  - { mob: 1905, room: 1910, max: 5 }
+  - { mob: 1913, room: 1912, max: 4, equip: [{ item: 1914, slot: wield }, { item: 1900 }] }   # renegades in the dry cistern, maula pistols and stolen spice
+  - { mob: 1913, room: 1912, max: 4, equip: [{ item: 1913, slot: belt }] }
+  - { mob: 1913, room: 1913, max: 4, equip: [{ item: 1914, slot: wield }, { item: 1913 }] }   # and at the hold
+  - { mob: 1913, room: 1913, max: 4, equip: [{ item: 1900 }] }
+  - { mob: 1914, room: 1913, equip: [{ item: 1920 }, { item: 1900 }, { item: 1900 }] }   # the renegade naib, keeping the crysknife of a maker's tooth
+  # --- the Shield Wall and the broken land ---
+  - { mob: 1904, room: 1906, max: 4, equip: [{ item: 1907 }] }  # scorpions sunning at the wall's foot, a loose stinger
+  - { mob: 1904, room: 1906, max: 4 }
+  - { mob: 1904, room: 1906, max: 4 }
+  - { mob: 1904, room: 1907, max: 4, equip: [{ item: 1907 }] }  # one in the gullies
+  - { mob: 1906, room: 1907, max: 3 }                           # desert hawks over the broken land
+  - { mob: 1906, room: 1907, max: 3 }
+  - { mob: 1906, room: 1914, max: 3 }                           # and one over the spice blow
+  # --- the spice blows ---
+  - { item: 1900, room: 1914 }                                  # raw spice at the first blow
+  - { mob: 1907, room: 1914, max: 4, equip: [{ item: 1900 }, { item: 1908 }] }   # sandtrout, swollen with spice, one skin fit for gloves
+  - { mob: 1907, room: 1914, max: 4, equip: [{ item: 1900 }] }
+  - { mob: 1907, room: 1914, max: 4 }
+  - { mob: 1907, room: 1918, max: 4, equip: [{ item: 1900 }] }  # one under the Harkonnen wire
+  - { item: 1900, room: 1918 }                                  # spice in the Harkonnen field
+  - { item: 1900, room: 1926 }                                  # spice in drifts at the deep blow
+  # --- the Harkonnens ---
+  - { mob: 1908, room: 1908, max: 6, equip: [{ item: 1909, slot: wield }] }   # troopers patrolling the Funeral Plain, kindjals drawn
+  - { mob: 1908, room: 1908, max: 6, equip: [{ item: 1909, slot: wield }, { item: 1910 }] }
+  - { mob: 1908, room: 1908, max: 6, equip: [{ item: 1909, slot: wield }] }
+  - { mob: 1908, room: 1909, max: 6, equip: [{ item: 1909, slot: wield }, { item: 1900 }] }   # one at the wreck, pocketing spice
+  - { mob: 1908, room: 1917, max: 6, equip: [{ item: 1909, slot: wield }] }   # two on the gate
+  - { mob: 1908, room: 1917, max: 6, equip: [{ item: 1909, slot: wield }] }
+  - { mob: 1909, room: 1909, max: 4, equip: [{ item: 1910, slot: body }, { item: 1900 }] }   # spice-guards at the wreck
+  - { mob: 1909, room: 1909, max: 4, equip: [{ item: 1910, slot: body }] }
+  - { mob: 1909, room: 1918, max: 4, equip: [{ item: 1910, slot: body }, { item: 1900 }] }   # and in the spice field
+  - { mob: 1909, room: 1918, max: 4, equip: [{ item: 1910, slot: body }, { item: 1900 }, { item: 1905 }] }   # one with a pair of maker hooks taken off a dead Fremen
+  - { mob: 1910, room: 1916, max: 4, equip: [{ item: 1911, slot: head }] }   # heavy troopers on the picket line
+  - { mob: 1910, room: 1916, max: 4, equip: [{ item: 1911, slot: head }] }
+  - { mob: 1910, room: 1916, max: 4, equip: [{ item: 1911, slot: head }, { item: 1910 }] }
+  - { mob: 1910, room: 1920, max: 4, equip: [{ item: 1911, slot: head }] }   # one on the landing field
+  - { mob: 1911, room: 1917, max: 2, equip: [{ item: 1912, slot: wield }] }   # sergeants at the blast doors, lasguns slung
+  - { mob: 1911, room: 1917, max: 2, equip: [{ item: 1912, slot: wield }, { item: 1913 }] }
+  - { mob: 1912, room: 1915, equip: [{ item: 1924 }, { item: 1900 }, { item: 1900 }, { item: 1906 }] }   # Staban Tuek at his ornithopter, with his thumper and a Fremkit
+  # --- the forward base ---
+  - { mob: 1915, room: 1920, equip: [{ item: 1915, slot: body }, { item: 1921 }] }   # Captain Nefud in his gilded cuirass, the stolen Fremen stillsuit in his pack
+  - { mob: 1916, room: 1921, max: 4, equip: [{ item: 1916 }] }  # Sardaukar in their hall, spare harness plates
+  - { mob: 1916, room: 1921, max: 4 }
+  - { mob: 1916, room: 1921, max: 4 }
+  - { mob: 1916, room: 1922, max: 4, equip: [{ item: 1916 }] }  # one at the Bashar's door
+  - { mob: 1917, room: 1922, equip: [{ item: 1922 }] }          # the Bashar and his Sardaukar blade
+  - { mob: 1918, room: 1923, equip: [{ item: 1925 }] }          # Reverend Mother Mohiam, the Gom Jabbar at her wrist
+  - { mob: 1919, room: 1924, equip: [{ item: 1923 }, { item: 1917 }] }   # Feyd-Rautha, his poisoned blade, and his arena vambraces
+  # --- the deep desert ---
+  - { mob: 1920, room: 1928, equip: [{ item: 1900 }, { item: 1900 }, { item: 1900 }] }   # Shai-Hulud, roaming the deep desert, spice in its gullet

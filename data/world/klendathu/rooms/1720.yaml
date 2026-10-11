@@ -1,0 +1,15 @@
+vnum: 1720
+name: The Branching Tunnels
+description: |
+  Tunnels split off here in every direction, some as wide as a road and
+  some barely big enough to crawl through, and you can feel the colony
+  moving through them like blood through veins. The walls hum when you
+  touch them. Strands of something like spit hang from the ceiling and
+  glisten in your light. The throat is south, side tunnels lead west and
+  east, and the main tunnel goes on north.
+exits:
+  south: 1719
+  west: 1721
+  east: 1722
+  north: 1723
+flags: [dark]

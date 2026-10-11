@@ -1,0 +1,13 @@
+vnum: 2104
+name: The Blood of the Vine Tavern
+description: |
+  A low room of smoke-dark beams and sticky tables, with a fire that
+  gives more smoke than heat. The barkeep polishes the same glass over
+  and over and does not look up. Three Vistani women in bright scarves
+  sit in the corner drinking the house red, the only bright colour in
+  the place, and laughing at something nobody else finds funny. Whatever
+  walks the village at night, it does not come in here, and nobody draws
+  steel under this roof. The square is back east.
+exits:
+  east: 2103
+flags: [safe]

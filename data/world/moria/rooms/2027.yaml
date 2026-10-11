@@ -1,0 +1,11 @@
+vnum: 2027
+name: The Forges of Narvi
+description: |
+  The great smithies of the Dwarrowdelf, where Narvi made the West-gate
+  and mithril was worked into mail. The furnaces are cold now, or
+  nearly, and the orcs use the anvils for chopping blocks. Tongs and
+  hammers lie everywhere in a litter of slag. A smell of hot iron comes
+  from the Second Hall, back south.
+exits:
+  south: 2021
+flags: [dark]

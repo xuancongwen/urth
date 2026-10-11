@@ -1,0 +1,11 @@
+vnum: 2705
+name: The Charnel Gallery
+description: |
+  A long gallery where the newer dead were laid out on stone shelves to
+  wait for their turn in the ossuary. They got tired of waiting. The
+  shelves are empty and the shrouds lie in heaps on the floor, torn from
+  the inside. Something has been chewing on the shelf edges. The only
+  way out is west, back to the bones.
+exits:
+  west: 2703
+flags: [dark]

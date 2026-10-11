@@ -1,0 +1,17 @@
+vnum: 2805
+name: a hell bovine champion
+keywords: [hell, bovine, champion, cow]
+description: A hell bovine champion stamps and snorts, eyes glowing a dull red.
+look: |
+  A hell bovine that has won enough fights to be noticed: taller than
+  the rest, glossy, with gilt rings in its ears and a halberd kept honed
+  to a shine. A faint red glow sits in its eyes, as it does in anything
+  from Hell that has started to take itself seriously.
+level: 25
+flags: [assist]
+silver: 45
+attack:
+  kind: slash
+  verb: hack
+effects:
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }

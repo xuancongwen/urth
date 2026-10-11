@@ -1,0 +1,16 @@
+vnum: 2814
+name: a horn-capped club
+keywords: [horn, capped, club]
+description: A heavy club capped with a sawn-off horn lies here.
+look: |
+  A cudgel of knotty wood with a bull's horn hammered over the head.
+  Swung right, the horn goes in first.
+type: weapon
+weight: 5
+level: 20
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

@@ -1,0 +1,16 @@
+vnum: 2714
+name: a bone-handled mace
+keywords: [bone-handled, bone, handled, mace]
+description: A mace with a thigh-bone handle lies here.
+look: |
+  An iron flanged head on a handle made from a human thigh bone, the
+  knuckle end worn smooth by a bony grip. Heavy, simple, and very good
+  at what skeletons are worst at surviving.
+type: weapon
+level: 15
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

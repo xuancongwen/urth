@@ -1,0 +1,15 @@
+vnum: 1911
+name: a Harkonnen sergeant
+keywords: [harkonnen, sergeant, soldier]
+description: A Harkonnen sergeant shouts at the troopers by the blast doors.
+look: |
+  A thick-necked man with a sergeant's chevrons and a lasgun slung
+  across his chest, scarred from a dozen raids and proud of each of
+  them. He knows exactly how many troopers he has lost to the Fremen
+  and the worms, and he blames the troopers.
+level: 26
+flags: [assist]
+silver: 140
+attack:
+  kind: fire
+  verb: burn

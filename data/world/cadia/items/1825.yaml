@@ -1,0 +1,12 @@
+vnum: 1825
+name: a Terminator pauldron
+keywords: [terminator, pauldron, spaulder, shoulder]
+description: A massive black shoulder plate lies here.
+look: |
+  One pauldron from a suit of Tactical Dreadnought armour, thick as a
+  tank's glacis, marked with the eight-pointed star of the Black Legion.
+type: armor
+slot: shoulders
+level: 60
+baseline: plate
+flags: [drop]

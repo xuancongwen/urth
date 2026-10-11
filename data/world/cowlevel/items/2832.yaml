@@ -1,0 +1,13 @@
+vnum: 2832
+name: a pair of bovine plate vambraces
+keywords: [bovine, plate, vambraces, arms]
+description: A pair of plate vambraces lies here.
+look: |
+  Plate vambraces as thick as stove lids, with a ridge along the outside
+  for catching blades.
+type: armor
+slot: arms
+weight: 5
+level: 26
+baseline: plate
+flags: [drop]

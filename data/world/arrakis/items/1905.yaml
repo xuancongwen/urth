@@ -1,0 +1,16 @@
+vnum: 1905
+name: a pair of maker hooks
+keywords: [maker, hooks, hook, pair, spear]
+description: A pair of long metal hooks on poles lies here.
+look: |
+  Long staves of plastic with metal hooks at the ends, used by a
+  sandrider to catch the edge of a worm's ring segment, pry it open,
+  and climb up. Swung at a man, they do much the same thing, only
+  faster.
+type: weapon
+level: 22
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: hook

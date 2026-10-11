@@ -1,0 +1,11 @@
+vnum: 2223
+name: The Edge of Crookback Bog
+description: |
+  The ridge slopes down into black water and grey fog, through dead trees
+  whose roots stand up out of the mud like the legs of drowned horses.
+  Will-o'-the-wisps bob in the fog, too steady to be marsh gas. Every
+  sound is muffled except the ones behind you. The ridge is west; a
+  causeway of logs runs east into the bog.
+exits:
+  west: 2217
+  east: 2224

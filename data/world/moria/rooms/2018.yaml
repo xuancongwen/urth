@@ -1,0 +1,11 @@
+vnum: 2018
+name: The Fissure
+description: |
+  The crack in the hall's floor opens here into a wide fissure, and a
+  ledge runs along it above a drop with no bottom you can see. Orcs
+  have built a crude breastwork of stones on the ledge and stocked it
+  with arrows. Warm air rises out of the dark with a smell of hot iron.
+  The hall is back north.
+exits:
+  north: 2014
+flags: [dark]

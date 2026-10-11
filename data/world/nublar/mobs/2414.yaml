@@ -1,0 +1,25 @@
+vnum: 2414
+name: the raptor matriarch
+keywords: [raptor, matriarch, velociraptor, big, one]
+description: The raptor matriarch rises from her nest, killing claw lifted and tapping.
+look: |
+  The big one, the one who killed the others and took the nest: half again
+  the size of any raptor in the pen, her hide criss-crossed with scars
+  from the fence and from her own kind. She is in charge, and she has been
+  testing the fences for weaknesses, systematically, for a year. She has
+  found them. Now she is testing you.
+level: 26
+health: 2000
+silver: 260
+armor:
+  defense: 36
+attack:
+  kind: slash
+  verb: disembowel
+effects:
+  - kind: dodge
+    params: { amount: 0.06 }
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: attacks
+    params: { amount: 1 }

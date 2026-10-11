@@ -1,0 +1,11 @@
+vnum: 2801
+name: The Edge of the Fields
+description: |
+  The grass is trampled flat here in broad muddy paths, as though a herd
+  came through recently and with purpose. A broken pitchfork stands in
+  the dirt where someone left it in a hurry. Hoofprints, deep and
+  cloven, lead everywhere. Each one is the size of a dinner plate. The
+  red glow of the portal is east; the fields run on to the west.
+exits:
+  east: 2800
+  west: 2802

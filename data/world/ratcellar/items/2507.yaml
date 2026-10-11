@@ -1,0 +1,16 @@
+vnum: 2507
+name: a ratcatcher's cudgel
+keywords: [ratcatcher, ratcatcher's, cudgel, club]
+description: A short, knobbed cudgel lies here.
+look: |
+  A blackthorn cudgel with a knob on the end the size of a fist, worn
+  smooth in the grip and not at all smooth on the knob. It is the right
+  length for a low ceiling and the right weight for a rat.
+type: weapon
+weight: 3
+level: 4
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

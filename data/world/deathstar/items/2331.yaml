@@ -1,0 +1,24 @@
+vnum: 2331
+name: Darth Vader's lightsaber
+keywords: [darth, vader's, vader, lightsaber, saber, sabre, red]
+description: A black-ridged lightsaber hilt lies here, humming faintly.
+look: |
+  A heavy hilt of black and silver, ridged for a gloved grip. Thumb the
+  switch and a blade of red light snaps out with a hiss and a hum that
+  you feel in your back teeth. It cuts through anything, blast doors
+  included, and in the right hand it finds the killing stroke far more
+  often than it should.
+type: weapon
+weight: 1
+level: 55
+baseline: standard
+value: 12000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.10, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.5 } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: block, params: { chance: 0.06 } }

@@ -1,0 +1,11 @@
+vnum: 2319
+name: A Maintenance Shaft
+description: |
+  The crawlway opens into a vertical shaft where conduits as thick as
+  tree trunks run up and down into darkness. A ladder of rungs leads
+  down toward a low, steady thrum that you feel in your teeth. The air
+  tastes of ozone. The crawlway goes back east.
+exits:
+  east: 2318
+  down: 2320
+flags: [dark]

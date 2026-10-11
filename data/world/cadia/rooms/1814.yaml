@@ -1,0 +1,12 @@
+vnum: 1814
+name: The Catacombs of Kasr Myrak
+description: |
+  Every kasr on Cadia is built over its dead, because every Cadian
+  expects to be among them sooner rather than later. Low tunnels run off
+  in every direction, lined floor to ceiling with niches, and each niche
+  holds a skull and a regimental number. The air is cold and very still.
+  The bunker stair leads up; the passage widens to the west.
+exits:
+  west: 1815
+  up: 1813
+flags: [dark]

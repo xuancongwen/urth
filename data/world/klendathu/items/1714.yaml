@@ -1,0 +1,13 @@
+vnum: 1714
+name: a slab of tanker shell
+keywords: [slab, tanker, shell, shield]
+description: A curved slab of scorched tanker shell lies here, a strap riveted to it.
+look: |
+  A piece of a tanker bug's back plate, cut down with a plasma torch and
+  given a handle. It is scorched black on the outside where the tanker's
+  own fire ran over it, and it does not burn.
+type: armor
+slot: shield
+level: 32
+baseline: shield
+flags: [drop]

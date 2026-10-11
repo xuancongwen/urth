@@ -1,0 +1,14 @@
+vnum: 2829
+name: a hide-covered shield
+keywords: [hide, covered, shield]
+description: A round shield covered in cowhide lies here.
+look: |
+  A round shield of oak planks covered in black-and-white cowhide,
+  rimmed with iron. It looks like a cow from a distance, which is
+  perhaps the point.
+type: armor
+slot: shield
+weight: 5
+level: 25
+baseline: shield
+flags: [drop]

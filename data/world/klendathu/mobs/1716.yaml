@@ -1,0 +1,25 @@
+vnum: 1716
+name: the Brain Bug
+keywords: [brain, bug, arachnid, queen]
+description: The Brain Bug quivers in its cavern, its puckered mouth opening and closing.
+look: |
+  A vast, pale, swollen thing, all folds and wet sacs, with a face that
+  is horribly close to a face and a long hollow spike for a tongue that
+  it uses to drink the minds of its prisoners. It cannot run and it
+  does not need to. Its thoughts press on yours like a hand on your
+  throat, and every bug on Klendathu fights at its will. It is
+  frightened of you. It is right to be. It is not helpless.
+level: 42
+health: 20000
+stats: {intelligence: 18, wisdom: 18, constitution: 16}
+silver: 600
+attack:
+  kind: psionic
+  verb: mind probe
+effects:
+  - kind: aura
+    params: { power: 0.25, verb: psychic scream }
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: soak
+    params: { power: 0.1 }

@@ -1,0 +1,12 @@
+vnum: 2205
+name: The Baron's Great Hall
+description: |
+  A long hall with a high table, antlers on every wall, and a fire big
+  enough to roast an ox, which it is currently doing. Wine stains the
+  rushes in old brown maps. A cradle stands by the high seat with nothing
+  in it, and nobody mentions it. The Baron holds court here, drinks here,
+  and keeps the peace here, his own way: nobody fights in his hall but
+  him. The courtyard is south.
+exits:
+  south: 2204
+flags: [safe]

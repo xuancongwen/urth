@@ -1,0 +1,11 @@
+vnum: 2315
+name: The Long Corridor
+description: |
+  A corridor so long that its far end is lost in a haze of white light,
+  lined on both sides with identical doors. Mouse droids zip along the
+  foot of the walls. The Empire spent a great deal of money making sure
+  that every part of this station looks like every other part, and it
+  shows. The junction is north, and the command sections are south.
+exits:
+  north: 2305
+  south: 2316

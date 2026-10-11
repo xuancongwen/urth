@@ -1,0 +1,12 @@
+vnum: 2943
+name: a pair of steel gauntlets
+keywords: [steel, gauntlets]
+description: A pair of steel gauntlets lies here.
+look: |
+  Gauntlets of overlapping steel scales over leather gloves. You can
+  make a fist in them that would stop a door.
+type: armor
+slot: hands
+level: 34
+baseline: plate
+flags: [drop]

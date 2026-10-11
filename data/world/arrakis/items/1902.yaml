@@ -1,0 +1,11 @@
+vnum: 1902
+name: a literjon of water
+keywords: [literjon, water, jug, flask]
+description: A sealed literjon of water stands here, which is very careless of someone.
+look: |
+  A litre of water in a sealed container of flexible plastic, stamped
+  with a sietch's mark. On Arrakis this is not a drink so much as a
+  currency, and nobody who has lived here would leave one lying about.
+type: other
+weight: 1
+value: 10

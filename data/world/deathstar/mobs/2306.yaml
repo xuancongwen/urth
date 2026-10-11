@@ -1,0 +1,19 @@
+vnum: 2306
+name: a stormtrooper
+keywords: [stormtrooper, trooper, imperial, soldier]
+description: A stormtrooper in white armour stands here, blaster rifle at the ready.
+look: |
+  A soldier in white plastoid armour from head to foot, the helmet's
+  black grille fixed in a permanent scowl. There are thousands of them
+  on this station and they are all exactly the same. They are very well
+  drilled. They are very loyal. They are very, very bad shots.
+level: 15
+flags: [assist]
+silver: 50
+armor:
+  defense: 15
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: blind, params: { miss: 0.3 } }

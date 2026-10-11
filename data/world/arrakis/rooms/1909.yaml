@@ -1,0 +1,14 @@
+vnum: 1909
+name: The Harvester Wreck
+description: |
+  A spice harvester the size of a city block lies half buried and on its
+  side, its treads in the air like a dead beetle's legs. Something swallowed
+  the rear third of it and left the rest. Harkonnen guards have made a
+  camp in its shadow, salvaging what they can and stacking spice bags
+  under a tarpaulin. A crude sign on the hull reads PROPERTY OF HOUSE
+  HARKONNEN. The plain is west, a picket line east, and a spice field
+  south.
+exits:
+  west: 1908
+  east: 1916
+  south: 1918

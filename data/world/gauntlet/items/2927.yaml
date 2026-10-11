@@ -1,0 +1,12 @@
+vnum: 2927
+name: a pair of iron greaves
+keywords: [iron, greaves]
+description: A pair of iron greaves lies here.
+look: |
+  Shin plates of dull iron on leather straps, dented at the knee
+  where a grunt's club found them.
+type: armor
+slot: legs
+level: 29
+baseline: medium
+flags: [drop]

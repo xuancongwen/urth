@@ -1,0 +1,11 @@
+vnum: 2104
+name: a grey wolf pelt
+keywords: [grey, wolf, pelt, hide, fur]
+description: A shaggy grey wolf pelt lies here in a heap.
+look: |
+  The pelt of one of the great wolves of the Svalich Woods, coarse and
+  thick and longer than a man is tall. The merchant in the village buys
+  these, and cures them, and sells them back to you as cloaks.
+type: other
+weight: 3
+value: 10

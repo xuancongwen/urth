@@ -1,0 +1,13 @@
+vnum: 2417
+name: a pair of keeper's gauntlets
+keywords: [keeper's, keeper, gauntlets, gloves]
+description: A pair of thick leather gauntlets lies here.
+look: |
+  Elbow-length gauntlets of layered leather and chain mesh, built for
+  handling birds with beaks like pickaxes. The fingers are scored with
+  long gouges.
+type: armor
+slot: hands
+weight: 2
+level: 18
+baseline: heavy

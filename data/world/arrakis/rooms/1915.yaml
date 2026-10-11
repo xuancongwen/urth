@@ -1,0 +1,11 @@
+vnum: 1915
+name: The Smugglers' Landing
+description: |
+  A hollow among the rocks, screened from the plain by a fold of the
+  ground, where an ornithopter sits with its wings folded and its engine
+  ticking as it cools. Crates of spice are stacked under a camouflage net,
+  and a small cook-stove hisses beside a folding table. The smugglers who
+  use this place pay off the Harkonnens, the Fremen, and the Guild, and
+  still turn a profit. The plain is back south.
+exits:
+  south: 1908

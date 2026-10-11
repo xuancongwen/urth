@@ -1,0 +1,12 @@
+vnum: 2940
+name: a sorcerer's sash
+keywords: [sorcerer's, sorcerer, sash]
+description: A sash of black silk lies here.
+look: |
+  A long black silk sash embroidered at the ends with runes that do
+  not quite stay still. It does nothing magical. It is very nice silk.
+type: armor
+slot: belt
+level: 33
+baseline: cloth
+flags: [drop]

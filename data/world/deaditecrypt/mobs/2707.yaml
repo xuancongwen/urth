@@ -1,0 +1,15 @@
+vnum: 2707
+name: a skeleton captain
+keywords: [skeleton, captain, officer, bones, dead]
+description: A skeleton captain in a skull-crested helm barks orders through bare teeth.
+look: |
+  A tall skeleton in a skull-crested helm and the remains of an
+  officer's cloak, who points with its sword and clacks its jaw at its
+  troops, and the troops obey. It fights well, and it fights better with
+  friends around.
+level: 17
+flags: [assist]
+silver: 45
+attack:
+  kind: slash
+  verb: slash

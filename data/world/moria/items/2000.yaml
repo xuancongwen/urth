@@ -1,0 +1,13 @@
+vnum: 2000
+name: a pitch torch
+keywords: [pitch, torch, light, brand]
+description: A pitch-soaked torch lies here.
+look: |
+  A stick of pine bound at one end with rags soaked in pitch. It smokes,
+  it spits, it smells, and it will see you through a few halls of Moria
+  before it gutters. Dwarves think torches are for people who did not
+  plan ahead.
+type: light
+weight: 1
+burn: 600
+value: 6

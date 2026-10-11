@@ -1,0 +1,11 @@
+vnum: 2210
+name: The Nekker Warren
+description: |
+  A burrow dug by many small hands, low enough that you go bent double,
+  with roots for a ceiling and tunnels branching off in every direction
+  too narrow to follow. It is pitch black and full of breathing. The
+  floor is bones and shiny things: buttons, a buckle, a ring still on a
+  finger. The hollow and the daylight are back east.
+exits:
+  east: 2209
+flags: [dark]

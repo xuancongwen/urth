@@ -1,0 +1,11 @@
+vnum: 2404
+name: The Game Warden's Lodge
+description: |
+  A low room of canvas, rifles, and mud. Maps of the paddocks are pinned
+  to the walls, each one scribbled over with arrows and the word NO in
+  red. A rack holds a gap where a shotgun ought to be. A kettle sits on a
+  camp stove, and the window gives on the jungle, which looks back. It is
+  a safe room, as long as you stay inside it. The gift shop is east.
+exits:
+  east: 2403
+flags: [safe]

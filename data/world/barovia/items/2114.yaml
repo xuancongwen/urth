@@ -1,0 +1,14 @@
+vnum: 2114
+name: a hunter's leather jerkin
+keywords: [hunter's, hunter, leather, jerkin]
+description: A worn leather jerkin with a torn collar lies here.
+look: |
+  A sleeveless jerkin of boiled leather worn by one of the village's
+  hunters, back when the village had hunters. The torn collar was not
+  torn by a thorn.
+type: armor
+slot: body
+weight: 5
+level: 13
+baseline: light
+flags: [drop]

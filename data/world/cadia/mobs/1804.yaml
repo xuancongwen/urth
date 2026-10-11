@@ -1,0 +1,16 @@
+vnum: 1804
+name: a Chaos cultist
+keywords: [chaos, cultist, heretic, traitor]
+description: A Chaos cultist crouches in a crater, muttering to the sky.
+look: |
+  A hive-ganger, a farmhand, a clerk, once; now a ragged thing in a
+  hood stitched with the eight-pointed star, its face cut with ritual
+  scars that have gone bad. It clutches a stolen weapon like a holy
+  relic. When it looks up at the Eye its expression is that of a child
+  watching fireworks.
+level: 22
+flags: [assist]
+silver: 60
+attack:
+  kind: pierce
+  verb: shoot

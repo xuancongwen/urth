@@ -1,0 +1,13 @@
+vnum: 2314
+name: an armoured Imperial greatcoat
+keywords: [armoured, armored, imperial, greatcoat, coat]
+description: A long grey greatcoat lies here.
+look: |
+  A floor-length grey greatcoat of heavy wool, lined with armourweave,
+  the kind of thing a senior officer wears to inspect something cold. It
+  makes anyone look taller and more certain.
+type: armor
+slot: body
+level: 35
+baseline: light
+flags: [drop]

@@ -1,0 +1,14 @@
+vnum: 1806
+name: the standard of the Cadian 8th
+keywords: [standard, banner, regimental, cadian, 8th, colours, colors]
+description: A torn regimental standard on a broken pole lies here.
+look: |
+  The colours of the Cadian 8th, the Lord Castellan's own: a field of
+  olive and white with the regimental number and a roll of battle
+  honours stitched in gold, the last of them unfinished. It is scorched
+  through in three places and stiff with someone's blood. A regiment is
+  not dead while its colours are carried, and somebody back in the
+  trench is waiting for these.
+type: other
+weight: 4
+flags: [quest]

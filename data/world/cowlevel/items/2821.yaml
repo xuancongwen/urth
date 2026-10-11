@@ -1,0 +1,16 @@
+vnum: 2821
+name: a great halberd
+keywords: [great, halberd, polearm]
+description: A massive halberd with a blade like a door lies here.
+look: |
+  A halberd so heavy the haft is iron-banded its whole length. It swings
+  slowly and ends arguments.
+type: weapon
+weight: 14
+level: 23
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

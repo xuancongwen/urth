@@ -1,0 +1,14 @@
+vnum: 2009
+name: The Long Passage
+description: |
+  A straight road through the rock, wide enough for six dwarves abreast,
+  with a gutter cut down each side and mile-stones carved with runes at
+  every turning. It goes on and on. Side-passages yawn at intervals,
+  black and full of draughts. A ragged opening in the south wall smells
+  of wet fur, the passage runs east to a meeting of arches, and the
+  stair is back west.
+exits:
+  west: 2008
+  east: 2011
+  south: 2012
+flags: [dark]

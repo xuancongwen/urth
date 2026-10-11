@@ -1,0 +1,14 @@
+vnum: 2701
+name: The Wise Man's Alcove
+description: |
+  A low vaulted alcove cut into the rock, lit by a crowd of tallow
+  candles on every ledge and in every niche, so that it is warmer and
+  brighter than anywhere else under the ground. A trestle table holds a
+  stack of pitch torches, a mortar of herbs, and an open book of
+  genealogies that has nothing to do with anything. Banners of a
+  besieged castle hang from the walls. Nobody draws steel in here; the
+  dead do not come into the light, and the living have sense enough not
+  to argue with the man who keeps it. The crypt mouth is west.
+exits:
+  west: 2700
+flags: [safe]

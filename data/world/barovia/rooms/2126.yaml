@@ -1,0 +1,11 @@
+vnum: 2126
+name: The Top of the High Tower
+description: |
+  The roof of the highest tower of Ravenloft, open to a sky the colour
+  of a bruise. Lightning walks the clouds without a sound. A circle of
+  stone battlements rings it, and in the middle is a writing table with
+  a great leather tome open on it, weighted down against the wind with a
+  goblet of something red. From here you can see all of Barovia, and all
+  of it belongs to him. The stair goes down.
+exits:
+  down: 2125

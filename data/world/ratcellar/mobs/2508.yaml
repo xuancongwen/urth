@@ -1,0 +1,22 @@
+vnum: 2508
+name: Mortimer the wererat
+keywords: [mortimer, wererat, rat, man]
+description: Mortimer the wererat sits at his table, halfway between a man and a rat, and wipes his whiskers on a napkin.
+look: |
+  He was a clerk once; he still wears the waistcoat, and the spectacles
+  on a chain, though they sit oddly on a snout. The rest of him is
+  coarse grey fur, a long bald tail, and hands with too many knuckles
+  that end in claws. He speaks very politely. "Do sit down," he says,
+  and shows you all his teeth. Around his neck, on a bit of string, he
+  wears a ring he can no longer get on his finger.
+level: 5
+health: 140
+silver: 40
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: dodge
+    params: { amount: 0.05 }

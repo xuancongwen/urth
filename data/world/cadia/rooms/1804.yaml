@@ -1,0 +1,15 @@
+vnum: 1804
+name: The Firestep
+description: |
+  The last bay of the trench, where the line bends toward the enemy. A
+  heavy stubber sits on its tripod behind a wall of sandbags, its belt
+  hanging empty, and periscopes poke over the parapet like the necks of
+  curious birds. Past the wire, the Elysion Fields stretch away grey and
+  pocked to the broken walls of Kasr Myrak. A field chapel is dug into
+  the north wall. The trench runs back east; a sally gap in the wire
+  leads west, into no man's land.
+exits:
+  north: 1805
+  east: 1801
+  west: 1806
+flags: [safe]

@@ -1,0 +1,12 @@
+vnum: 2513
+name: a patched leather jerkin
+keywords: [patched, leather, jerkin]
+description: A leather jerkin, patched at both elbows, lies here.
+look: |
+  A sleeveless jerkin of cracked brown leather, patched so often that
+  none of the original is left except the smell.
+type: armor
+slot: body
+level: 2
+baseline: light
+flags: [drop]

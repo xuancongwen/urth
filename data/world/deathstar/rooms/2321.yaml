@@ -1,0 +1,11 @@
+vnum: 2321
+name: The Reactor Access Corridor
+description: |
+  A heavy corridor of reinforced plating, the walls stencilled with
+  radiation warnings, the floor vibrating with the station's reactor
+  somewhere ahead. Black-armoured troopers guard this stretch; they do
+  not chat. The command corridor is north, and a blast door south opens
+  onto the reactor shaft.
+exits:
+  north: 2316
+  south: 2322

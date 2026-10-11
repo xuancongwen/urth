@@ -1,0 +1,11 @@
+vnum: 2409
+name: The Dilophosaur Paddock
+description: |
+  Rain drips through a black tangle of jungle so thick the light comes
+  through green. Somewhere in it something makes a soft hooting call,
+  almost friendly. The fence behind you is supposed to be electrified, and
+  its little lamp is out. The ground is spattered here and there with
+  something dark and glossy that hisses faintly in the rain. The road is
+  south.
+exits:
+  south: 2407

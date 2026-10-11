@@ -1,0 +1,74 @@
+interval_seconds: 120
+resets:
+  # --- the foot of the stair ---
+  - { mob: 2500, room: 2500 }                                   # Pip on his crate, selling candles
+  - { mob: 2501, room: 2500 }                                   # Old Nettle, who teaches dodge and trip
+  - { item: 2500, room: 2500 }                                  # a candle left on the bottom step
+  # --- the cellar: cellar rats (2), fourteen in all ---
+  - { mob: 2502, room: 2501, max: 14, equip: [{ item: 2501 }] }   # cellar rats among the ale barrels, each with a tail to trade
+  - { mob: 2502, room: 2501, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2501, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2501, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2502, max: 14, equip: [{ item: 2501 }] }   # cellar rats running the wine racks
+  - { mob: 2502, room: 2502, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2502, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2502, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2503, max: 14, equip: [{ item: 2501 }] }   # cellar rats in their cask tavern
+  - { mob: 2502, room: 2503, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2503, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2504, max: 14, equip: [{ item: 2501 }] }   # cellar rats in the root cellar
+  - { mob: 2502, room: 2504, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2502, room: 2504, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { item: 2509, room: 2504 }                                  # a hollowed-out cheese
+  # --- the old sewers: sewer rats (3), twelve in all, and the swarms ---
+  - { mob: 2503, room: 2505, max: 12, equip: [{ item: 2501 }] }   # sewer rats on the rubble of the broken wall
+  - { mob: 2503, room: 2505, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2505, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2506, max: 12, equip: [{ item: 2501 }] }   # sewer rats along the ledges
+  - { mob: 2503, room: 2506, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2506, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2506, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2507, max: 12, equip: [{ item: 2501 }] }   # sewer rats at the junction
+  - { mob: 2503, room: 2507, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2507, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2503, room: 2510, max: 12, equip: [{ item: 2501 }] }   # sewer rats keeping the wererat company
+  - { mob: 2503, room: 2510, max: 12, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2505, room: 2506, max: 2 }                           # a swarm of rats, which wanders
+  - { mob: 2505, room: 2511, max: 2 }                           # and another from the warren
+  # --- the culvert and the spiders (4) ---
+  - { mob: 2504, room: 2508, max: 14, equip: [{ item: 2501 }] }   # giant rats wading the culvert
+  - { mob: 2504, room: 2508, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2508, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2506, room: 2515, max: 4, equip: [{ item: 2502 }] }   # giant cellar spiders in the webs, silk to spare
+  - { mob: 2506, room: 2515, max: 4, equip: [{ item: 2502 }] }   # and another
+  - { mob: 2506, room: 2515, max: 4, equip: [{ item: 2502 }] }   # and another
+  - { mob: 2506, room: 2508, max: 4, equip: [{ item: 2502 }] }   # a spider hunting the culvert
+  # --- the cistern: dire rats (5) and the wererat ---
+  - { mob: 2507, room: 2509, max: 14, equip: [{ item: 2501 }] }   # dire rats in the cistern water
+  - { mob: 2507, room: 2509, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2509, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2509, max: 14, equip: [{ item: 2501 }] }   # giant rats on the pillar ledges
+  - { mob: 2504, room: 2509, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2508, room: 2510, equip: [{ item: 2505 }] }           # Mortimer the wererat, with his moonstone ring on its string
+  # --- the warren and the throne ---
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # giant rats in the warren, a great many of them
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2511, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2512, max: 14, equip: [{ item: 2501 }] }   # dire rats patrolling the gnawed tunnels
+  - { mob: 2507, room: 2512, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2512, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2512, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2513, max: 14, equip: [{ item: 2501 }] }   # giant rats asleep in the nest of bones
+  - { mob: 2504, room: 2513, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2504, room: 2513, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2513, max: 14, equip: [{ item: 2501 }] }   # dire rats in the nest
+  - { mob: 2507, room: 2513, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2513, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2514, max: 14, equip: [{ item: 2501 }] }   # dire rats guarding the throne
+  - { mob: 2507, room: 2514, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2514, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2507, room: 2514, max: 14, equip: [{ item: 2501 }] }   # and another
+  - { mob: 2509, room: 2514, equip: [{ item: 2504 }, { item: 2501 }, { item: 2501 }, { item: 2501 }] }   # the Rat King, its crown, and plenty of tails

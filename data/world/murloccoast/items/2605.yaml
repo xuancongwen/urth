@@ -1,0 +1,12 @@
+vnum: 2605
+name: a barnacled brass spyglass
+keywords: [barnacled, brass, spyglass, glass, telescope]
+description: A brass spyglass crusted with barnacles lies here.
+look: |
+  A ship's spyglass, three brass sections that still slide if you are
+  firm with them. The barnacles have not reached the lens. A name is
+  engraved round the eyepiece, a lighthouse keeper's, and under it the
+  words ALWAYS WATCH THE WATER. Somebody will want this back.
+type: other
+weight: 1
+flags: [quest]

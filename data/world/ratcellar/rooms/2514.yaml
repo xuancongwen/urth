@@ -1,0 +1,12 @@
+vnum: 2514
+name: The Throne of Bones
+description: |
+  The end of the tunnel is a hall. Not a large one, but a hall: the
+  rats have built a dais of skulls against the far wall and heaped it
+  with stolen things, spoons, buttons, a baby's rattle, a pewter jug, a
+  wedding ring, and on the dais a seat of thigh bones lashed together
+  with gut. The air is thick and warm and hums with squeaking, all of
+  it pointed the same way. The tunnel goes back west.
+exits:
+  west: 2512
+flags: [dark]

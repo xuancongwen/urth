@@ -1,0 +1,12 @@
+vnum: 2412
+name: The Tour Road, the River Bridge
+description: |
+  A concrete bridge carries the road over a broad brown river that winds
+  out of the jungle to the north. The rail is scratched with long parallel
+  gouges. From the middle of the bridge you hear deep, booming honks echo
+  down the water, like a brass band warming up in a cave. The road runs
+  east and west, and a muddy bank leads north to the shallows.
+exits:
+  north: 2413
+  east: 2410
+  west: 2415

@@ -1,0 +1,17 @@
+vnum: 2835
+name: a gilded bovine halberd
+keywords: [gilded, bovine, halberd, polearm]
+description: A gilded halberd lies here, gleaming in the moonlight.
+look: |
+  A ceremonial halberd that turns out to be a real one, gilt over good
+  steel. It was carried before the throne on feast days, and on other
+  days into battle.
+type: weapon
+weight: 10
+level: 28
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

@@ -1,0 +1,11 @@
+vnum: 2917
+name: The Last Level
+description: |
+  A bare stone room, perfectly square, with nothing on its walls and
+  nothing on its floor but a fine grey dust that your feet do not
+  disturb. Somewhere a clock is ticking that you cannot see, and every
+  tick takes a little of something from you. You have played this far.
+  Everyone who plays this far meets the same thing here, sooner or
+  later. The steps go back up.
+exits:
+  up: 2916

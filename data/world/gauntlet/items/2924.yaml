@@ -1,0 +1,12 @@
+vnum: 2924
+name: a mail coif
+keywords: [mail, coif, hood]
+description: A hood of iron mail lies in a heap here.
+look: |
+  A close hood of riveted rings that falls to the shoulders. It
+  smells of the last head that sweated in it.
+type: armor
+slot: head
+level: 28
+baseline: medium
+flags: [drop]

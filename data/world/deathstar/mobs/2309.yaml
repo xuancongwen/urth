@@ -1,0 +1,20 @@
+vnum: 2309
+name: TK-421
+keywords: [tk-421, tk421, stormtrooper, trooper]
+description: TK-421 stands here, not at his post.
+look: |
+  A stormtrooper whose armour is identical to every other's, except that
+  he is wandering about where he should not be, and his rifle is held
+  like he knows what to do with it. Somewhere a supervisor keeps calling
+  to ask why he is not at his post. He is the one trooper on this
+  station who can hit what he aims at, and he is quietly very proud of
+  it.
+level: 18
+flags: [assist]
+health: 480
+silver: 110
+armor:
+  defense: 22
+attack:
+  kind: fire
+  verb: shoot

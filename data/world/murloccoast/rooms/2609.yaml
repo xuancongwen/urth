@@ -1,0 +1,13 @@
+vnum: 2609
+name: The Village Heart
+description: |
+  The largest of the huts stands here, taller than a man and crowned
+  with a ring of whale ribs, its walls daubed with blue mud in spirals
+  and wobbly fish shapes. A totem of stacked turtle shells leans before
+  it, hung with charms of bone and kelp. Murlocs come and go through
+  the round door, gargling at each other. The spawning pools are north,
+  the outskirts east, and a wrecked ship lies on the beach to the west.
+exits:
+  east: 2607
+  north: 2610
+  west: 2611

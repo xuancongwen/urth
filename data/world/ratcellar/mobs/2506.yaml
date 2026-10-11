@@ -1,0 +1,17 @@
+vnum: 2506
+name: a giant cellar spider
+keywords: [giant, cellar, spider]
+description: A giant cellar spider hangs in its web, long legs folded, utterly still.
+look: |
+  A pale, long-legged spider with a body like a plum and legs as long
+  as broom handles, thin as wire, that fold up and up over its back.
+  It came for the rats, and it has done very well out of them. Its
+  fangs are small for its size. They do not need to be large.
+level: 4
+silver: 4
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: dot
+    params: { damage: 1 }

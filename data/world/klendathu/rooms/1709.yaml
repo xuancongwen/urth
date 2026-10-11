@@ -1,0 +1,13 @@
+vnum: 1709
+name: The Rock Arches
+description: |
+  Great arches of red rock span the path, natural or not, worn smooth on
+  their undersides by the passing of a great many bodies. Claw marks
+  score the stone at shoulder height. A trooper's helmet hangs from a
+  jag of rock by its strap, swinging gently in a wind you cannot feel.
+  The killing field is south, a crash site smoulders east, and the hive
+  mounds rise to the north.
+exits:
+  south: 1706
+  north: 1712
+  east: 1713

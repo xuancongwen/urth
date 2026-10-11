@@ -1,0 +1,15 @@
+vnum: 1702
+name: a Mobile Infantry trooper
+keywords: [mobile, infantry, mi, trooper, soldier]
+description: A Mobile Infantry trooper in grey armor checks a Morita for the hundredth time.
+look: |
+  A trooper in grey body armor and a helmet with a chin cup, a Morita
+  slung across the chest. Very young, very fit, and very sure of
+  everything the recruiting screen told them. They will tell you the
+  only good bug is a dead bug, and then they will tell you again, in
+  case you missed it.
+level: 18
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: burst

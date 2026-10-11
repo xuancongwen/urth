@@ -1,0 +1,14 @@
+vnum: 2007
+name: a mithril-ringed hauberk
+keywords: [mithril-ringed, mithril, ringed, hauberk, mail]
+description: A long hauberk of steel rings, every tenth one shining silver, lies here.
+look: |
+  A dwarf hauberk of heavy steel with a ring of mithril worked in at
+  every joint and wherever a blade is likely to bite. It is not a
+  mithril coat, and the trader will tell you so twice, but it is the
+  next best thing anyone outside a king's hall will ever wear.
+type: armor
+slot: body
+weight: 10
+level: 22
+baseline: heavy

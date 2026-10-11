@@ -1,0 +1,14 @@
+vnum: 2100
+name: The Mists on the Old Svalich Road
+description: |
+  A wall of grey fog stands across the road, so thick you could lean on
+  it, and cold enough to raise the hair on your arms. Behind you to the
+  north it thins toward the stair down from the Deeper Hall. Ahead, the
+  Old Svalich Road runs south between black pines, its cobbles slick and
+  its ruts full of still water. Something in the mist breathes when you
+  do. Travellers say the fog lets anyone into Barovia. They say less
+  about leaving.
+exits:
+  north: 9
+  south: 2101
+position: {x: 0, y: 0, z: 0}

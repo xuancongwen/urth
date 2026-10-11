@@ -1,0 +1,15 @@
+vnum: 1805
+name: a traitor guardsman
+keywords: [traitor, guardsman, renegade, blackened]
+description: A traitor guardsman in a defaced Cadian uniform sights down a lasgun.
+look: |
+  A Guardsman who turned, still in the olive and flak of a regiment,
+  but with the aquila torn off his chest and a star cut into his
+  forehead. He moves like a soldier and fights like one, which is what
+  makes him worse than the cultists. He does not meet your eyes.
+level: 23
+flags: [assist]
+silver: 70
+attack:
+  kind: fire
+  verb: las-shot

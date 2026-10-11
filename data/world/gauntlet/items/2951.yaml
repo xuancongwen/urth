@@ -1,0 +1,12 @@
+vnum: 2951
+name: a tower shield
+keywords: [tower, shield]
+description: A tall tower shield leans against the wall here.
+look: |
+  A shield as tall as your chin, iron over oak, with a slot to look
+  through. Rocks, fire, and clubs all come off it the same way.
+type: armor
+slot: shield
+level: 37
+baseline: tower
+flags: [drop]

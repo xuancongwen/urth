@@ -1,0 +1,11 @@
+vnum: 1920
+name: The Landing Field
+description: |
+  Inside the blast doors: a square of fused sand where ornithopters land
+  and carryalls drop their loads. Floodlights glare from the walls. A
+  reviewing stand faces the field, built so an officer can watch his men
+  drill and so his men can watch him watch them. The blast doors are
+  west, and a barracks hall opens east.
+exits:
+  west: 1917
+  east: 1921

@@ -1,0 +1,13 @@
+vnum: 2626
+name: a pair of scale greaves
+keywords: [scale, greaves]
+description: A pair of scaled leg guards lies here.
+look: |
+  Leg guards of leather faced with scale, buckled at the back. They
+  squeak when wet, which on this coast is always.
+type: armor
+slot: legs
+weight: 3
+level: 12
+baseline: medium
+flags: [drop]

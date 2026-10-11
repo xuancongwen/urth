@@ -1,0 +1,12 @@
+vnum: 2019
+name: The Chamber of Mazarbul
+description: |
+  The Chamber of Records. A shaft of daylight falls from a high opening
+  onto a great oblong block of white stone in the middle of the room,
+  and on it, cut deep: Here lies Balin son of Fundin, Lord of Moria.
+  Around the tomb lie the bones of dwarves, and broken swords, and
+  cloven shields, and in the recesses of the walls stand iron-bound
+  chests, all burst open. Drums are sounding somewhere below, doom,
+  doom. They are coming. The only door is south.
+exits:
+  south: 2017

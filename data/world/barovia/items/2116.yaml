@@ -1,0 +1,15 @@
+vnum: 2116
+name: a Vistani curved knife
+keywords: [vistani, curved, knife, dagger]
+description: A curved knife with a bright painted handle lies here.
+look: |
+  A short curved knife with a handle painted in red and yellow flowers.
+  The paint is fresh. The edge is fresher.
+type: weapon
+weight: 1
+level: 19
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: slash

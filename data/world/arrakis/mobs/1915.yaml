@@ -1,0 +1,21 @@
+vnum: 1915
+name: Captain Iakin Nefud
+keywords: [captain, iakin, nefud, harkonnen, officer]
+description: Captain Iakin Nefud surveys the landing field from the reviewing stand.
+look: |
+  The captain of the Baron's guard on Arrakis: a stocky man with a
+  square face, small pale eyes, and a semuta habit the Baron indulges
+  because it keeps him loyal. Under his gilded cuirass he wears a
+  Fremen stillsuit taken from a prisoner, and he tells the story of how
+  he got it to anyone who will listen. It is a worse story than he
+  thinks.
+level: 32
+flags: [assist]
+health: 2300
+silver: 450
+attack:
+  kind: fire
+  verb: burn
+effects:
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.7 }

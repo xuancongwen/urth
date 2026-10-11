@@ -1,0 +1,15 @@
+vnum: 2012
+name: an Uruk captain
+keywords: [uruk, captain, orc, great]
+description: An Uruk captain stands with his feet apart, a broad falchion in his fist.
+look: |
+  One of the great orcs, nearly man-high, black-skinned and heavy in the
+  shoulder, with a flat bitter face. He wears good mail, keeps his blade
+  sharp, and does not fear the light as the lesser orcs do. The others
+  are afraid of him. That is the job.
+level: 22
+flags: [assist]
+silver: 35
+attack:
+  kind: slash
+  verb: cleave

@@ -7,10 +7,14 @@ look: |
   wooden leg where the goatmen took his real one. He has goods nobody
   else in Tristram has, and prices nobody else in Tristram would dare.
   Do not ask where he gets them. He will tell you it is none of your
-  business, and he will be right.
+  business, and he will be right. A spare peg leg leans against the
+  crate, and if your eye wanders from it to the red light by the wall,
+  he smirks and tells you there is no such thing as a cow level. Type
+  'list' to see what he has.
 level: 8
 flags: [peaceful]
 attack:
   verb: kick
 trades:
   - { item: 1316, silver: 1500 }
+  - { item: 2800, silver: 500 }

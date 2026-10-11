@@ -1,0 +1,10 @@
+vnum: 2429
+name: The River Landing
+description: |
+  A wooden dock at the edge of a broad, slow, brown river, its pilings
+  gnawed and its boat gone. The far bank is lost in mist. A tall sail of
+  skin and spines slides through the water upstream, and the river goes
+  very quiet around it. Nobody in the park ever mentioned that this was
+  here. The road climbs east.
+exits:
+  east: 2428

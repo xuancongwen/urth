@@ -1,0 +1,26 @@
+vnum: 2703
+name: Ash's chainsaw hand
+keywords: [ash's, ash, chainsaw, hand, saw]
+description: A chainsaw with a steel cuff where its handle should be lies here.
+look: |
+  A two-stroke chainsaw with the handle cut off and a steel cuff welded
+  on, to fit over the stump of a right hand. It starts on the first
+  pull, every time, which no chainsaw has ever done. When it bites, it
+  chews, and now and then it catches and roars and tears a second, worse
+  wound. It is surprisingly comfortable. That is the worrying part.
+type: weapon
+weight: 5
+level: 18
+baseline: standard
+value: 2500
+weapon:
+  hands: 1
+  kind: slash
+  verb: saw
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: roaring chainsaw }
+  - kind: crit
+    params: { chance: 0.05, mult: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

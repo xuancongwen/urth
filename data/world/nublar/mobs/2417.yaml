@@ -1,0 +1,13 @@
+vnum: 2417
+name: Ray Arnold
+keywords: [ray, arnold, engineer, chief]
+description: Ray Arnold chain-smokes over a console, muttering at the fence readouts.
+look: |
+  The park's chief engineer, thin and tense, a cigarette permanently
+  between two fingers and a permanent frown at the monitors. He knows
+  exactly how many things on this island are working and he is not happy
+  about the number. Hold onto your butts, he says, to nobody.
+level: 12
+flags: [peaceful]
+attack:
+  verb: punch

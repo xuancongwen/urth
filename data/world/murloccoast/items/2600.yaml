@@ -1,0 +1,12 @@
+vnum: 2600
+name: a murloc fin
+keywords: [murloc, fin, fins]
+description: A webbed murloc fin lies here, still faintly slimy.
+look: |
+  A spined fin of green-grey skin, cut from a murloc's back or head.
+  It smells exactly as you would expect. The fisherman at the
+  lighthouse pays for these, either because the Westfall farmers put a
+  bounty on them or because he makes soup. He will not say which.
+type: other
+weight: 1
+value: 6

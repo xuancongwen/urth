@@ -1,0 +1,16 @@
+vnum: 2904
+name: a grim ghost
+keywords: [grim, ghost, spirit]
+description: A grim ghost hangs in the air, darker and more solid than the others.
+look: |
+  An old ghost, nearly solid, its face set in the blank patience of
+  something that has been waiting at the exit of level one for a very
+  long time. It drains warmth faster than the faint ones, and it does
+  not let go.
+level: 30
+flags: [assist]
+health: 750
+silver: 14
+attack:
+  kind: cold
+  verb: grave-cold touch

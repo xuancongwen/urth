@@ -1,0 +1,14 @@
+vnum: 2301
+name: Chewbacca
+keywords: [chewbacca, chewie, wookiee]
+description: Chewbacca is lying on his back under a console, roaring at it.
+look: |
+  Two and a half metres of shaggy brown wookiee with a bandolier across
+  his chest and a bowcaster propped beside him. He is fixing something,
+  or possibly punishing it. He gives you a look that says he would be
+  glad to pull your arms out of their sockets, but only if you start
+  something, and nobody starts something in here.
+level: 32
+flags: [peaceful]
+attack:
+  verb: maul

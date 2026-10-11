@@ -1,0 +1,13 @@
+vnum: 2413
+name: a pair of hiking boots
+keywords: [hiking, boots, boot]
+description: A pair of muddy hiking boots lies here, laces chewed.
+look: |
+  Sturdy leather hiking boots with deep treads, a little gnawed at the
+  heels by something with many small teeth. Their owner did not need them
+  for long.
+type: armor
+slot: feet
+weight: 2
+level: 5
+baseline: light

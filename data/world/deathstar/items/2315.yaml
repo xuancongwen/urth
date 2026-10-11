@@ -1,0 +1,11 @@
+vnum: 2315
+name: a Royal Guard's crimson robe
+keywords: [royal, guard's, guard, crimson, robe, robes]
+description: A heavy crimson robe lies here in folds.
+look: |
+  A floor-length robe of deep red, heavy and plain, with a long cape. It
+  hides the armour under it, and it hides the man inside even better.
+type: armor
+slot: body
+level: 38
+baseline: heavy

@@ -1,0 +1,12 @@
+vnum: 2511
+name: a moth-eaten wool cap
+keywords: [moth-eaten, moth, wool, cap]
+description: A moth-eaten wool cap lies here.
+look: |
+  A potboy's knitted cap, more hole than wool. It keeps your head warm
+  in the same way a fishing net keeps you dry.
+type: armor
+slot: head
+level: 1
+baseline: cloth
+flags: [drop]

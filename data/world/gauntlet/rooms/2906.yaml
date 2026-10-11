@@ -1,0 +1,11 @@
+vnum: 2906
+name: Level 2, the Grunt Huts
+description: |
+  A yard of trampled clay walled in by the maze, crowded with squat
+  huts of daub and bone. Each hut has a single low doorway, and out of
+  each doorway, at intervals that feel a little too regular, comes a
+  grunt: short, broad, red-eyed, and carrying a club. Cook fires smoke
+  between the huts. Nothing is cooking on them that you would want to
+  eat. The landing is west.
+exits:
+  west: 2905

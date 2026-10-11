@@ -1,0 +1,15 @@
+vnum: 2941
+name: a dwarven war axe
+keywords: [dwarven, war, axe]
+description: A heavy dwarven war axe lies here.
+look: |
+  A short, thick axe with a broad crescent head, made by people who
+  work in tunnels and do not like to swing wide.
+type: weapon
+level: 34
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

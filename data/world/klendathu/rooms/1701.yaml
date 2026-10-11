@@ -1,0 +1,14 @@
+vnum: 1701
+name: The Fire Base Compound
+description: |
+  Prefab walls of ceramic plate, sandbags, and razor wire enclose a yard
+  of churned red dust. Floodlights on poles hum overhead, and a speaker
+  on every pole plays the same brass-band march at a volume that makes
+  thought optional. A painted sign reads FIRE BASE WHISKEY: THE ONLY GOOD
+  BUG IS A DEAD BUG. A bunker door is set into the earth to the west,
+  another to the east. The pad is south, and the perimeter wire is north.
+exits:
+  south: 1700
+  west: 1702
+  east: 1703
+  north: 1705

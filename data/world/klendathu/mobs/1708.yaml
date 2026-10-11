@@ -1,0 +1,15 @@
+vnum: 1708
+name: an elder warrior bug
+keywords: [elder, warrior, bug, arachnid]
+description: An elder warrior bug, bigger than the rest, holds the swarm's flank.
+look: |
+  A warrior bug grown huge and dark with age, its shell gone almost
+  black, one mandible broken off and the other long enough to make up
+  for it. The young bugs flow around it the way water flows around a
+  rock. When it moves, they move.
+level: 20
+flags: [assist]
+silver: 25
+attack:
+  kind: slash
+  verb: slash

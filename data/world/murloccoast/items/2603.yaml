@@ -1,0 +1,20 @@
+vnum: 2603
+name: the crown of shells
+keywords: [crown, shells, shell, murloc, king]
+description: A lopsided crown of shells and pearls lies here, dripping.
+look: |
+  A circlet of scallop, cowrie, and conch shells set in a band of hard
+  black coral, with three fat pearls stuck on the front where a person
+  would put jewels and a murloc puts the best things it ever found. It
+  is too big for a murloc and about right for you. It makes the wearer
+  hold their head up, and slippery in a way that is hard to grab.
+type: armor
+slot: head
+weight: 1
+level: 13
+baseline: light
+value: 900
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.03 } }

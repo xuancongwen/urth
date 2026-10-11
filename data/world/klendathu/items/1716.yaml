@@ -1,0 +1,13 @@
+vnum: 1716
+name: a pair of plasma-scorched gauntlets
+keywords: [plasma-scorched, plasma, scorched, gauntlets, gloves]
+description: A pair of heavy gauntlets, fused blue at the fingertips, lies here.
+look: |
+  Armored gauntlets that belonged to someone who got too close to a
+  plasma bug and very nearly survived it. The ceramic has run and set
+  again in a glassy blue glaze. They are heavy and they still fit.
+type: armor
+slot: hands
+level: 36
+baseline: heavy
+flags: [drop]

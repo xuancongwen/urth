@@ -1,0 +1,11 @@
+vnum: 2226
+name: The Slopes of Bald Mountain
+description: |
+  A bare mountainside of rock and dead grass, where the frost lies thick
+  even in summer and every breath smokes. Bonfires burn on the slope
+  below, but their light does not reach up here. The ice on the rocks is
+  scored by the claws of hounds bigger than horses. The summit is north,
+  under a sky that has gone the wrong colour. The hillock is south.
+exits:
+  south: 2225
+  north: 2227

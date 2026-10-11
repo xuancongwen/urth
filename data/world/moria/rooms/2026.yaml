@@ -1,0 +1,11 @@
+vnum: 2026
+name: The Abyss under the Bridge
+description: |
+  You have fallen, or climbed, a very long way down a crack in the
+  chasm's side, and come to rest on a ledge slick with black water.
+  The fire is far above you now, a red seam in the dark. Down here the
+  rock is cold and the water is colder, and there are tunnels gnawed
+  by nameless things. The only way is back up, a long hard climb.
+exits:
+  up: 2023
+flags: [dark]

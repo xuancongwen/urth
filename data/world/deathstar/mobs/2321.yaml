@@ -1,0 +1,24 @@
+vnum: 2321
+name: Darth Vader
+keywords: [darth, vader, sith, lord, dark]
+description: Darth Vader stands here, breathing, a red lightsaber in his black-gloved hand.
+look: |
+  A giant in black: black armour, black cloak, a black helmet flared
+  like a samurai's and a mask with a triangular grille through which
+  comes, slow and mechanical, the breathing. A box of lights on his
+  chest blinks red and green. He tilts his head and considers you, and
+  something closes very gently around your throat. He finds your lack of
+  faith disturbing.
+level: 55
+health: 26000
+silver: 2000
+armor:
+  defense: 670
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: soak, params: { power: 0.15 } }
+  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: Force choke } }
+  - { kind: regen, params: { fraction: 0.005 } }
+  - { kind: steady, params: { chance: 0.4 } }

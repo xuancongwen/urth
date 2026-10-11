@@ -1,0 +1,12 @@
+vnum: 1802
+name: The Munitorum Dugout
+description: |
+  A dugout shored up with promethium drums filled with earth, lit by a
+  single caged lumen. Crates are stacked to the ceiling, every one
+  stencilled with a serial number, a regiment, and a date that has
+  already passed. A cogitator ticks in the corner, printing requisition
+  slips onto a floor already ankle deep in them. Nobody fights in here;
+  the Munitorum would need a form for it. The trench is north.
+exits:
+  north: 1801
+flags: [safe]

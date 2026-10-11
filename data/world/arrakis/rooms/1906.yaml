@@ -1,0 +1,12 @@
+vnum: 1906
+name: The Foot of the Shield Wall
+description: |
+  The Shield Wall rises behind you like the edge of the world, black and
+  creased and hot enough to fry on. Here the rock gives way to rubble and
+  the rubble to sand, and the sand runs east forever. Pale scorpions the
+  length of your forearm sun themselves on the warmer stones and resent
+  being stepped near. The sietch's door seal is set into the cliff to the
+  west. East the land breaks up into gullies.
+exits:
+  west: 1905
+  east: 1907

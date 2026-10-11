@@ -1,0 +1,13 @@
+vnum: 2408
+name: a ranger's bush hat
+keywords: [ranger's, ranger, bush, hat, slouch]
+description: A broad-brimmed bush hat lies here.
+look: |
+  A khaki slouch hat with one side of the brim pinned up and a band of
+  something's hide around the crown. It keeps the rain off and makes you
+  feel like a man who knows what he is doing.
+type: armor
+slot: head
+weight: 1
+level: 6
+baseline: light

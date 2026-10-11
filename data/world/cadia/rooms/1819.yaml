@@ -1,0 +1,12 @@
+vnum: 1819
+name: The Cathedral Square
+description: |
+  The square before the cathedral of Kasr Myrak, where generations of
+  Cadians took the oath before they shipped out. The great aquila that
+  stood here has been pulled down and its wings hacked off. Black
+  armoured figures hold the square now, and the paving is scratched
+  with the eight-pointed star of the Black Legion. Rubble Street is
+  east, and the cathedral doors stand open to the west.
+exits:
+  east: 1812
+  west: 1820

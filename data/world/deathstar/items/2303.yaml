@@ -1,0 +1,15 @@
+vnum: 2303
+name: a DH-17 blaster pistol
+keywords: [dh-17, dh17, blaster, pistol]
+description: A compact DH-17 blaster pistol lies here.
+look: |
+  A short, reliable blaster pistol, the kind issued to fleet troopers
+  and ship's crews because it does not punch holes in the hull. The
+  power cell is half full.
+type: weapon
+level: 19
+baseline: standard
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot

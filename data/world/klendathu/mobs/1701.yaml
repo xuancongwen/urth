@@ -1,0 +1,24 @@
+vnum: 1701
+name: Quartermaster Sergeant Okafor
+keywords: [quartermaster, sergeant, okafor]
+description: Quartermaster Sergeant Okafor counts magazines behind a counter of ammunition boxes.
+look: |
+  A broad, unhurried woman with reading glasses on a chain and a combat
+  knife in her boot, who signs for everything and forgives nothing. She
+  sells to anyone in uniform and does not look closely at the uniform.
+  She pays best in bug: bring her carapace, hopper wings, and the glands
+  of the big ones, and the engineers in the back will turn them into
+  something that kills bugs better. Type 'list' to see what she has.
+level: 25
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1703, silver: 5 }
+  - { item: 1702, silver: 25 }
+  - { item: 1702, items: [1704, 1704] }
+  - { item: 1701, silver: 300 }
+  - { item: 1700, silver: 400 }
+  - { item: 1712, silver: 600, items: [1704, 1704, 1704] }
+  - { item: 1713, silver: 500, items: [1704, 1704, 1705, 1705] }
+  - { item: 1715, silver: 700, items: [1706, 1705] }

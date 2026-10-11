@@ -1,0 +1,26 @@
+vnum: 2702
+name: Ash's boomstick
+keywords: [ash's, ash, boomstick, shotgun, remington, gun]
+description: A sawed-off double-barrelled shotgun lies here, smelling of cordite.
+look: |
+  A twelve-gauge, double-barrelled Remington, sawed off short, with a
+  walnut stock and a blued finish. Shop Smart. Shop S-Mart. It was the
+  top of the line, and it has been carried through two hells already. It
+  kicks like a mule, it ends arguments, and the man holding it finds
+  everybody listens when he talks, whether they want to or not. Groovy.
+type: weapon
+weight: 4
+level: 18
+baseline: heavy
+value: 2500
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: execute
+    params: { threshold: 0.3, mult: 1.3 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }

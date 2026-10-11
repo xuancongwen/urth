@@ -1,0 +1,12 @@
+vnum: 1927
+name: Worm Sign
+description: |
+  The dunes here are scored with great curved troughs, as if something
+  the size of a frigate had swum through them, which it has. The sand is
+  still warm where it passed. A cinnamon smell hangs over everything, and
+  under it, something like burnt flint. Every Fremen instinct you do not
+  have is telling you to walk without rhythm. The erg is north and the
+  troughs run east.
+exits:
+  north: 1919
+  east: 1928

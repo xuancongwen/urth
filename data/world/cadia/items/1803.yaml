@@ -1,0 +1,12 @@
+vnum: 1803
+name: a Cadian helmet
+keywords: [cadian, helmet, helm]
+description: A round olive helmet with a chinstrap lies here.
+look: |
+  A pressed-steel helmet with a cloth cover and a slot for a rebreather.
+  Someone has scratched a tally into the rim and a prayer into the
+  lining, and judging by the dents both have been tested.
+type: armor
+slot: head
+level: 23
+baseline: medium

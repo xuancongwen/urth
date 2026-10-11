@@ -1,0 +1,12 @@
+vnum: 2706
+name: a page torn from the Necronomicon
+keywords: [page, torn, necronomicon, leaf]
+description: A leaf of brown, leathery parchment lies here, covered in red script.
+look: |
+  One page of the Book of the Dead, torn out along the stitching. The
+  script is red and crawls if you look at it sideways, and in the margin
+  somebody has scrawled the three words, with the last one smudged. The
+  wise man would give a great deal to have it back where it cannot be
+  read.
+type: other
+flags: [quest]

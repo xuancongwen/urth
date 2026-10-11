@@ -1,0 +1,14 @@
+vnum: 1903
+name: a Fremen of Sietch Tabr
+keywords: [fremen, sietch, tabr, desert, warrior]
+description: A Fremen in a stillsuit and a hooded cloak passes by on soft feet.
+look: |
+  A lean, weathered man or woman, hard to tell under the hood and the
+  nose plugs, with eyes blue within blue. They move without rhythm,
+  out of habit, even on rock. They nod to you exactly as much as a
+  guest is owed, and not a drop more.
+level: 22
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab

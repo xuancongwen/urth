@@ -1,0 +1,13 @@
+vnum: 2823
+name: a cowhide hood
+keywords: [cowhide, hood, hide]
+description: A hood of cowhide with a pair of ears on it lies here.
+look: |
+  A hood of soft cowhide with the ears left on. It is warm, and it makes
+  you look ridiculous, and both of these are true at once.
+type: armor
+slot: head
+weight: 1
+level: 23
+baseline: light
+flags: [drop]

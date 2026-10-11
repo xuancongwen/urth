@@ -1,0 +1,15 @@
+vnum: 2950
+name: a bastard sword
+keywords: [bastard, sword]
+description: A long bastard sword lies here.
+look: |
+  A hand-and-a-half sword with a long grip and a long blade, for
+  heroes who never made up their minds about shields.
+type: weapon
+level: 37
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

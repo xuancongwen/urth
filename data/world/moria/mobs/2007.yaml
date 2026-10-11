@@ -1,0 +1,15 @@
+vnum: 2007
+name: a warg
+keywords: [warg, wolf]
+description: A warg the size of a pony bares its teeth at you.
+look: |
+  A great evil wolf, bigger than any natural one, with a black ruff and
+  eyes that are too clever by half. Wargs speak, in their own howling
+  tongue, and the orcs ride them when they can catch them. This one
+  would rather eat you than talk.
+level: 15
+flags: [assist]
+silver: 5
+attack:
+  kind: bite
+  verb: maul

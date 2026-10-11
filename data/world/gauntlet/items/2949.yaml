@@ -1,0 +1,12 @@
+vnum: 2949
+name: a steel war mask
+keywords: [steel, war, mask]
+description: A steel war mask with a fixed scowl lies here.
+look: |
+  A face of beaten steel with a scowl hammered into it, eye holes,
+  and a grille over the mouth. The scowl is not for you. Probably.
+type: armor
+slot: face
+level: 36
+baseline: plate
+flags: [drop]

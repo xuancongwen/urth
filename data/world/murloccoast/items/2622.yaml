@@ -1,0 +1,14 @@
+vnum: 2622
+name: a sharkskin jerkin
+keywords: [sharkskin, jerkin, vest]
+description: A sleeveless jerkin of grey sharkskin lies here.
+look: |
+  A jerkin cut from one whole shark, the dorsal ridge running down the
+  back. It is light, it does not mind getting wet, and it will take the
+  skin off anyone who grabs you.
+type: armor
+slot: body
+weight: 3
+level: 11
+baseline: light
+flags: [drop]

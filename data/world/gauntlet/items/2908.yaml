@@ -1,0 +1,13 @@
+vnum: 2908
+name: a stone high-score tablet
+keywords: [stone, high-score, high, score, tablet]
+description: A small stone tablet carved with letters and numbers lies here.
+look: |
+  A slab of grey slate the size of a book, carved with a column of
+  three-letter names and long numbers beside them. Most of the names are
+  AAA. One near the top has been scratched out and carved again, deeper.
+  Somebody, somewhere, wants this back very badly, and would like
+  everyone to know they held the record.
+type: other
+weight: 2
+flags: [quest]

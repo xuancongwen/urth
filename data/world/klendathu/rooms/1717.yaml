@@ -1,0 +1,11 @@
+vnum: 1717
+name: The Plasma Battery
+description: |
+  A plain of pale rock where a handful of bugs as big as houses squat in
+  a line, their abdomens pointed at the sky. Every so often one clenches
+  and fires a ball of blue-white plasma straight up through the clouds,
+  and some time later a little light dies among the stars where the
+  Fleet is waiting. The air reeks of ozone. Your hair stands on end.
+  The tanker trench is west.
+exits:
+  west: 1716

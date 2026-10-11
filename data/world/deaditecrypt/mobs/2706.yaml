@@ -1,0 +1,14 @@
+vnum: 2706
+name: a flying deadite head
+keywords: [flying, deadite, head, skull]
+description: A severed deadite head flaps past on leathery wings, cackling.
+look: |
+  A deadite's head, neck still ragged, kept aloft by a pair of bat wings
+  that sprouted from behind its ears. It swoops, bites, and cackles, and
+  it never stays in one place long enough to be hit properly.
+level: 15
+flags: [wander]
+silver: 15
+attack:
+  kind: pierce
+  verb: bite

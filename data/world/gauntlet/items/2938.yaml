@@ -1,0 +1,15 @@
+vnum: 2938
+name: an ash-hafted spear
+keywords: [ash-hafted, ash, spear]
+description: A long ash-hafted spear lies here.
+look: |
+  Eight feet of ash with a leaf-shaped head, long enough to reach
+  over a lobber's wall and tap him on the head.
+type: weapon
+level: 33
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

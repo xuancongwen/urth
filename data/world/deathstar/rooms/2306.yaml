@@ -1,0 +1,12 @@
+vnum: 2306
+name: The Turbolift Bank
+description: |
+  A row of turbolift doors set into a curved wall, each with a small red
+  light over it. The lifts hum and thump in their shafts as they pass. A
+  placard beside the nearest one lists its stops, and someone has
+  scratched out DETENTION and written PRISON BLOCK beside it, as if
+  anyone were confused. The junction is east, and the open lift drops
+  down.
+exits:
+  east: 2305
+  down: 2307

@@ -1,0 +1,16 @@
+vnum: 2121
+name: The Great Entry Hall
+description: |
+  A hall of grey stone and red carpet rises to a vaulted ceiling painted
+  with a hunting scene, the hounds and the huntsmen all with the same
+  pale face. Four stone dragons crouch on plinths along the walls. Doors
+  open west into a study and east into a chapel; an archway south leads
+  to the audience hall. A narrow stair in the corner winds down into the
+  dark, and the air that comes up it is cold and smells of earth. The
+  courtyard is north.
+exits:
+  north: 2120
+  west: 2122
+  east: 2123
+  south: 2124
+  down: 2127

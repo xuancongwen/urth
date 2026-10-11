@@ -1,0 +1,16 @@
+vnum: 1826
+name: a reaper autocannon
+keywords: [reaper, autocannon, cannon, gun]
+description: A twin-barrelled autocannon with a shoulder brace lies here.
+look: |
+  A Terminator's reaper autocannon, two barrels and a drum of shells
+  the size of your forearm. Fired from the hip, it is less a weapon than
+  a change in the weather.
+type: weapon
+level: 65
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast

@@ -1,0 +1,13 @@
+vnum: 2311
+name: Trash Compactor 3263827
+description: |
+  You splash down into a pit of rubbish and filthy water up to the
+  waist, in a steel room of pipes and scrap and things that were food
+  once. The smell is a physical presence. Every so often the walls give
+  a groan and a shudder and slide a hand's breadth closer together, and
+  then stop, as if thinking about it. Something long and slick brushes
+  past your leg under the water. The chute you came down goes up, and a
+  magnetically sealed hatch leads east into a maintenance shaft.
+exits:
+  east: 2312
+  up: 2308

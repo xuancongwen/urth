@@ -1,0 +1,13 @@
+vnum: 2900
+name: a gold key
+keywords: [gold, key]
+description: A plain gold key lies here, bright against the stone.
+look: |
+  A short, heavy key of yellow gold with a square bow, exactly like
+  every other key on every level of the place. It opens any door down
+  here, and it seems to want to: held near a lock, it tugs at your
+  fingers. Doors lock again behind you when the level resets, and the
+  key does not mind going round again.
+type: other
+weight: 1
+value: 40

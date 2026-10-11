@@ -1,0 +1,13 @@
+vnum: 2005
+name: a dwarf hood of iron rings
+keywords: [dwarf, hood, iron, rings, coif]
+description: A hood of iron rings lies here in a heap.
+look: |
+  A mail coif with a leather lining, made to sit under a travelling
+  hood, so that a dwarf on the road looks like a pedlar until somebody
+  hits him on the head.
+type: armor
+slot: head
+weight: 3
+level: 12
+baseline: medium

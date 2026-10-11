@@ -1,0 +1,21 @@
+vnum: 1921
+name: a Fremen stillsuit
+keywords: [fremen, stillsuit, suit]
+description: A worn stillsuit with tribal markings on the sleeves lies here.
+look: |
+  A true Fremen stillsuit, cut and sealed in a sietch by someone who
+  had worn them all their life, with tribal marks stitched at the
+  wrists. Captain Nefud took it from a prisoner and wears it under his
+  cuirass for the bragging. It loses no water at all. It mends what it
+  can, too: the body inside it never quite dries out, and wounds close
+  under the fabric as if the desert itself were patient with you.
+type: armor
+slot: body
+weight: 3
+level: 32
+baseline: light
+value: 3000
+effects:
+  - kind: regen
+    params: { fraction: 0.02 }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

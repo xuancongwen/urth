@@ -1,0 +1,10 @@
+vnum: 2317
+name: The Imperial Conference Room
+description: |
+  A circular table of black glass under a ring of white light, with high
+  backed chairs around it and a holoprojector at its centre showing the
+  station turning slowly. Someone has left a half-finished cup of caf by
+  one chair, and a toppled chair by another, as if its occupant had
+  suddenly found it hard to breathe. The corridor is west.
+exits:
+  west: 2316
