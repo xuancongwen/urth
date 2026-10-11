@@ -247,7 +247,7 @@ func (w *World) finishExpedition(p *Player, area string, ex Expedition) {
 	if r := rewardFor(p.Character); r != nil {
 		r.Silver += ex.Silver
 		for _, it := range ex.Items {
-			rewardItem(p.Character, it)
+			w.rewardItem(p.Character, it)
 		}
 	}
 	b.WriteString("You return after " + w.questMinutes(ex.Rounds) + ": " + plural(ex.Kills, "kill") +

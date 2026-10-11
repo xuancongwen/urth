@@ -107,7 +107,7 @@ func cmdGet(w *World, p *Player, args string) {
 		}
 		p.Inventory = append(p.Inventory, it)
 		if container.Proto.HasFlag("corpse") {
-			rewardItem(p.Character, it) // loot; a pack you emptied yourself is not
+			w.rewardItem(p.Character, it) // loot; a pack you emptied yourself is not
 		}
 		w.actItem("You get $p from $t.", p.Character, nil, output.Escape(it.Name()), output.Escape(container.Name()), toChar)
 		w.actItem("$n gets $p from $t.", p.Character, nil, output.Escape(it.Name()), output.Escape(container.Name()), toRoom)

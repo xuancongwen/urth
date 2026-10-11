@@ -29,10 +29,17 @@ func rewardTitle(c *Character, title string) {
 	}
 }
 
-func rewardItem(c *Character, it *item.Item) {
-	if r := rewardFor(c); r != nil {
-		r.Items = append(r.Items, output.GearItem{Name: it.Name(), Type: string(it.Proto.Type), Rarity: it.Rarity, Color: it.Color})
+// rewardItem adds an item the player just took to the reward, as the bag
+// shows it (with the reference a command takes, and its numbers), so a
+// client can offer to wear it.
+func (w *World) rewardItem(c *Character, it *item.Item) {
+	r := rewardFor(c)
+	if r == nil {
+		return
 	}
+	g := gearItem(it, itemRef(c.Inventory, w.searchPool(c.player), it))
+	g.Slot = string(it.Proto.WearSlot())
+	r.Items = append(r.Items, g)
 }
 
 // queueReward sends p's gathered reward, if any.

@@ -273,6 +273,15 @@ type GearItem struct {
 	Slot   string `json:"slot,omitempty"`
 	Rarity string `json:"rarity,omitempty"`
 	Color  string `json:"color,omitempty"`
+	// The numbers a comparison needs: a weapon's damage range per swing
+	// and swings per round, armor's defense, the item's level, and how many
+	// effects it carries (affixes and intrinsic ones).
+	Level      int     `json:"level,omitempty"`
+	DamageLow  int     `json:"damageLow,omitempty"`
+	DamageHigh int     `json:"damageHigh,omitempty"`
+	Speed      float64 `json:"speed,omitempty"`
+	Defense    float64 `json:"defense,omitempty"`
+	Effects    int     `json:"effects,omitempty"`
 }
 
 // Action is a skill or spell the character can use. Command is what to

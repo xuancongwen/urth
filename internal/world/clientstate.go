@@ -2,6 +2,7 @@ package world
 
 import (
 	"encoding/json"
+	"math"
 	"strings"
 
 	"urth/internal/item"
@@ -216,5 +217,15 @@ func (w *World) searchPool(p *Player) []*item.Item {
 }
 
 func gearItem(it *item.Item, ref string) output.GearItem {
-	return output.GearItem{Name: it.Name(), Ref: ref, Type: string(it.Proto.Type), Rarity: it.Rarity, Color: it.Color}
+	p := it.Proto
+	g := output.GearItem{Name: it.Name(), Ref: ref, Type: string(p.Type), Rarity: it.Rarity, Color: it.Color,
+		Level: p.Level, Effects: len(p.Effects) + len(it.Effects)}
+	switch p.Type {
+	case item.Weapon:
+		g.DamageLow, g.DamageHigh = spreadBounds(p.Resolved.Weapon.Damage, p.Resolved.Weapon.Spread)
+		g.Speed = p.Resolved.Weapon.Speed
+	case item.Armor:
+		g.Defense = math.Round(p.Resolved.Armor.Defense*10) / 10
+	}
+	return g
 }

@@ -79,7 +79,7 @@ func (w *World) lootCorpse(p *Player, corpse *item.Item, coinsOnly bool) {
 			continue
 		}
 		p.Inventory = append(p.Inventory, it)
-		rewardItem(p.Character, it)
+		w.rewardItem(p.Character, it)
 		w.actItem("You get $p from $t.", p.Character, nil, output.Escape(it.Name()), from, toChar)
 		w.actItem("$n gets $p from $t.", p.Character, nil, output.Escape(it.Name()), from, toRoom)
 	}
