@@ -20,3 +20,4 @@ effects:
   - { kind: crit, params: { chance: 0.07, mult: 2 } }
   - { kind: dodge, params: { amount: 0.03 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: added, params: { kind: pierce, power: 0.26 } }

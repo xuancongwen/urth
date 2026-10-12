@@ -24,3 +24,5 @@ effects:
     params: { stat: wisdom, amount: 2 }
   - kind: stat
     params: { stat: intelligence, amount: 2 }
+  - kind: added
+    params: { kind: unholy, power: 0.39 }

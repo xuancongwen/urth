@@ -22,3 +22,5 @@ effects:
   - { kind: spellCrit, params: { chance: 0.08, mult: 1.75, branch: arcane } }
   - { kind: penetration, params: { amount: 0.12, branch: arcane } }
   - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: added, params: { kind: magic, power: 0.43 } }
+  - { kind: added, params: { kind: fire, power: 0.28 } }

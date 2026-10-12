@@ -25,3 +25,4 @@ effects:
     params: { threshold: 0.3, mult: 1.4 }
   - { kind: stat, params: { stat: strength, amount: 3 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: added, params: { kind: pierce, power: 0.66 } }

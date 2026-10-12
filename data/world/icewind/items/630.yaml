@@ -25,3 +25,5 @@ effects:
     params: { stat: constitution, amount: 1 }
   - kind: steady
     params: { chance: 0.3 }
+  - kind: added
+    params: { kind: blunt, power: 0.22 }

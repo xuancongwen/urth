@@ -25,3 +25,5 @@ effects:
   - kind: ignite
     params: { power: 0.08, rounds: 3, maxStacks: 2 }
   - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: added, params: { kind: fire, power: 0.47 } }
+  - { kind: added, params: { kind: drain, power: 0.31 } }

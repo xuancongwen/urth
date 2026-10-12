@@ -22,3 +22,4 @@ effects:
     params: { chance: 0.1, mult: 2 }
   - { kind: damage, params: { mult: 1.08, weapon: true } }
   - { kind: steady, params: { chance: 0.3 } }
+  - { kind: added, params: { kind: slash, power: 0.64 } }

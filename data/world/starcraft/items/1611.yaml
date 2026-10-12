@@ -17,3 +17,5 @@ weapon:
   verb: slice
 effects:
   - kind: detectHidden
+  - kind: added
+    params: { kind: psionic, power: 0.42 }

@@ -21,3 +21,5 @@ effects:
     params: { chance: 0.15, mult: 0.7, rounds: 2 }
   - kind: critMult
     params: { amount: 0.25 }
+  - kind: added
+    params: { kind: slash, power: 0.26 }

@@ -20,3 +20,4 @@ weapon:
 effects:
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: added, params: { kind: lightning, power: 0.55 } }

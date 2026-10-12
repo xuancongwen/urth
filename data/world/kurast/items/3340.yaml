@@ -19,3 +19,4 @@ effects:
   - { kind: spellPower, params: { mult: 1.08, kind: damage } }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: manaMax, params: { amount: 0.08 } }
+  - { kind: added, params: { kind: unholy, power: 0.66 } }

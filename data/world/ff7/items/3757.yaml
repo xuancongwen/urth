@@ -24,3 +24,4 @@ effects:
   - { kind: stat, params: { stat: strength, amount: 3 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
   - { kind: steady, params: { chance: 0.3 } }
+  - { kind: added, params: { kind: magic, power: 0.8 } }

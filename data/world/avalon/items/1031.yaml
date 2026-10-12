@@ -23,3 +23,4 @@ effects:
   - { kind: critMult, params: { amount: 0.3 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: added, params: { kind: holy, power: 0.3 } }

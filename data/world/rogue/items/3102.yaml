@@ -21,3 +21,4 @@ effects:
   - kind: damage
     params: { mult: 1.05, weapon: true }
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: added, params: { kind: magic, power: 0.53 } }

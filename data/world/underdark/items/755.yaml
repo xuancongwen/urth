@@ -21,3 +21,4 @@ effects:
   - { kind: chill, params: { chance: 0.2, mult: 0.6, rounds: 2 } }
   - { kind: proc, params: { kind: pierce, chance: 0.25, power: 0.8, verb: "lash of six barbed tentacles" } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: added, params: { kind: unholy, power: 0.41 } }

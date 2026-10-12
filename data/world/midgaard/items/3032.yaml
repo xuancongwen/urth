@@ -18,3 +18,4 @@ weapon:
 effects:
   - { kind: block, params: { chance: 0.06 } }
   - { kind: chill, params: { chance: 0.15, mult: 0.6, rounds: 2 } }
+  - { kind: added, params: { kind: slash, power: 0.3 } }

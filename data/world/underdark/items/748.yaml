@@ -15,3 +15,5 @@ weapon:
 effects:
   - kind: envenom
     params: { power: 0.08, rounds: 3, maxStacks: 1 }
+  - kind: added
+    params: { kind: poison, power: 0.38 }

@@ -24,3 +24,5 @@ effects:
     params: { chance: 0.05, mult: 2 }
   - kind: stat
     params: { stat: strength, amount: 1 }
+  - kind: added
+    params: { kind: slash, power: 0.38 }

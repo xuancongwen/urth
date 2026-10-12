@@ -30,3 +30,5 @@ effects:
     params: { stat: constitution, amount: 2 }
   - kind: soak
     params: { power: 0.08 }
+  - kind: added
+    params: { kind: slash, power: 0.74 }

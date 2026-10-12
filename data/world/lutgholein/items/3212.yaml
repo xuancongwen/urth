@@ -30,3 +30,5 @@ effects:
     params: { mult: 1.10, branch: arcane }
   - kind: manaMax
     params: { amount: 0.20 }
+  - kind: added
+    params: { kind: magic, power: 0.62 }

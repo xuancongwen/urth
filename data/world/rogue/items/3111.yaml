@@ -23,3 +23,5 @@ effects:
   - kind: leech
     params: { fraction: 0.05 }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: added, params: { kind: fire, power: 0.28 } }
+  - { kind: added, params: { kind: unholy, power: 0.19 } }

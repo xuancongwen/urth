@@ -21,3 +21,4 @@ effects:
   - { kind: leech, params: { fraction: 0.06 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: added, params: { kind: poison, power: 0.67 } }

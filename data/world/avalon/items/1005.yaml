@@ -19,3 +19,5 @@ effects:
   - kind: crit
     params: { chance: 0.1, mult: 2 }
   - kind: detectInvisible
+  - kind: added
+    params: { kind: magic, power: 0.24 }

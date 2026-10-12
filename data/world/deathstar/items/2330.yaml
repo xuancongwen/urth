@@ -20,3 +20,4 @@ effects:
   - { kind: proc, params: { kind: lightning, chance: 0.15, power: 1.0, verb: crackling shock } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: added, params: { kind: lightning, power: 0.64 } }

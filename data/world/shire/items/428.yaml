@@ -21,3 +21,4 @@ weapon:
 effects:
   - { kind: execute, params: { threshold: 0.25, mult: 1.4 } }
   - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: added, params: { kind: blunt, power: 0.1 } }

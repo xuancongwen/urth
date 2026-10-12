@@ -19,3 +19,5 @@ weapon:
 effects:
   - kind: leech
     params: { fraction: 0.06 }
+  - kind: added
+    params: { kind: drain, power: 0.77 }

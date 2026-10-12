@@ -18,3 +18,5 @@ weapon:
 effects:
   - kind: crit
     params: { chance: 0.05, mult: 2 }
+  - kind: added
+    params: { kind: holy, power: 0.34 }

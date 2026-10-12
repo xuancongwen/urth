@@ -17,3 +17,4 @@ weapon:
   verb: flail
 effects:
   - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: added, params: { kind: blunt, power: 0.18 } }

@@ -29,3 +29,5 @@ effects:
     params: { stat: strength, amount: 3 }
   - kind: stat
     params: { stat: constitution, amount: 2 }
+  - kind: added
+    params: { kind: holy, power: 0.8 }

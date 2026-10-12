@@ -21,3 +21,4 @@ effects:
   - kind: opportunist
     params: { mult: 1.15 }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: added, params: { kind: pierce, power: 0.5 } }

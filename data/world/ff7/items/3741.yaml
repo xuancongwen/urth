@@ -21,3 +21,4 @@ effects:
   - { kind: stat, params: { stat: wisdom, amount: 3 } }
   - { kind: spellPower, params: { mult: 1.12, kind: heal } }
   - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: added, params: { kind: holy, power: 0.7 } }

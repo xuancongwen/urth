@@ -20,3 +20,4 @@ effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: spellPower, params: { mult: 1.06, branch: arcane } }
   - { kind: manaMax, params: { amount: 0.1 } }
+  - { kind: added, params: { kind: magic, power: 0.59 } }

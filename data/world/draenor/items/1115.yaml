@@ -23,3 +23,7 @@ effects:
     params: { power: 0.12, rounds: 3, maxStacks: 3 }
   - kind: stat
     params: { stat: strength, amount: 2 }
+  - kind: added
+    params: { kind: fire, power: 0.25 }
+  - kind: added
+    params: { kind: unholy, power: 0.16 }

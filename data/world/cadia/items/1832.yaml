@@ -24,3 +24,4 @@ effects:
     params: { kind: pierce, chance: 0.2, power: 1.0, verb: hurled Helspear }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: added, params: { kind: unholy, power: 0.8 } }

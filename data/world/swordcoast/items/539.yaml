@@ -20,3 +20,4 @@ effects:
   - { kind: steady, params: { chance: 0.4 } }
   - { kind: regen, params: { fraction: 0.01 } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: added, params: { kind: magic, power: 0.3 } }

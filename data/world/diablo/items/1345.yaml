@@ -21,3 +21,4 @@ effects:
   - { kind: manaMax, params: { amount: 0.1 } }
   - { kind: penetration, params: { amount: 0.08, branch: divine } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: added, params: { kind: unholy, power: 0.42 } }

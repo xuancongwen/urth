@@ -21,3 +21,4 @@ effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: chill, params: { chance: 0.2, mult: 0.5, rounds: 3 } }
   - { kind: opportunist, params: { mult: 1.2 } }
+  - { kind: added, params: { kind: cold, power: 0.2 } }

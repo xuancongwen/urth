@@ -16,3 +16,4 @@ weapon:
   verb: club
 effects:
   - { kind: envenom, params: { power: 0.06, rounds: 3, maxStacks: 1 } }
+  - { kind: added, params: { kind: poison, power: 0.2 } }

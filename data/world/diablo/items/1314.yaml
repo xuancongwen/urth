@@ -18,3 +18,7 @@ weapon:
 effects:
   - kind: stat
     params: { stat: intelligence, amount: 3 }
+  - kind: added
+    params: { kind: unholy, power: 0.25 }
+  - kind: added
+    params: { kind: magic, power: 0.16 }

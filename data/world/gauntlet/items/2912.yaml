@@ -25,3 +25,5 @@ effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: spellPower, params: { mult: 1.10, branch: arcane } }
   - { kind: spellCrit, params: { chance: 0.05, mult: 1.5, branch: arcane } }
+  - { kind: added, params: { kind: lightning, power: 0.36 } }
+  - { kind: added, params: { kind: magic, power: 0.24 } }

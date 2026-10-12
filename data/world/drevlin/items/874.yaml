@@ -21,3 +21,5 @@ effects:
   - kind: detectHidden
   - kind: stat
     params: { stat: wisdom, amount: 2 }
+  - kind: added
+    params: { kind: magic, power: 0.2 }

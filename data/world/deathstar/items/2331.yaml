@@ -22,3 +22,4 @@ effects:
   - { kind: critMult, params: { amount: 0.5 } }
   - { kind: stat, params: { stat: strength, amount: 3 } }
   - { kind: block, params: { chance: 0.06 } }
+  - { kind: added, params: { kind: fire, power: 0.78 } }

@@ -20,3 +20,4 @@ weapon:
 effects:
   - { kind: crit, params: { chance: 0.08, mult: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: added, params: { kind: fire, power: 0.53 } }

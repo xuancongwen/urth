@@ -22,3 +22,4 @@ effects:
   - { kind: critMult, params: { amount: 0.25 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: added, params: { kind: blunt, power: 0.51 } }

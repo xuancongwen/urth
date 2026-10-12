@@ -17,3 +17,4 @@ weapon:
   verb: strike
 effects:
   - { kind: steady, params: { chance: 0.2 } }
+  - { kind: added, params: { kind: magic, power: 0.2 } }

@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: crit, params: { chance: 0.08, mult: 2 } }
   - { kind: ignite, params: { power: 0.07, rounds: 3, maxStacks: 2 } }
+  - { kind: added, params: { kind: fire, power: 0.26 } }

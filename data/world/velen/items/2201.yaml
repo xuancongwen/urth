@@ -28,3 +28,5 @@ effects:
     params: { threshold: 0.25, mult: 1.3 }
   - kind: stat
     params: { stat: dexterity, amount: 2 }
+  - kind: added
+    params: { kind: magic, power: 0.44 }

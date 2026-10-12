@@ -25,3 +25,4 @@ effects:
     params: { threshold: 0.3, mult: 1.3 }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: added, params: { kind: pierce, power: 0.47 } }

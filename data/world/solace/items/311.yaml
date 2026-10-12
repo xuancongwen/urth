@@ -25,3 +25,4 @@ effects:
   - { kind: block, params: { chance: 0.06 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: added, params: { kind: holy, power: 0.18 } }

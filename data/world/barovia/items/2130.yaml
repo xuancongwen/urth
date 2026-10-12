@@ -24,3 +24,4 @@ effects:
     params: { kind: bite, chance: 0.15, power: 1.0, verb: buzzing blast of flies }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: added, params: { kind: unholy, power: 0.5 } }

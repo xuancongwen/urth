@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: spellPower, params: { mult: 1.1, school: evocation } }
   - { kind: spellCrit, params: { chance: 0.03, mult: 1.5, school: evocation } }
+  - { kind: added, params: { kind: lightning, power: 0.32 } }

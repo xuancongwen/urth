@@ -23,3 +23,4 @@ effects:
   - { kind: crit, params: { chance: 0.06, mult: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: added, params: { kind: slash, power: 0.58 } }

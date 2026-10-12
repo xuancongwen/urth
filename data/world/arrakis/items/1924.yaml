@@ -21,3 +21,4 @@ effects:
   - kind: proc
     params: { kind: blunt, chance: 0.12, power: 1.0, verb: thumping drumbeat }
   - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: added, params: { kind: blunt, power: 0.5 } }

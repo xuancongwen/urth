@@ -1308,7 +1308,15 @@ cannot drop the best sword in the game.
   this have no recorded level and use the prototype's.
 - **Named weapons** are strong the same way as rolled ones: several
   affixes, several procs, or one large one, never a stated damage
-  number.
+  number. Every named weapon from item level 5 carries added damage
+  of its own theme worth exactly what the flatter curve took from it,
+  `1 - weaponShare(L)` units (split 60 and 40 between two kinds where
+  it has two), so it stands where it stood against a character in the
+  kit (4.5), and what it was named for (its procs, crits, stats) still
+  sets it apart. The theme is the item's: its existing procs' kinds,
+  then its lore (Frostmourne cold and drain, the Master Sword holy,
+  Thor's axe lightning); a weapon that is merely very good, a fine
+  sword or a gun, adds its own physical kind (2026-10-12).
 - **Drops.** On a death the rules say how many extra items the corpse
   gets and how wide a level band they come from. The engine draws each
   from the rollable weapon and armor prototypes of the victim's own

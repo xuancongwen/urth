@@ -26,3 +26,5 @@ effects:
     params: { mult: 1.08, weapon: true }
   - kind: stat
     params: { stat: strength, amount: 3 }
+  - kind: added
+    params: { kind: blunt, power: 0.79 }

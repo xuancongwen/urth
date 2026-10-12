@@ -27,3 +27,5 @@ effects:
     params: { stat: wisdom, amount: 2 }
   - kind: protect
     params: { mult: 0.92 }
+  - kind: added
+    params: { kind: magic, power: 0.62 }

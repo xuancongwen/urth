@@ -27,3 +27,5 @@ effects:
     params: { amount: 0.03 }
   - kind: stat
     params: { stat: dexterity, amount: 2 }
+  - kind: added
+    params: { kind: magic, power: 0.44 }

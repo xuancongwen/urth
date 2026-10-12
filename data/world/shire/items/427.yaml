@@ -21,3 +21,4 @@ effects:
   - { kind: envenom, params: { power: 0.1, rounds: 4, maxStacks: 2 } }
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: -1 } }
+  - { kind: added, params: { kind: cold, power: 0.2 } }

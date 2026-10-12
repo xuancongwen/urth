@@ -19,3 +19,5 @@ effects:
     params: { kind: unholy, chance: 0.3, power: 1.0, verb: "black flame of Cyric" }
   - kind: execute
     params: { threshold: 0.3, mult: 1.3 }
+  - kind: added
+    params: { kind: unholy, power: 0.2 }

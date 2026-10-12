@@ -21,3 +21,4 @@ effects:
   - { kind: crit, params: { chance: 0.08, mult: 2 } }
   - { kind: dodge, params: { amount: 0.03 } }
   - { kind: execute, params: { threshold: 0.3, mult: 1.25 } }
+  - { kind: added, params: { kind: slash, power: 0.32 } }

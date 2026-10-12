@@ -21,3 +21,4 @@ effects:
   - { kind: block, params: { chance: 0.10 } }
   - { kind: damage, params: { mult: 1.08, weapon: true } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: added, params: { kind: slash, power: 0.41 } }

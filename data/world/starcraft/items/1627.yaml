@@ -17,3 +17,5 @@ weapon:
 effects:
   - kind: proc
     params: { kind: slash, chance: 0.1, power: 1.0, verb: ricocheting glave }
+  - kind: added
+    params: { kind: acid, power: 0.42 }

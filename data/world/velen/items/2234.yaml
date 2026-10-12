@@ -20,3 +20,4 @@ effects:
   - { kind: spellPower, params: { mult: 1.1, deity: neutral } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: manaMax, params: { amount: 0.08 } }
+  - { kind: added, params: { kind: magic, power: 0.55 } }

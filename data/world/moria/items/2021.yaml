@@ -28,3 +28,5 @@ effects:
     params: { stat: strength, amount: 2 }
   - kind: stat
     params: { stat: wisdom, amount: 1 }
+  - kind: added
+    params: { kind: magic, power: 0.53 }

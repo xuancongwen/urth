@@ -26,3 +26,7 @@ effects:
     params: { stat: strength, amount: 2 }
   - kind: stat
     params: { stat: constitution, amount: 1 }
+  - kind: added
+    params: { kind: fire, power: 0.48 }
+  - kind: added
+    params: { kind: poison, power: 0.32 }

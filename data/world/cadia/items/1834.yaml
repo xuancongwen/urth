@@ -22,3 +22,4 @@ effects:
   - { kind: spellPower, params: { mult: 1.1, branch: arcane } }
   - { kind: spellCrit, params: { chance: 0.05, mult: 1.5, branch: arcane } }
   - { kind: manaMax, params: { amount: 0.12 } }
+  - { kind: added, params: { kind: psionic, power: 0.74 } }

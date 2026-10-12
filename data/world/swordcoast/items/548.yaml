@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: steady, params: { chance: 0.3 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: added, params: { kind: blunt, power: 0.2 } }

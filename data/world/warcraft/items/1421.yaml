@@ -25,3 +25,5 @@ effects:
     params: { amount: 0.03 }
   - kind: defense
     params: { amount: 3 }
+  - kind: added
+    params: { kind: magic, power: 0.34 }

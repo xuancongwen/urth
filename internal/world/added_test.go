@@ -237,3 +237,23 @@ func TestArmedMobKeepsPowerUnitDamage(t *testing.T) {
 		t.Errorf("armed mob %.1f against a player's %.1f: ratio %.2f, want about %.2f", theirs, mine, r, want)
 	}
 }
+
+// Every named weapon from item level 5 carries added damage making up
+// what the flatter curve took from it (5.3).
+func TestNamedWeaponsAreMadeWhole(t *testing.T) {
+	w := shippedWorld(t)
+	for _, p := range w.content.Items {
+		if p.Type != item.Weapon || len(p.Effects) == 0 || p.Level < 5 {
+			continue
+		}
+		total := 0.0
+		for _, e := range p.Effects {
+			if e.Kind == "added" {
+				total += toFloat(e.Params["power"])
+			}
+		}
+		if want := 1 - math.Pow(1.07/1.10, float64(p.Level-1)); total < want-0.015 {
+			t.Errorf("item %d (%s), level %d: added damage %.2f, want at least %.2f", p.Vnum, p.Name, p.Level, total, want)
+		}
+	}
+}

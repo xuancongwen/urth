@@ -17,3 +17,5 @@ weapon:
 effects:
   - kind: chill
     params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: added
+    params: { kind: poison, power: 0.32 }

@@ -26,3 +26,5 @@ effects:
   - kind: dodge
     params: { amount: 0.03 }
   - kind: detectInvisible
+  - kind: added
+    params: { kind: psionic, power: 0.44 }

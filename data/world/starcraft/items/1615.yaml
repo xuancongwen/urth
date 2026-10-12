@@ -23,3 +23,5 @@ effects:
     params: { mult: 1.1, dodge: -0.04 }
   - kind: stat
     params: { stat: strength, amount: 2 }
+  - kind: added
+    params: { kind: slash, power: 0.47 }

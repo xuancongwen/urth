@@ -21,3 +21,5 @@ effects:
     params: { power: 0.06, rounds: 3, maxStacks: 2 }
   - kind: stat
     params: { stat: strength, amount: 2 }
+  - kind: added
+    params: { kind: poison, power: 0.24 }

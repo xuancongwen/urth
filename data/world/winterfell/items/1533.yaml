@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: finesse }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: added, params: { kind: pierce, power: 0.13 } }

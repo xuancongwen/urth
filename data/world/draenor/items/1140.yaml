@@ -24,3 +24,5 @@ effects:
     params: { chance: 0.3 }
   - kind: stat
     params: { stat: strength, amount: 3 }
+  - kind: added
+    params: { kind: lightning, power: 0.41 }

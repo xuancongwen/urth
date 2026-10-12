@@ -21,3 +21,5 @@ effects:
   - { kind: stat, params: { stat: strength, amount: 1 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
   - { kind: proc, params: { kind: lightning, verb: bolt of dark lightning, chance: 0.15, power: 1.2 } }
+  - { kind: added, params: { kind: lightning, power: 0.25 } }
+  - { kind: added, params: { kind: unholy, power: 0.17 } }

@@ -24,3 +24,5 @@ effects:
     params: { amount: 4 }
   - kind: regen
     params: { fraction: 0.02 }
+  - kind: added
+    params: { kind: holy, power: 0.18 }

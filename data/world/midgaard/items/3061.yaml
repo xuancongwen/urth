@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 1 } }
   - { kind: manaMax, params: { amount: 0.08 } }
+  - { kind: added, params: { kind: magic, power: 0.22 } }

@@ -28,3 +28,7 @@ effects:
     params: { stat: strength, amount: 3 }
   - kind: stat
     params: { stat: wisdom, amount: -2 }
+  - kind: added
+    params: { kind: cold, power: 0.23 }
+  - kind: added
+    params: { kind: drain, power: 0.15 }

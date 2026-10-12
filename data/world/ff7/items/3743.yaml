@@ -21,3 +21,4 @@ effects:
   - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }
   - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: added, params: { kind: magic, power: 0.71 } }

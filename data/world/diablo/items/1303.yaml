@@ -26,3 +26,5 @@ effects:
     params: { threshold: 0.35, mult: 1.4 }
   - kind: stat
     params: { stat: strength, amount: 1 }
+  - kind: added
+    params: { kind: slash, power: 0.38 }

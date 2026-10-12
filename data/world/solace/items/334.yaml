@@ -20,3 +20,4 @@ effects:
   - { kind: proc, params: { kind: unholy, chance: 0.15, power: 1.0, verb: "night of the Dark Queen" } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: added, params: { kind: unholy, power: 0.2 } }

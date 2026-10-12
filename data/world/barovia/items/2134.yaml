@@ -21,3 +21,5 @@ effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: spellPower, params: { mult: 1.08, deity: good } }
   - { kind: faithShield, params: { mult: 0.95, rounds: 3 } }
+  - { kind: added, params: { kind: holy, power: 0.25 } }
+  - { kind: added, params: { kind: fire, power: 0.16 } }

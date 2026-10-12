@@ -27,3 +27,5 @@ effects:
     params: { mult: 1.08, weapon: true }
   - kind: stat
     params: { stat: dexterity, amount: 2 }
+  - kind: added
+    params: { kind: pierce, power: 0.41 }

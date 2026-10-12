@@ -25,3 +25,7 @@ effects:
   - kind: dodge
     params: { amount: 0.04 }
   - kind: detectInvisible
+  - kind: added
+    params: { kind: fire, power: 0.2 }
+  - kind: added
+    params: { kind: unholy, power: 0.14 }

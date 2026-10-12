@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: critMult, params: { amount: 0.3 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: added, params: { kind: slash, power: 0.18 } }

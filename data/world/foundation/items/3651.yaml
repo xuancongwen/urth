@@ -22,3 +22,4 @@ effects:
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: steady, params: { chance: 0.3 } }
   - { kind: cooldownCut, params: { rounds: 1 } }
+  - { kind: added, params: { kind: blunt, power: 0.64 } }

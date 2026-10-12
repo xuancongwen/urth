@@ -26,3 +26,7 @@ effects:
     params: { fraction: 0.06 }
   - kind: damage
     params: { mult: 1.08, weapon: true }
+  - kind: added
+    params: { kind: fire, power: 0.45 }
+  - kind: added
+    params: { kind: poison, power: 0.3 }

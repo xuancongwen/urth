@@ -24,3 +24,4 @@ effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: protect, params: { mult: 0.95 } }
   - { kind: detectInvisible }
+  - { kind: added, params: { kind: magic, power: 0.32 } }

@@ -21,3 +21,4 @@ effects:
   - { kind: crit, params: { chance: 0.1, mult: 2 } }
   - { kind: critMult, params: { amount: 0.4 } }
   - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: added, params: { kind: slash, power: 0.55 } }

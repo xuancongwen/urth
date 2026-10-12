@@ -23,3 +23,5 @@ effects:
     params: { chance: 0.08, mult: 2 }
   - kind: stat
     params: { stat: dexterity, amount: 3 }
+  - kind: added
+    params: { kind: drain, power: 0.79 }

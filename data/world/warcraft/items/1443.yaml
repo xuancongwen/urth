@@ -24,3 +24,5 @@ effects:
     params: { fraction: 0.01 }
   - kind: stat
     params: { stat: dexterity, amount: 2 }
+  - kind: added
+    params: { kind: slash, power: 0.32 }

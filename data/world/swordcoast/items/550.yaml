@@ -19,3 +19,4 @@ weapon:
 effects:
   - { kind: spellPower, params: { mult: 1.1, school: necromancy } }
   - { kind: manaMax, params: { amount: 0.05 } }
+  - { kind: added, params: { kind: unholy, power: 0.22 } }
