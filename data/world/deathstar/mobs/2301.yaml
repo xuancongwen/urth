@@ -8,7 +8,9 @@ look: |
   or possibly punishing it. He gives you a look that says he would be
   glad to pull your arms out of their sockets, but only if you start
   something, and nobody starts something in here.
+  He will show you how to put your shoulder into it; type 'practice'.
 level: 32
 flags: [peaceful]
 attack:
   verb: maul
+teaches: [bash]

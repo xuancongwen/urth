@@ -1,0 +1,11 @@
+vnum: 2331
+name: The Emperor's Throne Room
+description: |
+  A round chamber at the top of a turbolift, with a great circular
+  window of many panes behind a throne set on a raised dais, so that
+  whoever sits in it has the stars and the war at his back. Stairs of
+  black metal climb to the throne from either side, and a catwalk
+  rings a shaft that drops away into the station's core. It is very
+  quiet. The turbolift goes back down to the guards' antechamber.
+exits:
+  down: 2326

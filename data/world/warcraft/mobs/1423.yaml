@@ -1,0 +1,17 @@
+vnum: 1423
+name: Marshal Dughan
+keywords: [marshal, dughan, officer]
+description: Marshal Dughan stands by the well with a sheaf of wanted posters, looking for someone to send after Hogger.
+look: |
+  A grizzled officer of the Stormwind army in a blue tabard over mail,
+  with a heavy moustache, a weary voice, and a bad knee he does not
+  mention. He keeps the peace in the farm country below the keep with
+  too few men and too many gnolls, and every recruit who comes through
+  the gate gets the same speech and the same poster. He teaches the
+  footman's craft, for coin: how to put a shield in a face, and how to
+  hold it up when the face hits back.
+level: 18
+flags: [peaceful]
+teaches: [bash, shield_block]
+attack:
+  verb: strike

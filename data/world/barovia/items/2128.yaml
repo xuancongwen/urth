@@ -1,0 +1,10 @@
+vnum: 2128
+name: a bottle of Purple Grapemash No. 3
+keywords: [bottle, purple, grapemash, wine, no.3]
+description: A dusty green bottle of red wine lies here.
+look: |
+  A green glass bottle with a hand-lettered label: Wizard of Wines,
+  Purple Grapemash No. 3. It is the cheap stuff, dark and rough, and the
+  whole valley drinks it to forget what lives at the top of the hill.
+type: other
+value: 20

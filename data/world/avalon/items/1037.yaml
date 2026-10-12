@@ -1,0 +1,27 @@
+vnum: 1037
+name: Merlin's hawthorn staff
+keywords: [merlin, merlins, hawthorn, staff]
+description: A crooked staff of hawthorn, still budding white at the head, lies here.
+look: |
+  A length of hawthorn as tall as a man, twisted the way the wood
+  twists when it grows on a hill in the wind, and still putting out
+  white blossom at the head though it was cut a lifetime ago. Merlin
+  carried it when he walked beside Arthur, and pushed it out through
+  the bark of his prison for you. It sees what hides, and now and
+  then when it strikes there is a crack like lightning, and its
+  bearer thinks a little faster.
+type: weapon
+level: 11
+baseline: staff
+weight: 3
+value: 900
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: "crack of Merlin's lightning" } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: detectInvisible }

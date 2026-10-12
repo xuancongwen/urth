@@ -4,8 +4,9 @@ resets:
   - { mob: 2300, room: 2301 }                                   # Han Solo in the hold, selling what he can spare
   - { mob: 2301, room: 2301 }                                   # Chewbacca under a console
   - { mob: 2302, room: 2302 }                                   # Ben Kenobi's ghost on the lounge bench, who teaches dodge and riposte
-  - { mob: 2303, room: 2302 }                                   # the astromech, plugged into something it should not be
-  - { mob: 2304, room: 2302 }                                   # the protocol droid, quoting odds
+  - { mob: 2303, room: 2303 }                                   # R2-D2 in the bay control room, plugged into the station, selling access cards
+  - { mob: 2304, room: 2303 }                                   # C-3PO minding the control room, quoting odds, with a little silver
+  - { mob: 2322, room: 2303 }                                   # Luke Skywalker in borrowed armour, who teaches rescue
   - { mob: 2305, room: 2300, max: 2 }                           # mouse droids about their errands
   - { mob: 2305, room: 2315, max: 2 }
   - { mob: 2309, room: 2303, equip: [{ item: 2328, slot: wield }, { item: 2300, slot: head }, { item: 2325 }] }   # TK-421, not at his post, with the one E-11 that shoots straight
@@ -22,7 +23,8 @@ resets:
   - { mob: 2308, room: 2307, max: 4, equip: [{ item: 2300, slot: head }, { item: 2325 }] }
   - { mob: 2308, room: 2308, max: 4, equip: [{ item: 2302, slot: wield }, { item: 2325 }] }   # guards on the cell walkway
   - { mob: 2308, room: 2308, max: 4, equip: [{ item: 2301, slot: body }, { item: 2325 }] }
-  - { mob: 2315, room: 2310 }                                   # the interrogation droid
+  - { mob: 2315, room: 2310, equip: [{ item: 2334 }] }          # the interrogation droid, and the needle Leia wants broken
+  - { mob: 2323, room: 2309 }                                   # Princess Leia in cell 2187, who trades her blaster for that needle
   - { mob: 2314, room: 2311 }                                   # the dianoga in the compactor
   - { item: 2308, room: 2311 }                                  # a durasteel pipe in the muck
   # --- the fighter hangar ---
@@ -38,6 +40,7 @@ resets:
   - { mob: 2313, room: 2316, max: 4, equip: [{ item: 2307, slot: body }, { item: 2326 }] }   # officers
   - { mob: 2313, room: 2317, max: 4, equip: [{ item: 2307, slot: body }, { item: 2303, slot: wield }, { item: 2326 }] }
   - { mob: 2313, room: 2317, max: 4, equip: [{ item: 2326 }, { item: 2326 }] }
+  - { mob: 2325, room: 2317, equip: [{ item: 2336, slot: head }, { item: 2326 }] }   # Admiral Motti, hoarse, in his cap
   - { mob: 2313, room: 2325, max: 4, equip: [{ item: 2307, slot: body }, { item: 2326 }] }   # one at Tarkin's elbow
   # --- death troopers ---
   - { mob: 2316, room: 2321, max: 4, equip: [{ item: 2311, slot: wield }, { item: 2310, slot: head }] }   # guarding the reactor approach
@@ -49,6 +52,7 @@ resets:
   - { mob: 2317, room: 2324, max: 6, equip: [{ item: 2312, slot: head }, { item: 2326 }] }
   - { mob: 2317, room: 2324, max: 6 }
   - { mob: 2317, room: 2323, max: 6, equip: [{ item: 2312, slot: head }] }
+  - { mob: 2324, room: 2323, equip: [{ item: 2335, slot: head }] }   # Boba Fett on the far gantry, waiting for Solo, in his helmet
   - { mob: 2317, room: 2328, max: 6, equip: [{ item: 2312, slot: head }] }   # turbolaser crews
   - { mob: 2317, room: 2329, max: 6 }
   - { mob: 2318, room: 2325, equip: [{ item: 2329, slot: hold }] }   # Grand Moff Tarkin and his code cylinder
@@ -57,3 +61,4 @@ resets:
   - { mob: 2319, room: 2326, max: 2, equip: [{ item: 2315, slot: body }] }
   - { mob: 2320, room: 2326, equip: [{ item: 2330, slot: wield }, { item: 2315, slot: body }] }   # the captain and his force pike
   - { mob: 2321, room: 2327, equip: [{ item: 2331, slot: wield }, { item: 2332, slot: head }] }   # Darth Vader, his lightsaber and his helmet
+  - { mob: 2326, room: 2331, equip: [{ item: 2337, slot: body }] }   # the Emperor on his throne, in his robe

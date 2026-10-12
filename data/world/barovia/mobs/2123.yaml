@@ -1,0 +1,28 @@
+vnum: 2123
+name: Baba Lysaga
+keywords: [baba, lysaga, hag, witch, crone]
+description: Baba Lysaga hovers in a giant's skull above the floor of her hut, cackling, a staff of bone in her claw.
+look: |
+  An ancient crone, wizened and hairless and bent nearly double, in a
+  rag of a dress, riding the hollowed skull of a giant through the air
+  as other people ride a horse. She was the count's nursemaid when he
+  was a baby, four hundred years ago, and she believes, with all her
+  black heart, that she was his true mother, and that the valley is her
+  son's and everyone in it his food. Her hut stands on the legs of
+  some enormous dead thing and walks when she wants it to. Swarms of
+  flies boil off her when she moves. "My little Strahd," she croons,
+  "does not need you."
+level: 26
+flags: [assist]
+health: 950
+silver: 200
+xp: 9000
+stats: {intelligence: 16, wisdom: 15}
+attack:
+  kind: magic
+  verb: blast
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: swarm of biting flies }
+  - kind: regen
+    params: { fraction: 0.005 }

@@ -1,0 +1,12 @@
+vnum: 1530
+name: The Heart of the Cold
+description: |
+  Beyond the dead weirwoods the forest simply stops, as if a blade had
+  cut it, and there is only snow, blue-white and glowing, under a sky
+  gone the colour of a frozen lake. Spirals of stones stand in the snow,
+  arranged by no hand that was warm, and in the middle of them the cold
+  is so deep that your breath falls tinkling to the ground. This is
+  where the pale light comes from. This is where the Long Night begins.
+  The clearing is west.
+exits:
+  west: 1529

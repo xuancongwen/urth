@@ -1,0 +1,23 @@
+vnum: 1927
+name: Piter de Vries
+keywords: [piter, de, vries, mentat, twisted]
+description: Piter de Vries, the Baron's twisted Mentat, licks sapho juice from his red-stained lips and laughs at you.
+look: |
+  A thin, sinuous man with a narrow face and lips stained the colour of
+  old blood by the sapho juice that keeps his Mentat mind sharp: the
+  Baron's assassin and planner, a Mentat trained to be twisted, and
+  proud of it. It was his plan that brought down House Atreides, and
+  he has never stopped explaining how clever it was. He fights with
+  poisons, and with the needles in his sleeves, and he enjoys it. It
+  is by will alone, he says, that he sets his mind in motion.
+level: 40
+health: 3800
+stats: {intelligence: 18}
+silver: 500
+attack:
+  kind: pierce
+  verb: needle
+effects:
+  - kind: envenom
+    params: { power: 0.12, rounds: 3, maxStacks: 2 }
+  - { kind: dodge, params: { amount: 0.05 } }

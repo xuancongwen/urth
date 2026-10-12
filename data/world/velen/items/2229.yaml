@@ -1,0 +1,11 @@
+vnum: 2229
+name: a noonwraith's essence
+keywords: [noonwraith's, noonwraith, essence, vial, dust]
+description: A pinch of pale, shimmering dust lies here, warm as noon.
+look: |
+  What is left of a noonwraith when she finally stops: a handful of
+  pale dust that shimmers like heat over a field and is warm to the
+  touch even at midnight. Sorceresses pay for this, and do not say what
+  for.
+type: other
+value: 60

@@ -1,0 +1,23 @@
+vnum: 1120
+name: Gul'dan
+keywords: [guldan, gul'dan, warlock, shadow, council, darkness]
+description: Gul'dan stoops over the steaming trough, stirring it with one clawed hand, and smiles at you.
+look: |
+  A hunched old orc in a robe of patched hide hung with skulls and
+  little bags of things that move, his back crooked under a spiked
+  hump, his eyes sunk deep and glowing the green of the trough. Once a
+  shaman's apprentice, he sold his people to the Burning Legion for
+  power and taught them to drink demon blood, and it was his hand that
+  poured it. He leads the Shadow Council in all but name. He speaks
+  softly and pleasantly. "Your death will be a wonderful thing to
+  watch."
+level: 16
+health: 700
+stats: {intelligence: 16, wisdom: 13}
+silver: 220
+attack:
+  kind: fire
+  verb: sear
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: fel fire }

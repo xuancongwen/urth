@@ -1,0 +1,23 @@
+vnum: 1125
+name: Thrall
+keywords: [thrall, go'el, goel, warchief, shaman]
+description: Thrall, Warchief of the Horde, stands on the old road beside his father, the great Doomhammer slung across his back.
+look: |
+  A young orc, green-skinned, broad, and blue-eyed, which is rare among
+  orcs and is the first thing anyone remembers about him. He was raised
+  a slave in an internment camp and a gladiator by humans, and freed
+  his people from both. Now he is Warchief, and a shaman who hears the
+  elements, in black plate and a wolf's pelt, with Orgrim Doomhammer's
+  great hammer on his back. He has come to Draenor to find out who his
+  people were before the blood. He is looking at his father the way a
+  man looks at a ghost.
+level: 20
+health: 1200
+stats: {strength: 16, wisdom: 15, constitution: 15}
+silver: 200
+attack:
+  kind: blunt
+  verb: smash
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: arc of lightning }

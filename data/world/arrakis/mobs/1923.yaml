@@ -1,0 +1,20 @@
+vnum: 1923
+name: Gurney Halleck
+keywords: [gurney, halleck, troubadour, warrior, atreides]
+description: Gurney Halleck sits on a spice crate, picking out a tune on a nine-string baliset and scowling at the smugglers.
+look: |
+  A lump of a man with an inkvine scar across his jaw, ugly and loyal
+  and very dangerous, who was the Duke's master of arms and taught Paul
+  the knife. He fled the Harkonnen attack with the smugglers and has
+  been running spice with them since, waiting for a chance at Rabban.
+  He sings to the baliset when he is not fighting, and quotes the
+  Orange Catholic Bible when he is. For coin he will teach you what he
+  taught the young master: turn a blade back on the man who threw it,
+  and take it out of his hand. "Mood? What has mood to do with it?"
+  Type 'practice'.
+level: 40
+flags: [peaceful]
+teaches: [riposte, disarm]
+attack:
+  kind: slash
+  verb: slash

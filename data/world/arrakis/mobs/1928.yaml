@@ -1,0 +1,16 @@
+vnum: 1928
+name: Thufir Hawat
+keywords: [thufir, hawat, mentat, master, assassins, atreides]
+description: Thufir Hawat stands chained beside the Baron's chair, old and gaunt, his lips stained dark with sapho.
+look: |
+  The Atreides Master of Assassins, a Mentat who served three Dukes of
+  the house: an old, leathery man, gaunt now, with the red lips of the
+  sapho drinker and a residual poison in his blood that the Baron
+  sweetens with an antidote every day from his own hand. The Baron
+  thinks he has bought him. Thufir thinks the Lady Jessica betrayed
+  the Duke, because Piter wanted him to think it. He watches you, and
+  calculates, and says nothing that the Baron can hear.
+level: 38
+silver: 300
+attack:
+  verb: punch

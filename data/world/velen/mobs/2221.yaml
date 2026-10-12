@@ -1,0 +1,23 @@
+vnum: 2221
+name: Yennefer of Vengerberg
+keywords: [yennefer, yen, vengerberg, sorceress, mage, witch]
+description: Yennefer of Vengerberg stands at the bog's edge in black and white, studying the fog as if it had insulted her.
+look: |
+  A sorceress of astonishing beauty and no patience whatever, with a
+  mass of raven-black curls, violet eyes, and a black velvet ribbon at
+  her throat set with an obsidian star. She is dressed for travel, in
+  black and white, and she has somehow not got mud on any of it. She
+  smells of lilac and gooseberries. She has followed the trail of the
+  Wild Hunt here, and of the girl they hunt, who is as near a daughter
+  as she will ever have, and she will tear the bog apart to find her.
+  She will trade the star at her throat, she says coolly, for a wolf
+  school medallion, if you have one, and enough coin to make the
+  insult bearable: a witcher's medallion trembles near magic, and she
+  means to make one tremble near Ciri. Type 'list'.
+level: 34
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: blast
+trades:
+  - { item: 2231, silver: 1200, items: [2202] }

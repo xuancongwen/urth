@@ -3,14 +3,17 @@ resets:
   # --- Fire Base Whiskey ---
   - { mob: 1705, room: 1700 }                                   # Carmen Ibanez at her drop ship
   - { mob: 1704, room: 1700 }                                   # the FedNet correspondent, filming the pad
+  - { mob: 1722, room: 1700, equip: [{ item: 1702 }] }          # Zander Barcalow, grinning at Carmen, a field light in his flight bag
   - { mob: 1701, room: 1702 }                                   # the quartermaster at her counter
   - { mob: 1703, room: 1703 }                                   # Colonel Jenkins by the recruitment screen
   - { mob: 1700, room: 1704 }                                   # Sergeant Zim, who teaches bash and rescue
+  - { mob: 1721, room: 1704 }                                   # Ace Levy on a crate, who sells his fiddle
   - { mob: 1702, room: 1704, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }, { item: 1703 }] }   # troopers at drill
   - { mob: 1702, room: 1704, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }] }
   - { mob: 1702, room: 1705, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }, { item: 1703 }] }   # troopers on the wire
   - { mob: 1702, room: 1705, max: 4, equip: [{ item: 1700, slot: wield }, { item: 1702 }] }   # one with a spare field light
   - { mob: 1717, room: 1705 }                                   # a neo-dog watching the plain
+  - { mob: 1720, room: 1705, equip: [{ item: 1700, slot: wield }, { item: 1701, slot: body }] }   # Dizzy Flores, first to the wire, Morita and body armor
   # --- the killing field and the spires: warrior bugs, six of them ---
   - { mob: 1706, room: 1706, max: 6, equip: [{ item: 1704 }] }  # warrior bugs on the killing field
   - { mob: 1706, room: 1706, max: 6 }
@@ -51,6 +54,7 @@ resets:
   - { mob: 1714, room: 1717, max: 2, equip: [{ item: 1707 }] }
   # --- the tunnels ---
   - { item: 1702, room: 1715 }                                  # a field light dropped at the lip of the hole
+  - { mob: 1719, room: 1715 }                                   # Johnny Rico at the lip of the hole, who teaches second wind
   - { mob: 1712, room: 1719, max: 5, equip: [{ item: 1704 }] }  # a tunnel warrior in the throat
   - { mob: 1712, room: 1720, max: 5 }                           # tunnel warriors at the branches
   - { mob: 1712, room: 1720, max: 5, equip: [{ item: 1704 }] }

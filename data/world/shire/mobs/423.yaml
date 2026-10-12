@@ -1,0 +1,21 @@
+vnum: 423
+name: Tom Bombadil
+keywords: [tom, bombadil, iarwain, eldest, master]
+description: Tom Bombadil stamps about in his yellow boots, singing. "Hey dol! merry dol! ring a dong dillo!"
+look: |
+  A man, or something like one, too large and heavy for a hobbit and
+  not quite tall enough for one of the Big People, with a blue coat, a
+  long brown beard, a battered hat with a blue feather in it, and a
+  face red as a ripe apple and creased with laughter. He is Master of
+  wood, water, and hill, and Eldest, and he was here before the river
+  and the trees. Old Man Willow is a grey thirsty spirit he has told
+  off more than once. He found knives in the barrow-mounds long ago,
+  forged by Men of Westernesse against the Dark Lord, and he will
+  give you one for a splinter of that willow's heart, so he can sing
+  it back to sleep. Type 'list'.
+level: 20
+flags: [peaceful]
+attack:
+  verb: stamp
+trades:
+  - { item: 434, items: [412] }

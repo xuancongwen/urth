@@ -9,7 +9,10 @@ look: |
   and daughter are gone because of the drinking, and he knows it, and
   it does not help. He is courteous to guests. He is less courteous to
   questions about his family.
+  He will teach you to fight with your fists, if you will drink with
+  him first; type 'practice'.
 level: 25
 flags: [peaceful]
 attack:
   verb: punch
+teaches: [hand_to_hand]

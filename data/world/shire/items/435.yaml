@@ -1,0 +1,22 @@
+vnum: 435
+name: Thror's map
+keywords: [thror, thrors, map, chart, moon-letters]
+description: An old map on thin parchment lies here, with a red-inked dragon in the top corner.
+look: |
+  A map of the Lonely Mountain and the lands about it, drawn by Thrór,
+  King under the Mountain, and carried by Thorin his grandson on the
+  journey Bilbo went on long ago. The hand pointing to the side-door
+  is plain, and in a certain light, which you seem to carry with you
+  now, the moon-letters on it show as well: "Stand by the grey stone
+  when the thrush knocks." Holding it, you notice hidden things, and
+  you feel a little more like a burglar.
+type: armor
+slot: hold
+level: 6
+weight: 0
+value: 300
+rarity: rare
+effects:
+  - { kind: detectHidden }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

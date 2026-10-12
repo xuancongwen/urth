@@ -15,6 +15,8 @@ resets:
   - { mob: 835, room: 806, max: 3, equip: [{ item: 851 }] }   # rogue dig-claws, each with a loose tine
   - { item: 855, room: 806 }                                   # the riveted cap on its hook
   - { item: 882, room: 807 }                                   # tin vambraces at the edge of the works
+  - { mob: 846, room: 807 }                                    # Haplo at the rail, looking down where his ship came through
+  - { mob: 847, room: 807, equip: [{ item: 898, slot: neck }] }   # and the dog at his heel, in its sigil collar
   - { item: 859, room: 808 }                                   # goggles on the chain
   # the Terrel Fen
   - { mob: 838, room: 809, equip: [{ item: 886 }] }            # the storm-hawk, feathers for a mantle
@@ -29,8 +31,10 @@ resets:
   - { mob: 832, room: 816, equip: [{ item: 890, slot: head }] }   # the High Froman, in the hat of his office
   - { item: 865, room: 816 }                                   # the statue
   - { item: 860, room: 817 }                                   # the rune-stone in the crawl
+  - { mob: 848, room: 817 }                                    # Alfred, lost in the crawl, who wants Bane's amulet
   - { mob: 833, room: 818, equip: [{ item: 871, slot: face }] }   # Limbeck, his spectacles, and his pamphlet
   - { item: 856, room: 818 }
+  - { mob: 845, room: 818 }                                    # Jarre, keeping the Union's stores (merchant)
   # the Liftalofts and the watership
   - { mob: 842, room: 821, equip: [{ item: 891, slot: wield }] }   # Hugh the Hand and the knife he does not look at
   - { mob: 843, room: 821, equip: [{ item: 892, slot: neck }] }   # Bane, and the feather at his throat

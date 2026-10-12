@@ -9,6 +9,7 @@ resets:
   - { item: 406, room: 405 }   # the letter under the door
   - { item: 415, room: 404 }   # a party cloak on the lane
   - { item: 421, room: 406 }   # a party present in the grass
+  - { mob: 417, room: 406 }    # Gandalf on his cart-tail at the edge of the Party Field, who sells fireworks
   # the Mill and the Water
   - { mob: 402, room: 403 }    # Ted Sandyman
   - { mob: 405, room: 403, max: 3 }   # mill rats
@@ -25,12 +26,14 @@ resets:
   - { item: 402, room: 409 }   # a weskit on a peg
   - { item: 410, room: 409 }   # pipe-weed on the bar
   - { mob: 416, room: 409 }    # the Bree ruffian at the bar, who teaches trip
+  - { mob: 422, room: 409 }    # Rosie Cotton, who sells pints, seed-cake, and pipe-weed
   - { item: 410, room: 408 }   # and on the green
   - { item: 416, room: 408 }   # a woodcutter's axe in a stump
   # the East Road
   - { mob: 413, room: 413, equip: [{ item: 407, slot: wield }, { item: 414, slot: feet }, { item: 428 }] }   # the ruffian, his knife, his boots, and Bullroarer's club stolen from Tuckborough
   # Bamfurlong
   - { mob: 407, room: 415, max: 2 }   # crows
+  - { mob: 421, room: 415, equip: [{ item: 402, slot: body }] }   # Merry waiting at the end of the lane with a pony, in his weskit
   - { item: 401, room: 415 }   # a pitchfork in the bank
   - { mob: 410, room: 416 }    # Grip, Fang, and Wolf
   - { mob: 411, room: 416 }
@@ -44,8 +47,13 @@ resets:
   - { item: 411, room: 417, into: 413 }
   # the Woody End and the Old Forest
   - { item: 423, room: 418 }   # an elven lantern left by Gildor's folk
+  - { mob: 418, room: 418 }    # Frodo, who trades Thror's map for Gandalf's letter
+  - { mob: 419, room: 418, equip: [{ item: 417, slot: wield }] }   # Sam and his frying pan
+  - { mob: 420, room: 418, equip: [{ item: 415, slot: shoulders }, { item: 411 }] }   # Pippin in a party cloak, with the last of the mushrooms
   - { mob: 414, room: 419, equip: [{ item: 408, slot: shoulders }, { item: 427, slot: wield }, { item: 425 }] }   # the Black Rider, cloaked, with a Morgul-knife, and Bilbo's mithril shirt
   - { item: 409, room: 423 }   # the gloves in the hollow
   - { item: 422, room: 421 }   # a quarterstaff under the eaves
   - { mob: 415, room: 422, equip: [{ item: 426 }, { item: 424 }] }   # Old Man Willow, who keeps what he swallows: the Ring and Sting
   - { item: 412, room: 422 }   # heartwood from the split trunk
+  - { mob: 423, room: 424 }    # Tom Bombadil, who trades a barrow-blade for the willow's heartwood
+  - { mob: 424, room: 424 }    # Goldberry, who teaches fast healing and second wind

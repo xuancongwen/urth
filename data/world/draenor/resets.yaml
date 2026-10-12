@@ -2,14 +2,19 @@ interval_seconds: 300
 resets:
   # --- the portal and the Hellfire wastes ---
   - { mob: 1101, room: 1101, max: 2 }                                                  # felhounds on the stair
+  - { mob: 1124, room: 1102 }                                                          # Grom Hellscream at the foot of the stair, who teaches berserk
   - { mob: 1100, room: 1103, max: 3, equip: [{ item: 1104, slot: wield }, { item: 1100 }, { item: 1124 }] }   # fel orc grunts, cleaver, ore, harness
   - { mob: 1102, room: 1104, equip: [{ item: 1100 }, { item: 1100 }, { item: 1125 }] }   # the warlock at the trough, and his kris
+  - { mob: 1120, room: 1104, equip: [{ item: 1125, slot: wield }, { item: 1100 }, { item: 1136 }] }   # Gul'dan at the trough, a Shadow Council kris, and his book
   - { mob: 1103, room: 1105, equip: [{ item: 1101 }, { item: 1101 }, { item: 1126 }] }   # the infernal, burning motes and rock gauntlets
   - { item: 1100, room: 1105 }                                                          # fel iron on the crater rim
   - { item: 1101, room: 1105 }                                                          # a stray mote in the glass
   # --- the Hellfire Citadel ---
   - { mob: 1104, room: 1108, max: 2, equip: [{ item: 1104, slot: wield }, { item: 1105, slot: shoulders }, { item: 1100 }, { item: 1127 }] }   # rampart sentries and their tower shields
+  - { mob: 1122, room: 1108, equip: [{ item: 1134, slot: wield }, { item: 1105, slot: shoulders }, { item: 1138 }] }   # Kilrogg Deadeye on the wall, and his eyepatch
   - { mob: 1105, room: 1109, equip: [{ item: 1106, slot: wield }, { item: 1107, slot: head }] }   # the warchief, axe and horned helm
+  - { mob: 1126, room: 1106, equip: [{ item: 1134, slot: wield }, { item: 1135, slot: body }] }   # Durotan on the citadel road, cleaver and ravager-hide
+  - { mob: 1125, room: 1106, equip: [{ item: 1140, slot: wield }] }   # Thrall beside his father, and the Doomhammer
   # --- Zangarmarsh ---
   - { mob: 1108, room: 1110, max: 2 }                                                  # fen rays at the marsh edge
   - { mob: 1106, room: 1111, max: 2, equip: [{ item: 1103 }] }                         # sporelings out gathering
@@ -24,8 +29,10 @@ resets:
   - { mob: 1112, room: 1117 }                                                          # vindicator at the gate
   - { mob: 1113, room: 1119 }                                                          # Artificer Velaani
   - { mob: 1114, room: 1120 }                                                          # the anchorite at the shrine
+  - { mob: 1123, room: 1120 }                                                          # Velen the Prophet: a fragment of K'ure for three nether shards
   - { mob: 1119, room: 1127 }                                                          # the blademaster at the lookout: triple, coup de grace
   # --- the edge of the Twisting Nether ---
+  - { mob: 1121, room: 1121, equip: [{ item: 1137, slot: wield }, { item: 1116 }] }   # Ner'zhul at the Broken Rim tearing the sky, and his staff
   - { mob: 1115, room: 1122, max: 2, equip: [{ item: 1116 }] }                          # nether rays, shards in their hides
   - { item: 1131, room: 1122 }                                                          # nether-silk snagged on the island's rocks
   - { mob: 1116, room: 1126, equip: [{ item: 1116 }, { item: 1121 }] }                   # the void terror in the hollow, guarding Frostmourne

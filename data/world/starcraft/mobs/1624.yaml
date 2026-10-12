@@ -1,0 +1,17 @@
+vnum: 1624
+name: Fenix
+keywords: [fenix, praetor, zealot, protoss]
+description: Fenix the praetor kneels beside Tassadar, psi blades dark at his wrists, checking the edge of a plasma shield.
+look: |
+  A Protoss zealot in gold and blue armor, broad for one of his people,
+  with an old scar across one crest. He is the praetor of Antioch, the
+  greatest zealot of his age, and Tassadar's oldest friend. He likes
+  terrans more than he lets on, and the one called Raynor most of all.
+  He will teach you to fight with a blade in each hand as zealots do,
+  if you can stand to be corrected by someone who never tires.
+level: 24
+flags: [peaceful]
+teaches: [twin]
+attack:
+  kind: slash
+  verb: slash

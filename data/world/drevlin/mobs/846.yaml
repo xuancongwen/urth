@@ -1,0 +1,19 @@
+vnum: 846
+name: Haplo
+keywords: [haplo, patryn, man, stranger]
+description: A lean, quiet man with bandaged hands stands at the rail, looking down into the storm as if he were waiting for it to look back.
+look: |
+  Dark-haired and spare, in plain leather, with his hands wrapped to
+  the wrist in linen and the edge of a blue tattoo showing at his
+  collar when he turns his head. He is a Patryn, out of the Labyrinth
+  and through Death's Gate, sent by his Lord to see what the Sartan
+  left behind on this world and to make trouble in it. He watches the
+  Gegs the way a man watches a tool he has not decided how to use. He
+  will teach you to slip a blow and to find your breath again when it
+  is gone, as the Labyrinth taught him, if you pay and do not ask
+  about the runes.
+level: 16
+flags: [peaceful]
+teaches: [dodge, second_wind]
+attack:
+  verb: strike

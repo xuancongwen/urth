@@ -1,0 +1,17 @@
+vnum: 1720
+name: Private Dizzy Flores
+keywords: [private, dizzy, flores, trooper, roughneck]
+description: Private Dizzy Flores crouches on the wire, Morita across her knees, grinning at the plain like it owes her money.
+look: |
+  A quick, wiry trooper with short dark hair and a quarterback's arm,
+  who was the best player on her school's football team and could
+  have been anything, and transferred to the Roughnecks because Johnny
+  Rico was in them. She is the first to the wire and the last off it,
+  and she has never once said the thing she means to say to him. She
+  checks your kit without asking and tells you to keep your head down.
+  "Bugs don't care how cute you are."
+level: 24
+silver: 60
+attack:
+  kind: pierce
+  verb: burst

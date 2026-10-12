@@ -1,0 +1,26 @@
+vnum: 434
+name: a barrow-blade of Westernesse
+keywords: [barrow-blade, barrow, blade, westernesse, dagger, knife]
+description: A long leaf-shaped dagger lies here, its blade damasked with serpent-forms in red and gold.
+look: |
+  A dagger from the barrow-mounds, long and leaf-shaped, of the Men
+  of Westernesse who fought the Witch-king of Angmar. It is untarnished,
+  though it lay ages in the dark, and the serpents on its blade glint
+  red and gold. It was wrought with spells for the bane of Mordor, and
+  under its edge the grey shapes that serve the Eye are no longer
+  hidden from you, and no longer safe.
+type: weapon
+level: 9
+baseline: dagger
+weight: 1
+value: 400
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: detectInvisible }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

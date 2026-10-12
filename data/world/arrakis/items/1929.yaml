@@ -1,0 +1,23 @@
+vnum: 1929
+name: the Beast's spiked mace
+keywords: [beast's, beast, rabban, rabban's, spiked, mace]
+description: A heavy mace studded with blue-enamelled spikes lies here.
+look: |
+  A short-hafted mace with a head like a fist full of nails, enamelled
+  in Harkonnen blue where the blood has not worn the enamel off. Glossu
+  Rabban used it on Fremen and on his own troopers with no difference
+  in enthusiasm. It is not subtle. It does not need to be.
+type: weapon
+weight: 5
+level: 30
+baseline: mace
+value: 2600
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -1,0 +1,19 @@
+vnum: 2336
+name: Admiral Motti's cap
+keywords: [admiral, motti's, motti, cap, officer's, peaked]
+description: An Imperial officer's olive cap with an admiral's crest lies here.
+look: |
+  A crisp olive cap with a short black peak and the crest of an
+  Imperial admiral, slightly crushed where its owner clutched it to his
+  chest while choking. Wearing it you feel very certain of yourself, and
+  very clever, and a little short of breath.
+type: armor
+slot: head
+weight: 1
+level: 26
+baseline: cloth
+value: 1600
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: protect, params: { mult: 0.95 } }

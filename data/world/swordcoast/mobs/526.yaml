@@ -1,0 +1,17 @@
+vnum: 526
+name: Sarevok
+keywords: [sarevok, armored, figure, iron, throne]
+description: A huge armored figure stands in the scorched ring, his horned helm turned toward the road from Candlekeep. He is waiting for someone.
+look: |
+  Seven feet of black plate, spiked at every joint, and a helm with
+  horns that sweep back like a ram's. Nothing of the man shows but the
+  eyes, and the eyes are yellow. He came for Gorion's ward, and he
+  burned this clearing doing it, and he has not finished. He speaks
+  like a man who has already won. "You have no idea what you are, do
+  you? I do."
+level: 16
+health: 700
+stats: { strength: 17, constitution: 15 }
+silver: 150
+attack:
+  verb: cleave

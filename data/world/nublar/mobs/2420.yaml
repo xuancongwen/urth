@@ -1,0 +1,18 @@
+vnum: 2420
+name: Dr. Ellie Sattler
+keywords: [ellie, sattler, doctor, dr, paleobotanist]
+description: Dr. Ellie Sattler kneels by the dung heap, up to her elbows in it, frowning at a purple berry.
+look: |
+  A paleobotanist in khaki shorts and a pink shirt knotted at the waist,
+  with her hair tied back and no patience at all for being told to wait
+  in the jeep. She found out why the triceratops was sick by doing what
+  nobody else would, and she is the one who will walk out to the
+  maintenance shed in the dark to throw the breakers. Dinosaurs eat man,
+  she says; woman inherits the earth. For coin she will teach you to
+  patch yourself up in the field and to find your feet again when you
+  should be finished. Type 'practice'.
+level: 24
+flags: [peaceful]
+teaches: [fast_healing, second_wind]
+attack:
+  verb: punch

@@ -1,0 +1,15 @@
+vnum: 2025
+name: Peregrin Took
+keywords: [pippin, peregrin, took, hobbit, fool]
+description: Pippin Took leans over the well with a stone in his hand, wondering how deep it goes.
+look: |
+  The youngest of the Company, a hobbit of the Shire not yet of age,
+  with a Tookish face that has never yet stopped to think before
+  doing something. He is very sorry about the stone he dropped. He
+  is very sorry about the bucket after it. Far below, something has
+  begun knocking, tom-tap, tap-tom, and Gandalf has told him to throw
+  himself in next time and be rid of his stupidity.
+level: 12
+silver: 25
+attack:
+  verb: punch

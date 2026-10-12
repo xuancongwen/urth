@@ -1,0 +1,23 @@
+vnum: 334
+name: Nightbringer
+keywords: [nightbringer, mace, black, verminaard, verminaards]
+description: A heavy black mace lies here, and the light near it seems thinner.
+look: |
+  Verminaard's mace, black iron with a head of flanged steel, blessed
+  by the Dark Queen herself. When its bearer calls on Takhisis and
+  strikes, a darkness falls on the one struck like a hand over the
+  eyes, and it hurts. It is heavy in the hand, and heavier on the soul.
+type: weapon
+level: 9
+baseline: standard
+weight: 7
+value: 700
+rarity: rare
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash
+effects:
+  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "night of the Dark Queen" } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

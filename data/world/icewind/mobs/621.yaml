@@ -1,0 +1,15 @@
+vnum: 621
+name: Kemp of Targos
+keywords: [kemp, targos, spokesman]
+description: Kemp of Targos, red in the face, is telling Cassius loudly what Targos will and will not stand for.
+look: |
+  A heavy, shouting man in a fur coat too fine for the weather, the
+  spokesman of Targos, the biggest of the Ten-Towns and the proudest.
+  He trusts no town but his own and no man who is not from Targos, and
+  he would rather the barbarians burned Bryn Shander than take orders
+  from it. He stops talking long enough to look at you as if you were
+  a fish with a price on it.
+level: 10
+silver: 90
+attack:
+  verb: punch

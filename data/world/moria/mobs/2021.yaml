@@ -1,0 +1,19 @@
+vnum: 2021
+name: Aragorn son of Arathorn
+keywords: [aragorn, strider, ranger, arathorn, elessar, dunadan]
+description: A tall weathered Ranger stands in the shaft of daylight with his sword drawn, counting the doorways. "Strider, they call me. Keep moving."
+look: |
+  A Man of the North, tall and dark-haired and grey-eyed, in a
+  travel-stained cloak of dark green and boots that have walked
+  further than you have. The sword at his side is Andúril, the Flame
+  of the West, reforged from the shards of Narsil in Rivendell, and it
+  shines red and white. He is the heir of Isildur, though he does not
+  say so. He has never wanted to come into Moria, and he warned
+  Gandalf so, but he follows him all the same. He will teach a
+  willing pupil the Ranger's craft for coin: how to pull a friend out
+  of a fight, and how to bind a wound with whatever grows by the road.
+level: 40
+flags: [peaceful]
+teaches: [rescue, fast_healing]
+attack:
+  verb: slash

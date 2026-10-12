@@ -1,0 +1,15 @@
+vnum: 524
+name: Viconia DeVir
+keywords: [viconia, devir, drow, cleric]
+description: A drow woman in a hooded cloak, Viconia DeVir, crouches in the brush off the road, listening for the Flaming Fist.
+look: |
+  Obsidian skin, white hair cut short, and a face that has never once
+  asked anybody for help. She has fled the Underdark and the Spider
+  Queen both, which the Flaming Fist do not care about: they have seen
+  a drow on the Coast Way and they want her hanged. She looks at you
+  as though deciding whether you are useful or merely in the way.
+  "You stare. Have you never seen a drow, or are you simply slow?"
+level: 12
+silver: 60
+attack:
+  verb: strike

@@ -1,0 +1,24 @@
+vnum: 757
+name: Zaknafein's second sword
+keywords: [zaknafein, zaknafeins, zak, second, sword, adamantite]
+description: A long adamantite sword lies here, its edge crusted with grave-frost.
+look: |
+  The twin of the sword above Lolth's altar: the weapon master of House
+  Do'Urden fought with both, one in each hand, and was never bested.
+  This one went into the grave with him and came back out in the
+  spirit-wraith's fist, and it is cold to touch. It turns blades aside
+  as if it remembered how.
+type: weapon
+weight: 4
+level: 19
+baseline: standard
+value: 1300
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: cut
+effects:
+  - { kind: block, params: { chance: 0.08 } }
+  - { kind: critMult, params: { amount: 0.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

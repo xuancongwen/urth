@@ -1,0 +1,22 @@
+vnum: 1041
+name: a mantle of white samite
+keywords: [mantle, white, samite, lady, lake]
+description: A mantle of white samite lies here, dry, though it is dripping.
+look: |
+  A mantle of the cloth the arm wore that rose from the lake to give
+  Excalibur and to take it back: white samite, mystic, wonderful, and
+  never quite dry, though it never wets what it touches. The Lady of
+  the Lake wore it over the water. Blows that fall on it slide off as
+  off the surface of a mere, and its wearer's head is clear and
+  still.
+type: armor
+slot: shoulders
+level: 14
+baseline: light
+weight: 1
+value: 1200
+rarity: rare
+effects:
+  - { kind: protect, params: { mult: 0.93 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

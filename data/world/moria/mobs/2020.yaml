@@ -1,0 +1,32 @@
+vnum: 2020
+name: Gandalf the Grey
+keywords: [gandalf, grey, gray, wizard, mithrandir]
+description: Gandalf stands at the near end of the bridge, leaning on his staff, Glamdring's empty scabbard at his side. "You cannot pass," he says, but not to you.
+look: |
+  An old man in a grey cloak and a battered pointed hat, his staff in
+  his left hand and his right empty, for the sword he carried out of a
+  troll-hoard long ago has gone from his belt. He led the Company in
+  through the Doors of Durin by remembering one word, and he has been
+  tired ever since. In the Chamber of Mazarbul he held a door shut
+  against something that would not stay shut, and he has not said
+  what it was. Now he looks across the bridge at the red light, and
+  his face is grim and grey. "I am a servant of the Secret Fire,
+  wielder of the flame of Anor," he says, to no one you can see. "Fly,
+  you fools." Whoever is foolish enough to raise a hand to him
+  will find out what the staff is for.
+level: 50
+health: 16000
+silver: 1000
+stats: {wisdom: 18, intelligence: 18}
+armor:
+  defense: 300
+attack:
+  kind: fire
+  verb: smite
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: white fire }
+  - kind: soak
+    params: { power: 0.15 }
+  - kind: attacks
+    params: { amount: 0.5 }

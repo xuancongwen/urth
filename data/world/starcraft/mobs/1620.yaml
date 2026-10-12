@@ -1,0 +1,19 @@
+vnum: 1620
+name: Lieutenant Sarah Kerrigan
+keywords: [sarah, kerrigan, lieutenant, ghost]
+description: Lieutenant Sarah Kerrigan leans in a shadow by the lift in a skin-tight ghost suit, a long rifle across her back.
+look: |
+  A slender woman with red hair pulled back tight and green eyes that
+  have already read your mind and found it boring. She is a ghost, a
+  telepath trained as an assassin by the Confederacy, who now kills for
+  Arcturus Mengsk and the Sons of Korhal, and she is very good at it.
+  She has a dry, sharp sense of humour, mostly at Raynor's expense, and
+  she is the only one on Mar Sara who is not afraid of what is coming.
+  For a price she will show you how to step out of sight and put a
+  blade where it counts.
+level: 24
+flags: [peaceful]
+teaches: [feint, backstab]
+attack:
+  kind: pierce
+  verb: shoot

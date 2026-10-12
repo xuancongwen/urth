@@ -1,0 +1,22 @@
+vnum: 1623
+name: Executor Tassadar
+keywords: [tassadar, executor, protoss, templar]
+description: Executor Tassadar stands at the edge of the mesa in golden armor, looking down at the outpost his fleet may yet have to burn.
+look: |
+  A tall Protoss in gold armor and a long cloak, his head crested with
+  bony plates, his face without a mouth, his eyes glowing a calm blue.
+  He commanded the fleet that burned Chau Sara clean of the zerg, and
+  every terran in Mar Sara knows it. He does not want to do the same
+  here. He is beginning to think that the terrans are worth saving, and
+  that his Conclave is wrong about a great many things. His voice
+  arrives in your head, gently. "En Taro Adun."
+level: 24
+health: 1500
+stats: {wisdom: 16, intelligence: 15}
+silver: 250
+attack:
+  kind: psionic
+  verb: psionic strike
+effects:
+  - kind: proc
+    params: { verb: arc of psionic lightning, chance: 0.2, power: 1.0 }

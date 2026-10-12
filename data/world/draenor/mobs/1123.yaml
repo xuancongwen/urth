@@ -1,0 +1,20 @@
+vnum: 1123
+name: Velen, the Prophet
+keywords: [velen, prophet, draenei, eredar]
+description: Velen the Prophet kneels before the turning crystal, his long white beard stirring though there is no wind.
+look: |
+  The oldest of the draenei, tall and thin and blue, with a beard of
+  white tendrils down to his belt and a robe of white and gold. Twenty-
+  five thousand years ago he refused the Legion's gift when his
+  brothers Kil'jaeden and Archimonde took it, and he led his people
+  away across the stars. He has seen many futures, and in most of them
+  he grieves. He is kind to you anyway. Bring him shards of the
+  Twisting Nether, which trouble the Light, and he will give you a
+  fragment of the crystal he carries. Type list.
+level: 26
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: strike
+trades:
+  - { item: 1139, items: [1116, 1116, 1116] }

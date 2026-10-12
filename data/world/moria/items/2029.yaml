@@ -1,0 +1,27 @@
+vnum: 2029
+name: the staff of Gandalf
+keywords: [staff, gandalf, gandalfs, wizard, mithrandir]
+description: A tall gnarled staff of grey wood lies here, its head knotted like a closed hand.
+look: |
+  A wizard's staff, taller than a man, of some grey wood that is not
+  ash and not oak, with a knot at its head like a fist. It is the
+  staff that struck the Doors of Durin, that lit the passages with a
+  white glow, and that broke on the Bridge of Khazad-dum when a wizard
+  stood alone against the shadow. It still holds the light, and it
+  remembers the Secret Fire.
+type: weapon
+level: 50
+baseline: staff
+weight: 3
+value: 6000
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smite
+effects:
+  - { kind: damage, params: { mult: 1.1, weapon: true } }
+  - { kind: detectHidden }
+  - { kind: detectInvisible }
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }

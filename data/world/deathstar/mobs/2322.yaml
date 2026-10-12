@@ -1,0 +1,19 @@
+vnum: 2322
+name: Luke Skywalker
+keywords: [luke, skywalker, farmboy, pilot, jedi]
+description: Luke Skywalker stands at the window in a stormtrooper's armour, his helmet under his arm.
+look: |
+  A sandy-haired young man from a moisture farm on Tatooine, swimming in
+  a suit of stormtrooper armour two sizes too big, with the helmet
+  tucked under his arm because he cannot see out of it. There is a
+  lightsaber hilt hooked to the belt that does not match the armour, and
+  a look on his face that is half terror and half the best day of his
+  life. He has just found out the princess is here, and he means to get
+  her out. He has worked out that the quickest way to rescue someone is
+  to throw yourself between them and the blaster, and he will teach you
+  how, for a little coin. "I'm Luke Skywalker. I'm here to rescue you."
+level: 30
+flags: [peaceful]
+teaches: [rescue]
+attack:
+  verb: punch

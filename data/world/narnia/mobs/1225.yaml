@@ -1,0 +1,20 @@
+vnum: 1225
+name: Giant Rumblebuffin
+keywords: [giant, rumblebuffin, wimbleweather]
+description: Giant Rumblebuffin sits by the broken castle gate, rubbing stone dust out of his eyes with a handkerchief the size of a tablecloth.
+look: |
+  A real giant, as tall as a house and nearly as wide, with a great
+  shaggy head and a club like a tree-trunk laid across his knees. A
+  little while ago he was a statue in the Witch's courtyard, and the
+  Lion breathed on him; now he has knocked the gate down to let the
+  others out, and is very pleased about it. He is one of the
+  Buffins, a good family, and he is very respectable for a giant, and
+  he would like to apologise for the state of his eyes. He is slow to
+  anger, but he is a giant, and if you start something he will finish
+  it with the club.
+level: 12
+health: 225
+silver: 50
+attack:
+  kind: blunt
+  verb: club

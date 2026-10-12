@@ -2,6 +2,8 @@ interval_seconds: 300
 resets:
   # --- Sietch Tabr ---
   - { mob: 1902, room: 1902 }                                   # Stilgar on the speaking-rock
+  - { mob: 1921, room: 1902 }                                   # Paul Atreides, Muad'Dib, who trades his shield belt for his father's signet ring
+  - { mob: 1922, room: 1902 }                                   # the Lady Jessica, who teaches dodge and fast healing (the weirding way)
   - { mob: 1903, room: 1902, max: 3 }                           # Fremen in the great cavern
   - { mob: 1903, room: 1902, max: 3 }
   - { mob: 1903, room: 1901, max: 3 }                           # and one in the outer hall
@@ -23,6 +25,7 @@ resets:
   - { mob: 1904, room: 1906, max: 4, equip: [{ item: 1907 }] }  # scorpions sunning at the wall's foot, a loose stinger
   - { mob: 1904, room: 1906, max: 4 }
   - { mob: 1904, room: 1906, max: 4 }
+  - { mob: 1924, room: 1906 }                                   # Liet-Kynes measuring dew, who trades his paracompass for specimens
   - { mob: 1904, room: 1907, max: 4, equip: [{ item: 1907 }] }  # one in the gullies
   - { mob: 1906, room: 1907, max: 3 }                           # desert hawks over the broken land
   - { mob: 1906, room: 1907, max: 3 }
@@ -52,7 +55,9 @@ resets:
   - { mob: 1910, room: 1920, max: 4, equip: [{ item: 1911, slot: head }] }   # one on the landing field
   - { mob: 1911, room: 1917, max: 2, equip: [{ item: 1912, slot: wield }] }   # sergeants at the blast doors, lasguns slung
   - { mob: 1911, room: 1917, max: 2, equip: [{ item: 1912, slot: wield }, { item: 1913 }] }
+  - { mob: 1926, room: 1917, equip: [{ item: 1929 }, { item: 1933 }, { item: 1910, slot: body }] }   # Glossu Rabban, the Beast, holding the gate with his spiked mace
   - { mob: 1912, room: 1915, equip: [{ item: 1924 }, { item: 1900 }, { item: 1900 }, { item: 1906 }] }   # Staban Tuek at his ornithopter, with his thumper and a Fremkit
+  - { mob: 1923, room: 1915 }                                   # Gurney Halleck among the smugglers, who teaches riposte and disarm
   # --- the forward base ---
   - { mob: 1915, room: 1920, equip: [{ item: 1915, slot: body }, { item: 1921 }] }   # Captain Nefud in his gilded cuirass, the stolen Fremen stillsuit in his pack
   - { mob: 1916, room: 1921, max: 4, equip: [{ item: 1916 }] }  # Sardaukar in their hall, spare harness plates
@@ -62,5 +67,8 @@ resets:
   - { mob: 1917, room: 1922, equip: [{ item: 1922 }] }          # the Bashar and his Sardaukar blade
   - { mob: 1918, room: 1923, equip: [{ item: 1925 }] }          # Reverend Mother Mohiam, the Gom Jabbar at her wrist
   - { mob: 1919, room: 1924, equip: [{ item: 1923 }, { item: 1917 }] }   # Feyd-Rautha, his poisoned blade, and his arena vambraces
+  - { mob: 1927, room: 1930, equip: [{ item: 1930 }, { item: 1934 }] }   # Piter de Vries at the Baron's side, his sapho flask and a needle-gun in his sleeve
+  - { mob: 1928, room: 1930, equip: [{ item: 1936 }] }          # Thufir Hawat in chains by the Baron's chair, an Atreides dress uniform still on his back
+  - { mob: 1925, room: 1930, equip: [{ item: 1931, slot: belt }, { item: 1927 }, { item: 1935, slot: body }] }   # the Baron on his suspensors, the Duke's signet ring on a chain
   # --- the deep desert ---
   - { mob: 1920, room: 1928, equip: [{ item: 1900 }, { item: 1900 }, { item: 1900 }] }   # Shai-Hulud, roaming the deep desert, spice in its gullet

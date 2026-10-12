@@ -1,0 +1,20 @@
+vnum: 1932
+name: Kynes's paracompass
+keywords: [kynes's, kynes, liet, paracompass, compass]
+description: A brass paracompass, its glass scoured milky by sand, lies here.
+look: |
+  A brass paracompass of the old Imperial survey pattern, its dial
+  scoured milky by twenty years of sandstorms and its case scratched
+  with Liet-Kynes's notes on dew and dune and wind. It points, not
+  north, but to the local magnetic anomaly, which on Arrakis is
+  always somewhere interesting. Held, it teaches you to read the
+  land, and to see what is hidden in it.
+type: armor
+slot: hold
+weight: 1
+level: 30
+value: 2400
+effects:
+  - kind: detectHidden
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

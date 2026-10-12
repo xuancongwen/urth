@@ -1,0 +1,19 @@
+vnum: 1224
+name: Susan Pevensie
+keywords: [susan, pevensie, girl, daughter, eve, gentle]
+description: Susan Pevensie sits on a camp-stool outside the pavilion, sensible and anxious, counting the arrows in a quiver.
+look: |
+  The elder sister, dark-haired and grave, who is always the one to
+  say it is getting late and they ought to be going back. She is
+  frightened of the wolves and does not pretend not to be, and she is
+  the best shot of the four by a long way. Father Christmas meant a
+  bow and a horn for her, and one of the Queen's dwarves stole the
+  horn off the sledge road; she would like it back, but she will not
+  ask you to go into that castle for it. Tonight she cannot sleep, and
+  she keeps looking toward the slope that goes down to the Stone Table.
+  She has her bow with her, and anyone who troubles her will feel it.
+level: 8
+silver: 30
+attack:
+  kind: pierce
+  verb: shoot

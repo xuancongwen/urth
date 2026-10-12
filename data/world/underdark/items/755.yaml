@@ -1,0 +1,24 @@
+vnum: 755
+name: Matron Malice's tentacle rod
+keywords: [malice, tentacle, rod, matron]
+description: A black rod ending in a knot of purple tentacles lies here, the tentacles still twitching.
+look: |
+  The rod of a Matron Mother of Menzoberranzan: a haft of black iron
+  ending in six purple tentacles as long as your forearm, each one
+  barbed, each one alive. They lash on their own, and where they touch
+  the flesh goes slow and numb. Matron Malice used it on her children
+  more often than on her enemies.
+type: weapon
+weight: 3
+level: 20
+baseline: whip
+value: 1500
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - { kind: chill, params: { chance: 0.2, mult: 0.6, rounds: 2 } }
+  - { kind: proc, params: { chance: 0.25, power: 0.8, verb: "lash of six barbed tentacles" } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

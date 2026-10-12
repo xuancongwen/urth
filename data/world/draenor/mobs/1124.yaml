@@ -1,0 +1,17 @@
+vnum: 1124
+name: Grom Hellscream
+keywords: [grom, hellscream, warsong, chieftain]
+description: Grom Hellscream stands at the foot of the stair, staring east at the black citadel, empty-handed and furious.
+look: |
+  The chieftain of the Warsong clan, lean and wild, with his jaw
+  painted black, rings in his ears, and a mane of black hair pulled up
+  into a topknot. The demon blood took him harder than most, and he
+  knows it. Someone carried Gorehowl, his axe, out of his hall and
+  across to the Pinnacle to die with it, and the pit lord keeps it now;
+  Grom wants it back and has not decided yet whose blood that will
+  cost. For coin, he will teach you the Warsong rage. "Lok'tar ogar!"
+level: 24
+flags: [peaceful]
+teaches: [berserk]
+attack:
+  verb: punch

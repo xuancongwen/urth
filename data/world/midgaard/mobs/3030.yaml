@@ -1,0 +1,18 @@
+vnum: 3030
+name: Odif Yltsaeb
+keywords: [odif, yltsaeb, beastly, fido, dog]
+description: Odif Yltsaeb is here, looking for food.
+look: |
+  The biggest, filthiest, and oldest of the beastly fidos, the one the
+  others get out of the way of: a great grey-muzzled brute with one ear
+  bitten off and a collar he must have stolen from somebody, buckled on
+  backwards. Nobody knows who named him, or why it reads so oddly; the
+  wizard says to try it in a mirror. He growls at you over a bone the
+  size of your leg.
+level: 7
+health: 140
+stats: { strength: 14 }
+silver: 20
+flags: [wander]
+attack:
+  verb: bite

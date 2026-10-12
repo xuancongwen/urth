@@ -1,0 +1,22 @@
+vnum: 1637
+name: Raynor's marshal's star
+keywords: [raynor's, raynor, marshal, star, badge]
+description: A tarnished six-pointed star on a leather thong lies here.
+look: |
+  The badge of the marshal of Mar Sara, a six-pointed star of tarnished
+  brass with a bullet dent in one point, hung on a thong so it can be
+  worn at the throat. Jim Raynor wore it until the Confederacy decided
+  he should not. Whoever wears it now stands a little taller, holds on
+  a little longer when it gets bad, and gets listened to.
+type: armor
+slot: neck
+weight: 0
+level: 20
+value: 1500
+effects:
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.8 }
+  - kind: stat
+    params: { stat: charisma, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

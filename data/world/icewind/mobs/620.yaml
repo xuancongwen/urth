@@ -1,0 +1,19 @@
+vnum: 620
+name: Guenhwyvar
+keywords: [guenhwyvar, guen, panther, cat]
+description: A great black panther lies along the back wall, in the shadow the light does not explain, and lifts her head as you come in.
+look: |
+  Six hundred pounds of black cat, longer than a man is tall, with
+  eyes like green lamps and muscles that move under the fur when she
+  breathes. She is Drizzt's companion, called from the Astral Plane
+  through the onyx figurine by the fire, and she is here only because
+  he wished it. She watches you the way she watches the cave mouth:
+  without fear, and without any doubt at all of what she would do. If
+  you stay, and pay the price Drizzt sets on her time, she will show
+  you how a hunting cat comes round behind a foe who is watching
+  somebody else.
+level: 16
+flags: [peaceful]
+teaches: [circle]
+attack:
+  verb: claw

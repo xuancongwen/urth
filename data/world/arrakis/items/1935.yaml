@@ -1,0 +1,14 @@
+vnum: 1935
+name: a suspensor-hung robe of black silk
+keywords: [suspensor-hung, suspensor, robe, black, silk]
+description: A vast robe of black silk, its hem sewn with tiny suspensors, floats here.
+look: |
+  A robe of heavy black silk large enough to tent a small family, its
+  hem sewn with tiny suspensors so that it drifts rather than hangs.
+  Under the silk it is quilted with shigawire mesh, because its owner
+  trusted nobody, rightly.
+type: armor
+slot: body
+weight: 4
+level: 48
+baseline: medium

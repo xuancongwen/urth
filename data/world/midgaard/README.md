@@ -77,12 +77,14 @@ something found in Midgaard as well as coin:
 
 The janitor (2), the drunk (2), Fido (3), the cat (3), a beggar (3),
 the beastly fido (5), the gravedigger (5), a pickpocket (5), sewer rats
-(6), restless zombies (7), the crypt ghoul (9), the rat king (10),
-cityguards (10), the mayor (13), the Peacekeeper (14), and Hassan (15)
-in the Grunting Boar. Peaceful: the shopkeepers, the banker, the high
-priest, the sorcerer, the master thief (teaches riposte and backstab),
-the warrior guildmaster (teaches bash and twin), and the fencing master
-in the training hall (teaches feint).
+(6), restless zombies (7), Odif Yltsaeb (7, the oldest beastly fido,
+king of the City Dump), the mercenary (8, waiting for a job on Main
+Street, 3015), the crypt ghoul (9), the rat king (10), cityguards (10),
+Puff the Fractal Dragon (13, in Temple Square, contemplating a higher
+reality), the mayor (13), the Peacekeeper (14), and Hassan (15) in the
+Grunting Boar. Peaceful: the shopkeepers, the banker, the high priest, the sorcerer, the master thief
+(teaches riposte and backstab), the warrior guildmaster (teaches bash
+and twin), the fencing master in the training hall (teaches feint).
 
 The Mayor's lost ledger (3035) is a quest item, planted only by a
 questmaster.
@@ -99,6 +101,8 @@ questmaster.
 | 3037 | the rat king's crown: sees the hidden, rat-quick, stinks | 10 | the rat king, Rats' Nest |
 | 3039 | a ring of regeneration: heals even in a fight | 10 | the rat king (3064) |
 | 3027 | a ghoul's thighbone club: grave rot | 9 | the crypt ghoul |
+| 3056 | a fractal scale: sees the unseen, intelligence, wisdom, a dodge | 12 | Puff the Fractal Dragon, Temple Square |
+| 3055 | Odif's backwards collar: a dodge, dexterity, constitution | 7 | Odif Yltsaeb, City Dump |
 | 3038 | the gravedigger's shovel: finishes the failing and the staggered | 5 | the gravedigger |
 | 3041 | a bag of holding (holds 150) | - | the pickpocket |
 | 3052 | the big bag (holds 100) | - | the City Dump |

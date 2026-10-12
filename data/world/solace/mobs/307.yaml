@@ -1,11 +1,13 @@
 vnum: 307
-name: a hobgoblin captain
-keywords: [hobgoblin, captain]
-description: A fat hobgoblin captain sits on a wagon, shouting at the others.
+name: Fewmaster Toede
+keywords: [toede, fewmaster, hobgoblin, captain]
+description: Fewmaster Toede, a fat hobgoblin in a too-small doublet, sits on a wagon, shouting at the others.
 look: |
   Fatter than a hobgoblin should be, dressed in stolen finery two sizes
-  too small, and holding a whip he does not need. He is looking for
-  something, and for someone to blame.
+  too small, and holding a whip he does not need. He is Fewmaster
+  Toede of the Red Dragonarmy, and he answers to Lord Verminaard, and
+  he is looking for a blue crystal staff, and for someone to blame
+  when he does not find it.
 level: 3
 silver: 120
 attack:

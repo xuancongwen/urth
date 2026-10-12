@@ -1,0 +1,26 @@
+vnum: 1137
+name: the staff of Ner'zhul
+keywords: [staff, ner'zhul, nerzhul, shadowmoon]
+description: A staff of black wood topped with a hooked blade of bone lies here, frost on its haft.
+look: |
+  The staff of the elder shaman of the Shadowmoon, carved from black
+  wood with a curved blade of bone lashed to the top like a reaper's.
+  It once called the spirits of Draenor; now it calls something colder,
+  and the cold stays in the wounds it makes. It steadies the mind that
+  holds it, and makes that mind quietly certain of itself.
+type: weapon
+weight: 4
+level: 19
+baseline: staff
+value: 2600
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }

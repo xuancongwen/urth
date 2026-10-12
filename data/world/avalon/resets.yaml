@@ -3,6 +3,7 @@ resets:
   # --- the crossing ---
   - { mob: 1000, room: 1001 }              # the barge-woman at the landing
   - { mob: 1001, room: 1002, max: 2 }      # mist sprites over the water
+  - { mob: 1025, room: 1003 }              # Sir Gawain on the strand: enhanced damage, and the green girdle for the Green Knight's axe
   # --- the orchards ---
   - { item: 1000, room: 1004 }             # golden apples in the grass
   - { item: 1000, room: 1005 }
@@ -21,19 +22,26 @@ resets:
   # --- the lake ---
   - { mob: 1002, room: 1013, max: 2, equip: [{ item: 1020, slot: wield }] }   # reed-lurkers in the marsh, with eel-spears
   - { mob: 1010, room: 1015 }              # the priestess (merchant)
+  - { mob: 1027, room: 1014, equip: [{ item: 1042, slot: finger1 }] }   # Guinevere, veiled, on the causeway, who will not go to the well, and her wedding ring
+  - { mob: 1022, room: 1014, equip: [{ item: 1041, slot: shoulders }] }   # the Lady of the Lake, standing on the water in white samite
+  - { mob: 1020, room: 1016 }              # King Arthur healing at the Chalice Well, who trades his helm for Excalibur
   - { mob: 1019, room: 1018 }              # the knight at the sword in the stone: disarm, rescue
+  - { mob: 1026, room: 1018 }              # Lancelot keeping vigil beside him: riposte, feint
   - { item: 1016, room: 1018 }             # the sword in the stone
   - { mob: 1011, room: 1018, equip: [{ item: 1007, slot: head }, { item: 1022, slot: legs }, { item: 1026, slot: wield }] }   # the hollow knight
   # --- Morgan's tower ---
   - { mob: 1012, room: 1017, max: 4, equip: [{ item: 1008 }] }   # ravens carry feathers
   - { item: 1027, room: 1017 }             # a briar whip among the nightshade
   - { mob: 1012, room: 1020, max: 4, equip: [{ item: 1008 }] }
+  - { mob: 1023, room: 1020, equip: [{ item: 1038, slot: wield }, { item: 1009, slot: body }] }   # Mordred at the tower gate, with Clarent
   - { mob: 1013, room: 1021, equip: [{ item: 1009, slot: body }, { item: 1033, slot: shield }] }   # the changeling knight, with Arthur's stolen shield
   - { item: 1023, room: 1021 }             # a masque-mask dropped on the stair
   - { mob: 1014, room: 1028, equip: [{ item: 1010, slot: finger1 }, { item: 1011, slot: shoulders }, { item: 1030, slot: wield }] }   # Morgan, with the stolen Excalibur
   # --- the fae wood and the barrow ---
   - { mob: 1015, room: 1022, max: 2, equip: [{ item: 1012 }] }   # wisps carry their lights
+  - { mob: 1024, room: 1022, equip: [{ item: 1039, slot: wield }, { item: 1022, slot: legs }] }   # the Green Knight at the wood's edge, and his axe
   - { mob: 1015, room: 1023, max: 2, equip: [{ item: 1012 }] }
+  - { mob: 1021, room: 1023 }              # Merlin in his hawthorn, who trades his staff for fae dust
   - { mob: 1016, room: 1024, max: 3, equip: [{ item: 1013 }] }   # pixies carry fae dust
   - { item: 1029, room: 1024 }             # a pixie's willow bracelet
   - { mob: 1017, room: 1026, max: 2, equip: [{ item: 1024 }] }   # barrow-wights, cloak-pins at the throat

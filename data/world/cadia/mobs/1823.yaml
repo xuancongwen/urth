@@ -1,0 +1,21 @@
+vnum: 1823
+name: Eldrad Ulthran
+keywords: [eldrad, ulthran, farseer, eldar, aeldari, ulthwe]
+description: A tall figure in a horned helm and robes of bone and black stands in the pylon's shadow, unseen by the traitors, reading the runes that float around him.
+look: |
+  The Farseer of Craftworld Ulthwé, the oldest and the most cunning of
+  his kind, in a robe of black and bone over rune armour, a witch-staff
+  in one hand and a halo of glowing runestones turning slowly about his
+  head. The traitors at the foot of the pylon walk past him and do not
+  see him. He has come to Cadia because the pylons matter to his people
+  more than the humans will ever know, and he would very much like the
+  shard that the sorcerer above has cut from this one. Bring it to him
+  and he will give you a spirit stone of his craftworld in its place.
+  Type 'list'.
+level: 55
+flags: [peaceful]
+attack:
+  kind: psionic
+  verb: mind war
+trades:
+  - { item: 1831, items: [1810] }

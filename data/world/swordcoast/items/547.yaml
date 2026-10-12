@@ -1,0 +1,20 @@
+vnum: 547
+name: Sarevok's horned helm
+keywords: [sarevok, sarevoks, horned, helm, helmet]
+description: A black steel helm with two great swept-back horns lies here.
+look: |
+  A closed helm of black steel, the face a grille of spikes, with two
+  horns that curl back from the brow like a ram's. It was made to be
+  seen coming. Inside, it smells of hot iron and something older. Whoever
+  wears it feels the blows land on someone else, and hits harder.
+type: armor
+slot: head
+weight: 5
+level: 15
+baseline: heavy
+value: 900
+rarity: rare
+effects:
+  - { kind: protect, params: { mult: 0.94 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

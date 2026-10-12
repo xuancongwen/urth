@@ -1,0 +1,20 @@
+vnum: 845
+name: Jarre
+keywords: [jarre, geg, woman, wupp]
+description: Jarre sorts a heap of tools into piles on the cellar floor and tells Limbeck, without looking up, that he is doing it wrong.
+look: |
+  A Geg woman, short and sturdy and sharp-eyed, with her hair tied up
+  out of the grease and a wrench through her belt as if it grew there.
+  She founded the Union with Limbeck, which is to say that Limbeck
+  asks why and Jarre works out what to do about it. She has less
+  patience for speeches than he has and more for bolts. She keeps the
+  Union's stores, and she will sell you a tin of grease, a wrench, or
+  a tool-belt, for the cause.
+level: 7
+flags: [peaceful]
+attack:
+  verb: whack
+trades:
+  - { item: 863, silver: 10 }
+  - { item: 850, silver: 30 }
+  - { item: 889, silver: 60 }

@@ -1,0 +1,18 @@
+vnum: 2023
+name: Legolas Greenleaf
+keywords: [legolas, greenleaf, elf, archer, thranduil]
+description: Legolas stands at the edge of the fissure with an arrow on the string, staring east into the red glow. "Ai! ai! A Balrog is come!"
+look: |
+  An Elf of the Woodland Realm, son of Thranduil, tall and fair, in
+  green and brown, with a long bow of the Galadhrim's make and a quiver
+  at his shoulder and a long white knife at his belt. He does not like
+  being under stone. He walks light on the floor where the dust lies
+  thick and leaves no print, and his eyes see farther in the dark than
+  yours. He fights with two knives when the enemy comes close, and he
+  will show you the trick of it, and how to step out of a blow's way,
+  for coin.
+level: 40
+flags: [peaceful]
+teaches: [dodge, twin]
+attack:
+  verb: shoot

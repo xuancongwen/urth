@@ -11,7 +11,9 @@ look: |
   find the light in the hands of a thief, the symbol in the arms of a
   bride, and the devil at the very top of his tower," she says. "They
   also say you will not listen. Sit, sit."
+  For a price she will read your fortune and set you a task; type
+  'quest request'.
 level: 30
-flags: [peaceful]
+flags: [peaceful, questmaster]
 attack:
   verb: slap

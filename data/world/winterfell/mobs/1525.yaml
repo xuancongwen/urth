@@ -1,0 +1,19 @@
+vnum: 1525
+name: Arya Stark
+keywords: [arya, stark, girl, horseface, arry]
+description: Arya Stark lurks between the walls with a stick for a sword, practising her thrusts where her septa will not find her.
+look: |
+  A scrawny girl of nine with a long horse face, tangled brown hair,
+  and grey eyes like her father's, her sleeves singed and her skirts
+  muddied to the knee. She has run from her needlework again. She can
+  ride and shoot and count better than her sister, and she would very
+  much like everyone to stop telling her she is a lady. A lean grey
+  direwolf, Nymeria, slinks after her wherever she hides. Arya has heard that a
+  small sword was made here once, for someone quick, and that a wolf
+  carried it off into the wood; she wants it back. "Stick them with the
+  pointy end," she says, practising the thrust with a stick.
+level: 8
+silver: 15
+attack:
+  kind: pierce
+  verb: jab

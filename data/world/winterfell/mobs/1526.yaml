@@ -1,0 +1,18 @@
+vnum: 1526
+name: Bran Stark
+keywords: [bran, brandon, stark, boy, crow]
+description: Bran Stark sits in a wicker basket on Hodor's back on the godswood path, gazing north toward the heart tree.
+look: |
+  A boy of eight or nine with his mother's auburn hair and a stillness
+  that is new to him, his useless legs wrapped in furs. He loved to
+  climb, every tower and wall of Winterfell, until a golden man pushed
+  him from the window of the broken tower. Now he dreams instead: of a
+  three-eyed crow, of flying, of looking out through the eyes of his
+  direwolf Summer, who lies curled at the roots. He watches the path to
+  the weirwood as if it were calling him. It may be. "The winter is
+  coming," he says, quite calmly. "The Night King is coming. He knows
+  my name."
+level: 9
+silver: 20
+attack:
+  verb: punch

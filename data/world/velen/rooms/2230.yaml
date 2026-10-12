@@ -1,0 +1,12 @@
+vnum: 2230
+name: The Road of the Wild Hunt
+description: |
+  Past the ring of stones the mountain ends, and the road the spectral
+  riders ride down out of the torn sky begins: a road of ice laid on
+  nothing, glittering, with the red light of another world at its far
+  end and the cold of the space between worlds pouring along it like a
+  river. Hoofprints of frost run up it and do not come back down. The
+  King of the Wild Hunt waits here for those who follow his general's
+  trail. The summit is south.
+exits:
+  south: 2227

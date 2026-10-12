@@ -1,0 +1,18 @@
+vnum: 419
+name: Samwise Gamgee
+keywords: [sam, samwise, gamgee, hobbit, gardener]
+description: Sam Gamgee sits with a pack as big as himself, checking the pans for the fourth time. "I'm going with Mr. Frodo, and that's that."
+look: |
+  A stout, brown-haired, sunburned hobbit with a gardener's hands and
+  an honest face, the Gaffer's youngest. He was caught under the
+  window of Bag End with his ears flapping, and his punishment is to
+  go on the journey, which is what he wanted most in all the world.
+  He has packed rope, salt, his cooking-gear, and a little box of
+  earth from his own garden. He wants very much to see Elves. He keeps
+  himself between Mr. Frodo and the road.
+  Lay a hand on his master and he will take the frying pan to you.
+level: 8
+silver: 15
+attack:
+  kind: blunt
+  verb: clang

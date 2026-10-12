@@ -1,0 +1,13 @@
+vnum: 2026
+name: the signet of Balin
+keywords: [signet, balin, balins, ring, seal, token]
+description: A heavy gold seal-ring, scratched and dented, lies here among the litter.
+look: |
+  A dwarf's seal-ring of red gold, broad and heavy, cut with the
+  crowned hammer and anvil of Durin and the runes of Balin son of
+  Fundin, Lord of Moria. The orc chieftain took it from a finger he
+  did not bother to take off the hand first. It is no use to you.
+  Gimli, in the Chamber of Records, would carry it home to Dáin.
+type: other
+weight: 1
+value: 200

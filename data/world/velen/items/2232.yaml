@@ -1,0 +1,26 @@
+vnum: 2232
+name: Zireael
+keywords: [zireael, swallow, ciri, ciri's, gnomish, sword]
+description: A slender, light sword with a swallow etched near its guard lies here.
+look: |
+  A gnomish blade, forged long ago in Tir Tochair and so finely made it
+  weighs hardly more than a riding crop: narrow, flexible, and keen
+  enough to split a falling hair. A swallow is etched near the guard,
+  for the girl whose name in the Elder Speech it bears. In a quick hand
+  it darts in and out like the bird, and finds the gap.
+type: weapon
+weight: 2
+level: 30
+baseline: standard
+value: 4000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: finesse }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,13 @@
+vnum: 2131
+name: Baba Lysaga's Creeping Hut
+description: |
+  A hut of black timbers and thatch stands on two huge legs of rotten
+  wood and bone, like the legs of some giant dead bird, and creaks and
+  shifts its weight as you come near. Inside it is all one room, hung
+  with herbs and bones and the drying skins of things you do not want
+  to name, and a cauldron bubbles without a fire beneath it. Flies cover
+  everything. A giant's hollowed skull floats under the rafters. The
+  deep woods are back west.
+exits:
+  west: 2116
+flags: [dark]

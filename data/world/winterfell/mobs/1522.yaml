@@ -1,0 +1,20 @@
+vnum: 1522
+name: Jon Snow
+keywords: [jon, snow, bastard, lord, snow]
+description: Jon Snow drills alone at the pells, cutting the straw man to pieces, his white direwolf Ghost silent at his side.
+look: |
+  A lean dark boy with the long Stark face and grey Stark eyes, though
+  he is no Stark, as the lady of the castle has never once let him
+  forget. He trains harder than his brother because he has to, and he is
+  better at it, and he has noticed that being better does not help.
+  Ghost, the albino runt of the direwolf litter, red-eyed and
+  soundless, never leaves him.
+  He means to take the black and go to the Wall, where a bastard's
+  name is no worse than anyone's. He knows nothing, an old ranger will
+  tell him one day. He knows how to turn a blow, though, and for coin
+  he will show you how to make your enemy pay for every swing.
+level: 12
+flags: [peaceful]
+teaches: [riposte]
+attack:
+  verb: slash

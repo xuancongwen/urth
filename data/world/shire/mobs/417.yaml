@@ -1,0 +1,23 @@
+vnum: 417
+name: Gandalf the Grey
+keywords: [gandalf, grey, gray, wizard, mithrandir, old]
+description: An old man in a tall pointed grey hat sits on a cart-tail at the edge of the field, blowing smoke-rings that turn into ships.
+look: |
+  A tall old man, bent a little, with a long white beard, bushy
+  eyebrows that stick out beyond the brim of his hat, a silver scarf,
+  and immense black boots. The children of Hobbiton know him by the
+  rockets: the great G on his cart means fireworks, and the dragon
+  that flew over this field at Bilbo's party is still talked about in
+  every inn from here to the Brandywine. The grown-ups are less sure
+  of him. A wizard, they say, is a disturber of the peace. He looks at
+  you as if he knows exactly how much trouble you are, and is pleased
+  about it. "A wizard is never late," he tells you, "nor is he early.
+  He arrives precisely when he means to." He has a few rockets left
+  over from the party, and he will part with them for silver, though
+  he would prefer you did not set the hay alight. Type 'list'.
+level: 20
+flags: [peaceful]
+trades:
+  - { item: 436, silver: 15 }
+attack:
+  verb: rap

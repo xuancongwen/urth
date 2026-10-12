@@ -1,0 +1,11 @@
+vnum: 2129
+name: a bottle of Champagne du le Stomp
+keywords: [bottle, champagne, stomp, wine]
+description: A tall bottle of pale wine with a wax-sealed cork lies here.
+look: |
+  The good stuff: a tall bottle of pale gold sparkling wine, the cork
+  waxed and the label stamped with a raven. Davian Martikov sells it
+  only when he likes you, or when he needs the money. He needs the
+  money.
+type: other
+value: 60

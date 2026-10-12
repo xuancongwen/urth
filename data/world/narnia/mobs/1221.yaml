@@ -1,0 +1,20 @@
+vnum: 1221
+name: Lucy Pevensie
+keywords: [lucy, pevensie, girl, daughter, eve, valiant]
+description: A little girl in a fur coat much too big for her stands under the lamp-post, catching snowflakes on her tongue.
+look: |
+  The youngest of four, with a round, eager face, bright eyes, and a
+  fur coat that smells of mothballs, because it came out of a wardrobe
+  in a professor's house in the country. She came through first, and
+  nobody believed her, and she does not mind very much now that she
+  is here again. She is the kind of person who would have tea with a
+  faun without thinking twice, and did. "It's Narnia," she tells you,
+  as if you might not have noticed. "Have you met Mr Tumnus?" She
+  has a diamond vial at her belt that Father Christmas will give her,
+  and she already knows its secret: rest, and believe you will mend,
+  and you do. She will show you, for a few coins for Mr Tumnus.
+level: 4
+flags: [peaceful]
+teaches: [fast_healing]
+attack:
+  verb: slap

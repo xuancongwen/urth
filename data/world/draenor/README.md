@@ -16,18 +16,32 @@ The Deep Bog (1115) and the Hollow of Whispers (1126) are dark.
 
 Levels, roughly in walking order: felhounds and fel orc grunts 12,
 warlock and fen rays 13, infernal and rampart sentries 14, naga
-myrmidons 14, bog lord 15, Warchief Gorvash 16 (boss of the citadel;
+myrmidons 14, Kilrogg Deadeye 15 (on the ramparts; his eyepatch), bog
+lord 15, Gul'dan 16 (at the trough in the war camp; the Book of
+Gul'dan), Warchief Gorvash 16 (boss of the citadel;
 axe and horned helm), naga tidecaller 16 (boss of the marsh; trident),
-nether rays 17, void terror 18 (guards Frostmourne), fel reaver 19
+nether rays 17, void terror 18 (guards Frostmourne), Ner'zhul 19 (at
+the Broken Rim, tearing open rifts; his staff), fel reaver 19
 (the Helm of Domination), Mograth the
 Unmade 20 (the boss; glaive and mantle, and Gorehowl as a trophy). The
 tidecaller also keeps a Warglaive of Azzinoth for her master.
+
+Famous folk who will not be attacked: Grom Hellscream at the foot of
+the stair (1102), glaring at the citadel and wanting Gorehowl back (he
+teaches berserk), and Velen the Prophet at the shrine (1120), who
+trades. On the citadel road (1106) Durotan of the Frostwolves (18; a
+fel iron cleaver and ravager-hide) and his son Thrall (20; the
+Doomhammer) keep to themselves, but will fight back if attacked.
 
 Uniques: a Warglaive of Azzinoth (16; fel fire, evasion, sees the
 invisible), Frostmourne (18; chills, feeds on what it cuts, strength at
 the cost of Wisdom), the Helm of Domination (18; a grave-frost aura, a
 commanding mind, hard to stagger), Gorehowl (20; reckless fury and
-execution). The executioner axe, trident, glaive, horned helm, and mantle
+execution), the Book of Gul'dan (held; bolts of fel shadow,
+Intelligence, costs Wisdom), the Eye of Kilrogg (face; sees the hidden,
+crits), the staff of Ner'zhul (chills, Wisdom and Intelligence), the Doomhammer (20; thunderbolts, steady,
+Strength), and a fragment of K'ure (held; mends, steadies, Wisdom), which Velen trades.
+The executioner axe, trident, glaive, horned helm, and mantle
 all carry their own effects now. Common finds: fel-stained harnesses,
 a Shadow Council kris, infernal-rock gauntlets, Hellfire tower shields,
 naga scimitars, a black coral ring, the bog lord's heartwood staff, a
@@ -42,6 +56,11 @@ Merchants:
   crystal lantern for silver; a crystal-forged blade for 350 silver and
   two fel iron; a pendant of the resting light for 300 silver and two
   motes of fire; a naga-scale vest for 250 silver and three naga scales.
+- Velen the Prophet (1123, shrine 1120): a fragment of K'ure for three
+  shards of the Twisting Nether.
+
+Trainers: the Mag'har blademaster (1127) teaches triple and coup de
+grace; Grom Hellscream (1102) berserk.
 
 Fel iron comes from the fel orcs and the crater rim, motes of fire from
 the infernal and the crater, naga scales from the naga, glowcaps from

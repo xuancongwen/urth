@@ -7,6 +7,8 @@ of the Lady of the Lake and the Chalice Well, the sword in the stone,
 Morgan le Fay's black tower on its spit, the twilight fae wood, and the
 barrow of the old kings. Levels 4 to 14, with Morgan le Fay (12) and
 the Barrow King (14) as the bosses and Gwyn ap Nudd (11) close behind.
+Mordred (11) waits at the foot of Morgan's tower among her ravens, and
+the Green Knight (12) at the edge of the fae wood, both minibosses.
 Reached through the apple-wood east door of the Hall of Far Doors (room
 7 in `start`), which opens onto the Mist-Shore (1000).
 
@@ -22,10 +24,27 @@ sells cider for coin, the Lady's scabbard for coin and a wyvern scale
 (from the Tor wyvern), and the charm for coin and two raven feathers
 (from Morgan's ravens).
 
+The people of the legend: Sir Gawain (1003) on the Apple Strand, who
+teaches enhanced damage and gives the green girdle for the Green
+Knight's axe; King Arthur
+(1016), healing by the Chalice Well, who gives the dragon helm of
+Pendragon for Excalibur brought back from Morgan; Sir Lancelot (1018)
+keeping vigil with Bedivere at the sword in the stone, who teaches
+riposte and feint; and Merlin (1023), shut in his hawthorn in the
+twilight wood, who pushes out his hawthorn staff for silver and three
+pinches of fae dust. These are peaceful. On the causeway (1014) stand
+the Lady of the Lake (14), in a mantle of white samite, and Queen
+Guinevere (8), veiled, with her wedding ring; neither is peaceful, and
+either will fight back if attacked, the Lady hard.
+
 Uniques: Morgan le Fay wields the stolen Excalibur; the changeling knight
 carries Arthur's shield Pridwen; Gwyn ap Nudd keeps Carnwennan, Arthur's
 dagger; the Barrow King holds Rhongomiant, Arthur's spear, in the chamber of
-the old kings (1027). The Lady's scabbard now keeps its
+the old kings (1027); Mordred carries Clarent, the sword of peace; the
+Green Knight his great green axe; the Lady of the Lake wears a mantle
+of white samite; Guinevere her wedding ring. By trade only: the dragon helm of
+Pendragon (Arthur), the green girdle (Gawain), and Merlin's hawthorn
+staff (Merlin). The Lady's scabbard now keeps its
 wearer from bleeding out. Ordinary gear: eel-spears on the reed-lurkers,
 orchard gloves (1005), a cider-press mallet (1007), the hollow knight's
 flail and chausses, a briar whip (1017), a masque-mask (1021), a willow

@@ -5,7 +5,9 @@ description: |
   grey willow. The air is thick with sleep. The willow's roots go into
   the water and along the bank like fingers, and its trunk is split
   with cracks that open and close. It is very hard to keep your eyes
-  open. The path back north is already hard to find.
+  open. The path back north is already hard to find, but east along
+  the bank someone is singing, and lamplight shows between the trees.
 exits:
   north: 421
+  east: 424
 flags: [dark]

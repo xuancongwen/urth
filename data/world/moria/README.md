@@ -10,13 +10,26 @@ over the fire, with the First Hall and the broken Dimrill Gate beyond.
 Levels 10 to 50. Reached east from the landing below the Deeper Hall
 (room 9 in `start`), which opens on the foot of the cliff (2000).
 
+The Fellowship is passing through: Pippin (12) at the well in the
+guardroom (2010), Aragorn (40) in the daylight of the Twenty-first Hall
+(2014), Gimli (36) weeping at Balin's tomb and Boromir (38) holding its
+door (2019), Legolas (40) at the fissure of the Second Hall (2021), and
+Gandalf (50) at the near end of the bridge (2023). Aragorn, Gimli, and
+Legolas trade or teach and are peaceful. The others are not aggressive
+but fight back: Pippin (a dwarf hood and a purse), Boromir (a miniboss,
+2800 health; a longsword of Gondor and the Horn of Gondor), and Gandalf (16000 health, white fire
+about him, a swing and a half a round: a fight as hard as the Balrog
+beside him; his staff). Gollum (16, a miniboss: quick, hard to hit,
+and he strangles hard) pads after them along the Long Passage (2009).
+
 Bosses: the Watcher in the Water (30), off the road in its pool south of
 the lake shore; the cave troll (26) in the Chamber of Mazarbul; the orc
 chieftain of Moria (28) in his hall; and Durin's Bane (50, the Balrog)
 on the Bridge of Khazad-dum, the area's last fight: a burning aura,
 burns that stack on every hit, two swings a round, and 25000 health.
-Named carriers: Narzug the Uruk (22, Orcrist), the cave troll (the Book
-of Mazarbul), the orc chieftain (Glamdring), the Watcher (the mithril
+Named carriers: Gollum (a string of goblin teeth), Boromir (the Horn
+of Gondor), Gandalf (his staff), Narzug the Uruk
+(22, Orcrist), the cave troll (the Book of Mazarbul), the orc chieftain (Glamdring), the Watcher (the mithril
 shirt), and Durin's Bane (Durin's axe).
 
 Uniques: the mithril shirt of the Dwarrowdelf (body, weight 1, the best
@@ -25,12 +38,18 @@ crits, Strength and Wisdom, and sees the hidden: it glows when orcs are
 near), Orcrist (crits, dodge, Dexterity, and it too sees the hidden),
 the Book of Mazarbul (held; Intelligence, Wisdom, Constitution, and
 takes less harm when nearly beaten), Durin's axe (hard crits, Strength
-and Constitution, soak). Common finds: goblin scimitars, a goblin
-shield, warg-hide cloaks, black orc bows, orc-iron helms, Uruk
+and Constitution, soak), Gollum's string of goblin teeth (neck: dodge,
+sees the hidden, Dexterity), Gimli's axe of Erebor (crits, sure
+footing, Strength and Constitution; from Gimli), the Horn of Gondor
+(held: a last stand, Strength, Constitution, Charisma), and the staff
+of Gandalf (two-handed, level 50: more damage, sees the hidden and the
+invisible, Wisdom and Intelligence). Common finds: goblin
+scimitars, a goblin shield, warg-hide cloaks, black orc bows, orc-iron helms, Uruk
 falchions, orc-mail, a dwarf war-mattock in the forges, a dwarf lantern
 by the well, a dwarf-mail shirt in the armoury. Rolled drops only: a
 war-helm of the Dwarrowdelf (28), a drowned dwarf's axe (30), a
-deep-forged greataxe (49), and fire-blackened dwarf-lord's plate (50).
+longsword of Gondor (38, also carried by Boromir), a deep-forged
+greataxe (49), and fire-blackened dwarf-lord's plate (50).
 
 The foot of the cliff, the camp, and the trader's awning are safe.
 Everything past the Doors of Durin is dark except where the fiction
@@ -46,9 +65,13 @@ Merchants (`list`, `buy`, `sell`):
   180, shirt of dwarf-mail 350; dwarf-forged battle axe for 400 silver
   plus two bars of orc iron; mithril-ringed hauberk for 450 silver plus
   two lumps of mithril ore and two bars of orc iron.
+- Gimli son of Gloin (2022, Balin's tomb 2019): his axe of Erebor for
+  the signet of Balin, which lies among the orc chieftain's plunder in
+  his hall (2022).
 
-Trainer: Andvari the shield-dwarf (2001, the camp 2002) teaches shield
-block and sunder.
+Trainers: Andvari the shield-dwarf (2001, the camp 2002) teaches shield
+block and sunder; Aragorn (2021, 2014) rescue and fast healing; Legolas
+(2023, 2021) dodge and twin.
 
 Orc iron comes from most orcs and lies in the forges; mithril ore lies
 in the old workings (2013) and is carried by the cave troll, the

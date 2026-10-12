@@ -8,10 +8,22 @@ from room 640 in `icewind` (the entry room 700 has `up: 640`). Most of
 the tunnels are dark; bring a light, or buy the lamp at the hostel.
 
 Levels, roughly in walking order: goblin slaves 10, rothe 10, cave fisher
-10, quaggoth 12, hook horror 13 (boss of the chasm), drow warriors 16,
-drow wizard 17, shrine spiders 18, drow priestess 20 (the boss; the whip,
-the signet, the insignia of House Do'Urden, the necromancy totem, and
-the offering are with her).
+10, quaggoth 12, hook horror 13 (boss of the chasm), drow warriors 16
+and Dinin Do'Urden leading them (17, 600 health; his adamantite sword),
+drow wizard 17, shrine spiders 18, the spirit-wraith of Zaknafein in
+the antechamber (19, 850 health; his second sword), and in the shrine
+the drow priestess 20 (the whip, the signet, the insignia of House
+Do'Urden, the necromancy totem, and the offering are with her) and
+Matron Malice Do'Urden on her throne beside the altar (20, 1250
+health; her tentacle rod), the hardest fight in the area. Neither
+joins the other's fight.
+
+King Schnicktick (14; the chain of office of Blingdenstone) sits by
+the fountain in the square, and can be killed there like Belwar.
+Peaceful: Jarlaxle (20) of Bregan D'aerthe on the stair of the worked tunnel,
+who trades one of his spare hats (18) for the priestess's
+spider-signet. In Blingdenstone the smith teaches riposte, the drow
+poisoner envenom, and the drow assassin circle.
 
 Belwar Dissengulp (16) can be killed in the square of Blingdenstone,
 which is no longer safe, for the mithral hammer that is his right hand.
@@ -19,7 +31,10 @@ Icingdeath and Twinkle (items 730 and 731 here) are carried by Drizzt,
 in his cave in `icewind`.
 
 Notable items: the priestess keeps
-Zaknafein's sword, the weapon of the man her house sacrificed (19). The priestess's
+Zaknafein's sword, the weapon of the man her house sacrificed (19);
+its twin is in the spirit-wraith's hand (19). Dinin's adamantite sword
+(17), Schnicktick's chain of office (14), Jarlaxle's spare hat (18), and Malice's tentacle rod (20), which
+slows what it touches, are the area's other new uniques. The priestess's
 snake-headed whip poisons and slows.
 
 Map (north is up; each block is one z-level):

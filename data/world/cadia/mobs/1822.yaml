@@ -1,0 +1,20 @@
+vnum: 1822
+name: Saint Celestine
+keywords: [saint, celestine, living, sororitas, sister]
+description: Saint Celestine stands on the rubble with her wings spread, golden and untouched, and the dead will not come near her.
+look: |
+  A woman in gilded power armour, with wings of white feathers spread
+  behind her and a flaming sword in her hand, and a face so calm and so
+  beautiful it is hard to look at for long. She is the Living Saint, who
+  has died and come back more times than the Ecclesiarchy will admit,
+  and her two silent Geminae stand behind her with their own swords
+  drawn. Light falls on her that has no source. She looks at you as if
+  she knew your name. If you bring her the ichor of the Blood God's
+  servants, four vials, she will burn it, and give you a feather from
+  her wings. Type 'list'.
+level: 55
+flags: [peaceful]
+attack:
+  verb: smite
+trades:
+  - { item: 1830, items: [1805, 1805, 1805, 1805] }

@@ -1,0 +1,15 @@
+vnum: 1722
+name: Lieutenant Zander Barcalow
+keywords: [lieutenant, zander, barcalow, pilot, fleet]
+description: Lieutenant Zander Barcalow leans on the drop ship's landing strut, grinning at Carmen.
+look: |
+  A handsome Fleet pilot in a blue flight jacket, with a lazy smile and
+  a pilot's opinion of everyone who walks. He flew Carmen through her
+  training and he would like to fly her somewhere else after the war.
+  He thinks the Mobile Infantry are brave, in the way that a man thinks
+  a rock is brave for falling. He has never been down a bug hole. He
+  would rather not start.
+level: 22
+silver: 120
+attack:
+  verb: punch

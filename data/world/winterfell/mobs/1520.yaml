@@ -1,0 +1,18 @@
+vnum: 1520
+name: Lady Catelyn Stark
+keywords: [catelyn, lady, stark, tully, cat]
+description: Lady Catelyn Stark sits at the lord's right hand, auburn hair bound up, watching the hall with Tully-blue eyes.
+look: |
+  A tall woman of the riverlands in a gown of grey wool trimmed with
+  fish-scale silver, her auburn hair bound up under a net and her blue
+  eyes missing nothing that passes in the hall. She came north from
+  Riverrun to marry a man she did not know, and she has never prayed to
+  his trees: she had a sept built for her own Seven inside these walls.
+  Five children she has given Winterfell, and she would burn the North
+  to keep them. When the lord's bastard comes into the hall she looks
+  at him, once, and then does not look at him again. "Family, Duty,
+  Honor," she says, when she says anything at all.
+level: 10
+silver: 90
+attack:
+  verb: slap

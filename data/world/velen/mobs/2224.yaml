@@ -1,0 +1,17 @@
+vnum: 2224
+name: Dandelion
+keywords: [dandelion, jaskier, bard, poet, viscount, lettenhove]
+description: Dandelion stands on a barrel in the courtyard with his lute, singing a ballad about a witcher to soldiers who did not ask for one.
+look: |
+  Julian Alfred Pankratz, Viscount de Lettenhove, known to every tavern
+  from Cidaris to Vizima as Dandelion: a slim man of no particular age in
+  a plum-coloured doublet and a hat with an egret's feather, his lute
+  inlaid with pearl and his little moustache waxed to points. He is the
+  greatest poet of his age, he will tell you, and Geralt's oldest friend,
+  and the reason anyone has heard of the White Wolf at all. He owes
+  money to half of Novigrad and his heart to the other half. "Toss a
+  coin to your witcher," he sings, and holds out his hat.
+level: 20
+silver: 120
+attack:
+  verb: slap

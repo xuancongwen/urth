@@ -8,7 +8,9 @@ look: |
   barrage of plasma and come back for more. She flies the troopers down
   and she flies what is left of them back. She waves you toward the
   wire. "Give 'em hell. I'll be here."
+  She will teach you to jink out of the way; type 'practice'.
 level: 20
 flags: [peaceful]
 attack:
   verb: punch
+teaches: [dodge]

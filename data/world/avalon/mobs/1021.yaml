@@ -1,0 +1,20 @@
+vnum: 1021
+name: Merlin
+keywords: [merlin, myrddin, wizard, enchanter, old, man]
+description: An old man's face looks out of the trunk of a great hawthorn, bark grown over the rest of him, and he is talking.
+look: |
+  Merlin, who was the son of no mortal father, who raised the stones
+  and set Uther on Igraine and Arthur on the throne, and who knew
+  every trick in the world but one. Nimue learned that one from him
+  and shut him in the hawthorn with it, and he says he does not blame
+  her, and talks about her a great deal. His beard has gone to moss.
+  His eyes are very bright and very young. He still has a staff in the
+  tree with him, and will push it out to you through the bark for a
+  little coin and three pinches of fae dust, which he says he needs for
+  a working he does not explain.
+level: 15
+flags: [peaceful]
+attack:
+  verb: strike
+trades:
+  - { item: 1037, silver: 150, items: [1013, 1013, 1013] }

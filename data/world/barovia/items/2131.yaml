@@ -1,0 +1,15 @@
+vnum: 2131
+name: a flyblown hag's shawl
+keywords: [flyblown, hag's, hag, shawl, rag]
+description: A heap of black, moth-eaten shawl lies here, crawling with flies.
+look: |
+  Layers of black wool knitted and darned and knitted again over four
+  hundred years, stiff with grease and smoke and worse, and still, for
+  all that, very warm. The flies that live in it are reluctant to
+  leave.
+type: armor
+slot: shoulders
+level: 26
+baseline: light
+weight: 1
+flags: [drop]

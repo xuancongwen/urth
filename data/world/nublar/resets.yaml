@@ -6,6 +6,9 @@ resets:
   - { mob: 2402, room: 2404 }                                         # Muldoon in his lodge, who teaches trip and hamstring
   - { mob: 2403, room: 2402, equip: [{ item: 2415, slot: body }, { item: 2402 }] }   # Nedry at his console, in his slicker, the Barbasol can by his elbow
   - { mob: 2417, room: 2402 }                                         # Ray Arnold, holding onto his butt
+  - { mob: 2422, room: 2402, equip: [{ item: 2406 }] }              # Lex at a spare terminal: it's a UNIX system; a flashlight in her pack
+  - { mob: 2424, room: 2430 }                                         # Henry Wu at his incubators, who trades frog DNA for claws and hide
+  - { mob: 2421, room: 2430, equip: [{ item: 2428, slot: body }] }  # Ian Malcolm lecturing Wu in the hatchery, in his black leather jacket
   # --- the compys ---
   - { mob: 2404, room: 2405, max: 6 }                                 # compys in the garage, three of them
   - { mob: 2404, room: 2405, max: 6 }
@@ -27,6 +30,7 @@ resets:
   - { mob: 2407, room: 2409, max: 2, equip: [{ item: 2412 }] }
   - { mob: 2408, room: 2411, max: 2, equip: [{ item: 2411 }, { item: 2411 }] }   # triceratops, thick-hided
   - { mob: 2408, room: 2411, max: 2, equip: [{ item: 2411 }] }
+  - { mob: 2420, room: 2411 }                                         # Ellie Sattler at the dung heap, who teaches fast healing and second wind
   - { item: 2416, room: 2411 }                                        # the vet's cattle prod by the dung heap
   - { mob: 2409, room: 2413, max: 4, equip: [{ item: 2411 }] }        # a herd of parasaurs in the shallows
   - { mob: 2409, room: 2413, max: 4, equip: [{ item: 2411 }] }
@@ -51,9 +55,13 @@ resets:
   - { item: 2406, room: 2422 }                                        # a flashlight dropped in the dark shed
   - { mob: 2412, room: 2423, max: 8 }                                 # one waiting by the breakers in the bunker
   - { mob: 2414, room: 2424, equip: [{ item: 2403 }, { item: 2412 }, { item: 2412 }] }   # the matriarch on her nest, with her killing claw
+  - { item: 2426, room: 2424 }                                        # a hatched eggshell among the mounds, for Dr. Grant
   - { mob: 2412, room: 2424, max: 8, equip: [{ item: 2412 }] }        # two guarding the nest with her
   - { mob: 2412, room: 2424, max: 8 }
   # --- beyond the paddock gate ---
+  - { mob: 2425, room: 2425 }                                         # Gennaro edging toward the roadside toilet, his wallet fat with investors' money
   - { mob: 2418, room: 2426 }                                         # the goat on its chain
   - { mob: 2416, room: 2426, equip: [{ item: 2404 }] }                # the tyrannosaur, who wanders the paddock and the road, a broken tooth in her jaw
+  - { mob: 2419, room: 2427 }                                         # Alan Grant under the jeep in the tree, who trades his fossil claw for the eggshell
+  - { mob: 2423, room: 2427, equip: [{ item: 2410 }] }              # Tim, still clinging to the trunk, night-vision goggles on his forehead
   - { mob: 2415, room: 2429, equip: [{ item: 2412 }, { item: 2412 }] }   # the spinosaurus in the river

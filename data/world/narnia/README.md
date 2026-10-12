@@ -16,6 +16,16 @@ flute), Mr Beaver (4; a storm lantern), and Aslan (9; a lock of his
 mane) can be killed. Mrs Beaver and the centaurs stay peaceful. Dark: the dungeon (1216) and the wolf
 kennels (1217); Mrs Beaver sells a storm lantern.
 
+Also met on the walk: Lucy Pevensie (4) under the lamp-post (1201);
+Giant Rumblebuffin (12, tough), lately a statue, by the gate he knocked
+down (1213); Edmund Pevensie (5), cold and hungry by the stone lion in
+the courtyard (1214); Peter (10) and Susan (8) at Aslan's camp (1220);
+Prince Caspian (11), out of a later age, at the gate of Cair Paravel
+(1226); and Reepicheep (10) before its empty thrones (1227). Lucy,
+Edmund, Peter, and Reepicheep trade or teach and are peaceful; Susan
+(her bow), Rumblebuffin (his tree-trunk club), and Caspian (a coat of
+Narnian mail) fight back if attacked.
+
 Merchants:
 
 - Mrs Beaver (1206): storm lantern 25s, marmalade roll 8s, winter cloak
@@ -25,12 +35,19 @@ Merchants:
   Rhindon, Peter's lion-hilted sword, for 220s plus three wolf
   fangs; Peter's red-lion shield for 160s plus two raven feathers;
   Susan's yew bow for two fangs and a feather, no silver (wolves carry fangs, spy-ravens feathers).
+- Edmund Pevensie (1214): his fur coat from the wardrobe for the box of
+  enchanted Turkish delight the Queen's chief dwarf carries.
+
+Trainers: the centaur hunter (1220) teaches hamstring, Peter (1220)
+rescue and shield block, Reepicheep (1227) riposte and feint, and Lucy
+(1201) fast healing.
 
 Uniques: the White Witch wields her wand (now chilling and petrifying)
 and carries the stone knife of the Table (execute, leech); a lock of Aslan's mane (regeneration, a last
 stand) comes only from Aslan; the Queen's chief dwarf carries Susan's horn, stolen from the
 gifts; the werewolf in the dungeon (1216) carries Reepicheep's
-rapier. Ordinary gear: Tumnus's flute (on Tumnus), a dwarf's hood (1208),
+rapier; Edmund trades his fur coat from the wardrobe (shoulders: soak,
+Constitution). Ordinary gear: Tumnus's flute (on Tumnus), a dwarf's hood (1208),
 greaves (1212), Narnian mail in Cair Paravel's hall (1227), and the
 minotaur's axe, ogre cudgels, boggle flails, dwarf bracers and
 gauntlets, and shore-crab shells on their owners.

@@ -1,0 +1,18 @@
+vnum: 2227
+name: a Mahakaman battle axe
+keywords: [mahakaman, mahakam, battle, axe, dwarven]
+description: A heavy dwarven battle axe lies here, its edge gleaming.
+look: |
+  A bearded axe of good Mahakaman steel on a haft of iron-bound ash,
+  plain and heavy and very sharp, with a maker's rune stamped on the
+  cheek. Dwarves make these for dwarves, which is why it is short in
+  the haft and long in the head.
+type: weapon
+weight: 6
+level: 24
+baseline: heavy
+value: 600
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

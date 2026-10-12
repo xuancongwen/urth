@@ -1,0 +1,18 @@
+vnum: 1724
+name: Ace Levy's fiddle
+keywords: [ace, levy, levy's, fiddle, violin]
+description: A battered fiddle and a bow strung with bug gut lie here.
+look: |
+  An old fiddle with a crack mended in epoxy and a bow restrung, by the
+  look of it, with something out of a warrior bug. Ace played it at the
+  dance the night before they shipped out, and at every wake since.
+  Held and played, it puts heart into anyone in earshot, including the
+  one who plays.
+type: armor
+slot: hold
+weight: 1
+level: 20
+value: 500
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

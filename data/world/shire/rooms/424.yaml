@@ -1,0 +1,12 @@
+vnum: 424
+name: The House of Tom Bombadil
+description: |
+  A long low room filled with light from lamps on the beams and candles
+  on the table. Water-lilies float in wide earthen bowls set round the
+  floor, and the room smells of rushes and honey and cream. Through a
+  window you can see the grey willows by the river, which do not seem
+  so large from here. Whatever is out there in the Old Forest, it does
+  not come in. A path leads back west along the bank of the Withywindle.
+exits:
+  west: 422
+flags: [safe]

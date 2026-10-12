@@ -1,0 +1,21 @@
+vnum: 2030
+name: the Horn of Gondor
+keywords: [horn, gondor, boromir, boromirs, stewards]
+description: A great horn of the wild ox, bound in silver and written with old letters, lies here.
+look: |
+  The horn of the eldest son of the Stewards of Gondor, made from the
+  horn of a wild ox of the East long ago and bound in silver. It is
+  said that if it is blown at need anywhere within the old bounds of
+  Gondor, its voice will not go unheeded. It is heavy in the hand and
+  the heart grows bolder holding it, and a little prouder.
+type: armor
+slot: hold
+level: 38
+weight: 2
+value: 3500
+rarity: rare
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.8 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

@@ -1,0 +1,12 @@
+vnum: 2334
+name: an interrogation droid's needle
+keywords: [interrogation, droid's, droid, needle, it-o, injector]
+description: A long hypodermic needle on a black jointed arm lies here.
+look: |
+  The needle arm of an IT-O interrogation droid, torn from its socket,
+  still beaded with a drop of something clear. It is a nasty object to
+  carry. Princess Leia, in cell 2187, would very much like to see it
+  broken.
+type: other
+weight: 1
+value: 40

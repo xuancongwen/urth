@@ -4,8 +4,10 @@ description: |
   The path picks its way between boulders, going up. The wind here has
   an edge like a blade. Above, a shelf of rock holds a cave, and the
   snow before it is marked with two sets of prints: a light, booted
-  step, and beside it the pads of a very large cat. The cave is east;
-  the valley floor is south.
+  step, and beside it the pads of a very large cat. Higher still,
+  something glitters on the summit. The cave is east; the valley floor
+  is south, and the path goes on up.
 exits:
   south: 613
   east: 616
+  up: 617

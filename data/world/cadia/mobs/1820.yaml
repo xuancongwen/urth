@@ -1,0 +1,21 @@
+vnum: 1820
+name: Lord Castellan Ursarkar Creed
+keywords: [lord, castellan, ursarkar, creed, general]
+description: Lord Castellan Creed leans over a map spread on an ammunition crate, a lho-stick burning down between his fingers.
+look: |
+  A short, thick-set man in a battered greatcoat and a peaked cap, with
+  a jaw like a rockcrete block and a lho-stick he has forgotten he is
+  smoking. He does not look like the greatest tactical mind the Guard
+  has produced in a thousand years. He looks like a sergeant who has
+  not slept. He has two laspistols at his belt, Duty and Vengeance, and
+  he is moving a whole planet's war across the map with the stub of a
+  pencil. He has heard that one of his officers sold his platoon to the
+  cult, and he wants the man's rank pins on this crate before nightfall.
+  Bring them, and he will give you one of the pistols. Type 'list'.
+level: 50
+flags: [peaceful]
+attack:
+  kind: fire
+  verb: las-shot
+trades:
+  - { item: 1828, items: [1829] }

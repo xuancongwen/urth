@@ -1,0 +1,27 @@
+vnum: 1828
+name: Duty, Lord Castellan Creed's laspistol
+keywords: [duty, creed's, creed, hot-shot, laspistol, pistol]
+description: A long, ornate hot-shot laspistol lies here, its grip worn to the shape of one hand.
+look: |
+  One of the Lord Castellan's pair of hot-shot laspistols, Duty and
+  Vengeance, this one engraved along the barrel with the word DUTY in
+  plain Gothic letters. It fires a needle of las that cuts through
+  flak like paper, and it has never once failed to fire. Carried, it
+  steadies the hand, and the men around you seem to stand a little
+  straighter for seeing it.
+type: weapon
+weight: 2
+level: 30
+baseline: standard
+value: 4000
+weapon:
+  hands: 1
+  kind: fire
+  verb: las-shot
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: proc
+    params: { chance: 0.15, power: 0.9, verb: hot-shot volley }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }

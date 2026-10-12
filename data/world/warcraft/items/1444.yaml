@@ -1,0 +1,24 @@
+vnum: 1444
+name: the raven mantle of Medivh
+keywords: [raven, mantle, medivh, cloak, feathers]
+description: A mantle of black raven feathers lies here, stirring as if it breathes.
+look: |
+  The feathered mantle of the Last Guardian, black raven quills sewn
+  thick over grey wool, the collar high and stiff. Medivh flew in it
+  as often as he walked. It sharpens the mind, and when something
+  strikes at its wearer the feathers lash back like a flock of beaks.
+type: armor
+slot: shoulders
+weight: 2
+level: 20
+baseline: light
+value: 2400
+effects:
+  - kind: thorns
+    params: { fraction: 0.1, verb: flurry of raven beaks }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: dodge
+    params: { amount: 0.03 }

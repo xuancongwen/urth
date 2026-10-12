@@ -1,0 +1,21 @@
+vnum: 2120
+name: Rudolph van Richten
+keywords: [rudolph, van, richten, rictavio, hunter, vampire, monster]
+description: An old man in a garish carnival coat sits on the dry fountain, polishing a wooden stake.
+look: |
+  He calls himself Rictavio here, a travelling showman, and the coat
+  is loud enough and the moustache waxed enough to sell it, but behind
+  the bright half-elf's disguise is an old human scholar with sad,
+  clever eyes and the best-known name in monster hunting. Van Richten
+  wrote the guides, to vampires and ghosts and werewolves and the rest;
+  he has buried everyone he ever loved because of what he hunts. He is
+  in Barovia for the oldest vampire of them all. For coin, and because
+  you will need it, he will teach you the one stroke that matters: the
+  killing blow, struck at the heart of a thing that is already down.
+  "Never hunt alone," he says, though he always has.
+level: 30
+flags: [peaceful]
+teaches: [coup_de_grace]
+attack:
+  kind: pierce
+  verb: stab

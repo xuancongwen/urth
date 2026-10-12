@@ -1,0 +1,32 @@
+vnum: 1925
+name: Baron Vladimir Harkonnen
+keywords: [baron, vladimir, harkonnen, siridar]
+description: Baron Vladimir Harkonnen floats above the floor on his suspensors, smiling, his fingers glittering with rings.
+look: |
+  A vast, soft mountain of a man in black robes, so fat that he cannot
+  carry his own weight and does not have to: suspensors at his belt
+  hold him up, and he drifts across the room like a bloated cloud. His
+  voice is deep and pleasant and he is in a very good mood, because he
+  has destroyed House Atreides and has the Duke's signet ring on a
+  chain about his neck to prove it. He tells you that he loves a good
+  plan, and that he never lets a guest leave who has seen his face
+  without his permission. There is a needle in his glove.
+level: 48
+health: 14000
+stats: {intelligence: 18, constitution: 18}
+silver: 1200
+armor:
+  defense: 220
+attack:
+  kind: pierce
+  verb: needle
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: proc
+    params: { verb: poisoned dart, chance: 0.1, power: 1.0 }
+  - kind: soak
+    params: { power: 0.12 }
+  - { kind: dodge, params: { amount: 0.04 } }

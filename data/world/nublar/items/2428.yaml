@@ -1,0 +1,13 @@
+vnum: 2428
+name: a black leather jacket
+keywords: [black, leather, jacket]
+description: A black leather jacket lies here, one sleeve torn.
+look: |
+  A black leather jacket of the kind a mathematician wears when he wants
+  to be mistaken for a rock star, soft with wear, one sleeve torn by a
+  fall from a jeep. It is surprisingly tough.
+type: armor
+slot: body
+weight: 3
+level: 20
+baseline: light

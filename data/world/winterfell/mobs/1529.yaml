@@ -1,0 +1,18 @@
+vnum: 1529
+name: Theon Greyjoy
+keywords: [theon, greyjoy, ward, ironborn, hostage]
+description: Theon Greyjoy leans in an embrasure with a longbow, shooting at crows and smirking at the guards.
+look: |
+  A lean, handsome young man of eighteen or nineteen with dark hair, a
+  smile that never quite gets to his eyes, and a kraken on his doublet
+  among all the wolves. He is the lord's ward, which is to say his
+  hostage, taken from the Iron Islands at ten to make sure his father
+  never rebels again. He laughs at everything and belongs to nothing.
+  He is a fine shot. "What is dead may never die," he says, and draws
+  and looses, and a crow falls off the outer wall. He seems to want
+  you to be impressed.
+level: 11
+silver: 70
+attack:
+  kind: pierce
+  verb: shoot

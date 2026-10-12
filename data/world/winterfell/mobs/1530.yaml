@@ -1,0 +1,28 @@
+vnum: 1530
+name: the Night King
+keywords: [night, king, night's, nights, walker, other, crown]
+description: The Night King stands at the heart of the cold, a crown of ice-horns on his brow, and slowly lifts his arms.
+look: |
+  The first of the Others and the master of all of them, taller than any
+  man, with skin as blue-white and hard as old ice and a crown of horns
+  grown out of his own skull. The children of the forest made him, long
+  ago, by pressing a blade of dragonglass into a man's heart under a
+  weirwood, and he has been coming back for them ever since. He does
+  not speak. He does not hurry. When he lifts his arms the dead in the
+  hollow behind you lift their heads. When he looks at you, you can feel
+  him learning your name.
+level: 14
+health: 700
+stats: {strength: 15, dexterity: 15, constitution: 15}
+silver: 120
+xp: 4000
+armor:
+  defense: 8
+attack:
+  kind: cold
+  verb: freeze
+effects:
+  - kind: aura
+    params: { power: 0.35, verb: killing cold }
+  - kind: regen
+    params: { fraction: 0.01 }

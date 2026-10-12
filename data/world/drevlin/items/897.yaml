@@ -1,0 +1,21 @@
+vnum: 897
+name: Alfred's sigil-ring
+keywords: [alfred, alfreds, sigil-ring, sigil, ring, sartan]
+description: A plain ring of pale stone, cut with a single sign, lies here.
+look: |
+  A band of the same seamless pale stone as the statue in the
+  Factree, with one Sartan sigil cut round its outside so that the
+  sign closes on itself. Alfred has worn it since before Drevlin was a
+  world on its own. The sign is a ward: it hums when a blow is coming
+  and takes the weight out of it, and it mends small hurts, slowly,
+  the way the Sartan mended everything.
+type: armor
+slot: finger
+level: 10
+weight: 0
+value: 600
+rarity: uncommon
+effects:
+  - { kind: protect, params: { mult: 0.95 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

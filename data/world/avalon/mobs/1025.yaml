@@ -1,0 +1,20 @@
+vnum: 1025
+name: Sir Gawain
+keywords: [gawain, gawaine, gwalchmai, sir, knight]
+description: Sir Gawain sits on a fallen apple bough on the strand, polishing a pentangle on his shield, with a green lace knotted at his waist.
+look: |
+  Arthur's nephew, Lot's son, the most courteous knight of the Table
+  and its hottest temper, with a sun-browned face and red-gold hair.
+  His strength waxes until noon and wanes after it, they say, and he
+  has never cared for the afternoon. He wears a green lace that he
+  took from a lady to save his life and was ashamed of after, and he
+  wears it so as not to forget. He will teach you to hit harder while
+  the sun is high, for coin. Bring him the Green Knight's axe and he
+  will give you the lace, gladly.
+level: 13
+flags: [peaceful]
+teaches: [enhanced_damage]
+attack:
+  verb: slash
+trades:
+  - { item: 1040, items: [1039] }

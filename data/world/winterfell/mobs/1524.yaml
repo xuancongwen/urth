@@ -1,0 +1,17 @@
+vnum: 1524
+name: Sansa Stark
+keywords: [sansa, stark, girl, lady]
+description: Sansa Stark walks among the blue roses with her embroidery hoop, humming a song about a knight.
+look: |
+  The elder daughter of the house, eleven or twelve, tall for her age
+  and very pretty, with her mother's auburn hair and her mother's
+  manners and none of her mother's suspicion. She is the best at
+  needlework of all the girls in Winterfell and she knows the words of
+  every song about Florian and Jonquil. She dreams of the south, of
+  tourneys and lemon cakes and a golden prince. Her direwolf, Lady, the
+  gentlest of the litter, pads beside her through the beds. Someday
+  she will learn that life is not a song. Not yet.
+level: 8
+silver: 25
+attack:
+  verb: slap

@@ -1,0 +1,23 @@
+vnum: 1537
+name: Theon Greyjoy's yew longbow
+keywords: [theon, theon's, greyjoy, yew, longbow, bow]
+description: A tall longbow of pale yew, strung with waxed gut, lies here.
+look: |
+  A double-curved longbow of Dornish yew, taller than a short man and
+  polished smooth by a great deal of showing off. Theon Greyjoy brought
+  it to the North and has been hitting crows off the walls with it
+  ever since, and saying so. It shoots flat and hard, and in a careful
+  hand it finds the gap between two plates.
+type: weapon
+weight: 2
+level: 11
+baseline: standard
+value: 300
+rarity: uncommon
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

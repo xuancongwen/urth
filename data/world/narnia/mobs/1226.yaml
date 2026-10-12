@@ -1,0 +1,18 @@
+vnum: 1226
+name: Reepicheep
+keywords: [reepicheep, mouse, chief, talking]
+description: A large mouse with a crimson feather in a band round his head stands on the dais, one paw on the hilt of an empty scabbard.
+look: |
+  A Talking Mouse, about two feet high, black and glossy, with very
+  long whiskers that he twirls like a moustache, a thin gold circlet
+  with a long crimson feather stuck through it, and a scabbard that
+  is empty, because a werewolf in the Witch's dungeon has his rapier.
+  He is the most valiant of all the Talking Beasts of Narnia and the
+  most courteous, and he takes slights to his honour, or his tail,
+  very seriously. He will teach a person of spirit the riposte and
+  the feint, as the Mice learned them, for coin.
+level: 10
+flags: [peaceful]
+teaches: [riposte, feint]
+attack:
+  verb: thrust

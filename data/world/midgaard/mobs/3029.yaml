@@ -1,0 +1,15 @@
+vnum: 3029
+name: the mercenary
+keywords: [mercenary, sellsword, merc]
+description: A mercenary leans in a doorway, waiting for a job.
+look: |
+  A hard-faced soldier for hire in a scuffed leather jerkin, with a war
+  hammer through his belt and a price for everything. He has fought in
+  every little war within a month's march of Midgaard, on both sides of
+  most of them, and he looks you over as if deciding which side you
+  are on. Nobody has hired him today. He is getting bored.
+level: 8
+silver: 45
+attack:
+  kind: blunt
+  verb: pound

@@ -1,0 +1,26 @@
+vnum: 1140
+name: the Doomhammer
+keywords: [doomhammer, hammer, thrall, orgrim, maul]
+description: A great black warhammer with a head of rune-cut stone lies here.
+look: |
+  The hammer of Orgrim Doomhammer, Warchief of the Horde, passed to
+  Thrall as he died: a long haft of black iron and a great head carved
+  with runes, heavy enough that a lesser orc could barely lift it.
+  The elements answer it. Now and then a blow lands with the crack of
+  a thunderbolt, and nothing stands steadier than the one who swings it.
+type: weapon
+weight: 14
+level: 20
+baseline: mace
+value: 5000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: arc of lightning }
+  - kind: steady
+    params: { chance: 0.3 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }

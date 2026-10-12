@@ -1,0 +1,19 @@
+vnum: 898
+name: the dog's sigil collar
+keywords: [dog, dogs, sigil, collar, leather]
+description: A frayed leather collar with a blue mark scratched on the buckle lies here.
+look: |
+  Old leather gone soft, too long for a man's wrist and just right for
+  a man's throat, with one Patryn sigil scratched into the brass of
+  the buckle. It is the only thing the dog ever wore. The rune is a
+  small one, a warning: whoever wears it hears a blow coming a moment
+  sooner than they should.
+type: armor
+slot: neck
+level: 6
+weight: 0
+value: 150
+rarity: uncommon
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

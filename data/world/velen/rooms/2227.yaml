@@ -5,7 +5,8 @@ description: |
   of ancient stones and a stone altar slick with frost. The sky above has
   torn open on somewhere else: a sky of ice and red light, from which
   spectral riders pour down on a road nobody can see. The cold here burns.
-  Whoever came up for the Wild Hunt's attention has it. The way down is
-  south.
+  Whoever came up for the Wild Hunt's attention has it. The riders'
+  road of ice climbs north into the torn sky; the way down is south.
 exits:
   south: 2226
+  north: 2230

@@ -1,0 +1,25 @@
+vnum: 1441
+name: the Cruel Barb
+keywords: [cruel, barb, sword, vancleef, defias]
+description: A sword with a wicked hooked barb near the tip lies here.
+look: |
+  A narrow sword of dark steel with a single barb swept back from the
+  point, the kind of hook that does its real work coming out. Edwin
+  VanCleef carried it, and it suits a man with a grievance: it rewards
+  patience, finds the opening, and makes the most of it.
+type: weapon
+weight: 3
+level: 14
+baseline: standard
+value: 1600
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.07, mult: 2 }
+  - kind: opportunist
+    params: { mult: 1.15 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

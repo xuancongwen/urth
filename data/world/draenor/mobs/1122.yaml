@@ -1,0 +1,20 @@
+vnum: 1122
+name: Kilrogg Deadeye
+keywords: [kilrogg, deadeye, bleeding, hollow, chieftain]
+description: Kilrogg Deadeye, chieftain of the Bleeding Hollow, stands at the parapet staring at you with his one good eye.
+look: |
+  A massive old orc in spiked plate, his left eye socket an empty
+  scarred pit. Every warrior of the Bleeding Hollow clan tears out an
+  eye when they come of age, to see their own death in a vision, and
+  Kilrogg has seen his. He knows it is not today, which makes him the
+  most fearless orc on the wall. He defends this citadel for the Horde
+  against whatever comes up the ramp.
+level: 15
+health: 600
+stats: {strength: 15, constitution: 14}
+silver: 180
+attack:
+  verb: hew
+effects:
+  - kind: steady
+    params: { chance: 0.3 }

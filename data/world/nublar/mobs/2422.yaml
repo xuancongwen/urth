@@ -1,0 +1,15 @@
+vnum: 2422
+name: Lex Murphy
+keywords: [lex, alexis, murphy, girl, hacker]
+description: Lex Murphy squints at a spinning three-dimensional file tree. "It's a UNIX system! I know this!"
+look: |
+  John Hammond's granddaughter, thirteen, in a pink sweater with her
+  hair everywhere, who calls herself a hacker and turns out to be one.
+  She is a vegetarian, she would like everyone to know, and she has
+  not stopped being scared since the tyrannosaur came through the fence,
+  but she has noticed that the doors in this building lock from the
+  control room and she is working on it.
+level: 8
+silver: 20
+attack:
+  verb: slap

@@ -31,11 +31,14 @@ resets:
   - { mob: 3012, room: 3025, max: 2, equip: [{ item: 3044, slot: neck }] }   # Fido, in his collar
   - { mob: 3012, room: 3016, max: 2 }
   - { mob: 3014, room: 3031 }   # the alley cat
+  - { mob: 3031, room: 3005, equip: [{ item: 3056 }] }   # Puff the Fractal Dragon in Temple Square, contemplating a higher reality, and her loose scale
+  - { mob: 3029, room: 3015, equip: [{ item: 3012, slot: wield }, { item: 3014, slot: body }] }   # the mercenary, waiting for a job
   - { mob: 3020, room: 3031, equip: [{ item: 3046, slot: belt }] }   # the beggar
   - { mob: 3027, room: 3034, equip: [{ item: 3009, slot: wield }, { item: 3045, slot: hands }, { item: 3041 }] }   # the pickpocket, his gloves, and a bag of holding
   # --- the river and the dump ---
   - { mob: 3013, room: 3049, max: 2, equip: [{ item: 3029 }] }   # beastly fidos, and their bones
   - { mob: 3013, room: 3048, max: 2, equip: [{ item: 3029 }] }
+  - { mob: 3030, room: 3049, equip: [{ item: 3055, slot: neck }, { item: 3029 }] }   # Odif Yltsaeb, king of the dump, in his backwards collar
   - { item: 3031, room: 3049 }   # scrap iron in the dump, for the weaponsmith
   - { item: 3052, room: 3049 }   # the big bag, thrown out
   - { item: 3048, room: 3048 }   # a fishing spear in the reeds

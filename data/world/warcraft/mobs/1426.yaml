@@ -1,0 +1,24 @@
+vnum: 1426
+name: Medivh, the Last Guardian
+keywords: [medivh, guardian, magus, last, raven]
+description: A tall man in a hooded cloak leans on the waystone, a black raven on his shoulder, watching both roads at once.
+look: |
+  Medivh, the Guardian of Tirisfal, the most powerful magus of his
+  age, who lives alone in the tower of Karazhan. He is tall and grey
+  before his time, with a great beard, a hooded cloak trimmed in
+  feathers, and eyes that change colour while you watch: grey, then a
+  sullen green, then grey again. He is courteous, amused, and gives
+  nothing away. The raven on his shoulder looks at you exactly the way
+  he does. Something about him makes the war drums from the west seem
+  louder. Raise a hand to him and you will learn why the orcs came
+  through a portal nobody else could have opened.
+level: 20
+health: 900
+stats: {intelligence: 17, wisdom: 15}
+silver: 250
+attack:
+  kind: fire
+  verb: blast
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: crackle of arcane fire }

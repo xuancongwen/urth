@@ -1,0 +1,16 @@
+vnum: 719
+name: King Schnicktick
+keywords: [schnicktick, king, svirfneblin, deep, gnome]
+description: King Schnicktick of Blingdenstone sits on a stone bench by the fountain, hearing a dispute about a tunnel.
+look: |
+  An old svirfneblin, bald and wrinkled as a walnut, in a plain grey
+  robe with a chain of office that is the only ornament in the square.
+  He rules Blingdenstone with its council and trusts nobody from
+  outside it, least of all a drow, and he let one into the city
+  anyway because Belwar vouched for him. He looks at you for a long
+  moment and then goes back to the tunnel dispute, which is a kind of
+  welcome.
+level: 14
+silver: 120
+attack:
+  verb: strike

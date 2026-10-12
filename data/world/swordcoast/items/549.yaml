@@ -1,0 +1,19 @@
+vnum: 549
+name: Edwin's amulet
+keywords: [edwin, edwins, amulet, thayan, red]
+description: A heavy amulet of red-gold set with a cut ruby lies here.
+look: |
+  A Thayan amulet of red gold and a ruby the size of a thumbnail, cut
+  with the sigil of the Red Wizards on the back. Edwin will tell you,
+  at length, that it is wasted on anyone else. It is not quite: the
+  mind of whoever wears it runs faster and holds more.
+type: armor
+slot: neck
+weight: 0
+level: 10
+baseline: light
+value: 420
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

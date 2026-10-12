@@ -1,0 +1,21 @@
+vnum: 1536
+name: the Night King's crown of ice
+keywords: [night, king, kings, crown, ice, horns]
+description: A ring of jagged blue ice-horns lies here, and the snow around it will not melt.
+look: |
+  Not a crown that was made but one that grew: a ring of horns of
+  blue-white ice, hard as iron and so cold the air above them smokes.
+  It does not melt in the hand, though the hand wishes it would. Worn,
+  it gives the wearer something of the Night King's patience and his
+  long, slow strength, and anything that strikes the wearer comes away
+  with frost in its veins.
+type: armor
+slot: head
+level: 14
+baseline: heavy
+weight: 2
+value: 1500
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: thorns, params: { fraction: 0.1, verb: "bite of the deep cold" } }

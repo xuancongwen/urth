@@ -1,0 +1,22 @@
+vnum: 548
+name: Tazok's spiked flail
+keywords: [tazok, tazoks, spiked, flail]
+description: A heavy flail with a spiked iron ball lies here.
+look: |
+  A short haft of black oak, a chain, and an iron ball the size of a
+  child's head studded with spikes. A half-ogre swung it one-handed.
+  It does not care what it hits, and what it hits stays down a moment
+  longer than it meant to.
+type: weapon
+weight: 7
+level: 9
+baseline: mace
+value: 350
+rarity: rare
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash
+effects:
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

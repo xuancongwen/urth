@@ -1,0 +1,23 @@
+vnum: 1138
+name: the Eye of Kilrogg
+keywords: [eye, kilrogg, deadeye, patch, bleeding]
+description: An eyepatch of black leather set with a single red gem lies here.
+look: |
+  Kilrogg Deadeye's eyepatch, black leather sewn with the sigil of the
+  Bleeding Hollow, with a red stone set over the empty socket. The
+  clan say it sees what the lost eye saw: what is hidden, and where the
+  killing blow should fall. Wearing it, you are never quite surprised.
+type: armor
+slot: face
+weight: 0
+level: 15
+baseline: light
+value: 1500
+effects:
+  - kind: detectHidden
+  - kind: crit
+    params: { chance: 0.06, mult: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

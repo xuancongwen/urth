@@ -1,0 +1,18 @@
+vnum: 316
+name: Elistan
+keywords: [elistan, cleric, seeker, priest, paladine]
+description: A tall, grey-haired man in a Seeker's robe kneels in the ruined shrine, praying to a god his order says is dead.
+look: |
+  Elistan, who was the greatest of the Seekers of Haven, a scholar
+  with a scholar's stoop and a kind, tired face. He asked the Seekers'
+  gods for a healing and was answered by silence, and then a plainswoman
+  with a blue staff healed him in the name of Mishakal, and he has been
+  reading the Disks ever since. He has come to the old shrine to pray
+  where the true gods were prayed to, and he knows now that the god he
+  serves is Paladine. He will teach you to pull a friend out of a fight,
+  as a cleric of Paladine should, for a few coins to rebuild the shrine.
+level: 10
+flags: [peaceful]
+teaches: [rescue]
+attack:
+  verb: strike

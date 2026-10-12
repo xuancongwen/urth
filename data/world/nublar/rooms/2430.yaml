@@ -1,0 +1,13 @@
+vnum: 2430
+name: The Hatchery
+description: |
+  A white, warm laboratory under bright lamps, where eggs lie in rows in
+  glass incubators and mechanical arms turn them, very gently, a few
+  degrees at a time. One egg is rocking on its own. A wall of sequencers
+  hums, a freezer hisses, and a big screen at the end of the room plays
+  a cartoon to nobody: Mr. DNA, a grinning double helix in a cowboy hat,
+  explaining in a squeaky drawl how frog DNA filled the gaps. A sign on
+  the freezer says EMBRYOS: DO NOT REMOVE, and somebody has clearly
+  removed some. The control room is west.
+exits:
+  west: 2402

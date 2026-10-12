@@ -1,0 +1,19 @@
+vnum: 1421
+name: Hogger
+keywords: [hogger, gnoll, chieftain, riverpaw]
+description: Hogger, a huge gnoll with a grey muzzle, squats by the burned watchtower gnawing a leg of mutton.
+look: |
+  The biggest gnoll anyone in these parts has ever seen, and the most
+  talked about: chieftain of the Riverpaw pack, grey about the muzzle,
+  one ear torn to a flap, with a belly like a barrel and claws like
+  meat hooks. There is a price on his head posted at every inn from
+  here to the keep, and the Marshal has stopped counting the farmhands
+  and green recruits who went out to collect it. "Grr... Hogger is
+  big!" he growls, and he means it as a warning.
+level: 11
+health: 280
+stats: {strength: 14, constitution: 13}
+silver: 60
+attack:
+  kind: claw
+  verb: maul

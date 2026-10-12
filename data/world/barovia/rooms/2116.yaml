@@ -5,9 +5,11 @@ description: |
   noon is dusk here. Bones lie in the bracken, gnawed clean: deer,
   horse, and some that are neither. Claw marks are cut into the bark at
   the height of a tall man's head. Off to the west, a path trodden by
-  heavy feet leads into a gully. The crossroads are north; the road
-  climbs south toward the castle.
+  heavy feet leads into a gully, and to the east something creaks and
+  shifts among the trees, too big to be an animal. The crossroads are
+  north; the road climbs south toward the castle.
 exits:
   north: 2109
   west: 2117
+  east: 2131
   south: 2118

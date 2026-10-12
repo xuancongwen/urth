@@ -1,0 +1,19 @@
+vnum: 3055
+name: Odif's backwards collar
+keywords: [odif's, odif, backwards, collar, studded]
+description: A battered studded collar, its buckle on the wrong side, lies here.
+look: |
+  A thick leather collar with brass studs, buckled the wrong way round
+  so the tag hangs at the back. The tag reads ODIF YLTSAEB, and,
+  scratched underneath in a different hand, TRY A MIRROR. Worn at the
+  throat it makes you feel quick and mean and hungry, like a dog that
+  has outlived every other dog at the dump.
+type: armor
+slot: neck
+weight: 0
+level: 7
+value: 120
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -1,0 +1,12 @@
+vnum: 1829
+name: Lieutenant Dravik's rank pins
+keywords: [lieutenant, dravik's, dravik, rank, pins, insignia]
+description: A pair of Cadian lieutenant's rank pins, bent into the shape of stars, lies here.
+look: |
+  Two silver pins of a Cadian lieutenant's rank, bent and twisted by
+  hand into eight-pointed stars. The Lord Castellan, in the fire trench,
+  wants them on his map table, so that the line knows the traitor is
+  dead.
+type: other
+weight: 0
+value: 50

@@ -1,0 +1,16 @@
+vnum: 622
+name: Heafstaag
+keywords: [heafstaag, king, elk, barbarian, one-eyed]
+description: Heafstaag, king of the Tribe of the Elk, stands by the cairn with his great axe on his shoulder, looking at the town's smoke with his one eye.
+look: |
+  A mountain of a man in bearskin, with a red beard braided to his
+  belt and an empty socket where a reindeer's antler took his left eye.
+  He has led the Tribe of the Elk since he killed the last king, and
+  he means to lead every tribe of the tundra down onto Ten-Towns and
+  take its winter stores, and the scout counting the walls is counting
+  them for him. He does not want to talk. Tempus does not talk.
+level: 8
+health: 200
+silver: 70
+attack:
+  verb: cleave

@@ -1,0 +1,21 @@
+vnum: 335
+name: Kitiara's blue dragonscale
+keywords: [kitiara, kitiaras, blue, dragonscale, scale, armor]
+description: A shirt of blue dragonscale, lighter than it looks, lies here.
+look: |
+  Scales of a blue dragon, each the size of a palm, sewn overlapping
+  on supple black leather and cut close for a woman who fights on her
+  feet and on dragonback. It is the armor of an officer of the Blue
+  Dragonarmy, and Kitiara wore it under a plain cloak to the edge of
+  Solace and no farther. It turns a blade and does not slow a dodge.
+type: armor
+slot: body
+level: 8
+baseline: medium
+weight: 6
+value: 600
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: soak, params: { power: 0.06 } }

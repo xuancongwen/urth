@@ -1,0 +1,19 @@
+vnum: 1126
+name: Durotan
+keywords: [durotan, frostwolf, chieftain, father]
+description: Durotan, chieftain of the Frostwolf clan, stands on the old road with his axe grounded and a white wolf at his knee, looking at the citadel.
+look: |
+  A huge orc in furs and leather, his skin the honest brown-green of an
+  orc who never drank the demon's blood, his tusks bound in iron rings.
+  He is chieftain of the Frostwolves, the clan that stayed out of Gul'dan's
+  bargain, and he warned the others what the fel would make of them.
+  Nobody listened. He is calm, and sad, and very hard to move once he
+  has made up his mind. He has a son he has not seen grow up, and he
+  is talking to him now. He does not want a fight, and he has never
+  once lost one he did not want.
+level: 18
+health: 850
+stats: {strength: 15, constitution: 15}
+silver: 150
+attack:
+  verb: cleave

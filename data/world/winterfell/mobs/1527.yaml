@@ -1,0 +1,16 @@
+vnum: 1527
+name: Hodor
+keywords: [hodor, stableboy, giant, walder]
+description: Hodor stands on the godswood path with Bran on his back, smiling at nothing. "Hodor."
+look: |
+  A huge, gentle stableboy nearly eight feet tall, with a brown beard
+  and a face as simple and happy as a child's, and arms that could lift
+  a horse. His real name, Old Nan says, is Walder, and she is his
+  great-grandmother. He has said one word his whole life, and he says
+  it now, softly, as if it were the answer to everything you might ask.
+  He carries Bran everywhere, and he will hold the door against
+  anything. "Hodor," he says. "Hodor."
+level: 12
+silver: 10
+attack:
+  verb: punch

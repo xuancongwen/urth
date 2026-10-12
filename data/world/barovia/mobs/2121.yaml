@@ -1,0 +1,21 @@
+vnum: 2121
+name: Ezmerelda d'Avenir
+keywords: [ezmerelda, d'avenir, davenir, vistana, hunter]
+description: Ezmerelda d'Avenir crouches in the bracken reading the claw marks, a rapier at her hip and a wooden leg under her boot.
+look: |
+  A Vistana with no camp, dark-haired and sharp-eyed, in a wide hat, a
+  long coat with too many hidden pockets, and a bright scarf, who hunts
+  the things her own people make bargains with. She was van Richten's
+  student until she decided she was better than him; she might be
+  right. A werewolf took her right leg below the knee, and she walks on
+  a wooden one so well you only notice when she wants you to. She has
+  a silvered rapier made for the work, and she will sell it to a hunter
+  who brings her the pelts of four of the beasts on this road, as
+  proof, and pays for the silver. Type 'list'.
+level: 28
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: thrust
+trades:
+  - { item: 2127, silver: 700, items: [2104, 2104, 2104, 2104] }

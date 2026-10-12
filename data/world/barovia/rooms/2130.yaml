@@ -1,0 +1,15 @@
+vnum: 2130
+name: The Burgomaster's Mansion
+description: |
+  A front parlour that was grand once, with dark panelling, a cold
+  hearth, and portraits of stern Kolyanoviches staring down from the
+  walls. Every window is boarded from inside and the boards are scored
+  with claw marks from out. Furniture is piled against the shutters. In
+  the middle of the room, on two trestles, lies a plain pine coffin with
+  the old burgomaster in it, a week dead, waiting for someone to carry
+  him to the churchyard. Candles burn round it. The front door is west,
+  onto the yard.
+exits:
+  west: 2105
+doors:
+  west: {name: the braced front door, closed: true}

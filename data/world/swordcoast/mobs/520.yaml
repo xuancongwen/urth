@@ -1,0 +1,18 @@
+vnum: 520
+name: Minsc
+keywords: [minsc, ranger, rashemi, berserker]
+description: Minsc, a huge tattooed Rashemi, stands at the crossroads talking earnestly to the hamster on his shoulder. "Go for the eyes, Boo!"
+look: |
+  A shaven head with a purple tattoo across half the face, shoulders
+  like a door, and a two-handed sword he handles like a switch. On his
+  shoulder sits Boo, a miniature giant space hamster, who Minsc will
+  tell you is the brains of the outfit. He has lost his witch,
+  Dynaheir, to gnolls somewhere west of here, and he is very sorry
+  about it, and very angry with the gnolls. He will teach you how a
+  Rashemi lets the rage in, if you are a friend to Boo. Butt-kicking
+  for goodness!
+level: 12
+flags: [peaceful]
+teaches: [berserk]
+attack:
+  verb: cleave

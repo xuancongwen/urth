@@ -11,16 +11,28 @@ which opens onto the outpost's landing pad (1600).
 
 Bosses: the ultralisk (24) in its cavern and the cerebrate (24, the
 Xel'Naga artifact) at the bottom of the hive shaft; the high templar (23)
-in the temple sanctum. Named carriers: Drill Sergeant Kross (19,
-Raynor's confiscated revolver), the zerg queen (21, the claws of the
-Queen of Blades), the dragoon at the warp gate (22, Zeratul's warp
-blade).
+in the temple sanctum. Named carriers, in walking order: Drill
+Sergeant Kross (19, Raynor's confiscated revolver), General Edmund Duke
+of Alpha Squadron at the perimeter gate (21, his peaked cap), the zerg
+queen (21, the claws of the Queen of Blades), the dragoon at the warp
+gate (22, Zeratul's warp blade).
+
+Famous folk who will not be attacked: Jim Raynor at the bar in the
+Last Round (1606), who wants his revolver back; Lieutenant Sarah
+Kerrigan on the command center concourse (1602); Fenix on the scorched
+mesa (1611); Zeratul in the canyon of echoes (1612). Two more keep to
+themselves but will fight back: Arcturus Mengsk on the concourse (22,
+a vespene-charged gauss rifle and a fat purse) and Executor Tassadar on
+the mesa (24, his psi blade and khaydarin amulet).
 
 Uniques: Raynor's revolver (crits, finishes the wounded, Dexterity and
 Charisma), the claws of the Queen of Blades (bare hands hit harder and
 poison, zerg regeneration), Zeratul's warp blade (hard crits, dodge,
 sees the cloaked), the Xel'Naga artifact (held; a burning light aura,
-Intelligence and Wisdom). Common finds: neosteel greaves, welding
+Intelligence and Wisdom), Raynor's marshal's star (neck; holds on when
+hurt, Charisma and Constitution), which Raynor trades for his revolver,
+and General Duke's peaked cap (hard to shove, a little protection,
+Charisma). Common finds: neosteel greaves, welding
 goggles, a zergling scythe claw, a glave wurm, miners' lamps, fuel
 harnesses, plasma shield emitters, a carapace spaulder in the tunnels,
 a khaydarin ring, and a shock baton in the barracks.
@@ -43,6 +55,12 @@ Merchants (`list`, `buy`, `sell`):
   gauss rifle for 450 silver plus two mineral chunks and two vespene
   canisters; a shoulder lamp for two mineral chunks.
 - Scotty (1602, the Last Round 1606): whiskey 8, stimpack 35.
+- Jim Raynor (1619, the Last Round 1606): his marshal's star for
+  Raynor's revolver, which Kross took from him.
+
+Trainers: the medic in the supply depot (1603) teaches second wind;
+Kerrigan (1602) feint and backstab; Fenix (1611) twin; Zeratul (1612)
+dodge and riposte.
 
 Minerals come from the field (1608) and the SCVs; vespene from the
 refinery (1609) and its SCVs; carapace from every zerg.

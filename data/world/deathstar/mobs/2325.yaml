@@ -1,0 +1,19 @@
+vnum: 2325
+name: Admiral Motti
+keywords: [admiral, motti, conan, officer]
+description: Admiral Motti sits by a toppled chair, rubbing his throat and glaring at the door.
+look: |
+  A sleek young admiral in olive grey, with slicked hair and the air of
+  a man who has never been told no by anyone below the rank of Moff. He
+  has just called the Force a sad devotion to an ancient religion, to
+  the face of the one man on the station who could prove him wrong, and
+  he is still hoarse from the proof. He is in no mood to be interrupted,
+  and his sidearm is out of its holster.
+level: 26
+health: 900
+silver: 300
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: steady, params: { chance: 0.2 } }

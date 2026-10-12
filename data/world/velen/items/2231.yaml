@@ -1,0 +1,22 @@
+vnum: 2231
+name: Yennefer's obsidian star
+keywords: [yennefer's, yennefer, obsidian, star, ribbon, velvet]
+description: A star of black obsidian set with tiny diamonds lies here on a velvet ribbon.
+look: |
+  A black velvet ribbon with a star of obsidian at its centre, set with
+  small diamonds that catch the light like frost. Yennefer of
+  Vengerberg wore it at her throat for longer than most kingdoms have
+  stood, and it still smells faintly of lilac and gooseberries. It is
+  a sorceress's charm against things that hide, and it sharpens the
+  mind of whoever wears it.
+type: armor
+slot: neck
+weight: 0
+level: 30
+value: 3500
+rarity: rare
+effects:
+  - kind: detectInvisible
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

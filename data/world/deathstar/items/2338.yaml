@@ -1,0 +1,18 @@
+vnum: 2338
+name: an EE-3 carbine rifle
+keywords: [ee-3, ee3, carbine, rifle, blaster, mandalorian]
+description: A short, scarred blaster carbine with a long scope lies here.
+look: |
+  A short-barrelled blaster carbine of an old Mandalorian pattern, the
+  stock cut down and the barrel wrapped in tape, with a scope much
+  better than the gun. Bounty hunters favour it because it is light,
+  ugly, and does not jam, and nobody looks twice at it until it is too
+  late.
+type: weapon
+level: 45
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

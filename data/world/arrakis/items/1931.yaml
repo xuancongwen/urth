@@ -1,0 +1,22 @@
+vnum: 1931
+name: the Baron's suspensors
+keywords: [baron's, baron, harkonnen, suspensors, suspensor, belt]
+description: A broad belt studded with humming suspensor nodes floats here a hand's width off the floor.
+look: |
+  A broad belt of black leather set all round with suspensor nodes,
+  the kind that held the Baron Harkonnen's monstrous weight up off the
+  floor so that he could drift across a room like a cloud. Buckled on,
+  it takes the weight off you, and nothing you carry seems heavy, and
+  blows that should knock you down only push you along the air.
+type: armor
+slot: belt
+weight: 2
+level: 48
+value: 7000
+effects:
+  - kind: steady
+    params: { chance: 0.35 }
+  - kind: soak
+    params: { power: 0.1 }
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

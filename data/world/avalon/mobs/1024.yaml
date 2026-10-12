@@ -1,0 +1,21 @@
+vnum: 1024
+name: the Green Knight
+keywords: [green, knight, bertilak, giant]
+description: A giant knight, green of skin and beard and horse and armour, waits at the wood's edge with a great axe across his saddle, and laughs.
+look: |
+  Taller than any man by a head, and broad to match, and green all
+  over, hair and beard and skin and mail, and his horse green with
+  him. He holds a holly bough in one hand and in the other an axe whose
+  blade is as long as your arm. He came into Camelot one Christmas and
+  asked for a blow to be struck, and a blow returned in a year and a
+  day; Gawain struck his head off, and he picked it up. He offers you
+  the same game. His wounds close almost as soon as they are made.
+level: 12
+health: 440
+silver: 90
+stats: { strength: 16, constitution: 16 }
+attack:
+  verb: cleave
+effects:
+  - kind: regen
+    params: { fraction: 0.02 }

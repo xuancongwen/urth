@@ -1,0 +1,21 @@
+vnum: 2335
+name: Boba Fett's helmet
+keywords: [boba, fett's, fett, helmet, mandalorian, visor]
+description: A dented green Mandalorian helmet with a T-shaped visor lies here.
+look: |
+  A Mandalorian helmet in chipped green paint, with a black T for a
+  visor and a rangefinder stalk that folds down across one eye. It has
+  been shot at a great many times and has never minded. Through the
+  visor nothing hides for long, the body feels harder to put down, and
+  the hand on the trigger is steady and quick.
+type: armor
+slot: head
+weight: 3
+level: 45
+baseline: plate
+value: 7000
+effects:
+  - { kind: detectHidden }
+  - { kind: protect, params: { mult: 0.93 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

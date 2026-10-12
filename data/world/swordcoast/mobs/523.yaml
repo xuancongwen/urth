@@ -1,0 +1,17 @@
+vnum: 523
+name: Edwin Odesseiron
+keywords: [edwin, odesseiron, red, wizard, thayan]
+description: Edwin Odesseiron, a Red Wizard of Thay, stands in the shadow of the hills, consulting a map and scowling at the road. "(Fools, all of them.)"
+look: |
+  A Thayan in red robes with a shaved head, a tidy beard, and a look
+  of permanent disappointment in everyone who is not Edwin. He mutters
+  his real opinions under his breath, in brackets, where everybody can
+  hear them. He is in the Sword Coast on business with a Rashemi witch
+  named Dynaheir and would very much like you to help him with it,
+  and not to ask what kind of business.
+level: 10
+health: 160
+stats: { intelligence: 17, strength: 8 }
+silver: 120
+attack:
+  verb: blast

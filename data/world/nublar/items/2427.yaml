@@ -1,0 +1,20 @@
+vnum: 2427
+name: a canister of frog DNA
+keywords: [canister, frog, dna, vial, sample]
+description: A frosted steel canister with an InGen label lies here.
+look: |
+  A palm-sized steel canister, cold to the touch, labelled in Dr. Wu's
+  neat hand: RANA, WEST AFRICAN, SEQ. GAP FILL. It is what the hatchery
+  used to fill the holes in the dinosaurs' broken code, and it is why
+  some of them have started to do things nobody planned for. Held, it
+  steadies the mind and seems to mend the body at the edges.
+type: armor
+slot: hold
+weight: 1
+level: 18
+value: 1200
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

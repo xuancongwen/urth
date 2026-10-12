@@ -1,0 +1,19 @@
+vnum: 643
+name: Kemp's sealskin coat
+keywords: [kemp, kemps, sealskin, coat, targos]
+description: A long coat of oiled sealskin trimmed with white fox lies here.
+look: |
+  The coat of the spokesman of Targos, sealskin oiled against the lake
+  spray and trimmed at the collar with white fox, too fine for the
+  weather and worn to say so. It keeps the wind out, and it keeps a
+  stubborn man on his feet.
+type: armor
+slot: shoulders
+weight: 3
+level: 10
+baseline: medium
+value: 360
+rarity: rare
+effects:
+  - { kind: soak, params: { power: 0.04 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

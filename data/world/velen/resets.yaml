@@ -3,8 +3,13 @@ resets:
   # --- the Inn at the Crossroads ---
   - { mob: 2200, room: 2201 }                                   # the innkeeper behind his counter
   - { mob: 2201, room: 2202 }                                   # Vesemir in the yard, who teaches riposte and dodge
+  - { mob: 2220, room: 2202 }                                   # Geralt at the notice board, who teaches whirlwind
+  - { mob: 2223, room: 2200, equip: [{ item: 2207 }, { item: 2207 }] }   # Triss at the crossroads, hiding from the witch hunters, with Swallow for the road
+  - { mob: 2225, room: 2200 }                                   # Zoltan at his cart on the crossroads, selling Mahakaman steel and his sihill
   # --- Crow's Perch ---
   - { mob: 2202, room: 2205 }                                   # the Bloody Baron at his high table
+  - { mob: 2222, room: 2204, equip: [{ item: 2232, slot: wield }] }   # Ciri in the courtyard, the Baron's guest, with Zireael
+  - { mob: 2224, room: 2204, equip: [{ item: 2233, slot: head }] }    # Dandelion singing to the Baron's soldiers, in his feathered cap
   - { mob: 2203, room: 2204, max: 3 }                           # guards dicing in the courtyard
   - { mob: 2203, room: 2204, max: 3 }
   - { mob: 2203, room: 2205, max: 3 }                           # and one at the Baron's elbow
@@ -39,17 +44,19 @@ resets:
   - { mob: 2209, room: 2214, max: 3, equip: [{ item: 2217, slot: wield }] }
   - { mob: 2210, room: 2214, equip: [{ item: 2217, slot: wield }, { item: 2200 }] }   # Captain Vlodek, and the witcher's steel sword he brags about
   # --- the rye field ---
-  - { mob: 2211, room: 2216 }                                   # the noonwraith at the well
+  - { mob: 2211, room: 2216, equip: [{ item: 2229 }] }          # the noonwraith at the well, and her essence Keira Metz wants
   # --- the ridge and the crag ---
   - { mob: 2212, room: 2218, equip: [{ item: 2202 }, { item: 2211 }, { item: 2211 }] }   # the griffin, keeping the wolf medallion and shedding feathers
   # --- the woods ---
   - { mob: 2214, room: 2220, equip: [{ item: 2201 }] }          # the werewolf, and the silver sword of the witcher it ate
+  - { mob: 2226, room: 2219 }                                   # Keira Metz at her hut by the woods, trading her lamp
   - { mob: 2215, room: 2222 }                                   # the leshen in its grove
   # --- Crookback Bog ---
   - { mob: 2213, room: 2223, max: 4 }                           # foglets at the bog's edge
   - { mob: 2213, room: 2223, max: 4 }
   - { mob: 2213, room: 2224, max: 4 }                           # foglets on the causeway
   - { mob: 2213, room: 2224, max: 4 }
+  - { mob: 2221, room: 2223 }                                   # Yennefer at the bog's edge, on the Hunt's trail, trading her star
   # --- Bald Mountain ---
   - { mob: 2216, room: 2226, max: 3 }                           # hounds of the Hunt on the slopes
   - { mob: 2216, room: 2226, max: 3 }
@@ -58,5 +65,6 @@ resets:
   - { mob: 2217, room: 2227, max: 3, equip: [{ item: 2223, slot: wield }, { item: 2222, slot: hands }] }
   - { mob: 2217, room: 2227, max: 3, equip: [{ item: 2223, slot: wield }, { item: 2222, slot: hands }] }
   - { mob: 2218, room: 2227, equip: [{ item: 2203 }] }          # Imlerith at the altar, his mace on his shoulder
+  - { mob: 2227, room: 2230, equip: [{ item: 2223 }, { item: 2230, slot: head }] }   # Eredin on the Hunt's road, and his crown
   # --- under the hillock ---
   - { mob: 2219, room: 2229, equip: [{ item: 2204 }] }          # the Crones at their cauldron, and their rune

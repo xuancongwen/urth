@@ -1,0 +1,22 @@
+vnum: 1422
+name: Edwin VanCleef
+keywords: [edwin, vancleef, van, cleef, defias, kingpin]
+description: Edwin VanCleef stands among the cold forges in the dark, a red mask over his face and a blade in each hand.
+look: |
+  A lean man in a long coat of black leather, his face hidden under a
+  red mask and a broad hat. He was once a master stonemason who
+  rebuilt Stormwind after the orcs burned it, and the nobles of the
+  city refused to pay him and his guild for the work. Now the
+  Brotherhood he founded holds this mine, and the masked men in the
+  wheat fields are his. His voice is quiet and very angry. "None may
+  challenge the Brotherhood!"
+level: 14
+health: 480
+stats: {dexterity: 15, strength: 13}
+silver: 160
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

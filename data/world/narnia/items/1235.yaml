@@ -1,0 +1,21 @@
+vnum: 1235
+name: a fur coat from the wardrobe
+keywords: [fur, coat, wardrobe, mothball, mothballs]
+description: A long fur coat lies folded on the snow, smelling faintly of mothballs.
+look: |
+  One of the old fur coats that hung in the great wardrobe in the
+  Professor's house in the country, far too long in the sleeves for
+  whoever borrowed it last. It still smells of mothballs and of camphor
+  and of a house where it is wartime and raining. It is the warmest
+  thing in Narnia, and in it the cold of the hundred-year winter does
+  not reach you, nor quite so much of anything else.
+type: armor
+slot: shoulders
+level: 8
+baseline: light
+weight: 3
+value: 300
+rarity: rare
+effects:
+  - { kind: soak, params: { power: 0.05 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

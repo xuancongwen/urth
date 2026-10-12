@@ -1,0 +1,20 @@
+vnum: 1922
+name: the Lady Jessica
+keywords: [lady, jessica, bene, gesserit, reverend, mother, sayyadina]
+description: The Lady Jessica stands in the great cavern with her hands folded in her sleeves, watching her son.
+look: |
+  A tall woman with hair the colour of polished bronze and green eyes
+  gone blue within blue, the Duke's concubine and never his wife, a
+  Bene Gesserit who broke her order's plan for love and has paid for
+  it ever since. She has drunk the Water of Life and is a Reverend
+  Mother of the Fremen now, and she carries another child she speaks
+  to. She teaches the weirding way to anyone in the sietch who will
+  learn, for coin: how not to be where the blow lands, and how to make
+  the body mend itself. "I must not fear. Fear is the mind-killer."
+  Type 'practice'.
+level: 42
+flags: [peaceful]
+teaches: [dodge, fast_healing]
+attack:
+  kind: psionic
+  verb: Voice

@@ -1,0 +1,11 @@
+vnum: 617
+name: The Ruin of Cryshal-Tirith
+description: |
+  The summit of Kelvin's Cairn, swept by a wind that cuts. Shards of
+  crystal as long as spears stand up out of the snow in every
+  direction, the wreck of a tower that was all one crystal and fell
+  when the mountain shrugged it off. Some of them still glow. The air
+  between them hums very faintly, like someone humming a tune they
+  have forgotten. The slopes are down.
+exits:
+  down: 614

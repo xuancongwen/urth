@@ -1,0 +1,23 @@
+vnum: 1926
+name: Glossu Rabban
+keywords: [glossu, rabban, beast, harkonnen, count, lankiveil]
+description: Glossu Rabban, the Beast, stands before the blast doors, slapping a spiked mace into his palm.
+look: |
+  The Baron's elder nephew, the Count of Lankiveil and Siridar-governor
+  of Arrakis: a thick, red-faced brute with a thick neck and small,
+  hot eyes, whom the people of this planet call the Beast. His uncle
+  sent him here to squeeze the spice out of it and told him to be
+  cruel, so that the people would welcome whoever came after. He has
+  been very good at it. He would like to hit something, and you are
+  something.
+level: 30
+health: 1800
+silver: 400
+attack:
+  kind: blunt
+  verb: club
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.7 }

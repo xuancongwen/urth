@@ -1,0 +1,14 @@
+vnum: 1936
+name: an Atreides dress uniform
+keywords: [atreides, dress, uniform, coat, hawk]
+description: A green-and-black dress uniform with a red hawk on the breast lies here.
+look: |
+  The green and black of House Atreides, frayed and stained but still
+  buttoned to the throat, with the red hawk on the breast. The lining
+  is quilted shigawire, against knives in the dark. Its owner has
+  refused to take it off, whatever the Baron gives him to wear.
+type: armor
+slot: body
+weight: 3
+level: 38
+baseline: medium

@@ -1,0 +1,20 @@
+vnum: 1222
+name: Edmund Pevensie
+keywords: [edmund, pevensie, boy, son, adam, traitor]
+description: A sulky boy in a borrowed fur coat crouches by the stone lion with a stub of pencil, shivering and hungry.
+look: |
+  The younger brother, pale and sharp-faced and cold to the bone, in a
+  fur coat out of the wardrobe that is the only warm thing he has had
+  since he got here. He came to the Witch's house to be made a Prince,
+  and King of Narnia after her, and so far he has been shouted at,
+  given dry bread and water, and left in the courtyard with the
+  statues. He has drawn a moustache on the stone lion to cheer himself
+  up, and it has not worked. He would give the coat off his back for
+  more of the Turkish delight the Queen gave him on the sledge, and he
+  means it. Type 'list'.
+level: 5
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 1235, items: [1217] }

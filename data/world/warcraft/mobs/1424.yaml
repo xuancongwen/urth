@@ -1,0 +1,17 @@
+vnum: 1424
+name: Sir Anduin Lothar
+keywords: [anduin, lothar, sir, champion, regent]
+description: Sir Anduin Lothar, the Champion of Stormwind, leans over the map table with a great sword slung across his back.
+look: |
+  A big man past his prime and not caring, with a shaven head, a short
+  grey beard, and the shoulders of someone who has worn plate for
+  forty years. He is the last of the line of Arathor, the king's oldest
+  friend, and the best sword in the kingdom; the blade on his back is
+  the runed greatsword of his fathers. He talks to you as he would to
+  any soldier, plainly. He will teach a fighter how to turn a blow and
+  take the weapon out of the hand that threw it.
+level: 24
+flags: [peaceful]
+teaches: [riposte, disarm]
+attack:
+  verb: cleave

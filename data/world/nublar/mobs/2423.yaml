@@ -1,0 +1,14 @@
+vnum: 2423
+name: Tim Murphy
+keywords: [tim, timmy, murphy, boy, kid]
+description: Tim Murphy clings to the trunk below the jeep, his night-vision goggles pushed up on his forehead.
+look: |
+  Hammond's grandson, eleven or so, who has read Dr. Grant's book twice
+  and has a great many questions about it, all of which he will ask you.
+  He is soaked, grazed, and somewhat singed at the edges from the paddock
+  fence, and he would very much like everyone to stop telling him the
+  jeep is going to fall. Well, he says, we're back in the car again.
+level: 6
+silver: 10
+attack:
+  verb: kick

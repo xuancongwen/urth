@@ -1,0 +1,13 @@
+vnum: 2426
+name: a hatched raptor eggshell
+keywords: [hatched, raptor, egg, eggshell, shell]
+description: The broken halves of a speckled eggshell lie here, empty.
+look: |
+  Two halves of a velociraptor egg, mottled grey and brown, broken from
+  the inside and licked clean. Whatever was in it walked away. Every
+  animal on Isla Nublar is female and cannot breed, says the park; this
+  says otherwise. Dr. Grant, below the paddock wall, would want to see
+  it.
+type: other
+weight: 1
+value: 50

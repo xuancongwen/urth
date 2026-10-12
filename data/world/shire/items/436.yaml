@@ -1,0 +1,14 @@
+vnum: 436
+name: a Gandalf firework
+keywords: [gandalf, firework, rocket, squib, cracker]
+description: A long paper rocket marked with a red G lies here.
+look: |
+  A rocket of thick paper and string, as long as your arm, with a
+  red elvish G on the side. Lit, it goes up like a flight of
+  sweet-singing birds, or a dragon, or a great many green trees with
+  silver flowers on them; nobody can say beforehand which, not even
+  the wizard. Hobbits keep them for years and tell their
+  grandchildren.
+type: other
+weight: 1
+value: 15

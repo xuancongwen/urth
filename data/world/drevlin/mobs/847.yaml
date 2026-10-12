@@ -1,0 +1,17 @@
+vnum: 847
+name: the dog
+keywords: [dog, hound, black, haplos]
+description: A black dog with a white patch over one eye sits at Haplo's heel and thumps its tail when you look at it.
+look: |
+  A shaggy, medium-sized dog of no breed at all, black with a white
+  mark like a patch over one eye and a pair of very intelligent eyes
+  under it. It has no name. It came out of the Labyrinth with Haplo,
+  and it seems to know what he is thinking before he does, and to
+  disapprove of some of it. It likes Alfred. Haplo has never quite
+  forgiven it. It wears a frayed collar with a single blue sigil
+  scratched into the buckle, and it will defend itself, and Haplo
+  will be very angry.
+level: 6
+health: 110
+attack:
+  verb: bite

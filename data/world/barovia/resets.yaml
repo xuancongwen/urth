@@ -3,6 +3,8 @@ resets:
   # --- the village of Barovia ---
   - { mob: 2100, room: 2104 }                                   # Bildrath with his crate of overpriced goods
   - { mob: 2101, room: 2104 }                                   # Ismark drinking in the corner
+  - { mob: 2120, room: 2103 }                                   # van Richten, as Rictavio, on the dry fountain, who teaches the coup de grace
+  - { mob: 2119, room: 2130, equip: [{ item: 2102, slot: wield }] }   # Ireena in the mansion, by her father's coffin, with a silvered longsword
   - { mob: 2102, room: 2107 }                                   # Father Donavich at the altar, who teaches
   - { item: 2100, room: 2107 }                                  # a flask of holy water left on a pew
   - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }  # zombies at the burgomaster's door
@@ -18,6 +20,7 @@ resets:
   - { mob: 2106, room: 2109, max: 3, equip: [{ item: 2104 }] }  # great dire wolves at the gallows
   - { mob: 2106, room: 2111, max: 3, equip: [{ item: 2104 }] }  # and pacing the river road
   - { mob: 2106, room: 2111, max: 3, equip: [{ item: 2104 }] }
+  - { mob: 2122, room: 2111 }                                   # Davian Martikov and his wine cart on the river road
   # --- Tser Pool ---
   - { mob: 2104, room: 2112 }                                   # the fiddler at the bonfire
   - { mob: 2103, room: 2113 }                                   # Madam Eva and her cards
@@ -32,6 +35,8 @@ resets:
   - { mob: 2111, room: 2117, max: 4, equip: [{ item: 2104 }] }  # werewolves in the den
   - { mob: 2111, room: 2117, max: 4, equip: [{ item: 2104 }] }
   - { mob: 2112, room: 2117, equip: [{ item: 2104 }, { item: 2104 }] }   # Kiril, the pack leader
+  - { mob: 2121, room: 2116 }                                   # Ezmerelda reading the claw marks, trading her silvered rapier for pelts
+  - { mob: 2123, room: 2131, equip: [{ item: 2130 }, { item: 2131, slot: shoulders }] }   # Baba Lysaga in her creeping hut, and her bone staff
   # --- Castle Ravenloft ---
   - { mob: 2108, room: 2120, max: 3, equip: [{ item: 2126, slot: body }, { item: 2105 }] }   # Strahd zombies on guard in the courtyard
   - { mob: 2108, room: 2120, max: 3, equip: [{ item: 2126, slot: body }, { item: 2105 }] }

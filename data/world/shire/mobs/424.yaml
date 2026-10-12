@@ -1,0 +1,17 @@
+vnum: 424
+name: Goldberry
+keywords: [goldberry, river-daughter, river, daughter, lady]
+description: Goldberry sits among bowls of water-lilies, her hair rippling down her shoulders, and the room sounds like rain.
+look: |
+  The River-woman's daughter, slender and fair, in a gown green as
+  young reeds shot with silver like beads of dew, with a belt of gold
+  shaped like a chain of flag-lilies. Her long yellow hair falls in
+  waves, and when she laughs it is like water running over stones.
+  "Fear nothing! Be glad," she says. "For tonight you are under the
+  roof of Tom Bombadil." She will teach a weary traveller to rest well
+  and mend quickly, as the river mends after a storm.
+level: 18
+flags: [peaceful]
+teaches: [fast_healing, second_wind]
+attack:
+  verb: splash

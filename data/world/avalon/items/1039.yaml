@@ -1,0 +1,24 @@
+vnum: 1039
+name: the Green Knight's axe
+keywords: [green, knight, knights, axe, great]
+description: A great axe with a green steel blade as long as your arm lies here.
+look: |
+  A Danish axe on a haft wound with green leather and gold, its head a
+  great half-moon of green steel ground to a razor's edge, as long
+  from horn to horn as a man's forearm. The Green Knight brought it to
+  Camelot for his Christmas game. It is very heavy, and when it falls
+  it falls very hard indeed.
+type: weapon
+level: 12
+baseline: axe
+weight: 9
+value: 1100
+rarity: rare
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -1,0 +1,19 @@
+vnum: 1619
+name: Jim Raynor
+keywords: [jim, raynor, marshal, jimmy]
+description: Jim Raynor sits at the end of the bar in a long brown duster, nursing a whiskey and an empty holster.
+look: |
+  A rangy, sunburned man with a stubbled jaw, a slow drawl, and a long
+  coat over the scuffed armor of a man who was a marine once and the
+  law on Mar Sara after. The Confederacy took his badge for burning a
+  zerg-infested town to save the rest of the planet, and Sergeant
+  Kross took his revolver to make a point. The holster on his hip is
+  empty, and he keeps touching it. "Bring me back my gun," he says,
+  "and you can have the star. I don't wear it any more." Type list.
+level: 24
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: shoot
+trades:
+  - { item: 1637, items: [1620] }

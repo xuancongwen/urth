@@ -1,0 +1,26 @@
+vnum: 2324
+name: Boba Fett
+keywords: [boba, fett, bounty, hunter, mandalorian]
+description: Boba Fett leans on the gantry rail, watching who swings across the shaft.
+look: |
+  A bounty hunter in battered green and grey Mandalorian armour, the
+  helmet's T-shaped visor giving away nothing at all. A jetpack rides
+  his shoulders with a rocket in its nose, a cape hangs from one
+  shoulder, and a short carbine rests in the crook of his arm. There
+  are braids of Wookiee hair on his belt. He is here for the smuggler
+  in Docking Bay 327, who owes a Hutt a great deal of money, and he
+  does not much mind going through you first. He says nothing. He does
+  not need to: the helmet tilts, a fraction, as if you were a sum.
+level: 45
+health: 6500
+stats: {dexterity: 18}
+silver: 900
+armor:
+  defense: 300
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: wrist rocket } }

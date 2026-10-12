@@ -1,0 +1,21 @@
+vnum: 2228
+name: Keira Metz's magic lamp
+keywords: [keira, keira's, metz, magic, lamp, lantern]
+description: A small brass lamp lies here, its flame burning a cold violet.
+look: |
+  A brass lamp no bigger than a hand, with panes of smoked crystal and a
+  flame that burns violet and gives no heat. Keira Metz made it for
+  walking places where things are hiding: in its light the invisible
+  shows as a shimmer and the hidden as a shadow that should not be
+  there. It also makes the bearer think a little more clearly, which
+  Keira says is a side effect and you should not get used to it.
+type: armor
+slot: hold
+weight: 1
+level: 26
+value: 2400
+rarity: rare
+effects:
+  - kind: detectInvisible
+  - kind: detectHidden
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

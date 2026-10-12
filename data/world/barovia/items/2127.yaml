@@ -1,0 +1,25 @@
+vnum: 2127
+name: Ezmerelda's silvered rapier
+keywords: [ezmerelda's, ezmerelda, silvered, rapier, sword]
+description: A slender rapier with a silvered blade lies here, gleaming even in the gloom.
+look: |
+  A duelling rapier with a swept hilt of blackened steel and a blade
+  washed in silver from guard to point, made in some city beyond the
+  mists for a woman who hunts what silver hurts. It is light and long
+  and wickedly quick, made to slip through a guard and through a heart,
+  and it finds the one place on a beast that matters.
+type: weapon
+weight: 2
+level: 24
+baseline: standard
+value: 2000
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: finesse }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

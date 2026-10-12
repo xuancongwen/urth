@@ -1,0 +1,22 @@
+vnum: 1136
+name: the Book of Gul'dan
+keywords: [book, gul'dan, guldan, tome, grimoire]
+description: A thick book bound in green-black hide lies here, smoking faintly at the clasp.
+look: |
+  Gul'dan's own grimoire, bound in skin that was not an animal's and
+  clasped with a demon's tooth. The pages are written in a hand that
+  shifts as you read it, and the spells in it want to be cast. Held
+  open, it now and then lashes out on its own at whatever is in front
+  of it, and it fills the mind with things best left alone.
+type: armor
+slot: hold
+weight: 3
+level: 16
+value: 2200
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: bolt of fel shadow }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: -1 }

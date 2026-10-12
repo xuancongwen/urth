@@ -1,0 +1,20 @@
+vnum: 848
+name: Alfred Montbank
+keywords: [alfred, montbank, chamberlain, sartan]
+description: A balding, stoop-shouldered man in a chamberlain's coat has fallen over the rune-stone in the dark, and is apologising to it.
+look: |
+  A tall, gangling, middle-aged man with thinning hair, large feet,
+  and a hopeful, worried face, in the livery of the court of Volkaran.
+  He is chamberlain to Prince Bane, and he lost his charge on the dock
+  above, and then lost himself down here, where he seems to have known
+  his way. He trips over everything. When he is frightened he faints.
+  When he forgets himself his hands trace signs in the air like a man
+  dancing, and the walls hum along. He would very much like Bane's
+  feather amulet, so that whoever is watching the boy through it can
+  watch no longer, and he will give you a ring of his own for it.
+level: 14
+flags: [peaceful]
+attack:
+  verb: flail
+trades:
+  - { item: 897, items: [892] }

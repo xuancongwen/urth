@@ -31,7 +31,13 @@ under 807 and 809 under 808.
 
 Mobs: pipe-rats 2, whistle-clap 3, dig-claws 5, storm-hawk 7, coralite
 crab 8, elven marines 8, the elven captain 10 (boss, cabin). Peaceful:
-the Gegs, and a Geg brawler (6) in the eatery who teaches hand to hand.
+the Gegs, and a Geg brawler (6) in the eatery who teaches hand to hand;
+Haplo the Patryn (16) at the edge of the works (807), who teaches
+dodge and second wind; Jarre (7) in the WUPP cellar (818), who
+sells grease, a wrench, and a tool-belt for the Union; and Alfred
+Montbank (14), lost in the crawl behind the statue (817), who gives
+his Sartan sigil-ring for Bane's feather amulet. Haplo's dog (6) sits
+at his heel and is not peaceful; it wears its sigil collar.
 Killable, each carrying what is theirs: Limbeck (10; his spectacles),
 the High Froman (12; the hat of his office), Bane (8; his feather
 amulet), and Hugh the Hand (18; his knife).
@@ -40,6 +46,7 @@ Materials: coralite, machine grease, elven crystal, quicksilver.
 Notable items. Uniques: the whistle-clap's hammer-arm of the
 Kicksey-winsey (3), Haplo's rune-bandages on the coralite crab (810, 8),
 and on the elven captain a cloak of dragonship sail-silk and a Sartan
-rune-staff (10). Limbeck wears his own spectacles. The captain's coat now softens blows and the storm-goggles let you
+rune-staff (10). Limbeck wears his own spectacles. Alfred's sigil-ring (10) comes only
+by trade; the dog's sigil collar (6) comes off the dog. The captain's coat now softens blows and the storm-goggles let you
 fight half-blind. Ordinary gear lies around the works or is carried by
 the storm-hawk, the crab, and the marines.

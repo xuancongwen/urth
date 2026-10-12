@@ -11,7 +11,10 @@ look: |
   drinking here every night looking for someone brave or foolish enough
   to help. Once his father sent a letter out into the mists asking for
   heroes. If you have it, he would like to see it.
+  He will teach you to put yourself between a friend and a blade, as
+  he means to for his sister; type 'practice'.
 level: 18
 flags: [peaceful]
 attack:
   verb: slash
+teaches: [rescue]

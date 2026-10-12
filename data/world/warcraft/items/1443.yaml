@@ -1,0 +1,26 @@
+vnum: 1443
+name: Zul'jin's axe
+keywords: [zuljin, zul'jin, axe, troll, amani]
+description: A troll axe with a long haft and a blade like a crescent moon lies here.
+look: |
+  One of the pair Zul'jin threw and swung in turn, a long-hafted axe
+  with a crescent blade of black iron and a grip wrapped in elf hide.
+  It is balanced to come back to the hand. It bites deep and often,
+  and something of the troll's endless healing seems to cling to the
+  grip.
+type: weapon
+weight: 4
+level: 15
+baseline: axe
+value: 1600
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack
+effects:
+  - kind: crit
+    params: { chance: 0.06, mult: 2 }
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

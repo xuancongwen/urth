@@ -1,0 +1,20 @@
+vnum: 418
+name: Frodo Baggins
+keywords: [frodo, baggins, underhill, hobbit]
+description: Frodo Baggins sits on a root by the road with his pack beside him, listening for hooves. "I am Mr. Underhill," he says quickly.
+look: |
+  A hobbit of fifty who looks thirty-three, slim for a hobbit, with a
+  cleft in his chin, bright eyes, and dark curling hair. He has sold
+  Bag End to the Sackville-Bagginses and is walking to Crickhollow, or
+  so everyone has been told. One hand keeps going to his breast
+  pocket and coming away again. He waited all summer for word from
+  Gandalf, and none came; if you have found a letter for him, he
+  would give a great deal to read it. He will give you the old map
+  Bilbo brought home from the Lonely Mountain, which he cannot carry
+  where he is going. Type 'list'.
+level: 8
+flags: [peaceful]
+attack:
+  verb: stab
+trades:
+  - { item: 435, items: [406] }

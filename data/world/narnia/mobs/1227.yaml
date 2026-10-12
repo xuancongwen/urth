@@ -1,0 +1,20 @@
+vnum: 1227
+name: Prince Caspian
+keywords: [caspian, prince, telmarine, king]
+description: A young man in Narnian mail stands in the gate of Cair Paravel, looking up at the castle as if he cannot believe it is real.
+look: |
+  Dark-haired and brown-eyed, perhaps fourteen, with a Telmarine face
+  and an old Narnian's heart. He comes from a later age, when this
+  hall is a ruin full of apple trees and the Talking Beasts are hiding
+  in the woods, and he was raised on stories of the High King Peter
+  and the Queens and the Lion that his uncle said were lies. He has
+  come a long way to find out they were true. He wears an old sword
+  and a coat of Narnian mail, and carries himself like someone
+  learning how to be a king, and he will draw on anyone who means
+  the castle harm.
+level: 11
+health: 260
+silver: 60
+attack:
+  kind: slash
+  verb: slash

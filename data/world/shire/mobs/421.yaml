@@ -1,0 +1,16 @@
+vnum: 421
+name: Meriadoc Brandybuck
+keywords: [merry, meriadoc, brandybuck, hobbit]
+description: Merry Brandybuck waits at the end of the lane with a lantern and a pony, peering into the mist for his cousins.
+look: |
+  A hobbit of Buckland, broad and cheerful, with the Brandybuck sense
+  for boats and ponies and the Brandybuck habit of knowing more than
+  he lets on. He has known about the Ring for years: he has been
+  watching Frodo and keeping notes, him and Pippin and Sam, a
+  conspiracy of friends. "You can trust us to stick to you through
+  thick and thin, to the bitter end," he says. "But you cannot trust
+  us to let you go off alone."
+level: 7
+silver: 30
+attack:
+  verb: punch

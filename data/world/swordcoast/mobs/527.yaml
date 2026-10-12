@@ -1,0 +1,15 @@
+vnum: 527
+name: Tazok
+keywords: [tazok, half-ogre, ogre, bandit]
+description: Tazok, a half-ogre in banded mail, stands at the mouth of the mine, waiting for Mulahey's report and losing patience.
+look: |
+  Half again your height and twice your weight, with a jaw like a
+  forge anvil and small clever eyes above it. He runs the bandits on
+  the Coast Way for a master in Baldur's Gate, and he has come to see
+  why the kobolds have gone quiet. He seals his orders in black wax
+  with a skull. He thinks you are the reason Mulahey is late.
+level: 9
+health: 220
+silver: 90
+attack:
+  verb: smash

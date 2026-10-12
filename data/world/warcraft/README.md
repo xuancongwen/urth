@@ -10,15 +10,30 @@ opens into a timbered hollow under a horde banner (1400).
 
 Bosses: Gor'thok the two-headed ogre-mage (15, 1427; the Skull of
 Gul'dan) and Vharaxis the red drake (16, 1429; Quel'Serrar in her hoard).
-Mid bosses: the orc warlock (14, 1408; the Demon Soul), the troll witch
-doctor (14, 1425; the loa mask and the Mask of Death), and Grimmaw the
-gnoll packleader (12, 1422; his festering bone flail).
+Mid bosses, in walking order: Hogger, chieftain of the Riverpaw gnolls
+(11, by the burned watchtower 1419; his huge claw), Grimmaw the gnoll
+packleader (12, 1422; his festering bone flail), Edwin VanCleef of the
+Defias Brotherhood (14, in the dark of the copper delve 1418; the Cruel
+Barb), the orc warlock (14, 1408; the Demon Soul), the troll witch
+doctor (14, 1425; the loa mask and the Mask of Death), and Zul'jin,
+warlord of the Amani (15, troll camp 1424; his axe).
+
+Famous folk who keep to themselves but will fight back if attacked:
+King Llane Wrynn in the hall of the keep (17, 1416; a Stormwind sword
+and shield, and a purse) and Medivh, the Last Guardian, at the waystone
+(20, 1401; the raven mantle of Medivh). Khadgar beside Medivh, Marshal
+Dughan in the keep courtyard (1414), and Sir Anduin Lothar in the hall
+of the keep (1416) trade or teach and cannot be attacked.
 
 Uniques: the Skull of Gul'dan (held; a fel-fire aura, Intelligence, sees
 the invisible, costs Wisdom), Quel'Serrar (a defender's blade: parries,
 dodge, armor), the Demon Soul (held; gouts of dragonfire and life
 drained), the Mask of Death (leech, a little more damage, costs
-Charisma). Common finds: peons' wood-axes, kobold candles, red Defias
+Charisma), Hogger's huge claw (a festering rake, Strength), the Cruel
+Barb (crits, strikes the off-balance, Dexterity), Zul'jin's axe (crits,
+troll regeneration, Dexterity), the raven mantle of Medivh (shoulders; lashing beaks, Intelligence,
+Wisdom, dodge), and a signet of the Kirin Tor (finger;
+Intelligence, Wisdom, sees the invisible), which Khadgar trades. Common finds: peons' wood-axes, kobold candles, red Defias
 bandanas on the bandits, a wolfpelt mantle in the deep wood, gnoll
 spears, troll bone bracelets, a whelp-scale buckler on the scree, ogre-
 hide arm wraps, footmen's hauberks, a fel-etched knife on the altar.
@@ -38,6 +53,12 @@ Merchants (`list`, `buy`, `sell`):
   180s, steel barbute helm 350s + 2 iron ore, dragonscale breastplate
   600s + 3 red dragon scales.
 - Goodwife Fenn (1412): farmhouse bread 5s.
+- Khadgar (1401): a signet of the Kirin Tor for the warlock's fel-
+  scorched skull and two red dragon scales.
+
+Trainers: the orc warrior in the great hall (1404) teaches sunder;
+Marshal Dughan (1414) bash and shield block; Sir Anduin Lothar (1416)
+riposte and disarm.
 
 Trade goods: gnoll paws from gnoll raiders and Grimmaw; iron ore from the
 kobold tunnelers (and one in the smith's bin); red dragon scales from the

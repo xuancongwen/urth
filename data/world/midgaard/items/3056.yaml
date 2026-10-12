@@ -1,0 +1,20 @@
+vnum: 3056
+name: a fractal scale
+keywords: [fractal, scale, puff, dragon]
+description: A dragon's scale whose pattern repeats itself smaller and smaller lies here.
+look: |
+  A single scale from Puff the Fractal Dragon, the size of a palm,
+  whose pattern holds a smaller copy of itself, which holds a smaller
+  copy, and so on until the eye gives up. Held up, it shows things that
+  are not quite there, and the mind that looks into it comes back
+  sharper, and a little quicker to step aside.
+type: armor
+slot: hold
+weight: 0
+level: 12
+value: 200
+effects:
+  - { kind: detectInvisible }
+  - { kind: dodge, params: { amount: 0.02 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

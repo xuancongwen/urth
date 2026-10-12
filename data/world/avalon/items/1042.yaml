@@ -1,0 +1,18 @@
+vnum: 1042
+name: Guinevere's wedding ring
+keywords: [guinevere, guineveres, wedding, ring, gold]
+description: A plain ring of red gold, worn thin, lies here.
+look: |
+  A band of red Welsh gold, thin with wear, that Arthur put on
+  Gwenhwyfar's finger at Camelot before all the Table. She gave up the
+  crown at Amesbury and kept this. It holds a queen's bearing: the one
+  who wears it stands straighter, and speaks, and is listened to.
+type: armor
+slot: finger
+level: 8
+weight: 0
+value: 500
+rarity: uncommon
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

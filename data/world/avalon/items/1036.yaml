@@ -1,0 +1,22 @@
+vnum: 1036
+name: the dragon helm of Pendragon
+keywords: [dragon, helm, pendragon, arthur, arthurs]
+description: A tall helm crested with a golden dragon lies here.
+look: |
+  Uther's helm before it was Arthur's, a tall steel cap with a face
+  guard and a red-gold dragon coiled along the crest, its wings swept
+  back over the brow. Arthur wore it at Badon, where he carried the
+  image of the Virgin on his shoulders three days and three nights and
+  put the Saxons to flight. Under it you stand like a king: blows that
+  should stagger you do not, and those who follow you take heart.
+type: armor
+slot: head
+level: 12
+baseline: heavy
+weight: 4
+value: 1200
+rarity: rare
+effects:
+  - { kind: steady, params: { chance: 0.25 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

@@ -1,0 +1,22 @@
+vnum: 2337
+name: the Emperor's robe
+keywords: [emperor's, emperor, robe, hooded, black, palpatine]
+description: A hooded robe of heavy black cloth lies here, smelling faintly of ozone.
+look: |
+  A plain robe of heavy black cloth with a deep hood, the robe of a man
+  who had no need to look like an emperor. The hem is scorched where
+  lightning has run down it. Wearing it, you feel the dark side as a
+  cold patience: blows seem to arrive slowly, you see them coming, and
+  your thoughts grow long and sharp and cruel.
+type: armor
+slot: body
+weight: 3
+level: 55
+baseline: cloth
+value: 11000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: detectInvisible }

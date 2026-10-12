@@ -1,0 +1,19 @@
+vnum: 1621
+name: Arcturus Mengsk
+keywords: [arcturus, mengsk, korhal, rebel]
+description: Arcturus Mengsk stands in the middle of the concourse in a long coat, speaking to anyone who will listen about the Confederacy's crimes.
+look: |
+  A tall, dark-haired man with a neat beard and the bearing of an
+  aristocrat, in an officer's coat of the Sons of Korhal. His father
+  was a senator, and the Confederacy burned his homeworld with nuclear
+  fire to silence him. Now Mengsk leads the rebellion, and has come to
+  Mar Sara to evacuate the colonists the Confederacy has abandoned. He
+  speaks beautifully and listens carefully, and you find you want him
+  to like you, which may be the point. A sidearm hangs under the coat, and he is
+  not too proud to use it.
+level: 22
+health: 600
+stats: {charisma: 16, intelligence: 15}
+silver: 400
+attack:
+  verb: punch

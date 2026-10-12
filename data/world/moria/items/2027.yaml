@@ -1,0 +1,26 @@
+vnum: 2027
+name: Gimli's axe of Erebor
+keywords: [gimli, gimlis, axe, erebor, bearded]
+description: A broad bearded axe with runes of silver on its cheek lies here.
+look: |
+  A dwarf axe of the Lonely Mountain, made by Glóin for his son when
+  the dwarves of Erebor won back their halls: a single bearded blade on
+  a haft bound with iron, and on its cheek the runes of the line of
+  Durin set in silver. It is heavier than it looks and swings lighter
+  than it should. "Baruk Khazâd! Khazâd ai-mênu!" Whoever carries it
+  has the dwarves' habit of not falling down.
+type: weapon
+level: 28
+baseline: axe
+weight: 6
+value: 3000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

@@ -13,19 +13,25 @@ which opens onto the trench mouth (1800).
 
 Bosses: Nob Gutrippa (36) in the big gun pit; Zaraphiston the sorcerer
 (46) on the pylon's ritual gallery; the Bloodthirster (55) at the brass
-throne; Abaddon the Despoiler (65) at the Eye-facing breach. Named
+throne; Haarken Worldclaimer (60), the Herald of the Apocalypse, on the
+rubble of the fallen Gate among the Terminators; Abaddon the Despoiler
+(65) at the Eye-facing breach. Named
 carriers: the cult demagogue (24, a bolt pistol) on the Valkyrie wreck,
-and Lieutenant Dravik (28, a Cadian chainsword) in the ossuary under
-the kasr.
+and Lieutenant Dravik (28, a Cadian chainsword, and the rank pins the
+Lord Castellan wants) in the ossuary under the kasr.
 
 Uniques: the bolt pistol (bolt detonations, crits, Dexterity), the
 Cadian chainsword (chain-teeth procs, crits, Strength), the power fist
 (Gutrippa; worn on the hands, bare hands hit harder, power attacks,
 Strength), the shard of the Cadian pylon (Zaraphiston; held, steadies
 and protects, sees the invisible, Wisdom and Intelligence), the axe of
-the Bloodthirster (leech, crits, burns, Strength), the Talon of Horus
-(Abaddon; crits, hard crits, combi-bolter procs, leech, Strength and
-Constitution). Common finds: cultist autoguns, rotted greatcoats, Ork
+the Bloodthirster (leech, crits, burns, Strength), the Helspear (Haarken; procs when hurled, crits, Strength and
+Dexterity), the Talon of Horus (Abaddon; crits, hard crits, combi-bolter procs, leech, Strength and
+Constitution). By trade: Duty, Lord Castellan Creed's laspistol (30;
+crits, hot-shot procs, Dexterity, Charisma), a spirit stone of Ulthwé
+(46; neck, a dodge, sees the invisible, Intelligence and Wisdom), a
+feather of the Living Saint (50; neck, regeneration, less damage taken,
+Wisdom and Constitution). Common finds: cultist autoguns, rotted greatcoats, Ork
 choppas and 'eavy armour, Black Legion boltguns and horned helms,
 hellblades, brass greaves, Terminator pauldrons, reaper autocannons
 and Terminator plate (all rolled loot), lumens in the wreck and the
@@ -38,8 +44,15 @@ line. The collapsed bunker, the catacombs and the ossuary (1813 to
 1815) are dark; the quartermaster sells lumens, and two lie in the
 area.
 
-Trainer: Commissar Raskel (1801, Commissariat bunker 1803) teaches
-berserk and rescue.
+Lord Castellan Ursarkar Creed (1820) and Colour Sergeant Jarran Kell
+(1821) stand at a map in the fire trench (1801). Saint Celestine (1822)
+stands on the rubble at the breach of Kasr Myrak (1811), and Eldrad
+Ulthran (1823), unseen by the traitors, at the foot of the pylon
+(1822). All four are peaceful.
+
+Trainers: Commissar Raskel (1801, Commissariat bunker 1803) teaches
+berserk and rescue; Colour Sergeant Kell (1821, fire trench 1801)
+teaches second wind and enhanced damage.
 
 Merchants (`list`, `buy`, `sell`):
 
@@ -47,6 +60,13 @@ Merchants (`list`, `buy`, `sell`):
   promethium), Cadian helmet 400, Cadian flak armour 550, M36 lasgun
   600; Kasrkin carapace armour for 800 silver plus three promethium,
   Kasrkin hellgun for 900 silver plus two promethium.
+- Lord Castellan Creed (1820, fire trench 1801): Duty, his hot-shot
+  laspistol, for Lieutenant Dravik's rank pins (1829, from Dravik in
+  the ossuary).
+- Saint Celestine (1822, breach of Kasr Myrak 1811): a feather of the
+  Living Saint for four vials of daemon ichor.
+- Eldrad Ulthran (1823, foot of the pylon 1822): a spirit stone of
+  Ulthwé for the shard of the Cadian pylon (Zaraphiston's, just above).
 - Confessor Hallam (1803, field chapel 1805): purity seal 400; blessed
   eviscerator for 1500 silver plus three vials of daemon ichor.
 

@@ -1,0 +1,22 @@
+vnum: 1121
+name: Ner'zhul
+keywords: [nerzhul, ner'zhul, shaman, shadowmoon, elder]
+description: Ner'zhul, the old shaman of the Shadowmoon, stands at the very edge with his arms raised to the torn sky, chanting open another rift.
+look: |
+  An ancient orc in robes of black and purple, his face painted white
+  as a skull, a staff topped with a curved blade of bone in one hand.
+  He was the greatest shaman of Draenor, and he let Kil'jaeden whisper
+  to him, and he gave his people to the Legion before Gul'dan did. Now,
+  to escape his old master, he has torn open so many portals at once
+  that the world has broken under his feet, and he does not look down.
+  "This world is lost. I go to find another."
+level: 19
+health: 1100
+stats: {wisdom: 16, intelligence: 15}
+silver: 300
+attack:
+  kind: cold
+  verb: freeze
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: howling void }

@@ -1,0 +1,16 @@
+vnum: 420
+name: Peregrin Took
+keywords: [pippin, peregrin, took, hobbit]
+description: Pippin Took is eating the last of the mushrooms out of a handkerchief, quite cheerful, and asking when supper is.
+look: |
+  The youngest of the party, not yet of age, a Took from the Great
+  Smials with a quick tongue and a Tookish streak of curiosity that
+  has never yet led him anywhere sensible. He has come along to see
+  Frodo off as far as Crickhollow, he says, and has no intention of
+  stopping there. He talks too much and laughs too easily and would
+  follow Frodo into a dragon's den if he thought there might be a
+  second breakfast in it.
+level: 6
+silver: 20
+attack:
+  verb: punch

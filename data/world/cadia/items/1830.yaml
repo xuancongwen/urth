@@ -1,0 +1,23 @@
+vnum: 1830
+name: a feather of the Living Saint
+keywords: [feather, living, saint, celestine, white, wing]
+description: A long white feather, glowing faintly gold at the quill, lies here.
+look: |
+  A pinion feather from Saint Celestine's wings, as long as your
+  forearm, white as snow and warm to the touch, bound at the quill with
+  a strip of scripture so it can be worn at the throat. It does not
+  burn, though it smells of smoke. Whoever wears it heals as the Saint
+  heals, slowly and always, and blows that should have killed them
+  somehow do not.
+type: armor
+slot: neck
+weight: 0
+level: 50
+value: 9000
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: protect
+    params: { mult: 0.93 }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

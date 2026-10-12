@@ -1,0 +1,23 @@
+vnum: 2425
+name: Grant's fossil raptor claw
+keywords: [grant's, grant, fossil, raptor, claw]
+description: A curved fossil claw, brown and polished with handling, lies here.
+look: |
+  The six-inch fossil killing claw of a velociraptor, dug out of the
+  Montana badlands and carried in Alan Grant's pocket for years. He
+  used it to show a rude boy how a raptor opens you up, from the side,
+  low, while you watch the one in front. Turned over in the hand, it
+  teaches patience, and an eye for the thing that is not where you are
+  looking.
+type: armor
+slot: hold
+weight: 0
+level: 26
+value: 2600
+effects:
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: detectHidden
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

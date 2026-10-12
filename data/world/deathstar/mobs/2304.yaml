@@ -1,13 +1,16 @@
 vnum: 2304
-name: a protocol droid
+name: C-3PO
 keywords: [protocol, droid, c-3po, 3po, threepio, golden]
-description: A golden protocol droid stands here wringing its hands.
+description: C-3PO, a golden protocol droid, stands here wringing its hands.
 look: |
   A tall gold humanoid droid with round yellow eyes and a voice that
   never stops. It is fluent in over six million forms of communication
   and has used all of them to say that we are doomed. It would very much
   like you to know the odds of surviving this, and they are not good.
+  "We're doomed," he says, to nobody in particular. He has been left
+  to mind the control room, and he is not armed, and he has some
+  silver in a compartment for oil baths.
 level: 20
-flags: [peaceful]
+silver: 60
 attack:
   verb: slap

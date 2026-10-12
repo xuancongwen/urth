@@ -1,0 +1,23 @@
+vnum: 1928
+name: the Atreides shield belt
+keywords: [atreides, shield, belt, holtzman, training]
+description: A worn belt with a small Holtzman generator at the buckle, stamped with a hawk, lies here.
+look: |
+  The Holtzman shield belt Paul wore on Caladan, on the practice floor
+  with Gurney Halleck and Duncan Idaho, the generator worn bright with
+  handling and the hawk stamped on the buckle. Switched on, it wraps
+  you in a faint shimmer that stops the fast blow and lets the slow
+  one through. Wearing it, you remember the lesson: the slow blade
+  penetrates the shield.
+type: armor
+slot: belt
+weight: 2
+level: 46
+value: 6000
+effects:
+  - kind: block
+    params: { chance: 0.12 }
+  - kind: protect
+    params: { mult: 0.92 }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

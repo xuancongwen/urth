@@ -1,0 +1,30 @@
+vnum: 2227
+name: Eredin, King of the Wild Hunt
+keywords: [eredin, breacc, glas, king, wild, hunt, red, riders, aen, elle]
+description: Eredin, King of the Wild Hunt, stands on the frozen road out of the sky, his great sword grounded before him, waiting for you.
+look: |
+  Eredin Breacc Glas, the King of the Wild Hunt: an elf of the Aen Elle
+  taller than any man, in black plate wrought into spikes and skulls and
+  furred with frost, his helm a crown of horns over a mask like a skull
+  with nothing behind the eyes. When he takes it off, the face beneath
+  is cold and beautiful and contemptuous. He has crossed worlds hunting
+  the Elder Blood in the girl with the ashen hair, and he has left his
+  navigator and his general to do the small work. This is not small
+  work. "Hunting you down will be a pleasure," he says.
+level: 36
+flags: [assist]
+health: 6500
+silver: 900
+xp: 24000
+stats: {strength: 18, dexterity: 16, constitution: 18}
+armor:
+  defense: 100
+attack:
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - kind: soak
+    params: { power: 0.12 }
+  - kind: regen
+    params: { fraction: 0.005 }

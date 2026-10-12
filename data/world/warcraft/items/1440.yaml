@@ -1,0 +1,23 @@
+vnum: 1440
+name: Hogger's huge claw
+keywords: [hogger, hogger's, huge, gnoll, claw]
+description: A gnoll claw the size of a sickle lies here, still on its knuckle.
+look: |
+  One great hooked claw of Hogger the gnoll chieftain, bound to a grip
+  of rawhide so it can be held like a knife. The Marshal at the keep
+  will swear it is the proof he asked for. It rips more than it cuts,
+  and what it rips goes bad.
+type: weapon
+weight: 1
+level: 11
+baseline: dagger
+value: 900
+weapon:
+  hands: 1
+  kind: claw
+  verb: rake
+effects:
+  - kind: envenom
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }

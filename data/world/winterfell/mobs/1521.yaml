@@ -1,0 +1,17 @@
+vnum: 1521
+name: Robb Stark
+keywords: [robb, stark, young, wolf, heir]
+description: Robb Stark stands in the yard with a practice sword on his shoulder, a grey direwolf pup at his heel.
+look: |
+  The heir of Winterfell, fifteen and broad-shouldered, with his
+  mother's auburn hair and blue eyes and his father's long face just
+  beginning to come through. He laughs easily in the yard and less easily
+  in the hall, where he sits at his father's left and practises looking
+  stern. Grey Wind, his direwolf, lies at his heel and watches the
+  gates as if he already knows what is coming through them. They will
+  call him the Young Wolf one day, and the King in the North, and they
+  will sing about him at a wedding.
+level: 12
+silver: 60
+attack:
+  verb: slash

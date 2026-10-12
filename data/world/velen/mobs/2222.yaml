@@ -1,0 +1,19 @@
+vnum: 2222
+name: Cirilla Fiona Elen Riannon
+keywords: [ciri, cirilla, zireael, swallow, lion, cub, cintra, girl, ashen]
+description: A young woman with ashen hair and a scar across her cheek leans on the barracks wall, a sword at her hip, watching the gate.
+look: |
+  Ciri: the Lion Cub of Cintra, the Child of Elder Blood, Zireael the
+  swallow, witcher-trained at Kaer Morhen and taught her letters by a
+  sorceress. She is twenty or so, with ashen hair cut rough, green eyes,
+  and an old scar down her left cheek, and she carries a sword as if it
+  were part of her arm. The Wild Hunt is after her for what is in her
+  blood, and she has run across worlds to stay ahead of it. The Baron
+  took her in when she fell out of the sky onto his doorstep. She has
+  not decided whether she likes him. She is not staying long. Her
+  sword is Zireael, the swallow, a gnomish blade made for her hand.
+level: 30
+silver: 150
+attack:
+  kind: slash
+  verb: slash

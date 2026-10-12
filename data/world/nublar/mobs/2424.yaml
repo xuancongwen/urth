@@ -1,0 +1,18 @@
+vnum: 2424
+name: Dr. Henry Wu
+keywords: [henry, wu, doctor, dr, geneticist, scientist]
+description: Dr. Henry Wu turns an egg under the hatchery lamps with a gloved hand.
+look: |
+  The park's chief geneticist, neat and composed in a white lab coat,
+  who made every animal on the island out of amber, mosquito blood,
+  and frog DNA, and who does not care for the word monster. He made
+  them all female, he will assure you. He is always short of fresh
+  tissue for his sequencers, and he will give you a canister of the
+  frog DNA that filled the gaps in exchange for two claws and two
+  strips of hide from the paddocks. Type 'list'.
+level: 18
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 2427, silver: 200, items: [2411, 2411, 2412, 2412] }

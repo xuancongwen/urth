@@ -1,0 +1,21 @@
+vnum: 313
+name: Verminaard, the Red Dragon Highlord
+keywords: [verminaard, highlord, dragon, red, lord]
+description: Verminaard, the Red Dragon Highlord, sits a black horse on the road in horned red dragonmask, looking at Solace the way a man looks at a field he means to burn.
+look: |
+  A huge man in black and red dragonscale, his face hidden by a
+  horned mask worked like a red dragon's head, a black mace at his
+  saddle. He is a cleric of Takhisis, the Queen of Darkness, and he
+  can heal as well as he can kill, which he finds amusing. His
+  armies are behind him on the road, and his dragon Ember is in the
+  clouds above it. He is looking for a blue crystal staff and the
+  woman who carries it, and he has sent the hobgoblins ahead to ask.
+level: 9
+health: 360
+silver: 200
+stats: { strength: 15, wisdom: 15, constitution: 14 }
+attack:
+  verb: smite
+effects:
+  - kind: aura
+    params: { power: 0.1, verb: dark prayer to Takhisis }

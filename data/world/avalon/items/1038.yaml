@@ -1,0 +1,25 @@
+vnum: 1038
+name: Clarent
+keywords: [clarent, sword, peace, mordred, mordreds]
+description: A sword with a white hilt, too fine for battle, lies here.
+look: |
+  Clarent, the sword of peace, which Arthur used to knight men and
+  never carried to war, a slim bright blade with a hilt of white
+  enamel. Mordred took it from the armoury at Wallingford and killed
+  the king with it at Camlann. It was not made for killing and does
+  it anyway, and it bites hardest into those already hurt, as a
+  traitor's blade does.
+type: weapon
+level: 11
+baseline: standard
+weight: 3
+value: 1000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: execute, params: { threshold: 0.3, mult: 1.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

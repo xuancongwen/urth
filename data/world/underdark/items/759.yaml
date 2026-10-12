@@ -1,0 +1,22 @@
+vnum: 759
+name: the chain of office of Blingdenstone
+keywords: [chain, office, blingdenstone, schnicktick, king]
+description: A plain chain of grey links set with a single rough gemstone lies here.
+look: |
+  The only ornament the king of the svirfneblin wears: a chain of grey
+  iron links, each one shaped by a different burrow-warden, with a
+  rough uncut gem at the centre that is warm to the touch. Deep gnomes
+  feel the stone around them as other folk feel the wind; whoever
+  wears this feels a little of it too, and nothing hides from them
+  for long.
+type: armor
+slot: neck
+weight: 1
+level: 14
+baseline: light
+value: 700
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: detectHidden }

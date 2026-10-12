@@ -1,0 +1,20 @@
+vnum: 2022
+name: Gimli son of Gloin
+keywords: [gimli, gloin, dwarf, lockbearer]
+description: Gimli kneels by Balin's tomb with his hood cast over his face, and you hear him weeping. "Balin! Balin son of Fundin..."
+look: |
+  A dwarf of Erebor, broad and fierce, with a forked beard and a
+  hood thrown back over mail, and an axe on his shoulder that has
+  seen work already today. He came into the mountain singing of
+  Durin, and he will go out of it grieving. His father Glóin made him
+  a spare axe before he left the Lonely Mountain, a good blade with
+  runes of the line of Durin on its cheek. He would give it to you
+  gladly for the one thing he wants: Balin's signet, the token of the
+  Lord of Moria, which the orcs took when they cut down his kin, so
+  that it can go home to Dáin. Type 'list'.
+level: 36
+flags: [peaceful]
+attack:
+  verb: hew
+trades:
+  - { item: 2027, items: [2026] }

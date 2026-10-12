@@ -5,6 +5,8 @@ resets:
   - { mob: 1801, room: 1803 }   # the Commissar, who teaches berserk and rescue
   - { mob: 1803, room: 1805 }   # the confessor at his shrine
   - { mob: 1819, room: 1801 }   # a servo-skull that wanders the line
+  - { mob: 1820, room: 1801 }   # Lord Castellan Creed at his map, who trades Duty for the traitor's rank pins
+  - { mob: 1821, room: 1801 }   # Colour Sergeant Kell at his shoulder, who teaches second wind and enhanced damage
   - { mob: 1802, room: 1800, max: 6 }   # a sentry at the trench mouth
   - { mob: 1802, room: 1801, max: 6 }   # troopers in the fire trench
   - { mob: 1802, room: 1801, max: 6 }   # and another
@@ -39,11 +41,12 @@ resets:
   - { mob: 1807, room: 1810, max: 13 }   # and another
   - { mob: 1807, room: 1811, max: 13 }   # shambling through the breach
   - { mob: 1807, room: 1811, max: 13 }   # and another
+  - { mob: 1822, room: 1811 }   # Saint Celestine on the rubble of the breach, who trades a feather for four vials of ichor
   - { mob: 1807, room: 1813, max: 13 }   # in the dark of the bunker
   - { mob: 1807, room: 1813, max: 13 }   # and another
   - { mob: 1807, room: 1814, max: 13 }   # in the catacombs
   - { mob: 1807, room: 1814, max: 13 }   # and another
-  - { mob: 1817, room: 1815, equip: [{ item: 1807 }] }   # Lieutenant Dravik in the ossuary, with his chainsword
+  - { mob: 1817, room: 1815, equip: [{ item: 1807 }, { item: 1829 }] }   # Lieutenant Dravik in the ossuary, with his chainsword and the rank pins Creed wants
   - { mob: 1804, room: 1815, max: 9 }   # his congregation
   - { item: 1802, room: 1813 }   # a dead officer's lumen in the bunker
   # --- the Orks ---
@@ -73,6 +76,7 @@ resets:
   - { mob: 1812, room: 1821, max: 9 }   # and another
   - { mob: 1812, room: 1822, max: 9 }   # at the foot of the pylon
   - { mob: 1812, room: 1822, max: 9 }   # and another
+  - { mob: 1823, room: 1822 }   # Eldrad Ulthran in the pylon's shadow, who trades a spirit stone for the shard
   - { mob: 1813, room: 1823, equip: [{ item: 1810 }, { item: 1805 }, { item: 1805 }] }   # Zaraphiston at the pylon, with the shard he cut from it
   # --- the Blood God ---
   - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # bloodletters on the field of skulls
@@ -86,6 +90,7 @@ resets:
   - { mob: 1818, room: 1826, max: 5 }   # Justaerin Terminators in the ruins of the Gate
   - { mob: 1818, room: 1826, max: 5 }   # and another
   - { mob: 1818, room: 1826, max: 5 }   # and another
+  - { mob: 1824, room: 1826, equip: [{ item: 1832 }] }   # Haarken Worldclaimer on the Gate's rubble, and the Helspear
   - { mob: 1818, room: 1827, max: 5 }   # Abaddon's bodyguard
   - { mob: 1818, room: 1827, max: 5 }   # and another
   - { mob: 1815, room: 1827, equip: [{ item: 1812 }] }   # Abaddon the Despoiler, wearing the Talon of Horus

@@ -1,0 +1,19 @@
+vnum: 315
+name: Bupu
+keywords: [bupu, gully, dwarf, aghar]
+description: A very small, very dirty gully dwarf girl in a bag of a dress picks through the refugees' rubbish, humming.
+look: |
+  Bupu, of the Aghar, the gully dwarves of Xak Tsaroth, who counts to
+  two and is not sure about two. Her hair stands out in every
+  direction and her dress was a sack once, and still is. She has
+  fallen in love with Raistlin, who is the only one who was ever kind
+  to her, and she has wandered a long way to find him. She has a
+  charm for his cough: a dead lizard on a string. She will give you
+  one too, if you bring her a nice thing, like the shiny squishy sacs
+  the spiders have.
+level: 2
+flags: [peaceful]
+attack:
+  verb: scratch
+trades:
+  - { item: 333, items: [308] }

@@ -1,0 +1,20 @@
+vnum: 546
+name: a Zhentarim agent's ring
+keywords: [zhentarim, black, network, ring, xzar]
+description: A heavy black iron ring set with a dull red stone lies here.
+look: |
+  A signet of black iron with a red stone, the black hand of the
+  Zhentarim cut so small inside the band that you need to tilt it to
+  see. The Network gives these to agents who are trusted to be clever.
+  It sharpens the mind and shows the wearer what others would rather
+  keep hidden.
+type: armor
+slot: finger
+weight: 0
+level: 8
+baseline: light
+value: 400
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: detectHidden }

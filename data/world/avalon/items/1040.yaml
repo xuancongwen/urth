@@ -1,0 +1,22 @@
+vnum: 1040
+name: the green girdle
+keywords: [green, girdle, lace, belt, gawain, gawains]
+description: A lace of green silk worked with gold lies here.
+look: |
+  A girdle of green silk, embroidered with gold at both ends, that the
+  lady of Hautdesert gave Gawain, telling him that whoever wore it
+  could not be slain by any blow. He wore it to the Green Chapel, and
+  the axe only nicked his neck, and he never knew for certain whether
+  it was the lace or the knight's mercy. Wearing it, a killing blow
+  comes softer than it should, and wounds close a little as you go.
+type: armor
+slot: belt
+level: 12
+baseline: light
+weight: 0
+value: 900
+rarity: rare
+effects:
+  - { kind: lastStand, params: { threshold: 0.25, mult: 0.6 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

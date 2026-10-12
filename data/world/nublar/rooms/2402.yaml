@@ -6,6 +6,8 @@ description: |
   Empty soft-drink cups stand in drifts beside one keyboard, and a sticky
   note on its screen says DO NOT TOUCH. A wall map of the island glows
   with green lines that should all be lit and are not. The air
-  conditioning roars. The rotunda is south.
+  conditioning roars. The rotunda is south, and a glass door east opens
+  on the white light of the hatchery.
 exits:
   south: 2401
+  east: 2430

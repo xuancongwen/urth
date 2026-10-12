@@ -22,17 +22,32 @@ import (
 // fought and killed for what they carry. Those who trade, teach, or hand
 // out quests stay peaceful, and so does Fizban.
 var famousCharacters = []int{
-	1300,               // diablo: Deckard Cain
-	832, 833, 842, 843, // drevlin: the High Froman, Limbeck, Hugh the Hand, Bane
-	600, 603, 611, 612, 613, // icewind: Cassius, Regis, Drizzt, Bruenor, Catti-brie
-	1200, 1203, 1216, // narnia: Mr Tumnus, Mr Beaver, Aslan
-	400, 401, 402, 404, // shire: the Gaffer, Lobelia, Ted Sandyman, Farmer Maggot
-	300, 301, 303, 320, 324, 325, 326, // solace: Otik, Tika, Raistlin, Tanis, Tasslehoff, Goldmoon, Riverwind
-	500, 501, 502, 503, 509, 510, // swordcoast: Winthrop, Imoen, Tethtoril, Gorion, Khalid, Jaheira
-	709,        // underdark: Belwar Dissengulp
-	1504, 1505, // winterfell: the Lord of Winterfell, Old Nan
-	1403, 1414, // warcraft: the Warchief, the Lord-Marshal
-	1603, // starcraft: Magistrate Tarran
+	1300, 1322, 1324, 1325, // diablo: Deckard Cain, Farnham, Gharbad the Weak, Zhar the Mad
+	3105,                    // rogue: Flavie
+	3203,                    // lutgholein: Geglash
+	3504,                    // harrogath: Nihlathak the elder
+	832, 833, 842, 843, 847, // drevlin: the High Froman, Limbeck, Hugh the Hand, Bane, Haplo's dog
+	600, 603, 611, 612, 613, 621, 622, 623, // icewind: Cassius, Regis, Drizzt, Bruenor, Catti-brie, Kemp, Heafstaag, Akar Kessell
+	1200, 1203, 1216, 1224, 1225, 1227, // narnia: Mr Tumnus, Mr Beaver, Aslan, Susan, Rumblebuffin, Caspian
+	400, 401, 402, 404, 419, 420, 421, // shire: the Gaffer, Lobelia, Ted Sandyman, Farmer Maggot, Sam, Pippin, Merry
+	2020, 2024, 2025, 2026, // moria: Gandalf, Boromir, Pippin, Gollum
+	300, 301, 303, 305, 307, 313, 314, 320, 324, 325, 326, // solace: Otik, Tika, Raistlin, Hederick, Toede, Verminaard, Kitiara, Tanis, Tasslehoff, Goldmoon, Riverwind
+	500, 501, 502, 503, 509, 510, 523, 524, 526, 527, // swordcoast: Winthrop, Imoen, Tethtoril, Gorion, Khalid, Jaheira, Edwin, Viconia, Sarevok, Tazok
+	709, 715, 716, 717, 719, // underdark: Belwar, Matron Malice, Dinin, Zaknafein, King Schnicktick
+	1504, 1505, 1520, 1521, 1524, 1525, 1526, 1527, 1528, 1529, 1530, // winterfell: Eddard, Old Nan, Catelyn, Robb, Sansa, Arya, Bran, Hodor, Rickon, Theon, the Night King
+	1022, 1023, 1024, 1027, // avalon: the Lady of the Lake, Mordred, the Green Knight, Guinevere
+	1403, 1414, 1425, 1426, // warcraft: the Warchief, the Lord-Marshal, King Llane, Medivh
+	1125, 1126, // draenor: Thrall, Durotan
+	1603, 1621, 1623, // starcraft: Magistrate Tarran, Mengsk, Tassadar
+	2222, 2223, 2224, 2227, // velen: Ciri, Triss, Dandelion, Eredin
+	2119, 2123, // barovia: Ireena, Baba Lysaga
+	2421, 2422, 2423, 2425, // nublar: Malcolm, Lex, Tim, Gennaro
+	1720, 1722, // klendathu: Dizzy Flores, Zander Barcalow
+	1925, 1926, 1927, 1928, // arrakis: the Baron, Rabban, Piter de Vries, Thufir Hawat
+	2304, 2324, 2325, 2326, // deathstar: C-3PO, Boba Fett, Motti, the Emperor
+	1824,       // cadia: Haarken Worldclaimer
+	3030, 3031, // midgaard: Odif Yltsaeb, Puff
+	3610, 3611, 3614, 3617, 3621, 3624, 3625, 3627, 3630, 3634, 3635, // foundation: Lefkin, Wienis, Argo, Bel Riose, Seldon, Demerzel, Ebling Mis, Bayta, Arkady, Han Pritcher, the Mule
 }
 
 // TestFamousCharactersCanBeKilledForTheirLoot holds the shipped world to

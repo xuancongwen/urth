@@ -1,0 +1,20 @@
+vnum: 1442
+name: a signet of the Kirin Tor
+keywords: [signet, kirin, tor, ring, khadgar]
+description: A ring of violet enamel and silver, set with a small eye, lies here.
+look: |
+  A ring of the magi of Dalaran: silver, enamelled violet, with a
+  small open eye picked out in white on its face. Khadgar had a spare,
+  because of course he did. It sharpens the mind, steadies the nerves,
+  and lets the wearer see through the cheaper sorts of glamour.
+type: armor
+slot: finger
+weight: 0
+level: 14
+value: 1200
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: detectInvisible

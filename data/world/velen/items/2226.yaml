@@ -1,0 +1,26 @@
+vnum: 2226
+name: Zoltan's sihill
+keywords: [zoltan's, zoltan, sihill, dwarven, sword, mahakam]
+description: A broad dwarven sword with runes running down its blade lies here.
+look: |
+  A sihill of Mahakam, forged in the old way by dwarves who no longer
+  forge like this: a broad, single-edged blade with a faint blue sheen
+  and a line of runes down its length that read, Zoltan says, a curse on
+  anyone who does not pay for it. The edge has never been ground, and
+  it will cut a falling silk scarf. It is short for a man and long for
+  a dwarf, and in either hand it bites deep and finds the gaps.
+type: weapon
+weight: 3
+level: 24
+baseline: standard
+value: 2200
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

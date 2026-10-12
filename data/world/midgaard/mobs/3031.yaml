@@ -1,0 +1,18 @@
+vnum: 3031
+name: Puff the Fractal Dragon
+keywords: [puff, fractal, dragon]
+description: Puff the Fractal Dragon is here, contemplating a higher reality.
+look: |
+  A small dragon, about the size of a large dog, whose scales repeat
+  their own pattern in smaller and smaller copies of themselves until
+  your eyes give up following them. Her edges are never quite where
+  they were a moment ago. She has lived in Midgaard longer than the
+  temple, and she drifts about the square murmuring things that are almost
+  sense, and occasionally blows a smoke ring that turns itself inside
+  out. She is mostly harmless, provided you do not try to measure her.
+  A loose scale glitters at her throat, and she defends it.
+level: 13
+health: 200
+silver: 80
+attack:
+  verb: claw

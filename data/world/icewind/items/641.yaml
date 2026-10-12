@@ -1,0 +1,22 @@
+vnum: 641
+name: Heafstaag's great axe
+keywords: [heafstaag, heafstaags, great, axe, elk]
+description: A great two-headed axe with elk-antler grips lies here.
+look: |
+  A double-bitted axe as broad as a shield, its haft wrapped in elk
+  hide and gripped with antler. The king of the Tribe of the Elk swung
+  it with one arm. It wants two arms from anyone else, and it rewards
+  them with a cut that does not stop at the bone.
+type: weapon
+weight: 9
+level: 8
+baseline: heavy
+value: 320
+rarity: rare
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: critMult, params: { amount: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

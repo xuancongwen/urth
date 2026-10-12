@@ -1,0 +1,23 @@
+vnum: 2225
+name: Zoltan Chivay
+keywords: [zoltan, chivay, dwarf, mahakam]
+description: Zoltan Chivay sits on a crate by his cart at the crossroads, pipe in his teeth, arguing with a parrot.
+look: |
+  A dwarf of Mahakam, broad as a door and not much shorter than a tall
+  man's chest, with a forked red beard, a green shawl tied round his
+  head, and an axe in his belt that has seen more of the war than most
+  generals. He is Geralt's friend from the long road south years ago,
+  and a gambler, a drinker, a brawler, and as honest a dealer as you
+  will find in Velen, which is saying less than he would like. The
+  parrot on the cart swears in Elder Speech. He has Mahakaman steel in
+  the cart for sale, and his own old sihill, the best blade a dwarf
+  ever forged, for the right price and a griffin's feather to show
+  you are good for it. Type 'list'.
+level: 24
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: hack
+trades:
+  - { item: 2227, silver: 600 }
+  - { item: 2226, silver: 1100, items: [2211] }

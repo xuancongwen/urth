@@ -1,0 +1,20 @@
+vnum: 1428
+name: Zul'jin
+keywords: [zuljin, zul'jin, troll, chieftain, amani]
+description: Zul'jin, warlord of the Amani, crouches on a stump by the fire pit, an axe in each hand and murder in his one good eye.
+look: |
+  The warlord of the Amani forest trolls, lean and tall even for a
+  troll, with tusks capped in iron, a mane of red hair tied up in
+  bones, and an old scar where the elves put out his left eye. He
+  leads the trolls in this war because he hates the elves more than he
+  hates the orcs, and he has never forgotten anything. Trolls mend
+  fast; Zul'jin mends faster. "You gonna die here, mon."
+level: 15
+health: 520
+stats: {dexterity: 15, strength: 14}
+silver: 140
+attack:
+  verb: slash
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }

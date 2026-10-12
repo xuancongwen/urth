@@ -7,6 +7,7 @@ description: |
   shut and has not opened to a knock in weeks. The flowerbeds have been
   dug over, though no one planted anything. Things that used to be
   villagers stand in the briars swaying, waiting for the door. The
-  square is west.
+  square is west, and the mansion's braced front door is east.
 exits:
   west: 2103
+  east: 2130

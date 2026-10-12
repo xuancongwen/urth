@@ -12,6 +12,20 @@ market square, Regis's cottage, Drizzt's cave, and Bruenor's hall are
 not: the people in them can be fought. The
 mine tunnels below the gate and Biggrin's lair are dark.
 
+Levels in walking order: gulls 3, wolves 4, yetis and the scout 5,
+then at the cairn Heafstaag, one-eyed king of the Tribe of the Elk (8,
+200 health; his great axe), Biggrin 7, and up the slopes of Kelvin's
+Cairn, in the wreck of the crystal tower, the shade of Akar Kessell
+(10, 280 health; his Hosttower robe), still calling for the Shard;
+below, the bear 8, goblins 8, and the chieftain 10.
+
+Kemp of Targos (10; his sealskin coat) quarrels with Cassius in the
+market and can be fought like him. Peaceful: Guenhwyvar (16) in the
+shadow at the back of Drizzt's cave, who teaches circle, and Wulfgar
+(12) working the bellows in the forge, five years Bruenor's servant,
+who teaches bash and rescue. The barbarian of Tempus in the
+tavern teaches berserk, and the smith bash and shield block.
+
 Map (north is up; x east, y south, z up):
 
     z=1 surface                      z=0
@@ -26,6 +40,8 @@ Map (north is up; x east, y south, z up):
                 602 - 601
                        (down 600)
 
+    z=2  617, the summit (down 614)
+
     z=-1        z=-2        z=-3
     625         626
      |           |
@@ -36,9 +52,9 @@ Map (north is up; x east, y south, z up):
 604 tundra road · 605 track · 606 Lonelywood · 607 Regis's cottage
 608 lake shore · 609 lakeshore · 610 snowfields · 611 cairn
 612 Biggrin's lair · 613 foot of the Cairn · 614 slopes · 615 dwarven
-valley · 616 Drizzt's cave · 620 mine gate · 621 Bruenor's hall
-622 forge · 623 upper tunnels · 624 old workings · 625 bear den
-626 broken gallery · 627 chieftain's hole · 640 bottom of the shaft
+valley · 616 Drizzt's cave · 617 the ruin of Cryshal-Tirith
+620 mine gate · 621 Bruenor's hall · 622 forge · 623 upper tunnels
+624 old workings · 625 bear den · 626 broken gallery · 627 chieftain's hole · 640 bottom of the shaft
 
 The famous can be killed, and carry what is theirs: Cassius (12; the
 seal of Bryn Shander), Regis (10; his ruby pendant), Catti-brie (12;
@@ -46,8 +62,8 @@ Taulmaril the Heartseeker), Bruenor (18; his notched axe and the
 one-horned helm), and Drizzt (20; Icingdeath in hand and Twinkle
 beside it, both numbered in the Underdark's item block).
 
-Notable items. Uniques: on the goblin
-chieftain Aegis-fang and Crenshinibon (10, unidentified: it whispers,
-and it takes). The chieftain's
+Notable items. Uniques: Heafstaag's great axe (8), Kessell's
+Hosttower robe (10), Kemp's sealskin coat (10), and on the goblin chieftain Aegis-fang and
+Crenshinibon (10, unidentified: it whispers, and it takes). The chieftain's
 dwarven war-belt soaks blows. Ordinary gear is carried by the yetis,
 scout, bear, and goblins, or lies on the tundra and in the mine.

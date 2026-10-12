@@ -1,0 +1,22 @@
+vnum: 623
+name: the shade of Akar Kessell
+keywords: [akar, kessell, shade, ghost, wizard, tyrant]
+description: The shade of Akar Kessell stands among the crystal shards, pale and flickering, calling for something that does not answer.
+look: |
+  A thin, weak-chinned man in the robes of the Hosttower of the Arcane,
+  grey and see-through and hanging a little above the snow. He was a
+  clumsy apprentice until the Crystal Shard found him on the tundra and
+  made him a tyrant; he raised a tower of crystal on this summit and an
+  army of goblins and giants under it, and the mountain came down on
+  him. The Shard went on without him. He is still here, and he still
+  calls to it, and he hates you for being alive while it does not
+  answer him. "It is MINE. It was always MINE."
+level: 10
+health: 280
+stats: { intelligence: 17, strength: 8 }
+silver: 60
+attack:
+  verb: blast
+effects:
+  - kind: aura
+    params: { power: 0.35, verb: "flicker of crystal light" }

@@ -1,0 +1,17 @@
+vnum: 1223
+name: Peter Pevensie
+keywords: [peter, pevensie, boy, son, adam, magnificent, high, king]
+description: Peter Pevensie stands at the edge of the camp, wiping a sword on the grass, looking older than he did this morning.
+look: |
+  The eldest, tall and fair and serious, who was a schoolboy the day
+  before yesterday and will be High King of Narnia the day after
+  tomorrow. He has just killed his first wolf, Aslan's word for it was
+  "Sir Peter Wolf's-Bane," and his hands are not quite steady yet. He
+  remembers the lesson all the same: when your friend is in trouble,
+  you get between them and the teeth, and you take the blow on your
+  shield. He will teach you both, for coin, in the Lion's name.
+level: 10
+flags: [peaceful]
+teaches: [rescue, shield_block]
+attack:
+  verb: slash

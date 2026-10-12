@@ -1,0 +1,18 @@
+vnum: 1721
+name: Private Ace Levy
+keywords: [private, ace, levy, trooper, roughneck, fiddler]
+description: Private Ace Levy sits on an ammunition crate by the drill ground, tuning a battered fiddle.
+look: |
+  A lanky, cocky trooper with a long face and a quick grin, who wanted
+  to be squad leader and found out what it costs. Off duty he plays the
+  fiddle, and plays it well, for dances in the barracks and for wakes,
+  which have been more frequent lately. He is short of money, as usual,
+  and he will sell you a fiddle he won at cards, or so he says. Type
+  'list'.
+level: 22
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: burst
+trades:
+  - { item: 1724, silver: 250 }

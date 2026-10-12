@@ -1,0 +1,17 @@
+vnum: 2421
+name: Dr. Ian Malcolm
+keywords: [ian, malcolm, doctor, dr, mathematician, chaotician]
+description: Dr. Ian Malcolm leans on a bench among the incubators, his leg splinted, explaining chaos to Dr. Wu, who is not listening.
+look: |
+  A mathematician in black from his boots to his leather jacket, with
+  tinted glasses, a splinted leg, and a great deal to say. He warned
+  everyone, he will remind you, that the park would fail, and he is
+  being very gracious about it. He lets a drop of water run off the
+  back of his hand to show you which way it goes, then does it again
+  to show you it goes the other way. Life, uh, finds a way, he says.
+  Your scientists were so preoccupied with whether or not they could,
+  they did not stop to think if they should.
+level: 20
+silver: 80
+attack:
+  verb: slap

@@ -1,0 +1,20 @@
+vnum: 716
+name: Dinin Do'Urden
+keywords: [dinin, do'urden, dourden, elderboy, drow, warrior]
+description: Dinin Do'Urden, elderboy of House Do'Urden, leans on the curb of the road with his patrol around him, watching your light with contempt.
+look: |
+  A drow warrior in fine mail under a piwafwi, with the house insignia
+  at his throat and a sword that has already killed one brother. He
+  murdered Nalfein for the place of elderboy and was proud of it, and
+  he led the raid on the surface elves where Drizzt would not kill a
+  child. He has been sent to find his little brother and bring him
+  home, and he would much rather find you instead. He is very good,
+  and he is afraid of his mother.
+level: 17
+health: 600
+silver: 150
+attack:
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.04 }

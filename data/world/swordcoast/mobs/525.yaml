@@ -1,0 +1,16 @@
+vnum: 525
+name: Elminster
+keywords: [elminster, sage, shadowdale, old, man]
+description: An old man in a battered hat sits on the rim of the fountain, puffing a pipe and watching you over the stem.
+look: |
+  White-bearded, long-nosed, in robes that have seen better centuries
+  and a hat that has seen worse. He looks like anybody's grandfather
+  and smells of pipeweed and old paper. He knew Gorion, and he knows
+  more about you than you do, and he is not going to tell you. "Thy
+  path will be thine own to walk. I merely wished to see where it
+  begins." He has errands, if you would like to be useful while you
+  find out.
+level: 40
+flags: [peaceful, questmaster]
+attack:
+  verb: strike

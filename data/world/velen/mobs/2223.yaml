@@ -1,0 +1,21 @@
+vnum: 2223
+name: Triss Merigold
+keywords: [triss, merigold, sorceress, mage, fourteenth, hill]
+description: Triss Merigold waits at the crossroads with her hood up, hiding a cascade of chestnut hair from the witch hunters.
+look: |
+  A sorceress with a heart-shaped face, freckles, warm blue eyes, and a
+  great deal of chestnut-auburn hair that she is trying, without much
+  success, to keep under a hood. She was the Fourteenth of the Hill, who
+  died at Sodden; she got better. Now the witch hunters burn mages on
+  every road in the north and she is helping as many as she can get out
+  by sea. She has a soft spot for the witcher, and a softer one for the
+  girl he is looking for, whom she taught to be a lady once. It did not
+  take.
+level: 30
+silver: 200
+attack:
+  kind: fire
+  verb: burn
+effects:
+  - kind: aura
+    params: { power: 0.15, verb: lash of chain lightning }

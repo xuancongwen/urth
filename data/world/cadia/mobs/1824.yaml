@@ -1,0 +1,29 @@
+vnum: 1824
+name: Haarken Worldclaimer
+keywords: [haarken, worldclaimer, herald, raptor, chaos, black, legion]
+description: Haarken Worldclaimer stands on the rubble of the Gate with his jump pack smoking, roaring the fall of Cadia through a vox-grille.
+look: |
+  The Herald of the Apocalypse, Abaddon's voice, in black power armour
+  wound with chains and hung with the skulls of the worlds he has
+  claimed. Wings of black iron rise from his jump pack, a helm crowned
+  with a daemon's horns hides his face, and his voice through the
+  amplifier is so loud that whole regiments have broken at the sound of
+  it. In one hand he has a lightning claw; in the other the Helspear,
+  which he throws, and which always comes back. He has claimed Cadia
+  for the Despoiler, and you are standing on it.
+level: 60
+health: 60000
+stats: {strength: 20, constitution: 18, dexterity: 15}
+silver: 1200
+armor:
+  defense: 1000
+attack:
+  kind: pierce
+  verb: impale
+effects:
+  - kind: crit
+    params: { chance: 0.12, mult: 2 }
+  - kind: proc
+    params: { chance: 0.3, power: 1.5, verb: hurled Helspear }
+  - kind: soak
+    params: { power: 0.1 }

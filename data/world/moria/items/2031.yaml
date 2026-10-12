@@ -1,0 +1,18 @@
+vnum: 2031
+name: a longsword of Gondor
+keywords: [longsword, sword, gondor, blade]
+description: A long straight sword with a silver tree on its pommel lies here.
+look: |
+  A sword of Minas Tirith, long and plain and very well made, with a
+  white tree inlaid in silver on the pommel and a grip of black
+  leather worn to the shape of one hand. The smiths of the White City
+  still know their work.
+type: weapon
+level: 38
+baseline: standard
+weight: 4
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

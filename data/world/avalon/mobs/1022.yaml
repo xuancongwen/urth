@@ -1,0 +1,22 @@
+vnum: 1022
+name: the Lady of the Lake
+keywords: [lady, lake, nimue, viviane, vivien]
+description: A woman in white samite stands on the water at the causeway's end as if it were a floor, and the mist bows away from her.
+look: |
+  Tall and pale and very still, with hair the colour of the lake under
+  cloud and a gown of white samite that is dry to the hem. She gave
+  Excalibur into Arthur's hand from under the water and took it back
+  from Bedivere's, and she raised Lancelot in her country under the
+  lake, and she shut Merlin in his tree. She is kind, in the way the
+  water is kind. Her priestesses in the shrine speak for her; she
+  watches you pass, and says nothing, and you feel weighed. Raise a hand to her and the lake
+  rises with her.
+level: 14
+health: 400
+silver: 60
+stats: { wisdom: 18, charisma: 18 }
+attack:
+  verb: strike
+effects:
+  - kind: aura
+    params: { power: 0.1, verb: cold surge of the lake }

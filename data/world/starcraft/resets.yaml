@@ -6,8 +6,12 @@ resets:
   - { mob: 1618, room: 1603 }                                   # the medic in the depot, who teaches second wind
   - { mob: 1601, room: 1625 }                                   # the chief engineer
   - { mob: 1602, room: 1606 }                                   # Scotty behind the bar
+  - { mob: 1619, room: 1606 }                                   # Jim Raynor at the bar: his marshal's star for his revolver back
+  - { mob: 1621, room: 1602, equip: [{ item: 1617, slot: wield }] }   # Arcturus Mengsk on the concourse, a gauss rifle under his coat
+  - { mob: 1620, room: 1602 }                                   # Kerrigan beside him, who teaches feint and backstab
   - { mob: 1606, room: 1605, equip: [{ item: 1600, slot: wield }, { item: 1601, slot: body }, { item: 1620 }] }   # the drill sergeant, and Raynor's confiscated revolver
   - { item: 1633, room: 1605 }                                  # a shock baton on the rack
+  - { mob: 1622, room: 1607, equip: [{ item: 1617, slot: wield }, { item: 1601, slot: body }, { item: 1638, slot: head }] }   # General Duke at the gate, and his peaked cap
   - { mob: 1604, room: 1605, max: 2, equip: [{ item: 1600, slot: wield }, { item: 1602, slot: head }, { item: 1624 }] }   # marines at drill, spare greaves
   - { mob: 1604, room: 1606, max: 4, equip: [{ item: 1602, slot: head }, { item: 1614 }] }   # marines off duty, a stim in the pocket
   - { mob: 1605, room: 1606, max: 2, equip: [{ item: 1603, slot: wield }, { item: 1604, slot: hands }, { item: 1629 }] }   # firebats in the corner
@@ -37,3 +41,6 @@ resets:
   - { item: 1632, room: 1614 }                                  # a khaydarin ring before the altar
   - { mob: 1617, room: 1617, equip: [{ item: 1622 }] }          # the dragoon at the warp gate, keeping Zeratul's warp blade
   - { mob: 1616, room: 1616, equip: [{ item: 1612, slot: neck }] }   # the high templar
+  - { mob: 1623, room: 1611, equip: [{ item: 1611, slot: wield }, { item: 1612, slot: neck }] }   # Tassadar on the mesa, psi blade and khaydarin amulet
+  - { mob: 1624, room: 1611 }                                   # Fenix beside him, who teaches twin
+  - { mob: 1625, room: 1612 }                                   # Zeratul in the canyon, who teaches dodge and riposte

@@ -1,11 +1,14 @@
 vnum: 305
-name: a Seeker theocrat
-keywords: [seeker, theocrat, priest]
-description: A Seeker theocrat in a fine brown robe looks down at you from a raised chair.
+name: Hederick the High Theocrat
+keywords: [hederick, seeker, theocrat, priest, high]
+description: Hederick the High Theocrat, in a fine brown robe, looks down at you from a raised chair, one hand bandaged.
 look: |
   Heavier cloth, a chain of office, and a voice made for telling other
   people what is true. He has found that the old gods are dead and that
-  he is not.
+  he is not. His right hand is wrapped in fresh linen: he fell against
+  the fire in the Inn of the Last Home, and a barbarian woman with a
+  blue staff healed it, and he has been trying to forget that ever
+  since by sending guards to find her.
 level: 6
 silver: 150
 attack:

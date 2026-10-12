@@ -1,0 +1,23 @@
+vnum: 2230
+name: the crown of the King of the Wild Hunt
+keywords: [crown, king, wild, hunt, eredin, eredin's, helm, skull]
+description: A black helm crowned with long horns of frozen iron lies here, frost spreading from it across the ground.
+look: |
+  Eredin's helm: black plate wrought into the shape of a horned skull,
+  with a crown of long, curving spikes of iron so cold that frost grows
+  on them in feathers. Through the eye slits the world looks grey and
+  far away, like a world the Hunt has already finished with. Worn, it
+  makes the wearer hard to hurt and harder to shift, and anything that
+  strikes the wearer comes away with the cold of the stars in it.
+type: armor
+slot: head
+weight: 4
+level: 36
+baseline: plate
+value: 8000
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: thorns, params: { fraction: 0.12, verb: "cold of the stars" } }

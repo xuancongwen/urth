@@ -1,0 +1,18 @@
+vnum: 1425
+name: King Llane Wrynn
+keywords: [king, llane, wrynn]
+description: King Llane Wrynn of Stormwind stands at the great window, looking out over the forest toward the smoke.
+look: |
+  The king of Stormwind, a broad, fair-haired man in gilded plate with
+  the lion on his breast and a plain circlet on his brow, who rides to
+  the front because he does not trust reports. He is warm with his
+  soldiers and patient with farmers, and he has a son at home he talks
+  about too much. He believes the orcs can be beaten in the field,
+  and that nobody who matters would ever betray him. He will not
+  start a fight in his own hall, but he will finish one.
+level: 17
+health: 650
+stats: {strength: 14, constitution: 14, charisma: 15}
+silver: 300
+attack:
+  verb: strike

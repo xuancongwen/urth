@@ -1,0 +1,13 @@
+vnum: 1927
+name: the signet ring of House Atreides
+keywords: [signet, ring, atreides, hawk, ducal, duke]
+description: A heavy ducal signet ring with a hawk on its face lies here.
+look: |
+  A heavy ring of old gold with the red hawk of House Atreides cut into
+  its face, the seal of the Duke Leto. The Baron took it off the Duke's
+  dead hand and wore it on a chain as a trophy. It is too large for
+  any finger but a duke's, and it is not yours to wear. Paul Atreides,
+  in Sietch Tabr, would want it back.
+type: other
+weight: 0
+value: 500

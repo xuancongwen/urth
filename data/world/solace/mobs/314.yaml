@@ -1,0 +1,21 @@
+vnum: 314
+name: Kitiara
+keywords: [kitiara, kit, uth, matar, woman, swordswoman]
+description: A dark-haired woman in a travelling cloak leans on the bridge rail and watches the inn's window, with a crooked smile and no intention of going in.
+look: |
+  Kitiara uth Matar, half-sister to Caramon and Raistlin, with short
+  dark curly hair, a swordswoman's shoulders, and a crooked smile that
+  has broken more hearts than her sword has, and her sword has been
+  busy. Five years ago she promised to meet the others at the Inn of
+  the Last Home this autumn. She did not come. Under the cloak there is
+  a glint of blue dragonscale, and she would rather you had not seen
+  it.
+level: 8
+health: 150
+silver: 120
+stats: { dexterity: 15, strength: 13 }
+attack:
+  verb: slash
+effects:
+  - kind: dodge
+    params: { amount: 0.08 }

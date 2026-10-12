@@ -1,0 +1,27 @@
+vnum: 2026
+name: Gollum
+keywords: [gollum, smeagol, creature, wretch]
+description: Two pale lamps of eyes hang in the dark of the passage, and something goes pat, pat, on wet flat feet. "Gollum, gollum."
+look: |
+  A thin wretched creature, grey and slimy, all knees and elbows,
+  with a head too big for it, a few lank hairs, and great pale eyes
+  that shine in the dark. Once he was a hobbit of the river-folk
+  called Sméagol. He has been following the Company since the West-gate,
+  for the thing Frodo carries, which was his, his birthday-present,
+  his Precious. He lived for centuries under the Misty Mountains
+  eating raw fish and the goblins who came too near, and he wears
+  their teeth on a string. He strangles first and talks after. "We
+  hates it, we hates it, we hates it for ever!"
+level: 16
+health: 400
+stats: {dexterity: 15}
+silver: 40
+xp: 1800
+attack:
+  kind: blunt
+  verb: throttle
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }

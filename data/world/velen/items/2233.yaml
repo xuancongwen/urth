@@ -1,0 +1,18 @@
+vnum: 2233
+name: Dandelion's feathered cap
+keywords: [dandelion's, dandelion, feathered, cap, hat, egret, feather]
+description: A plum-coloured cap with a long white egret's feather lies here.
+look: |
+  A jaunty velvet cap of plum and gold, with a white egret's feather as
+  long as your forearm pinned to it with a garnet brooch. The greatest
+  poet of his age will not be seen without it. Wearing it, you find you
+  can talk your way into, and very nearly out of, almost anything.
+type: armor
+slot: head
+weight: 0
+level: 20
+baseline: cloth
+value: 900
+rarity: uncommon
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 3 } }

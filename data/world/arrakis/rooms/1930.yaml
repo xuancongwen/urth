@@ -1,0 +1,12 @@
+vnum: 1930
+name: The Baron's Hall
+description: |
+  A long, hot room hung with blue and gold, where the Baron Harkonnen
+  keeps his court when he is on Arrakis. The floor is black glass and
+  very clean. A great chair stands at the far end, built for a body no
+  chair could hold, and above it the griffin of House Harkonnen spreads
+  its wings over a niche of little bottles, each labelled in a fine
+  hand. There is a smell of sapho, perfume, and something underneath
+  both. The arena is west.
+exits:
+  west: 1924

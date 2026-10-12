@@ -1,0 +1,21 @@
+vnum: 1831
+name: a spirit stone of Ulthwé
+keywords: [spirit, stone, ulthwe, waystone, gem, eldar]
+description: A smooth black gem, with a small light moving inside it, lies here.
+look: |
+  A spirit stone of Craftworld Ulthwé, black as the craftworld's armour,
+  with a mote of light inside that drifts as you turn it, as if it were
+  looking out. The Aeldari wear them to catch their souls when they die.
+  This one is empty, for now. Worn at the breast it quickens the step
+  and sharpens the mind, and the things that walk unseen are seen.
+type: armor
+slot: neck
+weight: 0
+level: 46
+value: 8000
+effects:
+  - kind: dodge
+    params: { amount: 0.04 }
+  - kind: detectInvisible
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

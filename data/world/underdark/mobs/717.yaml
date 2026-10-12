@@ -1,0 +1,20 @@
+vnum: 717
+name: the spirit-wraith of Zaknafein
+keywords: [zaknafein, zak, spirit-wraith, wraith, spirit, weapon, master]
+description: A drow swordsman stands motionless between the pillars, his skin grey with death, one sword in his hand and his eyes on nothing.
+look: |
+  Zaknafein Do'Urden, who was the greatest weapon master Menzoberranzan
+  ever bred, and Drizzt's father, and who was sacrificed to Lolth for
+  it. Matron Malice has raised him again in the zin-carla, a corpse
+  driven by her will and the Spider Queen's, and set him to hunt the
+  son he taught. He has one of his two swords; the other hangs above
+  the altar below. Something of him is still in there. It does not
+  help you.
+level: 19
+health: 850
+silver: 0
+attack:
+  verb: cut
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

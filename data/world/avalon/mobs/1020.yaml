@@ -1,0 +1,19 @@
+vnum: 1020
+name: King Arthur
+keywords: [arthur, king, pendragon, wounded]
+description: King Arthur lies on a bier of yew boughs beside the red spring, his wound bound in white, sleeping and not quite sleeping.
+look: |
+  A big, grey-bearded man, broad in the chest, in a plain shirt with a
+  great wound under it that Mordred's sword made at Camlann. The three
+  queens brought him over the water to be healed, and he is being
+  healed, slowly, as the isle does everything. Now and then his eyes
+  open and he asks for his sword. Morgan, his sister, has it in her
+  tower. If you bring Excalibur back to its king he will give you the
+  dragon helm he wore at Badon, which he will not need to wear again
+  until Britain needs him.
+level: 14
+flags: [peaceful]
+attack:
+  verb: strike
+trades:
+  - { item: 1036, items: [1030] }

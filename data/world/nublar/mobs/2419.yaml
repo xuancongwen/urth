@@ -1,0 +1,19 @@
+vnum: 2419
+name: Dr. Alan Grant
+keywords: [alan, grant, doctor, dr, paleontologist]
+description: Dr. Alan Grant sits on a branch under the hanging jeep, turning a fossil claw over in his fingers.
+look: |
+  A sunburned paleontologist in a faded denim shirt, a red neckerchief,
+  and a battered hat, who has spent his life digging raptors out of the
+  Montana badlands and has just spent a night up a tree because of a
+  live one. He does not like children, computers, or theme parks. He
+  carries the fossil claw of a velociraptor everywhere, and he has a
+  terrible suspicion: the park says its animals cannot breed. Bring him
+  a broken eggshell from the raptor nest, he says, and he will give you
+  the claw, because he will not need a fossil any more. Type 'list'.
+level: 26
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 2425, items: [2426] }

@@ -1,0 +1,20 @@
+vnum: 333
+name: Bupu's lizard charm
+keywords: [bupu, bupus, lizard, charm, string, dead]
+description: A small dead lizard tied on a bit of dirty string lies here.
+look: |
+  A dried lizard, very dead, on a loop of string that was once a
+  bootlace. Bupu swears by it for coughs. It smells. Raistlin, to
+  everyone's astonishment, kept his. Worn at the throat, it does seem
+  to keep the worst of a sickness off, and small hurts close a little
+  faster, and nothing that sees you wearing it thinks you worth the
+  trouble of looking closely.
+type: armor
+slot: neck
+level: 3
+weight: 0
+value: 60
+rarity: uncommon
+effects:
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -3,9 +3,10 @@ interval_seconds: 300
 resets:
   # the road
   - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }, { item: 318, slot: legs }] }   # hobgoblin soldiers
-  - { mob: 307, room: 302, equip: [{ item: 316, slot: wield }, { item: 317, slot: body }] }   # the captain, his whip, and his stolen doublet
+  - { mob: 307, room: 302, equip: [{ item: 316, slot: wield }, { item: 317, slot: body }] }   # Fewmaster Toede, his whip, and his stolen doublet
   - { item: 310, room: 302 }   # the ledger
   - { mob: 308, room: 303, max: 2 }   # refugees
+  - { mob: 315, room: 303 }   # Bupu among the refugees, who trades her lizard charm for a venom sac
   - { item: 309, room: 303 }   # bark
   - { item: 309, room: 303 }
   # the square and the seekers
@@ -13,7 +14,7 @@ resets:
   - { mob: 312, room: 305, max: 2 }   # townsmen
   - { mob: 309, room: 306 }   # the smith
   - { item: 322, room: 306 }   # a buckler of Flint's on the anvil
-  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }, { item: 321, slot: neck }, { item: 315 }] }   # the theocrat, his chain, and Flint's confiscated axe
+  - { mob: 305, room: 308, equip: [{ item: 305, slot: body }, { item: 321, slot: neck }, { item: 315 }] }   # Hederick the High Theocrat, his chain, and Flint's confiscated axe
   - { mob: 304, room: 308, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # his guard
   - { mob: 304, room: 318, equip: [{ item: 303, slot: wield }, { item: 305, slot: body }] }   # the bridge guard
   # the inn
@@ -36,6 +37,10 @@ resets:
   - { item: 121, room: 307 }   # salt at the lakeshore
   - { item: 121, room: 307 }
   - { mob: 327, room: 323 }   # the ranger at the shrine, who teaches fast healing
+  - { mob: 316, room: 323 }   # Elistan praying to Paladine, who teaches rescue
+  # the north road and the bridge
+  - { mob: 313, room: 309, equip: [{ item: 334, slot: wield }, { item: 328, slot: body }] }   # Verminaard on the north road, Nightbringer and dragonarmy scale
+  - { mob: 314, room: 320, equip: [{ item: 335, slot: body }] }   # Kitiara on the bridge, who did not come to the inn
   # the watch-tree and the lanes
   - { item: 323, room: 304 }   # a woodcutter's axe behind the great vallenwood
   # the dark wood

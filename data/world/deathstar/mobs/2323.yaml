@@ -1,0 +1,19 @@
+vnum: 2323
+name: Princess Leia Organa
+keywords: [princess, leia, organa, senator, alderaan]
+description: Princess Leia sits on the shelf of the cell, looking you up and down. "Aren't you a little short for a stormtrooper?"
+look: |
+  A small young woman in a white gown, her hair wound into two coils
+  over her ears, sitting very straight on the metal shelf as if it were
+  a throne. She is a senator of Alderaan and a leader of the Rebellion,
+  and she has been questioned by the black droid down the corridor and
+  told it nothing. She regards you with a cool contempt that would
+  wither a Moff. If you bring her the needle of the thing that
+  questioned her, so that she can break it, she will give you the
+  blaster she hid from the guards. Type 'list'.
+level: 28
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 2333, items: [2334] }

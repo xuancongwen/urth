@@ -1,0 +1,15 @@
+vnum: 2425
+name: Donald Gennaro
+keywords: [donald, gennaro, lawyer, attorney, bloodsucker]
+description: Donald Gennaro, the investors' lawyer, edges along the roadside toward a little outhouse, looking back over his shoulder.
+look: |
+  A lawyer in a good suit and a bad sweat, sent by the investors to
+  decide whether the park is safe, who decided within the hour that it
+  would make them all a fortune and they could charge whatever they
+  wanted. That was before the fence. Now he has left the children in
+  the jeep and is looking for somewhere, anywhere, to hide, and the
+  little wooden toilet by the road looks like as good a place as any.
+level: 10
+silver: 250
+attack:
+  verb: slap

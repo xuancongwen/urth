@@ -1,0 +1,29 @@
+vnum: 2326
+name: the Emperor
+keywords: [emperor, palpatine, sidious, darth, sith, master]
+description: The Emperor sits in his throne with his back to the stars, smiling. "Now witness the firepower of this fully armed and operational battle station."
+look: |
+  A bent old man in a hooded black robe, his face a ruin of yellowed
+  and melted flesh, his eyes the colour of sulphur under the hood. He
+  leans on a gnarled black cane he does not need. He has planned for
+  your coming, as he has planned for everything, and he is delighted
+  you are here. When he lifts his hands, blue lightning crawls between
+  his fingers and the room smells of ozone. "Everything that has
+  transpired has done so according to my design."
+level: 55
+health: 30000
+stats: {intelligence: 20, wisdom: 20}
+silver: 2500
+armor:
+  defense: 600
+attack:
+  kind: psionic
+  verb: Force lightning
+effects:
+  - { kind: aura, params: { power: 0.3, verb: crawl of Force lightning } }
+  - { kind: proc, params: { chance: 0.35, power: 1.8, verb: storm of Force lightning } }
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: soak, params: { power: 0.15 } }
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: regen, params: { fraction: 0.005 } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

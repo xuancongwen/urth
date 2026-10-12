@@ -1,0 +1,19 @@
+vnum: 1719
+name: Johnny Rico
+keywords: [johnny, juan, rico, trooper, roughneck, sergeant]
+description: Johnny Rico stands at the lip of the Great Bug Hole, Morita up, looking down. "Come on, you apes! You want to live forever?"
+look: |
+  A tall, square-jawed kid from Buenos Aires who joined up to follow a
+  girl and stayed because of Rasczak, now wearing the Roughnecks'
+  stripes with the paint still wet. He has been washed out, flogged,
+  shot, stung, and left for dead on this planet, and every time he got
+  up again. He would like to go down that hole after the Brain Bug,
+  and he would like company. For coin he will teach you the thing he
+  is best at: getting back up when you have no business doing so.
+  Type 'practice'.
+level: 32
+flags: [peaceful]
+teaches: [second_wind]
+attack:
+  kind: pierce
+  verb: burst

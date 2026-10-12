@@ -1,0 +1,20 @@
+vnum: 1027
+name: Queen Guinevere
+keywords: [guinevere, gwenhwyfar, queen, nun, veiled]
+description: A veiled woman in a nun's grey habit stands at the causeway's end with her hands folded, looking south toward the shrine and the well beyond it, and not going.
+look: |
+  Gwenhwyfar, Leodegrance's daughter, Arthur's queen, who loved
+  Lancelot and was loved by him and knew what it would cost and paid
+  it. She took the veil at Amesbury after Camlann and came over the
+  water when she heard where the king had been carried. She is still
+  beautiful under the grey, with fair hair cut short under the wimple,
+  and her face is very calm, in the way of someone who has decided to
+  wait for as long as it takes. She asks you, if you go to the well,
+  whether he is sleeping easier. On her hand she still wears the
+  ring Arthur put there at their wedding; she gave up the crown and
+  kept the ring, and she will not give it up to you without a fight.
+level: 8
+health: 160
+silver: 50
+attack:
+  verb: slap

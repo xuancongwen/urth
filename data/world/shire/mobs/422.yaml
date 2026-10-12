@@ -1,0 +1,19 @@
+vnum: 422
+name: Rosie Cotton
+keywords: [rosie, rose, cotton, hobbit, barmaid]
+description: Rosie Cotton carries a tray of pints through the crowd, and has a smile for everybody and a particular one for Sam Gamgee, if he were here.
+look: |
+  A pretty, curly-haired hobbit-lass from the Cotton farm out by
+  Bywater, helping in the Green Dragon of an evening. She knows every
+  farmer and every family tree in the Eastfarthing and is fond of a
+  dance. She will bring you a pint, a seed-cake, or a twist of
+  Longbottom Leaf, and she asks after Sam Gamgee, though she pretends
+  she is only being polite. Type 'list'.
+level: 6
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 404, silver: 2 }
+  - { item: 405, silver: 3 }
+  - { item: 410, silver: 8 }

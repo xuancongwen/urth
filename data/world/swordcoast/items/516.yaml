@@ -1,0 +1,19 @@
+vnum: 516
+name: Viconia's piwafwi
+keywords: [viconia, viconias, piwafwi, cloak, drow]
+description: A dark, hooded drow cloak lies here, hard to look at directly.
+look: |
+  A drow cloak of a grey that is no colour at all, hooded, the hem
+  frayed by the surface's brambles. Viconia brought it up out of the
+  Underdark and it is the one thing she did not leave behind. Under it
+  the eye slides off you, and blows that should land do not.
+type: armor
+slot: shoulders
+weight: 1
+level: 11
+baseline: light
+value: 380
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

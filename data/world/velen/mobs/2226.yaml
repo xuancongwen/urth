@@ -1,0 +1,21 @@
+vnum: 2226
+name: Keira Metz
+keywords: [keira, metz, sorceress, mage, enchantress]
+description: Keira Metz stands in the door of her hut at the edge of the woods, a lamp in her hand, looking you over with interest.
+look: |
+  A sorceress in exile, with honey-blonde hair, green eyes, a low-cut
+  gown of royal blue rather too fine for a hut in a bog, and a habit of
+  standing very close. She was a member of the Lodge and an adviser to
+  kings, and now she cures warts and fevers for peasants in Velen and
+  hides from the witch hunters. She is bored out of her mind. She has a
+  lamp of her own making, she says, that shows what hides in the dark,
+  and she will part with it for the essence of a noonwraith, which she
+  needs for a little experiment she would rather not describe, and some
+  coin for her trouble. Type 'list'.
+level: 28
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: blast
+trades:
+  - { item: 2228, silver: 400, items: [2229] }

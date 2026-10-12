@@ -1,0 +1,22 @@
+vnum: 1139
+name: a fragment of K'ure
+keywords: [fragment, kure, k'ure, crystal, naaru, velen]
+description: A small crystal of violet and gold lies here, chiming softly.
+look: |
+  A chip from the crystal Velen carries, which he says was the gift of
+  the naaru K'ure, the being of living Light that brought his people
+  here. It is warm, and rings like a struck glass when it moves. Held,
+  it mends the body slowly, quiets fear, and keeps its holder on their
+  feet.
+type: armor
+slot: hold
+weight: 1
+level: 18
+value: 1800
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: steady
+    params: { chance: 0.3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 3 }

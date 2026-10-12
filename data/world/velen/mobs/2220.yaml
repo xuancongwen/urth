@@ -1,0 +1,21 @@
+vnum: 2220
+name: Geralt of Rivia
+keywords: [geralt, rivia, white, wolf, witcher, butcher, blaviken]
+description: Geralt of Rivia reads the notice board with his arms folded, two swords on his back, and says "Hmm."
+look: |
+  A witcher of the School of the Wolf: a tall, lean man with hair as
+  white as milk tied back from a scarred face, and yellow cat's eyes that
+  narrow at the light. He wears black leather studded with silver, a wolf
+  medallion at his throat, steel on his back for men and silver for
+  monsters. He is looking for a girl with ashen hair and a scar on her
+  cheek, and he is looking for a woman who smells of lilac and
+  gooseberries, and in the meantime he takes contracts, because a
+  witcher has to eat. Ask him something and he will say "Hmm." Pay him
+  and he will teach you to spin through a ring of drowners with the
+  sword out, the way they taught him at Kaer Morhen. "Wind's howling."
+level: 34
+flags: [peaceful]
+teaches: [whirlwind]
+attack:
+  kind: slash
+  verb: slash

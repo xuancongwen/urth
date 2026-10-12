@@ -1,0 +1,21 @@
+vnum: 758
+name: Jarlaxle's spare hat
+keywords: [jarlaxle, jarlaxles, spare, hat, plume, feather]
+description: A wide-brimmed hat with an absurdly large purple feather lies here.
+look: |
+  A great floppy hat with one side of the brim pinned up and a diatryma
+  feather the length of your arm sweeping off the back. It is not
+  Jarlaxle's hat, he will tell you; it is one of his hats. It makes the
+  wearer look like a fool, and somehow nothing ever quite lands on a
+  fool in a hat like this.
+type: armor
+slot: head
+weight: 1
+level: 18
+baseline: light
+value: 1100
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }

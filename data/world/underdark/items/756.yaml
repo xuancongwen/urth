@@ -1,0 +1,23 @@
+vnum: 756
+name: Dinin's adamantite sword
+keywords: [dinin, dinins, adamantite, sword]
+description: A slim adamantite sword with a spider on the pommel lies here.
+look: |
+  A drow noble's sword, light and black and wickedly sharp, made in
+  the forges of Menzoberranzan and kept keen with faerzress. Dinin Do'Urden
+  killed his brother Nalfein with it, from behind. It is very good at
+  finding the place a foe is not looking.
+type: weapon
+weight: 3
+level: 17
+baseline: standard
+value: 1000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: opportunist, params: { mult: 1.2 } }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

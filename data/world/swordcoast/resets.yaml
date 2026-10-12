@@ -12,6 +12,7 @@ resets:
   # the Lion's Way
   - { mob: 504, room: 506, max: 3 }   # gibberlings
   - { item: 514, room: 507 }          # the cairn's note
+  - { mob: 526, room: 507, equip: [{ item: 547, slot: head }, { item: 544, slot: wield }] }   # Sarevok in the scorched ring, his horned helm and an Iron Throne axe
   - { mob: 505, room: 508 }           # the wild dog
   - { item: 523, room: 508 }          # a monk's staff dropped on the road
   # the Coast Way and the Friendly Arm
@@ -23,14 +24,21 @@ resets:
   - { item: 529, room: 509 }  # a traveller's cloak at the crossroads
   - { mob: 506, room: 512, equip: [{ item: 504, slot: body }, { item: 521, slot: wield }, { item: 109 }] }   # the bandit, vest, dirk and purse
   - { item: 535, room: 512 }          # the teamster's whip, left in the ruts
+  - { mob: 524, room: 512, equip: [{ item: 516, slot: shoulders }] }   # Viconia hiding from the Fist in the brush off the road, in her piwafwi
   - { mob: 507, room: 513, equip: [{ item: 304, slot: wield }, { item: 524, slot: head }] }   # the hobgoblin, with a notched blade and a skullcap
+  - { mob: 523, room: 513, equip: [{ item: 549, slot: neck }] }   # Edwin under the hills, hunting Dynaheir, with his amulet
   # Beregost
   - { mob: 511, room: 514, equip: [{ item: 533, slot: wield }] }   # Silke at the well, with the Sword of Chaos
   - { mob: 519, room: 515 }   # a cutpurse at the Burning Wizard, who teaches dirt kicking
+  - { mob: 525, room: 514 }   # Elminster on the fountain rim with his pipe, who hands out quests
   # the road to Nashkel
   - { mob: 512, room: 517, max: 2, equip: [{ item: 520, slot: wield }] }   # xvarts with hand axes
+  - { mob: 521, room: 517 }   # Xzar, who trades the Zhentarim ring for three lumps of tainted iron
+  - { mob: 522, room: 517 }   # Montaron, who teaches backstab
   - { mob: 513, room: 518, equip: [{ item: 522, slot: wield }, { item: 530 }, { item: 531 }] }   # the ogre on the hill, its club, and Varscona it cannot use, and Spider's Bane
   - { mob: 514, room: 519 }           # the Flaming Fist
+  - { mob: 520, room: 519 }           # Minsc and Boo, who teach berserk
+  - { mob: 527, room: 520, equip: [{ item: 548, slot: wield }] }   # Tazok at the mine mouth, and his flail
   # the mines
   - { mob: 515, room: 521, max: 4, equip: [{ item: 500, slot: wield }, { item: 525, slot: shield }, { item: 512 }] }   # kobolds with swords, shields, and scales
   - { item: 511, room: 521 }   # tainted ore lies everywhere

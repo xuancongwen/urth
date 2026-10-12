@@ -1,0 +1,18 @@
+vnum: 1528
+name: Rickon Stark
+keywords: [rickon, stark, boy, child]
+description: Rickon Stark, three years old and filthy, sits in the bent-barred pen with a black direwolf, growling back at the hounds.
+look: |
+  The youngest of the Starks, a wild little boy with a mop of auburn
+  hair and his face smeared with something you hope is jam. He bites,
+  the maids say, and he will not wear his shoes. His direwolf is the
+  black one, Shaggydog, wilder even than he is, who has bitten the
+  maester twice and bent the bars of this pen to get out, and who is
+  kept here now because nobody else can be trusted near him. Rickon
+  can. He sits with his arms around the wolf's neck and dares you to
+  come closer.
+level: 6
+silver: 8
+attack:
+  kind: bite
+  verb: bite

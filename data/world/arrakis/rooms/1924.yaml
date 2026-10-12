@@ -4,7 +4,9 @@ description: |
   A small fighting ring of white sand under a gallery, built so that the
   na-Baron can practise on slaves when he is far from Giedi Prime. There
   are dark patches in the sand that have been raked over and have not
-  gone away. The gallery is empty. The only way out is west, to the hall,
-  and the na-Baron is in no hurry to let you take it.
+  gone away. The gallery is empty. The hall is west, and a curtained
+  arch east opens on the Baron's own rooms; the na-Baron is in no hurry
+  to let you take either.
 exits:
   west: 1921
+  east: 1930

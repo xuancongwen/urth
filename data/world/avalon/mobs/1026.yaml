@@ -1,0 +1,18 @@
+vnum: 1026
+name: Sir Lancelot
+keywords: [lancelot, launcelot, lake, du, sir, knight]
+description: Sir Lancelot kneels in the ring of stones in a hermit's rough habit over his mail, his sword before him like a cross.
+look: |
+  The best knight in the world, they said, and he said it was not so.
+  Raised by the Lady under the lake, the queen's champion and the
+  queen's lover and the cause of the war that broke the Table. He is
+  grey now and thin from fasting, and he will not go to the well where
+  the king lies, nor to the shrine where the queen is, though he can
+  see them both. He keeps vigil here with Bedivere. He will teach you
+  to turn a blow back on the one who threw it, and to make an enemy
+  guard the wrong line, if you pay and promise to be truer than he was.
+level: 14
+flags: [peaceful]
+teaches: [riposte, feint]
+attack:
+  verb: slash

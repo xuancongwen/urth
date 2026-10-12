@@ -3,6 +3,7 @@ resets:
   # --- the Lantern Waste ---
   - { mob: 1208, room: 1202, max: 3, equip: [{ item: 1218 }] }   # snow hares carry their pelts
   - { mob: 1208, room: 1207, max: 3, equip: [{ item: 1218 }] }
+  - { mob: 1221, room: 1201 }                                     # Lucy under the lamp-post, who teaches fast healing
   - { mob: 1200, room: 1203, equip: [{ item: 1212, slot: neck }, { item: 1226, slot: hold }] }   # Mr Tumnus at home, in his muffler, with his flute
   - { item: 1228, room: 1208 }                                    # a dwarf's hood in the glade
   - { mob: 1209, room: 1204, max: 3, equip: [{ item: 1202 }] }    # spy-ravens drop feathers
@@ -22,15 +23,19 @@ resets:
   - { mob: 1206, room: 1211, max: 2, equip: [{ item: 1203, slot: wield }] }
   - { mob: 1219, room: 1229, max: 3, equip: [{ item: 1215, slot: body }, { item: 1224, slot: wrist1 }] }
   - { mob: 1207, room: 1213, equip: [{ item: 1204, slot: wield }, { item: 1230, slot: hands }, { item: 1217 }, { item: 1231 }] }   # the chief dwarf, with Susan's horn stolen from the gifts
+  - { mob: 1225, room: 1213, equip: [{ item: 1236, slot: wield }] }   # Giant Rumblebuffin by the gate he broke, and his club
   - { item: 1227, room: 1212 }                                    # greaves in a drift below the castle
   # --- the Witch's castle ---
   - { mob: 1213, room: 1215, equip: [{ item: 1221, slot: wield }] }   # minotaur at the throne-room doors
+  - { mob: 1222, room: 1214 }                                     # Edmund by the stone lion, who trades his fur coat for Turkish delight
   - { mob: 1215, room: 1216, equip: [{ item: 1233 }] }   # werewolf in the dungeon, and Reepicheep's rapier
   - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }, { item: 1234 }] }   # the Witch, wand, crown, and the stone knife
   # --- Aslan's side ---
   - { mob: 1216, room: 1220, equip: [{ item: 1232 }] }               # Aslan; a lock of his mane comes away with his life
   - { mob: 1217, room: 1220, max: 2 }
   - { mob: 1220, room: 1220 }                                     # the centaur hunter, who teaches hamstring
+  - { mob: 1223, room: 1220 }                                     # Peter, who teaches rescue and shield block
+  - { mob: 1224, room: 1220, equip: [{ item: 1211, slot: wield }] }   # Susan outside the pavilion, with her bow
   # --- the Stone Table and the war camp ---
   - { mob: 1211, room: 1222 }                                     # the hag
   - { mob: 1212, room: 1223, max: 2, equip: [{ item: 1222, slot: wield }] }   # ogres and their cudgels
@@ -38,3 +43,5 @@ resets:
   # --- the coast ---
   - { mob: 1218, room: 1228, max: 2, equip: [{ item: 1229 }] }     # shore crabs, and a shell for a shield
   - { item: 1225, room: 1227 }                                    # Narnian mail on its stand
+  - { mob: 1226, room: 1227 }                                     # Reepicheep, who teaches riposte and feint
+  - { mob: 1227, room: 1226, equip: [{ item: 1225, slot: body }] }   # Prince Caspian at the gate of Cair Paravel, in Narnian mail

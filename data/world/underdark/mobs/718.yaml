@@ -1,0 +1,19 @@
+vnum: 718
+name: Jarlaxle
+keywords: [jarlaxle, mercenary, bregan, d'aerthe, daerthe, drow, hat]
+description: A drow in a wide-brimmed hat with an enormous feather sits on the stair as if he had been waiting for you all day, which he has.
+look: |
+  A drow with a shaven head, an eyepatch that moves from eye to eye,
+  a sleeveless vest and too many bracers, and a hat of a size and plume
+  that has no business in the Underdark. He is the master of Bregan
+  D'aerthe, the mercenaries every house in Menzoberranzan hires and
+  none of them trusts, and he finds it all very funny. He would like the
+  spider-signet of the priestess at the shrine below; what he wants it
+  for is his business. For it he will give you one of his spare hats,
+  which is a better bargain than it sounds. Type 'list'.
+level: 20
+flags: [peaceful]
+trades:
+  - { item: 758, items: [711] }
+attack:
+  verb: stab

@@ -12,6 +12,25 @@ Gorion's quarters, and the Friendly Arm are not: Winthrop (10), Imoen
 silver ring), Khalid (14; his long sword), and Jaheira (14; her
 quarterstaff) can be killed.
 
+Levels in walking order: gibberlings 1, the wild dog 3, and in the
+scorched clearing Sarevok (16, 700 health; his horned helm and an Iron
+Throne axe), the armored figure waiting for Gorion's ward, far above
+the road around him; Tarnesh 6, the bandit and hobgoblin 5, Silke 6,
+xvarts 6, the ogre 7, then at the mine's mouth Tazok (9, 220 health;
+his spiked flail), come to see why Mulahey is late; kobolds 8,
+commandos 9, Mulahey 10.
+
+Two more can be fought along the road: Viconia DeVir (12; her
+piwafwi) hiding from the Fist in the brush south of the crossroads,
+and Edwin Odesseiron (10; his amulet) under the hills, hunting
+Dynaheir. Peaceful, each with a use: Elminster (40) on the rim of
+Beregost's fountain hands out quests; Xzar (9) and Montaron (9) wait
+on the road south of Beregost; and Minsc (12) with Boo stands at
+Nashkel's crossroads. Minsc teaches berserk, Montaron backstab, the
+acrobat at the Friendly Arm dodge, and the cutpurse in the Burning
+Wizard dirt kicking. Xzar trades a Zhentarim agent's ring (8) for
+three lumps of the mine's tainted iron.
+
 Map. North is up; the surface is z=1, the undercellar and the mine's
 upper levels z=0, Mulahey's chamber z=-1.
 
@@ -38,8 +57,11 @@ upper levels z=0, Mulahey's chamber z=-1.
       y=11                                  524  (Mulahey)
 
 Notable items. Uniques: Silke's Sword of Chaos (6), Tarnesh's Boots of
-Speed (6), Varscona in the ogre's pack (7), Spider's Bane also in the
-ogre's pack (9), and Mulahey's Ring of Wizardry (10); his mace burns with
-Cyric's black flame, and Gorion's ring, on Gorion's hand, shields its wearer near death.
+Speed (6), Varscona in the ogre's pack (7), Xzar's Zhentarim ring (8),
+Edwin's amulet (10), Viconia's piwafwi (11),
+Spider's Bane also in the ogre's pack (9), Tazok's spiked flail (9),
+Mulahey's Ring of Wizardry (10), and Sarevok's horned helm (15).
+Mulahey's mace burns with Cyric's black flame, and Gorion's ring, on
+Gorion's hand, shields its wearer near death.
 Ordinary gear is carried by the bandit, hobgoblin, xvarts, ogre, kobolds,
 and commandos, or lies along the road and in the mine.

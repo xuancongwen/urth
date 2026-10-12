@@ -12,20 +12,35 @@ through the plain door north of the stair landing below the Deeper Hall
 (room 9 in `start`), which opens onto the crossroads (2200).
 
 Bosses: the leshen (26) in its grove; Imlerith of the Wild Hunt (34) on
-the summit of Bald Mountain; the Crones of Crookback Bog (36), the
-Ladies of the Wood, in their kitchen under the Whispering Hillock, the
-last fight in the area. Named carriers: Captain Vlodek the Turncoat
-(15, the witcher's steel sword), the royal griffin (18, wanders from its
-crag; the wolf school medallion), the werewolf (22, the witcher's silver
-sword), Imlerith (34, his mace), the Crones (36, their rune).
+the summit of Bald Mountain, and past him, up the riders' road of ice,
+Eredin, King of the Wild Hunt (36, 6500 health, two swings a round);
+the Crones of Crookback Bog (36), the Ladies of the Wood, in their
+kitchen under the Whispering Hillock. Eredin and the Crones are the
+last two fights in the area. Named carriers: Captain Vlodek the
+Turncoat (15, the witcher's steel sword), the royal griffin (18,
+wanders from its crag; the wolf school medallion), the werewolf (22,
+the witcher's silver sword), Imlerith (34, his mace), the Crones (36,
+their rune), Eredin (36, his crown).
+
+Famous faces who fight back if attacked, and can be killed for what
+they carry: Triss Merigold (30) at the crossroads, with two flasks of
+Swallow; Ciri (30) in the courtyard of Crow's Perch, the Baron's guest,
+with Zireael; Dandelion (20) beside her, singing to the soldiers, in
+his feathered cap. Each carries silver.
 
 Uniques: a witcher's steel sword (crits, dodge, Dexterity), a witcher's
 silver sword (hard crits that finish off the wounded, Dexterity), a wolf
 school medallion (neck; sees the invisible and the hidden, Wisdom),
 Imlerith's mace (two-handed; chills, crits, Strength and Constitution),
 the Crones' rune (held; an aura of creeping rot, leeches life,
-Intelligence and Wisdom). Common finds: a rusty boat hook, drowned
-man's boots, a dented Redanian helmet, bandits' hatchets, deserters'
+Intelligence and Wisdom), the crown of the King of the Wild Hunt
+(head, 36; Strength, Constitution, steadiness, a cold that bites
+back), Zireael (Ciri's sword, 30; finesse, crits, dodge, Dexterity),
+Dandelion's feathered cap (20; Charisma), Zoltan's sihill (24; crits,
+Strength and Constitution), Keira Metz's magic lamp (held, 26; sees the
+invisible and the hidden, Intelligence), and Yennefer's obsidian star
+(neck, 30; sees the invisible, Intelligence, Wisdom, Charisma).
+Common finds: a rusty boat hook, drowned man's boots, a dented Redanian helmet, bandits' hatchets, deserters'
 arming swords, a reaper's scythe, a Redanian crossbow, bog-iron greaves,
 a leshen-root cudgel, Wild Hunt gauntlets, longswords, and skull helms.
 
@@ -41,17 +56,31 @@ Merchants (`list`, `buy`, `sell`):
   gambeson for 120 silver plus two nekker hearts; a griffin-hide jacket
   for 300 silver plus a griffin feather, two nekker hearts, and two
   drowner brains.
+- Zoltan Chivay (2225, at his cart on the crossroads 2200): a
+  Mahakaman battle axe 600; his sihill for 1100 silver and a griffin
+  feather.
+- Keira Metz (2226, at her hut by the edge of the woods 2219): her
+  magic lamp for 400 silver and a noonwraith's essence, which the
+  noonwraith carries.
+- Yennefer of Vengerberg (2221, at the edge of Crookback Bog 2223):
+  her obsidian star for 1200 silver and a wolf school medallion (the
+  griffin's).
 
 Drowner brains come from the drowners and water hags; nekker hearts
 from the nekkers; griffin feathers from the griffin.
 
-Trainer: Vesemir (2201, the inn yard 2202) teaches riposte and dodge.
+Trainers: Vesemir (2201, the inn yard 2202) teaches riposte and dodge;
+Geralt of Rivia (2220, beside him at the notice board) teaches
+whirlwind; the Bloody Baron (2202, at his high table 2205) teaches
+hand to hand.
 
 Quest item: 2205, a witcher's contract notice (planted by questmasters
 only).
 
 Map (x east, y south; z = 0 except as noted):
 
+      y=-8                                            2230
+                                                       |
       y=-7            2222                            2227
                        |                               |
       y=-6            2221    2218                    2226
@@ -72,7 +101,7 @@ Map (x east, y south; z = 0 except as noted):
               x=-2    x=-1    x=0     x=1     x=2     x=3
 
 Down from 2225: 2228 the hollow under the hillock (3,-5,-1), and east
-of it 2229 the Crones' kitchen (4,-5,-1).
+of it 2229 the Crones' kitchen · 2230 the road of the Wild Hunt (4,-5,-1).
 
 2200 the crossroads (anchor 0,0,0) · 2201 the Inn at the Crossroads ·
 2202 the inn yard · 2203 the track to Crow's Perch · 2204 the

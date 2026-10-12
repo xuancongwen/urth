@@ -9,8 +9,11 @@ look: |
   Federal Network screen, then at you, and smiles very slightly. "The
   Brain Bug is down there. We need to know how it thinks. Would you like
   to know more?"
+  He teaches the feint, which is mostly knowing what the other one
+  will do first; type 'practice'.
 level: 30
 flags: [peaceful]
 attack:
   kind: psionic
   verb: stare
+teaches: [feint]

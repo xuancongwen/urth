@@ -1,0 +1,19 @@
+vnum: 521
+name: Xzar
+keywords: [xzar, necromancer, mage, zhentarim]
+description: Xzar, a necromancer with a shaven head and a twitch, is examining a lump of ore and laughing at it.
+look: |
+  Thin, bald, in purple and gold robes that have been slept in, with
+  ink on his fingers and an eye that never quite settles. He talks to
+  people who are not there and sometimes they answer. He and Montaron
+  have been sent by somebody they will not name to find out why the
+  Nashkel iron rots, and he wants samples: bring him three lumps of the
+  tainted iron from the mine and he will part with the ring the
+  Black Network gave him. Type 'list'. "Are you a wizard? You look
+  like a wizard. No, wait, you don't."
+level: 9
+flags: [peaceful]
+trades:
+  - { item: 546, items: [511, 511, 511] }
+attack:
+  verb: strike

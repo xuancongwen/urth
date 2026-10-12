@@ -1,0 +1,21 @@
+vnum: 1921
+name: Paul Atreides
+keywords: [paul, atreides, muad'dib, muaddib, usul, duke]
+description: Paul Atreides, whom the Fremen call Muad'Dib, sits apart in the great cavern, turning a crysknife in his hands and looking at something nobody else can see.
+look: |
+  A young man of fifteen who stopped being young the night the
+  Harkonnens came for his father: dark-haired, grey-eyed going blue
+  within blue, in a Fremen stillsuit that fits him now. The Fremen
+  call him Usul in the sietch and Muad'Dib outside it, and some of
+  them have begun to call him other things. He sees, sometimes, too
+  far. The Baron has his father's signet ring, the hawk of House
+  Atreides, and Paul wants it back; bring it to him and he will give
+  you the shield belt Gurney trained him in, the slow blade and the
+  quick. Type 'list'.
+level: 45
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab
+trades:
+  - { item: 1928, items: [1927] }

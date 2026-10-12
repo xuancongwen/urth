@@ -1,0 +1,17 @@
+vnum: 1236
+name: a giant's tree-trunk club
+keywords: [giant, giants, tree-trunk, tree, trunk, club]
+description: A club as long as a man, cut from a whole young oak, lies here.
+look: |
+  A young oak pulled up whole, its roots knocked off and its trunk
+  stripped, and a lump of the root-ball left on for a head. It still
+  has a little stone dust in the grain from when its owner was a
+  statue. It is far too big for you, and it knocks a gate flat.
+type: weapon
+level: 10
+baseline: mace
+weight: 6
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

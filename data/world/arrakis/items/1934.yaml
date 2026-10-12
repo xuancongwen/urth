@@ -1,0 +1,16 @@
+vnum: 1934
+name: a needle-gun
+keywords: [needle-gun, needle, gun, dart]
+description: A slim silver pistol with a long, thin barrel lies here.
+look: |
+  An assassin's pistol, small enough to hide in a sleeve, that fires
+  poisoned needles almost without a sound. The House of the Harkonnens
+  keeps many of them, and keeps the poisons separately, labelled.
+type: weapon
+weight: 1
+level: 40
+baseline: standard
+weapon:
+  hands: 1
+  kind: pierce
+  verb: needle

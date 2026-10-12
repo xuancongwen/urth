@@ -43,7 +43,7 @@ the throat of the Great Bug Hole down (1719 to 1726) is dark: the
 quartermaster sells field lights, a trooper on the wire carries a
 spare, and one lies at the lip of the hole.
 
-Merchant (`list`, `buy`, `sell`):
+Merchants (`list`, `buy`, `sell`):
 
 - Quartermaster Sergeant Okafor (1701, supply bunker 1702): Morita
   magazine 5, field light 25 (or two carapace plates), MI body armor
@@ -51,14 +51,27 @@ Merchant (`list`, `buy`, `sell`):
   plus three carapace plates; bug-plate cuirass for 500 plus two
   carapace plates and two hopper wings; TW-203 flamethrower for 700
   plus a tanker fire gland and a hopper wing.
+- Private Ace Levy (1721, drill ground 1704): his fiddle (held, 20;
+  Charisma and Dexterity) for 250 silver.
 
 Carapace comes from every kind of warrior bug, diggers, and burrowers;
 hopper wings from hoppers; fire glands from the tanker bug; plasma
 charge sacs (worth 90 to any merchant) from plasma bugs.
 
-Trainer: Career Sergeant Zim (1700, drill ground 1704) teaches bash and
-rescue. Peaceful: troopers, a neo-dog, Colonel Carl Jenkins, a
-FedNet correspondent, and Pilot Carmen Ibanez.
+Trainers: Career Sergeant Zim (1700, drill ground 1704) teaches bash
+and rescue; Johnny Rico (1719, 32, at the lip of the Great Bug Hole
+1715) teaches second wind; Colonel Carl Jenkins (1703) teaches feint;
+Pilot Carmen Ibanez (1705, at her drop ship 1700) teaches dodge.
+
+People, in walking order: Pilot Carmen Ibanez (20), Lieutenant
+Zander Barcalow (22, her flight instructor) and a FedNet correspondent
+on the drop-ship pad; the quartermaster; Colonel Carl Jenkins (30) in
+the briefing bunker; Zim (30), Ace Levy (22) and troopers on the drill
+ground; Private Dizzy Flores (24), troopers and a neo-dog on the wire;
+and Johnny Rico (32) at the lip of the Great Bug Hole, about to go
+down. All are peaceful but Zander (silver and a field light) and Dizzy
+(her Morita and body armor), who fight back and can be killed for what
+they carry.
 
 Quest item: 1719, a trooper's dog tags (planted by questmasters only).
 

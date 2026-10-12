@@ -1,0 +1,19 @@
+vnum: 1821
+name: Colour Sergeant Jarran Kell
+keywords: [colour, color, sergeant, jarran, kell, standard]
+description: Colour Sergeant Kell stands at Creed's shoulder with the regimental standard, bellowing his orders down the line.
+look: |
+  A giant of a Cadian, broad as a bunker door, in Kasrkin carapace with
+  a power fist on one hand and the standard of the 8th in the other. He
+  is the Lord Castellan's bodyguard and his voice: Creed murmurs, and
+  Kell roars it so that the whole trench hears and the cultists across
+  the wire hear too. He has been at Creed's side since they were both
+  boys in the Whiteshields, and he has taken more hits meant for his
+  friend than anyone can count. He will teach you how to keep fighting
+  when you ought to be down, and how to put your whole weight behind a
+  blow, for coin, while he keeps an eye on the map.
+level: 45
+flags: [peaceful]
+teaches: [second_wind, enhanced_damage]
+attack:
+  verb: punch

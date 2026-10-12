@@ -1,0 +1,22 @@
+vnum: 2122
+name: Davian Martikov
+keywords: [davian, martikov, vintner, wizard, wines, wereraven]
+description: Davian Martikov sits on his wine cart by the river, a raven on his shoulder, glaring at the woods.
+look: |
+  The master of the Wizard of Wines winery, a grey, stooped, quarrelsome
+  old man with a vintner's stained hands and a raven on his shoulder
+  that he speaks to as if it were his son. It may be. The Martikovs are
+  wereravens, the Keepers of the Feather, who have watched the count for
+  generations and fought him in secret; Davian has buried more of his
+  family than he will talk about. His vineyard has been overrun and his
+  last casks are on this cart, and the village will drink nothing else.
+  He will sell you a bottle of Purple Grapemash No. 3, and he will
+  complain about the price while he does. Type 'list'.
+level: 22
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: peck
+trades:
+  - { item: 2128, silver: 20 }
+  - { item: 2129, silver: 60 }

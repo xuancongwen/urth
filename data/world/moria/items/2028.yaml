@@ -1,0 +1,20 @@
+vnum: 2028
+name: a string of goblin teeth
+keywords: [string, goblin, teeth, necklace, gollum, gollums]
+description: A string of small yellow teeth, knotted on a strip of fish-skin, lies here.
+look: |
+  Goblin teeth, dozens of them, threaded on a dried strip of fish-skin
+  and slimy from long wearing. Gollum took them from goblins he caught
+  alone in the dark, and ate. It is horrible to put on. Once it is on,
+  you move more quietly than you would like to admit, and you see
+  farther in the black than a creature of the daylight should.
+type: armor
+slot: neck
+level: 16
+weight: 0
+value: 600
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: detectHidden }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

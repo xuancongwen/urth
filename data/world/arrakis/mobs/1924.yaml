@@ -1,0 +1,21 @@
+vnum: 1924
+name: Liet-Kynes
+keywords: [liet, kynes, liet-kynes, planetologist, ecologist, judge]
+description: Liet-Kynes, the Imperial Planetologist, crouches at the foot of the wall, measuring the dew on a stone.
+look: |
+  A tall, thin man in a stillsuit and a patched desert cloak, bearded,
+  sun-dark, with eyes blue within blue: the Emperor's Judge of the
+  Change and Planetologist of Arrakis, and, though the Emperor does
+  not know it, Liet of the Fremen and father of Chani. He means to
+  make this planet green, and he has the numbers to prove it can be
+  done in three hundred years. He is always short of specimens: bring
+  him two scorpion stingers and a pair of sandtrout-skin gloves, and he
+  will give you the paracompass he has carried across the erg for
+  twenty years. Type 'list'.
+level: 34
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab
+trades:
+  - { item: 1932, items: [1907, 1907, 1908] }

@@ -1,0 +1,26 @@
+vnum: 1832
+name: the Helspear
+keywords: [helspear, spear, haarken, worldclaimer, black]
+description: A long black spear with a barbed head, humming with hate, lies here.
+look: |
+  Haarken Worldclaimer's spear, black iron forged in the Eye and bound
+  with a daemon that hates to be let go of. Hurled, it tears through
+  armour and flies back to the hand that threw it. Held, it pulls
+  forward toward the next throat, and the arm that holds it grows
+  stronger and quicker for the pulling.
+type: weapon
+weight: 5
+level: 60
+baseline: spear
+value: 18000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: impale
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: hurled Helspear }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

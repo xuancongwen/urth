@@ -1,0 +1,18 @@
+vnum: 619
+name: Wulfgar
+keywords: [wulfgar, barbarian, elk, youth, son, beornegar]
+description: Wulfgar, a young barbarian taller than the door, works the bellows chain without being told, sweat running into his eyes.
+look: |
+  Not yet twenty and already head and shoulders over anyone in the
+  hall, yellow-haired and blue-eyed, with arms like a ship's ropes. He
+  came down on Bryn Shander with the Tribe of the Elk, and Bruenor
+  knocked him senseless and took him as five years' servant instead
+  of letting the town hang him. He hated the dwarf for the first year.
+  He does not any more, though he would not say so. He will show you
+  how to put your shoulder into a blow and keep it there, if you ask
+  him plainly; he does not have much use for clever.
+level: 12
+flags: [peaceful]
+teaches: [bash, rescue]
+attack:
+  verb: smash

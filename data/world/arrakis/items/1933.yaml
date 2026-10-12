@@ -1,0 +1,16 @@
+vnum: 1933
+name: a Harkonnen slaver's whip
+keywords: [harkonnen, slaver's, slaver, whip, lash]
+description: A long whip of braided blue leather lies coiled here.
+look: |
+  A long lash of braided leather dyed Harkonnen blue, with a weighted
+  tip, the kind the overseers on the spice fields use on the pyons when
+  the quota is short. The quota is always short.
+type: weapon
+weight: 2
+level: 30
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

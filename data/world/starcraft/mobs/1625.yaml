@@ -1,0 +1,18 @@
+vnum: 1625
+name: Zeratul
+keywords: [zeratul, dark, templar, prelate, protoss]
+description: The air in the canyon wavers, and for a moment Zeratul the dark templar is there, hooded, watching you.
+look: |
+  A Protoss in a hooded wrap of dark cloth, his face veiled, his eyes a
+  green so pale it is nearly white. He is the prelate of the dark
+  templar, the exiles who cut themselves off from the Khala, and he
+  walks unseen wherever he chooses. He left his warp blade at the warp
+  gate for whoever would come after; he has others. He speaks rarely
+  and enigmatically, but he will teach you to be where the blow is not.
+  "Adun Toridas."
+level: 26
+flags: [peaceful]
+teaches: [dodge, riposte]
+attack:
+  kind: slash
+  verb: slice

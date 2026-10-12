@@ -1,0 +1,22 @@
+vnum: 642
+name: Kessell's Hosttower robe
+keywords: [kessell, kessells, hosttower, robe, robes]
+description: A grey robe, its hem crusted with crystal dust, lies in a heap.
+look: |
+  The robe of an apprentice of the Hosttower of the Arcane in Luskan,
+  grey wool with silver thread at the cuffs, too big in the shoulders.
+  Akar Kessell wore it the night his master left him to die on the
+  tundra, and every night afterward in his tower of crystal. Grains of
+  the tower are still caught in the weave, and they whisper, faintly,
+  of how clever you are.
+type: armor
+slot: body
+weight: 2
+level: 10
+baseline: cloth
+value: 380
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: regen, params: { fraction: 0.01 } }

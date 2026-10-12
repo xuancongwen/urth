@@ -1,0 +1,22 @@
+vnum: 715
+name: Matron Malice Do'Urden
+keywords: [malice, matron, do'urden, dourden, mother, drow]
+description: Matron Malice Do'Urden sits on a throne of black bone beside the altar, a rod of writhing tentacles across her lap. She has been expecting someone, and is displeased that it is you.
+look: |
+  The Matron Mother of House Do'Urden, ninth house of Menzoberranzan,
+  in robes of black and violet silk worked with spiders, her white hair
+  bound up in a web of adamantite pins. She is beautiful the way a
+  drawn blade is. She gave her weapon master to the Spider Queen and
+  hunts her own son for the shame he brought the house, and she has
+  come to this shrine to ask Lolth why she is not yet forgiven. She
+  does not like the answer, and you are here to hear it. "On your
+  knees. I will decide afterward whether you rise."
+level: 20
+health: 1250
+stats: { wisdom: 18, intelligence: 16, strength: 10 }
+silver: 400
+attack:
+  verb: lash
+effects:
+  - kind: aura
+    params: { power: 0.1, verb: "lash of Lolth's displeasure" }

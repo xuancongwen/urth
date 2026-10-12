@@ -1,0 +1,27 @@
+vnum: 2130
+name: Baba Lysaga's bone staff
+keywords: [baba, lysaga, lysaga's, bone, staff, skull]
+description: A staff of joined human bones, topped with a small skull, lies here humming with flies.
+look: |
+  A staff made of long bones lashed end to end with sinew, topped by
+  a small skull with a black candle stub in its mouth. Flies crawl in
+  and out of the eye sockets and do not leave when you shake them. Baba
+  Lysaga carried it for four hundred years, and it is full of her: now
+  and then it lets out a blast of black, buzzing filth at whatever it
+  strikes, and it whispers things about the count that you did not want
+  to know.
+type: weapon
+weight: 3
+level: 26
+baseline: staff
+value: 2600
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: buzzing blast of flies }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

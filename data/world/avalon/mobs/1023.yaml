@@ -1,0 +1,21 @@
+vnum: 1023
+name: Mordred
+keywords: [mordred, medraut, knight, traitor, black]
+description: Mordred leans on the tower gate in black mail with a wound in his side that does not bleed, feeding Morgan's ravens from his hand.
+look: |
+  Arthur's son by his own sister, and his nephew, and the knight who
+  took his crown and his queen while he was at war, and who met him on
+  the field of Camlann where each gave the other his death. Morgan has
+  kept him here, at the foot of her tower, neither dead nor alive. He
+  is young, dark, handsome in a pinched way, and very bitter, and he
+  carries Clarent, the sword of peace that was never meant for war,
+  which he stole from the king's armoury to do the thing it did.
+level: 11
+health: 330
+silver: 80
+stats: { strength: 14, dexterity: 13 }
+attack:
+  verb: slash
+effects:
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.75 }

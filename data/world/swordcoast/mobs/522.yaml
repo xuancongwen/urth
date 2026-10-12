@@ -1,0 +1,15 @@
+vnum: 522
+name: Montaron
+keywords: [montaron, halfling, thief, zhentarim]
+description: Montaron, a scowling halfling in black leather, sharpens a knife and keeps an eye on Xzar.
+look: |
+  Short, broad, bearded, and sour, with a short sword on one hip and a
+  long knife on the other. He thinks halflings who sing are a disgrace
+  and he thinks Xzar is a lunatic, and he is stuck with him. If you
+  pay him he will show you where to put a blade in someone who has not
+  seen you yet, and he will not be gentle about the lesson.
+level: 9
+flags: [peaceful]
+teaches: [backstab]
+attack:
+  verb: stab

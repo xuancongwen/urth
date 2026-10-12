@@ -20,8 +20,10 @@ resets:
   - { mob: 2003, room: 2008, max: 5 }
   - { mob: 2004, room: 2008, max: 2 }                           # goblin scouts, wandering
   - { mob: 2004, room: 2009, max: 2, equip: [{ item: 2003 }] }
+  - { mob: 2026, room: 2009, equip: [{ item: 2028 }] }           # Gollum padding after the Company, and his string of goblin teeth
   - { mob: 2005, room: 2010, equip: [{ item: 2008, slot: wield }, { item: 2009, slot: shield }, { item: 2005 }] }   # the goblin chief in the guardroom
   - { item: 2001, room: 2010 }                                  # a dwarf lantern left by the well
+  - { mob: 2025, room: 2010, equip: [{ item: 2005, slot: head }] }   # Pippin at the well, with a stone in his hand and a dwarf hood
   # --- the wolf-holes and the mithril workings ---
   - { mob: 2006, room: 2012, max: 2 }                           # grey wolves in the holes
   - { mob: 2006, room: 2012, max: 2 }
@@ -52,10 +54,13 @@ resets:
   # --- the Uruks and Mazarbul ---
   - { mob: 2012, room: 2014, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2003 }] }   # Uruk captains in the Twenty-first Hall
   - { mob: 2012, room: 2014, max: 4, equip: [{ item: 2013, slot: wield }] }
+  - { mob: 2021, room: 2014 }                                   # Aragorn in the shaft of daylight, who teaches rescue and fast healing
   - { mob: 2012, room: 2017, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2012, slot: head }] }
   - { mob: 2012, room: 2020, max: 4, equip: [{ item: 2013, slot: wield }, { item: 2003 }] }
   - { mob: 2013, room: 2017, equip: [{ item: 2013, slot: wield }, { item: 2012, slot: head }, { item: 2022 }] }   # Narzug, with Orcrist wrapped on his back
   - { mob: 2016, room: 2019, equip: [{ item: 2023, slot: hold }, { item: 2002 }, { item: 2002 }] }   # the cave troll in Balin's tomb, holding the Book of Mazarbul
+  - { mob: 2022, room: 2019 }                                   # Gimli weeping at Balin's tomb, who trades his axe for Balin's signet
+  - { mob: 2024, room: 2019, equip: [{ item: 2031 }, { item: 2030 }] }   # Boromir holding the door, his sword, and the Horn of Gondor
   # --- the deep halls ---
   - { mob: 2014, room: 2020, max: 6, equip: [{ item: 2014, slot: body }, { item: 2003 }] }   # orcs of the Black Pit
   - { mob: 2014, room: 2020, max: 6, equip: [{ item: 2014, slot: body }] }
@@ -64,7 +69,10 @@ resets:
   - { mob: 2014, room: 2028, max: 6, equip: [{ item: 2014, slot: body }] }
   - { mob: 2014, room: 2024, max: 6, equip: [{ item: 2014, slot: body }, { item: 2003 }] }   # one holding the First Hall
   - { mob: 2017, room: 2022, equip: [{ item: 2014, slot: body }, { item: 2021 }, { item: 2002 }] }   # the chieftain, with Glamdring wrapped across his knees
+  - { item: 2026, room: 2022 }                                  # Balin's signet among the chieftain's plunder, which Gimli wants
   - { mob: 2011, room: 2028, max: 2, equip: [{ item: 2003 }] }  # drums in the deep
   - { mob: 2011, room: 2028, max: 2 }
+  - { mob: 2023, room: 2021 }                                   # Legolas at the fissure, who teaches dodge and twin
   # --- the Bridge of Khazad-dum ---
   - { mob: 2019, room: 2023, equip: [{ item: 2024 }] }          # Durin's Bane, keeping the axe of the king it slew
+  - { mob: 2020, room: 2023, equip: [{ item: 2029, slot: wield }] }   # Gandalf at the near end of the bridge, and his staff
