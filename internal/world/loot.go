@@ -167,13 +167,23 @@ func sortedItemVnums(m map[int]*item.Proto) []int {
 	return out
 }
 
-// shownName is an item's name for a listing: escaped, in its tier's color.
+// shownName is an item's name for a listing: escaped, in its tier's or
+// its named prototype's color.
 func shownName(it *item.Item) string {
 	name := output.Escape(it.Name())
-	if it.Color != "" {
-		return "{" + it.Color + "}" + name + "{x}"
+	if c := it.ShownColor(); c != "" {
+		return "{" + c + "}" + name + "{x}"
 	}
 	return name
+}
+
+// inColor wraps already-escaped text in a prototype's color, for listings
+// of what is offered rather than of instances.
+func inColor(p *item.Proto, text string) string {
+	if c := p.Resolved.Color; c != "" {
+		return "{" + c + "}" + text + "{x}"
+	}
+	return text
 }
 
 // rarityTag is "(rare)" in the item's color, for lines that show a

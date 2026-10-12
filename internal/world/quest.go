@@ -523,8 +523,8 @@ func (w *World) questList(p *Player) {
 		if proto == nil {
 			continue
 		}
-		line := "  " + padRight(output.Escape(proto.Name), 34) + padRight(itoa(s.Points)+" qp", 10)
-		o := output.Offer{Name: proto.Name, Price: plural(s.Points, "quest point"), Command: "quest buy " + offerWord(protos, i)}
+		line := "  " + inColor(proto, padRight(output.Escape(proto.Name), 34)) + padRight(itoa(s.Points)+" qp", 10)
+		o := output.Offer{Name: proto.Name, Color: proto.Resolved.Color, Price: plural(s.Points, "quest point"), Command: "quest buy " + offerWord(protos, i)}
 		if proto.Level > 1 {
 			line += "(level " + itoa(proto.Level) + ")"
 			o.Note = "level " + itoa(proto.Level)

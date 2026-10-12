@@ -377,7 +377,7 @@ func (w *World) lookAt(p *Player, args string) {
 		if slots := c.equippedList(); len(slots) > 0 {
 			b.WriteString(c.DisplayName() + " is using:\n")
 			for _, s := range slots {
-				b.WriteString(slotLabel(s) + output.Escape(c.Equipment[s].Name()) + "\n")
+				b.WriteString(slotLabel(s) + shownName(c.Equipment[s]) + "\n")
 			}
 		}
 		p.Send(b.String())

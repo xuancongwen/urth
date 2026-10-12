@@ -8,6 +8,7 @@ import (
 	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/mob"
+	"urth/internal/output"
 	"urth/internal/script"
 )
 
@@ -141,6 +142,7 @@ type DeathRules struct {
 type itemBaselineResult struct {
 	Weapon item.WeaponSpec `json:"weapon"`
 	Armor  item.ArmorSpec  `json:"armor"`
+	Color  string          `json:"color"`
 }
 
 // mobBaselineResult is what mobBaseline returns.
@@ -319,6 +321,11 @@ func protoView(p *item.Proto) map[string]any {
 	v := map[string]any{
 		"vnum": p.Vnum, "name": p.Name, "type": string(p.Type), "slot": string(p.Slot),
 		"level": p.Level, "baseline": p.Baseline, "flags": p.Flags,
+		"effects": effect.Views(p.Effects, nil),
+	}
+	if p.Material != "" {
+		v["material"] = p.Material
+		v["rarity"] = p.Rarity
 	}
 	if p.Weapon != nil {
 		v["weapon"] = weaponView(*p.Weapon)
@@ -383,6 +390,9 @@ func (w *World) resolveItem(p *item.Proto) {
 	var r itemBaselineResult
 	if w.callOptional("itemBaseline", &r, protoView(p)) {
 		p.Resolved = item.Resolved{Weapon: r.Weapon, Armor: r.Armor, Source: "baseline"}
+		if output.IsColor(r.Color) {
+			p.Resolved.Color = r.Color
+		}
 		if p.Resolved.Weapon.Speed <= 0 {
 			p.Resolved.Weapon.Speed = 1
 		}

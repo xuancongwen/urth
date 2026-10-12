@@ -170,3 +170,34 @@ func TestKillTikaForHerFryingPan(t *testing.T) {
 		t.Fatalf("no frying pan in the corpse: %q", o)
 	}
 }
+
+// TestShippedItemColors checks the shipped rules color the shipped items:
+// every named item in the named color, every material in its rarity's,
+// and plain gear not at all until it rolls.
+func TestShippedItemColors(t *testing.T) {
+	if _, err := os.Stat("../../data/world"); err != nil {
+		t.Skip("no shipped world")
+	}
+	rw, err := content.Load("../../data/world")
+	if err != nil {
+		t.Fatal(err)
+	}
+	engine := script.New("../../data/scripts", slog.New(slog.NewTextHandler(io.Discard, nil)), 0)
+	if err := engine.Load(); err != nil {
+		t.Fatal(err)
+	}
+	w := New(config.Default(), rw, slog.New(slog.NewTextHandler(io.Discard, nil)), Deps{Scripts: engine})
+	want := map[string]string{"common": "", "uncommon": "G", "rare": "B", "deterministic": "C"}
+	for _, p := range w.content.Items {
+		var expect string
+		switch {
+		case len(p.Effects) > 0:
+			expect = "C"
+		case p.Material != "":
+			expect = want[p.Rarity]
+		}
+		if p.Resolved.Color != expect {
+			t.Errorf("%s [%d] is colored %q, want %q", p.Name, p.Vnum, p.Resolved.Color, expect)
+		}
+	}
+}

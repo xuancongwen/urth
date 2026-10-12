@@ -216,6 +216,8 @@ function itemBaseline(p) {
       spread:  a.spread  || ab.spread
     };
   }
+  if (p.effects && p.effects.length > 0) out.color = NAMED_COLOR;
+  else if (p.material) out.color = materialColor(p.rarity);
   return out;
 }
 
@@ -1642,6 +1644,18 @@ var RARITY = [
   { id: "legendary", color: "Y", min: 7, max: 8,  from: 30, reset: [0, 9],     drop: [0, 40],    quality: [0.8, 1.3] },
   { id: "relic",     color: "R", min: 9, max: 10, from: 40, reset: [0, 1],     drop: [0, 10],    quality: [0.9, 1.4] },
 ];
+
+// A named item (a prototype with intrinsic effects) has no tier, but its
+// name is shown in a color of its own, apart from the tiers' (5.3). A
+// material is shown in the color of the tier its rarity names, and a
+// deterministic one, found in one place only, as a named item.
+var NAMED_COLOR = "C";
+
+function materialColor(rarity) {
+  if (rarity === "deterministic") return NAMED_COLOR;
+  for (var i = 0; i < RARITY.length; i++) if (RARITY[i].id === rarity) return RARITY[i].color;
+  return "";
+}
 
 // dropChance is the chance of an extra drop at level 1 and at topLevel,
 // linear between and held above.

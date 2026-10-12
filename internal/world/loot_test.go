@@ -42,6 +42,28 @@ func TestRollItem(t *testing.T) {
 	}
 }
 
+// A named item takes the color itemBaseline gives its prototype; a rolled
+// item keeps its tier's.
+func TestNamedItemColor(t *testing.T) {
+	w := testWorld(t)
+	w.content.Items[10].Effects = []effect.Spec{{Kind: "crit"}}
+	setRules(t, w, lootRulesJS+`
+function itemBaseline(p) { return p.effects.length > 0 ? { color: "C" } : {}; }
+`)
+	named := item.New(w.content.Items[10])
+	if got := shownName(named); got != "{C}"+named.Name()+"{x}" {
+		t.Fatalf("named item shown as %q", got)
+	}
+	if bread := item.New(w.content.Items[13]); shownName(bread) != bread.Name() {
+		t.Fatalf("plain item colored: %q", shownName(bread))
+	}
+	rolled := item.New(w.content.Items[10])
+	rolled.Rarity, rolled.Color = "rare", "B"
+	if rolled.ShownColor() != "B" {
+		t.Fatalf("rolled item shown in %q", rolled.ShownColor())
+	}
+}
+
 func TestNoRollWithoutHook(t *testing.T) {
 	w := testWorld(t)
 	sword := item.New(w.content.Items[10])

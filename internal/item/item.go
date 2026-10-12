@@ -96,6 +96,15 @@ func withPrefix(name, prefix string) string {
 	return prefix + " " + name
 }
 
+// ShownColor is the color code the name is shown in: a rolled tier's,
+// else the prototype's (a named item's), else none.
+func (i *Item) ShownColor() string {
+	if i.Color != "" {
+		return i.Color
+	}
+	return i.Proto.Resolved.Color
+}
+
 // Rolled reports whether a loot roll changed this instance.
 func (i *Item) Rolled() bool { return i.Rarity != "" }
 

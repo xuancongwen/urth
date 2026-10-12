@@ -99,8 +99,8 @@ func cmdList(w *World, p *Player, _ string) {
 		if proto == nil {
 			continue
 		}
-		line := "  " + padRight(output.Escape(proto.Name), 34) + w.tradePrice(t)
-		o := output.Offer{Name: proto.Name, Price: output.Strip(w.tradePrice(t)), Command: "buy " + offerWord(protos, i)}
+		line := "  " + inColor(proto, padRight(output.Escape(proto.Name), 34)) + w.tradePrice(t)
+		o := output.Offer{Name: proto.Name, Color: proto.Resolved.Color, Price: output.Strip(w.tradePrice(t)), Command: "buy " + offerWord(protos, i)}
 		if proto.Level > 1 {
 			line += " (level " + itoa(proto.Level) + ")"
 			o.Note = "level " + itoa(proto.Level)

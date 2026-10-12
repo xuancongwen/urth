@@ -47,7 +47,7 @@ left out; the engine then uses a quiet default.
 | `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, featPicks, message}` |
 | `deathRules` (optional) | every death | | `{xpFraction, xpLevelCap, corpseRounds, respawnHealth}` |
 | `pickChance` (optional) | each `pick` at a locked door | character, `{name, key}` | a number from 0 to 1, the chance one try opens the lock; 0.5 without the hook. A pickproof door never opens |
-| `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}}` |
+| `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}, color}`; `color` is the color a named item's or a material's name is shown in |
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
@@ -1017,7 +1017,10 @@ cannot drop the best sword in the game.
 - **Named items and artifacts are not tiers.** A prototype with
   intrinsic effects is a builder's named item: never rolled, shown
   without a tier, exactly as written, which keeps everything the world
-  hints at exact. Artifacts are named items of a further kind, kept out
+  hints at exact. Its name has a color of its own, apart from every
+  tier's, so it stands out from plain gear as a rolled item does. A
+  material (6.2) is shown in the color of the tier its rarity names,
+  and a deterministic one in the named color. Artifacts are named items of a further kind, kept out
   of loot altogether and designed separately (Trackstar); the word
   "unique" is not used for a tier.
 - **Names.** Every affix lends a name both a prefix word and a suffix

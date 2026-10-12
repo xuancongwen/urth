@@ -895,7 +895,7 @@
         // A feat pick changes what is available: list them again.
         if (d.from === 'feats') setTimeout(function () { if (sheetFor === 'Feats') openSheet('Feats', 'feat', []); }, 500);
       });
-      b.appendChild(document.createTextNode(o.name));
+      b.appendChild(o.color ? el('span', 'c-' + o.color, o.name) : document.createTextNode(o.name));
       var meta = [o.price, o.note].filter(Boolean).join(' · ');
       if (meta) b.appendChild(el('small', 'dim', meta));
       if (o.about) b.appendChild(el('small', 'dim', o.about));

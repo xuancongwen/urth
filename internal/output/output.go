@@ -102,7 +102,9 @@ type OffersData struct {
 // Offer is one thing on offer: its name, its price as words, the command
 // that takes it, and a note ("level 5", "you know this") when one applies.
 type Offer struct {
-	Name    string `json:"name"`
+	Name string `json:"name"`
+	// Color is the color code an item's name is shown in, as listings do.
+	Color   string `json:"color,omitempty"`
 	Price   string `json:"price"`
 	Command string `json:"command"`
 	Note    string `json:"note,omitempty"`
@@ -166,8 +168,9 @@ type Entity struct {
 	// Container one things can be put in.
 	Fixed     bool `json:"fixed,omitempty"`
 	Container bool `json:"container,omitempty"`
-	// Rarity and Color are a rolled item's tier and its color code
-	// (docs/RULES.md 5.3), so a client can show it as the text does.
+	// Rarity is a rolled item's tier and Color the color code its name is
+	// shown in, a tier's or a named item's (docs/RULES.md 5.3), so a client
+	// can show it as the text does.
 	Rarity string `json:"rarity,omitempty"`
 	Color  string `json:"color,omitempty"`
 	// Services are what a creature does for players: shop, trainer, quest
@@ -325,7 +328,7 @@ type StateRoom struct {
 
 // GearItem is an item carried or worn. Slot is the position worn on, or
 // for a carried item the position it would go on ("" if none). Color is
-// its rarity's color code, empty for a plain item.
+// its rarity's or its named prototype's color code, empty for a plain item.
 type GearItem struct {
 	// ID is the instance's id, which "#<id>" names in any command.
 	ID     uint64 `json:"id"`

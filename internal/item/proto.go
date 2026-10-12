@@ -167,6 +167,9 @@ type ArmorSpec struct {
 type Resolved struct {
 	Weapon WeaponSpec
 	Armor  ArmorSpec
+	// Color is the color code a named item's name is shown in, from the
+	// rules; empty for a plain one.
+	Color  string
 	Source string
 }
 
