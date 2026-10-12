@@ -24,7 +24,7 @@ effects:
   - kind: critMult
     params: { amount: 0.4 }
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: burst from the combi-bolter }
+    params: { kind: pierce, chance: 0.15, power: 1.0, verb: burst from the combi-bolter }
   - kind: leech
     params: { fraction: 0.06 }
   - { kind: stat, params: { stat: strength, amount: 3 } }

@@ -21,6 +21,6 @@ weapon:
   verb: strike
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: buzzing blast of flies }
+    params: { kind: bite, chance: 0.15, power: 1.0, verb: buzzing blast of flies }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

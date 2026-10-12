@@ -21,6 +21,6 @@ effects:
   - kind: regen
     params: { fraction: 0.01 }
   - kind: aura
-    params: { power: 0.15, verb: whirl of grave dust }
+    params: { kind: unholy, power: 0.15, verb: whirl of grave dust }
   - kind: lastStand
     params: { threshold: 0.3, mult: 0.8 }

@@ -12,5 +12,5 @@ baseline: heavy
 flags: [outfit]
 effects:
   - { kind: attuned }
-  - { kind: aura, params: { verb: drifting cinders, power: 0.1 } }
+  - { kind: aura, params: { kind: fire, verb: drifting cinders, power: 0.1 } }
   - { kind: stat, params: { stat: constitution, amount: 3 } }

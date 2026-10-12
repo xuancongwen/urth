@@ -19,6 +19,6 @@ weapon:
   verb: flail
 effects:
   - kind: proc
-    params: { chance: 0.08, power: 1.0, verb: spark of holy lightning }
+    params: { kind: lightning, chance: 0.08, power: 1.0, verb: spark of holy lightning }
   - kind: stat
     params: { stat: wisdom, amount: 1 }

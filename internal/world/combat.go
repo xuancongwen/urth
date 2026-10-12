@@ -192,15 +192,21 @@ func (w *World) attackRound(att, def *Character, hand item.Slot) {
 		}
 		return
 	}
-	crit := ""
-	if r.Crit {
-		crit = " {Y}Critical!{x}"
+	if r.Resisted {
+		w.act("$N shrugs off your "+verb+".", att, def, "", toChar)
+		w.act("You shrug off $n's "+verb+".", att, def, "", toVict)
+		w.act("$N shrugs off $n's "+verb+".", att, def, "", toNotVict)
+	} else {
+		crit := ""
+		if r.Crit {
+			crit = " {Y}Critical!{x}"
+		}
+		dmg := itoa(r.Damage)
+		_, word, punct := w.hitWords(r.Damage, def)
+		w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
+		w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
+		w.act("$n's "+verb+" "+word+" $N"+punct+crit, att, def, "", toNotVict)
 	}
-	dmg := itoa(r.Damage)
-	_, word, punct := w.hitWords(r.Damage, def)
-	w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
-	w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
-	w.act("$n's "+verb+" "+word+" $N"+punct+crit, att, def, "", toNotVict)
 	for _, pr := range r.Procs {
 		if pr.Back {
 			w.actProc(def, att, pr)
@@ -266,12 +272,19 @@ func pluralPhrase(phrase string) bool {
 }
 
 // actProc narrates one proc or aura strike from src to dst, worded like a
-// swing: "Your searing flames wound a troll. [9]".
+// swing: "Your searing flames wound a troll. [9]". One dst is immune to
+// is shrugged off.
 func (w *World) actProc(src, dst *Character, pr Proc) {
+	verb := output.Escape(pr.Verb)
+	if pr.Resisted {
+		w.act("$N shrugs off your "+verb+".", src, dst, "", toChar)
+		w.act("You shrug off $n's "+verb+".", src, dst, "", toVict)
+		w.act("$N shrugs off $n's "+verb+".", src, dst, "", toNotVict)
+		return
+	}
 	if pr.Damage <= 0 {
 		return
 	}
-	verb := output.Escape(pr.Verb)
 	dmg := itoa(pr.Damage)
 	base, word, punct := w.hitWords(pr.Damage, dst)
 	if pluralPhrase(pr.Verb) {
@@ -586,8 +599,9 @@ func (w *World) regen() {
 				if e.Health <= 0 {
 					continue
 				}
-				w.actProc(c, e, pr)
-				e.Health -= pr.Damage
+				hit := w.auraOn(e, pr)
+				w.actProc(c, e, hit)
+				e.Health -= hit.Damage
 				if e.Health <= 0 {
 					w.die(e, c)
 				}

@@ -14,4 +14,4 @@ attack:
   kind: slash
   verb: wing-blade
 effects:
-  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: "hymn of unmaking" } }
+  - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.0, verb: "hymn of unmaking" } }

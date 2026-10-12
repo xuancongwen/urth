@@ -16,4 +16,4 @@ value: 6500
 effects:
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
-  - { kind: thorns, params: { fraction: 0.15, verb: "wash of dread" } }
+  - { kind: thorns, params: { kind: psionic, fraction: 0.15, verb: "wash of dread" } }

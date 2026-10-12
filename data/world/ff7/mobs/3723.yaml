@@ -18,4 +18,4 @@ attack:
   kind: cold
   verb: impale
 effects:
-  - { kind: aura, params: { power: 0.15, verb: "chill of the Gi" } }
+  - { kind: aura, params: { kind: cold, power: 0.15, verb: "chill of the Gi" } }

@@ -19,7 +19,7 @@ weapon:
   verb: shoot
 effects:
   - kind: proc
-    params: { verb: burst of exploding arrows, chance: 0.15, power: 1.0 }
+    params: { kind: pierce, verb: burst of exploding arrows, chance: 0.15, power: 1.0 }
   - kind: crit
     params: { chance: 0.06, mult: 2 }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

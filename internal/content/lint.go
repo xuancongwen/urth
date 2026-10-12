@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 
+	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/room"
 )
@@ -237,4 +238,48 @@ func Errors(problems []Problem) int {
 		}
 	}
 	return n
+}
+
+// LintKinds warns on damage kinds the rules do not know (docs/RULES.md
+// 4.8): a weapon's or a natural attack's kind, and the kind a resist,
+// proc, aura, or thorns effect names. The kinds come from the rules'
+// damageKinds hook, with the families a resistance may name besides.
+func LintKinds(w *World, kinds []string) []Problem {
+	known := map[string]bool{}
+	for _, k := range kinds {
+		known[k] = true
+	}
+	family := map[string]bool{"physical": true, "elemental": true, "all": true}
+	var out []Problem
+	warn := func(area, file string, vnum int, what, kind string) {
+		out = append(out, Problem{Level: Warn, Area: area, Kind: "damage-kind", File: file, Vnum: vnum,
+			Text: fmt.Sprintf("%s names damage kind %q, which the rules do not know", what, kind)})
+	}
+	effects := func(area, file string, vnum int, what string, specs []effect.Spec) {
+		for _, e := range specs {
+			k, _ := e.Params["kind"].(string)
+			switch {
+			case k == "":
+			case e.Kind == "resist" && !known[k] && !family[k]:
+				warn(area, file, vnum, what+"'s resist effect", k)
+			case (e.Kind == "proc" || e.Kind == "aura" || e.Kind == "thorns") && !known[k]:
+				warn(area, file, vnum, what+"'s "+e.Kind+" effect", k)
+			}
+		}
+	}
+	for _, p := range w.Items {
+		what := fmt.Sprintf("item %d (%s)", p.Vnum, p.Name)
+		if p.Weapon != nil && p.Weapon.Kind != "" && !known[p.Weapon.Kind] {
+			warn(p.Area, p.File, p.Vnum, what, p.Weapon.Kind)
+		}
+		effects(p.Area, p.File, p.Vnum, what, p.Effects)
+	}
+	for _, p := range w.Mobs {
+		what := fmt.Sprintf("mob %d (%s)", p.Vnum, p.Name)
+		if p.Attack != nil && p.Attack.Kind != "" && !known[p.Attack.Kind] {
+			warn(p.Area, p.File, p.Vnum, what, p.Attack.Kind)
+		}
+		effects(p.Area, p.File, p.Vnum, what, p.Effects)
+	}
+	return out
 }

@@ -12,6 +12,6 @@ weight: 0
 level: 24
 value: 2500
 effects:
-  - { kind: proc, params: { verb: dome of Din's Fire, chance: 0.15, power: 1.6 } }
+  - { kind: proc, params: { kind: fire, verb: dome of Din's Fire, chance: 0.15, power: 1.6 } }
   - { kind: stat, params: { stat: intelligence, amount: 1 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

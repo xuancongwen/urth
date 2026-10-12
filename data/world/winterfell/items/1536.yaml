@@ -17,4 +17,4 @@ weight: 2
 value: 1500
 effects:
   - { kind: stat, params: { stat: constitution, amount: 2 } }
-  - { kind: thorns, params: { fraction: 0.1, verb: "bite of the deep cold" } }
+  - { kind: thorns, params: { kind: cold, fraction: 0.1, verb: "bite of the deep cold" } }

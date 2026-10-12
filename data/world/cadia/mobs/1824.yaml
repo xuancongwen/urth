@@ -24,6 +24,6 @@ effects:
   - kind: crit
     params: { chance: 0.12, mult: 2 }
   - kind: proc
-    params: { chance: 0.3, power: 1.5, verb: hurled Helspear }
+    params: { kind: pierce, chance: 0.3, power: 1.5, verb: hurled Helspear }
   - kind: soak
     params: { power: 0.1 }

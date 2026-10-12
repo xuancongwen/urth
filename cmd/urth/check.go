@@ -47,12 +47,27 @@ func runCheck(args []string) error {
 		fmt.Printf("error: "+format+"\n", a...)
 	}
 
+	// The scripts load first so the world's lint can ask the rules what
+	// damage kinds exist.
+	scriptDir := filepath.Join(cfg.Paths.Data, "scripts")
+	engine := script.New(scriptDir, slog.New(slog.NewTextHandler(io.Discard, nil)), script.DefaultBudget)
+	scriptsErr := engine.Load()
+	var kinds []string
+	if scriptsErr == nil && engine.Has("damageKinds") {
+		if err := engine.Call("damageKinds", &kinds); err != nil {
+			fail("scripts: damageKinds: %v", err)
+		}
+	}
+
 	worldDir := filepath.Join(cfg.Paths.Data, "world")
 	w, err := content.Load(worldDir)
 	if err != nil {
 		fail("%v", err)
 	} else {
 		problems := content.Lint(w, cfg.World.StartRoom)
+		if len(kinds) > 0 {
+			problems = append(problems, content.LintKinds(w, kinds)...)
+		}
 		warnings := 0
 		for _, p := range problems {
 			if p.Level == content.Error {
@@ -73,10 +88,8 @@ func runCheck(args []string) error {
 			len(w.Rooms.Areas), len(w.Rooms.Rooms), len(w.Items), len(w.Mobs), content.Errors(problems), warnings)
 	}
 
-	scriptDir := filepath.Join(cfg.Paths.Data, "scripts")
-	engine := script.New(scriptDir, slog.New(slog.NewTextHandler(io.Discard, nil)), script.DefaultBudget)
-	if err := engine.Load(); err != nil {
-		fail("scripts: %v", err)
+	if scriptsErr != nil {
+		fail("scripts: %v", scriptsErr)
 	} else {
 		fmt.Println("scripts: ok")
 	}

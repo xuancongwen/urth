@@ -16,7 +16,7 @@ level: 14
 value: 1800
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 1.5, verb: gout of dragonfire }
+    params: { kind: fire, chance: 0.15, power: 1.5, verb: gout of dragonfire }
   - kind: leech
     params: { fraction: 0.08 }
   - kind: stat

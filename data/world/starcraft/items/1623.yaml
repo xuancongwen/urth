@@ -16,7 +16,7 @@ level: 24
 value: 6000
 effects:
   - kind: aura
-    params: { power: 0.25, verb: pulse of Xel'Naga light }
+    params: { kind: magic, power: 0.25, verb: pulse of Xel'Naga light }
   - kind: stat
     params: { stat: intelligence, amount: 2 }
   - kind: stat

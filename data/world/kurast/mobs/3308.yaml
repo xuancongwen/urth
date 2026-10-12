@@ -14,4 +14,4 @@ attack:
   verb: pound
 effects:
   - kind: thorns
-    params: { fraction: 0.1, verb: bristling thorns }
+    params: { kind: pierce, fraction: 0.1, verb: bristling thorns }

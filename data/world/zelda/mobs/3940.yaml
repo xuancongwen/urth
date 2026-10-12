@@ -20,4 +20,4 @@ attack:
   verb: slash
 effects:
   - { kind: dodge, params: { amount: 0.08 } }
-  - { kind: thorns, params: { fraction: 0.15, verb: mirrored stroke } }
+  - { kind: thorns, params: { kind: slash, fraction: 0.15, verb: mirrored stroke } }

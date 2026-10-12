@@ -23,4 +23,4 @@ attack:
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
   - { kind: crit, params: { chance: 0.1, mult: 2 } }
-  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: wrist rocket } }
+  - { kind: proc, params: { kind: fire, chance: 0.15, power: 1.0, verb: wrist rocket } }

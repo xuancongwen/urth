@@ -20,6 +20,6 @@ attack:
   verb: imperial blade
 effects:
   - { kind: attacks, params: { amount: 0.5 } }
-  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: "stroke of the imperial blade" } }
+  - { kind: proc, params: { kind: slash, chance: 0.2, power: 1.2, verb: "stroke of the imperial blade" } }
   - { kind: soak, params: { power: 0.12 } }
   - { kind: steady, params: { chance: 0.4 } }

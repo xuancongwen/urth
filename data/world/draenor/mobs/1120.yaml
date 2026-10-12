@@ -20,4 +20,4 @@ attack:
   verb: sear
 effects:
   - kind: aura
-    params: { power: 0.15, verb: fel fire }
+    params: { kind: fire, power: 0.15, verb: fel fire }

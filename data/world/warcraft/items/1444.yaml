@@ -15,7 +15,7 @@ baseline: light
 value: 2400
 effects:
   - kind: thorns
-    params: { fraction: 0.1, verb: flurry of raven beaks }
+    params: { kind: pierce, fraction: 0.1, verb: flurry of raven beaks }
   - kind: stat
     params: { stat: intelligence, amount: 3 }
   - kind: stat

@@ -21,6 +21,6 @@ effects:
   - kind: crit
     params: { chance: 0.1, mult: 2 }
   - kind: proc
-    params: { chance: 0.2, power: 1.0, verb: hurled Helspear }
+    params: { kind: pierce, chance: 0.2, power: 1.0, verb: hurled Helspear }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

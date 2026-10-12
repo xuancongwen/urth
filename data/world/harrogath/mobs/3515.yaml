@@ -17,7 +17,7 @@ attack:
   verb: curse
 effects:
   - kind: proc
-    params: { chance: 0.2, power: 1.2, verb: corpse explosion }
+    params: { kind: fire, chance: 0.2, power: 1.2, verb: corpse explosion }
   - kind: leech
     params: { fraction: 0.06 }
   - kind: soak

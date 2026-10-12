@@ -17,4 +17,4 @@ value: 4500
 effects:
   - { kind: stat, params: { stat: constitution, amount: 3 } }
   - { kind: soak, params: { power: 0.1 } }
-  - { kind: thorns, params: { fraction: 0.1, verb: "scales" } }
+  - { kind: thorns, params: { kind: slash, fraction: 0.1, verb: "scales" } }

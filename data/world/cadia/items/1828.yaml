@@ -22,5 +22,5 @@ effects:
   - kind: crit
     params: { chance: 0.08, mult: 2 }
   - kind: proc
-    params: { chance: 0.15, power: 0.9, verb: hot-shot volley }
+    params: { kind: fire, chance: 0.15, power: 0.9, verb: hot-shot volley }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

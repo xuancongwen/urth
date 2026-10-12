@@ -18,6 +18,6 @@ attack:
   verb: crimson fist
 effects:
   - { kind: attacks, params: { amount: 0.5 } }
-  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "crimson burst" } }
+  - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.5, verb: "crimson burst" } }
   - { kind: soak, params: { power: 0.15 } }
   - { kind: steady, params: { chance: 0.4 } }

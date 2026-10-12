@@ -21,4 +21,4 @@ effects:
   - kind: stat
     params: { stat: wisdom, amount: 2 }
   - kind: aura
-    params: { power: 0.1, verb: whirl of fire and frost and sparks }
+    params: { kind: magic, power: 0.1, verb: whirl of fire and frost and sparks }

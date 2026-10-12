@@ -18,4 +18,4 @@ attack:
   verb: rake
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 0.8, verb: "gout of pit fire" }
+    params: { kind: fire, chance: 0.15, power: 0.8, verb: "gout of pit fire" }

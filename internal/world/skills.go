@@ -44,6 +44,8 @@ type SkillResult struct {
 	Verb    string             `json:"verb"`
 	Effects []skillEffectSpec  `json:"effects"`
 	Skills  map[string]float64 `json:"skills"`
+	// Resisted marks a use that landed on a target immune to its kind.
+	Resisted bool `json:"resisted"`
 	// Heal is health the user regains at once (Second Wind).
 	Heal int `json:"heal"`
 	// Taunt, on an ally skill that hit, turns the ally's attackers on the
@@ -428,6 +430,10 @@ func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillR
 				w.act("$n's "+verb+" misses you.", c, target, "", toVict)
 				w.act("$n's "+verb+" misses $N.", c, target, "", toNotVict)
 			}
+		} else if r.Resisted {
+			w.act("$N shrugs off your "+verb+".", c, target, "", toChar)
+			w.act("You shrug off $n's "+verb+".", c, target, "", toVict)
+			w.act("$N shrugs off $n's "+verb+".", c, target, "", toNotVict)
 		} else if r.Damage <= 0 {
 			// A landed use that does no harm by itself (Feint, Disarm).
 			w.act("Your "+verb+" catches $N.", c, target, "", toChar)

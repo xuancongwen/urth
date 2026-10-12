@@ -21,7 +21,7 @@ attack:
   verb: whisper
 effects:
   - { kind: attacks, params: { amount: 0.5 } }
-  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "whisper that stops the heart" } }
+  - { kind: proc, params: { kind: unholy, chance: 0.2, power: 1.5, verb: "whisper that stops the heart" } }
   - { kind: protect, params: { mult: 0.85 } }
   - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
   - { kind: steady, params: { chance: 0.3 } }

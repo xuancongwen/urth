@@ -19,6 +19,6 @@ effects:
   - kind: protect
     params: { mult: 0.9 }
   - kind: thorns
-    params: { fraction: 0.1, verb: crackle of lightning }
+    params: { kind: lightning, fraction: 0.1, verb: crackle of lightning }
   - kind: stat
     params: { stat: strength, amount: 1 }

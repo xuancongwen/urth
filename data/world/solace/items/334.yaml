@@ -17,6 +17,6 @@ weapon:
   kind: blunt
   verb: smash
 effects:
-  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "night of the Dark Queen" } }
+  - { kind: proc, params: { kind: unholy, chance: 0.15, power: 1.0, verb: "night of the Dark Queen" } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: stat, params: { stat: strength, amount: 1 } }

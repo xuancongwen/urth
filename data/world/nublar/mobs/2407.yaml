@@ -14,6 +14,6 @@ attack:
   verb: bite
 effects:
   - kind: proc
-    params: { verb: blinding spit, chance: 0.15, power: 0.6 }
+    params: { kind: poison, verb: blinding spit, chance: 0.15, power: 0.6 }
   - kind: chill
     params: { chance: 0.15, mult: 0.7, rounds: 2 }

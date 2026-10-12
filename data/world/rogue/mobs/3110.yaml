@@ -18,4 +18,4 @@ attack:
 spawns: { mob: 3106, every: 4, max: 3 }
 effects:
   - kind: proc
-    params: { verb: fireball, chance: 0.2, power: 1.0 }
+    params: { kind: fire, verb: fireball, chance: 0.2, power: 1.0 }

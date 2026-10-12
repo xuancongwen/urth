@@ -19,4 +19,4 @@ attack:
   verb: strike
 effects:
   - kind: aura
-    params: { power: 0.1, verb: cold surge of the lake }
+    params: { kind: cold, power: 0.1, verb: cold surge of the lake }

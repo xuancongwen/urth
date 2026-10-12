@@ -18,7 +18,7 @@ weapon:
   verb: smash
 effects:
   - kind: proc
-    params: { chance: 0.25, power: 1.2, verb: "hurled hammer, spinning back to your hand" }
+    params: { kind: blunt, chance: 0.25, power: 1.2, verb: "hurled hammer, spinning back to your hand" }
   - kind: stat
     params: { stat: strength, amount: 3 }
   - kind: stat

@@ -17,4 +17,4 @@ attack:
   verb: carve
 effects:
   - kind: proc
-    params: { verb: crackle of lightning, chance: 0.2, power: 1.0 }
+    params: { kind: lightning, verb: crackle of lightning, chance: 0.2, power: 1.0 }

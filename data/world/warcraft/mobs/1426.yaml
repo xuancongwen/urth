@@ -21,4 +21,4 @@ attack:
   verb: blast
 effects:
   - kind: aura
-    params: { power: 0.15, verb: crackle of arcane fire }
+    params: { kind: fire, power: 0.15, verb: crackle of arcane fire }

@@ -212,8 +212,9 @@ func (w *World) simFight(a, b *Character) simFightResult {
 		r := w.onTick(c)
 		c.Health = clamp(c.Health+r.HealthDelta, 0, c.HealthMax)
 		for _, pr := range r.Aura {
-			other.Health -= pr.Damage
-			*dmg += pr.Damage
+			hit := w.auraOn(other, pr)
+			other.Health -= hit.Damage
+			*dmg += hit.Damage
 		}
 		before := len(c.Effects)
 		c.Effects = effect.Tick(c.Effects)

@@ -19,6 +19,6 @@ attack:
   verb: slash
 effects:
   - { kind: soak, params: { power: 0.15 } }
-  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: Force choke } }
+  - { kind: proc, params: { kind: psionic, chance: 0.2, power: 1.2, verb: Force choke } }
   - { kind: regen, params: { fraction: 0.005 } }
   - { kind: steady, params: { chance: 0.4 } }

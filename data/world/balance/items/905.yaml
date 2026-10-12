@@ -12,5 +12,5 @@ baseline: heavy
 flags: [outfit]
 effects:
   - { kind: attuned }
-  - { kind: proc, params: { verb: arc of lightning, chance: 0.2, power: 1.0 } }
+  - { kind: proc, params: { kind: lightning, verb: arc of lightning, chance: 0.2, power: 1.0 } }
   - { kind: stat, params: { stat: strength, amount: 4 } }

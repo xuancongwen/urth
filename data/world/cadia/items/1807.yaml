@@ -19,7 +19,7 @@ weapon:
   verb: rip
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 0.7, verb: shrieking chain-teeth }
+    params: { kind: slash, chance: 0.15, power: 0.7, verb: shrieking chain-teeth }
   - kind: crit
     params: { chance: 0.06, mult: 2 }
   - { kind: stat, params: { stat: strength, amount: 2 } }

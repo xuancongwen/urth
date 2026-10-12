@@ -18,4 +18,4 @@ attack:
   verb: smite
 effects:
   - kind: aura
-    params: { power: 0.1, verb: dark prayer to Takhisis }
+    params: { kind: unholy, power: 0.1, verb: dark prayer to Takhisis }

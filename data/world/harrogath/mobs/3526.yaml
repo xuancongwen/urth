@@ -24,6 +24,6 @@ effects:
   - kind: chill
     params: { chance: 0.25, mult: 0.6, rounds: 2 }
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: crackling hoarfrost }
+    params: { kind: cold, chance: 0.15, power: 1.0, verb: crackling hoarfrost }
   - kind: soak
     params: { power: 0.15 }

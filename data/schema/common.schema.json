@@ -37,7 +37,7 @@
         "spread": { "type": "number", "minimum": 0, "description": "Damage variance as a fraction of damage." },
         "speed": { "type": "number", "minimum": 0, "description": "Swings per round; fractions fill a swing meter." },
         "hands": { "type": "integer", "enum": [0, 1, 2] },
-        "kind": { "type": "string", "examples": ["slash", "pierce", "blunt", "bite", "claw"] },
+        "kind": { "type": "string", "description": "Damage kind (docs/RULES.md 4.8); the rules' damageKinds list is checked by urth check.", "examples": ["slash", "pierce", "blunt", "bite", "claw", "fire", "cold", "lightning", "acid", "poison", "magic", "psionic", "drain", "holy", "unholy"] },
         "verb": { "type": "string", "description": "What a swing is called in messages: slash, stab, bite." }
       }
     },
@@ -56,7 +56,7 @@
       "additionalProperties": false,
       "required": ["kind"],
       "properties": {
-        "kind": { "type": "string", "examples": ["stat", "crit", "block", "dodge", "attacks", "regen"] },
+        "kind": { "type": "string", "examples": ["stat", "crit", "block", "dodge", "attacks", "regen", "proc", "aura", "thorns", "resist"] },
         "params": { "type": "object" }
       }
     },

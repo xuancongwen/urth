@@ -18,4 +18,4 @@ attack:
   verb: burn
 effects:
   - kind: aura
-    params: { power: 0.15, verb: lash of chain lightning }
+    params: { kind: lightning, power: 0.15, verb: lash of chain lightning }

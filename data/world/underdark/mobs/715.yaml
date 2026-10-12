@@ -19,4 +19,4 @@ attack:
   verb: lash
 effects:
   - kind: aura
-    params: { power: 0.1, verb: "lash of Lolth's displeasure" }
+    params: { kind: slash, power: 0.1, verb: "lash of Lolth's displeasure" }

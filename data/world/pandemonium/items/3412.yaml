@@ -18,4 +18,4 @@ effects:
   - { kind: dodge, params: { amount: 0.04 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
-  - { kind: aura, params: { power: 0.1, verb: frost of a fallen angel } }
+  - { kind: aura, params: { kind: cold, power: 0.1, verb: frost of a fallen angel } }

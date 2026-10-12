@@ -23,6 +23,6 @@ attack:
   verb: blast
 effects:
   - kind: aura
-    params: { power: 0.15, verb: swarm of biting flies }
+    params: { kind: bite, power: 0.15, verb: swarm of biting flies }
   - kind: regen
     params: { fraction: 0.005 }

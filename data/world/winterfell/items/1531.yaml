@@ -16,5 +16,5 @@ weight: 4
 value: 1300
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
-  - { kind: thorns, params: { fraction: 0.15, verb: "bite of killing cold" } }
+  - { kind: thorns, params: { kind: cold, fraction: 0.15, verb: "bite of killing cold" } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

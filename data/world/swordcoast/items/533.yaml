@@ -17,7 +17,7 @@ weapon:
   verb: slash
 effects:
   - kind: proc
-    params: { chance: 0.2, power: 1.5, verb: "flare of raw chaos" }
+    params: { kind: magic, chance: 0.2, power: 1.5, verb: "flare of raw chaos" }
   - kind: crit
     params: { chance: 0.08, mult: 2 }
   - kind: dodge

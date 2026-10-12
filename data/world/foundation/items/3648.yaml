@@ -17,8 +17,8 @@ weight: 2
 level: 55
 value: 15000
 effects:
-  - { kind: aura, params: { power: 0.3, verb: "surge of despair from the Visi-Sonor" } }
-  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "crashing chord of terror" } }
+  - { kind: aura, params: { kind: psionic, power: 0.3, verb: "surge of despair from the Visi-Sonor" } }
+  - { kind: proc, params: { kind: psionic, chance: 0.2, power: 1.5, verb: "crashing chord of terror" } }
   - { kind: leech, params: { fraction: 0.12 } }
   - { kind: stat, params: { stat: intelligence, amount: 3 } }
   - { kind: steady, params: { chance: 0.4 } }

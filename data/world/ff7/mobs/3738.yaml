@@ -19,6 +19,6 @@ attack:
   verb: lash
 effects:
   - { kind: attacks, params: { amount: 1 } }
-  - { kind: aura, params: { power: 0.15, verb: "pulse of the Calamity" } }
-  - { kind: proc, params: { chance: 0.12, power: 1.3, verb: "Ultima" } }
+  - { kind: aura, params: { kind: magic, power: 0.15, verb: "pulse of the Calamity" } }
+  - { kind: proc, params: { kind: magic, chance: 0.12, power: 1.3, verb: "Ultima" } }
   - { kind: soak, params: { power: 0.1 } }

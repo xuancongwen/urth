@@ -17,7 +17,7 @@ baseline: heavy
 value: 10000
 effects:
   - kind: thorns
-    params: { fraction: 0.1, verb: "curse of bone splinters" }
+    params: { kind: pierce, fraction: 0.1, verb: "curse of bone splinters" }
   - kind: lastStand
     params: { threshold: 0.25, mult: 0.8 }
   - kind: stat

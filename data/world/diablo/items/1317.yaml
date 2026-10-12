@@ -17,4 +17,4 @@ effects:
   - kind: stat
     params: { stat: intelligence, amount: 2 }
   - kind: aura
-    params: { power: 0.12, verb: unholy starfire }
+    params: { kind: fire, power: 0.12, verb: unholy starfire }

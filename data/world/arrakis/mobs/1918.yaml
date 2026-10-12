@@ -18,5 +18,5 @@ attack:
   verb: Voice
 effects:
   - kind: proc
-    params: { verb: command in the Voice, chance: 0.15, power: 1.0 }
+    params: { kind: psionic, verb: command in the Voice, chance: 0.15, power: 1.0 }
   - { kind: dodge, params: { amount: 0.05 } }

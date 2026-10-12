@@ -21,6 +21,6 @@ weapon:
   verb: shoot
 effects:
   - kind: proc
-    params: { chance: 0.2, power: 1.0, verb: "second arrow, loosed before the first lands" }
+    params: { kind: pierce, chance: 0.2, power: 1.0, verb: "second arrow, loosed before the first lands" }
   - { kind: dodge, params: { amount: 0.04 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

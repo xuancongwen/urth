@@ -22,6 +22,6 @@ attack:
 effects:
   - { kind: attacks, params: { amount: 0.5 } }
   - { kind: protect, params: { mult: 0.8 } }
-  - { kind: aura, params: { power: 0.15, verb: "ether storm" } }
-  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "lance of Ether" } }
+  - { kind: aura, params: { kind: magic, power: 0.15, verb: "ether storm" } }
+  - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.5, verb: "lance of Ether" } }
   - { kind: steady, params: { chance: 0.5 } }

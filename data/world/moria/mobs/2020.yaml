@@ -25,7 +25,7 @@ attack:
   verb: smite
 effects:
   - kind: aura
-    params: { power: 0.15, verb: white fire }
+    params: { kind: fire, power: 0.15, verb: white fire }
   - kind: soak
     params: { power: 0.15 }
   - kind: attacks

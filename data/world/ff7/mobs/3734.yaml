@@ -18,5 +18,5 @@ attack:
   verb: lash
 effects:
   - { kind: attacks, params: { amount: 1 } }
-  - { kind: proc, params: { chance: 0.15, power: 1.2, verb: "Blue Light" } }
-  - { kind: thorns, params: { fraction: 0.1, verb: "reflecting skin" } }
+  - { kind: proc, params: { kind: magic, chance: 0.15, power: 1.2, verb: "Blue Light" } }
+  - { kind: thorns, params: { kind: magic, fraction: 0.1, verb: "reflecting skin" } }

@@ -21,6 +21,6 @@ effects:
   - kind: dot
     params: { damage: 6 }
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: crack of lightning }
+    params: { kind: lightning, chance: 0.15, power: 1.0, verb: crack of lightning }
   - kind: lastStand
     params: { threshold: 0.3, mult: 0.8 }

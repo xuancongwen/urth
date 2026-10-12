@@ -122,3 +122,33 @@ func dump(problems []Problem) string {
 	}
 	return b.String()
 }
+
+// TestLintKinds: a weapon, a natural attack, or an effect naming a damage
+// kind the rules do not know is a warning; families count for resists.
+func TestLintKinds(t *testing.T) {
+	dir := writeWorld(t, map[string]string{
+		"a/rooms/1.yaml":  "vnum: 1\nname: Hub\ndescription: x\nexits: {}\n",
+		"a/items/10.yaml": "vnum: 10\nname: a sword\nkeywords: [sword]\ntype: weapon\nweapon: { kind: slash }\n",
+		"a/items/11.yaml": "vnum: 11\nname: a wand\nkeywords: [wand]\ntype: weapon\nweapon: { kind: blast }\n",
+		"a/items/12.yaml": "vnum: 12\nname: a ring\nkeywords: [ring]\ntype: armor\nslot: finger\neffects:\n  - { kind: resist, params: { kind: elemental, amount: 0.2 } }\n  - { kind: proc, params: { kind: plasma, power: 0.5 } }\n",
+		"a/mobs/20.yaml":  "vnum: 20\nname: a ghost\nkeywords: [ghost]\nattack: { kind: wail }\neffects:\n  - { kind: resist, params: { kind: physical, amount: 1 } }\n  - { kind: resist, params: { kind: shadow, amount: 1 } }\n",
+	})
+	w, err := Load(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var texts []string
+	for _, p := range LintKinds(w, []string{"slash", "fire"}) {
+		texts = append(texts, p.Text)
+	}
+	got := strings.Join(texts, "\n")
+	for _, want := range []string{`item 11 (a wand) names damage kind "blast"`, `item 12 (a ring)'s proc effect names damage kind "plasma"`,
+		`mob 20 (a ghost) names damage kind "wail"`, `mob 20 (a ghost)'s resist effect names damage kind "shadow"`} {
+		if !strings.Contains(got, want) {
+			t.Errorf("missing %q in:\n%s", want, got)
+		}
+	}
+	if len(texts) != 4 {
+		t.Errorf("want 4 warnings, got %d:\n%s", len(texts), got)
+	}
+}

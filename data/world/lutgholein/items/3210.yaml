@@ -17,4 +17,4 @@ effects:
   - kind: block
     params: { chance: 0.15 }
   - kind: thorns
-    params: { fraction: 0.1, verb: snap of stored lightning }
+    params: { kind: lightning, fraction: 0.1, verb: snap of stored lightning }

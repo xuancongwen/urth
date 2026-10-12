@@ -21,4 +21,4 @@ effects:
   - kind: soak
     params: { power: 0.12 }
   - kind: proc
-    params: { verb: crushing jaws, chance: 0.15, power: 1.2 }
+    params: { kind: bite, verb: crushing jaws, chance: 0.15, power: 1.2 }

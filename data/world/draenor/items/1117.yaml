@@ -15,4 +15,4 @@ effects:
   - kind: stat
     params: { stat: strength, amount: 1 }
   - kind: thorns
-    params: { fraction: 0.15, verb: fel flame }
+    params: { kind: fire, fraction: 0.15, verb: fel flame }

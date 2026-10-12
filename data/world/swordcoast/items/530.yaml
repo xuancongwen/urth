@@ -17,7 +17,7 @@ weapon:
   verb: slice
 effects:
   - kind: proc
-    params: { chance: 0.5, power: 0.3, verb: "bite of frost" }
+    params: { kind: cold, chance: 0.5, power: 0.3, verb: "bite of frost" }
   - kind: chill
     params: { chance: 0.15, mult: 0.7, rounds: 2 }
   - kind: stat

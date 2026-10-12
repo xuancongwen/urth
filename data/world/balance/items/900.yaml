@@ -18,6 +18,6 @@ weapon:
 flags: [outfit]
 effects:
   - { kind: attuned }
-  - { kind: proc, params: { verb: searing flames, chance: 1, power: 0.3 } }
+  - { kind: proc, params: { kind: fire, verb: searing flames, chance: 1, power: 0.3 } }
   - { kind: ignite, params: { power: 0.15, rounds: 3, maxStacks: 3 } }
   - { kind: crit, params: { chance: 0.15, mult: 2.5 } }

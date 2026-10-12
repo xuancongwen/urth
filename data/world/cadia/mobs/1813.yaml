@@ -18,8 +18,8 @@ attack:
   verb: warp lightning
 effects:
   - kind: aura
-    params: { power: 0.15, verb: crawl of warp fire }
+    params: { kind: fire, power: 0.15, verb: crawl of warp fire }
   - kind: proc
-    params: { chance: 0.2, power: 1.0, verb: doombolt }
+    params: { kind: unholy, chance: 0.2, power: 1.0, verb: doombolt }
   - kind: regen
     params: { fraction: 0.01 }

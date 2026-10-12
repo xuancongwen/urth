@@ -19,4 +19,4 @@ attack:
   verb: freeze
 effects:
   - kind: aura
-    params: { power: 0.15, verb: howling void }
+    params: { kind: unholy, power: 0.15, verb: howling void }

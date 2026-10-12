@@ -11,5 +11,5 @@ flags: [assist]
 health: 750
 silver: 100
 attack:
-  kind: blast
+  kind: lightning
   verb: phase blast

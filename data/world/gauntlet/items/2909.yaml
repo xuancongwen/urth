@@ -20,6 +20,6 @@ weapon:
   verb: cleave
 effects:
   - kind: proc
-    params: { chance: 0.2, power: 1.0, verb: "hurled axe, spinning back to your hand" }
+    params: { kind: slash, chance: 0.2, power: 1.0, verb: "hurled axe, spinning back to your hand" }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }

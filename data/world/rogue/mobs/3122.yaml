@@ -18,6 +18,6 @@ attack:
   verb: freeze
 effects:
   - kind: proc
-    params: { verb: volley of frozen bone, chance: 0.2, power: 1.0 }
+    params: { kind: cold, verb: volley of frozen bone, chance: 0.2, power: 1.0 }
   - kind: soak
     params: { power: 0.1 }

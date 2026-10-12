@@ -23,5 +23,5 @@ effects:
   - kind: soak
     params: { power: 0.2 }
   - kind: aura
-    params: { power: 0.25, verb: storm of hissing sand }
+    params: { kind: slash, power: 0.25, verb: storm of hissing sand }
   - { kind: steady, params: { chance: 0.5 } }

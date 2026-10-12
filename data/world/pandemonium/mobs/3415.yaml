@@ -21,6 +21,6 @@ effects:
   - kind: attacks
     params: { amount: 1 }
   - kind: aura
-    params: { power: 0.15, verb: storm of burning pages }
+    params: { kind: fire, power: 0.15, verb: storm of burning pages }
   - kind: regen
     params: { fraction: 0.01 }

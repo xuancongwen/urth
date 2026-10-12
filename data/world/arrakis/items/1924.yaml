@@ -19,5 +19,5 @@ weapon:
   verb: thump
 effects:
   - kind: proc
-    params: { chance: 0.12, power: 1.0, verb: thumping drumbeat }
+    params: { kind: blunt, chance: 0.12, power: 1.0, verb: thumping drumbeat }
   - { kind: stat, params: { stat: strength, amount: 1 } }

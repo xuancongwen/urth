@@ -18,4 +18,4 @@ attack:
   verb: blast
 effects:
   - kind: aura
-    params: { power: 0.2, verb: crackle of wild magic }
+    params: { kind: magic, power: 0.2, verb: crackle of wild magic }

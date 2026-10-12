@@ -19,6 +19,6 @@ weapon:
   kind: slash
   verb: slash
 effects:
-  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: wrath of the ancients } }
+  - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.2, verb: wrath of the ancients } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: detectInvisible }

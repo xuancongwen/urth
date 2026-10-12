@@ -15,7 +15,7 @@ level: 36
 value: 9000
 effects:
   - kind: aura
-    params: { power: 0.2, verb: creeping rot }
+    params: { kind: poison, power: 0.2, verb: creeping rot }
   - kind: leech
     params: { fraction: 0.08 }
   - kind: stat

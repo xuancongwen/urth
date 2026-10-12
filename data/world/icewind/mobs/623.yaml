@@ -19,4 +19,4 @@ attack:
   verb: blast
 effects:
   - kind: aura
-    params: { power: 0.35, verb: "flicker of crystal light" }
+    params: { kind: magic, power: 0.35, verb: "flicker of crystal light" }

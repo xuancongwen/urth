@@ -26,6 +26,6 @@ effects:
   - kind: chill
     params: { chance: 0.25, mult: 0.7, rounds: 2 }
   - kind: aura
-    params: { power: 0.2, verb: lightning that crawls up out of the blood }
+    params: { kind: lightning, power: 0.2, verb: lightning that crawls up out of the blood }
   - kind: soak
     params: { power: 0.1 }

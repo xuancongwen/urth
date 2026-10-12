@@ -18,7 +18,7 @@ attack:
   verb: cleave
 effects:
   - kind: thorns
-    params: { fraction: 0.1, verb: "curse of bone splinters" }
+    params: { kind: pierce, fraction: 0.1, verb: "curse of bone splinters" }
   - kind: ignite
     params: { power: 0.06, rounds: 3, maxStacks: 2 }
   - kind: regen

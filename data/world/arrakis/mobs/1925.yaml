@@ -26,7 +26,7 @@ effects:
   - kind: envenom
     params: { power: 0.1, rounds: 3, maxStacks: 2 }
   - kind: proc
-    params: { verb: poisoned dart, chance: 0.1, power: 1.0 }
+    params: { kind: poison, verb: poisoned dart, chance: 0.1, power: 1.0 }
   - kind: soak
     params: { power: 0.12 }
   - { kind: dodge, params: { amount: 0.04 } }

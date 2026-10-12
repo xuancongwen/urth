@@ -21,7 +21,7 @@ attack:
   verb: lash
 effects:
   - kind: aura
-    params: { power: 0.2, verb: shadow and flame }
+    params: { kind: fire, power: 0.2, verb: shadow and flame }
   - kind: ignite
     params: { power: 0.1, rounds: 3, maxStacks: 3 }
   - kind: soak

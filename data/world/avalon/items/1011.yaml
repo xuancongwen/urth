@@ -16,4 +16,4 @@ effects:
   - kind: dodge
     params: { amount: 0.05 }
   - kind: thorns
-    params: { fraction: 0.1, verb: "flurry of raven beaks" }
+    params: { kind: pierce, fraction: 0.1, verb: "flurry of raven beaks" }

@@ -17,6 +17,6 @@ attack:
   verb: pound
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: charged bolt }
+    params: { kind: lightning, chance: 0.15, power: 1.0, verb: charged bolt }
   - kind: thorns
-    params: { fraction: 0.15, verb: crackling thorns }
+    params: { kind: lightning, fraction: 0.15, verb: crackling thorns }

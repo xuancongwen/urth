@@ -19,4 +19,4 @@ attack:
   verb: psionic strike
 effects:
   - kind: proc
-    params: { verb: arc of psionic lightning, chance: 0.2, power: 1.0 }
+    params: { kind: lightning, verb: arc of psionic lightning, chance: 0.2, power: 1.0 }

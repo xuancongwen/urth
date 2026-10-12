@@ -17,7 +17,7 @@ weapon:
   verb: clang
 effects:
   - kind: proc
-    params: { chance: 0.25, power: 1.0, verb: "gout of scalding steam" }
+    params: { kind: fire, chance: 0.25, power: 1.0, verb: "gout of scalding steam" }
   - kind: chill
     params: { chance: 0.2, mult: 0.7, rounds: 2 }
   - kind: stat

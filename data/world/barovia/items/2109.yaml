@@ -18,6 +18,6 @@ level: 34
 value: 6000
 effects:
   - kind: aura
-    params: { power: 0.25, verb: blaze of holy radiance }
+    params: { kind: holy, power: 0.25, verb: blaze of holy radiance }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: protect, params: { mult: 0.95 } }

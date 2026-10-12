@@ -18,4 +18,4 @@ attack:
   kind: psionic
   verb: lash
 effects:
-  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "W-laser" } }
+  - { kind: proc, params: { kind: fire, chance: 0.15, power: 1.0, verb: "W-laser" } }

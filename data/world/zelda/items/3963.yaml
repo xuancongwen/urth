@@ -15,6 +15,6 @@ baseline: shield
 value: 4500
 effects:
   - { kind: block, params: { chance: 0.15 } }
-  - { kind: thorns, params: { fraction: 0.15, verb: flash of reflected light } }
+  - { kind: thorns, params: { kind: holy, fraction: 0.15, verb: flash of reflected light } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

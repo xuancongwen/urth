@@ -21,6 +21,6 @@ effects:
   - kind: critMult
     params: { amount: 0.5 }
   - kind: proc
-    params: { chance: 0.2, power: 1.0, verb: "streak of silver arrow" }
+    params: { kind: pierce, chance: 0.2, power: 1.0, verb: "streak of silver arrow" }
   - kind: stat
     params: { stat: dexterity, amount: 2 }

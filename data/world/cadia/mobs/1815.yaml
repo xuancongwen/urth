@@ -23,9 +23,9 @@ effects:
   - kind: crit
     params: { chance: 0.12, mult: 2 }
   - kind: proc
-    params: { chance: 0.15, power: 1.2, verb: burst from the Talon's combi-bolter }
+    params: { kind: pierce, chance: 0.15, power: 1.2, verb: burst from the Talon's combi-bolter }
   - kind: aura
-    params: { power: 0.1, verb: black lightning of Drach'nyen }
+    params: { kind: lightning, power: 0.1, verb: black lightning of Drach'nyen }
   - kind: soak
     params: { power: 0.15 }
   - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

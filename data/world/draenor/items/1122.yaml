@@ -17,7 +17,7 @@ baseline: plate
 value: 4000
 effects:
   - kind: aura
-    params: { power: 0.15, verb: creeping grave-frost }
+    params: { kind: cold, power: 0.15, verb: creeping grave-frost }
   - kind: stat
     params: { stat: intelligence, amount: 2 }
   - kind: steady

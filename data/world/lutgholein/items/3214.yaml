@@ -23,4 +23,4 @@ effects:
   - kind: stat
     params: { stat: strength, amount: 2 }
   - kind: thorns
-    params: { fraction: 0.1, verb: bite of the Lord of Pain's frost }
+    params: { kind: cold, fraction: 0.1, verb: bite of the Lord of Pain's frost }

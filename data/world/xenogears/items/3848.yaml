@@ -15,4 +15,4 @@ value: 10000
 effects:
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }
-  - { kind: thorns, params: { fraction: 0.15, verb: "lash of severed cable" } }
+  - { kind: thorns, params: { kind: slash, fraction: 0.15, verb: "lash of severed cable" } }

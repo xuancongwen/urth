@@ -18,5 +18,5 @@ attack:
   kind: pierce
   verb: gore
 effects:
-  - { kind: thorns, params: { fraction: 0.2, verb: burst of charged bolts } }
-  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: crack of lightning } }
+  - { kind: thorns, params: { kind: lightning, fraction: 0.2, verb: burst of charged bolts } }
+  - { kind: proc, params: { kind: lightning, chance: 0.15, power: 1.0, verb: crack of lightning } }

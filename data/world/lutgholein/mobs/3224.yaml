@@ -20,5 +20,5 @@ attack:
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
   - kind: proc
-    params: { chance: 0.15, power: 0.8, verb: "gout of fire from its eyes" }
+    params: { kind: fire, chance: 0.15, power: 0.8, verb: "gout of fire from its eyes" }
   - { kind: detectHidden, params: {} }

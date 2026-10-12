@@ -14,6 +14,6 @@ weight: 1
 level: 52
 value: 7000
 effects:
-  - { kind: proc, params: { chance: 0.15, power: 1.5, verb: "Mega Flare" } }
+  - { kind: proc, params: { kind: magic, chance: 0.15, power: 1.5, verb: "Mega Flare" } }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }

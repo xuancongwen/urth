@@ -22,6 +22,6 @@ effects:
   - kind: chill
     params: { chance: 0.2, mult: 0.6, rounds: 2 }
   - kind: aura
-    params: { power: 0.12, verb: frost of a fallen angel }
+    params: { kind: cold, power: 0.12, verb: frost of a fallen angel }
   - kind: regen
     params: { fraction: 0.01 }

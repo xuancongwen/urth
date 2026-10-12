@@ -21,6 +21,6 @@ attack:
   verb: black fist
 effects:
   - { kind: protect, params: { mult: 0.85 } }
-  - { kind: proc, params: { chance: 0.25, power: 1.5, verb: "black flame" } }
+  - { kind: proc, params: { kind: unholy, chance: 0.25, power: 1.5, verb: "black flame" } }
   - { kind: leech, params: { fraction: 0.05 } }
   - { kind: steady, params: { chance: 0.4 } }

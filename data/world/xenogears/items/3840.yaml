@@ -15,7 +15,7 @@ level: 53
 baseline: heavy
 value: 8000
 effects:
-  - { kind: aura, params: { power: 0.15, verb: "pall of Grahf's darkness" } }
-  - { kind: thorns, params: { fraction: 0.15, verb: "black flame" } }
+  - { kind: aura, params: { kind: unholy, power: 0.15, verb: "pall of Grahf's darkness" } }
+  - { kind: thorns, params: { kind: unholy, fraction: 0.15, verb: "black flame" } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }

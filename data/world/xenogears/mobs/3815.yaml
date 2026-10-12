@@ -20,6 +20,6 @@ attack:
   verb: slam
 effects:
   - { kind: attacks, params: { amount: 0.25 } }
-  - { kind: proc, params: { chance: 0.25, power: 1.5, verb: "belly slam" } }
+  - { kind: proc, params: { kind: blunt, chance: 0.25, power: 1.5, verb: "belly slam" } }
   - { kind: soak, params: { power: 0.1 } }
   - { kind: steady, params: { chance: 0.3 } }

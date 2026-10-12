@@ -20,7 +20,7 @@ weapon:
   kind: blunt
   verb: strike
 effects:
-  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: crackle of arcane force } }
+  - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.0, verb: crackle of arcane force } }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: protect, params: { mult: 0.95 } }
   - { kind: detectInvisible }

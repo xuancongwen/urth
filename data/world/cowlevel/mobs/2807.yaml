@@ -21,6 +21,6 @@ attack:
   verb: gore
 effects:
   - kind: proc
-    params: { verb: crack of lightning, chance: 0.2, power: 1.0 }
+    params: { kind: lightning, verb: crack of lightning, chance: 0.2, power: 1.0 }
   - kind: soak
     params: { power: 0.1 }

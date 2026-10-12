@@ -20,4 +20,4 @@ effects:
   - kind: attacks
     params: { amount: 1 }
   - kind: thorns
-    params: { fraction: 0.1, verb: oath-bound spikes }
+    params: { kind: pierce, fraction: 0.1, verb: oath-bound spikes }

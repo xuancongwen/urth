@@ -14,4 +14,4 @@ flags: [outfit]
 effects:
   - { kind: attuned }
   - { kind: block, params: { chance: 0.15 } }
-  - { kind: thorns, params: { fraction: 0.3, verb: radiant spikes } }
+  - { kind: thorns, params: { kind: holy, fraction: 0.3, verb: radiant spikes } }

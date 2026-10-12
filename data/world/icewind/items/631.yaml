@@ -15,7 +15,7 @@ level: 10
 flags: [unidentified]
 effects:
   - kind: aura
-    params: { power: 0.2, verb: "searing crystal light" }
+    params: { kind: holy, power: 0.2, verb: "searing crystal light" }
   - kind: stat
     params: { stat: intelligence, amount: 3 }
   - kind: stat

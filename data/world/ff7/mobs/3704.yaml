@@ -18,4 +18,4 @@ attack:
   kind: fire
   verb: laser
 effects:
-  - { kind: thorns, params: { fraction: 0.15, verb: "tail laser" } }
+  - { kind: thorns, params: { kind: fire, fraction: 0.15, verb: "tail laser" } }

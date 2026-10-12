@@ -23,6 +23,6 @@ attack:
   verb: freeze
 effects:
   - kind: aura
-    params: { power: 0.35, verb: killing cold }
+    params: { kind: cold, power: 0.35, verb: killing cold }
   - kind: regen
     params: { fraction: 0.01 }

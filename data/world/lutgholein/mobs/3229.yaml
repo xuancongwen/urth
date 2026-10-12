@@ -24,4 +24,4 @@ effects:
   - kind: chill
     params: { chance: 0.25, mult: 0.7, rounds: 2 }
   - kind: aura
-    params: { power: 0.12, verb: holy freeze }
+    params: { kind: cold, power: 0.12, verb: holy freeze }

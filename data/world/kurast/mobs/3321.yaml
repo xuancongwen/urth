@@ -16,4 +16,4 @@ attack:
   verb: shock
 effects:
   - kind: proc
-    params: { chance: 0.15, power: 1.0, verb: crackle of lightning }
+    params: { kind: lightning, chance: 0.15, power: 1.0, verb: crackle of lightning }

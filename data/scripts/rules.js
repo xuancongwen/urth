@@ -93,16 +93,16 @@ function growth(L) { return Math.pow(P.levelGrowth, Math.max(0, (L || 1) - 1)); 
 // the trait in BASELINE_TRAITS. hands is the default when an item states
 // none.
 var WEAPON_BASELINES = {
-  standard: function (L) { return { damage: 6 * growth(L), speed: 1.0, spread: 0.2, verb: "hit" }; },
-  dagger:   function (L) { return { damage: 3 * growth(L), speed: 2.0, spread: 0.1, verb: "stab" }; },
-  heavy:    function (L) { return { damage: 12 * growth(L), speed: 0.5, spread: 0.4, verb: "smash" }; },
-  unarmed:  function (L) { return { damage: 1.5 * growth(L), speed: 1.0, spread: 0.2, verb: "punch" }; },
-  axe:      function (L) { return { damage: 7.2 * growth(L), speed: 0.8, spread: 0.35, verb: "hack" }; },
-  mace:     function (L) { return { damage: 6.6 * growth(L), speed: 0.9, spread: 0.15, verb: "crush" }; },
-  spear:    function (L) { return { damage: 5.4 * growth(L), speed: 1.1, spread: 0.15, verb: "thrust" }; },
-  flail:    function (L) { return { damage: 8.4 * growth(L), speed: 0.7, spread: 0.5, verb: "flail" }; },
-  whip:     function (L) { return { damage: 2.8 * growth(L), speed: 2.1, spread: 0.2, verb: "lash" }; },
-  staff:    function (L) { return { damage: 5.4 * growth(L), speed: 1.0, spread: 0.1, verb: "strike", hands: 2 }; }
+  standard: function (L) { return { damage: 6 * growth(L), speed: 1.0, spread: 0.2, verb: "hit", kind: "slash" }; },
+  dagger:   function (L) { return { damage: 3 * growth(L), speed: 2.0, spread: 0.1, verb: "stab", kind: "pierce" }; },
+  heavy:    function (L) { return { damage: 12 * growth(L), speed: 0.5, spread: 0.4, verb: "smash", kind: "blunt" }; },
+  unarmed:  function (L) { return { damage: 1.5 * growth(L), speed: 1.0, spread: 0.2, verb: "punch", kind: "blunt" }; },
+  axe:      function (L) { return { damage: 7.2 * growth(L), speed: 0.8, spread: 0.35, verb: "hack", kind: "slash" }; },
+  mace:     function (L) { return { damage: 6.6 * growth(L), speed: 0.9, spread: 0.15, verb: "crush", kind: "blunt" }; },
+  spear:    function (L) { return { damage: 5.4 * growth(L), speed: 1.1, spread: 0.15, verb: "thrust", kind: "pierce" }; },
+  flail:    function (L) { return { damage: 8.4 * growth(L), speed: 0.7, spread: 0.5, verb: "flail", kind: "blunt" }; },
+  whip:     function (L) { return { damage: 2.8 * growth(L), speed: 2.1, spread: 0.2, verb: "lash", kind: "slash" }; },
+  staff:    function (L) { return { damage: 5.4 * growth(L), speed: 1.0, spread: 0.1, verb: "strike", kind: "blunt", hands: 2 }; }
 };
 
 // Armor baselines are a whole set's D; a piece takes its slot's share
@@ -227,7 +227,7 @@ function itemBaseline(p) {
       spread: w.spread || base.spread,
       speed:  w.speed  || base.speed,
       hands:  w.hands  || base.hands || 1,
-      kind:   w.kind   || "",
+      kind:   w.kind   || base.kind,
       verb:   w.verb   || base.verb
     };
   }
@@ -268,7 +268,7 @@ function mobBaseline(p) {
       damage: atk.damage || base.damage,
       spread: atk.spread || base.spread,
       speed:  atk.speed  || base.speed,
-      hands:  0, kind: atk.kind || "",
+      hands:  0, kind: atk.kind || "blunt",
       verb:   atk.verb || "hit"
     },
     armor: { defense: arm.defense || ab.defense, spread: arm.spread || ab.spread },
@@ -352,8 +352,57 @@ function hasEffect(v, kind) {
 //   execute    takes the larger: deal {mult} damage to foes below {threshold}
 //   regen      adds, capped: {fraction} of maximum health back every round
 //   aura       each strikes on its own: {power, verb} to every foe, every round
+//   resist     adds, a player's total limited: {kind, amount} (RULES 4.8)
+// proc, aura, and thorns take an optional {kind} (4.8): magic, pierce for
+// thorns, when none is stated.
 // ---------------------------------------------------------------------
-var LIMITS = { leech: 0.5, thorns: 1.0, soakFloor: 0.4, regen: 0.10 };
+var LIMITS = { leech: 0.5, thorns: 1.0, soakFloor: 0.4, regen: 0.10, resist: 0.75 };
+
+// ---------------------------------------------------------------------
+// Damage kinds and resistance (RULES 4.8). Every part of a hit has a kind;
+// a resist effect names a kind, a family, or "all". Amounts add, kind and
+// family alike; a part is multiplied by 1 - total, so 1 is immunity and a
+// negative total a vulnerability. A player's total stops at LIMITS.resist:
+// immunity is for mobs.
+// ---------------------------------------------------------------------
+var KIND_FAMILIES = {
+  physical: ["slash", "pierce", "blunt", "bite", "claw"],
+  elemental: ["fire", "cold", "lightning", "acid", "poison"],
+  other: ["magic", "psionic", "drain", "holy", "unholy"]
+};
+
+// damageKinds is every kind content may name, for `urth check`.
+function damageKinds() {
+  return KIND_FAMILIES.physical.concat(KIND_FAMILIES.elemental, KIND_FAMILIES.other);
+}
+
+function kindFamily(kind) {
+  for (var f in KIND_FAMILIES) if (KIND_FAMILIES[f].indexOf(kind) >= 0) return f;
+  return "";
+}
+
+// resistance is c's total resistance to kind.
+function resistance(c, kind) {
+  if (!kind) return 0;
+  var fam = kindFamily(kind), r = 0;
+  eachEffect(c, function (e) {
+    if (e.kind !== "resist") return;
+    var k = e.params.kind;
+    if (k === kind || k === "all" || (fam && k === fam)) r += num(e.params.amount);
+  });
+  return c.mob ? r : Math.min(r, LIMITS.resist);
+}
+
+// resisted is what is left of dmg of kind after c's resistance.
+function resisted(c, kind, dmg) { return dmg * Math.max(0, 1 - resistance(c, kind)); }
+
+// immune reports whether c takes nothing from kind.
+function immune(c, kind) { return resistance(c, kind) >= 1; }
+
+// resistDamage is the engine's hook for a strike it lands on several
+// targets itself (an aura): the damage left on target, after its
+// resistance to kind.
+function resistDamage(target, kind, damage) { return Math.round(resisted(target, kind, damage)); }
 
 function unit(c) { return WEAPON_BASELINES.standard(c.level || 1).damage; }
 
@@ -384,15 +433,17 @@ function onHit(att, def, dmg, out) {
   eachEffect(att, function (e) {
     var p = e.params;
     if (e.kind === "proc" && random.float() < (p.chance === undefined ? 1 : num(p.chance))) {
-      var d = Math.round(spreadRoll(unit(att) * num(p.power), 0.2) * protectMult(def) * lastStandMult(def));
-      if (d > 0) { procs.push({ verb: p.verb || "magic", damage: d }); dealt += d; }
+      var kind = p.kind || "magic";
+      if (immune(def, kind)) { procs.push({ verb: p.verb || "magic", damage: 0, kind: kind, resisted: true }); return; }
+      var d = Math.round(resisted(def, kind, spreadRoll(unit(att) * num(p.power), 0.2) * protectMult(def) * lastStandMult(def)));
+      if (d > 0) { procs.push({ verb: p.verb || "magic", damage: d, kind: kind }); dealt += d; }
     }
   });
   var stacks = burningStacks(def);
   eachEffect(att, function (e) {
     var p = e.params;
     if (e.kind === "ignite" && stacks < (num(p.maxStacks) || 1)) {
-      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "ignite" }, rounds: num(p.rounds) || 3 });
+      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "ignite", kind: "fire" }, rounds: num(p.rounds) || 3 });
       stacks++;
     }
   });
@@ -401,7 +452,7 @@ function onHit(att, def, dmg, out) {
   eachEffect(att, function (e) {
     var p = e.params;
     if (e.kind === "envenom" && venom < (num(p.maxStacks) || 1)) {
-      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "venom" }, rounds: num(p.rounds) || 3 });
+      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "venom", kind: "poison" }, rounds: num(p.rounds) || 3 });
       venom++;
     }
   });
@@ -422,8 +473,10 @@ function onHit(att, def, dmg, out) {
   var thorns = capped(def, "thorns", "fraction", LIMITS.thorns);
   if (thorns > 0) {
     var te = bestEffect(def, "thorns", "fraction");
-    var back = Math.round(dmg * thorns);
-    if (back > 0) procs.push({ verb: te.params.verb || "thorns", damage: back, back: true });
+    var tk = te.params.kind || "pierce";
+    var back = Math.round(resisted(att, tk, dmg * thorns));
+    if (back > 0) procs.push({ verb: te.params.verb || "thorns", damage: back, back: true, kind: tk });
+    else if (dmg > 0 && immune(att, tk)) procs.push({ verb: te.params.verb || "thorns", damage: 0, back: true, kind: tk, resisted: true });
   }
   var leech = capped(att, "leech", "fraction", LIMITS.leech);
   out.procs = procs;
@@ -558,9 +611,16 @@ function resolveAttack(att, def, weapon, round, hand) {
   dmg = dmg * K / (D + K);
   dmg = Math.max(dmg * LIMITS.soakFloor, dmg - soakAmount(def));
   dmg = dmg * lastStandMult(def) * protectMult(def);
+  var landed = Math.round(dmg) > 0;
 
-  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "" };
-  return out.damage > 0 ? onHit(att, def, out.damage, out) : out;
+  // Resist: last, by the swing's kind (4.8). A swing wholly resisted
+  // still lands, so what rides on it (a flaming blade's fire) is weighed
+  // on its own kind.
+  var kind = w.kind || "blunt";
+  dmg = resisted(def, kind, dmg);
+  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "", kind: kind };
+  if (immune(def, kind)) { out.damage = 0; out.crit = false; out.resisted = true; }
+  return landed ? onHit(att, def, out.damage, out) : out;
 }
 
 // defense is the defender's D for this hit: the sum of worn armor's draws,
@@ -760,12 +820,12 @@ function onTick(c) {
   // Damage over time ("dot" effects: Acid Splash, Blight, ignite) ticks
   // whether or not the character is fighting; so does regen.
   var dot = 0;
-  eachEffect(c, function (e) { if (e.kind === "dot") dot += num(e.params.damage); });
+  eachEffect(c, function (e) { if (e.kind === "dot") dot += resisted(c, e.params.kind, num(e.params.damage)); });
   var regen = Math.round(c.healthMax * capped(c, "regen", "fraction", LIMITS.regen));
   if (c.fighting) {
     var aura = [];
     eachEffect(c, function (e) {
-      if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
+      if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", kind: e.params.kind || "magic", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
     });
     var fightMana = P.manaFightRegen > 0 ? manaRegen(c, P.manaFightRegen) : 0;
     // Divine Favor and the like: a trickle of mana even in a fight (6.6).
@@ -1012,17 +1072,17 @@ function deathRules() {
 // level (6.4).
 // ---------------------------------------------------------------------
 var SPELLS = [
-  { id: "firebolt", innate: true, level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "firebolt", kind: "fire", innate: true, level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
     description: "A bolt of fire at one target." },
-  { id: "fireball", innate: true, level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
+  { id: "fireball", kind: "fire", innate: true, level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
     target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
     description: "Fire fills the room." },
   { id: "ward", innate: true, level: 2, stats: { intelligence: 11 }, mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
     target: "ally", save: "none",
     effect: function (caster, target) { return { kind: "defense", params: { amount: target.level + 2 }, rounds: 10 }; },
     description: "A ward as strong as armor, for ten rounds." },
-  { id: "acid", innate: true, level: 3, stats: { intelligence: 12 }, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "acid", kind: "acid", innate: true, level: 3, stats: { intelligence: 12 }, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.3 * power) }, rounds: 3 }; },
     description: "Acid that keeps burning." },
@@ -1038,7 +1098,7 @@ var SPELLS = [
     target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.15 }, rounds: 5 }; },
     description: "Your outline swims." },
-  { id: "drain", innate: true, level: 5, stats: { intelligence: 13 }, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+  { id: "drain", kind: "drain", innate: true, level: 5, stats: { intelligence: 13 }, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
     description: "Take their life for your own." },
   { id: "haste", innate: true, level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
@@ -1056,7 +1116,7 @@ var SPELLS = [
     target: "area", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 2 }; },
     description: "Every enemy slows." },
-  { id: "blight", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
+  { id: "blight", kind: "unholy", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
     target: "area", save: "fortitude", saveEffect: "half", dot: true,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
     description: "Rot spreads through every enemy." }
@@ -1139,6 +1199,9 @@ function saves(caster, target, sp) {
   return random.float() < S / (S + 2 * C);
 }
 
+// spellKind is the kind of a spell's damage (4.8): its own, or magic.
+function spellKind(sp) { return sp.kind || "magic"; }
+
 function resolveCast(caster, targets, spell) {
   var sp = spellById(spell.id);
   if (!sp) return { ok: false, message: "Nobody remembers how that spell goes." };
@@ -1152,10 +1215,14 @@ function resolveCast(caster, targets, spell) {
     if (saved && sp.saveEffect === "negate") { tr.saved = true; tr.negated = true; out.targets.push(tr); continue; }
     var scale = saved ? 0.5 : 1;
     tr.saved = saved;
+    var kind = spellKind(sp);
     if (sp.damage) {
+      // A spell wholly resisted does nothing more when that is all it does;
+      // one that also curses or burns still lands its effects (4.8).
+      if (immune(t, kind) && !sp.effect && !sp.effects) { tr.negated = true; out.targets.push(tr); continue; }
       var K = kFor(caster);
-      var dmg = power * sp.damage * scale * K / (defense(t) + K) * protectMult(t);
-      tr.damage = Math.max(1, Math.round(dmg));
+      var dmg = resisted(t, kind, power * sp.damage * scale * K / (defense(t) + K) * protectMult(t));
+      tr.damage = immune(t, kind) ? 0 : Math.max(1, Math.round(dmg));
       if (sp.drain) totalDrain += tr.damage * sp.drain;
     }
     if (sp.heal) tr.heal = Math.max(1, Math.round(t.healthMax * sp.heal * mult(caster, "wisdom") * spellPowerMult(caster, sp)));
@@ -1179,6 +1246,11 @@ function resolveCast(caster, targets, spell) {
       var es = sp.effects(caster, t, power * scale) || [];
       for (var k = 0; k < es.length; k++) if (es[k]) tr.effects.push(es[k]);
     }
+    // Damage over time burns with the spell's kind unless it names its own.
+    for (var j = 0; j < tr.effects.length; j++) {
+      var fx = tr.effects[j];
+      if (fx.kind === "dot" && fx.params && !fx.params.kind) fx.params.kind = kind;
+    }
     out.targets.push(tr);
   }
   // Drain heals the caster once every target is resolved, and so does
@@ -1199,6 +1271,31 @@ function resolveCast(caster, targets, spell) {
 // geometric baselines at 1.10).
 // ---------------------------------------------------------------------
 function consider(me, target) {
+  return verdict(me, target) + resistanceNote(target);
+}
+
+// resistanceNote names what target is immune or weak to (RULES 4.8),
+// on lines of their own after the verdict.
+function resistanceNote(target) {
+  var immuneTo = [], weakTo = [], all = false;
+  resistanceList(target).forEach(function (r) {
+    if (r.amount >= 1 && r.kind === "all") all = true;
+    else if (r.amount >= 1) immuneTo.push(r.kind);
+    else if (r.amount < 0) weakTo.push(r.kind === "all" ? "everything" : r.kind);
+  });
+  var t = "";
+  if (all) t += "\nNothing you have can hurt it.";
+  else if (immuneTo.length) t += "\nIt cannot be hurt by " + listWords(immuneTo, "or") + ".";
+  if (weakTo.length) t += "\nIt is weak to " + listWords(weakTo, "and") + ".";
+  return t;
+}
+
+function listWords(xs, conj) {
+  if (xs.length <= 1) return xs.join("");
+  return xs.slice(0, -1).join(", ") + " " + conj + " " + xs[xs.length - 1];
+}
+
+function verdict(me, target) {
   var gap = (target.level || 1) - (me.level || 1);
   if (gap <= -5) return "You could do it with a needle.";
   if (gap <= -3) return "Easy.";
@@ -1271,7 +1368,28 @@ function combatSheet(c) {
   if (opp > 1) add("Opportunist", signed(opp - 1) + " vs slowed");
   var st = steadiness(c);
   if (st.chance > 0) add("Footing", st.chance >= 1 ? "never lose a round" : pct(st.chance) + " keep a round");
+  var res = resistanceList(c);
+  if (res.length) add("Resist", res.map(function (r) {
+    return r.kind + " " + (r.amount >= 1 ? "immune" : r.amount < 0 ? "weak " + pct(-r.amount) : pct(r.amount));
+  }).join(", "));
   return rows;
+}
+
+// resistanceList is c's resistances, one entry per kind, family, or "all"
+// named by a resist effect, totalled and limited as resistance() does:
+// [{kind, amount}], strongest first.
+function resistanceList(c) {
+  var seen = {}, out = [];
+  eachEffect(c, function (e) {
+    if (e.kind !== "resist" || !e.params.kind || seen[e.params.kind]) return;
+    seen[e.params.kind] = true;
+    var total = 0;
+    eachEffect(c, function (f) { if (f.kind === "resist" && f.params.kind === e.params.kind) total += num(f.params.amount); });
+    if (!c.mob) total = Math.min(total, LIMITS.resist);
+    if (total !== 0) out.push({ kind: e.params.kind, amount: total });
+  });
+  out.sort(function (a, b) { return b.amount - a.amount; });
+  return out;
 }
 
 // ---------------------------------------------------------------------
@@ -1316,16 +1434,16 @@ function describeEffect(e) {
     case "speedMult": return "Swings at " + Math.round(num(p.mult) * 100) + " percent speed" + tail;
     case "dot": return (p.source === "ignite" ? "Burning: takes " : "Takes ") + num(p.damage) + " damage a round" + tail;
     case "attuned": return "Attuned: its numbers grow to match its wearer's level";
-    case "proc": return "On hit (" + (p.verb || "magic") + "): " + (p.chance === undefined || num(p.chance) >= 1 ? "always" : "a " + pct(p.chance) + " chance") + ", " + units(p.power) + " past armor" + tail;
+    case "proc": return "On hit (" + (p.verb || "magic") + ", " + (p.kind || "magic") + "): " + (p.chance === undefined || num(p.chance) >= 1 ? "always" : "a " + pct(p.chance) + " chance") + ", " + units(p.power) + " past armor" + tail;
     case "ignite": return "On hit (burning): " + units(p.power) + " a round for " + (num(p.rounds) || 3) + " rounds, stacking " + (num(p.maxStacks) || 1) + " deep" + tail;
     case "chill": return "A " + pct(p.chance) + " chance on each hit to slow the target to " + Math.round(num(p.mult) * 100) + " percent speed for " + (num(p.rounds) || 2) + " rounds" + tail;
     case "leech": return "Heals you for " + pct(p.fraction) + " of the damage you deal" + tail;
-    case "thorns": return "Thorns (" + (p.verb || "thorns") + "): " + pct(p.fraction) + " of every hit that lands on you goes back to the attacker" + tail;
+    case "thorns": return "Thorns (" + (p.verb || "thorns") + ", " + (p.kind || "pierce") + "): " + pct(p.fraction) + " of every hit that lands on you goes back to the attacker" + tail;
     case "soak": return "Every hit on you is " + units(p.power) + " smaller" + tail;
     case "lastStand": return "Below " + pct(p.threshold) + " health, take " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
     case "execute": return "Deal " + Math.round((num(p.mult) - 1) * 100) + " percent more damage to foes below " + pct(p.threshold) + " health" + tail;
     case "regen": return "Heals " + pct(p.fraction) + " of your health every round, even in a fight" + tail;
-    case "aura": return "Aura (" + (p.verb || "aura") + "): " + units(p.power) + " to every foe fighting you, each round" + tail;
+    case "aura": return "Aura (" + (p.verb || "aura") + ", " + (p.kind || "magic") + "): " + units(p.power) + " to every foe fighting you, each round" + tail;
     case "blind": return "Blinded: " + pct(p.miss) + " of swings go wide" + tail;
     case "disarmed": return "Disarmed: fights bare-handed" + tail;
     case "damage": return Math.round((num(p.mult) - 1) * 100) + " percent more damage" + (p.weapon ? " with a weapon" : "") + tail;
@@ -1361,6 +1479,12 @@ function describeEffect(e) {
       return "Spells" + spellFilterText(p) + " " + parts.join(", ") + tail;
     case "martyr": return "Healing others heals you for " + pct(p.fraction) + " of it" + tail;
     case "faithShield": return "A helpful spell leaves you taking " + Math.round((1 - (num(p.mult) || 0.85)) * 100) + " percent less damage for " + (num(p.rounds) || 3) + " rounds" + tail;
+    case "resist": {
+      var a = num(p.amount), what = (p.kind === "all" ? "every kind of" : p.kind || "?") + " damage";
+      if (a >= 1) return "Immune to " + what + tail;
+      if (a < 0) return "Weak to " + what + ": takes " + pct(-a) + " more" + tail;
+      return "Resists " + what + " by " + pct(a) + tail;
+    }
     default: return "";
   }
 }
@@ -1613,6 +1737,14 @@ function improvePassives(c) {
 
 // useSkill resolves an active skill through the same pipeline stages as a
 // swing: dodge, block, roll, reduce; the rating scales the result.
+// skillKind is the kind of a skill's damage (4.8): its own; a weapon
+// strike's is the weapon's; anything else (a kick, a bash) is blunt.
+function skillKind(sk, weapon) {
+  if (sk.kind) return sk.kind;
+  if (sk.strike && !sk.unarmed && weapon && weapon.weapon && weapon.weapon.kind) return weapon.weapon.kind;
+  return "blunt";
+}
+
 function useSkill(user, target, skill, e) {
   var sk = skillById(skill.id);
   if (!sk) return { ok: false, message: "You have forgotten how." };
@@ -1655,7 +1787,9 @@ function useSkill(user, target, skill, e) {
     if (sk.unarmed) eachEffect(user, function (fx) { if (fx.kind === "unarmedMult") dmg *= num(fx.params.mult) || 1; });
     var K = kFor(user);
     dmg = dmg * K / (defense(target) + K) * protectMult(target);
-    out.damage = Math.max(1, Math.round(dmg));
+    var kind = skillKind(sk, weapon);
+    out.damage = Math.max(1, Math.round(resisted(target, kind, dmg)));
+    if (immune(target, kind)) { out.damage = 0; out.crit = false; out.resisted = true; out.message = ""; }
   }
   if (sk.stunChance && random.float() < sk.stunChance * scale) {
     // Sure Footing and Unstoppable: a chance to keep the round.
@@ -1667,7 +1801,7 @@ function useSkill(user, target, skill, e) {
     }
   }
   if (sk.bleed) {
-    out.effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(out.damage * sk.bleed)) }, rounds: 3 });
+    if (out.damage > 0) out.effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(out.damage * sk.bleed)), kind: skillKind(sk, wielded(user)) }, rounds: 3 });
   }
   if (sk.effects) out.effects = out.effects.concat(sk.effects(user, target, scale, out) || []);
   return out;
@@ -1758,9 +1892,9 @@ var AFFIXES = [
   { id: "regen",     from: 15, on: ["neck", "finger", "body", "belt"], weight: 1, prefix: "mending", suffix: "of mending", effect: function (L, q) { return { kind: "regen", params: { fraction: round2(0.005 * q) } }; } },
   // Item level 20.
   { id: "haste",     from: 20, on: ["wield", "hands"], weight: 1, prefix: "swift", suffix: "of haste",       effect: function (L, q) { return { kind: "attacks", params: { amount: round2(0.15 * q) } }; } },
-  { id: "thunder",   from: 20, on: ["wield"], weight: 1, prefix: "thundering", suffix: "of thunder",       effect: function (L, q) { return { kind: "proc", params: { chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
+  { id: "thunder",   from: 20, on: ["wield"], weight: 1, prefix: "thundering", suffix: "of thunder",       effect: function (L, q) { return { kind: "proc", params: { kind: "lightning", chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
   { id: "execute",   from: 20, on: ["wield"], weight: 1, prefix: "merciless",  suffix: "of mercy",         effect: function (L, q) { return { kind: "execute", params: { threshold: 0.25, mult: round2(1 + 0.15 * q) } }; } },
-  { id: "brambles",  from: 20, on: ["body", "shield"], weight: 1, prefix: "briared", suffix: "of brambles", effect: function (L, q) { return { kind: "aura", params: { power: round2(0.05 * q), verb: "brambles" } }; } },
+  { id: "brambles",  from: 20, on: ["body", "shield"], weight: 1, prefix: "briared", suffix: "of brambles", effect: function (L, q) { return { kind: "aura", params: { kind: "pierce", power: round2(0.05 * q), verb: "brambles" } }; } },
   { id: "last",      from: 20, on: ["body", "neck"], weight: 1, prefix: "defiant", suffix: "of the last stand", effect: function (L, q) { return { kind: "lastStand", params: { threshold: 0.3, mult: round2(1 - 0.15 * q) } }; } },
   // Item level 30.
   { id: "focus",     from: 30, on: ["any"], weight: 0.5, prefix: "focused",    suffix: "of focus",         effect: function (L, q) { return { kind: "cooldownCut", params: { rounds: 1 } }; } },

@@ -28,6 +28,9 @@ type AttackResult struct {
 	Crit   bool   `json:"crit"`
 	Verb   string `json:"verb"`
 	Stage  string `json:"stage"`
+	// Resisted marks a swing that landed but did nothing, the defender
+	// being immune to its kind (RULES 4.8); what rides on it still counts.
+	Resisted bool `json:"resisted"`
 	// Procs are strikes riding on the swing: flames from the blade hit
 	// the defender, thorns on the defender's armor hit the attacker.
 	Procs []Proc `json:"procs"`
@@ -38,11 +41,14 @@ type AttackResult struct {
 }
 
 // Proc is one extra strike, named by its verb ("searing flames"). Back
-// marks one that hits the attacker, from the defender's side.
+// marks one that hits the attacker, from the defender's side. Kind is its
+// damage kind (RULES 4.8); Resisted marks one its target is immune to.
 type Proc struct {
-	Verb   string `json:"verb"`
-	Damage int    `json:"damage"`
-	Back   bool   `json:"back"`
+	Verb     string `json:"verb"`
+	Damage   int    `json:"damage"`
+	Back     bool   `json:"back"`
+	Kind     string `json:"kind"`
+	Resisted bool   `json:"resisted"`
 }
 
 // TickResult is what onTick returns.
@@ -487,6 +493,22 @@ func (w *World) onTick(c *Character) TickResult {
 		r.Aura[i].Damage = max(r.Aura[i].Damage, 0)
 	}
 	return r
+}
+
+// auraOn is one aura strike as it lands on target: the rules' resistDamage
+// weighs it against target's resistance to its kind (RULES 4.8). Without
+// the hook, or with no kind, it lands whole.
+func (w *World) auraOn(target *Character, pr Proc) Proc {
+	if pr.Kind == "" || pr.Damage <= 0 {
+		return pr
+	}
+	var d float64
+	if !w.callOptional("resistDamage", &d, w.view(target), pr.Kind, pr.Damage) {
+		return pr
+	}
+	pr.Damage = max(int(d), 0)
+	pr.Resisted = pr.Damage == 0
+	return pr
 }
 
 // derived asks for maxima and speed. Default keeps a character alive with

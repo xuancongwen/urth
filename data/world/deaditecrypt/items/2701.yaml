@@ -17,7 +17,7 @@ level: 19
 value: 4000
 effects:
   - kind: aura
-    params: { power: 0.2, verb: whisper of the Necronomicon }
+    params: { kind: unholy, power: 0.2, verb: whisper of the Necronomicon }
   - kind: leech
     params: { fraction: 0.06 }
   - kind: stat

@@ -20,8 +20,8 @@ attack:
   kind: psionic
   verb: Force lightning
 effects:
-  - { kind: aura, params: { power: 0.3, verb: crawl of Force lightning } }
-  - { kind: proc, params: { chance: 0.35, power: 1.8, verb: storm of Force lightning } }
+  - { kind: aura, params: { kind: lightning, power: 0.3, verb: crawl of Force lightning } }
+  - { kind: proc, params: { kind: lightning, chance: 0.35, power: 1.8, verb: storm of Force lightning } }
   - { kind: dodge, params: { amount: 0.05 } }
   - { kind: soak, params: { power: 0.15 } }
   - { kind: crit, params: { chance: 0.1, mult: 2 } }

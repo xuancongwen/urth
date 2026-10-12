@@ -21,7 +21,7 @@ weapon:
   verb: flail
 effects:
   - kind: proc
-    params: { chance: 0.18, power: 1.25, verb: crack of Khalim's lightning }
+    params: { kind: lightning, chance: 0.18, power: 1.25, verb: crack of Khalim's lightning }
   - kind: damage
     params: { mult: 1.1, weapon: true }
   - kind: stat

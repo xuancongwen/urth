@@ -21,6 +21,6 @@ attack:
   kind: slash
   verb: slash
 effects:
-  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "Octaslash" } }
+  - { kind: proc, params: { kind: slash, chance: 0.15, power: 1.0, verb: "Octaslash" } }
   - { kind: steady, params: { chance: 0.5 } }
   - { kind: soak, params: { power: 0.1 } }

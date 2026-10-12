@@ -14,5 +14,5 @@ weight: 0
 level: 24
 value: 1800
 effects:
-  - { kind: thorns, params: { fraction: 0.1, verb: spray of iron nails } }
+  - { kind: thorns, params: { kind: pierce, fraction: 0.1, verb: spray of iron nails } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

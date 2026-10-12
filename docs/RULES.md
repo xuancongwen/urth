@@ -38,9 +38,11 @@ left out; the engine then uses a quiet default.
 
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
-| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round, hand (`wield`, or `second` for the off hand, 4.4) | `{hit, damage, crit, verb, stage, procs:[{verb, damage, back}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
+| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round, hand (`wield`, or `second` for the off hand, 4.4) | `{hit, damage, crit, verb, stage, resisted, procs:[{verb, damage, back, kind, resisted}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. `resisted` marks a swing (or a proc) that landed on a target immune to its kind (4.8), narrated as shrugged off. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
 | `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, staminaMax, speed, offSpeed}`; `speed` is swings per round, fractional allowed; `offSpeed` the second weapon's (4.4), zero without one |
-| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, staminaDelta, skills:{id: rating}, aura:[{verb, damage}]}`; each aura entry strikes every enemy fighting the character in its room |
+| `onTick` | once per round for every character | character | `{healthDelta, manaDelta, staminaDelta, skills:{id: rating}, aura:[{verb, damage, kind}]}`; each aura entry strikes every enemy fighting the character in its room |
+| `resistDamage` (optional) | each aura strike, per enemy it lands on | target, kind, damage | the damage left after the target's resistance to the kind (4.8); without it an aura lands whole |
+| `damageKinds` (optional) | `urth check` | | every damage kind content may name; the check warns on any other (4.8) |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
 | `onLevel` | a character gains a level | character, new level | `{statPoints, featPicks, statDeltas:{}, message}` |
@@ -59,7 +61,7 @@ left out; the engine then uses a quiet default.
 | `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |
 | `questRules` (optional) | `quest request`, and when a quest ends | player | `{levelBand, rounds, cooldown, quitCooldown}`, the band in levels and the timers in rounds (7.6) |
 | `questReward` (optional) | a quest is drawn | player, quest `{kind, target, name, level, area, room, rounds}` | `{points, silver, xp, message}`, shown on offer and paid on completion |
-| `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, effects:[{on, kind, params, rounds}], skills:{id: rating}, cooldown, stamina}`; `cooldown` and `stamina`, when present, replace the skill's own for this use |
+| `useSkill` | an active skill is used | user, target or null, skill, the skill's effect (with its rating in `state`) | `{ok, message, hit, stage, damage, verb, resisted, effects:[{on, kind, params, rounds}], skills:{id: rating}, cooldown, stamina}`; `cooldown` and `stamina`, when present, replace the skill's own for this use |
 | `spellList` (optional) | `cast`, `spells` | | `[{id, name, branch, school, deity, castRounds, interruptOnDamage, cooldown, mana, materials:[{material, count}], target, save, saveEffect, description}]`; `materials` is for the few spells that want items |
 | `resolveCast` | a cast completes | caster, targets (array of views), spell | `{ok, message, consume:[item ids], targets:[{index, damage, heal, saved, negated, effects:[{kind, params, rounds}], message}], casterEffects:[...]}` |
 
@@ -939,32 +941,43 @@ areas unplayable for a build.
 
 **Synthesis.** Resistance is graded, and immunity is its rare top.
 
-- **Kinds.** Every part of every hit has a kind. A weapon's swing has
-  its weapon's `kind`, which content already carries (slash, pierce,
-  blunt; bite and claw for natural attacks). Spells gain a `kind`
-  (fire, cold, lightning, poison, magic, psionic, drain, and so on), as
-  do procs, added damage (5.3), and the damage over time they leave
-  behind (ignite is fire, venom is poison). Physical kinds and
-  elements are both resistable.
+- **Kinds.** Every part of every hit has a kind, from one list:
+  physical (slash, pierce, blunt, bite, claw), elemental (fire, cold,
+  lightning, acid, poison), and magic, psionic, drain, holy, and
+  unholy. A weapon's swing has its weapon's `kind`, which content
+  mostly states; a weapon that states none takes its family's (a
+  dagger pierces, a mace is blunt), and a natural attack is blunt. A
+  spell has a `kind` (magic when it names none), and so do procs,
+  auras, and thorns (magic, and pierce for thorns, when they name
+  none), added damage (5.3), and the damage over time they leave
+  behind (ignite is fire, venom is poison, a spell's burn its spell's).
+  A skill's damage is its own kind, its weapon's for a weapon strike,
+  or blunt. Physical kinds and elements are both resistable.
 - **Families.** A resistance may name a kind or a family: `physical`
   (slash, pierce, blunt, bite, claw), `elemental` (fire, cold,
   lightning, poison, acid), or `all`, so a ghost can shrug off weapons
   without a line per kind.
 - **One effect.** `resist {kind, amount}`. Amounts add across sources,
-  as `stat` does. A part of a hit of that kind is multiplied by `1 -
-  amount`: 0.5 halves it, 1 is immunity, and a negative amount is a
+  as `stat` does, and a resistance to a kind adds to one to its family
+  and to `all`. A part of a hit of that kind is multiplied by `1 -
+  total`: 0.5 halves it, 1 is immunity, and a negative total is a
   vulnerability (-0.5 makes it hit 1.5 times as hard).
-- **Immunity is rare.** A player's total resistance to a kind stops
-  short of immunity (a limit in the rules, like leech's), so gear and
-  feats give partial resistance and a player always takes some of
-  every kind. Full immunity is for mobs, and a builder writes it on
-  named creatures and bosses, not on ordinary ones.
+- **Immunity is rare.** A player's total resistance to a kind stops at
+  75 percent (`LIMITS.resist`, beside leech's), so gear and feats give
+  partial resistance and a player always takes some of every kind.
+  Full immunity is for mobs, and a builder writes it on named creatures
+  and bosses, not on ordinary ones.
 - **Where it applies.** Last: after the avoidance tries and armor for a
-  swing (4.3), after the save for a spell (6.4). A hit made of several
-  kinds (a fire sword's slash and its flame) is resisted part by part,
-  so one immunity takes one part.
+  swing (4.3), after the save for a spell (6.4), as a burn ticks, and
+  for an aura on each enemy it reaches. A hit made of several kinds (a
+  fire sword's slash and its flame) is resisted part by part, so one
+  immunity takes one part: a swing wholly resisted still lands, and
+  what rides on it is weighed on its own kind. A damage spell wholly
+  resisted is shrugged off when it does nothing else; one that also
+  curses or burns still lands its effects.
 - **Seen before the fight.** `consider` names a creature's immunities
-  and vulnerabilities, and an identified item lists its resistances.
+  and vulnerabilities, an identified item lists its resistances, and
+  the score sheet totals a character's own.
   When a part of a hit is wholly resisted, the message says so ("The
   skeleton shrugs off your stab").
 
@@ -973,14 +986,16 @@ effects; graded resistance makes the mix of kinds in that stack matter
 in every fight, not only against the few immune creatures, and a
 player with the wrong kit is slowed, not stopped.
 
-Consequences: `resolveAttack`, `resolveCast`, and the proc, aura, and
-damage-over-time paths split damage by kind and apply `resist`; spells,
-procs, and added-damage affixes carry a kind; the kinds already in
-content are checked against one list (the one `blast` is folded into
-an existing kind); `consider` and identification show resistances.
-Open: whether anything lowers a target's resistance (an armor-pierce
-for kinds, or a curse), and whether a family resistance and a kind
-resistance on the same creature add or take the larger.
+Consequences (built 2026-10-12): `resolveAttack`, `resolveCast`,
+`useSkill`, and the proc, aura, and damage-over-time paths apply
+`resist` by kind; a swing, proc, or skill wholly resisted comes back
+`resisted` and the engine narrates it as shrugged off; auras, which the
+engine lands on each enemy itself, go through an optional
+`resistDamage` hook. The kinds in content are checked against the
+rules' `damageKinds` by `urth check` (the one `blast` became
+lightning), and every proc, aura, and thorns effect in content names
+its kind. Open: whether anything lowers a target's resistance (an
+armor-pierce for kinds, or a curse).
 
 ---
 

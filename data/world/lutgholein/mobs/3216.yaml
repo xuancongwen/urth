@@ -14,4 +14,4 @@ attack:
   kind: pierce
   verb: gore
 effects:
-  - { kind: thorns, params: { fraction: 0.1, verb: crackle of charged bolts } }
+  - { kind: thorns, params: { kind: lightning, fraction: 0.1, verb: crackle of charged bolts } }

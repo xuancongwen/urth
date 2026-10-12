@@ -20,7 +20,7 @@ weapon:
   kind: blunt
   verb: strike
 effects:
-  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: "crack of Merlin's lightning" } }
+  - { kind: proc, params: { kind: lightning, chance: 0.2, power: 1.0, verb: "crack of Merlin's lightning" } }
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: detectInvisible }
