@@ -1,0 +1,14 @@
+vnum: 3323
+name: The Durance of Hate
+description: |
+  The prison under Travincal, where the Zakarum kept the Lord of Hatred
+  bound for three hundred years and then let him out. The walls are
+  built of something like flesh over something like bone, and they are
+  warm. Blood runs in the gutters from no wound. Somewhere far below
+  a voice is speaking slowly, patiently, and every word arrives in your
+  head without passing your ears. The stair is up; a gallery goes on
+  south.
+exits:
+  up: 3322
+  south: 3324
+flags: [dark]

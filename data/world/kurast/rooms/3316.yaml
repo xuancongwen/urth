@@ -1,0 +1,15 @@
+vnum: 3316
+name: The Kurast Bazaar
+description: |
+  The great bazaar was the richest market in the world once, and its
+  colonnades still stand, painted with peacocks and tigers under
+  centuries of soot. The stalls are empty. Zealots of Zakarum walk
+  among them in procession, chanting, and the chant has a hook in it.
+  A ruined temple stands north with its dome split; a sewer grate,
+  pried up, breathes cold air out of the ground. Lower Kurast is west,
+  and the upper city east.
+exits:
+  west: 3315
+  north: 3317
+  east: 3319
+  down: 3318

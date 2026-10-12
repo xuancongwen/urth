@@ -1,0 +1,14 @@
+vnum: 3414
+name: an oblivion knight
+keywords: [oblivion, knight, undead]
+description: An oblivion knight stands in the rows before the seal, as still as a tomb.
+look: |
+  The last and worst of the dead knights: a skeleton in plate gone black
+  as soot, whose curses wither what they touch and whose blade does the
+  rest. It swore an oath to Lord De Seis a thousand years ago and has
+  not moved from its place since, except to kill.
+level: 50
+flags: [assist]
+stats: {strength: 16, constitution: 16, intelligence: 14}
+attack:
+  verb: slash

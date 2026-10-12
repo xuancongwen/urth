@@ -1,0 +1,13 @@
+vnum: 3125
+name: The Jail
+description: |
+  Narrow passages of cells under the monastery, iron doors hanging
+  open, straw rotting on the floors. The Sisterhood kept its prisoners
+  here, and the Sisters who turned have kept others since. Torches
+  have burned out in their brackets. Scratched on one cell wall,
+  over and over: Andariel. The cloister is north; a stair climbs
+  south toward the inner monastery.
+exits:
+  north: 3123
+  south: 3126
+flags: [dark]

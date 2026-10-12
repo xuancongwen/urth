@@ -1,0 +1,25 @@
+vnum: 3507
+name: Bartuc's Cut-Throat
+keywords: [bartuc's, bartuc, cut-throat, cutthroat, claw, katar]
+description: A red-bladed claw on an iron grip lies here, dripping.
+look: |
+  A katar of the Vizjerei warlord, three curved blades of blood-red
+  steel on a punch-grip, made for opening throats from close enough to
+  feel the breath. Bartuc bathed in blood before battle, and the claw
+  remembers: it drinks from every cut it makes, and it is very quick.
+type: weapon
+weight: 2
+level: 58
+baseline: dagger
+value: 14000
+weapon:
+  hands: 1
+  kind: claw
+  verb: rake
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: stat
+    params: { stat: dexterity, amount: 3 }

@@ -1,0 +1,20 @@
+vnum: 3105
+name: Flavie the scout
+keywords: [flavie, scout, rogue, sentry]
+description: Flavie stands on the road outside the palisade with an arrow on the string, watching the moor.
+look: |
+  A young Rogue in a leather hood, keeping watch on the road outside
+  the gate with an arrow nocked and her eyes on the heather. Kashya
+  posts her out here because she is the best shot left on the wall,
+  and she knows it. "Watch your back out there," she says without
+  looking at you. "The monastery has fallen. Our own sisters walk with
+  the demons now." She will not draw on you first. She will not miss
+  if you draw on her.
+level: 24
+stats: {dexterity: 15}
+silver: 90
+attack:
+  kind: pierce
+  verb: shoot
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }

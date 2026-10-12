@@ -1,0 +1,66 @@
+interval_seconds: 300
+resets:
+  # the Rogue Encampment
+  - { mob: 3105, room: 3100, equip: [{ item: 3128, slot: wield }] }   # Flavie on the road outside the gate, with a Rogue long bow
+  - { mob: 3101, room: 3107 }                                   # Kashya on the captain's watch
+  - { mob: 3100, room: 3104 }                                   # Akara by her scrying bowl, who sells potions and teaches
+  - { mob: 3102, room: 3105 }                                   # Charsi at her anvil
+  - { mob: 3104, room: 3101 }                                   # Warriv with the wagons
+  - { mob: 3103, room: 3106 }                                   # Gheed behind his counter
+  # the Blood Moor and the Den of Evil
+  - { mob: 3106, room: 3108, max: 5, equip: [{ item: 3121, slot: wield }] }   # fallen around their campfires, with hatchets
+  - { mob: 3106, room: 3108, max: 5, equip: [{ item: 3121, slot: wield }] }
+  - { mob: 3107, room: 3108, max: 2 }                           # quill rats in the heather
+  - { mob: 3107, room: 3108, max: 2 }
+  - { mob: 3106, room: 3109, max: 5, equip: [{ item: 3121, slot: wield }] }   # fallen in the den, guarding their idol
+  - { mob: 3106, room: 3109, max: 5, equip: [{ item: 3121, slot: wield }] }
+  - { mob: 3108, room: 3109, max: 5, equip: [{ item: 3122, slot: feet }] }    # zombies on the heaps of dead, in their grave-mud boots
+  - { mob: 3109, room: 3109, equip: [{ item: 3122, slot: feet }, { item: 3100 }] }   # Corpsefire, and a potion some traveller never drank
+  # the Cold Plains and the Burial Grounds
+  - { mob: 3110, room: 3110, equip: [{ item: 3111, slot: wield }] }   # Bishibosh at his blue fire, raising fallen, with the Torch of Iro
+  - { mob: 3106, room: 3110, max: 5, equip: [{ item: 3121, slot: wield }] }   # one of his tribe already standing
+  - { mob: 3111, room: 3111, equip: [{ item: 3110, slot: wield }] }   # Blood Raven among the graves, raising zombies, with her Charge
+  - { mob: 3108, room: 3111, max: 5, equip: [{ item: 3122, slot: feet }] }    # the dead she has already raised
+  - { mob: 3108, room: 3112, max: 5, equip: [{ item: 3122, slot: feet }] }    # and more in the mausoleum
+  - { mob: 3108, room: 3112, max: 5, equip: [{ item: 3122, slot: feet }] }
+  # the Stony Field and the Cairn Stones
+  - { mob: 3112, room: 3113, max: 6, equip: [{ item: 3123, slot: wield }] }   # carvers among the boulders
+  - { mob: 3112, room: 3113, max: 6, equip: [{ item: 3123, slot: wield }] }
+  - { mob: 3112, room: 3114, max: 6, equip: [{ item: 3123, slot: wield }] }   # carvers in the stone ring
+  - { mob: 3112, room: 3114, max: 6, equip: [{ item: 3123, slot: wield }] }
+  - { mob: 3113, room: 3114, equip: [{ item: 3112, slot: wield }] }   # Rakanishu on the altar stone, with the Gull
+  # the Dark Wood
+  - { mob: 3114, room: 3115, max: 3, equip: [{ item: 3124, slot: body }] }    # brutes under the oaks, in their own hides
+  - { mob: 3114, room: 3115, max: 3, equip: [{ item: 3124, slot: body }] }
+  - { mob: 3114, room: 3116, max: 3, equip: [{ item: 3124, slot: body }] }    # one more by the tree
+  - { mob: 3115, room: 3116, equip: [{ item: 3113, slot: hands }] }   # Treehead Woodfist at the Tree of Inifuss, in Bloodfist
+  # the Black Marsh and the Forgotten Tower
+  - { mob: 3112, room: 3117, max: 6, equip: [{ item: 3123, slot: wield }] }   # carvers hunting in the reeds
+  - { mob: 3112, room: 3117, max: 6, equip: [{ item: 3123, slot: wield }] }
+  - { mob: 3116, room: 3119, max: 4 }                           # ghosts in the tower cellar
+  - { mob: 3116, room: 3119, max: 4 }
+  - { mob: 3116, room: 3119, max: 4 }
+  - { mob: 3116, room: 3120, max: 4 }                           # one waiting on her mistress
+  - { mob: 3117, room: 3120, equip: [{ item: 3104 }, { item: 3105 }, { item: 3106 }, { item: 3107 }] }   # the Countess at her bath, and her hoard of runes
+  # the Tamoe Highland and the monastery
+  - { mob: 3118, room: 3121, max: 7, equip: [{ item: 3125, slot: wield }] }   # moon clan goatmen on the highland
+  - { mob: 3118, room: 3121, max: 7, equip: [{ item: 3125, slot: wield }] }
+  - { mob: 3118, room: 3121, max: 7, equip: [{ item: 3125, slot: wield }] }
+  - { mob: 3118, room: 3122, max: 7, equip: [{ item: 3125, slot: wield }] }   # picking over the dead in the gatehouse
+  - { mob: 3118, room: 3122, max: 7, equip: [{ item: 3125, slot: wield }] }
+  - { mob: 3118, room: 3123, max: 7, equip: [{ item: 3125, slot: wield }] }   # in the outer cloister
+  - { mob: 3118, room: 3123, max: 7, equip: [{ item: 3125, slot: wield }] }
+  - { mob: 3119, room: 3124, equip: [{ item: 3102, slot: wield }, { item: 3114, slot: hands }, { item: 3115, slot: body }] }   # the Smith at the forge, with the Horadric Malus and Sigon's steel
+  - { mob: 3120, room: 3125, max: 6, equip: [{ item: 3126, slot: wield }] }   # dark spearwomen in the jail
+  - { mob: 3120, room: 3125, max: 6, equip: [{ item: 3126, slot: wield }] }
+  - { mob: 3120, room: 3125, max: 6, equip: [{ item: 3126, slot: wield }] }
+  - { mob: 3120, room: 3126, max: 6, equip: [{ item: 3126, slot: wield }] }   # in the inner cloister
+  - { mob: 3120, room: 3126, max: 6, equip: [{ item: 3126, slot: wield }] }
+  - { mob: 3120, room: 3127, max: 6, equip: [{ item: 3126, slot: wield }] }   # and one keeping the cathedral door
+  - { mob: 3122, room: 3127, equip: [{ item: 3116, slot: neck }] }   # Bone Ash before the broken altar, the Nokozan Relic under his robes
+  # the catacombs
+  - { mob: 3121, room: 3128, max: 4, equip: [{ item: 3127, slot: arms }] }    # ghoul lords feeding in the niches, in bone vambraces
+  - { mob: 3121, room: 3128, max: 4, equip: [{ item: 3127, slot: arms }] }
+  - { mob: 3121, room: 3128, max: 4, equip: [{ item: 3127, slot: arms }] }
+  - { mob: 3121, room: 3129, max: 4, equip: [{ item: 3127, slot: arms }] }    # one at the foot of her dais
+  - { mob: 3123, room: 3129, equip: [{ item: 3117, slot: head }, { item: 3118, slot: wield }, { item: 3100 }] }   # Andariel, in her Visage, with the Spineripper

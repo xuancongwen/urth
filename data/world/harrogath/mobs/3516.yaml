@@ -1,0 +1,14 @@
+vnum: 3516
+name: an abominable
+keywords: [abominable, yeti, beast]
+description: An abominable hunches under the low ceiling, chewing on a thighbone.
+look: |
+  The great white yeti of the upper slopes, half again the size of the
+  ones in the caves, with a hide like a snowbank and a face like a
+  cliff. It wears a pair of a pilgrim's greaves as bracelets, having
+  eaten the pilgrim.
+level: 56
+stats: {strength: 16, constitution: 15}
+attack:
+  kind: cold
+  verb: maul

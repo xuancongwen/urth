@@ -1,0 +1,14 @@
+vnum: 3516
+name: The Arreat Summit
+description: |
+  The top of the world: a ring of flat stone at the peak of Mount
+  Arreat, open to a sky that boils with lightning. Three colossal
+  statues stand on the ring, stone barbarians with stone weapons, and
+  in the middle an altar bears the marks of the Ancients. They are the
+  guardians of the Worldstone, and they test whoever comes, and they
+  have never yet passed anyone who did not deserve it. North, in the
+  face of the peak, the great door of the Worldstone Keep stands open.
+  The stair is down.
+exits:
+  down: 3515
+  north: 3517

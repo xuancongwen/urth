@@ -1,0 +1,17 @@
+vnum: 3300
+name: Kurast Docks
+description: |
+  Meshif's ship rides at the end of a long pier of tarred planks, her
+  sails furled and her crew in no hurry to go ashore. The air is hot and
+  wet enough to wring out, and it smells of salt, rotting fruit, and
+  something sweeter underneath that nobody here mentions. Warehouses
+  with collapsed roofs line the quay, their doors nailed shut against
+  the jungle. Beyond them, far inland, the spires of Travincal stand
+  over the trees, and a red glow sits on them that is not the sunset.
+  The sea road back to Lut Gholein is west, by ship; the waterfront
+  runs east.
+exits:
+  west: 3201
+  east: 3302
+position: {x: 0, y: 0, z: 0}
+flags: [safe]

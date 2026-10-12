@@ -1,0 +1,12 @@
+vnum: 3301
+name: a thawing potion
+keywords: [thawing, potion, flask, orange]
+description: A small flask of something orange and faintly warm sits here.
+look: |
+  A flask the colour of a sunset that stays warm in the hand. Alkor
+  swears it keeps the blood running when the cold of the sewers, or of
+  something worse, gets into the bones. It smells of ginger and lamp
+  oil.
+type: other
+weight: 1
+value: 35

@@ -1,0 +1,16 @@
+vnum: 3230
+name: a Horadric war-blade
+keywords: [horadric, war-blade, blade, sword]
+description: A straight sword etched with spiralling glyphs lies here.
+look: |
+  A straight blade of pale steel etched from tip to guard with a
+  spiral of Horadric glyphs, carried by one of the guards of Tal
+  Rasha's tomb.
+type: weapon
+level: 38
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

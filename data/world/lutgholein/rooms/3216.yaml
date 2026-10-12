@@ -1,0 +1,12 @@
+vnum: 3216
+name: The Halls of the Dead
+description: |
+  A long hall cut from the rock, lined with niches, and in every niche a
+  wrapped body propped upright like a guest waiting to be announced. The
+  wrappings have been torn on some of them, from the inside. Painted
+  scenes on the walls show robed men binding a demon in a stone. The
+  stair climbs to the hills; east, the hall goes on to a deeper tomb.
+exits:
+  up: 3215
+  east: 3217
+flags: [dark]

@@ -1,0 +1,22 @@
+vnum: 3310
+name: Stormtree
+keywords: [stormtree, thorned, hulk, storm]
+description: Stormtree towers in the clearing, lightning crawling through its thorns.
+look: |
+  A thorned hulk the size of a hut, old and grey and scarred, its
+  thorns blackened by the lightning that lives in them. The flayers
+  leave offerings at its feet. It carries a great round shield torn
+  off a temple door, and when it slams it into the ground the air
+  cracks and smells of a storm.
+level: 40
+health: 2600
+stats: {strength: 16, constitution: 16}
+silver: 220
+attack:
+  kind: blunt
+  verb: pound
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: charged bolt }
+  - kind: thorns
+    params: { fraction: 0.15, verb: crackling thorns }

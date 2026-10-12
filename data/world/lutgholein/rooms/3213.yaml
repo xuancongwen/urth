@@ -1,0 +1,11 @@
+vnum: 3213
+name: Radament's Lair
+description: |
+  An old embalming chamber below the city, older than the sewers that
+  lead to it. Stone tables stand in rows, each with a body on it in
+  some stage of the work, and jars of natron and oil line the walls. A
+  bronze lectern holds a great book open at a page that glows faintly.
+  The air is thick with spices and rot. The only way out is east.
+exits:
+  east: 3212
+flags: [dark]

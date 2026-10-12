@@ -1,0 +1,13 @@
+vnum: 3225
+name: The Palace Cellar
+description: |
+  Vaulted storerooms full of wine jars and sacks of grain, and below
+  them older vaults of a different stone. In the deepest of them a
+  ring of Horadric glyphs is inlaid in the floor, and above it the air
+  is torn: a shimmering blue portal, framed by nothing, humming like a
+  struck bowl. Scorch marks spread around it. The stair climbs up to
+  the harem; the portal leads down and away.
+exits:
+  up: 3224
+  down: 3226
+flags: [dark]

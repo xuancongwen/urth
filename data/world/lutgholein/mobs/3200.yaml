@@ -1,0 +1,20 @@
+vnum: 3200
+name: Warriv the caravan master
+keywords: [warriv, caravan, master, trader]
+description: Warriv checks the straps on a kneeling camel and squints at the sun.
+look: |
+  A lean, sun-dark man in a dusty travelling robe and a turban gone
+  grey with road. He brought you across the mountains from the Rogue
+  Encampment and has no intention of going back until the passes are
+  safe, which may be never. "Lut Gholein," he says, "is a jewel of the
+  desert. Mind you, even a jewel has flaws. Speak to Jerhyn at the
+  palace; the young sultan has troubles of his own." He sells what is
+  left over from the road: lamps, and the head-wraps his drivers wear
+  against the sun. Type 'list'.
+level: 18
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3200, silver: 35 }
+  - { item: 3218, silver: 500 }

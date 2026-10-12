@@ -1,0 +1,21 @@
+vnum: 3511
+name: Death's Fathom
+keywords: [death's, death, fathom, orb, eye]
+description: A swirling orb shaped like an open eye lies here, watching.
+look: |
+  A black crystal orb as deep as a well, in which something drifts
+  like an eye seen through dark water. It sees what is hidden, and it sharpens every
+  art its holder knows so that each comes back to hand a round sooner.
+  It has been looking out of Baal's hand for two hundred years, and it
+  has not liked what it saw.
+type: armor
+slot: hold
+weight: 1
+level: 60
+value: 15000
+effects:
+  - kind: cooldownCut
+    params: { rounds: 1 }
+  - kind: detectHidden
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }

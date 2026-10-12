@@ -1,0 +1,13 @@
+vnum: 3219
+name: a sewer guard's hauberk
+keywords: [sewer, guard's, guard, hauberk, mail]
+description: A green-crusted mail hauberk lies here in a heap.
+look: |
+  The mail shirt of a guard of the old Horadric sewers, gone green with
+  verdigris and stinking of the channels. Under the crust the bronze
+  rings are sound.
+type: armor
+slot: body
+weight: 14
+level: 28
+baseline: medium

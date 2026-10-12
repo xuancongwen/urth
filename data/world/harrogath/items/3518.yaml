@@ -1,0 +1,14 @@
+vnum: 3518
+name: a shard of black ice
+keywords: [shard, black, ice, river]
+description: A shard of black ice lies here, and does not melt.
+look: |
+  A wedge of ice as black as river water at night, broken from the
+  pillar in the Frozen River where Anya was held. It does not melt in
+  the hand, nor anywhere else. Anya will want to see it: proof that you
+  have been there, and that what kept her there is dead.
+type: material
+material: black ice
+rarity: rare
+weight: 1
+value: 100

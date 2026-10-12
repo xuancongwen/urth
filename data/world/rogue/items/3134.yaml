@@ -1,0 +1,16 @@
+vnum: 3134
+name: a Sisterhood war bow
+keywords: [sisterhood, war, bow]
+description: A short, heavy recurve bow lies here.
+look: |
+  A short recurved war bow of horn and sinew, a captain's bow, made to
+  shoot from a wall. The grip still carries the shape of a Rogue's hand.
+type: weapon
+weight: 3
+level: 29
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

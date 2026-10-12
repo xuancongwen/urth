@@ -1,0 +1,11 @@
+vnum: 3407
+name: The Spitters' Hollow
+description: |
+  A bowl in the rock floored with a crust of something that was meat
+  once and is now a kind of soil. Great bloated shapes squat in it,
+  feeding, and when they lift their heads they spit. The smell is
+  enough to stop the breath in your throat. The only way out is the
+  slope east, up to the bone field.
+exits:
+  east: 3406
+flags: [dark]

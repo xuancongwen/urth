@@ -1,0 +1,12 @@
+vnum: 3231
+name: a suit of Horadric scale
+keywords: [horadric, scale, suit, armor]
+description: A suit of gold-washed scale armor lies here.
+look: |
+  Scale armor of the Horadric guard, every scale washed with gold and
+  stamped with the eight-pointed star of the order.
+type: armor
+slot: body
+level: 38
+baseline: medium
+flags: [drop]

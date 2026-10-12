@@ -1,0 +1,14 @@
+vnum: 3312
+name: Mephisto's soulstone
+keywords: [mephisto's, mephisto, soulstone, stone, soul, red]
+description: A red crystal lies here, cold as ice, crackling with small lightnings.
+look: |
+  The soulstone that held the Lord of Hatred, a shard of red crystal
+  as long as a hand, rimed with frost on the outside and full of a
+  slow red storm inside. He wore it in his own body, and he is still
+  in it, after a fashion. It is cold enough to burn. Natalya of the
+  Viz-jaq'taar wants it as proof the Betrayer is dead; others say it
+  must go to the Hellforge.
+type: other
+weight: 1
+value: 4000

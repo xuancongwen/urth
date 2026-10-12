@@ -1,0 +1,12 @@
+vnum: 3310
+name: The Spider Cavern
+description: |
+  A round cavern where the webs have been burned to black lace and the
+  stone underneath scorched glassy. In the middle, on a heap of bones
+  and ash, something has made a nest out of embers. Wedged in the bones
+  is a reliquary of old gold, its lid pried open. The sinkhole climbs
+  up into the forest; a silk tunnel leads west into the lair.
+exits:
+  up: 3309
+  west: 3327
+flags: [dark]

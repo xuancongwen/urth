@@ -1,0 +1,11 @@
+vnum: 3221
+name: The Lost City
+description: |
+  Half-buried in drifting sand, the ruins of an old city stretch to the
+  horizon: fallen columns, roofless halls, a street of statues worn to
+  stumps by the wind. Ghosts are said to walk here at noon, and the
+  shimmer of the heat makes it easy to believe. The oasis is north; east,
+  the ruins drop into a valley full of stone serpents.
+exits:
+  north: 3218
+  east: 3222

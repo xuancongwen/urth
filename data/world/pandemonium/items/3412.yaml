@@ -1,0 +1,21 @@
+vnum: 3412
+name: Izual's broken feather
+keywords: [izual's, izual, broken, feather, quill]
+description: A single long feather, half white and half black, lies here rimmed in frost.
+look: |
+  A pinion feather as long as a sword, from a wing that was light once
+  and is shadow now, and it is both: white at the quill and black at
+  the tip, broken in the middle, and furred with a frost that does not
+  melt. Held in the hand it is light as nothing, and it remembers how to
+  fly; blows go wide of whoever carries it, and the air around them
+  turns bitterly cold. Hadriel would say it should go home. It cannot.
+type: armor
+slot: hold
+weight: 0
+level: 47
+value: 7000
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: aura, params: { power: 0.1, verb: frost of a fallen angel } }

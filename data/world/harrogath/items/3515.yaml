@@ -1,0 +1,12 @@
+vnum: 3515
+name: Malah's thawing potion
+keywords: [malah's, malah, thawing, potion, vial, white]
+description: A small vial of cloudy white liquid lies here, warm to the touch.
+look: |
+  A vial of something the cloudy white of meltwater, warm as a hand,
+  that Malah brewed to thaw Anya from her prison in the Frozen River.
+  Drunk, it puts a fire in the belly that the mountain cold cannot put
+  out for a good long while.
+type: other
+weight: 1
+value: 150

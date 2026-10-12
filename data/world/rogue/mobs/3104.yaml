@@ -1,0 +1,22 @@
+vnum: 3104
+name: Warriv the caravan master
+keywords: [warriv, caravan, master]
+description: Warriv checks the lashings on a wagon, and waves you over.
+look: |
+  A weathered man with a grey-shot beard and a traveller's patient
+  squint, in a long dusty coat and a turban wound against the sun of
+  the east. He has driven caravans from the Western Kingdoms to the
+  desert for thirty years, and he is stuck here, because the pass is
+  closed until something is done about the monastery. "Ah, stranger,"
+  he says, "I am Warriv. When Andariel is dead, I will take us east to
+  Lut Gholein. The road is open to the east, if you are brave enough."
+  Meanwhile he sells from the caravan's stores to anyone with silver:
+  Akara's potions, at a carter's mark-up, and spare mail from the
+  wagons.
+level: 22
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3100, silver: 35 }
+  - { item: 3130, silver: 400 }

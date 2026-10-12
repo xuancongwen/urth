@@ -1,0 +1,11 @@
+vnum: 3514
+name: a super healing potion
+keywords: [super, healing, potion, vial, red]
+description: A tall stoppered flask of deep red liquid lies here.
+look: |
+  Malah's strongest brew, deep red and thick as blood, in a flask
+  stoppered with wax and tied with a twist of wool. It smells of pine
+  resin and iron, and it has kept more men on the wall than the wall.
+type: other
+weight: 1
+value: 60

@@ -1,0 +1,13 @@
+vnum: 3218
+name: a rock worm
+keywords: [rock, worm, maggot, young]
+description: A rock worm writhes out of an egg, mouth opening in four directions.
+look: |
+  A pale grub as long as a man, freshly hatched and already hungry,
+  its round mouth ringed with teeth and opening in four petals. It
+  moves in jerks, and where it has been the sand is wet.
+level: 32
+flags: [assist]
+attack:
+  kind: bite
+  verb: bite

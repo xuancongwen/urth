@@ -1,0 +1,21 @@
+vnum: 3519
+name: Korlic the Protector
+keywords: [korlic, protector, ancient, barbarian]
+description: Korlic the Protector crouches on his pedestal, ready to leap, a polearm in his fists.
+look: |
+  The third Ancient, the Protector, who leaps into the thick of a fight
+  from a spear's length away and lands like a falling tower. His stone
+  face is crowned with a horned helm grown into the rock of his skull,
+  and the mountain itself seems to listen when he speaks.
+level: 57
+flags: [assist]
+health: 20000
+stats: {strength: 17, constitution: 17}
+silver: 1000
+attack:
+  verb: strike
+effects:
+  - kind: steady
+    params: { chance: 0.3 }
+  - kind: soak
+    params: { power: 0.1 }

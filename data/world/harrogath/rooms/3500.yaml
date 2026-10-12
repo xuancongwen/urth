@@ -1,0 +1,16 @@
+vnum: 3500
+name: The Portal Terrace
+description: |
+  Tyrael's portal sets you down on a terrace of packed snow below the
+  walls of a fortress cut from the mountain itself, and the cold hits
+  like a thrown stone. Harrogath: the last town of the barbarians,
+  guardians of Mount Arreat, and the last thing between the Lord of
+  Destruction and the Worldstone. Watchfires burn on the battlements.
+  The air smells of pitch, wet wool, and burning. Behind you, south,
+  the blue light of the portal still hangs, back to the Pandemonium
+  Fortress; north, stone steps climb into the town.
+exits:
+  north: 3501
+  south: 3401
+position: {x: 0, y: 0, z: 0}
+flags: [safe]

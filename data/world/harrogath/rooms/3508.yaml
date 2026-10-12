@@ -1,0 +1,13 @@
+vnum: 3508
+name: Shenk's Siege Line
+description: |
+  The siege line of Baal's army: a rampart of rubble and frozen dead,
+  pens of hulking beasts with saddles on their backs, and demon
+  catapults that heave burning loads at the walls behind you. A raised
+  platform of stacked bodies stands at the middle of the line, and from
+  it someone with a whip shouts orders in a voice that has never once
+  been disobeyed. The foothills are south; the road goes north into the
+  highlands.
+exits:
+  south: 3507
+  north: 3509

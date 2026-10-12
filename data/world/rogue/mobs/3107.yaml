@@ -1,0 +1,13 @@
+vnum: 3107
+name: a quill rat
+keywords: [quill, rat, spike, fiend]
+description: A quill rat rattles its spines in the grass and shoots.
+look: |
+  A rat the size of a dog, armoured in a coat of long black quills that
+  it fires off its back in a hissing spray. It lives in packs in the
+  heather and eats whatever it brings down, which is everything.
+level: 22
+flags: [assist]
+attack:
+  kind: pierce
+  verb: quill

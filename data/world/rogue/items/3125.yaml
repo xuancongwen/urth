@@ -1,0 +1,16 @@
+vnum: 3125
+name: a moon clan poleaxe
+keywords: [moon, clan, poleaxe, axe, polearm]
+description: A long poleaxe with a crescent blade lies here.
+look: |
+  A haft of mountain ash taller than a man, topped with a crescent
+  blade beaten from a single sheet of grey iron and stamped with the
+  Moon Clan's mark. It is heavy, and it falls like a guillotine.
+type: weapon
+weight: 11
+level: 27
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

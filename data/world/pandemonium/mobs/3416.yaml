@@ -1,0 +1,23 @@
+vnum: 3416
+name: Lord De Seis
+keywords: [lord, de, seis, knight, oblivion]
+description: Lord De Seis draws his sword before his knights. "Your time is up, mortal!"
+look: |
+  The first and greatest of Diablo's knights, taller than any of his
+  oblivion knights, in a suit of black plate wrought with a thousand
+  years of oaths. He swore himself to the Lord of Terror when Hell was
+  young and has never broken his word, and his armour is the oath given
+  form: whatever strikes it is struck back. He is very fast for a dead
+  thing, and he does not stop.
+level: 51
+health: 14000
+stats: {strength: 19, constitution: 18, dexterity: 15}
+silver: 1000
+xp: 27000
+attack:
+  verb: slash
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: thorns
+    params: { fraction: 0.1, verb: oath-bound spikes }

@@ -1,0 +1,16 @@
+vnum: 3103
+name: The Bonfire
+description: |
+  At the heart of the camp a great fire burns in a ring of stones, fed
+  day and night, and around it the Sisters of the Sightless Eye have
+  pitched what is left of their order: patched tents, a few wagons, a
+  well dug in a hurry. Rogues in leather sit with their bows across
+  their knees and do not quite sleep. A tent hung with blue charms
+  stands north; the ring of a hammer comes from the south. The gate is
+  west, and east, past the last tents, the caravan waits.
+exits:
+  west: 3102
+  east: 3101
+  north: 3104
+  south: 3105
+flags: [safe]

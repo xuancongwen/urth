@@ -1,0 +1,27 @@
+vnum: 3211
+name: Hellplague
+keywords: [hellplague, long, sword, longsword]
+description: A long sword with a blade the colour of embers lies here, smoking.
+look: |
+  A long sword of red steel with a black grip, its blade too hot to
+  touch along the flat. Every cut it makes catches fire and festers
+  with something worse than fire. Fire Eye took it from a hero who had
+  carried it across the desert, and it has never once cooled since.
+type: weapon
+weight: 6
+level: 35
+baseline: standard
+value: 6500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: envenom
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }
+  - kind: damage
+    params: { mult: 1.08, weapon: true }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

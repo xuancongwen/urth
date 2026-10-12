@@ -1,0 +1,12 @@
+vnum: 3519
+name: The Deep Keep
+description: |
+  The lowest level of the keep, close to the heart of the mountain.
+  The walls sweat, and the red light in the stone is bright enough to
+  see by and does not help. Every corridor bends north, toward a sound
+  like a great heart beating very slowly. The ramp goes up; north, a
+  pair of gates opens on a hall of thrones.
+exits:
+  up: 3518
+  north: 3524
+flags: [dark]

@@ -1,0 +1,22 @@
+vnum: 3414
+name: De Seis's oathbound plate
+keywords: [de, seis's, seis, oathbound, plate, armor, armour]
+description: A suit of black plate, wrought all over with tiny writing, stands here.
+look: |
+  The armour of Lord De Seis, black plate covered from collar to greave
+  in lines of tiny writing: every oath he swore to the Lord of Terror,
+  engraved where he would carry them. It is very heavy and very hard to
+  hurt, and whatever strikes it is struck back, as if the oaths
+  themselves were keeping score. It stands longest when its wearer is
+  nearest to falling.
+type: armor
+slot: body
+weight: 26
+level: 51
+baseline: plate
+value: 12000
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: oath-bound spikes } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: lastStand, params: { threshold: 0.25, mult: 0.6 } }

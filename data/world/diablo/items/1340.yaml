@@ -1,0 +1,23 @@
+vnum: 1340
+name: the Veil of Steel
+keywords: [veil, steel, helm, lachdanan]
+description: A great helm with a closed face of fine steel mesh lies here.
+look: |
+  Lachdanan's own helm, a great barrel of black steel with no eye slits
+  at all: the face is a veil of mesh so fine you can see through it
+  and nobody can see in. It narrows the world somewhat. In exchange,
+  very little gets through it, and whoever wears it stands straighter
+  and harder to move, as the captain of the guard once did.
+type: armor
+slot: head
+weight: 5
+level: 21
+value: 2400
+baseline: plate
+effects:
+  - kind: protect
+    params: { mult: 0.92 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

@@ -1,0 +1,27 @@
+vnum: 3225
+name: the Summoner
+keywords: [summoner, mage, vizjerei, horazon]
+description: The Summoner looks up from Horazon's journal on its pedestal. "Ah, I see the Prime Evils have sent another lackey!"
+look: |
+  A tall, gaunt mage in robes of purple and red, with a high collar and
+  a shaven skull tattooed with Vizjerei glyphs, his eyes far too
+  bright. He came here to study Horazon's work and has been reading
+  the journal ever since, and somewhere in the reading he stopped
+  being a scholar and became a servant. He talks too fast and laughs at
+  the wrong places, and the air around him crackles with frost and
+  fire.
+level: 36
+health: 3400
+stats: {intelligence: 18, wisdom: 15, constitution: 12}
+silver: 400
+xp: 10000
+attack:
+  kind: magic
+  verb: blast
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.0, verb: "bolt of crackling fire" }
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.75 }

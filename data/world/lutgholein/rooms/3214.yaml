@@ -1,0 +1,11 @@
+vnum: 3214
+name: The Rocky Waste
+description: |
+  Outside the walls the land is broken rock and grey thorn, baking
+  under a white sky. Old campfires and the bones of camels mark the
+  trail south. Cairns of stones along the ridges are not all for
+  marking the way; some have arrows stuck in them. The gate to the
+  caravan camp is north.
+exits:
+  north: 3200
+  south: 3215

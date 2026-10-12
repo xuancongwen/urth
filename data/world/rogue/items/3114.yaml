@@ -1,0 +1,19 @@
+vnum: 3114
+name: Sigon's Gage
+keywords: [sigon's, sigon, gage, gauntlets]
+description: A pair of steel gauntlets, gilded at the knuckles, lies here.
+look: |
+  Plate gauntlets of bright steel with gilded knuckles, part of the
+  armour of Sigon, a knight of the Western Kingdoms whose complete
+  steel was famous before the Smith got hold of it. The Smith wears
+  only the pieces that fit him. In the gauntlets the grip is strong
+  and the hand is quick.
+type: armor
+slot: hands
+weight: 3
+level: 28
+baseline: plate
+value: 1500
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

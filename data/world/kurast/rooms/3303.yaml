@@ -1,0 +1,12 @@
+vnum: 3303
+name: Hratli's Forge
+description: |
+  A stone smithy built into the old harbour wall, its chimney stained
+  with soot and its walls hung with blades and hooks and the parts of
+  ship's rigging. Glyphs of binding are carved over the forge mouth and
+  around the anvil, and a few of them glow faintly in the heat, which
+  is not something smithcraft usually calls for. A broken flail hangs
+  over the door like a promise. The market is south.
+exits:
+  south: 3302
+flags: [safe]

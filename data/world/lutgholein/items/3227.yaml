@@ -1,0 +1,16 @@
+vnum: 3227
+name: a Lut Gholein falcata
+keywords: [lut, gholein, falcata, sword, blade]
+description: A forward-curved sword of bright steel lies here.
+look: |
+  Fara's work: a heavy single-edged blade that curves forward like a
+  wing, so that every cut falls with the weight of an axe. The hilt
+  is plain brass in the shape of a bird's head.
+type: weapon
+weight: 5
+level: 32
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

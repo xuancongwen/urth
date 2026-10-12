@@ -1,0 +1,11 @@
+vnum: 3104
+name: Akara's Tent
+description: |
+  Inside the tent the air is close and sweet with incense. Rugs cover
+  the ground, and shelves of small bottles, red and blue, glow faintly
+  in the lamplight. A brass bowl of water sits on a stand, perfectly
+  still, and when you look into it you see more than the roof of the
+  tent. The flap opens south onto the bonfire.
+exits:
+  south: 3103
+flags: [safe]

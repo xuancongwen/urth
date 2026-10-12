@@ -1,0 +1,22 @@
+vnum: 3100
+name: Akara the high priestess
+keywords: [akara, priestess, high, sister]
+description: Akara sits by her scrying bowl, and looks up as if she expected you.
+look: |
+  An old woman in the blue robes of the Sisters of the Sightless Eye,
+  with a kind face and a gaze that goes a long way past you. She is the
+  Sisterhood's high priestess, and she has seen in her bowl what came
+  to the monastery, and she has not wept about it where anyone could
+  see. "Greetings, stranger," she says. "I am not surprised to see
+  you. Few travellers arrive here unless the Light leads them." She
+  sells healing draughts, and for a fee she will teach you to step out
+  of a blow's way and to mend your wounds faster. Bring her an Ort and
+  a Sol rune and she will bind them into a helm for you.
+level: 24
+flags: [peaceful]
+teaches: [dodge, fast_healing]
+attack:
+  verb: strike
+trades:
+  - { item: 3100, silver: 30 }
+  - { item: 3109, silver: 200, items: [3106, 3107] }

@@ -1,0 +1,19 @@
+vnum: 3227
+name: a tomb guardian
+keywords: [tomb, guardian, mummy, greater, undead]
+description: A tomb guardian steps out of its alcove, gilded mask gleaming.
+look: |
+  A greater mummy in a death-mask of beaten gold, one of the Horadric
+  guards who were sealed alive in Tal Rasha's tomb to keep his prison
+  for ever. They kept it. They are keeping it still, from anyone,
+  including you, and they spit a poison that eats through linen and
+  skin alike.
+level: 37
+flags: [assist]
+stats: {strength: 14, constitution: 14}
+attack:
+  kind: blunt
+  verb: pound
+effects:
+  - kind: dot
+    params: { damage: 5 }

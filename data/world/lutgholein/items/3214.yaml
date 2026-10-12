@@ -1,0 +1,26 @@
+vnum: 3214
+name: Duriel's Shell
+keywords: [duriel's, duriel, shell, carapace, cuirass]
+description: A curved plate of black chitin as big as a door lies here, rimed with frost.
+look: |
+  A section of the Lord of Pain's back-plate, black chitin as thick as
+  a hand, cut and strapped into a cuirass. Frost grows on it in the
+  heat of the desert and never melts. Blows that land on it arrive
+  weaker than they left, and the cold in it seeps into whatever strikes
+  it and slows it down. It is unbearably heavy, and it makes its
+  wearer strong enough to bear it.
+type: armor
+slot: body
+weight: 16
+level: 38
+baseline: heavy
+value: 10000
+effects:
+  - kind: protect
+    params: { mult: 0.9 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: thorns
+    params: { fraction: 0.1, verb: bite of the Lord of Pain's frost }

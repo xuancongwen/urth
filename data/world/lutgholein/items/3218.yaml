@@ -1,0 +1,13 @@
+vnum: 3218
+name: a raider's head-wrap
+keywords: [raider's, raider, head-wrap, wrap, turban]
+description: A long, sand-coloured head-wrap lies here in a tangle.
+look: |
+  Several yards of coarse cloth, sand-coloured and stiff with sweat,
+  wound round a padded skullcap. It keeps the sun off and the face
+  hidden, and a blow to the head comes in soft.
+type: armor
+slot: head
+weight: 1
+level: 28
+baseline: light

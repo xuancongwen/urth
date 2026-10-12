@@ -1,0 +1,24 @@
+vnum: 3310
+name: Stormshield
+keywords: [stormshield, storm, shield, monarch]
+description: A great round shield of blackened bronze lies here, crackling faintly.
+look: |
+  A monarch's shield, round and as wide as a cartwheel, torn from the
+  door of a temple and scarred by lightning until the bronze turned
+  black. It takes blows as though they were half as hard as they are,
+  and whatever strikes it gets a crack of lightning back for its
+  trouble. Stormtree carried it like a toy.
+type: armor
+slot: shield
+weight: 12
+level: 40
+value: 3500
+effects:
+  - kind: block
+    params: { chance: 0.18 }
+  - kind: protect
+    params: { mult: 0.9 }
+  - kind: thorns
+    params: { fraction: 0.1, verb: crackle of lightning }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

@@ -1,0 +1,28 @@
+vnum: 3508
+name: Bul-Kathos' Tribal Guardian
+keywords: [bul-kathos', bul-kathos, bulkathos, tribal, guardian, sword]
+description: A broad-bladed sword of dark iron lies here, warm to the touch.
+look: |
+  One of the two blades of Bul-Kathos, the barbarian king who led the
+  tribes out of the north and founded Harrogath: the lesser, the one he
+  carried in his off hand, a broad sword of dark iron with a fire
+  locked into the steel and a bitter poison in its fuller. Lister took
+  it from the hall of the dead kings. It wants to go home.
+type: weapon
+weight: 6
+level: 58
+baseline: standard
+value: 15000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: envenom
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

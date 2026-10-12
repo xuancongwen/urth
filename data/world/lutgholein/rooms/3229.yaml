@@ -1,0 +1,14 @@
+vnum: 3229
+name: Tal Rasha's Chamber
+description: |
+  A round chamber at the bottom of everything, its floor slick with
+  frost in the middle of the desert. In its centre, chained to a
+  pillar by chains of red light, hangs a figure in tattered robes whose
+  face cannot be seen: Tal Rasha, the vessel. But Tal Rasha is gone,
+  and the figure in the chains is Tyrael, Archangel of Justice, his
+  wings of light guttering, bound here by the Prime Evils to wait. He
+  cannot help you. Something else lives in this chamber, and it is
+  very large, and it was left here to make sure. The seal is up.
+exits:
+  up: 3228
+flags: [dark]

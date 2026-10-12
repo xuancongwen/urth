@@ -1,0 +1,11 @@
+vnum: 3307
+name: The Iron Wolves' Barracks
+description: |
+  A long house of teak and stone given over to the Iron Wolves, the
+  mercenary company of Kingsport hired to hold the docks. Hammocks hang
+  in rows, armor stands on racks, and a sand table in the middle shows
+  the way to Travincal marked with every ambush on the road. The air
+  hums faintly; half the company are mages. The gate is north.
+exits:
+  north: 3305
+flags: [safe]

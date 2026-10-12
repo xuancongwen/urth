@@ -1,0 +1,16 @@
+vnum: 3202
+name: The Great Bazaar
+description: |
+  The heart of Lut Gholein is a square of pale flagstones under striped
+  awnings, crowded with stalls that are mostly shuttered. A dry fountain
+  stands in the middle, its basin full of sand. The merchants who are
+  left talk in low voices and keep their eyes on the south gate. The
+  noise of a tavern comes from the north; the ring of a hammer from the
+  south; east, a broad street leads toward the palace. The caravan
+  waits outside the west arch.
+exits:
+  west: 3200
+  north: 3203
+  south: 3204
+  east: 3205
+flags: [safe]

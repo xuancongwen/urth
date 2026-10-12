@@ -1,0 +1,24 @@
+vnum: 3117
+name: the Countess
+keywords: [countess, bathory, lady]
+description: The Countess rises from her bath, dripping red, and reaches for you.
+look: |
+  A tall, pale woman in a gown of red velvet, beautiful in the way of a
+  portrait, with black hair piled high and a necklace of rubies. She
+  kept her youth by bathing in the blood of her servants, and when the
+  Sisterhood walled her up in her own tower she did not die, only
+  waited. She hoards gold, and more than gold she hoards the carved
+  rune-stones of the old smiths, heaped in chests around her bath. Every
+  wound she opens feeds her.
+level: 27
+health: 1400
+stats: {intelligence: 16, dexterity: 13, charisma: 16}
+silver: 600
+xp: 6000
+attack:
+  kind: claw
+  verb: rake
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }
+  - { kind: dodge, params: { amount: 0.03 } }

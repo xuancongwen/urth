@@ -1,0 +1,16 @@
+vnum: 3324
+name: a jungle machete
+keywords: [jungle, machete, blade, knife]
+description: A long, heavy jungle machete lies here.
+look: |
+  A long blade, heavy at the tip, of the sort the docks use to cut a
+  road through the creepers. It does as much for anything else that
+  gets in the way.
+type: weapon
+level: 37
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

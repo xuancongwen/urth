@@ -1,0 +1,21 @@
+vnum: 3415
+name: the Infector's flayed hide
+keywords: [infector's, infector, flayed, hide, cloak, mantle]
+description: A cloak of scarred grey-green hide lies here, twitching faintly.
+look: |
+  A mantle cut from the Infector of Souls' own hide, which he flayed
+  from himself and grew again a hundred times, and it has not forgotten
+  how to grow. It knits its wearer's wounds as it knits its own, takes
+  the force out of every blow, and breathes out a sick green air that
+  rots whatever comes close. It does not smell good.
+type: armor
+slot: shoulders
+weight: 3
+level: 52
+baseline: light
+value: 15000
+effects:
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: aura, params: { power: 0.12, verb: cloud of pestilence } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

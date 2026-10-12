@@ -1,0 +1,18 @@
+vnum: 3209
+name: Drognan the wizard
+keywords: [drognan, wizard, mage, sage]
+description: Drognan reads a crumbling scroll by lamplight, lips moving.
+look: |
+  A grey-bearded old wizard in midnight-blue robes worked with silver
+  stars, with the long patient face of a man who has read every book
+  in the room twice. He was a Vizjerei once and is ashamed of what they
+  became. "Horazon," he says, tapping a page. "The great summoner. He
+  built a sanctuary out of the world, and some say his madness lives in
+  it still. Look beneath the palace." He sells a staff or two to those
+  who would take up the art. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  verb: rap
+trades:
+  - { item: 3232, silver: 1000 }

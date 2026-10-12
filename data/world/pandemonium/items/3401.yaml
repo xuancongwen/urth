@@ -1,0 +1,13 @@
+vnum: 3401
+name: a lamp of Pandemonium
+keywords: [lamp, pandemonium, light, lantern]
+description: A small lamp of white crystal lies here, shining steadily.
+look: |
+  A lamp of white crystal the size of a fist, with no wick and no oil,
+  which gives a clear cold light the darkness of Hell cannot quite
+  swallow. It will burn out in time, Jamella says, as everything does,
+  but not for a long while.
+type: light
+weight: 1
+value: 30
+burn: 3000

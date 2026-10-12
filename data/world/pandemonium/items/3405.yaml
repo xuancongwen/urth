@@ -1,0 +1,13 @@
+vnum: 3405
+name: a burning demon horn
+keywords: [burning, demon, horn]
+description: A great curved horn lies here, still smouldering at the root.
+look: |
+  A horn as long as a forearm, shed by one of the great demons of the
+  City of the Damned. It burns at the root and will go on burning for
+  days, and it is harder than steel. Halbu faces shields with them.
+type: material
+material: demon horn
+rarity: uncommon
+weight: 2
+value: 150

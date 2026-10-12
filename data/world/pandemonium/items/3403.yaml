@@ -1,0 +1,17 @@
+vnum: 3403
+name: a ring of the heavens
+keywords: [ring, heavens, heaven, silver]
+description: A ring of pale silver, too bright for this place, lies here.
+look: |
+  A band of silver that was never mined, cut with a line of tiny stars
+  that move very slowly around it. Worn in Hell it keeps the wearer's
+  head clear and their feet light.
+type: armor
+slot: finger
+weight: 0
+level: 46
+value: 4000
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.02 } }

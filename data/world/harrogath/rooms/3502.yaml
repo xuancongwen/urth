@@ -1,0 +1,12 @@
+vnum: 3502
+name: Larzuk's Forge
+description: |
+  An open forge under a stone arch, its fire fed day and night and its
+  anvil so big two men could not lift it. Axes for the wall hang on
+  racks by the dozen, and a barrel of new arrowheads stands by the
+  quench. Laid out on a cloth on the bench are tools nobody south of
+  the mountains would know the use of: punches and drifts for opening
+  a socket in finished steel without breaking it. The square is west.
+exits:
+  west: 3501
+flags: [safe]

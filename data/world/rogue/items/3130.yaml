@@ -1,0 +1,13 @@
+vnum: 3130
+name: a mail hauberk
+keywords: [mail, hauberk, chain]
+description: A long shirt of riveted mail lies here.
+look: |
+  A shirt of riveted rings down to the knee, mended by Charsi in a
+  dozen places with brighter rings. It is heavy on the shoulders and
+  honest work.
+type: armor
+slot: body
+weight: 14
+level: 24
+baseline: medium

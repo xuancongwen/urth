@@ -1,0 +1,11 @@
+vnum: 3106
+name: Gheed's Wagon
+description: |
+  A painted wagon with its side let down into a counter, hung all over
+  with bells, ribbons, and locked strongboxes. Rings and amulets glint
+  on a velvet tray, every one of them wrapped so you cannot see what it
+  is. A set of loaded dice sits on top of the counter, as if daring you
+  to mention it. The caravan circle is south.
+exits:
+  south: 3101
+flags: [safe]

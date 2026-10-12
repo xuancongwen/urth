@@ -1,0 +1,16 @@
+vnum: 3226
+name: an unraveler
+keywords: [unraveler, mummy, priest, undead]
+description: An unraveler drifts out of a false tomb, a glaive in its wrapped hands.
+look: |
+  A mummified priest of the old tombs, taller than a man and wrapped in
+  linen gone brown with age, its arms trailing loose bandages that
+  writhe as if alive. It carries a long-bladed glaive and raises the
+  dead around it with a voice like dry leaves. The canyon was full of
+  them before Tal Rasha was sealed below it.
+level: 36
+flags: [assist]
+stats: {strength: 14, intelligence: 14}
+attack:
+  kind: slash
+  verb: cleave

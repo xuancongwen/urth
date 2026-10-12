@@ -1,0 +1,22 @@
+vnum: 3518
+name: Madawc the Guardian
+keywords: [madawc, guardian, ancient, barbarian]
+description: Madawc the Guardian lifts a throwing axe from his belt and weighs it, watching you.
+look: |
+  The second Ancient, lean and long-armed where Talic is broad, half
+  stone and half the man he was a thousand years ago. He is the
+  Guardian, who throws axes faster than a man can draw a sword, and
+  never misses twice. His stone chest is cut with old runes that hold
+  something of the strength of the first barbarian king.
+level: 57
+flags: [assist]
+health: 20000
+stats: {dexterity: 18, strength: 16, constitution: 16}
+silver: 1000
+attack:
+  verb: hurl
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: soak
+    params: { power: 0.1 }

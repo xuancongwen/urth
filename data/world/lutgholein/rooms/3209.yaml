@@ -1,0 +1,11 @@
+vnum: 3209
+name: Elzix's Inn
+description: |
+  A cool courtyard inn built around a well, with a gallery of rooms
+  above and a stable below that holds more mercenaries' horses than
+  merchants' camels these days. Spears lean against the wall in a
+  rack, and hard-faced men and women in desert mail play dice in the
+  shade. The road is south.
+exits:
+  south: 3208
+flags: [safe]

@@ -1,0 +1,24 @@
+vnum: 3501
+name: Pindleskin's skull
+keywords: [pindleskin's, pindleskin, pindle, skull, helm]
+description: A polished yellow skull, horned and cracked, lies here grinning.
+look: |
+  The skull of the defiled warrior who guards Nihlathak's door, worn
+  smooth as ivory by the number of times he has been killed. It has been
+  hollowed and lined to wear as a helm, and the curse that kept him
+  standing comes with it: blows that land on the wearer come back
+  splintered, and the wearer goes on standing a little longer than he
+  should. The jaw still clicks, now and then, by itself.
+type: armor
+slot: head
+weight: 3
+level: 55
+baseline: heavy
+value: 10000
+effects:
+  - kind: thorns
+    params: { fraction: 0.1, verb: "curse of bone splinters" }
+  - kind: lastStand
+    params: { threshold: 0.25, mult: 0.8 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

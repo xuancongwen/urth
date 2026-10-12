@@ -1,0 +1,12 @@
+vnum: 3119
+name: The Tower Cellar
+description: |
+  A round cellar under the tower, ringed with iron cells. The cells
+  are empty, and the chains in them end in shackles closed around
+  nothing. The walls are cold and wet, and pale shapes slide through
+  them as if the stone were water. A spiral stair goes on down; the way
+  up leads back to the tower.
+exits:
+  up: 3118
+  down: 3120
+flags: [dark]

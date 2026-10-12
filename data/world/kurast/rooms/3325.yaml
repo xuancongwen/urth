@@ -1,0 +1,12 @@
+vnum: 3325
+name: The Flooded Walk
+description: |
+  The lowest level of the Durance is a lake of blood with walkways of
+  black stone laid across it, and the walkways move when nobody is
+  looking. Lightning flickers in the depths of the lake. A council
+  elder in scorched robes waits where the walkway branches, sparks
+  running between his fingers. The ramp is up; the walk goes on east.
+exits:
+  up: 3324
+  east: 3326
+flags: [dark]

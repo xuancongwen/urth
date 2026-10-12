@@ -1,0 +1,13 @@
+vnum: 3226
+name: a gilded death-mask
+keywords: [gilded, death-mask, death, mask, helm]
+description: A mask of beaten gold with a calm, dead face lies here.
+look: |
+  A helm of bronze with a face-plate of beaten gold, shaped into the
+  serene features of a Horadric guard who was sealed in alive to watch
+  over Tal Rasha. The eyes are holes. The expression does not change.
+type: armor
+slot: head
+weight: 5
+level: 37
+baseline: plate

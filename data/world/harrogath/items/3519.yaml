@@ -1,0 +1,14 @@
+vnum: 3519
+name: a perfect skull
+keywords: [perfect, skull, gem]
+description: A small skull of polished white stone lies here, grinning.
+look: |
+  Not a real skull but a gem cut in the likeness of one, flawless,
+  white, and cold, that the dead of Nihlathak's temple carry in their
+  jaws for reasons of his own. Set in a socket, it drinks life from
+  whatever its weapon cuts. Larzuk knows how to set them.
+type: material
+material: perfect skull
+rarity: uncommon
+weight: 1
+value: 300

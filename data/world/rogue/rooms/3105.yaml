@@ -1,0 +1,12 @@
+vnum: 3105
+name: Charsi's Forge
+description: |
+  An anvil set on a stump under a lean-to, a portable forge glowing
+  beside it, and a rack of blades and shields that a smith carried out
+  of the monastery on her own back when it fell. Everything here has
+  been mended at least once. A sign burned into a plank says REPAIRS,
+  and under it someone has added in chalk: AND THEN SOME. The bonfire
+  is north.
+exits:
+  north: 3103
+flags: [safe]

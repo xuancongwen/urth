@@ -1,0 +1,10 @@
+vnum: 3527
+name: The Drifter Cavern
+description: |
+  A cave drifted deep in snow that has blown in from no opening you
+  can see, and goes on blowing. Shapes in the drifts may be rocks.
+  Every so often one of them gets up. The gallery under the glacier is
+  east.
+exits:
+  east: 3513
+flags: [dark]

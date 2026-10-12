@@ -1,0 +1,14 @@
+vnum: 3114
+name: a brute
+keywords: [brute, yeti, beast, ape]
+description: A brute pounds the ground with its fists and roars.
+look: |
+  A shaggy grey thing like a great ape, nine feet tall when it bothers
+  to stand, with fists like boulders and small red eyes. It lives in
+  the Dark Wood and eats what wanders in. Its hide is thick enough to
+  turn a sword.
+level: 26
+stats: {strength: 15, constitution: 14}
+attack:
+  kind: blunt
+  verb: pound

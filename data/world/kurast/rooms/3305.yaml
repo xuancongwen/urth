@@ -1,0 +1,15 @@
+vnum: 3305
+name: The Stockade Gate
+description: |
+  A gate of lashed teak trunks closes the last street of the docks off
+  from the jungle, with a fighting step behind it and a bell to ring
+  when something comes out of the trees. Iron Wolf sentries walk the
+  step in pairs. North, an alchemist's hut steams; south, a barracks
+  flies a grey wolf on a red field. The market is west. East, past the
+  gate, the Spider Forest begins without any warning at all.
+exits:
+  west: 3302
+  north: 3306
+  south: 3307
+  east: 3308
+flags: [safe]

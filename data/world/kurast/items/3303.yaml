@@ -1,0 +1,12 @@
+vnum: 3303
+name: Khalim's Brain
+keywords: [khalim's, khalim, brain, jar, relic]
+description: A grey brain floats in a jar of murky glass.
+look: |
+  The brain of the just elder Khalim, in a stoppered jar of flayer
+  glass and green fluid that the flayers have worshipped as a god.
+  Every so often a light moves across it, as if it were still
+  thinking something through. Hratli the smith needs it.
+type: other
+weight: 2
+value: 300

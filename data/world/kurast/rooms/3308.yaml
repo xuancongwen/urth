@@ -1,0 +1,13 @@
+vnum: 3308
+name: The Spider Forest
+description: |
+  The jungle closes over your head ten steps from the gate. Trunks as
+  thick as towers rise into a green dark, roped together with vines and
+  with webs, and the webs are the size of sails. Things are caught in
+  them: birds, monkeys, a man in Iron Wolf grey. The ground is soft and
+  hums with insects. A hole between the roots of a strangler fig goes
+  down into a smell of rot. The gate is west; the forest goes on east.
+exits:
+  west: 3305
+  east: 3309
+  down: 3327

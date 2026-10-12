@@ -1,0 +1,16 @@
+vnum: 3126
+name: a corrupted rogue's spear
+keywords: [corrupted, rogue's, rogue, spear]
+description: A long spear with a leaf blade, its shaft gone black, lies here.
+look: |
+  A Sisterhood spear of good ash with a leaf-shaped blade, carried by a
+  Rogue who turned. The shaft has gone black where her hands held it,
+  and it is cold.
+type: weapon
+weight: 4
+level: 28
+baseline: spear
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust

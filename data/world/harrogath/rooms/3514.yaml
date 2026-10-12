@@ -1,0 +1,11 @@
+vnum: 3514
+name: The Frozen Tundra
+description: |
+  A white waste on the upper slopes, flat and featureless, where the
+  wind blows so hard the snow never settles and the ground is bare
+  blue ice. Nothing grows. The shapes that come out of the glare are
+  white-furred and walk upright. The glacier tunnel is south; north,
+  a path marked with cairns climbs toward the summit.
+exits:
+  south: 3513
+  north: 3515

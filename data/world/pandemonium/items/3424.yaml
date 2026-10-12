@@ -1,0 +1,13 @@
+vnum: 3424
+name: a pair of storm caster's cuffs
+keywords: [storm, caster's, caster, cuffs, bracers]
+description: A pair of ash-stained cloth cuffs lies here, crackling faintly.
+look: |
+  Strips of wet black cloth wound into cuffs, which a storm caster wore
+  to keep its sleeves out of its own lightning. They are scorched in
+  lines like branching trees, and they make your hair stand up.
+type: armor
+slot: wrist
+weight: 0
+level: 48
+baseline: cloth

@@ -1,0 +1,14 @@
+vnum: 3311
+name: a flayer shaman
+keywords: [flayer, shaman, fetish]
+description: A flayer shaman shakes a staff of skulls, and fire gathers in its eye sockets.
+look: |
+  A flayer in a crown of feathers and finger bones, older and fatter
+  than the rest, with a staff hung with shrunken heads. It throws fire
+  from its hands, and, worse, it brings the dead flayers back up.
+level: 40
+flags: [assist]
+stats: {intelligence: 15}
+attack:
+  kind: fire
+  verb: scorch

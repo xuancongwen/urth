@@ -1,0 +1,16 @@
+vnum: 3318
+name: a Kurast cutlass
+keywords: [kurast, cutlass, sword, blade]
+description: A broad curved cutlass lies here.
+look: |
+  A sailor's sword from the Kurast yards, short and broad and curved,
+  with a basket hilt of brass. Hratli makes them for the Iron Wolves
+  and for Meshif's crew, and they cut cane and cultists equally well.
+type: weapon
+weight: 4
+level: 38
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

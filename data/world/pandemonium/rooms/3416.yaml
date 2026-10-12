@@ -1,0 +1,12 @@
+vnum: 3416
+name: The Hellforge
+description: |
+  An anvil the size of a cart stands on an island of rock in the river,
+  fed by channels of liquid fire. Here the weapons of Hell's armies were
+  made, and here, the Horadrim wrote, a soulstone could be broken if the
+  hammer were heavy enough and the hand that swung it willing to pay.
+  The Armorer of Hell works at it, and the racks around him hold blades
+  still glowing from the quench. The only way back is west.
+exits:
+  west: 3415
+flags: [dark]

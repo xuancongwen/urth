@@ -1,0 +1,11 @@
+vnum: 3300
+name: a potion of greater healing
+keywords: [greater, healing, potion, vial, red]
+description: A squat flask of deep red liquid sits here.
+look: |
+  Alkor's own brew, darker and thicker than anything Pepin made in
+  Tristram, in a squat flask with a cork sealed in green wax. It tastes
+  of pepper and iron and leaves the tongue numb for an hour.
+type: other
+weight: 1
+value: 40

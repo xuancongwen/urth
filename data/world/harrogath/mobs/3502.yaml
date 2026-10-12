@@ -1,0 +1,19 @@
+vnum: 3502
+name: Malah the healer
+keywords: [malah, healer, old, woman]
+description: Malah tends a wounded defender by the fire, humming an old song.
+look: |
+  An old woman, small and straight-backed, wrapped in shawls, her
+  hands steady as a surgeon's. She has stitched up half the wall. Her
+  potions are the best north of the Twin Seas, and she will sell them
+  to anyone who goes out to fight. She is worried sick about Anya, the
+  young merchant, who went into the mountain after Nihlathak and did
+  not come back; she has brewed a draught to thaw whatever ice holds
+  her, and she will sell you that too.
+level: 48
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3514, silver: 60 }
+  - { item: 3515, silver: 150 }

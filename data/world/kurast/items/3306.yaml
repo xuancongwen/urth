@@ -1,0 +1,30 @@
+vnum: 3306
+name: Khalim's Will
+keywords: [khalim's, khalim, will, flail]
+description: A flail of white gold lies here, an eye set in its head, humming with lightning.
+look: |
+  Hratli forged it from the flail, the eye, the brain and the heart of
+  Khalim, and something of the man went into it: the eye is set in
+  the head of the flail and looks where you look, and the chain hums
+  with the patience of someone who waited a long time to be put back
+  together. It was made to shatter the Compelling Orb. It shatters
+  other things too, with a crack of white lightning, and it remembers
+  every elder of the Council it meets.
+type: weapon
+weight: 6
+level: 44
+baseline: flail
+value: 6000
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail
+effects:
+  - kind: proc
+    params: { chance: 0.18, power: 1.25, verb: crack of Khalim's lightning }
+  - kind: damage
+    params: { mult: 1.1, weapon: true }
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

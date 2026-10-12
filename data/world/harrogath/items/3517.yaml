@@ -1,0 +1,12 @@
+vnum: 3517
+name: a red portal scroll
+keywords: [red, portal, scroll, anya]
+description: A scroll sealed with red wax lies here, faintly warm.
+look: |
+  A scroll in Anya's hand, sealed with red wax and bearing the sigil of
+  Nihlathak's temple, which she copied from his own papers. Held up to
+  the shut red portal behind her stall, it opens the way; it shuts the
+  way again too, if you would rather nothing followed you home.
+type: other
+weight: 0
+value: 200

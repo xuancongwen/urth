@@ -1,0 +1,28 @@
+vnum: 3503
+name: Nihlathak's staff
+keywords: [nihlathak's, nihlathak, staff, elder]
+description: A tall black staff topped with a shrunken head lies here.
+look: |
+  The staff of office of an elder of Harrogath, black ash carved with
+  the Ancients' runes, which Nihlathak has since topped with the shrunken
+  head of the elder who sat beside him on the council. It thinks for
+  its bearer, and it remembers what he taught it: point it at the dead
+  and they burst, and what bursts feeds the hand that pointed.
+type: weapon
+weight: 4
+level: 56
+baseline: staff
+value: 12000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smite
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.2, verb: corpse explosion }
+  - kind: leech
+    params: { fraction: 0.05 }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

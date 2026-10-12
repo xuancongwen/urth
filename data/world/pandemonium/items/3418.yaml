@@ -1,0 +1,16 @@
+vnum: 3418
+name: a doom knight's blackened greatsword
+keywords: [doom, knight's, knight, blackened, greatsword, sword]
+description: A two-handed greatsword, blackened by fire, lies here.
+look: |
+  A paladin's greatsword from an order nobody remembers, the holy words
+  on its blade burned black and illegible. It is as long as a man and
+  as heavy as a grudge.
+type: weapon
+weight: 12
+level: 45
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

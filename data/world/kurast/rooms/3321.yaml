@@ -1,0 +1,12 @@
+vnum: 3321
+name: Travincal
+description: |
+  The temple city of the Zakarum is a vast courtyard of white stone
+  laid out around reflecting pools that reflect nothing but red. Ranks
+  of zealots kneel in rows, swaying. On a dais at the north end, before
+  the doors of the High Council's hall, the robed elders of the faith
+  wait for you with their hands raised and their eyes alight; they
+  have long since stopped being men. The causeway is west.
+exits:
+  west: 3320
+  north: 3322

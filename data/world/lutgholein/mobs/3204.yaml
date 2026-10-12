@@ -1,0 +1,21 @@
+vnum: 3204
+name: Fara the blacksmith
+keywords: [fara, blacksmith, smith, paladin]
+description: Fara works a blade on the anvil, her strokes slow and certain.
+look: |
+  A tall, strong woman with cropped grey hair and burn scars on her
+  forearms, who was a paladin of Zakarum before she grew tired of what
+  the Church had become. She still prays at the forge. "The Light
+  watches over those who fight for it," she says, "but it does not
+  sharpen their swords. That is my work." She sells good steel, and
+  will hammer the chitin of the desert's beetles into a shield if you
+  bring her enough of it. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  verb: hammer
+trades:
+  - { item: 3227, silver: 900 }
+  - { item: 3229, silver: 800 }
+  - { item: 3228, silver: 1100 }
+  - { item: 3210, silver: 400, items: [3203, 3203, 3203] }

@@ -1,0 +1,13 @@
+vnum: 3200
+name: a desert lamp
+keywords: [desert, lamp, lantern, oil]
+description: A brass oil lamp with a long spout sits here.
+look: |
+  A brass lamp shaped like a gravy boat with a lid, a wick in the spout
+  and a ring for a finger. Elzix fills them with palm oil that smokes a
+  little and smells of dates. They burn long, and they light the
+  sewers as well as they light a supper table.
+type: light
+weight: 1
+value: 30
+burn: 1500

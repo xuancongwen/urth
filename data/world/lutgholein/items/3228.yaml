@@ -1,0 +1,13 @@
+vnum: 3228
+name: a palace guard's breastplate
+keywords: [palace, guard's, guard, breastplate, plate]
+description: A heavy breastplate enamelled green and gold stands here.
+look: |
+  The breastplate of the sultan's own guard, heavy steel enamelled in
+  green with a gold sunburst on the chest. Fara made the last dozen.
+  The guards who wore them are mostly in the palace still.
+type: armor
+slot: body
+weight: 18
+level: 33
+baseline: heavy

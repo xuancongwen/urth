@@ -1,0 +1,23 @@
+vnum: 3505
+name: Immortal King's Soul Cage
+keywords: [immortal, king's, king, soul, cage, armor, plate]
+description: A breastplate of bronze and stone, carved with runes, stands here on its own.
+look: |
+  The Immortal King's breastplate, bronze plates riveted over a cage
+  of stone ribs and carved inside and out with runes of binding. Madawc
+  wore it into stone. The runes hold the wearer's spirit in, so that
+  he goes on fighting past the point of dying, and the bronze turns
+  the blows that would have killed him.
+type: armor
+slot: body
+weight: 20
+level: 57
+baseline: plate
+value: 14000
+effects:
+  - kind: protect
+    params: { mult: 0.9 }
+  - kind: lastStand
+    params: { threshold: 0.3, mult: 0.8 }
+  - kind: stat
+    params: { stat: constitution, amount: 3 }

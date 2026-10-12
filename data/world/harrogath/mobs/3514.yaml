@@ -1,0 +1,25 @@
+vnum: 3514
+name: Pindleskin
+keywords: [pindleskin, pindle, defiled, warrior, undead]
+description: Pindleskin stands before the temple doors, grinning a lipless grin.
+look: |
+  A defiled warrior of the reanimated horde, bigger than the rest, the
+  flesh gone from his skull and the skull gone yellow and polished as
+  old ivory. Cursed things cling to him, and fire runs along his bones
+  when he swings. He has stood at Nihlathak's door longer than anyone
+  can count, and every hero who comes through the red portal meets him
+  first. A great many of them come back, again and again. He seems to
+  enjoy it.
+level: 55
+health: 16000
+stats: {strength: 16, constitution: 16}
+silver: 1200
+attack:
+  verb: cleave
+effects:
+  - kind: thorns
+    params: { fraction: 0.1, verb: "curse of bone splinters" }
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }
+  - kind: regen
+    params: { fraction: 0.005 }

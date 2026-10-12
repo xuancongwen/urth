@@ -1,0 +1,14 @@
+vnum: 3108
+name: The Blood Moor
+description: |
+  Rough moorland of red heather and black pools, cut by streams that
+  run the colour of rust. Bones lie scattered in the grass, some old
+  and some not, and a burned wagon lies on its side by the path. Little
+  campfires smoke out on the moor where something small and red has
+  settled in. In a fold of the ground, a cave mouth breathes out a
+  stink of rot: the Den of Evil, the Rogues call it. The gate is north;
+  the path goes on south across the moor.
+exits:
+  north: 3102
+  south: 3110
+  down: 3109

@@ -1,0 +1,13 @@
+vnum: 3523
+name: a yeti-fur mantle
+keywords: [yeti-fur, yeti, fur, mantle, cloak]
+description: A thick mantle of white fur lies here.
+look: |
+  A shoulder-mantle of white yeti fur, long in the hair and greasy to
+  the touch, that smells strongly of yeti. It is the warmest thing on
+  the mountain.
+type: armor
+slot: shoulders
+weight: 3
+level: 54
+baseline: light

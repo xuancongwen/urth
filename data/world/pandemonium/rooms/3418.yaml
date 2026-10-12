@@ -1,0 +1,16 @@
+vnum: 3418
+name: The Chaos Sanctuary, the Outer Court
+description: |
+  A court of black glass before the Sanctuary's sealed doors, marked out
+  with a five-pointed star in lines of fire. Three seals burn at three
+  of its points, each guarded, and each one, the Horadrim wrote, binds
+  a part of the way within. West, east and south, the seal chambers; the
+  bridge is north. The Sanctuary's own great doors stand shut and
+  barred from within, and through the glass under your feet you can
+  feel something very large, very far below, waiting.
+exits:
+  north: 3417
+  west: 3419
+  east: 3420
+  south: 3421
+flags: [dark]

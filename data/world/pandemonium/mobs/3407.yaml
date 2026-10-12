@@ -1,0 +1,14 @@
+vnum: 3407
+name: an abyss knight
+keywords: [abyss, knight, caster, undead]
+description: An abyss knight chants in a ring of its fellows, the air shimmering around it.
+look: |
+  A knight in robes over black mail, skeletal under the hood, whose
+  gauntlets are cut with runes that glow when it speaks. Abyss knights
+  do not fight with swords. They point, and things burst into flame.
+level: 46
+flags: [assist]
+stats: {intelligence: 16}
+attack:
+  kind: fire
+  verb: firebolt

@@ -1,0 +1,16 @@
+vnum: 3320
+name: an Iron Wolf blade
+keywords: [iron, wolf, blade, sword, longsword]
+description: A straight longsword with a wolf's-head pommel lies here.
+look: |
+  The sidearm of the Iron Wolves, a straight Kingsport blade with a
+  wolf's-head pommel and runes of focus etched down the fuller, so a
+  mage can cast through it in a pinch. It is an honest sword.
+type: weapon
+weight: 5
+level: 40
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,16 @@
+vnum: 3409
+name: a pit lord
+keywords: [pit, lord, balrog, demon, horned]
+description: A pit lord paces between the burning pillars, snorting sparks from its nostrils.
+look: |
+  A great winged demon twice the height of a man, red-hided and
+  bull-horned, with a burning mane and an axe as long as you are. Pit
+  lords are the brute muscle of Hell's legions, and they know it. The
+  floor around this one is littered with its own shed horns, which
+  still smoulder.
+level: 47
+flags: [assist]
+stats: {strength: 17, constitution: 15}
+attack:
+  kind: fire
+  verb: cleave

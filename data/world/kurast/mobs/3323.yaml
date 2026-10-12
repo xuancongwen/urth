@@ -1,0 +1,19 @@
+vnum: 3323
+name: Maffer Dragonhand
+keywords: [maffer, dragonhand, council, elder]
+description: Maffer Dragonhand stands at the bridge, his scaled hand smouldering.
+look: |
+  The youngest elder of the High Council, whose right hand has become
+  the claw of something scaled and burning. He is proud of it. He wears
+  the masked helm of a mage-slayer he killed with it, and the helm's
+  empty eyes look at you over his own.
+level: 45
+health: 4000
+stats: {strength: 15, intelligence: 16}
+silver: 400
+attack:
+  kind: fire
+  verb: claw
+effects:
+  - kind: ignite
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }

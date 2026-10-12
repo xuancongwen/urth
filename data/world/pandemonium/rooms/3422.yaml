@@ -1,0 +1,12 @@
+vnum: 3422
+name: The Plains of Despair, the Crater's Rim
+description: |
+  A ridge of thrown-up rock around the crater, from which you can see
+  the whole plain: the fortress, white and small to the north, and to
+  the south the walls of the City of the Damned. Feathers lie in the
+  ash here, black ones and a few that were white once. North, the
+  crater; west, the black field.
+exits:
+  north: 3410
+  west: 3409
+flags: [dark]

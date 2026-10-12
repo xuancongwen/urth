@@ -1,0 +1,12 @@
+vnum: 3520
+name: Nihlathak's Temple
+description: |
+  The red portal opens on the forecourt of a temple of the barbarians,
+  its doors carved with the Ancients and its steps rimed with frost.
+  The guards who should stand at its door are here, after a fashion:
+  dead, and up, and waiting. Bones crunch under the snow. The portal
+  hangs in the air west, back to Anya's stall; inside the doors a stair
+  goes down into the halls.
+exits:
+  west: 3506
+  down: 3521

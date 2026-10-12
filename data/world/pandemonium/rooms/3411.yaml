@@ -1,0 +1,14 @@
+vnum: 3411
+name: The Gate of the City of the Damned
+description: |
+  The gate of a city built by no mortal hand: towers of black stone
+  carved all over with faces, all of them screaming, and a gateway
+  wide enough to march an army through. Its doors were torn off long
+  ago. Inside, streets of burning rubble climb between the ruins of
+  palaces. West, a temple roof still burns; south, the main avenue
+  runs into the city. North is the plain.
+exits:
+  north: 3409
+  west: 3413
+  south: 3412
+flags: [dark]

@@ -1,0 +1,16 @@
+vnum: 3401
+name: The Hall of the Archangel
+description: |
+  A hall of white pillars climbing out of sight, where the light comes
+  from everywhere and casts no shadows. At its heart stands a figure in
+  a hood, with wings of light that move like silk in water: the
+  Archangel Tyrael, who opened the way here and has been waiting. North,
+  between two pillars, a blue portal turns slowly, and through it blows
+  a cold wind smelling of snow and pine smoke: Harrogath, on the slopes
+  of Mount Arreat. The portal court is west; a ringing of hammers comes
+  from the south.
+exits:
+  north: 3500
+  west: 3400
+  south: 3403
+flags: [safe]

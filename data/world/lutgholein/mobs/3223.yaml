@@ -1,0 +1,19 @@
+vnum: 3223
+name: a specter
+keywords: [specter, ghost, wraith, spirit]
+description: A specter drifts through a silk hanging without disturbing it.
+look: |
+  A pale, half-seen woman in harem silks, translucent as smoke, with a
+  face that is only an open mouth. Its touch is cold and drains the
+  warmth and the will together. It does not seem to know it is dead,
+  only that it is angry.
+level: 34
+flags: [assist]
+stats: {intelligence: 14}
+attack:
+  kind: cold
+  verb: touch
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - { kind: dodge, params: { amount: 0.05 } }

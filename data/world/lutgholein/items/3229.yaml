@@ -1,0 +1,16 @@
+vnum: 3229
+name: a mercenary's spear
+keywords: [mercenary's, mercenary, spear, pike]
+description: A long spear with a leaf-shaped head lies here.
+look: |
+  The long ash spear of Greiz's desert company, with a broad
+  leaf-shaped head and a tassel of red horsehair below it. It keeps a
+  sabre cat at arm's length, which is the only safe length.
+type: weapon
+weight: 5
+level: 30
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

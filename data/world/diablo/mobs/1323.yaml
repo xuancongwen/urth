@@ -1,0 +1,20 @@
+vnum: 1323
+name: Lachdanan, captain of the King's guard
+keywords: [lachdanan, captain, knight, guard]
+description: A knight in blackened plate kneels among the open sarcophagi, his sword laid across his knees. He does not attack.
+look: |
+  Lachdanan, who was captain of Leoric's guard and led the knights who
+  slew their mad king, and was cursed for it with the rest of them to
+  walk in the tombs below the cathedral. The curse has not yet taken
+  him all the way, though grey has crept into the skin at his throat
+  and his eyes are tired beyond telling. He asks only one thing of
+  you: a golden elixir, which the Archbishop's servants hid away in
+  the pits below, so that he can lift the curse and rest. He will give
+  you his helm for it, the Veil of Steel, which he will not need where
+  he is going. Type 'list'.
+level: 19
+flags: [peaceful]
+attack:
+  verb: slash
+trades:
+  - { item: 1340, items: [1339] }

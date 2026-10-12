@@ -1,0 +1,15 @@
+vnum: 3129
+name: a broad axe
+keywords: [broad, axe]
+description: A broad-bladed axe lies here.
+look: |
+  A wide, bearded axe head on a stout haft, Charsi's work, good for
+  splitting logs and better for splitting fallen.
+type: weapon
+weight: 6
+level: 26
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

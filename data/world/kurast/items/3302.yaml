@@ -1,0 +1,12 @@
+vnum: 3302
+name: Khalim's Eye
+keywords: [khalim's, khalim, eye, relic]
+description: An eye floats in a little reliquary of gold, looking at you.
+look: |
+  A human eye, brown, perfectly preserved in a gold reliquary with a
+  window of crystal, and it moves. It belonged to Khalim, the one
+  elder of the High Council who refused the Lord of Hatred, and it has
+  not stopped watching for him. Hratli the smith needs it.
+type: other
+weight: 1
+value: 300

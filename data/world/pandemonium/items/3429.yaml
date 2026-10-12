@@ -1,0 +1,12 @@
+vnum: 3429
+name: a fiend-bone helm
+keywords: [fiend-bone, fiend, bone, helm, helmet]
+description: A helm made from the skull of a horned demon lies here.
+look: |
+  The skull of a horned demon, hollowed out and lined with leather,
+  its horns sawn short. It looks as bad as it should.
+type: armor
+slot: head
+level: 53
+baseline: medium
+flags: [drop]

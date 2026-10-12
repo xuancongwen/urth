@@ -1,0 +1,13 @@
+vnum: 3309
+name: Deep in the Spider Forest
+description: |
+  The webs are thicker here and the light thinner. A ruined shrine of
+  the old Skatsim faith stands among the roots, its idols wrapped head
+  to foot in silk like mummies. Behind it the earth has fallen into a
+  sinkhole, and the silk runs down into it in cables. Something below
+  is burning, and the smoke smells of singed hair. The way back to the
+  docks is west; east, the ground goes wet and the trees thin out.
+exits:
+  west: 3308
+  east: 3311
+  down: 3310

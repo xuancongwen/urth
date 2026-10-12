@@ -1,0 +1,28 @@
+vnum: 3504
+name: Immortal King's Stone Crusher
+keywords: [immortal, king's, king, stone, crusher, maul, hammer]
+description: A massive maul of grey stone bound in bronze lies here, too heavy to roll.
+look: |
+  The war maul of the Immortal King, first and greatest of the
+  barbarian kings, a head of mountain granite on a haft of iron as long
+  as a man. Talic carried it for a thousand years in stone. It crushes:
+  armour, bones, walls, it makes no great distinction. The Immortal
+  King's war-gear is a set in name; each piece stands alone.
+type: weapon
+weight: 18
+level: 57
+baseline: heavy
+value: 16000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: crush
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.4 }
+  - kind: damage
+    params: { mult: 1.08, weapon: true }
+  - kind: stat
+    params: { stat: strength, amount: 3 }

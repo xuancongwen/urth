@@ -1,0 +1,16 @@
+vnum: 3420
+name: a soul killer's bone dagger
+keywords: [soul, killer's, killer, bone, dagger, knife]
+description: A dagger carved from a long white bone lies here.
+look: |
+  A dagger whittled from the thighbone of something large, sharpened
+  to a needle and notched along the spine for counting. The count is
+  very high.
+type: weapon
+weight: 1
+level: 45
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

@@ -1,0 +1,13 @@
+vnum: 3417
+name: The Bridge over the River of Flame
+description: |
+  A narrow bridge of black stone without a rail, arching over the
+  river so high that the fire below is a red floor and the heat comes
+  up in waves you can see. On the far side, south, lies a great
+  pentagram of a building with its doors sealed: the Chaos Sanctuary,
+  where the Lord of Terror was meant to make his throne. North is the
+  burning shore.
+exits:
+  north: 3415
+  south: 3418
+flags: [dark]

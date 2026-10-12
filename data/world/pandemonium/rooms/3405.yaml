@@ -1,0 +1,14 @@
+vnum: 3405
+name: The Outer Steppes, the Causeway
+description: |
+  The causeway runs down from the fortress across a land of cracked
+  black rock, where steam and worse comes up through the cracks and the
+  only light is a red glow from below. Things have been impaled along
+  the causeway's edge, and some of them were angels. Every footstep
+  sounds wrong, as though the ground were hollow and something in it
+  were listening. The gate of Pandemonium is north, high and white and
+  already far away; the causeway goes on south.
+exits:
+  north: 3404
+  south: 3406
+flags: [dark]

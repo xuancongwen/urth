@@ -1,0 +1,18 @@
+vnum: 3207
+name: Elzix the innkeeper
+keywords: [elzix, innkeeper, keeper]
+description: Elzix counts coins on the counter, glancing up at every footstep.
+look: |
+  A wiry, sharp-nosed man with a thin moustache and a ring on every
+  finger, who was a bandit in his youth and has never fully stopped
+  being one. "Welcome, welcome to my humble inn!" he says, and checks
+  your boots for how far you have come. He sells lamps for the dark
+  places below the city, and he would rather not talk about what the
+  guards found in the sewers. Type 'list'.
+level: 22
+flags: [peaceful]
+attack:
+  verb: stab
+trades:
+  - { item: 3200, silver: 30 }
+  - { item: 3201, silver: 45 }

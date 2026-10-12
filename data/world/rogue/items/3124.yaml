@@ -1,0 +1,13 @@
+vnum: 3124
+name: a brute-hide jerkin
+keywords: [brute-hide, brute, hide, jerkin]
+description: A shaggy grey jerkin of thick hide lies here.
+look: |
+  A jerkin cut from the hide of a Dark Wood brute, the grey fur left
+  on and the skin side scraped and oiled. It is thick enough to turn a
+  knife and light enough to run in.
+type: armor
+slot: body
+weight: 5
+level: 26
+baseline: light

@@ -1,0 +1,16 @@
+vnum: 3520
+name: a Harrogath militia spear
+keywords: [harrogath, militia, spear]
+description: A long ash spear with a leaf-shaped head lies here in the snow.
+look: |
+  A defender's spear from the walls of Harrogath, ash haft wrapped in
+  rawhide, leaf blade of good mountain iron. Its owner is under the
+  snow somewhere in the foothills. The imps like them for prodding.
+type: weapon
+weight: 5
+level: 50
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

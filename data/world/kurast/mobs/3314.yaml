@@ -1,0 +1,20 @@
+vnum: 3314
+name: Battlemaid Sarina
+keywords: [battlemaid, sarina, maid, guardian]
+description: Battlemaid Sarina stands before the black lectern, her blade drawn.
+look: |
+  A warrior of the old mage-clans in scaled armor turned green with
+  age, whose oath was to guard the tome of Lam Esen until the end of
+  the world. She has kept it long past the end of her own. Her skin
+  is grey and her eyes are the colour of old ice, and she moves as
+  fast as she did on the day she swore.
+level: 42
+health: 3000
+stats: {dexterity: 16, strength: 15}
+silver: 260
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }

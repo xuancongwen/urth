@@ -1,0 +1,16 @@
+vnum: 3102
+name: The Encampment Gate
+description: |
+  A gate of lashed timber stands half open in the palisade, wide enough
+  for a wagon, with a lookout platform built over it. Arrows have been
+  pulled out of the gateposts and left their splinters behind. Inside,
+  east, tents and wagons crowd around a bonfire; north, a ladder climbs
+  to the captain's watch on the wall. Outside, the road runs west toward
+  Tristram, and a trampled path drops south into a moor that is the
+  colour of a bruise.
+exits:
+  west: 3100
+  east: 3103
+  north: 3107
+  south: 3108
+flags: [safe]

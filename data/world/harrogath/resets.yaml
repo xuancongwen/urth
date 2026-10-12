@@ -1,0 +1,64 @@
+interval_seconds: 300
+resets:
+  # Harrogath
+  - { mob: 3500, room: 3504 }                                   # Qual-Kehk on the wall above the gate, who teaches the barbarian's arts
+  - { mob: 3501, room: 3502 }                                   # Larzuk at his forge
+  - { mob: 3502, room: 3503 }                                   # Malah among the wounded
+  - { mob: 3503, room: 3506 }                                   # Anya at her stall, by the shut red portal
+  - { mob: 3504, room: 3505, equip: [{ item: 3532, slot: finger1 }] }   # Nihlathak among the empty chairs of the council, the elder's seal on his finger
+  # the Bloody Foothills
+  - { mob: 3505, room: 3507, max: 6, equip: [{ item: 3520, slot: wield }] }   # demon imps on the battlefield, with stolen spears
+  - { mob: 3505, room: 3507, max: 6, equip: [{ item: 3520, slot: wield }] }
+  - { mob: 3505, room: 3507, max: 6, equip: [{ item: 3520, slot: wield }] }
+  - { mob: 3506, room: 3507, max: 3, equip: [{ item: 3521 }] }  # a siege beast in its harness
+  - { mob: 3507, room: 3507, equip: [{ item: 3521 }] }          # Dac Farren among the dead
+  - { mob: 3506, room: 3508, max: 3, equip: [{ item: 3521 }] }  # siege beasts in the pens along the line
+  - { mob: 3506, room: 3508, max: 3, equip: [{ item: 3521 }] }
+  - { mob: 3505, room: 3508, max: 6, equip: [{ item: 3520, slot: wield }] }   # imps at Shenk's feet (he whips up more)
+  - { mob: 3508, room: 3508, equip: [{ item: 3500, slot: wield }] }   # Shenk the Overseer and his whip
+  # the Frigid Highlands and the Arreat Plateau
+  - { mob: 3509, room: 3509, equip: [{ item: 3522 }] }          # Eldritch the Rectifier at the waystones
+  - { mob: 3510, room: 3509, max: 5, equip: [{ item: 3522, slot: head }] }   # a frozen horror in the furrowed snow
+  - { mob: 3510, room: 3510, max: 5, equip: [{ item: 3522, slot: head }] }   # frozen horrors standing still on the plateau
+  - { mob: 3510, room: 3510, max: 5, equip: [{ item: 3522, slot: head }] }
+  # the Crystalline Passage and the Frozen River
+  - { mob: 3511, room: 3511, max: 6, equip: [{ item: 3523, slot: shoulders }] }   # snow yetis in the ice tunnel
+  - { mob: 3511, room: 3511, max: 6, equip: [{ item: 3523, slot: shoulders }] }
+  - { mob: 3511, room: 3512, max: 6, equip: [{ item: 3523, slot: shoulders }] }   # and by the river
+  - { mob: 3512, room: 3512, equip: [{ item: 3502, slot: hands }, { item: 3518 }] }   # Frozenstein, his grip on his thumbs, a shard of Anya's ice
+  # the Glacial Trail, the Drifter Cavern, the Frozen Tundra
+  - { mob: 3510, room: 3513, max: 5, equip: [{ item: 3522, slot: head }] }   # frozen horrors under the glacier
+  - { mob: 3511, room: 3527, max: 6, equip: [{ item: 3523, slot: shoulders }] }   # yetis in the drifts
+  - { mob: 3511, room: 3527, max: 6, equip: [{ item: 3523, slot: shoulders }] }
+  - { mob: 3516, room: 3514, max: 4, equip: [{ item: 3525 }] }  # an abominable on the tundra, with a pilgrim's greaves
+  # Nihlathak's Temple, through Anya's portal
+  - { mob: 3513, room: 3520, max: 6, equip: [{ item: 3524, slot: wield }, { item: 3519 }] }   # defiled warriors on the temple steps, perfect skulls in their jaws
+  - { mob: 3513, room: 3520, max: 6, equip: [{ item: 3524, slot: wield }] }
+  - { mob: 3514, room: 3520, equip: [{ item: 3501, slot: head }, { item: 3519 }] }   # Pindleskin at the door, his own skull, a perfect one
+  - { mob: 3513, room: 3521, max: 6, equip: [{ item: 3524, slot: wield }] }   # the dead in the Halls of Anguish
+  - { mob: 3513, room: 3521, max: 6, equip: [{ item: 3524, slot: wield }, { item: 3519 }] }
+  - { mob: 3513, room: 3522, max: 6, equip: [{ item: 3524, slot: wield }] }   # and in the Halls of Pain
+  - { mob: 3515, room: 3523, equip: [{ item: 3503, slot: wield }] }   # Nihlathak, the betrayer, and his staff
+  # the Ancients' Way and the summit
+  - { mob: 3516, room: 3515, max: 4, equip: [{ item: 3525 }] }  # abominables on the pilgrim road
+  - { mob: 3516, room: 3526, max: 4, equip: [{ item: 3525 }] }  # and in the Icy Cellar
+  - { mob: 3516, room: 3526, max: 4, equip: [{ item: 3525 }] }
+  - { mob: 3517, room: 3516, equip: [{ item: 3504 }] }          # Talic, with the Immortal King's maul
+  - { mob: 3518, room: 3516, equip: [{ item: 3505 }] }          # Madawc, with the Immortal King's breastplate
+  - { mob: 3519, room: 3516, equip: [{ item: 3506 }] }          # Korlic, with the Immortal King's helm
+  # the Worldstone Keep
+  - { mob: 3520, room: 3517, max: 7, equip: [{ item: 3526, slot: arms }] }   # minions of destruction in the halls
+  - { mob: 3520, room: 3517, max: 7, equip: [{ item: 3526, slot: arms }] }
+  - { mob: 3520, room: 3518, max: 7, equip: [{ item: 3526, slot: arms }] }
+  - { mob: 3520, room: 3518, max: 7, equip: [{ item: 3526, slot: arms }] }
+  - { mob: 3520, room: 3519, max: 7, equip: [{ item: 3526, slot: arms }] }
+  - { mob: 3520, room: 3519, max: 7, equip: [{ item: 3526, slot: arms }] }
+  # the Throne of Destruction
+  - { mob: 3522, room: 3524, equip: [{ item: 3526 }] }          # Colenzo the Annihilator, the first wave
+  - { mob: 3523, room: 3524, equip: [{ item: 3519 }] }          # Achmel the Cursed, the second
+  - { mob: 3524, room: 3524, equip: [{ item: 3507, slot: wield }] }   # Bartuc the Bloody and his Cut-Throat
+  - { mob: 3525, room: 3524, equip: [{ item: 3519 }] }          # Ventar the Unholy
+  - { mob: 3520, room: 3524, max: 7, equip: [{ item: 3526, slot: arms }] }   # Lister's pack
+  - { mob: 3521, room: 3524, equip: [{ item: 3508, slot: wield }] }   # Lister the Tormentor, Bul-Kathos' lesser blade in his fist
+  # the Worldstone Chamber
+  - { mob: 3526, room: 3525, equip: [{ item: 3510, slot: body }, { item: 3511, slot: hold }, { item: 3512 }] }   # Baal in Tal Rasha's robe and with his orb, and the Worldstone shard

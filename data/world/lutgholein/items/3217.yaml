@@ -1,0 +1,17 @@
+vnum: 3217
+name: a desert scimitar
+keywords: [desert, scimitar, sword, blade]
+description: A curved scimitar with a sand-scoured blade lies here.
+look: |
+  A sharply curved blade with a plain brass guard and a grip wound in
+  camel leather, the weapon of every caravan guard and every raider
+  between Lut Gholein and the mountains. This one has changed hands
+  that way more than once.
+type: weapon
+weight: 4
+level: 28
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

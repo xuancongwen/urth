@@ -1,0 +1,28 @@
+vnum: 3416
+name: Doombringer
+keywords: [doombringer, long, sword, blade]
+description: A long sword of greenish black steel lies here, smoking.
+look: |
+  A long sword forged in Hephasto's fire and quenched in the Infector's
+  venom, its blade the colour of a deep bruise and hot along the edge.
+  Every cut it makes burns and sickens together, and the wielder drinks
+  a little of what it spills. It is the plague of Hell made into a
+  blade, and it was made to be used.
+type: weapon
+weight: 6
+level: 52
+baseline: standard
+value: 15000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: envenom
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: leech
+    params: { fraction: 0.06 }
+  - kind: damage
+    params: { mult: 1.08, weapon: true }

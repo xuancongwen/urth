@@ -1,0 +1,16 @@
+vnum: 3409
+name: a dwarven war axe
+keywords: [dwarven, war, axe]
+description: A broad-bladed war axe with a short haft lies here.
+look: |
+  Halbu's work: a heavy crescent blade of star-iron on a short haft of
+  black wood, bound in bronze. It is made for a dwarf's reach and a
+  dwarf's grudge, and it does not chip.
+type: weapon
+weight: 7
+level: 46
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

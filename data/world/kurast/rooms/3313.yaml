@@ -1,0 +1,13 @@
+vnum: 3313
+name: The Flayer Dungeon
+description: |
+  Low stone tunnels, older than the flayers who crawl in them, lit by
+  smoking pots of fat. The walls are hung with skins stretched on
+  frames, and the floor is sticky. Totems of skull and feather stand
+  at every turning, and a chanting comes up from somewhere ahead, high
+  and wordless and very pleased with itself. The stair is up; the
+  tunnels go on south.
+exits:
+  up: 3312
+  south: 3314
+flags: [dark]

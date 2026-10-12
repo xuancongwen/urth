@@ -1,0 +1,12 @@
+vnum: 3521
+name: The Halls of Anguish
+description: |
+  A temple hall where the barbarians once laid out their honoured dead,
+  turned into a slaughterhouse. The biers are empty and the dead walk
+  the aisles. Prayers carved into the pillars have been scratched out
+  and written over in something else. The stair climbs back up; east, a
+  hall goes deeper.
+exits:
+  up: 3520
+  east: 3522
+flags: [dark]

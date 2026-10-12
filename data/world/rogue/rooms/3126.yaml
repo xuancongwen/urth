@@ -1,0 +1,11 @@
+vnum: 3126
+name: The Inner Cloister
+description: |
+  A second, smaller cloister at the heart of the monastery, its garden
+  laid out in gravel in the shape of an eye. The walls are painted with
+  the Sisterhood's history: archers, a tower, a great white bird. Every
+  painted face has been scratched out. The jail is north; south, tall
+  doors stand open on the monastery's cathedral.
+exits:
+  north: 3125
+  south: 3127

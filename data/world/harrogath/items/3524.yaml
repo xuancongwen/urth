@@ -1,0 +1,16 @@
+vnum: 3524
+name: a defiled warrior's falchion
+keywords: [defiled, warrior's, warrior, falchion, sword]
+description: A frost-rimed falchion lies here, its edge notched.
+look: |
+  A barbarian's falchion, heavy at the tip, its grip still wrapped in
+  the clan colours of whoever carried it alive. Frost has got into the
+  steel and will not come out.
+type: weapon
+weight: 6
+level: 54
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

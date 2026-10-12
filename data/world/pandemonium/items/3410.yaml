@@ -1,0 +1,13 @@
+vnum: 3410
+name: a dwarven plate hauberk
+keywords: [dwarven, plate, hauberk, armor, armour]
+description: A short, heavy coat of overlapping plates stands here on a rack.
+look: |
+  Small plates of star-iron riveted over a coat of fine mail, cut short
+  in the dwarven way so it will not catch on a stair. Halbu makes them
+  for anyone going out the gate, and grumbles about the extra length.
+type: armor
+slot: body
+weight: 22
+level: 46
+baseline: plate

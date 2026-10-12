@@ -1,0 +1,19 @@
+vnum: 3206
+name: Lysander the alchemist
+keywords: [lysander, alchemist, old, potion]
+description: Lysander peers at a bubbling phial and shouts at it to behave.
+look: |
+  A bent little old man with a wild white beard, half deaf from forty
+  years of small explosions, who shouts everything. "WHAT? POTIONS?
+  YES, YES, OF COURSE!" He sells his brews, and he knows more of the
+  Horadrim than he lets on: bring him the Staff of Kings and the
+  Amulet of the Viper, he says, and enough silver for the reagents,
+  and he will make the two one again, as the old order made them.
+  Type 'list'.
+level: 24
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3201, silver: 40 }
+  - { item: 3207, silver: 500, items: [3205, 3206] }

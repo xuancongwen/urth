@@ -1,0 +1,12 @@
+vnum: 3525
+name: a pair of frost-rimed greaves
+keywords: [frost-rimed, frost, rimed, greaves]
+description: A pair of steel greaves lies here, white with frost and dented by teeth.
+look: |
+  A pilgrim knight's plate greaves, rimed white, dented in a pattern
+  that matches a yeti's bite. They are cold enough to stick to the skin.
+type: armor
+slot: legs
+weight: 8
+level: 56
+baseline: plate

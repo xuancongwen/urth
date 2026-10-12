@@ -1,0 +1,14 @@
+vnum: 3104
+name: a Tal rune
+keywords: [tal, rune, stone]
+description: A small flat stone, carved with a single rune, lies here.
+look: |
+  A smooth grey stone the size of a thumbnail, carved with the rune
+  Tal, a sharp hooked line like a fishing barb. The old smiths of the
+  Western Kingdoms set such stones into armour and weapons in an order
+  that meant something. Charsi knows one such order, with Eth.
+type: material
+material: rune
+rarity: rare
+weight: 0
+value: 150

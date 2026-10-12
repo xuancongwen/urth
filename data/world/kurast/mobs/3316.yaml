@@ -1,0 +1,15 @@
+vnum: 3316
+name: a council member
+keywords: [council, member, elder, priest, zakarum]
+description: A council member of the Zakarum raises his hands, and fire forms between them.
+look: |
+  One of the lesser elders of the High Council, robed in red and gold,
+  with a face gone grey and a mouth that does not close properly. The
+  Lord of Hatred gave the council his own power, and the council gave
+  him their souls; this one throws hydras of fire and laughs.
+level: 43
+flags: [assist]
+stats: {intelligence: 16}
+attack:
+  kind: fire
+  verb: scorch

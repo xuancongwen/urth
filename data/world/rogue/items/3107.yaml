@@ -1,0 +1,13 @@
+vnum: 3107
+name: a Sol rune
+keywords: [sol, rune, stone]
+description: A small flat stone, carved with a single rune, lies here.
+look: |
+  A pale gold stone carved with the rune Sol, a circle crossed by one
+  line, warm as a stone left in the sun. Akara wants it beside an Ort
+  rune, for a helm that remembers what its wearer has forgotten.
+type: material
+material: rune
+rarity: rare
+weight: 0
+value: 150

@@ -1,0 +1,12 @@
+vnum: 3517
+name: The Worldstone Keep
+description: |
+  Inside the mountain, a fortress of the old builders, gone bad. The
+  walls are dressed stone, but the stone is veined now with red that
+  pulses slowly, and the floor is littered with bones gnawed white.
+  Fat grey shapes in spiked armour patrol the halls. The door to the
+  summit is south; a ramp goes down into the keep.
+exits:
+  south: 3516
+  down: 3518
+flags: [dark]

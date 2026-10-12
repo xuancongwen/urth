@@ -1,0 +1,14 @@
+vnum: 3511
+name: The Crystalline Passage
+description: |
+  A tunnel through solid ice, the walls clear as glass for an arm's
+  depth and then blue, then black. Things are frozen in the walls:
+  a barbarian with his axe raised, a demon mid-stride, a mammoth tusk
+  longer than a sledge. Your breath freezes and falls. The cleft to
+  the plateau is south; east, the floor slopes down toward the sound of
+  ice cracking on moving water; the passage goes on north.
+exits:
+  south: 3510
+  east: 3512
+  north: 3513
+flags: [dark]

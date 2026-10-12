@@ -1,0 +1,12 @@
+vnum: 3127
+name: The Monastery Cathedral
+description: |
+  A long nave of white stone under a ribbed vault, lit by tall windows
+  of coloured glass that throw red and blue across the pews. At the
+  altar end the floor has been broken open, and a stair goes down into
+  the catacombs where the Sisterhood laid its dead. The air coming up
+  smells of old bone and something sweet and poisonous. The inner
+  cloister is north.
+exits:
+  north: 3126
+  down: 3128

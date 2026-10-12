@@ -1,0 +1,12 @@
+vnum: 3430
+name: a pair of ash-walker boots
+keywords: [ash-walker, ash, walker, boots]
+description: A pair of soft grey boots, thick-soled, lies here.
+look: |
+  Boots of soft grey leather with soles thick enough to walk the hot
+  ash of the steppes, made for someone who meant to walk a long way.
+type: armor
+slot: feet
+level: 47
+baseline: light
+flags: [drop]

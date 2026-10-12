@@ -1,0 +1,23 @@
+vnum: 3111
+name: Blood Raven
+keywords: [blood, raven, rogue, corrupted]
+description: Blood Raven stands among the open graves with an arrow nocked, and smiles at you.
+look: |
+  She was the best archer the Sisterhood ever had, a hero of the war
+  against the Lord of Terror, and she came back from Tristram changed.
+  Her skin is the grey of a corpse and her eyes are red, and her long
+  bow is as black as her hair. The dead of the burial ground walk at
+  her word, and she raises more as you watch. Kashya taught her to
+  shoot, and she is better at it now. "You should not have come here,"
+  she says. "I will not miss."
+level: 25
+health: 1200
+stats: {dexterity: 16, intelligence: 13}
+silver: 250
+xp: 5000
+attack:
+  kind: pierce
+  verb: shoot
+spawns: { mob: 3108, every: 5, max: 3 }
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

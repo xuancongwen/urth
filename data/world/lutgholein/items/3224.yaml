@@ -1,0 +1,13 @@
+vnum: 3224
+name: a viper-scale hauberk
+keywords: [viper-scale, viper, scale, hauberk, armor]
+description: A shirt of overlapping bronze-green scales lies here.
+look: |
+  Scales shed by a claw viper, each as big as a palm, sewn overlapping
+  onto a leather shirt so that it shimmers green and bronze when it
+  moves. It flexes like skin and turns a blade like stone.
+type: armor
+slot: body
+weight: 10
+level: 34
+baseline: medium

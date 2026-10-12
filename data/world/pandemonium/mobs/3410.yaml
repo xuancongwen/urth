@@ -1,0 +1,18 @@
+vnum: 3410
+name: a venom lord
+keywords: [venom, lord, balrog, demon, winged]
+description: A venom lord circles down out of the red sky, its glaive dripping green.
+look: |
+  The same breed as the pit lords, but leaner, its wings ragged and
+  its hide gone the black-green of a bruise. It breathes a fog that
+  burns like fire and festers like a wound, and its glaive is never
+  wiped. The pit lords keep out of its way.
+level: 48
+flags: [assist]
+stats: {strength: 16, constitution: 15, dexterity: 13}
+attack:
+  kind: fire
+  verb: sear
+effects:
+  - kind: dot
+    params: { damage: 8 }

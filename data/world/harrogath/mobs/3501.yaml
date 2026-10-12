@@ -1,0 +1,22 @@
+vnum: 3501
+name: Larzuk the blacksmith
+keywords: [larzuk, blacksmith, smith]
+description: Larzuk works a glowing axe-head on his anvil, sparks flying into the snow.
+look: |
+  A broad young barbarian with a smith's shoulders and a smith's burns,
+  his braids tied back from the fire. He has been forging axes for the
+  wall since the siege began and he will forge one for you, or a helm.
+  He is the last man in Harrogath who knows the old craft of opening a
+  socket in finished steel, and he will set a perfect skull into an
+  axe of his own make. And if you ever bring him a piece of the
+  Worldstone itself, he says, he knows a blade it was meant for: the
+  sword of Bul-Kathos, the first king of his people.
+level: 50
+flags: [peaceful]
+attack:
+  verb: hammer
+trades:
+  - { item: 3527, silver: 2000 }
+  - { item: 3528, silver: 1500 }
+  - { item: 3513, silver: 1000, items: [3527, 3519] }
+  - { item: 3509, silver: 5000, items: [3512] }

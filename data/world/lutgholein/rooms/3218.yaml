@@ -1,0 +1,13 @@
+vnum: 3218
+name: The Far Oasis
+description: |
+  Palms and reeds crowd round a pool of green water, the only shade for
+  a day in any direction. The ground around it is churned and riddled
+  with holes as wide as a well, and the air hums with insects the size
+  of a fist. One hole, larger than the rest, slopes down into the dark
+  and breathes out a smell of rot and wet sand. The hills are north;
+  south, the desert runs on toward ruins.
+exits:
+  north: 3215
+  south: 3221
+  down: 3219

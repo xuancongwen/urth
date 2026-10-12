@@ -1,0 +1,16 @@
+vnum: 3232
+name: an arcanist's staff
+keywords: [arcanist's, arcanist, staff, rod]
+description: A straight staff of dark wood capped in silver lies here.
+look: |
+  A plain staff of desert ironwood capped in silver, the sort Drognan
+  sells to students who have not yet earned a better one. It is well
+  balanced, and it helps the mind to gather.
+type: weapon
+weight: 4
+level: 34
+baseline: staff
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike

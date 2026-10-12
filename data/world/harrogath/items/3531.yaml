@@ -1,0 +1,13 @@
+vnum: 3531
+name: a pair of Harrogath fur boots
+keywords: [harrogath, fur, boots]
+description: A pair of fur-lined boots lies here.
+look: |
+  Tall boots of oiled hide, lined with fox fur and studded under the
+  sole for the ice. Anya swears they are the last pair in Harrogath,
+  and charges accordingly.
+type: armor
+slot: feet
+weight: 3
+level: 55
+baseline: light

@@ -1,0 +1,11 @@
+vnum: 3419
+name: The Seal of the Grand Vizier
+description: |
+  A round chamber lined with shelves of burning books, whose pages turn
+  by themselves. In the floor a seal of fire is set in a ring of runes,
+  and a robed shape stands over it with a book open in its claws,
+  reading the seal aloud so that it will not close. Storm casters
+  attend him. The outer court is east.
+exits:
+  east: 3418
+flags: [dark]

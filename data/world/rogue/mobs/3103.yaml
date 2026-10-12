@@ -1,0 +1,18 @@
+vnum: 3103
+name: Gheed the gambler
+keywords: [gheed, gambler, merchant, trader]
+description: Gheed rattles a pair of dice behind his counter and grins at your purse.
+look: |
+  A fat, cheerful merchant in a striped coat and too many rings, with a
+  smile that never reaches his small bright eyes. He follows the
+  caravans and the soldiers and the trouble, because trouble is good
+  for business. "Ah, there you are, my friend! Have I got a deal for
+  you!" Everything on his tray is wrapped, and every price is steep, and
+  now and then, he swears, somebody walks away with something wonderful.
+level: 20
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3119, silver: 2000 }
+  - { item: 3120, silver: 2500 }

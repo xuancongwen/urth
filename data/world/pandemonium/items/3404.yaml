@@ -1,0 +1,25 @@
+vnum: 3404
+name: Tyrael's Might
+keywords: [tyrael's, tyrael, might, sacred, armor, armour]
+description: A suit of silver and gold armour lies here, light as a held breath, shining.
+look: |
+  Sacred armour of silver over gold, worked with wings across the
+  shoulders and the sigil of Justice on the breast. It was made for an
+  Archangel and weighs nothing at all on a mortal; it moves like silk
+  and turns a blade like a fortress wall. Whoever wears it fights
+  harder, moves quicker, stands longer, and sees what Hell would rather
+  hide. Jamella says it came to her honestly. Tyrael has not asked for
+  it back.
+type: armor
+slot: body
+weight: 2
+level: 52
+baseline: plate
+value: 25000
+effects:
+  - { kind: protect, params: { mult: 0.88 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: detectInvisible }

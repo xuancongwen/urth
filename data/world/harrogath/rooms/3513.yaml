@@ -1,0 +1,13 @@
+vnum: 3513
+name: The Glacial Trail
+description: |
+  The tunnel opens into a long gallery under the glacier, its roof a
+  sagging sky of blue ice hung with icicles as long as spears. Some of
+  them have fallen, and been pulled out of whatever they fell on. A
+  side cave west is drifted half full of snow that blew in from
+  somewhere. The passage is south; north, daylight, grey and harsh.
+exits:
+  south: 3511
+  west: 3527
+  north: 3514
+flags: [dark]

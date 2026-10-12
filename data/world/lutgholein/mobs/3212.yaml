@@ -1,0 +1,24 @@
+vnum: 3212
+name: Radament the Fallen
+keywords: [radament, fallen, mummy, embalmer]
+description: Radament turns from his embalming table, wrappings trailing. "Your bones will serve me!"
+look: |
+  A tall greater mummy in rotting gold-trimmed wrappings, once a priest
+  of the old embalming cult, who sought to cheat death and found it
+  would not stay cheated. His eyes burn a sickly green behind the
+  linen. Poison drips from his fingers, and wherever he stands the
+  dead on the tables stir. Behind him, on its lectern, lies the Book of
+  Skill, the one thing he never finished reading.
+level: 30
+health: 2400
+stats: {intelligence: 15, constitution: 14}
+silver: 200
+xp: 6000
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - kind: dot
+    params: { damage: 6 }
+  - kind: regen
+    params: { fraction: 0.01 }

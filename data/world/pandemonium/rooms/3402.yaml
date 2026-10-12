@@ -1,0 +1,14 @@
+vnum: 3402
+name: Jamella's Alcove
+description: |
+  Silk curtains, a rug from some eastern bazaar, brass lamps, and racks
+  of bottles and bundled goods that seem very ordinary for a fortress of
+  angels. A woman sits cross-legged among them, keeping accounts in a
+  little book, and she looks up as if she has been expecting you for
+  some time. Wrapped bundles are stacked behind her that she will sell
+  you sight unseen, if you like to gamble. The portal court is north;
+  the forge is east.
+exits:
+  north: 3400
+  east: 3403
+flags: [safe]

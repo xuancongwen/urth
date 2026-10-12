@@ -1,0 +1,24 @@
+vnum: 3112
+name: the Gull
+keywords: [gull, dagger, knife]
+description: A slim dagger with a hilt like a gull's wing lies here.
+look: |
+  A light dagger with a white bone hilt carved like a gull's spread
+  wing and a blade that flashes silver even in the dark. It is a lucky
+  blade: whoever carries it seems to find the gap in a staggering
+  foe's guard, and good things seem to find whoever carries it.
+  Rakanishu has no idea what it is. He likes it because it is shiny.
+type: weapon
+weight: 1
+level: 26
+baseline: dagger
+value: 1500
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: opportunist
+    params: { mult: 1.15 }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

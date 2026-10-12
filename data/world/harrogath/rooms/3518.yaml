@@ -1,0 +1,12 @@
+vnum: 3518
+name: The Halls of the Keep
+description: |
+  A maze of halls and stairs that do not meet where they should, as if
+  the keep had been shaken and set down a little wrong. Banners of the
+  old guardians hang burned on the walls. The red veins in the stone
+  are thicker here and they hum. The ramp goes up; another goes down,
+  deeper into the mountain.
+exits:
+  up: 3517
+  down: 3519
+flags: [dark]

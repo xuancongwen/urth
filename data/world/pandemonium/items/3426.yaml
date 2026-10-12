@@ -1,0 +1,13 @@
+vnum: 3426
+name: a pair of oblivion knight's greaves
+keywords: [oblivion, knight's, knight, greaves, legs]
+description: A pair of black plate greaves, sooted and dented, stands here.
+look: |
+  Leg plates of soot-black steel, engraved at the knee with the sign of
+  Lord De Seis. They are heavy, and they stood in the same place for a
+  thousand years without rusting.
+type: armor
+slot: legs
+weight: 9
+level: 50
+baseline: plate

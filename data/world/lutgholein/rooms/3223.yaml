@@ -1,0 +1,12 @@
+vnum: 3223
+name: The Claw Viper Temple
+description: |
+  A pillared temple sunk into the rock, its floor a mosaic of a serpent
+  eating its own tail. Braziers burn with a green flame. At the far end,
+  on an altar of black stone, offerings of gold and blood lie before an
+  idol of a snake with a woman's arms, and the hiss of many throats
+  echoes from the shadows between the pillars. The stair climbs up to
+  the valley.
+exits:
+  up: 3222
+flags: [dark]

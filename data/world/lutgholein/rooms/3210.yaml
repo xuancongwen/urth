@@ -1,0 +1,11 @@
+vnum: 3210
+name: Drognan's House
+description: |
+  Books. Books on shelves, books on the floor, books holding up a table
+  that holds up more books. Star charts are pinned across the ceiling,
+  and a brass orrery turns slowly on a stand with no one turning it.
+  The air is hot and dusty and smells of old paper and lamp oil. The
+  harbour road is north.
+exits:
+  north: 3208
+flags: [safe]

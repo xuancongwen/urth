@@ -1,0 +1,11 @@
+vnum: 3201
+name: a greater healing potion
+keywords: [greater, healing, potion, phial, vial]
+description: A round-bellied phial of dark red liquid lies here.
+look: |
+  One of Lysander's: a squat glass phial stoppered with wax, full of a
+  red so dark it is nearly purple. It fizzes faintly when shaken. The
+  label says, in shaky capitals, DRINK THIS.
+type: other
+weight: 1
+value: 40

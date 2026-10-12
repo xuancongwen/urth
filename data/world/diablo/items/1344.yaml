@@ -1,0 +1,12 @@
+vnum: 1344
+name: Farnham's jug
+keywords: [farnham's, farnham, jug, crock, liquor]
+description: A heavy stoneware jug lies on its side here, sloshing.
+look: |
+  A brown stoneware jug with a cork stopper and a cracked handle bound
+  with twine. Whatever is in it is clear and smells like lamp oil, and
+  Farnham has been working through it since he came back up out of the
+  labyrinth. He never lets go of it.
+type: other
+weight: 2
+value: 10

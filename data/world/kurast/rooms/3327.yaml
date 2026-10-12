@@ -1,0 +1,13 @@
+vnum: 3327
+name: The Arachnid Lair
+description: |
+  A cave under the roots, its walls furred with webbing and its floor
+  heaped with husks: the dry shells of everything the spiders of the
+  forest have ever caught. Egg sacs the size of barrels hang from the
+  ceiling, translucent, with dark shapes curled inside them. Some of
+  the sacs are split. A tunnel of silk runs east, toward a red glow;
+  a root-ladder climbs back up to the forest.
+exits:
+  up: 3308
+  east: 3310
+flags: [dark]

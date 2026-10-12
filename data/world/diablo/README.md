@@ -7,14 +7,22 @@ the village (1300). The village is peaceful, and its shops and the inn
 are safe; the square is not. Everything from the cathedral stair down is
 dark, so buy a lantern from Ogden.
 
+East from the north road (1300) a second road leads to the Rogue
+Encampment (`rogue`, 3100), the first of five areas that follow Diablo
+II's acts: `rogue`, `lutgholein`, `kurast`, `pandemonium`, `harrogath`.
+
 Deckard Cain (20) stands in the square and can be killed like anyone
 else; he leans on the Horadric Staff (20; sees the hidden, Intelligence
-and Wisdom, wards its bearer), and it is in his corpse.
+and Wisdom, wards its bearer), and it is in his corpse. Farnham the drunk (14) sways by the
+fountain with his jug, and can be killed like Cain; Gillian serves ale
+at the Rising Sun (`list`).
 
 Levels, roughly in walking order: fallen ones and zombies 14, burning
 dead skeletons 15, the Butcher 16 (boss; his cleaver), the Skeleton King
 17 (boss; the Undead Crown and the Optic Amulet), winged fiends 17,
-goatmen 18 (halberds), magma
+goatmen 18 (halberds), Gharbad the Weak 19 (miniboss; his charm),
+Zhar the Mad 19 (miniboss, in his library off the hall of crypts; his
+grimoire), magma
 demons and horned demons 19 (demon brains, demon hearts), succubi and
 advocates 20, blood knights 21 (demon
 hearts), Archbishop Lazarus 21 (boss; the mitre and the Harlequin
@@ -30,11 +38,20 @@ round shorter). The Butcher also carries Gonnagal's Dirk, and Diablo
 Windforce. Common finds: a fallen one's kris, a wedding ring on a
 zombie, rusted hauberks, fiend-hide gloves, goat-hide leggings, a
 magma-forged maul by the river of fire, hell-iron flails, blood-iron
-sabatons, succubus whips, scribe's bracers.
+sabatons, succubus whips, scribe's bracers. Minor uniques: Gharbad's charm (19; dodge,
+Dexterity), Zhar's grimoire (19; held, Intelligence and Wisdom), and the
+Veil of Steel (21; a great helm, less damage taken, Strength and
+Constitution).
+
+Lachdanan (1316), the cursed captain of Leoric's guard, kneels in the
+hall of crypts and does not fight; he trades the Veil of Steel for the
+golden elixir that lies in the blood pits (1325).
 
 Merchants (`list`, `buy`, `sell`):
 
 - Ogden (1302): brass lantern, red healing potion.
+- Gillian (1302): a mug of the Rising Sun's ale.
+- Lachdanan (1316): the Veil of Steel, for the golden elixir.
 - Griswold (1303): broadsword, full helm, gothic breastplate, tower
   shield; reforges the Butcher's cleaver plus 300 silver into the
   Butcher's Edge.
@@ -50,7 +67,7 @@ Merchants (`list`, `buy`, `sell`):
 Map (x east, y south; north is up):
 
     z=0 (Tristram)
-    y=0                 1300 --(north)--> hub 8
+    y=0                 1300 --(north)--> hub 8, (east)--> rogue 3100
                          |
     y=1        1302 --- 1301 --- 1303
                          |
@@ -68,7 +85,7 @@ Map (x east, y south; north is up):
                  |
     y=6  1315 - 1313 - 1314
                  |
-    y=7         1316
+    y=7         1316 - 1329
                  |
     y=8         1317 (down)          1318 - 1319
                                              |
@@ -92,4 +109,4 @@ Map (x east, y south; north is up):
 1318 cave landing   1319 fungus grotto   1320 river of fire
 1321 goatmen's warren   1322 chasm bridge   1323 threshold of Hell
 1324 ramparts   1325 blood pits   1326 hall of the burning star
-1327 archbishop's sanctum   1328 Chaos Sanctuary
+1327 archbishop's sanctum   1328 Chaos Sanctuary   1329 Zhar's library

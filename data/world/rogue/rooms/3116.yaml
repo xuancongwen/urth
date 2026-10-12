@@ -1,0 +1,11 @@
+vnum: 3116
+name: The Tree of Inifuss
+description: |
+  A clearing around a single great tree, pale-barked and leafless, its
+  branches spread like the arms of a man surrendering. The Horadrim
+  wrote their secrets into its wood, and the bark is grown over with
+  letters in rings like the rings of the years. Something has been
+  scratching at the trunk with fingers as thick as roots. The wood is
+  east.
+exits:
+  east: 3115

@@ -1,0 +1,13 @@
+vnum: 3223
+name: a pair of spiked gauntlets
+keywords: [spiked, gauntlets, gloves, leaper]
+description: A pair of gauntlets studded with long grey spikes lies here.
+look: |
+  Gauntlets of grey hide stiffened with lacquer and studded along the
+  knuckles and forearm with spikes taken from an invader's own arms.
+  A punch in them is more of a stab.
+type: armor
+slot: hands
+weight: 2
+level: 33
+baseline: medium

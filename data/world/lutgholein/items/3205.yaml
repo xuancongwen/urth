@@ -1,0 +1,25 @@
+vnum: 3205
+name: the Staff of Kings
+keywords: [staff, kings, sceptre]
+description: A short staff of gold and black wood lies here, slimed from a maggot's gut.
+look: |
+  The shaft of a Horadric staff, sawn short and capped with a gold
+  head in the shape of a crown, once carried by the kings of Aranoch
+  who did not know what it was. It hums against the palm, wanting its
+  other half. It makes a passable club in the meantime. Lysander would
+  know what to do with it and the Amulet of the Viper together.
+type: weapon
+weight: 3
+level: 33
+baseline: staff
+value: 3000
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: club
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

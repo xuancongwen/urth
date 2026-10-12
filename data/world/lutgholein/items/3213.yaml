@@ -1,0 +1,23 @@
+vnum: 3213
+name: Ancient Kaa's wrappings
+keywords: [ancient, kaa, kaa's, wrappings, linen, shroud]
+description: A long shroud of gold-threaded burial linen lies here, faintly breathing.
+look: |
+  The burial wrappings of Ancient Kaa, a hundred yards of linen woven
+  through with gold thread and soaked in resins that have not dried in
+  three thousand years. Wound around the body they are stiff as mail
+  and close any wound beneath them, slowly, the way they kept Kaa
+  standing long after his soul had gone.
+type: armor
+slot: body
+weight: 5
+level: 37
+baseline: light
+value: 8000
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: soak
+    params: { power: 0.1 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

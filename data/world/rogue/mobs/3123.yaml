@@ -1,0 +1,23 @@
+vnum: 3123
+name: Andariel, the Maiden of Anguish
+keywords: [andariel, maiden, anguish, demon, evil]
+description: Andariel rises from her dais of bones, her spines dripping green. "Die, mortal!"
+look: |
+  One of the four Lesser Evils, and the one who brought the Sisterhood
+  to its knees: a tall demon in the shape of a woman, her body bound in
+  rotting finery and her back sprouting long curved spines that drip
+  green venom. Her face is beautiful and cruel and very tired of
+  waiting. She turned the Rogues against each other with whispers
+  before she ever lifted a hand, and she is in no hurry now. Her
+  poison seeps into every wound and keeps working long after the blow.
+level: 30
+health: 3000
+stats: {strength: 17, constitution: 17, dexterity: 14, intelligence: 15}
+silver: 700
+xp: 18000
+attack:
+  kind: pierce
+  verb: lash
+effects:
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 3 }

@@ -1,0 +1,13 @@
+vnum: 3325
+name: a hulk-hide jerkin
+keywords: [hulk-hide, hulk, hide, jerkin]
+description: A thick jerkin of grey hide, studded with broken thorns, lies here.
+look: |
+  The hide of a thorned hulk, scraped and cured and cut into a jerkin,
+  with the stubs of the thorns left on the shoulders. It is heavy for
+  leather and light for anything that stops as much.
+type: armor
+slot: body
+weight: 6
+level: 38
+baseline: light

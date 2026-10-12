@@ -1,0 +1,23 @@
+vnum: 3502
+name: Frozenstein's grip
+keywords: [frozenstein's, frozenstein, grip, gauntlets, gloves]
+description: A pair of heavy gauntlets lies here, rimed white and steaming with cold.
+look: |
+  Gauntlets of a blue steel that is always cold enough to burn, the
+  knuckles crusted with frost that never melts. Frozenstein wore them
+  on his thumbs. They make the mind sharp and the hands cruel, and
+  every blow they land carries the bite of the Frozen River into the
+  wound, slowing whatever it strikes.
+type: armor
+slot: hands
+weight: 2
+level: 55
+baseline: medium
+value: 9000
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }

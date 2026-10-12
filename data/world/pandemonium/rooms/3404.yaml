@@ -1,0 +1,14 @@
+vnum: 3404
+name: The Fortress Gate
+description: |
+  The great gate of Pandemonium stands open on Hell. Beyond it the
+  ground falls away in a long ramp of white stone that turns red, then
+  black, as it goes down into the Outer Steppes, under a sky the colour
+  of a coal. An angel in battered armour stands at the threshold with
+  his sword drawn and his wings half spread, watching the plain, and he
+  has been watching it for a very long time. The forge is north. South
+  is Hell, and from here on there is no light but its fires.
+exits:
+  north: 3403
+  south: 3405
+flags: [safe]

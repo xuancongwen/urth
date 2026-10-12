@@ -1,0 +1,13 @@
+vnum: 3311
+name: The Great Marsh
+description: |
+  The jungle gives way to a drowned plain of reeds and black water,
+  dotted with the stumps of a forest that died standing. Islands of
+  mud rise out of it, and on some of them, half-sunk, the stone heads
+  of old Kurast statuary stare at the sky. Mosquitoes come in clouds.
+  Something large moves through the reeds without bothering to be
+  quiet. The Spider Forest is west; to the east the trees rise again,
+  and there are drums.
+exits:
+  west: 3309
+  east: 3312

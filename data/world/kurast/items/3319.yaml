@@ -1,0 +1,13 @@
+vnum: 3319
+name: a sea-chain hauberk
+keywords: [sea-chain, sea, chain, hauberk, mail]
+description: A mail shirt of fine, blackened links lies here.
+look: |
+  Fine mail, each ring blackened against the salt air, worn over a
+  quilted jack that keeps the links off the skin in the heat. Hratli's
+  work, and the best you will find this side of the Twin Seas.
+type: armor
+slot: body
+weight: 12
+level: 38
+baseline: medium

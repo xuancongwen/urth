@@ -1,0 +1,12 @@
+vnum: 3522
+name: The Halls of Pain
+description: |
+  A long gallery lined with iron cages, each one holding what is left
+  of someone from Harrogath. Some of the cages are empty and their
+  doors have been bent outward. The floor slopes toward drains that are
+  full. The halls of anguish are west; a narrow stair goes down to the
+  deepest hall.
+exits:
+  west: 3521
+  down: 3523
+flags: [dark]

@@ -1,0 +1,17 @@
+vnum: 3208
+name: The Harbour Road
+description: |
+  The road slopes down toward the sea between warehouses whose doors
+  are chained. Gulls argue on the rooftops. North, a two-storey inn
+  with a stable yard; south, a house with a blue door and a brass
+  astrolabe in the window. In the middle of the road a round iron
+  grate has been levered up and left beside its hole, and a ladder
+  goes down into a stink of old water. The palace road is west; the
+  docks are east.
+exits:
+  west: 3205
+  north: 3209
+  south: 3210
+  east: 3201
+  down: 3211
+flags: [safe]

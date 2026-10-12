@@ -1,0 +1,15 @@
+vnum: 3120
+name: a dark spearwoman
+keywords: [dark, spearwoman, rogue, corrupted, sister]
+description: A dark spearwoman steps out of a cell, her spear levelled at your chest.
+look: |
+  A Sister of the Sightless Eye who went over to Andariel, her skin
+  grey and her eyes black, still in the Rogue's leathers she swore her
+  vows in. She does not speak. She thrusts with the old drill, perfect
+  and pitiless, and does not seem to know that she is dead.
+level: 28
+flags: [assist]
+stats: {dexterity: 14}
+attack:
+  kind: pierce
+  verb: thrust

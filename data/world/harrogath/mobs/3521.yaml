@@ -1,0 +1,25 @@
+vnum: 3521
+name: Lister the Tormentor
+keywords: [lister, tormentor, minion, destruction, demon]
+description: Lister the Tormentor bellows at his pack and lowers his head to charge.
+look: |
+  The chief of Baal's minions of destruction and the last of the
+  waves before the throne: bigger than the rest, spiked like a siege
+  tower, his hide scored with the marks of a thousand fights and the
+  blade of a dead barbarian king in his fist. He leads a pack, and the
+  pack is the worst thing in the keep. Everyone who has come this far
+  has met Lister. Not everyone remembers him fondly.
+level: 59
+flags: [assist]
+health: 40000
+stats: {strength: 18, constitution: 17}
+silver: 1500
+attack:
+  verb: hack
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - kind: soak
+    params: { power: 0.1 }

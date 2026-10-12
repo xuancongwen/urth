@@ -1,0 +1,11 @@
+vnum: 3204
+name: Fara's Forge
+description: |
+  An open forge under a canvas awning, its anvil set on a block of
+  black basalt. Spears, curved blades, and round shields hang along the
+  wall, all of them good and none of them pretty. A small shrine of
+  Zakarum sits in a niche above the quench tub, with a candle burning
+  before it in the middle of the day. The bazaar is north.
+exits:
+  north: 3202
+flags: [safe]

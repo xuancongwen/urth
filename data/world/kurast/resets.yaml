@@ -1,0 +1,57 @@
+interval_seconds: 300
+resets:
+  # --- Kurast Docks ---
+  - { mob: 3300, room: 3300 }                                   # Meshif at his ship's rail
+  - { mob: 3304, room: 3303 }                                   # Hratli at his warded forge, who forges Khalim's Will
+  - { mob: 3301, room: 3304 }                                   # Ormus in his shelter, who wants Lam Esen's Tome
+  - { mob: 3305, room: 3305 }                                   # Natalya in the shadow of the gate, who teaches
+  - { mob: 3302, room: 3306 }                                   # Alkor among his retorts
+  - { mob: 3303, room: 3307 }                                   # Asheara over the sand table
+  # --- the Spider Forest ---
+  - { mob: 3306, room: 3308, max: 6, equip: [{ item: 3323 }] }  # giant spiders in the webs past the gate, silk to wear
+  - { mob: 3306, room: 3308, max: 6, equip: [{ item: 3323 }] }
+  - { mob: 3306, room: 3327, max: 6, equip: [{ item: 3323 }] }  # giant spiders among the egg sacs of the lair
+  - { mob: 3306, room: 3327, max: 6, equip: [{ item: 3323 }] }
+  - { mob: 3306, room: 3310, max: 6, equip: [{ item: 3323 }] }  # one keeping Sszark company
+  - { mob: 3307, room: 3310, equip: [{ item: 3302 }] }          # Sszark the Burning on its nest, and Khalim's Eye
+  # --- the Great Marsh ---
+  - { mob: 3308, room: 3311, max: 2, equip: [{ item: 3325 }] }  # thorned hulks wading in the reeds, in hulk hide
+  - { mob: 3308, room: 3311, max: 2, equip: [{ item: 3325 }] }
+  # --- the Flayer Jungle and the Flayer Dungeon ---
+  - { mob: 3309, room: 3312, max: 5, equip: [{ item: 3326, slot: wield }] }   # a flayer band in the clearing with barbed spears
+  - { mob: 3309, room: 3312, max: 5, equip: [{ item: 3326, slot: wield }] }
+  - { mob: 3309, room: 3312, max: 5, equip: [{ item: 3326, slot: wield }] }
+  - { mob: 3310, room: 3312, equip: [{ item: 3310, slot: shield }] }          # Stormtree among them, carrying Stormshield
+  - { mob: 3309, room: 3313, max: 5, equip: [{ item: 3326, slot: wield }] }   # flayers in the tunnels below
+  - { mob: 3309, room: 3313, max: 5, equip: [{ item: 3326, slot: wield }] }
+  - { mob: 3311, room: 3313, max: 3 }                           # a shaman raising the dead in the tunnels
+  - { mob: 3311, room: 3314, max: 3 }                           # shamans dancing in the sanctum
+  - { mob: 3311, room: 3314, max: 3 }
+  - { mob: 3312, room: 3314, equip: [{ item: 3307, slot: wield }, { item: 3303 }] }   # Witch Doctor Endugu with the Gidbinn, and Khalim's Brain
+  # --- Kurast ---
+  - { mob: 3313, room: 3315, max: 7, equip: [{ item: 3327, slot: wield }] }   # zealots tending the shrines of Lower Kurast
+  - { mob: 3313, room: 3315, max: 7, equip: [{ item: 3327, slot: wield }] }
+  - { mob: 3313, room: 3316, max: 7, equip: [{ item: 3327, slot: wield }] }   # zealots in procession through the bazaar
+  - { mob: 3313, room: 3316, max: 7, equip: [{ item: 3327, slot: wield }] }
+  - { mob: 3314, room: 3317, equip: [{ item: 3308 }] }          # Battlemaid Sarina guarding Lam Esen's Tome
+  - { mob: 3315, room: 3318, equip: [{ item: 3304 }, { item: 3311, slot: hands }] }   # Icehawk Riftwing over Khalim's Heart, and Frostburn
+  - { mob: 3313, room: 3319, max: 7, equip: [{ item: 3327, slot: wield }] }   # zealots on the palace balconies
+  - { mob: 3313, room: 3319, max: 7, equip: [{ item: 3327, slot: wield }] }
+  - { mob: 3313, room: 3320, max: 7, equip: [{ item: 3327, slot: wield }] }   # a zealot on the causeway
+  - { mob: 3316, room: 3320, max: 3, equip: [{ item: 3329, slot: body }] }    # a council member walking the causeway
+  # --- Travincal ---
+  - { mob: 3316, room: 3321, max: 3, equip: [{ item: 3329, slot: body }] }    # council members on the dais
+  - { mob: 3316, room: 3321, max: 3, equip: [{ item: 3329, slot: body }] }
+  - { mob: 3317, room: 3321, equip: [{ item: 3329, slot: body }] }            # Toorc Icefist, in his robe
+  - { mob: 3318, room: 3321, equip: [{ item: 3329, slot: body }] }            # Geleb Flamefinger, in his
+  - { mob: 3319, room: 3322, equip: [{ item: 3305, slot: wield }, { item: 3329, slot: body }] }   # Ismail Vilehand by the orb, with Khalim's Flail
+  # --- the Durance of Hate ---
+  - { mob: 3320, room: 3323, max: 5, equip: [{ item: 3330, slot: wield }] }   # blood lords in the first halls
+  - { mob: 3320, room: 3323, max: 5, equip: [{ item: 3330, slot: wield }] }
+  - { mob: 3320, room: 3324, max: 5, equip: [{ item: 3330, slot: wield }] }   # blood lords on the walkways over the cages
+  - { mob: 3320, room: 3324, max: 5, equip: [{ item: 3330, slot: wield }] }
+  - { mob: 3320, room: 3325, max: 5, equip: [{ item: 3330, slot: wield }] }   # one at Bremm's side
+  - { mob: 3321, room: 3325, equip: [{ item: 3316, slot: body }] }            # Bremm Sparkfist in Natalya's Shadow
+  - { mob: 3322, room: 3326, equip: [{ item: 3317, slot: feet }] }            # Wyand Voidbringer in Natalya's Soul
+  - { mob: 3323, room: 3326, equip: [{ item: 3315, slot: head }] }            # Maffer Dragonhand in Natalya's Totem
+  - { mob: 3324, room: 3301, equip: [{ item: 3312 }, { item: 3313, slot: hold }] }   # Mephisto, his soulstone, and the Oculus

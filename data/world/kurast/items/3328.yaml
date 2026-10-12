@@ -1,0 +1,13 @@
+vnum: 3328
+name: a lacquered Kurast helm
+keywords: [lacquered, kurast, helm, helmet]
+description: A helm of red lacquered steel lies here.
+look: |
+  A Kurasti helm of steel lacquered red and black, with a horsehair
+  crest and cheek-guards shaped like tiger's jaws, from the days when
+  the city had an army.
+type: armor
+slot: head
+level: 42
+baseline: medium
+flags: [drop]

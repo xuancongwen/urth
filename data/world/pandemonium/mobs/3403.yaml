@@ -1,0 +1,21 @@
+vnum: 3403
+name: Hadriel, the angel at the gate
+keywords: [hadriel, angel, gatekeeper, guard]
+description: Hadriel stands at the fortress gate, sword drawn, watching the plain.
+look: |
+  An angel in dented silver mail, his wings of light dimmed and
+  ragged at the edges, holding a sword that has never been sheathed
+  since the gate was built. He has watched the Outer Steppes for longer
+  than men have kept time. "Beyond the steppes lie the Plains of
+  Despair," he says. "Izual is there, who led the angels of Tyrael into
+  Hell and was taken by it. He was my brother in arms. Free him if you
+  can. Then the city, and the river, and the Hellforge, and the seals.
+  Go carefully. Nothing out there is what it was." He has held the
+  gate with sword and shield since before men kept time, and he will
+  teach you to turn a blow and return it, for coin. Type 'practice' to
+  see what he teaches.
+level: 50
+flags: [peaceful]
+teaches: [shield_block, riposte]
+attack:
+  verb: slash

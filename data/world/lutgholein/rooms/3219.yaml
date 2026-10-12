@@ -1,0 +1,12 @@
+vnum: 3219
+name: The Maggot Lair
+description: |
+  A tunnel of packed sand glued smooth with something that dried to a
+  yellow glaze, round and ribbed like the inside of a throat. Pale eggs
+  the size of a man's head are stuck in clusters to the walls. Every
+  so often the floor shivers as something large moves somewhere nearby.
+  The tunnel climbs to the oasis; east, it widens into a chamber.
+exits:
+  up: 3218
+  east: 3220
+flags: [dark]

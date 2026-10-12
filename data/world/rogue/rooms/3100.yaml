@@ -1,0 +1,14 @@
+vnum: 3100
+name: The Road East out of Tristram
+description: |
+  The cart road leaves Tristram's north road behind and runs east over
+  the moors, a pair of ruts in the heather with a ditch on either side.
+  The sky is the same low grey, but the wind out here smells of peat
+  and woodsmoke rather than of the cathedral. Ahead, east, a palisade
+  of sharpened logs squats on a rise, torches burning along its top,
+  and a banner with a single open eye hangs limp over the gate. A Rogue
+  scout keeps watch out here, on the open road. The road back to Tristram runs west.
+exits:
+  west: 1300
+  east: 3102
+position: {x: 0, y: 0, z: 0}

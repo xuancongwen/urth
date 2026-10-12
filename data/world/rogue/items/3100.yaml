@@ -1,0 +1,11 @@
+vnum: 3100
+name: a healing potion
+keywords: [healing, potion, red, vial, flask]
+description: A small round flask of red liquid lies here.
+look: |
+  A round-bellied flask stoppered with wax and stamped with the open
+  eye of the Sisterhood. Akara brews them by her fire, and they taste
+  of honey and copper. Every Rogue on the wall carries two.
+type: other
+weight: 1
+value: 25

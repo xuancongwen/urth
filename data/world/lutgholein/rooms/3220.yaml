@@ -1,0 +1,11 @@
+vnum: 3220
+name: The Burrower's Nest
+description: |
+  A great round chamber in the sand, its floor a heap of eggs, husks,
+  and the half-digested remains of caravans: wagon wheels, bridles,
+  bones, a strongbox. At the centre something vast and pale lies coiled,
+  and the walls glisten. Wedged in the heap is a staff of gold and dark
+  wood that does not belong here at all. The tunnel is west.
+exits:
+  west: 3219
+flags: [dark]

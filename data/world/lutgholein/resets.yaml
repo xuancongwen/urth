@@ -1,0 +1,58 @@
+interval_seconds: 300
+resets:
+  # Lut Gholein
+  - { mob: 3200, room: 3200 }                                   # Warriv with his caravan at the west gate
+  - { mob: 3201, room: 3201 }                                   # Meshif on the docks, waiting to sail for Kurast
+  - { mob: 3202, room: 3203 }                                   # Atma behind her bar
+  - { mob: 3204, room: 3204 }                                   # Fara at her forge
+  - { mob: 3205, room: 3206 }                                   # Jerhyn pacing before his own gates
+  - { mob: 3206, room: 3207 }                                   # Lysander among his phials
+  - { mob: 3207, room: 3209 }                                   # Elzix counting coins at the inn
+  - { mob: 3208, room: 3209 }                                   # Greiz with his bored mercenaries, who teaches
+  - { mob: 3209, room: 3210 }                                   # Drognan among his books
+  # the sewers
+  - { item: 3200, room: 3211 }                                  # a guard's dropped lamp at the foot of the ladder
+  - { mob: 3211, room: 3211, max: 4, equip: [{ item: 3219, slot: body }] }   # horrors on the walkway, in green-crusted mail
+  - { mob: 3211, room: 3212, max: 4, equip: [{ item: 3219, slot: body }] }   # and among the sorted bones
+  - { mob: 3211, room: 3212, max: 4, equip: [{ item: 3219, slot: body }] }
+  - { mob: 3212, room: 3213, equip: [{ item: 3208, slot: hold }, { item: 3202 }] }   # Radament at his tables, the Book of Skill, and his own linen
+  # the Rocky Waste and the Dry Hills
+  - { mob: 3203, room: 3214, equip: [{ item: 3229, slot: wield }, { item: 3219, slot: body }] }   # Geglash sleeping it off outside the gate, with his spear and his old mail
+  - { mob: 3210, room: 3214, max: 3, equip: [{ item: 3217, slot: wield }, { item: 3218, slot: head }] }   # sand raiders on the trail, scimitars and head-wraps
+  - { mob: 3210, room: 3214, max: 3, equip: [{ item: 3217, slot: wield }, { item: 3218, slot: head }] }
+  - { mob: 3210, room: 3214, max: 3, equip: [{ item: 3217, slot: wield }, { item: 3218, slot: head }] }
+  - { mob: 3213, room: 3215, max: 3, equip: [{ item: 3220 }] }  # sabre cats in the gullies, and boots from their hides
+  - { mob: 3213, room: 3215, max: 3, equip: [{ item: 3220 }] }
+  # the Halls of the Dead
+  - { mob: 3214, room: 3216, max: 3, equip: [{ item: 3221, slot: wield }, { item: 3202 }] }   # hollow ones out of their niches, khopesh and linen
+  - { mob: 3214, room: 3216, max: 3, equip: [{ item: 3221, slot: wield }, { item: 3202 }] }
+  - { mob: 3213, room: 3217, max: 3, equip: [{ item: 3220 }] }  # one of her cats at Bloodwitch's side
+  - { mob: 3215, room: 3217, equip: [{ item: 3220, slot: feet }, { item: 3204 }] }   # Bloodwitch the Wild, and the Horadric Cube among her bones
+  # the Far Oasis and the Maggot Lair
+  - { mob: 3216, room: 3218, max: 3, equip: [{ item: 3222, slot: arms }, { item: 3203 }] }   # dung soldiers in the reeds, chitin on them and off
+  - { mob: 3216, room: 3218, max: 3, equip: [{ item: 3222, slot: arms }, { item: 3203 }] }
+  - { mob: 3217, room: 3218, equip: [{ item: 3203 }, { item: 3203 }] }   # Beetleburst cooling in the pool, its shell in plates
+  - { mob: 3218, room: 3219, max: 6 }                           # rock worms hatching in the tunnel
+  - { mob: 3218, room: 3219, max: 6 }
+  - { mob: 3219, room: 3220, equip: [{ item: 3205 }] }          # Coldworm on her eggs, the Staff of Kings in her gut
+  # the Lost City and the Claw Viper Temple
+  - { mob: 3220, room: 3221, max: 3, equip: [{ item: 3223, slot: hands }] }   # invaders leaping among the ruins
+  - { mob: 3220, room: 3221, max: 3, equip: [{ item: 3223, slot: hands }] }
+  - { mob: 3220, room: 3221, max: 3, equip: [{ item: 3223, slot: hands }] }
+  - { mob: 3221, room: 3222, max: 4, equip: [{ item: 3224, slot: body }] }   # claw vipers in the valley, in their own scale
+  - { mob: 3221, room: 3223, max: 4, equip: [{ item: 3224, slot: body }] }   # and between the temple pillars
+  - { mob: 3221, room: 3223, max: 4, equip: [{ item: 3224, slot: body }] }
+  - { mob: 3222, room: 3223, equip: [{ item: 3206, slot: neck }] }   # Fangskin at the altar, the Amulet of the Viper at her throat
+  # the palace
+  - { mob: 3223, room: 3224, max: 4 }                           # specters drifting through the harem
+  - { mob: 3223, room: 3224, max: 4 }
+  - { mob: 3224, room: 3225, equip: [{ item: 3211, slot: wield }] }   # Fire Eye before the portal, with Hellplague
+  - { mob: 3223, room: 3226, max: 4 }                           # specters on the floating paths
+  - { mob: 3225, room: 3226, equip: [{ item: 3212, slot: wield }] }   # the Summoner at Horazon's journal, leaning on Ondal's Wisdom
+  # the Canyon of the Magi and Tal Rasha's Tomb
+  - { mob: 3226, room: 3227, max: 3, equip: [{ item: 3225, slot: wield }] }   # unravelers among the false tombs
+  - { mob: 3226, room: 3227, max: 3, equip: [{ item: 3225, slot: wield }] }
+  - { mob: 3227, room: 3228, max: 3, equip: [{ item: 3226, slot: head }, { item: 3202 }] }   # tomb guardians in their alcoves, gold masks and linen
+  - { mob: 3227, room: 3228, max: 3, equip: [{ item: 3226, slot: head }, { item: 3202 }] }
+  - { mob: 3228, room: 3228, equip: [{ item: 3225, slot: wield }, { item: 3213, slot: body }] }   # Ancient Kaa before the Orifice, in his wrappings
+  - { mob: 3229, room: 3229, equip: [{ item: 3214, slot: body }, { item: 3215, slot: hold }] }   # Duriel before the chained archangel, his shell and the Lidless Eye

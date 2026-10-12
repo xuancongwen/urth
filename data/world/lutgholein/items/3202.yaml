@@ -1,0 +1,14 @@
+vnum: 3202
+name: a strip of embalming linen
+keywords: [strip, embalming, linen, wrapping, bandage]
+description: A long strip of brown, resin-stiff linen lies coiled here.
+look: |
+  A strip of burial linen as long as a man is tall, stiff with old
+  resin and spices, unwound from something that did not want to stay
+  dead. The cult that wrapped Radament wrapped all of these. Atma wants
+  them, to burn.
+type: material
+material: embalming linen
+rarity: uncommon
+weight: 1
+value: 50

@@ -1,0 +1,21 @@
+vnum: 3512
+name: the Worldstone shard
+keywords: [worldstone, shard, crystal, stone]
+description: A sliver of glowing red crystal lies here, humming.
+look: |
+  A sliver of the Worldstone, the size of a dagger blade, split off by
+  the corruption at its heart. It hums a low note that your bones hear
+  before your ears do. Held, it closes wounds and steadies the body,
+  for the stone holds the world together and does not care whose. The
+  old songs of Harrogath say the first sword of Bul-Kathos had such a
+  sliver in its hilt, and Larzuk knows the songs.
+type: armor
+slot: hold
+weight: 1
+level: 60
+value: 8000
+effects:
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

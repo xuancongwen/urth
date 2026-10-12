@@ -1,0 +1,15 @@
+vnum: 3201
+name: The Docks of Lut Gholein
+description: |
+  Stone quays run out into the Twin Seas, crusted with salt and gull
+  droppings and stacked with bales that nobody is loading. A single
+  ship rides at anchor beyond the breakwater, sails furled, her crew
+  asleep in the rigging; nothing has sailed east since the sultan
+  closed the port. The water slaps at the pilings and smells of fish
+  and tar. East, past the last bollard, a gangplank waits for the day
+  the captain decides to cast off for Kurast. The harbour road runs
+  back west into the city.
+exits:
+  west: 3208
+  east: 3300
+flags: [safe]

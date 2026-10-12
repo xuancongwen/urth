@@ -1,0 +1,25 @@
+vnum: 3215
+name: Tal Rasha's Lidless Eye
+keywords: [tal, rasha's, rasha, lidless, eye, orb, swirling]
+description: A glass orb with a single unblinking eye inside it lies here.
+look: |
+  A swirling crystal orb, one of the treasures Tal Rasha carried before
+  he gave himself up to hold Baal. Inside it an eye floats, open, and
+  it looks at whatever its holder looks at. Nothing hides from it.
+  Every spell and trick its holder knows comes quicker under its gaze,
+  and the mind behind it runs clear. Duriel kept it beside the
+  prisoner, to remind him.
+type: armor
+slot: hold
+weight: 1
+level: 38
+value: 9000
+effects:
+  - kind: detectHidden
+  - kind: detectInvisible
+  - kind: cooldownCut
+    params: { rounds: 1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

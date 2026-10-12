@@ -1,0 +1,14 @@
+vnum: 3203
+name: a plate of scarab chitin
+keywords: [plate, scarab, chitin, shell, carapace]
+description: A curved plate of iridescent black shell lies here, sparking faintly.
+look: |
+  A piece of a dung soldier's carapace as big as a tray, black with a
+  rainbow sheen, light and tremendously hard. Little blue sparks still
+  run along its edge when it is touched. Fara can work these, given
+  enough of them.
+type: material
+material: scarab chitin
+rarity: uncommon
+weight: 3
+value: 60

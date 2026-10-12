@@ -1,0 +1,16 @@
+vnum: 3132
+name: a cloister war sword
+keywords: [cloister, war, sword]
+description: A long sword with a ring pommel lies here.
+look: |
+  A long straight sword of the monastery's armoury, its pommel a ring
+  of bronze in the shape of an eye. Good steel, kept well, until lately.
+type: weapon
+weight: 5
+level: 30
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,15 @@
+vnum: 3506
+name: Anya's Stall
+description: |
+  A narrow stall against the wall under a canopy of stitched hides,
+  hung with fine things that have no place in a town under siege:
+  rings, a silver mirror, a bolt of dyed cloth, a pair of fur-lined
+  boots. In the back wall, where there ought to be stone, hangs a
+  ragged oval of red light, shut tight as a fist. It smells, faintly,
+  of incense and rot. The gate is west.
+exits:
+  west: 3504
+  east: 3520
+doors:
+  east: {name: a red portal, closed: true, locked: true, pickproof: true, key: 3517}
+flags: [safe]

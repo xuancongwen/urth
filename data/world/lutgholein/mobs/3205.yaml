@@ -1,0 +1,19 @@
+vnum: 3205
+name: Jerhyn, the young sultan
+keywords: [jerhyn, sultan, young, prince]
+description: Jerhyn paces the tiles before his own gates, glancing back at them.
+look: |
+  A slight young man in green silks, too young for the crown he does
+  not wear and for the shadows under his eyes. He has been sleeping in
+  the town since the Dark Wanderer passed through, and something moved
+  into his palace. "The palace is cursed," he says. "My harem, my
+  servants... I cannot speak of it. If you mean to go inside, go. I
+  will not stop you, and I will not follow." The palace armoury is his
+  to empty, and he sells its breastplates to anyone who will go where
+  his guards would not. Type 'list'.
+level: 18
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3228, silver: 1100 }

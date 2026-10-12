@@ -1,0 +1,17 @@
+vnum: 3220
+name: an invader
+keywords: [invader, leaper, demon]
+description: An invader drops from a ruined column, landing in a crouch.
+look: |
+  A wiry grey-skinned demon with legs like a grasshopper's and long,
+  spiked forearms, that leaps from the ruins and lands with both claws
+  first. They hunt the Lost City in swarms, and their screeching
+  carries for miles on the hot wind.
+level: 33
+flags: [assist]
+stats: {dexterity: 15}
+attack:
+  kind: pierce
+  verb: spike
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

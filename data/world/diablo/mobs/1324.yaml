@@ -1,0 +1,22 @@
+vnum: 1324
+name: Gharbad the Weak
+keywords: [gharbad, weak, goatman, chieftain]
+description: A small, scrawny goatman wrings his hands. "Gharbad the Weak. Not hurt me! Make something for you!"
+look: |
+  Small for a goatman, which is to say only a little taller than you,
+  with a wispy beard and bad teeth and a cringing manner that he is
+  very good at. He has been promising every adventurer who passes a
+  fine thing, if only they spare him, and every one of them has found
+  the fine thing was his own death. He fights dirty when he fights,
+  and the charm at his throat is the one honest thing about him.
+level: 19
+health: 600
+stats: {dexterity: 14}
+silver: 120
+xp: 3800
+flags: [assist]
+attack:
+  verb: hack
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }

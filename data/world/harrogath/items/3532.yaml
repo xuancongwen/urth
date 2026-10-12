@@ -1,0 +1,24 @@
+vnum: 3532
+name: the seal of the Elder Council
+keywords: [seal, elder, council, ring, signet, nihlathak]
+description: A heavy signet ring of black iron lies here, cut with three faces.
+look: |
+  The signet of Harrogath's Elder Council, black iron cut with the
+  faces of the three Ancients, which seals the town's laws and opens
+  its stores. Nihlathak wore it last, and wore it when he sealed the
+  bargain that gave the Relic of the Ancients to Baal. It sharpens the
+  mind and the tongue, and it shows its wearer what others would keep
+  hidden, as it showed him.
+type: armor
+slot: finger
+weight: 0
+level: 56
+value: 9000
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: stat
+    params: { stat: charisma, amount: 1 }
+  - kind: detectHidden

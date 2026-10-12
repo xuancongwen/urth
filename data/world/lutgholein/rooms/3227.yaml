@@ -1,0 +1,12 @@
+vnum: 3227
+name: The Canyon of the Magi
+description: |
+  The portal lets out on the floor of a deep canyon, its walls banded
+  red and gold and too high to climb. Seven tombs are cut into the
+  rock, each door carved with a glyph, and six of them are false. Sand
+  hisses down from the rim in thin falls, and the ground stirs as
+  things move beneath it. The glowing portal is south; the true tomb's
+  door stands open on a stair going down.
+exits:
+  south: 3226
+  down: 3228

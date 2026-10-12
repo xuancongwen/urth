@@ -1,0 +1,21 @@
+vnum: 3115
+name: Treehead Woodfist
+keywords: [treehead, woodfist, brute]
+description: Treehead Woodfist tears bark off the Tree of Inifuss with both fists, and turns.
+look: |
+  The biggest brute in the Dark Wood, his fur grown through with moss
+  and twigs until he looks half like the trees he guards. He has
+  been set to keep the Tree of Inifuss, and he does it the only way he
+  knows, by smashing anything that comes near it flat. His fists are
+  stained red to the wrist.
+level: 26
+health: 1300
+stats: {strength: 16, constitution: 15}
+silver: 150
+xp: 5000
+attack:
+  kind: blunt
+  verb: smash
+effects:
+  - kind: soak
+    params: { power: 0.1 }

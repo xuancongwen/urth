@@ -1,0 +1,13 @@
+vnum: 3516
+name: a scroll of resistance
+keywords: [scroll, resistance, malah]
+description: A rolled scroll tied with red wool lies here.
+look: |
+  A short scroll in Malah's careful hand, a blessing of the old faith
+  of the mountain against fire, frost and lightning, which she wrote
+  for whoever brought Anya home. Read aloud, it makes the skin prickle.
+  Malah gave it away once and would very much like it back, to give
+  again to someone who needs it.
+type: other
+weight: 0
+flags: [quest]

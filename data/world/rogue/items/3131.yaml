@@ -1,0 +1,12 @@
+vnum: 3131
+name: a kite shield
+keywords: [kite, shield]
+description: A long kite shield painted with an open eye lies here.
+look: |
+  A tall shield, broad at the top and pointed at the foot, faced in
+  leather over oak and painted with the open eye of the Sisterhood.
+type: armor
+slot: shield
+weight: 8
+level: 25
+baseline: shield

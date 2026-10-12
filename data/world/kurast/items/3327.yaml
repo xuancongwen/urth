@@ -1,0 +1,16 @@
+vnum: 3327
+name: a zealot's war scepter
+keywords: [zealot, zealot's, war, scepter, mace]
+description: A gilded war scepter lies here, dented from use.
+look: |
+  A scepter of the Zakarum, gilded iron with the sun of the faith on
+  the head in flanges sharp enough to cut. It was made for blessing
+  crowds, and the zealots use it for other things.
+type: weapon
+weight: 5
+level: 41
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smite

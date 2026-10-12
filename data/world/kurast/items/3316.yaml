@@ -1,0 +1,22 @@
+vnum: 3316
+name: Natalya's Shadow
+keywords: [natalya's, natalya, shadow, armor, harness]
+description: A suit of close-fitting black armor lies here, hard to see clearly.
+look: |
+  The body harness of a Viz-jaq'taar, black scale over black silk,
+  cut close to the body and dyed so dark that the eye slides off it.
+  Its wearer is hard to see, hard to hit, and hard to kill. A sister
+  of Natalya's order died in it under the Durance; the armor did not.
+type: armor
+slot: body
+weight: 6
+level: 45
+baseline: light
+value: 5000
+effects:
+  - kind: stat
+    params: { stat: constitution, amount: 2 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: protect
+    params: { mult: 0.93 }

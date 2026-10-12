@@ -1,0 +1,12 @@
+vnum: 3211
+name: The Sewer Ladder
+description: |
+  The ladder comes down onto a brick walkway beside a channel of slow
+  black water. The arches of the old sewer go off into the dark, built
+  by the same Horadric masons who built the palace and better than they
+  needed to be. Something has been dragged along the walkway, west,
+  leaving a long brown smear. The ladder climbs back up to the street.
+exits:
+  up: 3208
+  west: 3212
+flags: [dark]

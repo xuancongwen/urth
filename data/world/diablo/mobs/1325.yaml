@@ -1,0 +1,21 @@
+vnum: 1325
+name: Zhar the Mad
+keywords: [zhar, mad, mage, sorcerer]
+description: Zhar the Mad looks up from his books and screams. "What?! Why are you here? All these interruptions are enough to make one insane!"
+look: |
+  A wizard of the Vizjerei, once, who came down into the labyrinth in
+  search of forbidden books and found far too many of them. His robes
+  are rags, his beard is singed, and his eyes go everywhere at once.
+  He talks to himself in three languages and to the books in a fourth.
+  He is quite mad, and he is quite dangerous, and he would very much
+  like you to leave his library before you touch anything.
+level: 19
+health: 850
+stats: {intelligence: 16}
+silver: 150
+xp: 3800
+attack:
+  verb: blast
+effects:
+  - kind: aura
+    params: { power: 0.2, verb: crackle of wild magic }

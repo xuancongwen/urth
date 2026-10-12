@@ -1,0 +1,19 @@
+vnum: 3402
+name: a prismatic amulet
+keywords: [prismatic, amulet, pendant]
+description: An amulet of many-coloured crystal on a gold chain lies here.
+look: |
+  A teardrop of crystal that holds every colour at once and none for
+  long, set in angel's gold. It is the kind of thing Jamella keeps
+  under the counter. Worn, it strengthens body and mind together, a
+  little, and evenly.
+type: armor
+slot: neck
+weight: 0
+level: 46
+value: 4000
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

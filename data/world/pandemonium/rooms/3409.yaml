@@ -1,0 +1,13 @@
+vnum: 3409
+name: The Plains of Despair, the Black Field
+description: |
+  The ground here has been burned so many times it has turned to glass,
+  and it cracks underfoot. Robed knights stand in a ring, chanting at
+  nothing, and the air inside the ring shimmers. Far to the south rise
+  the walls of a city, black against the fire behind it. East the plain
+  rolls on toward the crater's rim; north is the way back.
+exits:
+  north: 3408
+  east: 3422
+  south: 3411
+flags: [dark]

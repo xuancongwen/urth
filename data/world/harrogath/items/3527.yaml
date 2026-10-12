@@ -1,0 +1,16 @@
+vnum: 3527
+name: a Harrogath war axe
+keywords: [harrogath, war, axe]
+description: A bearded war axe of bright steel lies here.
+look: |
+  Larzuk's work: a bearded axe of mountain steel on an ash haft, the
+  cheek of the blade thick enough to take a socket. Every man on the
+  wall carries one like it.
+type: weapon
+weight: 5
+level: 54
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew

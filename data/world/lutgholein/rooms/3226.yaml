@@ -1,0 +1,14 @@
+vnum: 3226
+name: The Arcane Sanctuary
+description: |
+  There is no floor here, only paths: walkways of stone tiles floating in
+  a starry void, branching and turning back on themselves, each with a
+  study or a library at its end. Horazon built this place out of the
+  world to hide from his brother, and it has outlived him. At the centre
+  a reading platform holds a great book on a pedestal, and on the far
+  side of it a glyph pulses beside a second portal, north. The portal to
+  the cellar is up.
+exits:
+  up: 3225
+  north: 3227
+flags: [dark]

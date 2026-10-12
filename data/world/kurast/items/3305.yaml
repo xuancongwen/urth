@@ -1,0 +1,24 @@
+vnum: 3305
+name: Khalim's Flail
+keywords: [khalim's, khalim, flail]
+description: A gilded flail of the Zakarum priesthood lies here.
+look: |
+  A priest's flail, a ball of gilded iron on a short chain from a haft
+  wound in white leather, the badge of an elder of the High Council.
+  It belonged to Khalim, and Ismail kept it after they killed him.
+  There is still a little honest lightning in it, waiting for the
+  rest of its owner. Hratli the smith can make it whole.
+type: weapon
+weight: 6
+level: 44
+baseline: flail
+value: 1500
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail
+effects:
+  - kind: proc
+    params: { chance: 0.08, power: 1.0, verb: spark of holy lightning }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

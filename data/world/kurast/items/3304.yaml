@@ -1,0 +1,11 @@
+vnum: 3304
+name: Khalim's Heart
+keywords: [khalim's, khalim, heart, relic]
+description: A heart lies here in a casket of silver, rimed with frost.
+look: |
+  A man's heart in a casket of beaten silver, frozen hard by the cold
+  of the sewers and still, faintly, beating. It is the heart of
+  Khalim, who would not bow. Hratli the smith needs it.
+type: other
+weight: 1
+value: 300

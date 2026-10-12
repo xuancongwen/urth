@@ -1,0 +1,20 @@
+vnum: 3108
+name: Stealth
+keywords: [stealth, runeword, armor, mail, leather]
+description: A suit of soft dark leather, set with two small rune-stones, lies here.
+look: |
+  A Rogue's light armour of dark quilted leather, with a Tal rune and
+  an Eth rune set in silver over the heart, side by side. The runes
+  spell Stealth, and the armour does what it says: its wearer moves a
+  little quicker than the eye expects, and blows that do land seem to
+  slide off. Charsi made it, and is quietly pleased with herself.
+type: armor
+slot: body
+weight: 4
+level: 27
+baseline: light
+value: 2200
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: soak, params: { power: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

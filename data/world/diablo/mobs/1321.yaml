@@ -1,0 +1,18 @@
+vnum: 1321
+name: Gillian the barmaid
+keywords: [gillian, barmaid, maid]
+description: Gillian wipes down a table that is already clean, and smiles at you as if she means it.
+look: |
+  A young woman with a kind, tired face and her hair tied back in a
+  kerchief, who serves at the Rising Sun so that her grandmother, who
+  is ill and frightened of the dark, can be cared for. She knows every
+  rumour in Tristram and repeats the ones that might keep you alive.
+  She has heard Adria speak of the cathedral in her sleep, and she
+  would rather not talk about that. She'll pour you an ale; type
+  'list'.
+level: 6
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 1343, silver: 4 }

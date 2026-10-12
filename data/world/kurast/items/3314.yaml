@@ -1,0 +1,28 @@
+vnum: 3314
+name: Natalya's Mark
+keywords: [natalya's, natalya, mark, claw, scissors, suwayyah]
+description: A three-bladed claw of black steel lies here.
+look: |
+  The claw of a Viz-jaq'taar, three blades of black steel set on a
+  bracer worn over the back of the hand, Natalya's own. It was made
+  for killing mages who had made bargains, and it finds the gaps in
+  any protection a demon ever bought. It bites deep, and when it bites
+  well it bites twice as deep. Natalya gives it only to whoever kills
+  the Betrayer.
+type: weapon
+weight: 2
+level: 46
+baseline: dagger
+value: 6000
+weapon:
+  hands: 1
+  kind: slash
+  verb: rake
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: damage
+    params: { mult: 1.1, weapon: true }
+  - kind: detectInvisible
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

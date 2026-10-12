@@ -1,0 +1,18 @@
+vnum: 3120
+name: Gheed's Fortune
+keywords: [gheed's, gheed, fortune, charm]
+description: A gold charm in the shape of a coin purse lies here.
+look: |
+  A little purse of gold no bigger than a walnut, with a tiny pair of
+  dice dangling from its string. It is a gambler's charm, and Gheed
+  swears it is the very one that made his fortune, which is why he is
+  selling it. Held in the hand it makes the holder charming, shrewd,
+  and lucky at the table.
+type: armor
+slot: hold
+weight: 0
+level: 26
+value: 2200
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

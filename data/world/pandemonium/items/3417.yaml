@@ -1,0 +1,13 @@
+vnum: 3417
+name: a gore-crusted hide jerkin
+keywords: [gore-crusted, gore, hide, jerkin]
+description: A stiff jerkin of thick grey hide, crusted with gore, lies here.
+look: |
+  A jerkin cut from the hide of a corpulent, as thick as a saddle and
+  tougher, crusted on the outside with what the creature spat. It will
+  turn a claw. It will never smell clean.
+type: armor
+slot: body
+weight: 8
+level: 44
+baseline: light

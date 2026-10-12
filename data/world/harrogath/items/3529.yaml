@@ -1,0 +1,15 @@
+vnum: 3529
+name: a keep-forged greatsword
+keywords: [keep-forged, keep, forged, greatsword, sword]
+description: A huge two-handed sword of red-veined steel lies here.
+look: |
+  A greatsword of the old guardians of the Worldstone Keep, its steel
+  veined with red where the corruption has got into it.
+type: weapon
+level: 60
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

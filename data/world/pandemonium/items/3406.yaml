@@ -1,0 +1,14 @@
+vnum: 3406
+name: a chaos seal fragment
+keywords: [chaos, seal, fragment, shard, rune]
+description: A fragment of black stone lies here, a line of fire still running through it.
+look: |
+  A chip of black glass from one of the seals of the Chaos Sanctuary,
+  with a rune cut into it that is still burning. It came away when the
+  seal's keeper fell. Jamella collects these, and will trade something
+  very fine for three of them.
+type: material
+material: chaos seal fragment
+rarity: rare
+weight: 1
+value: 1000

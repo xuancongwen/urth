@@ -1,0 +1,11 @@
+vnum: 3413
+name: The Burning Temple
+description: |
+  A temple to something that was worshipped here before the city was
+  damned, now roofed in fire that never consumes it. The altar has been
+  used as a feeding trough. Great horned brutes with burning manes pace
+  between the pillars, snorting sparks, and the floor is littered with
+  shed horns. The only way out is east, to the city gate.
+exits:
+  east: 3411
+flags: [dark]

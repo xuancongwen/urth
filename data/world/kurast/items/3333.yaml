@@ -1,0 +1,13 @@
+vnum: 3333
+name: a jade figurine
+keywords: [jade, figurine, statuette, carving]
+description: A small figurine of green jade lies here.
+look: |
+  A figurine of a seated sage carved from a single piece of green
+  jade, smooth from centuries of hands, with eyes of gold leaf. It
+  turns up in the strangest places in the jungle. Meshif's family had
+  one once, and he would know it anywhere.
+type: other
+weight: 1
+value: 100
+flags: [quest]

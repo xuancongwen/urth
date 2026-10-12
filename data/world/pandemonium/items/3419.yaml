@@ -1,0 +1,12 @@
+vnum: 3419
+name: a doom knight's visored helm
+keywords: [doom, knight's, knight, visored, helm, helmet]
+description: A black helm with a lowered visor lies here, empty.
+look: |
+  A great helm of pitted black steel with its visor down, as it always
+  was on the thing that wore it. There is ash inside, and nothing else.
+type: armor
+slot: head
+weight: 6
+level: 45
+baseline: plate

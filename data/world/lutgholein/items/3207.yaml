@@ -1,0 +1,30 @@
+vnum: 3207
+name: the restored Horadric Staff
+keywords: [restored, horadric, staff, orifice]
+description: A tall staff of gold and dark wood lies here, a coiled serpent at its head.
+look: |
+  The Staff of Kings and the Amulet of the Viper made one again, as the
+  Horadrim made them: a tall staff of black wood shod and capped in
+  gold, the serpent amulet set in its head, glyphs running in a spiral
+  down its length that glow when it is held. It was made to open one
+  door, the seal over Tal Rasha's chamber, and it will. It is also a
+  fine thing to fight with, and to think with.
+type: weapon
+weight: 4
+level: 36
+baseline: staff
+value: 8000
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smite
+effects:
+  - kind: detectHidden
+  - kind: detectInvisible
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: protect
+    params: { mult: 0.92 }

@@ -1,0 +1,25 @@
+vnum: 3402
+name: Halbu the smith
+keywords: [halbu, smith, dwarf, blacksmith]
+description: Halbu the dwarf beats a strip of star-iron on his anvil, cursing the heat.
+look: |
+  A dwarf as broad as he is tall, his beard braided and tucked into his
+  belt to keep it out of the fire, his arms burned and scarred to the
+  shoulder. He came to Pandemonium by a road he will not name, and he
+  likes Hell no more than you do, but the iron here is good. He sells
+  axes and mail, and he would give a great deal to get his hands on the
+  Hellforge Hammer, which the Armorer of Hell keeps by the River of
+  Flame. Bring him that, and he will set a perfect stone for you. Bring
+  him the horns of the brutes in the City of the Damned and he will
+  face a shield with them. He will also teach a fighter how to break
+  another's guard, for coin. Type 'list' to see what he has.
+level: 48
+flags: [peaceful]
+teaches: [sunder]
+attack:
+  verb: hammer
+trades:
+  - { item: 3409, silver: 1400 }
+  - { item: 3410, silver: 1600 }
+  - { item: 3411, silver: 800, items: [3405, 3405] }
+  - { item: 3408, silver: 400, items: [3407] }

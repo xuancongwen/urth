@@ -1,0 +1,11 @@
+vnum: 3526
+name: The Icy Cellar
+description: |
+  A storehouse cut into the rock by the pilgrims, for meat and grain in
+  the long winters, and colder now than any winter. Frost furs every
+  surface an inch thick. The stores are long gone; what lairs here
+  now leaves bones in heaps along the wall and has to stoop under the
+  ceiling. The door to the Ancients' Way is east.
+exits:
+  east: 3515
+flags: [dark]

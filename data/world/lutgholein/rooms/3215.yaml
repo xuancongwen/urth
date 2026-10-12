@@ -1,0 +1,12 @@
+vnum: 3215
+name: The Dry Hills
+description: |
+  Hills of red earth roll away under the sun, cut by dry gullies and
+  dotted with stunted trees. Tracks of big cats run everywhere in the
+  dust, and in one gully a stairway of worn stone goes down into the
+  hillside between two broken statues of jackal-headed men. The rocky
+  waste is north; the trail goes on south toward a line of green.
+exits:
+  north: 3214
+  south: 3218
+  down: 3216

@@ -1,0 +1,22 @@
+vnum: 3408
+name: an amulet of the perfect skull
+keywords: [amulet, perfect, skull, gem]
+description: An amulet set with a small, flawless skull of white stone lies here.
+look: |
+  A perfect skull, the rarest of the gems, cut from a stone that grows
+  only where the dead are thick, and set by Halbu in a cage of star-iron
+  he beat out with the Hellforge Hammer itself. The eye sockets hold a
+  faint light. Worn, it drinks a little from every wound you give and
+  closes your own.
+type: armor
+slot: neck
+weight: 0
+level: 49
+value: 6000
+effects:
+  - kind: leech
+    params: { fraction: 0.06 }
+  - kind: regen
+    params: { fraction: 0.01 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

@@ -1,0 +1,16 @@
+vnum: 3404
+name: a corpulent
+keywords: [corpulent, spitter, corpse, demon]
+description: A corpulent lifts its swollen head from its feeding and spits.
+look: |
+  A thing like a toad the size of an ox, its skin stretched shiny over
+  a belly full of rotting meat, with a mouth that splits its whole head.
+  It eats the dead of the steppes and spits back what it cannot keep
+  down, which burns. A hide of crusted gore hangs half-flayed from its
+  back.
+level: 44
+flags: [assist]
+stats: {constitution: 15, dexterity: 7}
+attack:
+  kind: bite
+  verb: spit

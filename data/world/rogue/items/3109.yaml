@@ -1,0 +1,20 @@
+vnum: 3109
+name: Lore
+keywords: [lore, runeword, helm, cap]
+description: A plain steel cap, set with two small rune-stones, lies here.
+look: |
+  A plain steel cap with an Ort rune and a Sol rune set into the brow,
+  one beside the other, and between them Akara's blessing worked in
+  blue thread. The runes spell Lore. The wearer's thoughts run clear
+  and quick, they remember what they have read, and their eyes find
+  what was hidden in the dark.
+type: armor
+slot: head
+weight: 2
+level: 27
+baseline: medium
+value: 2200
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: detectHidden }

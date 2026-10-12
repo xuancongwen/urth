@@ -1,0 +1,29 @@
+vnum: 3526
+name: Baal, Lord of Destruction
+keywords: [baal, lord, destruction, demon, prime, evil]
+description: Baal turns from the Worldstone, and his laughter fills the chamber. "This world is mine!"
+look: |
+  The youngest of the three Prime Evils and the last one standing: a
+  towering shape that was the body of Tal Rasha, the Horadric mage who
+  bound him, and is not any more. Tentacles writhe where the jaw
+  should be, the chest is split open on a glow of red crystal, and the
+  robes of a Horadric archmage hang in rags from shoulders spiked with
+  bone. Frost and lightning walk over his hands. He has come to corrupt
+  the Worldstone and with it every soul in Sanctuary, and he has nearly
+  done it. He is the Lord of Destruction. He does not need to hurry.
+level: 60
+health: 32000
+stats: {strength: 18, constitution: 18, intelligence: 20, dexterity: 14}
+silver: 2500
+attack:
+  kind: cold
+  verb: rend
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: chill
+    params: { chance: 0.25, mult: 0.6, rounds: 2 }
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: crackling hoarfrost }
+  - kind: soak
+    params: { power: 0.15 }

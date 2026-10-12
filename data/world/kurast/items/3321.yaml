@@ -1,0 +1,15 @@
+vnum: 3321
+name: an Iron Wolf kite shield
+keywords: [iron, wolf, kite, shield]
+description: A long kite shield painted with a grey wolf lies here.
+look: |
+  A kite shield of laminated wood and steel, painted with the grey
+  wolf on red of the company. The Wolves stand in a line behind them
+  while their mages throw fire over the top.
+type: armor
+slot: shield
+weight: 9
+level: 40
+effects:
+  - kind: block
+    params: { chance: 0.12 }

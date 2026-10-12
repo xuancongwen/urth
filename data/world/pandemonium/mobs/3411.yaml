@@ -1,0 +1,15 @@
+vnum: 3411
+name: a storm caster
+keywords: [storm, caster, strangler, demon]
+description: A storm caster sways on the far bank, lightning crawling between its long hands.
+look: |
+  A thin, hunched thing with a crest of spines and fingers twice as long
+  as they should be, wrapped in strips of wet black cloth. Lightning
+  lives between its hands, and when it opens them the lightning leaves.
+  It wears ash-stained cuffs to keep its sleeves from catching fire.
+level: 48
+flags: [assist]
+stats: {intelligence: 16, dexterity: 14}
+attack:
+  kind: magic
+  verb: lightning

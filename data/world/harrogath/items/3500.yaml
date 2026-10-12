@@ -1,0 +1,25 @@
+vnum: 3500
+name: Shenk's whip
+keywords: [shenk's, shenk, whip, lash, overseer]
+description: A long lash of braided sinew lies coiled here, still twitching.
+look: |
+  The Overseer's lash, braided from the sinews of a dozen barbarians
+  and weighted at the tip with an iron hook. It has driven an army up
+  a mountain. It cracks like a catapult loosing, and it finds the man
+  who has turned his back, and the welts it leaves smoulder.
+type: weapon
+weight: 2
+level: 52
+baseline: whip
+value: 9000
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - kind: opportunist
+    params: { mult: 1.15 }
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 1 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }

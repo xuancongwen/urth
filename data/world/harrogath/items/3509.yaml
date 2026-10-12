@@ -1,0 +1,32 @@
+vnum: 3509
+name: Bul-Kathos' Sacred Charge
+keywords: [bul-kathos', bul-kathos, bulkathos, sacred, charge, sword, colossus]
+description: A colossal two-handed blade lies here, a sliver of red crystal in its hilt.
+look: |
+  The greater blade of Bul-Kathos, a colossus sword as long as a man,
+  lost when the first king fell and reforged by Larzuk around a shard
+  of the Worldstone, as the old songs said it had been made at first.
+  It hits like the mountain falling, and the crystal in its hilt
+  shrugs off the blows meant for its bearer. It is the sword of the
+  man who founded Harrogath. Harrogath would like you to remember that.
+type: weapon
+weight: 16
+level: 59
+baseline: heavy
+value: 20000
+rarity: rare
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }
+  - kind: damage
+    params: { mult: 1.1, weapon: true }
+  - kind: soak
+    params: { power: 0.08 }
+  - kind: stat
+    params: { stat: strength, amount: 3 }
+  - kind: stat
+    params: { stat: constitution, amount: 2 }

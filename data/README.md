@@ -37,7 +37,7 @@ Doors (room 7), which opens on `winterfell` (north, levels 6 to 14),
 9), and `midgaard` (west, classic ROM Midgaard, 1 to 15), and on down
 to the Deeper Hall (room 8), which opens on `warcraft` (north, 8 to
 16), `draenor` (east, 12 to 20), `diablo` (south, Tristram and the
-cathedral, 14 to 22), and `starcraft` (west, 16 to 24). Below that the halls change their
+cathedral, 14 to 24), and `starcraft` (west, 16 to 24). Below that the halls change their
 rule: an area there runs from a low entrance up to its famous threats at
 the level their source made them. The Hall of Legends (room 9) opens on
 `velen` (north, The Witcher, 6 to 36), `moria` (east, 10 to 50),
@@ -51,4 +51,12 @@ at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`
 (14 to 18, below Barovia's graveyard), `cowlevel` (20 to 26, through a
 locked portal in Tristram whose key is Wirt's leg, which Wirt sells), and
-`gauntlet`. Each area's README.md carries its map.
+`gauntlet`. From Tristram's north road a road runs east into Diablo
+II, five areas in a chain, each opening on the next: `rogue` (the Rogue
+Encampment and Andariel, 22 to 30), `lutgholein` (by Warriv's caravan;
+the desert and Duriel, 28 to 38), `kurast` (by Meshif's ship; the
+jungle, Travincal, and Mephisto, 36 to 46), `pandemonium` (down
+Mephisto's red portal; the Pandemonium Fortress, the Hellforge, and the
+Chaos Sanctuary's seals, 44 to 52), and `harrogath` (through Tyrael's
+portal; Mount Arreat and Baal, 50 to 60). Each area's README.md carries
+its map.

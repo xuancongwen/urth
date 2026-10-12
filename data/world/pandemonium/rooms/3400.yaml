@@ -1,0 +1,17 @@
+vnum: 3400
+name: The Red Portal, Pandemonium Fortress
+description: |
+  The red portal spits you out onto a floor of white stone veined with
+  gold, and the heat of Kurast's last chamber falls away behind you like
+  a cloak dropped on a stair. This is the Pandemonium Fortress, the last
+  bastion of Heaven at the edge of Hell, raised by the angels before
+  there were men to raise anything. Its walls are old beyond reckoning
+  and still bright. The portal hangs above, up, back into Mephisto's
+  burning hall. East, a great hall is lit by something that is not
+  fire; south, a curtained alcove smells of incense and lamp oil.
+exits:
+  up: 3301
+  east: 3401
+  south: 3402
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

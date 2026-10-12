@@ -1,0 +1,16 @@
+vnum: 3302
+name: The Waterfront Market
+description: |
+  What is left of Kurast's great harbour market is a square of cracked
+  flagstones under awnings of patched sailcloth, where the last free
+  traders of the city sell to each other because there is nobody else
+  to sell to. Palisades of sharpened bamboo close the side streets.
+  Smoke and the clang of a hammer come from a forge to the north; a
+  shuttered house to the south has a sign of an eye painted over its
+  door. The docks are west, and the stockade gate east.
+exits:
+  west: 3300
+  north: 3303
+  south: 3304
+  east: 3305
+flags: [safe]

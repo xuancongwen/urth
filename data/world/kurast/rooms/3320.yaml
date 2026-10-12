@@ -1,0 +1,12 @@
+vnum: 3320
+name: The Kurast Causeway
+description: |
+  A causeway of fitted stone runs straight across the flooded lowlands
+  on great arches, wide enough for six to ride abreast, with a statue
+  of a Zakarum saint every hundred paces. The saints have been given
+  new faces in red paint. Ahead, the walls and golden domes of
+  Travincal fill the sky, and the red glow over them is close enough
+  now to feel. Upper Kurast is west, and Travincal east.
+exits:
+  west: 3319
+  east: 3321

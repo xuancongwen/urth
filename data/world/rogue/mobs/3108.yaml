@@ -1,0 +1,14 @@
+vnum: 3108
+name: a zombie
+keywords: [zombie, corpse, dead]
+description: A zombie in torn travelling clothes lurches out of the mist.
+look: |
+  A grey, bloated body with its jaw hanging loose, dressed in what a
+  traveller wore on the road from Tristram. Mud from the grave is
+  still caked on its boots. It is slow, and it is very strong, and it
+  does not stop.
+level: 23
+stats: {strength: 14, dexterity: 6}
+attack:
+  kind: claw
+  verb: claw

@@ -1,0 +1,11 @@
+vnum: 3420
+name: The Seal of Lord De Seis
+description: |
+  A chamber hung with banners of an army no one living has seen, around
+  a seal burning in the floor. Knights in black plate stand in rows, as
+  if at an oath-taking, and before them stands their lord, taller than
+  any of them, who swore his oath to Diablo long ago and has kept it
+  since. The outer court is west.
+exits:
+  west: 3418
+flags: [dark]

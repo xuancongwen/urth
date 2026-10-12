@@ -1,0 +1,15 @@
+vnum: 3422
+name: a pit lord's cleaving axe
+keywords: [pit, lord's, lord, cleaving, axe]
+description: A huge axe with a crescent blade of red iron lies here.
+look: |
+  A pit lord's axe, cut down by a careful owner to something a man can
+  swing one-handed. The red iron of the blade is warm and never cools.
+type: weapon
+weight: 9
+level: 47
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: cleave

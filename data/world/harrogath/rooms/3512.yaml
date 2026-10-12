@@ -1,0 +1,12 @@
+vnum: 3512
+name: The Frozen River
+description: |
+  An underground river frozen solid, a road of black ice running into
+  the dark. In the middle of it stands a pillar of ice, hollowed out
+  from inside and cracked open, the shape of a woman still pressed into
+  it where she stood for days: Anya, the merchant of Harrogath, whom
+  Nihlathak sold. Around the pillar the ice is scored with claw marks
+  as deep as a hand. The passage is back up the slope, west.
+exits:
+  west: 3511
+flags: [dark]

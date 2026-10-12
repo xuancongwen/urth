@@ -1,0 +1,22 @@
+vnum: 3317
+name: Natalya's Soul
+keywords: [natalya's, natalya, soul, boots]
+description: A pair of soft black boots lies here, silent even when moved.
+look: |
+  Mesh boots of the Viz-jaq'taar, black and silver, soled with
+  something that makes no sound on any floor. They carry their wearer
+  out of the way of a blow before the blow has quite decided where it
+  is going, and they never tire.
+type: armor
+slot: feet
+weight: 1
+level: 45
+baseline: light
+value: 4000
+effects:
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: dodge
+    params: { amount: 0.03 }
+  - kind: regen
+    params: { fraction: 0.01 }

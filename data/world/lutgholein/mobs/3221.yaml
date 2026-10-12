@@ -1,0 +1,19 @@
+vnum: 3221
+name: a claw viper
+keywords: [claw, viper, serpent, snake]
+description: A claw viper rises from a coil, hissing, its scaled arms spread.
+look: |
+  A serpent the length of three men with the torso and arms of a woman
+  grown out of its neck, scaled from head to tail and armed with long
+  hooked claws. Its eyes are yellow and slit. It strikes from the coil
+  faster than anything that size should, and its bite is the least of
+  its worries.
+level: 34
+flags: [assist]
+stats: {dexterity: 14}
+attack:
+  kind: claw
+  verb: rake
+effects:
+  - kind: dot
+    params: { damage: 5 }

@@ -1,0 +1,12 @@
+vnum: 3318
+name: The Kurast Sewers
+description: |
+  Brick channels run under the bazaar, carrying a black trickle that
+  was once the whole city's water. It is cold down here, unnaturally
+  cold; frost furs the bricks and the trickle is crusted with ice.
+  Something leathery hangs from the vault and unfolds as you look at
+  it. In a niche behind an iron grille, an old reliquary sits on a
+  shelf. The grate is up.
+exits:
+  up: 3316
+flags: [dark]

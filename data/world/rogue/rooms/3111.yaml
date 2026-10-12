@@ -1,0 +1,12 @@
+vnum: 3111
+name: The Burial Grounds
+description: |
+  The Rogues buried their dead here, in rows under the plain, with a
+  bow carved on every marker. Every grave has been opened from the
+  inside. Mist lies knee deep between the stones and the light never
+  gets much past dusk. A small stone mausoleum with a broken door
+  stands among the graves, and a stair goes down inside it. The wall
+  gap is east, back to the Cold Plains.
+exits:
+  east: 3110
+  down: 3112

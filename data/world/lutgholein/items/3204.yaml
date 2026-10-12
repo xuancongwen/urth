@@ -1,0 +1,16 @@
+vnum: 3204
+name: the Horadric Cube
+keywords: [horadric, cube, box, chest]
+description: A small cube of gold-chased metal sits here, glyphs glowing on its faces.
+look: |
+  A cube of dark metal a little bigger than two hands together, chased
+  in gold with the glyphs of the Horadrim, which glow when it is
+  opened. Inside it is a great deal bigger than outside, and things put
+  in it come out lighter, and sometimes changed. Tal Rasha's brothers
+  made it to transmute the pieces of their great work; you can at
+  least carry your loot in it.
+type: container
+weight: 1
+capacity: 150
+value: 3000
+rarity: rare

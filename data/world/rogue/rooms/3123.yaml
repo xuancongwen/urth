@@ -1,0 +1,12 @@
+vnum: 3123
+name: The Outer Cloister
+description: |
+  A square cloister of pale stone around a garden gone to weeds, the
+  arcades hung with the torn banners of the Sisterhood. A fountain in
+  the middle runs red. Doors open off every side: east, the barracks,
+  from which comes the slow ring of a hammer on an anvil; south, the
+  way deeper into the monastery. The gate is north.
+exits:
+  north: 3122
+  east: 3124
+  south: 3125

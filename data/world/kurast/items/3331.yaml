@@ -1,0 +1,12 @@
+vnum: 3331
+name: a Durance plate cuirass
+keywords: [durance, plate, cuirass, breastplate]
+description: A heavy black cuirass lies here, warm to the touch.
+look: |
+  Plate from the Durance of Hate, black iron over something that was
+  alive, warm as skin and just as unwilling to be cut.
+type: armor
+slot: body
+level: 45
+baseline: plate
+flags: [drop]

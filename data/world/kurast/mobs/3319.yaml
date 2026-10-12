@@ -1,0 +1,20 @@
+vnum: 3319
+name: Ismail Vilehand
+keywords: [ismail, vilehand, council, elder, high]
+description: Ismail Vilehand stands beside the cracked orb, Khalim's flail in his fist.
+look: |
+  The eldest of the High Council of Zakarum, gaunt and stooped in robes
+  of state, with one hand withered black from the wrist. He voted to
+  let the Lord of Hatred out, and he voted to take Khalim apart, and
+  he kept the flail for himself as a keepsake. His curses come before
+  his blows.
+level: 44
+health: 4000
+stats: {intelligence: 17, strength: 14}
+silver: 400
+attack:
+  kind: magic
+  verb: curse
+effects:
+  - kind: soak
+    params: { power: 0.1 }

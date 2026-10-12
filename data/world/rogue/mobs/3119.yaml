@@ -1,0 +1,24 @@
+vnum: 3119
+name: the Smith
+keywords: [smith, demon, blacksmith]
+description: The Smith turns from the anvil with a great hammer in his fist. "Fresh meat for my anvil!"
+look: |
+  A demon twice the width of a man, hairless, burned black and red
+  from the forge, with a leather apron and arms like oak trunks. He has
+  taken Charsi's forge and Charsi's hammer, and he beats Rogue armour
+  into shapes that suit his masters. When he swings the Horadric Malus
+  it rings like a bell. He laughs while he works, and he laughs harder
+  while he fights.
+level: 28
+health: 1500
+stats: {strength: 17, constitution: 15}
+silver: 300
+xp: 6500
+attack:
+  kind: blunt
+  verb: hammer
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: soak
+    params: { power: 0.1 }

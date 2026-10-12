@@ -1,0 +1,21 @@
+vnum: 3508
+name: Shenk the Overseer
+keywords: [shenk, overseer, demon]
+description: Shenk the Overseer bellows from his platform of bodies, whip cracking, and the imps scurry.
+look: |
+  The overseer of Baal's siege, a hulking, warty, hunchbacked demon in
+  a breastplate of fused shields, with a lash of braided sinew in one
+  fist. He drives the siege beasts with it, and the imps, and the
+  enslaved, and anything else that does not move fast enough; every
+  crack of it brings more imps tumbling out of the camp. He has been
+  told Harrogath will fall this week. He believes it.
+level: 52
+health: 16000
+stats: {strength: 16, constitution: 15}
+silver: 800
+spawns: {mob: 3505, every: 4, max: 3}
+attack:
+  verb: lash
+effects:
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }

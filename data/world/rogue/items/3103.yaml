@@ -1,0 +1,27 @@
+vnum: 3103
+name: Charsi's imbued blade
+keywords: [charsi's, charsi, imbued, blade, sword]
+description: A long bright sword lies here, faint runes glowing down the fuller.
+look: |
+  A war sword from Charsi's rack, worked over on her anvil with the
+  Horadric Malus until the old binding-runes ran into the steel like
+  ink into paper. It is lighter than it looks and it finds the joints
+  in armour on its own, and when it finds them it bites deep. Charsi
+  says it is the best thing she has ever made. She is right.
+type: weapon
+weight: 5
+level: 30
+baseline: standard
+value: 3000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: critMult
+    params: { amount: 0.3 }
+  - kind: damage
+    params: { mult: 1.08, weapon: true }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

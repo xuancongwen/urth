@@ -1,0 +1,21 @@
+vnum: 3513
+name: a Harrogath war axe set with a perfect skull
+keywords: [harrogath, war, axe, perfect, skull, socketed]
+description: A bearded war axe lies here, a small polished skull set in its cheek.
+look: |
+  One of Larzuk's war axes, opened with a socket in the cheek of the
+  blade by the old craft and set with a perfect skull, grinning. The
+  skull drinks from every wound the axe opens and passes it to the hand
+  on the haft.
+type: weapon
+weight: 6
+level: 54
+baseline: axe
+value: 6000
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew
+effects:
+  - kind: leech
+    params: { fraction: 0.06 }

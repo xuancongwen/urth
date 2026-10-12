@@ -1,0 +1,19 @@
+vnum: 3322
+name: Wyand Voidbringer
+keywords: [wyand, voidbringer, council, elder]
+description: Wyand Voidbringer stands at the bridge, and the light bends away from him.
+look: |
+  A hooded elder of the Council whose face is hard to look at, because
+  the light near him goes thin and grey. He drains what he touches, and
+  what he takes he keeps. He wears a dead mage-slayer's boots, and
+  walks quietly in them.
+level: 45
+health: 4000
+stats: {intelligence: 17, constitution: 15}
+silver: 400
+attack:
+  kind: drain
+  verb: drain
+effects:
+  - kind: leech
+    params: { fraction: 0.1 }

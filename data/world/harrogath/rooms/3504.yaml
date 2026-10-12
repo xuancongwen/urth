@@ -1,0 +1,16 @@
+vnum: 3504
+name: The Great Gate of Harrogath
+description: |
+  The street ends at the town's great gate, two leaves of oak as thick
+  as a man is tall, bound in black iron and scarred with burns. Above
+  it, on the wall-walk, barbarians in furs stand with their axes and
+  watch the slopes. Beyond the gate the snow is churned to red mud, and
+  a smoke rises that is not from any hearth. West stands a tall house
+  with carved posts, the elder's; east, a small stall under a canopy of
+  hides. The square is south; north, the gate opens on the foothills.
+exits:
+  south: 3501
+  west: 3505
+  east: 3506
+  north: 3507
+flags: [safe]

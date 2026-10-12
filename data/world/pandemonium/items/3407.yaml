@@ -1,0 +1,27 @@
+vnum: 3407
+name: the Hellforge Hammer
+keywords: [hellforge, hammer, maul]
+description: A huge hammer with a head of black iron, glowing red at the face, lies here.
+look: |
+  The hammer of the Hellforge, on which every weapon of Hell's armies
+  was beaten out: a haft of black iron as tall as a man and a head that
+  glows at the striking face as if it had come out of the fire a moment
+  ago and always will. The Horadrim wrote that it could break a
+  soulstone. It breaks most other things easily enough, and what it
+  hits keeps burning. Halbu the smith would very much like to hold it.
+type: weapon
+weight: 16
+level: 49
+baseline: heavy
+value: 9000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: hammer
+effects:
+  - kind: ignite
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }

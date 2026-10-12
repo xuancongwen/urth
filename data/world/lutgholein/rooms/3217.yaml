@@ -1,0 +1,11 @@
+vnum: 3217
+name: The Inner Tomb of the Halls
+description: |
+  A square chamber at the heart of the halls, with a sarcophagus on a
+  dais and a stone chest at its foot, lid pried off. Claw marks score
+  the walls to shoulder height, fresh and pale in the old dark stone,
+  and the floor is littered with bones that are not old at all. The
+  outer hall is west.
+exits:
+  west: 3216
+flags: [dark]

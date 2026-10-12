@@ -1,0 +1,12 @@
+vnum: 3314
+name: The Witch Doctor's Sanctum
+description: |
+  The deepest chamber of the flayers is a temple of a sort: a ring of
+  fetish poles around an altar of piled skulls, and on the altar a jar
+  of murky glass with something folded and grey floating in it. A
+  fire burns green in a pit. The flayers who dance here wear masks of
+  human faces, and the one who leads them wears the finest. The
+  tunnels are north.
+exits:
+  north: 3313
+flags: [dark]

@@ -1,0 +1,13 @@
+vnum: 3329
+name: a council robe
+keywords: [council, robe, zakarum, vestments]
+description: A heavy robe of red and gold brocade lies here.
+look: |
+  The robe of an elder of the High Council of Zakarum, red brocade
+  stiff with gold thread, the sun of the faith worked across the back.
+  It smells of incense and of something burnt.
+type: armor
+slot: body
+weight: 3
+level: 43
+baseline: cloth

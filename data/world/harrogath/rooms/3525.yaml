@@ -1,0 +1,12 @@
+vnum: 3525
+name: The Worldstone Chamber
+description: |
+  The heart of the mountain: a chamber of red crystal so tall its roof
+  is lost, and in its middle, set into a column of rock, the Worldstone
+  itself, a crystal mountain, humming a note you feel in your teeth.
+  It holds the world apart from Heaven and Hell, and it is cracked, and
+  the crack is spreading, glowing, corrupt. Whoever touches it touches
+  everything. The stair is up. Baal is here, at the stone.
+exits:
+  up: 3524
+flags: [dark]

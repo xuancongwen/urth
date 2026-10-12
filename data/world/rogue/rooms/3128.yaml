@@ -1,0 +1,13 @@
+vnum: 3128
+name: The Catacombs
+description: |
+  Passages cut through the rock under the monastery, lined floor to
+  ceiling with shelves of the dead, each wrapped and labelled in a
+  careful hand. The wrappings have been torn open and fed on. Torches
+  burn here, lit by no living hand. A broader stair goes down to the
+  lowest level, and from it rises a green haze that makes the eyes
+  water. The cathedral is up.
+exits:
+  up: 3127
+  down: 3129
+flags: [dark]

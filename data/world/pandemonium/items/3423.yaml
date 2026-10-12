@@ -1,0 +1,16 @@
+vnum: 3423
+name: a venom lord's glaive
+keywords: [venom, lord's, lord, glaive, spear, polearm]
+description: A long glaive with a dark green-stained blade lies here.
+look: |
+  A long-hafted glaive with a single curved blade, stained green-black
+  where the venom lord's poison has soaked into the steel. The stain
+  will not come out. The edge is very good.
+type: weapon
+weight: 8
+level: 48
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

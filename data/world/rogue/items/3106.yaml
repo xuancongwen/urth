@@ -1,0 +1,13 @@
+vnum: 3106
+name: an Ort rune
+keywords: [ort, rune, stone]
+description: A small flat stone, carved with a single rune, lies here.
+look: |
+  A reddish stone carved with the rune Ort, a jagged line like a bolt
+  of lightning. It tingles in the palm. Akara says that with Sol it
+  makes a word of learning, and she will bind the two into a helm.
+type: material
+material: rune
+rarity: rare
+weight: 0
+value: 150

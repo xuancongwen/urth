@@ -1,0 +1,14 @@
+vnum: 3405
+name: a doom knight
+keywords: [doom, knight, undead]
+description: A doom knight walks among the bones, its blackened greatsword on its shoulder.
+look: |
+  A knight in black plate pitted with rust and ash, its visor down on
+  nothing. It was a paladin of some forgotten order, raised up again by
+  Hell to fight the angels it once prayed to, and it fights still with
+  all the skill it had in life and none of the mercy.
+level: 45
+flags: [assist]
+stats: {strength: 15, constitution: 14}
+attack:
+  verb: slash

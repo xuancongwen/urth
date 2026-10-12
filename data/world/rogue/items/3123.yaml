@@ -1,0 +1,16 @@
+vnum: 3123
+name: a carver's blade
+keywords: [carver, carver's, blade, sword]
+description: A long, thin blade with a hooked tip lies here.
+look: |
+  A long single-edged blade with a hook at the point, made for cutting
+  rather than fighting, and nicked along its length from both. The grip
+  is wrapped in something that was not leather until recently.
+type: weapon
+weight: 4
+level: 25
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: carve

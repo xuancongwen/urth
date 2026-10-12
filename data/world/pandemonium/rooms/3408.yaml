@@ -1,0 +1,14 @@
+vnum: 3408
+name: The Plains of Despair
+description: |
+  Flat black ground runs away on every side under a low red sky, and
+  the horizon is nowhere. The wind here carries voices: not words, but
+  the sound of a great many people weeping very quietly a long way off.
+  Shapes with blowpipes move at the edge of sight and are gone. North,
+  the bone field rises toward the steppes; east, a red glow marks a
+  crater; south, the plain goes on.
+exits:
+  north: 3406
+  east: 3410
+  south: 3409
+flags: [dark]

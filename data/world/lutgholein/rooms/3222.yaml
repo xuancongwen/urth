@@ -1,0 +1,11 @@
+vnum: 3222
+name: The Valley of Snakes
+description: |
+  A dry valley walled in red stone, its sides carved with coiling
+  serpents a hundred feet long. Shed skins lie in the sand like
+  abandoned clothing, some of them big enough to wear. At the head of
+  the valley a doorway shaped like an open mouth leads down into the
+  rock, fangs and all. The Lost City is west.
+exits:
+  west: 3221
+  down: 3223

@@ -1,0 +1,12 @@
+vnum: 3428
+name: a hell-plate cuirass
+keywords: [hell-plate, hell, plate, cuirass]
+description: A cuirass of red-black plate, ridged like a carapace, lies here.
+look: |
+  A breastplate forged by Hephasto for the knights of the Sanctuary,
+  ridged and spined like the shell of some great insect.
+type: armor
+slot: body
+level: 52
+baseline: plate
+flags: [drop]

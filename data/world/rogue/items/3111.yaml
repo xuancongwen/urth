@@ -1,0 +1,25 @@
+vnum: 3111
+name: the Torch of Iro
+keywords: [torch, iro, wand]
+description: A short wand of charred wood, its tip smouldering, lies here.
+look: |
+  A wand of blackened yew no longer than a forearm, its tip glowing like
+  a coal that will not go out. It belonged to Iro, a sorcerer of the
+  east, before a fallen shaman took it off his body and learned which
+  end to point. It sets alight whatever it strikes, feeds its bearer on
+  the wounds it makes, and sharpens the mind.
+type: weapon
+weight: 1
+level: 24
+baseline: staff
+value: 1200
+weapon:
+  hands: 1
+  kind: blunt
+  verb: strike
+effects:
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 1 }
+  - kind: leech
+    params: { fraction: 0.05 }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

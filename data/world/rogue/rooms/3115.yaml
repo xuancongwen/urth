@@ -1,0 +1,13 @@
+vnum: 3115
+name: The Dark Wood
+description: |
+  Old oaks close over the track until it is dusk at noon, their trunks
+  furred with moss and their roots knuckled up through the path. Huge
+  bare prints in the mud, wider than a man's shoulders, wander between
+  the trees. West, through the trunks, one tree stands taller than all
+  the rest, white as bone. The field is north; south, the trees thin
+  out over wet ground.
+exits:
+  north: 3113
+  west: 3116
+  south: 3117

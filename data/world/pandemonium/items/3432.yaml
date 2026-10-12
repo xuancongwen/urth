@@ -1,0 +1,12 @@
+vnum: 3432
+name: a pair of hell-iron vambraces
+keywords: [hell-iron, hell, iron, vambraces]
+description: A pair of black iron arm-guards lies here.
+look: |
+  Vambraces of black hell-iron, spiked at the elbow, still faintly hot
+  from the forge.
+type: armor
+slot: arms
+level: 53
+baseline: plate
+flags: [drop]

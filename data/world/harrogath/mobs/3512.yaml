@@ -1,0 +1,22 @@
+vnum: 3512
+name: Frozenstein
+keywords: [frozenstein, yeti, abominable]
+description: Frozenstein hunches by the shattered pillar of ice, gnawing a bone.
+look: |
+  The biggest yeti anyone has seen, white fur gone grey and clotted
+  with ice, a lumpen face scarred across the eyes. He was set to guard
+  Anya in her pillar of ice, and he did it well, and he is very angry
+  that she is gone. The cold comes off him like heat off a forge, and
+  what he hits freezes.
+level: 55
+health: 18000
+stats: {strength: 17, constitution: 16}
+silver: 800
+attack:
+  kind: cold
+  verb: pound
+effects:
+  - kind: chill
+    params: { chance: 0.25, mult: 0.6, rounds: 2 }
+  - kind: aura
+    params: { power: 0.15, verb: creeping grave-frost }

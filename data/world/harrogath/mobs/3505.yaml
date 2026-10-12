@@ -1,0 +1,13 @@
+vnum: 3505
+name: a demon imp
+keywords: [demon, imp]
+description: A demon imp capers on a corpse, chattering, and vanishes and reappears closer.
+look: |
+  A little red demon with a pot belly, bat ears and a mouthful of
+  needles, that rides the siege beasts into battle and blinks from
+  place to place in a puff of brimstone when it gets bored. This one
+  has taken a spear from a dead defender and is very pleased with it.
+level: 50
+flags: [assist]
+attack:
+  verb: claw

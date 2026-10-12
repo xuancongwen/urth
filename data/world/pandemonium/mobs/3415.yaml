@@ -1,0 +1,26 @@
+vnum: 3415
+name: the Grand Vizier of Chaos
+keywords: [grand, vizier, chaos, demon, scribe]
+description: The Grand Vizier of Chaos reads aloud from a burning book over his seal, and does not stop.
+look: |
+  A tall, stooped demon in a robe of scorched scarlet, with a face like
+  a horned skull and many fingers, which hold open a book whose pages
+  are fire. He is the keeper of Diablo's seals, and he reads the words
+  that keep this one open in a voice that makes the teeth ache. Lightning
+  leaps from the pages whenever he turns one. He does not look up from
+  the book, even to kill you.
+level: 50
+health: 24000
+stats: {intelligence: 19, wisdom: 16, constitution: 15}
+silver: 900
+xp: 24000
+attack:
+  kind: magic
+  verb: firestorm
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: aura
+    params: { power: 0.15, verb: storm of burning pages }
+  - kind: regen
+    params: { fraction: 0.01 }

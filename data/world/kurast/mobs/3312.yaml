@@ -1,0 +1,21 @@
+vnum: 3312
+name: Witch Doctor Endugu
+keywords: [witch, doctor, endugu, flayer, shaman]
+description: Witch Doctor Endugu dances before the altar, a curved dagger in one hand.
+look: |
+  The high shaman of the flayers, a wizened thing in a cloak of human
+  skins with a mask of gold and a headdress of a hundred feathers. He
+  dances and the green fire dances with him. In his hand is the
+  Gidbinn, the sacred dagger of the Skatsim that kept the jungle's
+  evil at bay; on the altar behind him floats what the Council took
+  out of Khalim's skull.
+level: 41
+health: 2800
+stats: {intelligence: 16, dexterity: 15}
+silver: 250
+attack:
+  kind: fire
+  verb: conjure
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }

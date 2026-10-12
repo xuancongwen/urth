@@ -1,0 +1,17 @@
+vnum: 3200
+name: Warriv's Caravan at the West Gate
+description: |
+  The caravan has come to rest in the shade of Lut Gholein's west wall,
+  wagons drawn up in a ring, camels kneeling and complaining about it.
+  The air is dry enough to crack the lips and smells of dung, spice, and
+  hot stone. Above the wall rise white domes and a palace tower with a
+  green banner hanging limp in the heat. West, the long caravan road
+  winds back over the mountains toward the Rogue Encampment; east, an
+  arch opens into the city; south, beyond a gate in the outer wall, the
+  desert begins.
+exits:
+  west: 3101
+  east: 3202
+  south: 3214
+position: {x: 0, y: 0, z: 0}
+flags: [safe]

@@ -1,0 +1,20 @@
+vnum: 3307
+name: Sszark the Burning
+keywords: [sszark, burning, spider, arach]
+description: Sszark the Burning rises from its nest of embers, flames running down its legs.
+look: |
+  The mother of the spider cavern, a spider the size of a cart, whose
+  hide smoulders like charcoal and whose web is spun from fire. It
+  took a holy relic for its nest and has been brooding on it for
+  years, and the eye inside the reliquary has watched it the whole
+  time. Everything Sszark bites, it sets alight.
+level: 38
+health: 2200
+stats: {dexterity: 15, constitution: 14}
+silver: 200
+attack:
+  kind: fire
+  verb: bite
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }

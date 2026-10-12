@@ -1,0 +1,16 @@
+vnum: 3326
+name: a flayer's barbed spear
+keywords: [flayer, flayer's, barbed, spear]
+description: A short spear with a barbed bone head lies here.
+look: |
+  A spear cut to a flayer's height and long enough for yours, with a
+  head of sharpened bone barbed back like a fish hook. Feathers and a
+  little shrunken head hang under the point for luck.
+type: weapon
+weight: 3
+level: 39
+baseline: spear
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

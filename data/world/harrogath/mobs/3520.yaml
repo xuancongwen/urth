@@ -1,0 +1,13 @@
+vnum: 3520
+name: a minion of destruction
+keywords: [minion, destruction, demon]
+description: A minion of destruction stomps down the hall, its spiked armour grinding.
+look: |
+  A fat grey demon in armour that grows out of its own hide, all
+  spikes and plates, with a face like a boar's and an axe-hand. Baal
+  breeds them for one thing, which is in the name.
+level: 58
+flags: [assist]
+stats: {strength: 15, constitution: 15}
+attack:
+  verb: hack

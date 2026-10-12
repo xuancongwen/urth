@@ -1,0 +1,13 @@
+vnum: 3212
+name: The Sewer Channels
+description: |
+  Three channels meet here under a vaulted cistern, and the water in
+  them barely moves. Bones lie on the walkways, picked clean and
+  sorted into heaps by someone with a tidy mind. The walls are carved
+  with faded Horadric warding sigils, most of them chiselled out. The
+  ladder is east; west, the channel runs on to a sealed door that is no
+  longer sealed.
+exits:
+  east: 3211
+  west: 3213
+flags: [dark]

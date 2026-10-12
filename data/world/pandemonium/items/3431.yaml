@@ -1,0 +1,15 @@
+vnum: 3431
+name: a charred war scepter
+keywords: [charred, war, scepter, mace]
+description: A flanged scepter, charred black, lies here.
+look: |
+  A paladin's war scepter, its flanged head charred and its gilding
+  burned away, carried into Hell by some crusade that did not come back.
+type: weapon
+level: 50
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash

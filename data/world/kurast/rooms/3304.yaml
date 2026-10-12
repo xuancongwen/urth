@@ -1,0 +1,12 @@
+vnum: 3304
+name: Ormus's Shelter
+description: |
+  A dim room behind the painted eye, lit by a single candle that never
+  seems to burn down. Charts of the heavens are pinned to the walls,
+  scrawled over in three hands and four languages. A brazier holds
+  cold ash arranged in a pattern. The occupant sits very still in the
+  corner, and gives the impression that he has been expecting you for
+  some time. The market is north.
+exits:
+  north: 3302
+flags: [safe]

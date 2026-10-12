@@ -1,0 +1,11 @@
+vnum: 3114
+name: The Cairn Stones
+description: |
+  Five standing stones in a ring, each one cut with a single deep
+  rune, and in the middle a flat altar stone scorched black. The air
+  inside the ring hums and smells of a storm that has not come. This
+  is where the Horadrim opened their ways, Akara says, if the stones
+  are touched in the right order. Somebody has piled a tribe's worth of
+  little skulls around the altar. The field is west.
+exits:
+  west: 3113

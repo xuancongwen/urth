@@ -1,0 +1,18 @@
+vnum: 3201
+name: Meshif the ship captain
+keywords: [meshif, captain, sailor, ship]
+description: Meshif leans on a bollard, looking east across the water.
+look: |
+  A broad, bearded sailor with a gold ring in one ear and the rolling
+  stance of a man who is never quite on land. His ship has lain idle in
+  the harbour since the sultan closed the port, and it eats at him.
+  "I sail for Kurast the day Jerhyn lifts the ban," he says. "Until
+  then, friend, my crew needs feeding." He sells what is in the ship's
+  arms locker and the crew's medicine chest. Type 'list'.
+level: 22
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3217, silver: 700 }
+  - { item: 3201, silver: 45 }

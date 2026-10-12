@@ -1,0 +1,12 @@
+vnum: 1343
+name: a mug of the Rising Sun's ale
+keywords: [mug, ale, beer, tankard]
+description: A dented pewter mug of brown ale sits here, going flat.
+look: |
+  Ogden's own brown ale, poured by Gillian with a head on it you could
+  stand a spoon in. It tastes of malt and smoke and, faintly, of the
+  barrel. Half of Tristram drinks to forget, and this is what they
+  drink.
+type: other
+weight: 1
+value: 4

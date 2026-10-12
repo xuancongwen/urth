@@ -1,0 +1,24 @@
+vnum: 3515
+name: Nihlathak, the betrayer
+keywords: [nihlathak, betrayer, elder, necromancer]
+description: Nihlathak rises from among his corpses, staff raised. "You fool! You will not stop me!"
+look: |
+  The elder of Harrogath, here in his true colours: the dark robe open
+  over a body gone corpse-grey, the bright eyes sunk deep, the long
+  fingers wet. He gave the Relic of the Ancients to Baal to save his
+  own skin and the town's, he says, and Baal kept his word as Baal
+  does. Around him the dead of Harrogath lie in a ring, swollen, and
+  when he points at one of them it bursts.
+level: 56
+health: 40000
+stats: {intelligence: 18, wisdom: 15, constitution: 14}
+silver: 1500
+attack:
+  verb: curse
+effects:
+  - kind: proc
+    params: { chance: 0.2, power: 1.2, verb: corpse explosion }
+  - kind: leech
+    params: { fraction: 0.06 }
+  - kind: soak
+    params: { power: 0.1 }

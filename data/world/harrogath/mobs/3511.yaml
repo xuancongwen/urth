@@ -1,0 +1,14 @@
+vnum: 3511
+name: a snow yeti
+keywords: [snow, yeti, ape]
+description: A snow yeti beats its chest and roars, its breath steaming.
+look: |
+  An ape the size of a bear, white-furred and blue-faced, with fists
+  like boulders and a temper to match. They live in troops in the ice
+  caves and hunt whatever comes in, and they are very protective of
+  their caves.
+level: 54
+flags: [assist]
+stats: {strength: 15}
+attack:
+  verb: pound

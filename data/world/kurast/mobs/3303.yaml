@@ -1,0 +1,18 @@
+vnum: 3303
+name: Asheara of the Iron Wolves
+keywords: [asheara, iron, wolves, captain, mercenary]
+description: Asheara stands over the sand table, plotting the road to Travincal.
+look: |
+  The captain of the Iron Wolves is a tall woman in a mage's coat cut
+  like a soldier's, grey and red, with a wolf's head clasp at the
+  throat and her hair cropped to the skull. The Wolves are sorcerers
+  as much as swordsmen, and she is both. "We were paid to hold the
+  docks, and we hold them," she says. "If you mean to go upriver, take
+  good steel. I can spare a little, at a price."
+level: 40
+flags: [peaceful]
+attack:
+  verb: slash
+trades:
+  - { item: 3320, silver: 750 }
+  - { item: 3321, silver: 700 }

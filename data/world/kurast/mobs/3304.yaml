@@ -1,0 +1,21 @@
+vnum: 3304
+name: Hratli the smith
+keywords: [hratli, smith, blacksmith, artificer]
+description: Hratli works at his anvil, the glyphs around it glowing as he strikes.
+look: |
+  A broad, bearded Kurasti smith with a heavy leather apron and the
+  forearms of his trade, but with the tattooed hands of a mage. He
+  was a member of the Zakarum artificers before the faith went bad,
+  and he has bound his forge with wards so that the Council cannot
+  touch him. "Khalim was the last honest man on the High Council," he
+  says. "They took him apart, and scattered the pieces. Bring me his
+  flail, and his eye, his brain and his heart, and I will forge a will
+  that can break the Compelling Orb." Type 'list'.
+level: 40
+flags: [peaceful]
+attack:
+  verb: hammer
+trades:
+  - { item: 3318, silver: 650 }
+  - { item: 3319, silver: 700 }
+  - { item: 3306, silver: 500, items: [3305, 3302, 3303, 3304] }

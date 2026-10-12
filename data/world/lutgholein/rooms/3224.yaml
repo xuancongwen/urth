@@ -1,0 +1,13 @@
+vnum: 3224
+name: The Palace Harem
+description: |
+  Silk hangings, low couches, and lattice screens, all of it slashed
+  and overturned. Perfume bottles lie smashed on the tiles, and their
+  scent fights with a smell of rot and lamp oil. Pale shapes drift
+  between the screens, and the air is cold in a way that has nothing to
+  do with the shade. The palace doors are south; a servants' stair goes
+  down into the cellars.
+exits:
+  south: 3206
+  down: 3225
+flags: [dark]

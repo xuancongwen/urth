@@ -1,0 +1,19 @@
+vnum: 3507
+name: Dac Farren
+keywords: [dac, farren, demon, champion]
+description: Dac Farren stalks the battlefield, collecting the heads of the fallen.
+look: |
+  A demon champion of the siege, horned and long-armed, with a belt of
+  barbarian scalps and a necklace of their teeth. He has made a game of
+  the foothills: he leaves the wounded where they lie and comes back
+  for them later. The men on the wall say his name the way they say
+  Shenk's, which is quietly.
+level: 51
+health: 10000
+stats: {strength: 15, dexterity: 13}
+silver: 600
+attack:
+  verb: rend
+effects:
+  - kind: crit
+    params: { chance: 0.1, mult: 2 }

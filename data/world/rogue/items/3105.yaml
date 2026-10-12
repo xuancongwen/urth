@@ -1,0 +1,14 @@
+vnum: 3105
+name: an Eth rune
+keywords: [eth, rune, stone]
+description: A small flat stone, carved with a single rune, lies here.
+look: |
+  A dark green stone carved with the rune Eth, two crossed strokes
+  under a bar. It feels lighter than it should, as if half of it were
+  somewhere else. Set beside a Tal rune in a light mail, Charsi says, it
+  makes the wearer hard to find and harder to hit.
+type: material
+material: rune
+rarity: rare
+weight: 0
+value: 150

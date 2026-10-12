@@ -1,0 +1,19 @@
+vnum: 3119
+name: the Nagelring
+keywords: [nagelring, ring, nail]
+description: A heavy iron ring, studded with nail heads, lies here.
+look: |
+  An iron ring hammered from a single horseshoe nail and studded around
+  with the heads of a dozen more, ugly and heavy. Anything that strikes
+  its wearer comes away with a few holes of its own, and the wearer
+  seems to have better luck than they ought to. Gheed wrapped it in
+  silk and charged accordingly.
+type: armor
+slot: finger
+weight: 0
+level: 24
+value: 1800
+effects:
+  - { kind: thorns, params: { fraction: 0.1, verb: spray of iron nails } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

@@ -1,0 +1,12 @@
+vnum: 3120
+name: The Countess's Hall
+description: |
+  The deepest floor of the tower is a hall of red marble, and in the
+  middle of it a sunken bath full to the brim with something dark that
+  steams. Chests stand along the walls, heavy with gold and with small
+  carved stones, each marked with a single rune, heaped up the way a
+  magpie heaps up glass. Candles burn in their hundreds. A stair spirals
+  back up.
+exits:
+  up: 3119
+flags: [dark]

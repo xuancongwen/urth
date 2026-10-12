@@ -1,0 +1,20 @@
+vnum: 1341
+name: Gharbad's charm
+keywords: [gharbad, charm, amulet, bone, bells]
+description: A string of finger bones and small brass bells lies here.
+look: |
+  A goatman's charm of knucklebones and little brass bells strung on
+  braided hair, with a lump of something like amber at the centre.
+  Gharbad wore it to keep himself alive, and it worked rather well
+  until it didn't. Whoever wears it is a little quicker out of the way
+  of things.
+type: armor
+slot: neck
+weight: 0
+level: 19
+value: 1200
+effects:
+  - kind: dodge
+    params: { amount: 0.05 }
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }

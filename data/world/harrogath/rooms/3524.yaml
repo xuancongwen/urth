@@ -1,0 +1,13 @@
+vnum: 3524
+name: The Throne of Destruction
+description: |
+  A vast hall under the mountain, its far end raised on a dais where a
+  throne of black stone stands empty. The floor is slick and the walls
+  are hung with the armour of dead heroes. Out of the dark, in waves,
+  come the Lord of Destruction's chosen, and they come in packs. Behind
+  the throne a stair cut into living crystal glows red and goes down.
+  The deep keep is south.
+exits:
+  south: 3519
+  down: 3525
+flags: [dark]

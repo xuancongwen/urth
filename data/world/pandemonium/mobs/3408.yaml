@@ -1,0 +1,27 @@
+vnum: 3408
+name: Izual, the fallen angel
+keywords: [izual, fallen, angel, lieutenant]
+description: Izual turns in the bottom of the crater, broken wings spreading. "Is this some new torment?"
+look: |
+  He was the greatest of Tyrael's lieutenants, who led the angels into
+  Hell during the Sin War and was taken alive. They tortured him until
+  he told them the secret of the soulstones, and then they twisted him
+  into this: a hulking blue-grey thing in the wreck of angelic armour,
+  wings of torn dark shadow, eyes that remember what he was. His touch
+  is frost. He hates himself, and that is the last of him that is
+  still an angel. Kill him, and his spirit will be free to go home.
+level: 47
+health: 18000
+stats: {strength: 17, constitution: 17, dexterity: 14, wisdom: 16}
+silver: 700
+xp: 20000
+attack:
+  kind: cold
+  verb: strike
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.6, rounds: 2 }
+  - kind: aura
+    params: { power: 0.12, verb: frost of a fallen angel }
+  - kind: regen
+    params: { fraction: 0.01 }

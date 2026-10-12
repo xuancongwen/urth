@@ -1,0 +1,21 @@
+vnum: 3209
+name: Atma's Scarab
+keywords: [atma's, atma, scarab, amulet, beetle]
+description: An amulet of a carved green scarab on a gold chain lies here.
+look: |
+  A scarab carved in green stone, wings folded, on a chain of fine gold
+  links: the twin of the one Atma wears, a gift from her husband before
+  the sewers took him. It finds the weak places in whatever its wearer
+  strikes, and it keeps the poisons of the desert from the blood.
+type: armor
+slot: neck
+weight: 0
+level: 31
+value: 4000
+effects:
+  - kind: crit
+    params: { chance: 0.06, mult: 2 }
+  - kind: opportunist
+    params: { mult: 1.1 }
+  - kind: stat
+    params: { stat: dexterity, amount: 1 }

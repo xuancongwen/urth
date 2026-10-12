@@ -1,0 +1,14 @@
+vnum: 3133
+name: a cathedral splint mail
+keywords: [cathedral, splint, mail]
+description: A coat of splint mail, its strips enamelled white, lies here.
+look: |
+  A coat of steel strips riveted to leather, enamelled white for the
+  guards of the monastery's cathedral. Most of the enamel has been
+  chipped off by things with claws.
+type: armor
+slot: body
+weight: 16
+level: 30
+baseline: plate
+flags: [drop]

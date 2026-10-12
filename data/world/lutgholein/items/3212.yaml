@@ -1,0 +1,28 @@
+vnum: 3212
+name: Ondal's Wisdom
+keywords: [ondal's, ondal, wisdom, staff, elder]
+description: A tall elder staff of pale wood lies here, carved with Vizjerei runes.
+look: |
+  The staff of Ondal, a great Vizjerei sage, carved from a single bough
+  of bleached wood and wound with copper wire that glows when it
+  thinks. The Summoner leaned on it while he read Horazon's journal, and
+  some of what he read went into it. It wards its bearer, it quickens
+  the mind, and it makes every lesson learned twice as deep.
+type: weapon
+weight: 4
+level: 36
+baseline: staff
+value: 8000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: rap
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 3 }
+  - kind: soak
+    params: { power: 0.08 }
+  - kind: steady
+    params: { chance: 0.25 }

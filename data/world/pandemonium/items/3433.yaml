@@ -1,0 +1,14 @@
+vnum: 3433
+name: a shard of the Soulstone
+keywords: [shard, soulstone, stone, soul, crystal]
+description: A sliver of crimson crystal lies here, flickering like a heartbeat.
+look: |
+  A splinter of the soulstone that held Mephisto, chipped away when
+  the stone was carried through Hell, the length of a fingernail and
+  hot as a coal. It whispers in the voice of the Lord of Hatred, very
+  faintly, and what it says is never kind. Tyrael would have it
+  destroyed at the Hellforge. Others would have it for less holy
+  reasons.
+type: other
+weight: 0
+flags: [quest]

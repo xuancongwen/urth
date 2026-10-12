@@ -1,0 +1,25 @@
+vnum: 3313
+name: the Oculus
+keywords: [oculus, orb, crystal, swirling]
+description: A swirling crystal orb lies here, an eye of light turning in its depths.
+look: |
+  A sorcerer's orb of swirling crystal, the size of an apple, in which
+  a single eye of light turns and turns, looking everywhere at once.
+  It was made by the Vizjerei for the hunting of demons and taken from
+  them by the Lord of Hatred, who liked the joke. Held, it shows its
+  bearer what hides and what is unseen, sharpens every thought, and
+  turns the edge of some blows.
+type: armor
+slot: hold
+weight: 1
+level: 46
+value: 7000
+effects:
+  - kind: detectHidden
+  - kind: detectInvisible
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: soak
+    params: { power: 0.1 }

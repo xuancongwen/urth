@@ -1,0 +1,12 @@
+vnum: 3203
+name: Atma's Tavern
+description: |
+  A cool, low room behind thick mud walls, with rugs on the floor,
+  brass lamps on chains, and cushions round tables no higher than a
+  knee. A water-pipe bubbles unattended in a corner. The tavern was
+  full of laughter once; now the few drinkers sit apart and do not
+  look at the woman behind the bar, whose eyes are red from something
+  other than the smoke. The bazaar is back out the door, south.
+exits:
+  south: 3202
+flags: [safe]

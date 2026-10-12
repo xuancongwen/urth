@@ -1,0 +1,23 @@
+vnum: 3102
+name: the Horadric Malus
+keywords: [horadric, malus, hammer]
+description: A heavy smith's hammer, its head cut with Horadric runes, lies here.
+look: |
+  A smith's hammer with a head of dark iron and a haft of something
+  harder than oak, cut along every face with the small square letters
+  of the Horadrim. It was made for forging the tools that bind demons,
+  and it rings on an anvil like a bell. Charsi lost it when the
+  monastery fell, and she would give a great deal to have it back.
+type: weapon
+weight: 6
+level: 28
+baseline: mace
+value: 1500
+weapon:
+  hands: 1
+  kind: blunt
+  verb: hammer
+effects:
+  - kind: damage
+    params: { mult: 1.05, weapon: true }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

@@ -1,0 +1,12 @@
+vnum: 3319
+name: Upper Kurast
+description: |
+  The upper city is marble and gilt, or was: palaces of the old
+  merchant princes stand in rows behind walls of white stone, their
+  gardens run wild and their doors broken in. Banners of the Zakarum
+  faith hang from every balcony, fresh and bright, as though the
+  people who hung them had somewhere to be. The bazaar is west; east,
+  a raised causeway runs toward the temple city.
+exits:
+  west: 3316
+  east: 3320

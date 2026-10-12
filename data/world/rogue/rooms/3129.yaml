@@ -1,0 +1,12 @@
+vnum: 3129
+name: Andariel's Lair
+description: |
+  The lowest level of the catacombs has been opened into a single
+  great chamber, its pillars wrapped in rotting banners and its floor
+  slick with a green ooze that smokes where it pools. Bodies of Rogues
+  have been hung around the walls as a court. At the far end, on a
+  dais of bones, the Maiden of Anguish waits. The only way out is the
+  stair, up.
+exits:
+  up: 3128
+flags: [dark]

@@ -1,0 +1,16 @@
+vnum: 3308
+name: a thorned hulk
+keywords: [thorned, hulk, beast]
+description: A thorned hulk wades out of the reeds, bristling, and roars.
+look: |
+  A great hunched brute, part ape and part boar, its back and forearms
+  grown over with bony thorns as long as knives. It fights with its
+  fists, and whatever hits it back gets cut on the way in.
+level: 38
+stats: {strength: 15, constitution: 14}
+attack:
+  kind: blunt
+  verb: pound
+effects:
+  - kind: thorns
+    params: { fraction: 0.1, verb: bristling thorns }

@@ -1,0 +1,20 @@
+vnum: 3522
+name: Colenzo the Annihilator
+keywords: [colenzo, annihilator, warped, shaman, demon]
+description: Colenzo the Annihilator hisses a spell from the shadow of the throne.
+look: |
+  A stooped, robed demon of the throne guard with a long horned face
+  and claws that drip with fire, the first of the waves that come for
+  you when you near the empty throne. He calls the fallen back to their
+  feet as fast as you can put them down.
+level: 58
+flags: [assist]
+health: 14000
+stats: {intelligence: 17}
+silver: 600
+attack:
+  kind: fire
+  verb: scorch
+effects:
+  - kind: ignite
+    params: { power: 0.06, rounds: 3, maxStacks: 2 }

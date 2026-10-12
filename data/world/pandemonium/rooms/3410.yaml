@@ -1,0 +1,14 @@
+vnum: 3410
+name: The Fallen Star
+description: |
+  A crater, blasted out of the plain by something that fell from very
+  high and very fast, its walls fused to black glass and still warm.
+  Frost grows on the glass anyway, in feathery patterns, and does not
+  melt. At the bottom stands a tall figure in broken armour, with wings
+  of torn darkness where wings of light should be. He was the greatest
+  of Tyrael's lieutenants once. West is the plain; south the crater's
+  rim slopes down to the rest of it.
+exits:
+  west: 3408
+  south: 3422
+flags: [dark]

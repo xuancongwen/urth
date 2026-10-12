@@ -1,0 +1,15 @@
+vnum: 3206
+name: Before the Palace Gates
+description: |
+  A courtyard of blue and white tiles before the palace of Lut Gholein,
+  its fountain still running, though the water has a smell to it.
+  Tall doors of cedar bound in bronze stand north, carved with lions
+  and the eight-pointed star of the Horadrim, and from behind them, now
+  and then, comes a sound that no guard on the steps will admit to
+  hearing. The palace road is south.
+exits:
+  south: 3205
+  north: 3224
+doors:
+  north: {name: the cedar palace doors, closed: true}
+flags: [safe]

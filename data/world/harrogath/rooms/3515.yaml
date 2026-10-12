@@ -1,0 +1,13 @@
+vnum: 3515
+name: The Ancients' Way
+description: |
+  The old pilgrim road to the summit, cut into the mountainside and
+  marked with standing stones carved with the deeds of the barbarian
+  heroes. A great stair rises from here into the storm, every step
+  worn hollow by a thousand years of feet. A low door in the rock to
+  the west breathes cold. The tundra is south; up the stair is the
+  summit of Arreat.
+exits:
+  south: 3514
+  west: 3526
+  up: 3516

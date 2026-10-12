@@ -1,0 +1,14 @@
+vnum: 3301
+name: Mephisto's Chamber
+description: |
+  A round hall at the bottom of the Durance, floored with black glass
+  over a moat of blood that lightning walks across in white threads.
+  The air is cold, so cold that frost grows on the blood, and every
+  breath hurts. On the far side, a gate of red fire burns upright in
+  the floor, roaring softly: the portal to Hell, which the Lord of
+  Hatred has kept open for his brother. Through it, below, you can see
+  a fortress on a burning plain. The stair is up. The portal is down.
+exits:
+  up: 3326
+  down: 3400
+flags: [dark]

@@ -1,0 +1,23 @@
+vnum: 3206
+name: the Amulet of the Viper
+keywords: [amulet, viper, serpent, pendant]
+description: A golden amulet in the shape of a coiled serpent lies here.
+look: |
+  A heavy gold amulet, a serpent biting its own tail around a stone of
+  dark green, taken by the Claw Vipers from the Horadrim and worshipped
+  for a thousand years. The serpent's eyes follow movement, and with it
+  on its wearer does too: nothing hides, nothing slips past unseen. It
+  fits, exactly, the head of a staff.
+type: armor
+slot: neck
+weight: 0
+level: 35
+value: 5000
+rarity: rare
+effects:
+  - kind: detectInvisible
+  - kind: detectHidden
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: stat
+    params: { stat: intelligence, amount: 1 }

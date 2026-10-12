@@ -1,0 +1,19 @@
+vnum: 1342
+name: Zhar's grimoire
+keywords: [zhar, grimoire, book, tome]
+description: A fat book bound in scorched leather lies here, muttering faintly.
+look: |
+  The book Zhar would not let anyone touch: a Vizjerei grimoire, much
+  annotated in a hand that gets worse toward the back. Some of the
+  pages are hot. Held open, it fills the head with things a sane mind
+  would not keep, and some of them are useful.
+type: armor
+slot: hold
+weight: 3
+level: 19
+value: 1400
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

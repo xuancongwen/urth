@@ -1,0 +1,11 @@
+vnum: 3207
+name: Lysander's Shop
+description: |
+  A narrow shop lined floor to ceiling with shelves of jars, phials,
+  and pots, some of them labelled and some of them better not. A
+  crucible bubbles on a brazier, a stuffed lizard hangs from the
+  ceiling, and the counter is scarred with old burns. Everything smells
+  faintly of brimstone and mint. The palace road is north.
+exits:
+  north: 3205
+flags: [safe]

@@ -1,0 +1,13 @@
+vnum: 3415
+name: The River of Flame, the Burning Shore
+description: |
+  The path runs along the riverbank on a shelf of rock that glows dull
+  red at the edges. Iron chains are anchored in the rock and run out
+  into the fire, and things are bound to some of them. East, a great
+  hammering rings out over the roar of the river, regular as a heart:
+  the Hellforge. South a bridge crosses the fire. North, the landing.
+exits:
+  north: 3414
+  east: 3416
+  south: 3417
+flags: [dark]

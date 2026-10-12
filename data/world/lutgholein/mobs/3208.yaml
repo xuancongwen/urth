@@ -1,0 +1,15 @@
+vnum: 3208
+name: Greiz the mercenary captain
+keywords: [greiz, captain, mercenary]
+description: Greiz watches his mercenaries dice, arms folded, scowling.
+look: |
+  A grizzled soldier in desert mail with a spear across his back and a
+  face like a closed fist. His company was hired to guard the city and
+  has spent a month guarding a tavern. "My men are the best in Aranoch,"
+  he says, "and they are bored. You want to learn to put a man down and
+  keep a friend standing? I can teach that, for coin."
+level: 30
+flags: [peaceful]
+teaches: [bash, rescue]
+attack:
+  verb: strike

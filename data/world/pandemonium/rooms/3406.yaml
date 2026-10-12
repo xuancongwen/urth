@@ -1,0 +1,14 @@
+vnum: 3406
+name: The Outer Steppes, the Bone Field
+description: |
+  A plain of ash where the bones of an army lie as they fell, in ranks,
+  the skulls of men and demons and things that were neither turned all
+  one way, toward the fortress. Black knights walk among them in pairs,
+  slowly, as if on parade. Westward the ground sinks into a hollow where
+  something heavy is retching. The causeway climbs north toward the
+  fortress; south the ground opens on a wide, flat darkness.
+exits:
+  north: 3405
+  west: 3407
+  south: 3408
+flags: [dark]

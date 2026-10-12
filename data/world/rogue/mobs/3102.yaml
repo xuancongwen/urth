@@ -1,0 +1,24 @@
+vnum: 3102
+name: Charsi the blacksmith
+keywords: [charsi, blacksmith, smith]
+description: Charsi pounds a blade flat on her anvil, humming to herself.
+look: |
+  A broad-shouldered young woman with soot on her cheek and her hair
+  tied back in a scarf, cheerful in a way nobody else in the camp has
+  managed. She was the monastery's smith, and she ran when it fell, and
+  she left her best tool behind. "Hi there! I'm Charsi," she says. "If
+  you ever find the Horadric Malus, my hammer, bring it back and I'll
+  imbue a blade for you like you've never seen." She sells weapons and
+  armour, and she will bind a Tal and an Eth rune into a light mail.
+level: 24
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: hammer
+trades:
+  - { item: 3128, silver: 400 }
+  - { item: 3129, silver: 450 }
+  - { item: 3130, silver: 380 }
+  - { item: 3131, silver: 360 }
+  - { item: 3108, silver: 250, items: [3104, 3105] }
+  - { item: 3103, silver: 500, items: [3102] }

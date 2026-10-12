@@ -1,0 +1,16 @@
+vnum: 3425
+name: a tainted one's bone flail
+keywords: [tainted, one's, bone, flail]
+description: A flail with a head of fused bone on a chain lies here.
+look: |
+  A head of bone, fused from many smaller bones into a knobbed ball, on
+  a chain of black iron. The tainted ones drag them along the glass of
+  the outer court, and the sound carries.
+type: weapon
+weight: 10
+level: 49
+baseline: flail
+weapon:
+  hands: 1
+  kind: blunt
+  verb: flail

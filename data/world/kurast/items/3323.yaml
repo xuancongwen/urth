@@ -1,0 +1,13 @@
+vnum: 3323
+name: a spider-silk wrap
+keywords: [spider-silk, spider, silk, wrap, robe]
+description: A wrap of shining grey silk lies here in a tangle.
+look: |
+  A length of the giant spiders' silk, cut from a web and wound into a
+  wrap, light as a scarf and stronger than leather. It sticks a little,
+  still, and small things caught in it buzz.
+type: armor
+slot: body
+weight: 1
+level: 36
+baseline: cloth

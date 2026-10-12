@@ -1,0 +1,16 @@
+vnum: 1322
+name: Farnham the drunk
+keywords: [farnham, drunk, sot]
+description: Farnham the drunk sways by the fountain, clutching a jug, and tells you about Lazarus whether you ask or not.
+look: |
+  A big man gone soft and grey, in the wreck of a good coat. He marched
+  down into the labyrinth with the others when Archbishop Lazarus led
+  the men of Tristram after the king's lost son, and he came back up
+  alone. Now he drinks so that he cannot remember, and remembers
+  anyway. Between swallows he mutters of a big axe, of the Butcher, and
+  of the holy man who took them all down into the dark and did not
+  come back up with them.
+level: 14
+silver: 12
+attack:
+  verb: swing

@@ -1,0 +1,11 @@
+vnum: 3306
+name: Alkor's Hut
+description: |
+  A hut on stilts, open on two sides to let out the fumes, crowded with
+  retorts, alembics, and jars of things preserved in yellow oil. Several
+  of the jars are moving. Something on a slow fire bubbles in a copper
+  pot and smells of fennel and burning hair. The gate is south, down a
+  ladder.
+exits:
+  south: 3305
+flags: [safe]

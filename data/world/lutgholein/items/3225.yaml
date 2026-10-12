@@ -1,0 +1,16 @@
+vnum: 3225
+name: an unraveler's glaive
+keywords: [unraveler's, unraveler, glaive, polearm]
+description: A long-bladed glaive wound with old linen lies here.
+look: |
+  A glaive with a blade like a broad knife on a staff as long as a man,
+  its haft wound in strips of brittle linen and its edge still keen
+  after three thousand years in the canyon.
+type: weapon
+weight: 9
+level: 36
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

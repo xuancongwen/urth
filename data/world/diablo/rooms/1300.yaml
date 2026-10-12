@@ -7,8 +7,11 @@ description: |
   without interest. South, the road runs down into a huddle of thatched
   roofs and chimney smoke: a village, small and frightened, gathered
   around a well. The door behind you, north, stands in the face of a
-  hillock where no door has any business being.
+  hillock where no door has any business being. A second road, broader
+  and better kept, strikes off east toward the hills, where the smoke
+  of a camp rises: the way to the Rogue Encampment.
 exits:
   north: 8
   south: 1301
+  east: 3100
 position: {x: 0, y: 0, z: 0}

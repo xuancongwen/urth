@@ -1,0 +1,14 @@
+vnum: 3308
+name: Lam Esen's Tome
+keywords: [lam, esen's, esen, tome, book]
+description: A heavy book bound in green scales lies here, clasped shut.
+look: |
+  The lost tome of Lam Esen, a scholar of the old Kurast mage-clans,
+  bound in the scaled hide of something from the marsh and clasped
+  with bronze. It records the Mage Clan Wars and the names the clans
+  used for the powers they called, and the names still work. Ormus
+  wants it badly, though he says only that Ormus would find it
+  interesting.
+type: other
+weight: 4
+value: 800

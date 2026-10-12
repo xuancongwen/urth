@@ -1,0 +1,13 @@
+vnum: 3326
+name: The Bridge of the Last Council
+description: |
+  A bridge of stone across the blood lake, ending at a round stair that
+  spirals down into red light. Two more elders of the High Council keep
+  it, Mephisto's last servants, standing on either side like a door.
+  Trophies hang from hooks on the railings: blades, masks, and the
+  black and silver harness of mage-slayers who came this far and no
+  farther. The flooded walk is west.
+exits:
+  west: 3325
+  down: 3301
+flags: [dark]

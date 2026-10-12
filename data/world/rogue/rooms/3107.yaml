@@ -1,0 +1,12 @@
+vnum: 3107
+name: The Captain's Watch
+description: |
+  A platform of planks on the inside of the palisade, with a rail to
+  lean on and a rack of spare bows and quivers. From here the whole of
+  the Blood Moor lies open to the south, and on a clear night you can
+  see the fires of the fallen out on it. A map of the Western Kingdoms
+  is pinned to the rail with a dagger, most of it crossed out in red.
+  The ladder goes down, south, to the gate.
+exits:
+  south: 3102
+flags: [safe]

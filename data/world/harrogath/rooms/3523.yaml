@@ -1,0 +1,11 @@
+vnum: 3523
+name: The Halls of Vaught
+description: |
+  The inner sanctum of the temple, a round vault where the elders kept
+  the Relic of the Ancients on a plinth that now stands empty. Corpses
+  lie in a ring around it, arranged with care, and some of them are
+  swollen to bursting. Someone has been living here: a chair, a table,
+  a book, a cup. The stair goes up.
+exits:
+  up: 3522
+flags: [dark]

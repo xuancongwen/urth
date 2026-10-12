@@ -1,0 +1,12 @@
+vnum: 3510
+name: The Arreat Plateau
+description: |
+  A flat white table of land on the shoulder of the mountain, so high
+  that the clouds pass below its edges. The summit of Arreat looms over
+  it, wreathed in a storm that never moves off. Frozen shapes stand
+  about in the snow, grey-white and man-tall, and some of them are not
+  as frozen as they look. The highlands are south; north, a cleft in a
+  wall of blue ice leads into the mountain.
+exits:
+  south: 3509
+  north: 3511

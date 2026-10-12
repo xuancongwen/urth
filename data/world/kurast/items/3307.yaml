@@ -1,0 +1,30 @@
+vnum: 3307
+name: the Gidbinn
+keywords: [gidbinn, dagger, ritual, skatsim]
+description: A curved ritual dagger lies here, its blade the green of jungle shade.
+look: |
+  The sacred dagger of the Skatsim, curved like a crescent moon, its
+  blade a stone that is neither jade nor glass, its grip bound in the
+  skin of a snake that was never caught. While it stood on the altar
+  of the Skatsim the jungle's evil kept its distance; the flayers stole
+  it, and the jungle came for Kurast. It cuts with a slow green poison
+  and clears the mind of whoever holds it. Ormus would say that the
+  flow of magic has been restored.
+type: weapon
+weight: 1
+level: 41
+baseline: dagger
+value: 3000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: regen
+    params: { fraction: 0.01 }

@@ -1,0 +1,18 @@
+vnum: 3320
+name: a blood lord
+keywords: [blood, lord, demon, knight]
+description: A blood lord strides along the walkway, its plate weeping red.
+look: |
+  The greater cousin of the blood knights of Tristram's hell: taller,
+  heavier, crowned with horns that come up through its helm. It
+  carries a war axe and swings it like a woodsman, and it drinks what
+  it spills.
+level: 44
+flags: [assist]
+stats: {strength: 16, constitution: 15}
+attack:
+  kind: slash
+  verb: hew
+effects:
+  - kind: leech
+    params: { fraction: 0.05 }

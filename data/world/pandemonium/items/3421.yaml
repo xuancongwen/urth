@@ -1,0 +1,13 @@
+vnum: 3421
+name: a pair of abyss knight's runed gauntlets
+keywords: [abyss, knight's, knight, runed, gauntlets, gloves]
+description: A pair of black gauntlets, cut with dim runes, lies here.
+look: |
+  Black steel gauntlets with runes cut across the knuckles that glow a
+  sullen red when they are flexed. The abyss knights point with them.
+  On you, they are only very good gauntlets.
+type: armor
+slot: hands
+weight: 3
+level: 46
+baseline: plate

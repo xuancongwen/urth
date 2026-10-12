@@ -1,0 +1,24 @@
+vnum: 3504
+name: Nihlathak the elder
+keywords: [nihlathak, elder, council]
+description: Nihlathak sits alone among the council's empty chairs, his hands folded.
+look: |
+  The last of Harrogath's Elder Council, a tall gaunt man in a dark
+  robe with a high collar, his skin grey and his eyes very bright. The
+  other elders, he tells you gravely, died defending the Worldstone.
+  He does not say how he lived. His long fingers are stained at the
+  tips with something that is not ink, and there is a smell about him
+  like a crypt opened too soon. He watches you the way a moneylender
+  watches a man with a purse. When Anya's name comes up, he smiles, and
+  changes the subject. He wears the elder's seal of office on one long
+  finger, and he would not take kindly to anyone who tried to have it
+  off him.
+level: 56
+health: 16000
+stats: {intelligence: 17, wisdom: 15}
+silver: 1200
+attack:
+  verb: curse
+effects:
+  - kind: leech
+    params: { fraction: 0.05 }

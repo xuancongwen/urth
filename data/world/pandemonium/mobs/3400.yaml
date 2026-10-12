@@ -1,0 +1,23 @@
+vnum: 3400
+name: Tyrael, the Archangel of Justice
+keywords: [tyrael, archangel, angel, justice]
+description: Tyrael stands in the light at the hall's heart, hooded, his wings of light stirring.
+look: |
+  Taller than a man, in armour of silver and gold that has seen every
+  war Heaven ever fought, with a deep hood where his face should be and
+  only a cold light inside it. His wings are not feathers but ribbons
+  of light that ripple behind him. He broke Heaven's law to fight the
+  Prime Evils among men, and he does not regret it. "You have done well
+  to come this far," he says. "But the seals of the Chaos Sanctuary
+  still hold the way open, and Diablo's servants guard them. Break the
+  seals. The Lord of Terror himself waits where he first rose, in the
+  depths beneath Tristram. North, the portal will take you to
+  Harrogath, where Baal goes next. I will hold this place." Those who
+  would stand between the weak and the dark, he will teach to do it,
+  and to rise again when they are struck down. Type 'practice' to see
+  what he teaches.
+level: 60
+flags: [peaceful]
+teaches: [rescue, second_wind]
+attack:
+  verb: smite

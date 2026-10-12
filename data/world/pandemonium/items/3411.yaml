@@ -1,0 +1,19 @@
+vnum: 3411
+name: a pavise of Pandemonium
+keywords: [pavise, pandemonium, shield, horn]
+description: A tall white shield faced with blackened horn lies here.
+look: |
+  A tall shield of the fortress's white stone-wood, faced by Halbu with
+  scales cut from the horns of demons, so that it is half Heaven and
+  half Hell and stronger than either. The horn still smoulders at the
+  edges when struck.
+type: armor
+slot: shield
+weight: 10
+level: 47
+value: 3000
+effects:
+  - kind: block
+    params: { chance: 0.15 }
+  - kind: stat
+    params: { stat: constitution, amount: 1 }

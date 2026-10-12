@@ -1,0 +1,19 @@
+vnum: 3203
+name: Geglash the drunk
+keywords: [geglash, drunk, mercenary, fat]
+description: Geglash sprawls in the shade of the gate, slurring a war song into his wineskin.
+look: |
+  A huge, red-faced man in a mercenary's mail that no longer closes at
+  the belly, with a spear propped beside him and a wineskin in his
+  fist. He smells like a barrel. Atma threw him out of the tavern, so
+  he does his drinking just outside the wall, where he can see the
+  desert and tell it what he would do to it. "I'm the greatest warrior
+  in Lut Gholein!" he bellows. "Sewers? Brr. Nobody comes back from
+  the sewers. Except me. I never went." He was a real fighter once,
+  before the drink, and if you lay a hand on him he will remember it.
+level: 29
+stats: {strength: 15, constitution: 15, dexterity: 8}
+silver: 120
+attack:
+  kind: pierce
+  verb: thrust

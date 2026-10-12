@@ -1,0 +1,25 @@
+vnum: 3110
+name: Blood Raven's Charge
+keywords: [blood, raven's, raven, charge, bow, longbow]
+description: A long bow of black wood, strung with a red string, lies here.
+look: |
+  A Rogue's long war bow of black yew, its grip wound with red leather
+  and its tips capped with raven skulls. Blood Raven carried it against
+  the Lord of Terror and carried it home again, changed. Its arrows fly
+  true and sometimes burst on striking, scattering fire and splinters,
+  and in the hand it makes the archer quicker and surer.
+type: weapon
+weight: 3
+level: 25
+baseline: standard
+value: 2000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot
+effects:
+  - kind: proc
+    params: { verb: burst of exploding arrows, chance: 0.15, power: 1.0 }
+  - kind: crit
+    params: { chance: 0.06, mult: 2 }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

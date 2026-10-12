@@ -1,0 +1,13 @@
+vnum: 3521
+name: a siege beast's war harness
+keywords: [siege, beast's, beast, war, harness, chain]
+description: A heavy harness of chain and hide straps lies here in a heap.
+look: |
+  The harness of a siege beast, cut down to fit a person: a coat of
+  chain as thick as a finger over hide straps, made to take a boulder
+  from a wall and not notice. It is very heavy.
+type: armor
+slot: body
+weight: 22
+level: 51
+baseline: heavy

@@ -1,0 +1,16 @@
+vnum: 3221
+name: a bronze khopesh
+keywords: [bronze, khopesh, sword, sickle]
+description: A sickle-shaped sword of green bronze lies here.
+look: |
+  A blade of old bronze bent like a question mark, the cutting edge on
+  the outside of the curve, buried with a soldier of Aranoch three
+  thousand years ago and carried out again by his corpse.
+type: weapon
+weight: 4
+level: 30
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

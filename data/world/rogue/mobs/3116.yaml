@@ -1,0 +1,16 @@
+vnum: 3116
+name: a ghost
+keywords: [ghost, wraith, spirit]
+description: A ghost slides out of the wall, its mouth open on a silent scream.
+look: |
+  A pale, half-there woman in a servant's dress, one of the girls the
+  Countess brought to her tower and never let go. She drifts through
+  stone, and her touch is so cold it burns. Swords pass through her
+  more often than not.
+level: 27
+flags: [assist]
+attack:
+  kind: cold
+  verb: touch
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

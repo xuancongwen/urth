@@ -1,0 +1,25 @@
+vnum: 3219
+name: Coldworm the Burrower
+keywords: [coldworm, burrower, maggot, queen, worm]
+description: Coldworm the Burrower lifts its vast pale bulk from the egg heap, and the nest shudders.
+look: |
+  The queen of the sand maggots, a white bloated thing as long as a
+  barge, its hide cold and clammy to the touch in the heat of the
+  desert. Its body is a factory of eggs, and it lays them as it
+  fights; the young come out of them hungry. Somewhere in its gut it
+  swallowed a caravan carrying a Horadric staff, and the staff did not
+  digest.
+level: 33
+health: 3000
+stats: {constitution: 16, strength: 14, dexterity: 7}
+silver: 250
+xp: 7500
+attack:
+  kind: bite
+  verb: crush
+spawns: { mob: 3218, every: 4, max: 3 }
+effects:
+  - kind: chill
+    params: { chance: 0.15, mult: 0.7, rounds: 2 }
+  - kind: regen
+    params: { fraction: 0.01 }

@@ -1,0 +1,12 @@
+vnum: 3507
+name: The Bloody Foothills
+description: |
+  Below the walls of Harrogath the slopes are a battlefield nobody has
+  had time to clear. Broken barricades, burned-out trebuchets, the
+  bodies of defenders frozen where they fell, and among them the
+  carcasses of things that were never men. Small red shapes scamper
+  over the drifts, chattering. The gate is south, up the slope; north,
+  the trampled road climbs toward the siege camp.
+exits:
+  south: 3504
+  north: 3508

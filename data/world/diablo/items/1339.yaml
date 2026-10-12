@@ -1,0 +1,13 @@
+vnum: 1339
+name: a golden elixir
+keywords: [golden, elixir, vial, flask]
+description: A small flask of something that glows like the last of a sunset lies here.
+look: |
+  A flask of heavy cut crystal stoppered with lead, holding a liquid
+  that moves like honey and shines like gold. The Archbishop's servants
+  hid it here among the pits, where no one of Tristram would ever go
+  looking. Lachdanan, in the hall of crypts, has been waiting a long
+  time for someone to bring it to him.
+type: other
+weight: 1
+value: 200

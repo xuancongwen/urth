@@ -1,0 +1,23 @@
+vnum: 3224
+name: Fire Eye
+keywords: [fire, eye, invader, leaper, demon]
+description: Fire Eye crouches before the blue portal, guarding it, flames flickering in its sockets.
+look: |
+  An invader larger and older than the rest, scarred all over, whose
+  eyes have been put out and replaced by two coals that never stop
+  burning. It guards the portal in the cellar for its master, and it
+  carries a long blade of red steel that it stole from some hero's
+  corpse, though it fights as often with its burning stare.
+level: 35
+flags: [assist]
+health: 2800
+stats: {dexterity: 16, strength: 13}
+silver: 280
+xp: 8000
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - kind: proc
+    params: { chance: 0.15, power: 0.8, verb: "gout of fire from its eyes" }

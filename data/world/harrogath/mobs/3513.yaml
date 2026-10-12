@@ -1,0 +1,15 @@
+vnum: 3513
+name: a defiled warrior
+keywords: [defiled, warrior, reanimated, horde, undead]
+description: A defiled warrior shambles across the temple steps, axe dragging in the snow.
+look: |
+  A barbarian of Harrogath, dead and brought back up, still in his
+  furs and his clan tattoos. His skin is blue and splitting, his eyes
+  milky, and he swings his blade with the habit of a lifetime and none
+  of the sense. Nihlathak raised him. Somewhere under the frost his
+  family is still waiting for him to come home.
+level: 54
+flags: [assist]
+stats: {strength: 14}
+attack:
+  verb: hack

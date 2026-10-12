@@ -1,0 +1,13 @@
+vnum: 3106
+name: a fallen
+keywords: [fallen, imp, demon, red]
+description: A fallen hops about the heather, waving a hatchet and shrieking.
+look: |
+  A small red demon, knee high, with a hooked nose and a mouth full of
+  needles, cousin to the ones that capered on Tristram's altar. Alone
+  it is a coward. In a pack it is very brave, and it screams the same
+  word over and over in a language that might once have been yours.
+level: 22
+flags: [assist]
+attack:
+  verb: hack

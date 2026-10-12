@@ -1,0 +1,12 @@
+vnum: 3400
+name: a vial of angelic healing
+keywords: [vial, angelic, healing, potion, draught]
+description: A slender crystal vial of pale gold liquid lies here, faintly glowing.
+look: |
+  A vial of cut crystal holding something like liquid sunlight, sealed
+  with a drop of silver. Jamella sells them by the case to those going
+  out the gate, and does not say where she gets them. It tastes of
+  clean water and of nothing in Hell at all.
+type: other
+weight: 1
+value: 30

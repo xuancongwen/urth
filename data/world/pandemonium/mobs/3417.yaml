@@ -1,0 +1,28 @@
+vnum: 3417
+name: the Infector of Souls
+keywords: [infector, souls, demon, venom]
+description: The Infector of Souls flickers across the breathing chamber, too fast to see, wings rattling.
+look: |
+  A venom lord grown into something worse: thin as a whip and fast as
+  thought, with a hide that has been flayed and grown back and flayed
+  again until it is only scar, and claws that drip a green that eats
+  stone. He guards the last seal and the way to his master, and he
+  moves so quickly that he is in two places at once, and both of them
+  are behind you. Where he has passed, the air is sick. In one hand is
+  a long sword that burns and sickens, the plague of Hell made into a
+  blade.
+level: 52
+health: 25000
+stats: {strength: 18, constitution: 20, dexterity: 20, intelligence: 16}
+silver: 1500
+xp: 40000
+attack:
+  kind: claw
+  verb: rend
+effects:
+  - kind: dot
+    params: { damage: 6 }
+  - kind: dodge
+    params: { amount: 0.05 }
+  - kind: leech
+    params: { fraction: 0.08 }

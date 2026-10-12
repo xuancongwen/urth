@@ -1,0 +1,16 @@
+vnum: 3313
+name: a Zakarum zealot
+keywords: [zakarum, zealot, fanatic, priest]
+description: A Zakarum zealot chants as he comes, eyes rolled up white.
+look: |
+  A shaven-headed man in the white and gold of the faith, with a war
+  scepter and a face that has not slept in a year. He prays aloud as
+  he fights, the same three words over and over, and he does not feel
+  pain any more. He was a good man once. The Lord of Hatred made him
+  a better zealot.
+level: 41
+flags: [assist]
+stats: {strength: 14, constitution: 13}
+attack:
+  kind: blunt
+  verb: smite

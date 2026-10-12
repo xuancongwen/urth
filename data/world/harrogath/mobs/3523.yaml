@@ -1,0 +1,18 @@
+vnum: 3523
+name: Achmel the Cursed
+keywords: [achmel, cursed, undead, demon]
+description: Achmel the Cursed drifts forward, trailing a stink of rot.
+look: |
+  A rotting undead thing in tatters, one of the second wave of the
+  throne. He is slow, and he is poisonous, and wherever he walks the
+  floor goes soft and black.
+level: 58
+flags: [assist]
+health: 14000
+stats: {constitution: 17}
+silver: 600
+attack:
+  verb: claw
+effects:
+  - kind: envenom
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }

@@ -1,0 +1,25 @@
+vnum: 3118
+name: the Spineripper
+keywords: [spineripper, spine, ripper, poignard, dagger]
+description: A long, wicked poignard, its blade a curved demon's spine, lies here.
+look: |
+  A poignard whose blade is one of Andariel's own spines, set in a
+  hilt of bone and bound with black wire. It still weeps green venom
+  from its point, and the venom keeps working in the wound after the
+  blade has gone. It finds the heart of things, and it drinks.
+type: weapon
+weight: 1
+level: 30
+baseline: dagger
+value: 3500
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - kind: envenom
+    params: { power: 0.1, rounds: 3, maxStacks: 2 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }
+  - kind: leech
+    params: { fraction: 0.05 }

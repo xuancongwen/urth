@@ -1,0 +1,12 @@
+vnum: 3317
+name: The Ruined Temple
+description: |
+  Inside the split dome, the temple is a well of shadow pierced by one
+  shaft of light that falls on a lectern of black stone. Murals on the
+  walls show the old Kurast mage-clans at war with each other, and
+  the faces of the victors have been chiselled away. Someone stands
+  guard here who has stood guard a very long time. The bazaar is
+  south.
+exits:
+  south: 3316
+flags: [dark]

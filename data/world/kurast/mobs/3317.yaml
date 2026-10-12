@@ -1,0 +1,19 @@
+vnum: 3317
+name: Toorc Icefist
+keywords: [toorc, icefist, council, elder]
+description: Toorc Icefist stands on the dais, frost spreading from his feet across the stone.
+look: |
+  A massive elder of the High Council with a frozen beard and hands
+  wrapped in rime, who was a temple guard before he was a priest and
+  still fights like one. He hits like a hammer, and where he hits, the
+  blood freezes in the wound.
+level: 43
+health: 3200
+stats: {strength: 16, constitution: 15}
+silver: 300
+attack:
+  kind: cold
+  verb: pummel
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }

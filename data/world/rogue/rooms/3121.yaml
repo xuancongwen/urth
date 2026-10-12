@@ -1,0 +1,11 @@
+vnum: 3121
+name: The Tamoe Highland
+description: |
+  The road climbs out of the marsh onto a high grassy upland, and the
+  wind finds you again. Cairns of goat skulls mark the way, and drums
+  carry from somewhere among the rocks. South, against the mountains,
+  stand the walls and towers of a great monastery, its bells silent.
+  The marsh is back north.
+exits:
+  north: 3117
+  south: 3122

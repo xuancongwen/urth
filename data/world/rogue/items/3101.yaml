@@ -1,0 +1,12 @@
+vnum: 3101
+name: the scroll of Inifuss
+keywords: [scroll, inifuss, bark, horadric]
+description: A scroll of pale bark, rolled tight and tied with sinew, lies here.
+look: |
+  A strip of bark from the Tree of Inifuss, flattened and dried and
+  covered in a Horadric script that crawls when you look at it
+  sideways. It tells the order in which the Cairn Stones must be
+  touched. Akara would want it, and Deckard Cain would weep to read it.
+type: other
+weight: 0
+flags: [quest]

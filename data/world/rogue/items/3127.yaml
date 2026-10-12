@@ -1,0 +1,13 @@
+vnum: 3127
+name: a pair of bone vambraces
+keywords: [bone, vambraces, bracers]
+description: A pair of vambraces made of polished bone lies here.
+look: |
+  Vambraces of long bones split and polished and laced together with
+  sinew, the kind of thing a ghoul lord wears to show what it has
+  eaten. They are lighter than steel and nearly as hard.
+type: armor
+slot: arms
+weight: 2
+level: 29
+baseline: medium

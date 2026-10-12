@@ -1,0 +1,19 @@
+vnum: 3321
+name: Bremm Sparkfist
+keywords: [bremm, sparkfist, council, elder]
+description: Bremm Sparkfist waits where the walkway branches, sparks dancing between his knuckles.
+look: |
+  A thick-set elder of the Council with a shaved head tattooed in
+  copper wire and fists that crackle with lightning. He killed the
+  first of the Viz-jaq'taar who came down here, and he wears her
+  armor to remind the next one.
+level: 45
+health: 4000
+stats: {strength: 16, constitution: 15}
+silver: 400
+attack:
+  kind: magic
+  verb: shock
+effects:
+  - kind: proc
+    params: { chance: 0.15, power: 1.0, verb: crackle of lightning }

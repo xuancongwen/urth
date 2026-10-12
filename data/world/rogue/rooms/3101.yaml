@@ -1,0 +1,14 @@
+vnum: 3101
+name: Warriv's Caravan
+description: |
+  The east side of the camp is given over to wagons drawn up in a
+  circle, canvas tops tied down, oxen hobbled and lowing. Bales and
+  water barrels are stacked ready for a long road. East, a gap in the
+  palisade opens on a track that runs toward the sea, and beyond it,
+  they say, the desert and Lut Gholein. A striped awning to the north
+  shelters a gambler's wagon. The bonfire is back west.
+exits:
+  west: 3103
+  east: 3200
+  north: 3106
+flags: [safe]

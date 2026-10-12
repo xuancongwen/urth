@@ -1,0 +1,13 @@
+vnum: 3522
+name: a horror-hide hood
+keywords: [horror-hide, horror, hide, hood]
+description: A hood of grey-white hide lies here, stiff with frost.
+look: |
+  A hood of the shed hide of a frozen horror, grey-white and stiff,
+  that keeps out the wind and makes the wearer hard to see against the
+  snow.
+type: armor
+slot: head
+weight: 1
+level: 53
+baseline: light

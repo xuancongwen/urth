@@ -1,0 +1,22 @@
+vnum: 3311
+name: Frostburn
+keywords: [frostburn, gauntlets, gloves, frost]
+description: A pair of pale blue gauntlets lies here, furred with frost.
+look: |
+  Gauntlets of white leather and blue steel, so cold they burn, which
+  is where they get the name. Icehawk Riftwing nested on them for
+  years and they have soaked up its cold. They make the mind run clear
+  and quick, the way a winter morning does.
+type: armor
+slot: hands
+weight: 2
+level: 42
+baseline: light
+value: 3000
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }
+  - kind: dodge
+    params: { amount: 0.02 }

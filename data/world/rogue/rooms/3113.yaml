@@ -1,0 +1,13 @@
+vnum: 3113
+name: The Stony Field
+description: |
+  A field strewn with grey boulders the size of sheep, some of them
+  standing on end in rows that were too straight to be chance. Lichen
+  grows over carvings nobody can read. The grass between the stones is
+  burned in patches, and the burns crackle faintly underfoot. East,
+  five tall stones stand in a ring on a low rise. The plains are north;
+  south, the ground drops into the dark under trees.
+exits:
+  north: 3110
+  east: 3114
+  south: 3115

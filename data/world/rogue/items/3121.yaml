@@ -1,0 +1,16 @@
+vnum: 3121
+name: a fallen's hand axe
+keywords: [fallen, fallen's, hand, axe, hatchet]
+description: A small notched hatchet, smeared with red paint, lies here.
+look: |
+  A short hatchet with a chipped iron head, too big for the little demon
+  that waved it and just right for a human hand. The haft is wound with
+  a strip of Rogue leather, taken as a trophy.
+type: weapon
+weight: 3
+level: 22
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

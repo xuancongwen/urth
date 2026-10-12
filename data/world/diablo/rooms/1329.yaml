@@ -1,0 +1,11 @@
+vnum: 1329
+name: Zhar's Library
+description: |
+  Somebody has carried shelves down into the tombs, and books with
+  them, hundreds of books, stacked in towers and fallen in drifts. Many
+  are chained to the shelves. Some of the chains are straining. Candle
+  stubs burn on every flat surface and none of them seem to get any
+  shorter. The hall of crypts is west.
+exits:
+  west: 1316
+flags: [dark]

@@ -1,0 +1,13 @@
+vnum: 3528
+name: a barbarian war helm
+keywords: [barbarian, war, helm, horned]
+description: A horned steel helm lies here.
+look: |
+  A barbarian's war helm with a pair of short horns, a nasal, and a
+  mail aventail, forged by Larzuk on the old pattern. Men of the
+  mountain are buried in them.
+type: armor
+slot: head
+weight: 5
+level: 52
+baseline: plate

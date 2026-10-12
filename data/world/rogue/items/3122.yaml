@@ -1,0 +1,13 @@
+vnum: 3122
+name: a pair of grave-mud boots
+keywords: [grave-mud, grave, mud, boots]
+description: A pair of travelling boots, caked with grave mud, lies here.
+look: |
+  Good leather travelling boots, made in Tristram by the look of the
+  stitching, caked to the ankle in the clay of a grave. Their owner
+  walked a long way in them, and then walked a little further.
+type: armor
+slot: feet
+weight: 2
+level: 23
+baseline: light

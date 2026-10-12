@@ -1,0 +1,18 @@
+vnum: 3302
+name: Alkor the alchemist
+keywords: [alkor, alchemist]
+description: Alkor peers into a bubbling retort, muttering a recipe to himself.
+look: |
+  A round little man with burn scars up both forearms, three pairs of
+  spectacles pushed up on his bald head, and a laugh that goes off
+  without warning. He came to Kurast to study the jungle's poisons and
+  stayed because nobody else had the antidotes. "You want healing?
+  Healing I have. You want something for the cold under the bazaar? I
+  have that too. You want to know what is in it? You do not."
+level: 32
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3300, silver: 40 }
+  - { item: 3301, silver: 35 }

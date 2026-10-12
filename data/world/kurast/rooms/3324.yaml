@@ -1,0 +1,12 @@
+vnum: 3324
+name: The Halls of Hatred
+description: |
+  A gallery of cages hung from chains over a pit, each cage holding
+  what is left of a pilgrim who came to Travincal for answers. Some of
+  them are still answering. Blood lords pace the walkways in plate that
+  leaks. A ramp of slick stone goes down into the third level of the
+  Durance; the gallery is north.
+exits:
+  north: 3323
+  down: 3325
+flags: [dark]

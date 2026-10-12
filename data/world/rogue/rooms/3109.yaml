@@ -1,0 +1,12 @@
+vnum: 3109
+name: The Den of Evil
+description: |
+  A low, wet cave that winds back into the hill, its floor greasy with
+  something that was alive once. Fallen have daubed the walls with
+  red handprints and hung them with trophies; deeper in, the dead have
+  been piled to rot in heaps, and some of the heaps are stirring. The
+  air is so foul it is hard to see the far wall, and the far wall is
+  burning. Daylight is up, back on the moor.
+exits:
+  up: 3108
+flags: [dark]

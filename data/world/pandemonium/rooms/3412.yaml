@@ -1,0 +1,12 @@
+vnum: 3412
+name: The City of the Damned, the Broken Avenue
+description: |
+  The avenue runs between rows of shattered statues to a great well in
+  the city's heart, and the well is not water but fire, a shaft of it
+  going down. Steps cut into its side spiral down toward a roaring
+  below. Winged lords in black armour circle above the avenue like
+  carrion birds. North is the city gate; down, the River of Flame.
+exits:
+  north: 3411
+  down: 3414
+flags: [dark]

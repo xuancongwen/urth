@@ -1,0 +1,24 @@
+vnum: 3309
+name: Ormus' Robes
+keywords: [ormus', ormus, robes, robe, dusk, shroud]
+description: A shroud-like robe of dusky grey lies here, its hem crawling with tiny sigils.
+look: |
+  A dusk shroud of grey silk woven so fine it moves like smoke, its
+  hem and cuffs embroidered with the sigils Ormus copied out of Lam
+  Esen's tome, which crawl slowly round the cloth when nobody is
+  watching them. Fire, frost and sparks gather around whoever wears
+  it and lash out at whatever comes close. Ormus says Ormus no longer
+  needs it. Ormus is not, perhaps, telling the whole truth.
+type: armor
+slot: body
+weight: 2
+level: 42
+baseline: cloth
+value: 4500
+effects:
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }
+  - kind: aura
+    params: { power: 0.1, verb: whirl of fire and frost and sparks }

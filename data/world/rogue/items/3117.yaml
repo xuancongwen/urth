@@ -1,0 +1,22 @@
+vnum: 3117
+name: Andariel's Visage
+keywords: [andariel's, andariel, visage, helm, mask]
+description: A demonic helm in the shape of a woman's face, spines curving back from it, lies here.
+look: |
+  A helm cast in the likeness of the Maiden of Anguish's own face,
+  beautiful and cruel, with a crown of long curved spines sweeping back
+  over the wearer's skull. It is cold to put on, and then it is warm.
+  It gives its wearer her strength, and every wound they give feeds
+  them a little of the life that spills from it. Sometimes, wearing it,
+  you catch yourself smiling her smile.
+type: armor
+slot: head
+weight: 3
+level: 30
+baseline: medium
+value: 4000
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

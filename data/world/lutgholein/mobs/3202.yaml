@@ -1,0 +1,18 @@
+vnum: 3202
+name: Atma the tavern keeper
+keywords: [atma, tavern, keeper, widow]
+description: Atma wipes the same cup over and over, staring at nothing.
+look: |
+  A handsome woman in a dark headscarf, whose face has set like clay
+  around a grief. "Radament," she says, as though the name burns.
+  "That foul creature from beneath the city. He killed my husband and
+  my son. He lairs in the sewers, and the guards will not go down."
+  Around her neck hangs a carved scarab on a chain, her husband's gift;
+  she will part with its twin, she says, to whoever brings her the
+  burial linen of the dead things that walk below. Type 'list'.
+level: 20
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3209, silver: 600, items: [3202, 3202] }

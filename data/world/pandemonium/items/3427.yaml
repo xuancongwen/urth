@@ -1,0 +1,16 @@
+vnum: 3427
+name: a hellforged war maul
+keywords: [hellforged, war, maul, hammer]
+description: A great maul with a black iron head lies here, still warm.
+look: |
+  A two-handed maul off Hephasto's anvil, heavy as an anvil itself,
+  with the Armorer's mark struck into the head.
+type: weapon
+weight: 14
+level: 51
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: crush

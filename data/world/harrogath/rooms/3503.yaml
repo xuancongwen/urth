@@ -1,0 +1,11 @@
+vnum: 3503
+name: Malah's House
+description: |
+  A low warm room with a hearth at one end and cots along the walls,
+  most of them occupied by men from the wall with bandaged heads. Herbs
+  hang drying from the beams, and on the shelves stand rows of potions,
+  red and blue and a few the cloudy white of meltwater. An old woman's
+  shawl hangs on a peg by the fire. The square is east.
+exits:
+  east: 3501
+flags: [safe]

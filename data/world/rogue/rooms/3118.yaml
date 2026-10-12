@@ -1,0 +1,11 @@
+vnum: 3118
+name: The Forgotten Tower
+description: |
+  The ground floor of the tower is a ruin of fallen beams and rubble,
+  open to the sky where the upper floors came down. A tapestry hangs on
+  one wall, blackened, showing a woman in a red gown standing over a
+  bath. Her face has been slashed out. In the floor a stair goes down,
+  not up; the tower's heart was always underground. The marsh is west.
+exits:
+  west: 3117
+  down: 3119

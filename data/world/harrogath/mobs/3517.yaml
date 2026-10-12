@@ -1,0 +1,23 @@
+vnum: 3517
+name: Talic the Defender
+keywords: [talic, defender, ancient, barbarian]
+description: Talic the Defender steps down from his pedestal, a great maul in his stone hands.
+look: |
+  One of the three Ancients, the great heroes of the barbarians bound
+  by the archangel Tyrael to guard the Worldstone until the end of
+  days. He stands three heads taller than any man, half flesh and half
+  grey stone, his eyes white fire. He is the Defender, who spins
+  through his foes like a storm. "Prove yourself worthy," he says, "or
+  join us here in stone." He means it kindly.
+level: 57
+flags: [assist]
+health: 20000
+stats: {strength: 18, constitution: 17}
+silver: 1000
+attack:
+  verb: smite
+effects:
+  - kind: attacks
+    params: { amount: 0.5 }
+  - kind: soak
+    params: { power: 0.1 }

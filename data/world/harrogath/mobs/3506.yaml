@@ -1,0 +1,13 @@
+vnum: 3506
+name: a siege beast
+keywords: [siege, beast]
+description: A siege beast lumbers through the drifts, a howdah of hides on its back.
+look: |
+  A grey-hided brute the size of a cottage, with a lipless mouth of
+  tusks and arms like tree trunks, harnessed in chain like a war
+  elephant. Imps ride it in a basket on its back, and it smashes walls
+  for them, and men, and does not seem to notice the difference.
+level: 51
+stats: {strength: 15, constitution: 15}
+attack:
+  verb: smash

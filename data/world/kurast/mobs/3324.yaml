@@ -1,0 +1,31 @@
+vnum: 3324
+name: Mephisto, the Lord of Hatred
+keywords: [mephisto, lord, hatred, demon, prime]
+description: Mephisto drifts above the floor before the red portal, robes of flesh trailing in the blood. "Ahhh... I sense your fear."
+look: |
+  The eldest of the three Prime Evils, the Lord of Hatred, who
+  corrupted the Zakarum from its own temple and was kept in its prison
+  by the very priests he had bought. He hangs a little above the
+  floor, a shape of grey-green hide and robes of skin, with a skull
+  for a face and claws for hands, and he trails no legs at all. The
+  red soulstone that held him burns in his chest. Frost spreads from
+  him in rings, and lightning rises from the moat at his gesture. He
+  is not angry with you. He hates you, which is quieter, and older,
+  and lasts.
+level: 46
+health: 9000
+stats: {strength: 17, constitution: 18, intelligence: 22, dexterity: 15, wisdom: 18}
+silver: 1500
+xp: 35000
+attack:
+  kind: cold
+  verb: blast
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: chill
+    params: { chance: 0.25, mult: 0.7, rounds: 2 }
+  - kind: aura
+    params: { power: 0.2, verb: lightning that crawls up out of the blood }
+  - kind: soak
+    params: { power: 0.1 }

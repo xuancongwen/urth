@@ -1,0 +1,20 @@
+vnum: 3524
+name: Bartuc the Bloody
+keywords: [bartuc, bloody, warlord, ghost]
+description: The ghost of Bartuc the Bloody rises in his red armour, his claws dripping.
+look: |
+  The Warlord of Blood, the sorcerer-king who bathed in his enemies'
+  blood before battle, dead these three hundred years and made over by
+  Baal into a captain of his throne guard. His armour is red and his
+  claw blades are red and the light around him is red. He is not here
+  for Baal, he will tell you. He is here because he likes it.
+level: 58
+flags: [assist]
+health: 14000
+stats: {strength: 16, dexterity: 17}
+silver: 800
+attack:
+  verb: rake
+effects:
+  - kind: leech
+    params: { fraction: 0.08 }

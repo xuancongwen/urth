@@ -1,0 +1,12 @@
+vnum: 3509
+name: The Frigid Highlands
+description: |
+  High open moorland under snow, cut by gullies where the wind has
+  scoured the rock bare. A ring of old waystones stands on the crest,
+  their runes filled with ice. The snow here is ploughed in long
+  furrows, as if something burrowed under it and came up somewhere
+  else. The siege line is south; north, the land rises to a wide
+  plateau.
+exits:
+  south: 3508
+  north: 3510

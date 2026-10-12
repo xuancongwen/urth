@@ -1,0 +1,15 @@
+vnum: 3403
+name: Halbu's Forge
+description: |
+  An anvil of grey star-iron sits under the white vaults, ringed by
+  racks of axes and mail that look too short and too heavy for an
+  angel's use. A dwarf works there in a leather apron, beard tucked into
+  his belt, cursing the heat of Hell in a language that is all
+  consonants. Nobody knows how he came to the fortress, and he does not
+  say. The Archangel's hall is north, the alcove west, and south a
+  gallery runs to the fortress gate.
+exits:
+  north: 3401
+  west: 3402
+  south: 3404
+flags: [safe]

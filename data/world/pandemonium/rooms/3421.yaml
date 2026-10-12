@@ -1,0 +1,13 @@
+vnum: 3421
+name: The Seal of the Infector of Souls
+description: |
+  The last seal, set into the floor before a sealed archway, in a
+  chamber whose walls are not stone but skin, stretched and stitched and
+  breathing. The seal throbs in time with them. Something moves at the
+  edge of sight too quickly to follow, and venom lords crouch in the
+  corners. Past the archway, down through the glass, lies the Sanctuary
+  itself and the Lord of Terror, and the way to him is not here: it is
+  under Tristram, where it always was. The outer court is north.
+exits:
+  north: 3418
+flags: [dark]

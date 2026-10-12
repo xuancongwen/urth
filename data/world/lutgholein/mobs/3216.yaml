@@ -1,0 +1,17 @@
+vnum: 3216
+name: a dung soldier
+keywords: [dung, soldier, beetle, scarab]
+description: A dung soldier scuttles from the reeds, its carapace crackling with sparks.
+look: |
+  A beetle the size of a pony, standing on its hind legs, with a horn
+  on its snout and a shell of iridescent black that crackles with blue
+  sparks when it moves. When struck it spits lightning back, and the
+  desert men say a dung soldier's shell will turn a sword.
+level: 31
+flags: [assist]
+stats: {constitution: 14}
+attack:
+  kind: pierce
+  verb: gore
+effects:
+  - { kind: thorns, params: { fraction: 0.1, verb: crackle of charged bolts } }

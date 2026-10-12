@@ -1,0 +1,21 @@
+vnum: 3301
+name: Ormus the mage
+keywords: [ormus, mage, sage, taan]
+description: Ormus sits motionless in the corner, his eyes catching the candlelight.
+look: |
+  A thin, dark man in robes that are mostly patches, with a voice like
+  dry leaves and eyes that look at something a little behind you. He
+  was a Taan mage of Kurast once, and he is still some kind of mage.
+  "Ormus sees that you have come," he says. "Ormus has seen it for many
+  days. The Lord of Hatred sees it also." He speaks of himself as if
+  he were someone else in the room, and perhaps he is. He sells a few
+  things that will serve a mage, and if you bring him the lost tome of
+  Lam Esen he will make you something worth wearing. Type 'list'.
+level: 38
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: blast
+trades:
+  - { item: 3322, silver: 900 }
+  - { item: 3309, silver: 1500, items: [3308] }

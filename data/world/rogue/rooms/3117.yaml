@@ -1,0 +1,13 @@
+vnum: 3117
+name: The Black Marsh
+description: |
+  The ground turns to black mud and standing water, reeds higher than
+  your head, and a smell of rot that sticks to the back of the throat.
+  Will-o'-the-wisps drift over the pools. East, a tower of dark stone
+  leans out of the marsh, broken off at the top, ivy climbing it and
+  crows on what is left of the battlements. The wood is north; south,
+  the ground climbs out of the marsh onto a highland.
+exits:
+  north: 3115
+  east: 3118
+  south: 3121

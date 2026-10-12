@@ -1,0 +1,20 @@
+vnum: 3116
+name: the Nokozan Relic
+keywords: [nokozan, relic, amulet]
+description: An amulet of red glass in a cage of bone lies here, glowing softly.
+look: |
+  A bead of red glass caged in finely carved bone on a cord of plaited
+  hair, from the far south where the Nokozan once lived. It glows a
+  little in the dark, enough to show what hides there, and it keeps its
+  wearer on their feet when a blow lands and takes some of the sting
+  out of it. Bone Ash wore it under his robes, and it did not save him
+  from burning.
+type: armor
+slot: neck
+weight: 0
+level: 29
+value: 1800
+effects:
+  - { kind: soak, params: { power: 0.06 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: detectHidden }

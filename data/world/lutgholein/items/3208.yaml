@@ -1,0 +1,22 @@
+vnum: 3208
+name: Radament's Book of Skill
+keywords: [radament's, radament, book, skill, tome]
+description: A heavy book bound in green leather lies here, its pages glowing.
+look: |
+  A thick book bound in green-dyed leather with clasps of tarnished
+  bronze, its pages covered in a cramped hand that rearranges itself
+  as it is read. Radament never got to the end of it. Whoever holds it
+  open learns faster than they should, and every trick they know comes
+  to the hand a little sooner.
+type: armor
+slot: hold
+weight: 2
+level: 30
+value: 4000
+effects:
+  - kind: cooldownCut
+    params: { rounds: 1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 1 }

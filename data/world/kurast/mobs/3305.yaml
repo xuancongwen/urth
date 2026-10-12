@@ -1,0 +1,20 @@
+vnum: 3305
+name: Natalya the mage-slayer
+keywords: [natalya, mage-slayer, assassin, viz-jaq'taar, hunter]
+description: Natalya stands in the shadow of the gate, so still you nearly miss her.
+look: |
+  A woman in black and silver, hooded, with a claw strapped over the
+  back of one hand and a face that gives away nothing. She is of the
+  Viz-jaq'taar, the order that hunts mages who go wrong, and the
+  High Council of Zakarum went as wrong as any. Her brothers and
+  sisters went into the Durance before her and did not come out. "If
+  you kill the Betrayer, bring me his soulstone," she says, "and I
+  will give you my mark. Until then, I will teach you how we fight.
+  It costs." Type 'practice' to see what she teaches.
+level: 42
+flags: [peaceful]
+teaches: [feint, backstab]
+attack:
+  verb: rake
+trades:
+  - { item: 3314, silver: 1500, items: [3312] }

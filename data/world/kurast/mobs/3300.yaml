@@ -1,0 +1,20 @@
+vnum: 3300
+name: Meshif the sea captain
+keywords: [meshif, captain, sailor, sea]
+description: Meshif leans on the rail of his ship, watching the jungle with a sailor's patience.
+look: |
+  A weathered Kehjistani captain with a grey beard braided at the chin,
+  a gold ring in one ear, and a curved knife he keeps for rope. He
+  brought you up the Twin Seas from Lut Gholein because Jerhyn asked,
+  and he stays at the pier because his ship is the only way out. "The
+  jungle has swallowed my city," he says. "I keep the sails ready. When
+  you are done with Kurast, or it with you, I will take you away. Until
+  then, I have ship's stores to sell: lanterns, for the dark places,
+  and a little of Alkor's red for the voyage." Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  verb: slash
+trades:
+  - { item: 3334, silver: 30 }
+  - { item: 3300, silver: 45 }

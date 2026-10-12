@@ -1,0 +1,23 @@
+vnum: 3315
+name: Natalya's Totem
+keywords: [natalya's, natalya, totem, helm, mask]
+description: A masked helm of black and silver lies here, its eye-slits empty.
+look: |
+  The masked helm of a Viz-jaq'taar, black lacquer chased in silver,
+  with a face that has no expression at all. It is one of the four
+  pieces of the harness Natalya's order wears, taken from a sister who
+  came into the Durance before her. It keeps the wearer's head clear
+  and their feet quick.
+type: armor
+slot: head
+weight: 2
+level: 45
+baseline: light
+value: 4000
+effects:
+  - kind: stat
+    params: { stat: dexterity, amount: 2 }
+  - kind: stat
+    params: { stat: strength, amount: 1 }
+  - kind: dodge
+    params: { amount: 0.02 }

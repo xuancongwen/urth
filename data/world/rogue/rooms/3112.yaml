@@ -1,0 +1,11 @@
+vnum: 3112
+name: The Mausoleum
+description: |
+  A vault under the burial ground, lined with niches where the honoured
+  dead of the Sisterhood were laid out with their bows. The bows are
+  gone, and so are most of the dead. Fresh arrows are lodged in the
+  walls, fletched in black, and the dust on the floor is printed with
+  bare feet that drag. The stair climbs back up to the graves.
+exits:
+  up: 3111
+flags: [dark]

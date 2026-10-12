@@ -1,0 +1,13 @@
+vnum: 3220
+name: a pair of sabre-cat boots
+keywords: [sabre-cat, sabre, cat, boots, hide]
+description: A pair of soft tawny boots lies here.
+look: |
+  Boots cut from sabre cat hide, fur inward, soft-soled and silent. The
+  desert hunters say they carry a little of the cat with them. They are
+  certainly quiet.
+type: armor
+slot: feet
+weight: 1
+level: 29
+baseline: light

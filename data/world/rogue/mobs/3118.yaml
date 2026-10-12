@@ -1,0 +1,13 @@
+vnum: 3118
+name: a moon clan goatman
+keywords: [moon, clan, goatman, goat, beast]
+description: A moon clan goatman bleats a challenge and lowers its poleaxe.
+look: |
+  A goatman of the Moon Clan, grey-furred and long-horned, wearing a
+  disc of beaten silver on its chest. They have come down from the
+  mountains to camp in the shadow of the monastery and pick over what
+  the demons leave. It fights like the ones under Tristram, only bigger.
+level: 27
+flags: [assist]
+attack:
+  verb: hack

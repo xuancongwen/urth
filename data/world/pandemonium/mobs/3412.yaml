@@ -1,0 +1,22 @@
+vnum: 3412
+name: Hephasto the Armorer
+keywords: [hephasto, armorer, demon, smith]
+description: Hephasto the Armorer looks up from the Hellforge, hammer raised. "Who dares disturb my work?"
+look: |
+  The smith of Hell, a hulking demon in a leather apron scorched black,
+  with arms like the trunks of trees and a face like a furnace door.
+  Every weapon Diablo's armies carried came off his anvil. He swings the
+  Hellforge Hammer, which is as tall as a man and glows at the head, and
+  he swings it with a smith's patience and a smith's aim. He is very
+  proud of his work. He does not care to be interrupted.
+level: 49
+health: 14000
+stats: {strength: 19, constitution: 18}
+silver: 800
+xp: 22000
+attack:
+  kind: blunt
+  verb: hammer
+effects:
+  - kind: soak
+    params: { power: 0.1 }

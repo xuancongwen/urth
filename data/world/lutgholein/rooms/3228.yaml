@@ -1,0 +1,16 @@
+vnum: 3228
+name: Tal Rasha's Tomb
+description: |
+  A pillared tomb of gold and black stone, its walls painted with the
+  story of the Horadrim: the hunt across the world, the three stones,
+  the archmage who gave himself up as the vessel for the last of them.
+  Mummies stand in alcoves, and some of the alcoves are empty. At the
+  far end, below a sun disc of beaten gold, a slot in the floor is cut
+  the shape and size of a staff, and the stone around it is etched with
+  warnings. The canyon is up the stair.
+exits:
+  up: 3227
+  down: 3229
+doors:
+  down: {name: the Orifice seal, closed: true, locked: true, pickproof: true, key: 3207}
+flags: [dark]

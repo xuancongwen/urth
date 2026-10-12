@@ -1,0 +1,17 @@
+vnum: 3510
+name: a frozen horror
+keywords: [frozen, horror]
+description: A frozen horror lurches out of the snow, ice cracking off its shoulders.
+look: |
+  A tall, gaunt, grey-white thing with long arms and a face like a
+  skull wrapped in frost, that stands still in the snow until it is
+  mistaken for a drift. Its breath is a cloud of ice needles. It wears
+  a hood of its own shed hide.
+level: 53
+flags: [assist]
+attack:
+  kind: cold
+  verb: claw
+effects:
+  - kind: chill
+    params: { chance: 0.15, mult: 0.7, rounds: 2 }

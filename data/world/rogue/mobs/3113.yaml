@@ -1,0 +1,20 @@
+vnum: 3113
+name: Rakanishu
+keywords: [rakanishu, carver, fallen]
+description: Rakanishu crouches on the altar stone, lightning crawling over his skin. "Rakanishu!"
+look: |
+  A carver of unusual size and unusual temper, painted in white ash,
+  with lightning running over him in blue threads that snap at
+  anything that comes close. He guards the Cairn Stones because
+  something told him to, and he shrieks his own name as he fights, as
+  if it were a war cry or a prayer. Possibly it is both.
+level: 26
+health: 1200
+stats: {strength: 14, dexterity: 15}
+silver: 160
+xp: 4500
+attack:
+  verb: carve
+effects:
+  - kind: proc
+    params: { verb: crackle of lightning, chance: 0.2, power: 1.0 }

@@ -1,0 +1,26 @@
+vnum: 3510
+name: Tal Rasha's Guardianship
+keywords: [tal, rasha's, rasha, guardianship, robe, armor]
+description: A Horadric archmage's armoured robe lies here, torn across the chest.
+look: |
+  The robe of Tal Rasha, the Horadric mage who bound Baal in his own
+  body and was worn by him like a coat for two hundred years: purple
+  silk over a lattice of gold-wired plates, written over with wards.
+  The chest is torn open where the red crystal burst through. The wards
+  still hold, and every blow that lands on its wearer arrives softer,
+  and the thoughts run clear.
+type: armor
+slot: body
+weight: 8
+level: 60
+baseline: medium
+value: 16000
+effects:
+  - kind: protect
+    params: { mult: 0.88 }
+  - kind: soak
+    params: { power: 0.1 }
+  - kind: stat
+    params: { stat: intelligence, amount: 3 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

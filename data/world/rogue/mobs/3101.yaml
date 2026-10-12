@@ -1,0 +1,20 @@
+vnum: 3101
+name: Kashya, captain of the Rogues
+keywords: [kashya, captain, rogue]
+description: Kashya leans on the rail with a bow in her hand, watching the moor.
+look: |
+  A hard, lean woman with cropped red hair and a scar through one
+  eyebrow, in a Rogue's studded leather, a long bow never out of reach.
+  She commands what is left of the Sisterhood's archers, and she has no
+  time for strangers until they have proved themselves. "Our blood
+  runs on the Blood Moor," she says. "There is a cave out there, the
+  Den of Evil. Clear it out and we will talk." Blood Raven was her
+  friend once. She does not say so. For coin she will drill you in the
+  Rogues' dirty tricks: how to trip a charging fallen, and how to cut
+  the legs out from under something bigger than you.
+level: 28
+flags: [peaceful]
+teaches: [trip, hamstring]
+attack:
+  kind: pierce
+  verb: shoot

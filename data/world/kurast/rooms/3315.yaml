@@ -1,0 +1,12 @@
+vnum: 3315
+name: Lower Kurast
+description: |
+  The outskirts of the jewel of the east are hovels now: mud-brick
+  houses with roofs fallen in, courtyards choked with creeper, and
+  shrines to Zakarum with their braziers still burning, tended by men
+  who no longer remember why. Bodies hang in cages from the arches.
+  The Flayer Jungle is north; east, the street widens into a
+  colonnaded square.
+exits:
+  north: 3312
+  east: 3316

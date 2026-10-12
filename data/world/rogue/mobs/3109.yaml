@@ -1,0 +1,21 @@
+vnum: 3109
+name: Corpsefire
+keywords: [corpsefire, zombie, burning]
+description: Corpsefire rises from the heaped dead at the back of the den, wreathed in pale fire.
+look: |
+  A zombie huge and swollen beyond the others, its flesh split open
+  along the seams and a cold green fire burning in the gaps. The fallen
+  worship it as something holy, and leave it their dead to eat. Where
+  it touches you the skin goes grey and keeps burning. The Rogues will
+  not go into the den while it lives.
+level: 23
+health: 900
+stats: {strength: 15, constitution: 15, dexterity: 6}
+silver: 120
+xp: 3500
+attack:
+  kind: claw
+  verb: maul
+effects:
+  - kind: dot
+    params: { damage: 3 }

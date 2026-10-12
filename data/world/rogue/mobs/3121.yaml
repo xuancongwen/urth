@@ -1,0 +1,17 @@
+vnum: 3121
+name: a ghoul lord
+keywords: [ghoul, lord, vampire, undead]
+description: A ghoul lord unfolds from a burial niche, bone-white and grinning.
+look: |
+  A tall, gaunt undead thing with a vampire's grey skin and a vampire's
+  teeth, in the rags of a monk's habit. It feeds on the catacombs'
+  dead, and on the living when it can get them, and every bite it takes
+  makes it stronger.
+level: 29
+flags: [assist]
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - kind: leech
+    params: { fraction: 0.05 }

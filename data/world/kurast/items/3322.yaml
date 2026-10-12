@@ -1,0 +1,16 @@
+vnum: 3322
+name: a jade-headed staff
+keywords: [jade-headed, jade, staff, rod]
+description: A staff of dark wood capped with carved jade lies here.
+look: |
+  Dark jungle wood, straight as a reed, capped with a knob of green
+  jade carved into a coiled serpent. Ormus says it has been in Ormus's
+  keeping for a long time, and that it will be glad to be used.
+type: weapon
+weight: 4
+level: 40
+baseline: staff
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike

@@ -1,0 +1,20 @@
+vnum: 3113
+name: Bloodfist
+keywords: [bloodfist, gauntlets, gloves, blood, fist]
+description: A pair of heavy gloves, stained red to the cuff, lies here.
+look: |
+  Thick hide gloves with iron plates riveted over the knuckles, stained
+  a deep red that has soaked all the way through. Whoever wears them
+  stands firmer under a blow, hits a little harder, and has a little
+  more blood to lose. Treehead Woodfist wore them on his fists, two
+  sizes too small, and was very proud of them.
+type: armor
+slot: hands
+weight: 2
+level: 26
+baseline: medium
+value: 1400
+effects:
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

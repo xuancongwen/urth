@@ -1,0 +1,12 @@
+vnum: 3530
+name: a Worldstone Keep breastplate
+keywords: [worldstone, keep, breastplate, plate]
+description: A dented breastplate of the keep's old guard lies here.
+look: |
+  The plate of one of the keep's ancient guardians, its crest of the
+  Worldstone hammered half flat by something enormous.
+type: armor
+slot: body
+level: 59
+baseline: plate
+flags: [drop]

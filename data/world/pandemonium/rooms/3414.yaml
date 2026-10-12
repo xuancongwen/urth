@@ -1,0 +1,13 @@
+vnum: 3414
+name: The River of Flame, the Landing
+description: |
+  The spiral stair ends on a ledge of black rock above a river of fire,
+  a true river, wide and slow and roaring, whose surface rolls and
+  breaks like water and throws up drops that burn holes in the stone
+  where they land. The heat is a weight on the shoulders. Robed figures
+  move on the far side, and lightning crawls between their hands. The
+  stair climbs back up; a path runs south along the bank.
+exits:
+  up: 3412
+  south: 3415
+flags: [dark]

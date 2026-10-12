@@ -1,0 +1,16 @@
+vnum: 3128
+name: a Rogue long bow
+keywords: [rogue, long, bow, longbow]
+description: A tall bow of pale yew lies here, unstrung.
+look: |
+  The Sisterhood's own pattern of long bow, pale yew backed with horn,
+  with the open eye burned into the grip. Charsi keeps a rack of them
+  for the Rogues on the wall, and sells the spares.
+type: weapon
+weight: 3
+level: 24
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

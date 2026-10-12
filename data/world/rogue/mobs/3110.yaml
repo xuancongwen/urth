@@ -1,0 +1,21 @@
+vnum: 3110
+name: Bishibosh
+keywords: [bishibosh, shaman, fallen]
+description: Bishibosh dances around the blue fire, shaking a wand, and the dead fallen get up.
+look: |
+  A fallen shaman, a little taller and a great deal older than the
+  rest, in a headdress of bones and feathers, with a wand that spits
+  fire. His tribe dies around him and he raises them again with a
+  screech and a wave, so they are never all dead at once. He is
+  enjoying himself.
+level: 24
+health: 1000
+stats: {intelligence: 15}
+silver: 150
+xp: 4000
+attack:
+  verb: strike
+spawns: { mob: 3106, every: 4, max: 3 }
+effects:
+  - kind: proc
+    params: { verb: fireball, chance: 0.2, power: 1.0 }

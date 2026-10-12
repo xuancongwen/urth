@@ -1,0 +1,19 @@
+vnum: 3315
+name: Icehawk Riftwing
+keywords: [icehawk, riftwing, bat, demon, gloam]
+description: Icehawk Riftwing unfolds from the vault with a shriek, frost streaming off its wings.
+look: |
+  A great bat-demon with wings like torn sails, white-furred and blue
+  at the tips, whose shriek frosts the bricks it touches. It has
+  roosted over Khalim's heart in the sewers since the Council hid it
+  there, and the cold that comes off it has frozen the city's water.
+level: 42
+health: 3000
+stats: {dexterity: 16}
+silver: 240
+attack:
+  kind: cold
+  verb: rake
+effects:
+  - kind: chill
+    params: { chance: 0.2, mult: 0.7, rounds: 2 }

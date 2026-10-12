@@ -1,0 +1,16 @@
+vnum: 3330
+name: a blood lord's war axe
+keywords: [blood, lord's, lord, war, axe]
+description: A broad war axe of dark red iron lies here, wet.
+look: |
+  A bearded axe of the same red iron as the blood lords' plate, its
+  edge always a little wet however long it lies. It bites deep and
+  chops well, as a demon's tool should.
+type: weapon
+weight: 7
+level: 44
+baseline: axe
+weapon:
+  hands: 1
+  kind: slash
+  verb: hew

@@ -1,0 +1,12 @@
+vnum: 3334
+name: a ship's lantern
+keywords: [ship's, ship, lantern, lamp]
+description: A storm lantern of tarred brass and thick glass sits here.
+look: |
+  A sea lantern from Meshif's stores, brass blackened with tar, glass
+  as thick as a thumb, and a wick that stays lit in a gale. It was made
+  for a wet deck at night, which is not so different from the Durance.
+type: light
+weight: 2
+value: 30
+burn: 1500

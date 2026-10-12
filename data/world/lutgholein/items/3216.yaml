@@ -1,0 +1,14 @@
+vnum: 3216
+name: a page of Horazon's journal
+keywords: [page, horazon's, horazon, journal, parchment]
+description: A single page of brittle parchment lies here, covered in a frantic hand.
+look: |
+  A page torn from the journal of Horazon, the Vizjerei summoner who
+  hid from his brother and the world in a sanctuary of his own making.
+  The writing slopes and crowds the margins: notes on the binding of
+  demons, a sketch of seven tombs with one marked, and, underlined
+  three times, "the true tomb of Tal Rasha". Drognan has been looking
+  for the missing pages for twenty years.
+type: other
+weight: 0
+flags: [quest]

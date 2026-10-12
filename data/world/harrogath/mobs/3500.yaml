@@ -1,0 +1,17 @@
+vnum: 3500
+name: Qual-Kehk
+keywords: [qual-kehk, qual, kehk, commander, barbarian]
+description: Qual-Kehk stands on the wall above the gate, axe on his shoulder, counting the enemy.
+look: |
+  The commander of Harrogath's defence, a barbarian built like a
+  doorway, grey in the beard and scarred over every inch that shows.
+  He has lost most of his men to Shenk's siege and the rest are on the
+  wall behind him, and he has not slept in days. "Baal's minions are
+  everywhere. Help us, and I will teach you how the sons of Bul-Kathos
+  fight: in a rage that does not feel the blows, spinning through a
+  crowd of them, breaking their armour as you go."
+level: 55
+flags: [peaceful]
+teaches: [berserk, whirlwind, sunder]
+attack:
+  verb: cleave

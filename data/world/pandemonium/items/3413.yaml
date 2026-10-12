@@ -1,0 +1,21 @@
+vnum: 3413
+name: the Grand Vizier's tome
+keywords: [grand, vizier's, vizier, tome, book]
+description: A heavy book bound in scarlet hide lies here, its pages smouldering.
+look: |
+  One of the Grand Vizier's books, bound in a scarlet hide that is warm
+  to the touch, its pages burning at the edges and never burning
+  through. It holds the words that keep Diablo's seals open, and many
+  others, and they rearrange themselves while you read. Held open, it
+  sharpens the mind fiercely and steadies the hand, and shows you what
+  is trying not to be seen.
+type: armor
+slot: hold
+weight: 3
+level: 50
+value: 9000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: detectInvisible }

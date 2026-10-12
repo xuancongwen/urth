@@ -1,0 +1,15 @@
+vnum: 3205
+name: The Palace Road
+description: |
+  A broad street of packed earth between whitewashed houses, shaded by
+  date palms in stone tubs. Guards in green and gold stand at the
+  corners, sweating under their helmets. North, the gates of the
+  sultan's palace; south, a doorway hung with drying herbs and a smell
+  of sulphur. The bazaar is west, and east the road runs down toward
+  the harbour.
+exits:
+  west: 3202
+  north: 3206
+  south: 3207
+  east: 3208
+flags: [safe]

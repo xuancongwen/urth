@@ -1,0 +1,26 @@
+vnum: 3215
+name: Bloodwitch the Wild
+keywords: [bloodwitch, wild, huntress, cat]
+description: Bloodwitch the Wild looks up from the bones, muzzle red, and smiles a cat's smile.
+look: |
+  A huntress of the sabre cats, larger than the rest, her hide marked
+  in stripes of dried blood she has painted on herself. She runs on
+  two legs as easily as four. She came into the Halls of the Dead
+  following the smell of something old and Horadric, and she has made
+  a den of the inner tomb. Among the bones at her feet sits a small
+  cube of gold-chased metal she does not understand and will not give
+  up.
+level: 31
+flags: [assist]
+health: 2400
+stats: {dexterity: 16, strength: 13}
+silver: 220
+xp: 6500
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: crit
+    params: { chance: 0.08, mult: 2 }

@@ -1,0 +1,14 @@
+vnum: 3214
+name: a hollow one
+keywords: [hollow, one, mummy, undead]
+description: A hollow one steps out of its niche, trailing dusty wrappings.
+look: |
+  A mummified body in rotting linen, dried hard and hollow as a gourd,
+  with nothing behind its eye sockets but a dim red glow. It was laid
+  to rest with honour three thousand years ago and has been woken
+  without any. It moves slowly and hits like a falling wall.
+level: 30
+stats: {strength: 14}
+attack:
+  kind: blunt
+  verb: pound

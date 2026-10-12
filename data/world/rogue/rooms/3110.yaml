@@ -1,0 +1,13 @@
+vnum: 3110
+name: The Cold Plains
+description: |
+  The moor flattens into a wide windy plain of short grass and standing
+  water, cold enough that a skin of ice forms on the puddles at dusk.
+  A ring of fallen tents has been pitched around a pole topped with a
+  horned skull, and a shaman's fire burns blue in the middle of it.
+  West, a low wall of fieldstone encloses a burial ground; the Blood
+  Moor is north, and the road runs on south toward a field of stones.
+exits:
+  north: 3108
+  west: 3111
+  south: 3113

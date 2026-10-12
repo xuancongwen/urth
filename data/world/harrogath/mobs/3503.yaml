@@ -1,0 +1,20 @@
+vnum: 3503
+name: Anya the merchant
+keywords: [anya, merchant, trader, woman]
+description: Anya sits wrapped in furs behind her stall, still pale from the ice.
+look: |
+  A young woman with dark hair and very blue lips, wrapped in three
+  furs and still shivering. Nihlathak sold her to Baal's minions and
+  they froze her in the Frozen River, and she would still be there if
+  someone had not come with Malah's draught. She is a merchant again,
+  just about, and she has one thing nobody else will sell you: the way
+  into Nihlathak's temple. "He gave Baal the Relic of the Ancients," she
+  says. "Bring me a shard of the ice that held me, so I know you have
+  seen it, and I will open the portal. Then go and kill him."
+level: 52
+flags: [peaceful]
+attack:
+  verb: slap
+trades:
+  - { item: 3517, items: [3518] }
+  - { item: 3531, silver: 1600 }

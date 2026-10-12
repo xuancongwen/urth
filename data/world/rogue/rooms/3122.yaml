@@ -1,0 +1,11 @@
+vnum: 3122
+name: The Monastery Gate
+description: |
+  The road ends at a pair of gates three times a man's height, carved
+  with the Sightless Eye and standing open. Banners of the Sisterhood
+  hang from the walls, slashed and fouled. Dead Rogues lie in the
+  gatehouse where they fell, and nobody has come to bury them. The
+  cloister is south, through the gates; the highland is north.
+exits:
+  north: 3121
+  south: 3123

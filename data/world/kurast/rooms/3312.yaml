@@ -1,0 +1,14 @@
+vnum: 3312
+name: The Flayer Jungle
+description: |
+  Here the jungle belongs to the flayers. Shrunken heads hang from the
+  branches in bunches like fruit, and the tree trunks are cut with
+  tally marks that go up past where a man could reach. A drum talks
+  somewhere and another answers it. In a clearing a stone trapdoor,
+  scratched all over with hooked glyphs, stands open on a stair down.
+  The marsh is west; south, through the trees, the walls of Lower
+  Kurast show grey.
+exits:
+  west: 3311
+  south: 3315
+  down: 3313

@@ -1,0 +1,15 @@
+vnum: 3332
+name: a greatsword of the Durance
+keywords: [greatsword, durance, sword]
+description: A huge two-handed sword of frosted black steel lies here.
+look: |
+  A greatsword as long as a man, its black blade rimed with frost that
+  does not melt, forged somewhere very cold and very far down.
+type: weapon
+level: 46
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

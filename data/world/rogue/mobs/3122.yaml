@@ -1,0 +1,23 @@
+vnum: 3122
+name: Bone Ash
+keywords: [bone, ash, mage, burning, dead]
+description: Bone Ash floats before the broken altar, robes smouldering, frost on his fingers.
+look: |
+  A burning dead mage, once a scholar of the monastery, now a skeleton
+  in charred robes held up by a smoulder of blue fire. His bones are
+  black with soot and his fingers trail frost. He calls down cold and
+  curses on whatever walks into his cathedral, and he is the last thing
+  that stands between you and the stair to the catacombs.
+level: 29
+health: 1600
+stats: {intelligence: 17}
+silver: 280
+xp: 7000
+attack:
+  kind: cold
+  verb: freeze
+effects:
+  - kind: proc
+    params: { verb: volley of frozen bone, chance: 0.2, power: 1.0 }
+  - kind: soak
+    params: { power: 0.1 }

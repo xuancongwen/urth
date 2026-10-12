@@ -1,0 +1,15 @@
+vnum: 3306
+name: a giant spider
+keywords: [giant, spider, arach]
+description: A giant spider scuttles down its web toward you, fangs dripping.
+look: |
+  A spider as big as a pony, black and banded with orange, its legs
+  jointed like a crane's and its eyes a cluster of wet black beads. It
+  hunts in packs, which spiders should not do, and it is not afraid of
+  fire, which spiders should be.
+level: 36
+flags: [assist]
+stats: {dexterity: 14}
+attack:
+  kind: bite
+  verb: bite

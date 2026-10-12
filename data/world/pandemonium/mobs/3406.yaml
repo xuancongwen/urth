@@ -1,0 +1,17 @@
+vnum: 3406
+name: an undead soul killer
+keywords: [undead, soul, killer, fetish]
+description: An undead soul killer crouches in the ash, raising its blowpipe.
+look: |
+  A shrunken little thing of leather and bone, a fetish of the Kurast
+  jungle dragged down into Hell and dead now, which has not slowed it.
+  It shoots poisoned darts from a bone pipe and slashes with a bone
+  knife, and it laughs, a dry clicking laugh, the whole time.
+level: 45
+flags: [assist, wander]
+stats: {dexterity: 16}
+attack:
+  kind: pierce
+  verb: dart
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }

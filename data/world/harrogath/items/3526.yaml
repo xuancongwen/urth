@@ -1,0 +1,13 @@
+vnum: 3526
+name: a pair of hellforged vambraces
+keywords: [hellforged, vambraces, bracers]
+description: A pair of spiked black vambraces lies here.
+look: |
+  Plate vambraces of the black iron Baal's minions grow and shed like
+  horn, spiked along the outside of the forearm. They fit a man's arm
+  better than they ought to.
+type: armor
+slot: arms
+weight: 5
+level: 58
+baseline: plate

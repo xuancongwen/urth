@@ -1,0 +1,25 @@
+vnum: 3401
+name: Jamella
+keywords: [jamella, merchant, trader, woman]
+description: Jamella sits among her wares, keeping accounts in a little book.
+look: |
+  A dark-haired woman in travelling silks, with a merchant's eye and a
+  smile that is kind without being soft. She sells healing draughts,
+  lamps that burn in Hell, and fine jewellery, and she will sell you a
+  bundle sight unseen if you care to gamble. She seems ordinary, and
+  she is not: when the light catches her at certain angles there is a
+  hint of wings behind her, and she has been keeping this shop since
+  before the first man was born. She has heard of a suit of armour that
+  was Tyrael's own, and she would trade it, she says, to whoever brings
+  her a fragment of each of the three seals. Type 'list' to see what
+  she has.
+level: 50
+flags: [peaceful]
+attack:
+  verb: strike
+trades:
+  - { item: 3400, silver: 60 }
+  - { item: 3401, silver: 60 }
+  - { item: 3402, silver: 4500 }
+  - { item: 3403, silver: 4500 }
+  - { item: 3404, silver: 15000, items: [3406, 3406, 3406] }

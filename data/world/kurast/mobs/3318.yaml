@@ -1,0 +1,19 @@
+vnum: 3318
+name: Geleb Flamefinger
+keywords: [geleb, flamefinger, council, elder]
+description: Geleb Flamefinger points at you, and his fingertip catches fire.
+look: |
+  A lean elder of the High Council with burned-away eyebrows and a
+  smile like a crack in a kiln, whose ten fingers burn at the tips like
+  candles. He likes to point. Where he points, things burn, and go on
+  burning after he has looked away.
+level: 43
+health: 3200
+stats: {intelligence: 17}
+silver: 300
+attack:
+  kind: fire
+  verb: burn
+effects:
+  - kind: ignite
+    params: { power: 0.08, rounds: 3, maxStacks: 2 }

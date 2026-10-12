@@ -1,0 +1,19 @@
+vnum: 3115
+name: Sigon's Shelter
+keywords: [sigon's, sigon, shelter, breastplate, plate]
+description: A gilded steel breastplate, dented and scorched, lies here.
+look: |
+  The breastplate of Sigon's complete steel, gilded at the edges, the
+  steel thicker than any armour Charsi could make. The Smith has hung
+  it on himself with straps of Rogue leather, and beaten out the worst
+  dents from his own fights. It turns more than plate should, and
+  steadies the one inside it.
+type: armor
+slot: body
+weight: 16
+level: 28
+baseline: plate
+value: 1800
+effects:
+  - { kind: defense, params: { amount: 4 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

@@ -1,0 +1,16 @@
+vnum: 3501
+name: The Square of Harrogath
+description: |
+  A square of trodden snow between houses of fitted grey stone, roofed
+  in slate and heaped with drifts. A bonfire burns in an iron basket in
+  the middle and nobody is ever far from it. Most of the townsfolk are
+  gone; the doors of the empty houses have been barred from outside. A
+  forge rings to the east, and smoke rises from a healer's house to the
+  west. North, a street climbs to the great gate; south, steps go down
+  to the terrace where the portal hangs.
+exits:
+  south: 3500
+  east: 3502
+  west: 3503
+  north: 3504
+flags: [safe]

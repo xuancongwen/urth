@@ -1,0 +1,12 @@
+vnum: 3505
+name: The Elder's House
+description: |
+  The house of the Elder Council, a long hall with a fire pit down its
+  middle and the carved faces of the three Ancients on the roof posts.
+  Two of the council's three great chairs are empty and have been for
+  some time; the cushions are still dented. The place is very quiet and
+  very cold, though the fire is high, and there is a smell under the
+  smoke like a sickroom. The peace of the town does not reach in here;
+  the gate is east.
+exits:
+  east: 3504

@@ -1,0 +1,22 @@
+vnum: 3506
+name: Immortal King's Will
+keywords: [immortal, king's, king, will, helm, horned]
+description: A horned helm of bronze lies here, its eye-holes dark.
+look: |
+  The Immortal King's horned helm, bronze gone green, with the horns
+  of a great mountain ram curling from its temples. Korlic's skull grew
+  into it in his long sleep. It steadies the hand and hardens the will:
+  nothing that hits its wearer knocks him from his stride.
+type: armor
+slot: head
+weight: 5
+level: 57
+baseline: plate
+value: 12000
+effects:
+  - kind: steady
+    params: { chance: 0.4 }
+  - kind: stat
+    params: { stat: strength, amount: 2 }
+  - kind: stat
+    params: { stat: wisdom, amount: 2 }

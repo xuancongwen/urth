@@ -1,0 +1,27 @@
+vnum: 3229
+name: Duriel, Lord of Pain
+keywords: [duriel, lord, pain, demon, maggot]
+description: Duriel rears up from behind the chained archangel, hissing. "Looking for Baal?"
+look: |
+  A monstrous thing of armour and appetite, a maggot the size of a
+  house grown huge on suffering, with crablike claws for arms and a
+  shell of black chitin plated over its back. Its face is a mass of
+  jaws. The air around it freezes, and everything near it moves as
+  though through cold honey. The Lord of Pain was left in Tal Rasha's
+  chamber by his brothers to guard their prisoner and to greet the
+  hero who followed them, and he has been looking forward to it.
+level: 38
+health: 5000
+stats: {strength: 18, constitution: 18, intelligence: 12, dexterity: 12}
+silver: 600
+xp: 25000
+attack:
+  kind: claw
+  verb: rend
+effects:
+  - kind: attacks
+    params: { amount: 1 }
+  - kind: chill
+    params: { chance: 0.25, mult: 0.7, rounds: 2 }
+  - kind: aura
+    params: { power: 0.12, verb: holy freeze }

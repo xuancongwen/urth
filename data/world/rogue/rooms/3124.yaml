@@ -1,0 +1,11 @@
+vnum: 3124
+name: The Barracks
+description: |
+  Long rows of bunks for the Sisterhood's archers, kicked over and
+  burned. At the far end the monastery's forge still glows, and
+  someone has been keeping it lit: an anvil the size of a coffin, a
+  rack of tongs, and a heap of Rogue armour waiting to be beaten into
+  something else. The floor is sticky around the anvil. The cloister
+  is west.
+exits:
+  west: 3123

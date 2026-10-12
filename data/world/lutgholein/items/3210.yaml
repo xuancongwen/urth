@@ -1,0 +1,20 @@
+vnum: 3210
+name: a scarab-shell shield
+keywords: [scarab-shell, scarab, shell, shield, chitin]
+description: A round shield of iridescent black chitin lies here, sparking at the rim.
+look: |
+  Three plates of dung soldier carapace fitted together on a frame of
+  palm wood and rimmed in brass, by Fara's hand. It is light, it turns
+  a blade better than steel, and the old lightning in the shell still
+  snaps at anything that strikes it.
+type: armor
+slot: shield
+weight: 5
+level: 33
+baseline: shield
+value: 1500
+effects:
+  - kind: block
+    params: { chance: 0.15 }
+  - kind: thorns
+    params: { fraction: 0.1, verb: snap of stored lightning }

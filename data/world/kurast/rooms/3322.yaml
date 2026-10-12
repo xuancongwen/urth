@@ -1,0 +1,15 @@
+vnum: 3322
+name: The Hall of the High Council
+description: |
+  A domed hall of gold leaf and lapis, where the High Council of
+  Zakarum once sat in judgement on the world. On a pillar in the
+  middle hangs the Compelling Orb, a sphere of crackling light that
+  holds the stairs to the Durance shut; it has been struck, and is
+  cracked through, and the stair beneath it stands open into a
+  darkness that smells of blood. On a plinth against the wall, in a
+  case of crystal, a desiccated body in a priest's robes lies with no
+  eyes, no heart, and the top of its skull sawn away. Travincal is
+  south.
+exits:
+  south: 3321
+  down: 3323

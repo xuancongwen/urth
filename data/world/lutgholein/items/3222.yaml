@@ -1,0 +1,12 @@
+vnum: 3222
+name: a pair of chitin vambraces
+keywords: [chitin, vambraces, bracers, arm, guards]
+description: A pair of black shell vambraces lies here.
+look: |
+  Forearm guards of dung soldier chitin laced over leather, black with
+  a rainbow sheen. Light, hard, and faintly warm.
+type: armor
+slot: arms
+weight: 2
+level: 31
+baseline: medium
