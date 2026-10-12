@@ -1923,10 +1923,10 @@ and nothing competes with feats for the level-up choice.
 
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
-| Kick | 1 | none (innate) | action, single target |  | 4 | 30 | innate | damage: 1.2x a standard swing at full skill, no weapon needed |
-| Bash | 3 | 12 Str | action, single target | 3 | 8 | 25 | 3 gold | damage (0.6x a swing) and the chance the target loses its next round of swings |
+| Kick | 1 | none (innate) | action, single target |  | 4 | 30 | innate | strike: 1.8 rounds of the user's weapon at full skill, no weapon needed |
+| Bash | 3 | 12 Str | action, single target | 3 | 8 | 25 | 3 gold | the chance the target loses its next round of swings; 0.5x a standard swing aside |
 | Twin Strike | 5 | 13 Dex | passive | | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
-| Rend | 3 | 12 Str | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | damage (0.8x a swing) and a bleed of a quarter of it for three rounds |
+| Rend | 3 | 12 Str | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | strike: 1.2 rounds, and a bleed of 40 percent of it for three rounds |
 | Riposte | 4 | 12 Dex | passive | | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
 **Combat skills** (approved 2026-09-28), after ROM 2.4 and its
@@ -1936,25 +1936,25 @@ and all of them are sold in the balance lab.
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
 | Dodge | 1 | 11 Dex | passive | | | 20 | 2 gold | up to +10 percent dodge |
-| Trip | 2 | 11 Dex | action, single | 3 | 6 | 25 | 2 gold | 0.3x damage, -5 percent dodge for two rounds, the chance of a lost round |
+| Trip | 2 | 11 Dex | action, single | 3 | 6 | 25 | 2 gold | -5 percent dodge for two rounds, the chance of a lost round; 0.3x damage aside |
 | Hand to Hand | 2 | 11 Str | passive | | | 20 | 3 gold | unarmed damage, up to double |
 | Dirt Kicking | 3 | 12 Dex | action, single | 4 | 8 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
 | Shield Block | 3 | 12 Con | passive | | | 20 | 4 gold | up to +15 percent block, shield worn |
-| Backstab | 4 | 13 Dex | action, single |  | 10 | 25 | 5 gold | 3x damage; dagger, and only to open a fight |
+| Backstab | 4 | 13 Dex | action, single |  | 10 | 25 | 5 gold | strike: 4 rounds; dagger, and only to open a fight |
 | Fast Healing | 4 | 12 Con | passive | | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
 | Enhanced Damage | 5 | 13 Str | passive | | | 15 | 10 gold | up to +15 percent damage on swings |
-| Hamstring | 6 | 13 Dex | action, single | 4 | 8 | 25 | 6 gold | 0.5x damage and a slow to 70 percent for four rounds |
-| Disarm | 6 | 14 Dex | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side |
+| Hamstring | 6 | 13 Dex | action, single | 4 | 8 | 25 | 6 gold | a slow to 70 percent for four rounds; 0.4x damage aside |
+| Disarm | 6 | 14 Dex | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side, in hand or in a mob's natural attack |
 | Feint | 7 | 14 Dex | action, single, cannot be dodged | 3 | 6 | 25 | 7 gold | -10 percent dodge and block for three rounds |
 | Berserk | 8 | 15 Str | action, self | 20 | 12 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
 | Envenom | 9 | 15 Dex | action, self | 10 | 8 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
 | Rescue | 10 | 14 Con | action, ally | 2 | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
-| Circle | 10 | 16 Dex | action, single | 2 | 8 | 20 | 12 gold | 1.8x damage; dagger, mid-fight only |
-| Sunder | 12 | 16 Str | action, single | 6 | 10 | 20 | 15 gold | 1x damage and up to half a set of armor stripped for five rounds; heavy weapon |
+| Circle | 10 | 16 Dex | action, single | 2 | 8 | 20 | 12 gold | strike: 2.4 rounds; dagger, mid-fight only |
+| Sunder | 12 | 16 Str | action, single | 6 | 10 | 20 | 15 gold | up to half a set of armor stripped for five rounds; heavy weapon; 0.6x damage aside |
 | Second Wind | 12 | 16 Con | action, self | 30 | 0 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
 | Triple Strike | 12 | 16 Dex | passive | | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
-| Whirlwind | 15 | 17 Str | action, area | 3 | 12 | 20 | 25 gold | 0.8x damage to every foe fighting you |
-| Coup de Grace | 18 | 18 Str | action, single |  | 10 | 20 | 30 gold | 3.5x damage against a foe below a quarter of its health, 0.5x otherwise |
+| Whirlwind | 15 | 17 Str | action, area | 3 | 12 | 20 | 25 gold | strike: 1.2 rounds to every foe fighting you |
+| Coup de Grace | 18 | 18 Str | action, single |  | 10 | 20 | 30 gold | strike: 5 rounds against a foe below a quarter of its health, 0.6 rounds otherwise |
 
 Consequences (built 2026-09-28): skill targets are `single`, `area`
 (every foe fighting the user; one use, one improvement roll, one
@@ -1962,6 +1962,34 @@ cooldown), `ally` (a player or group member someone is fighting;
 `taunt` in the result turns their attackers), and `none`. A result may
 carry `heal` for the user and `cooldown` to replace the skill's own for
 that use (Relentless).
+
+**Strikes and utility (decided 2026-10-11).** The designer found the
+martial skills underwhelming: with stamina and cooldowns as their
+price, a skill meant to deal damage should deal enough to be worth it.
+Measured in units of a standard swing, a damage skill fell behind as a
+character's gear and extra swings grew, and at its starting rating a
+Kick was a third of a swing. So the skills split in two:
+
+- A *strike* (Kick, Rend, Backstab, Circle, Whirlwind, Coup de Grace)
+  is measured in rounds of the user's own weapon: its damage times its
+  speed, or a standard swing if that is more, so a dagger and a maul of
+  the same damage per round give the same Kick. The rating takes it
+  from half its potential to all of it rather than from nothing, it can
+  crit as a swing does, and Enhanced Damage adds to it. Multipliers are
+  in the tables above.
+- A *utility* skill (Bash, Trip, Hamstring, Sunder, Disarm, Dirt
+  Kicking, Feint) is for what it does. Its damage, where it has any,
+  stays a small flat share of a standard swing that gear does not grow;
+  the rating scales its effect.
+
+Measured at level 10 in standard kit on an even mob: a round of
+auto-attack about 14, a Kick at full skill about 25 (16 before), a fresh
+Kick about 16 (5 before), a Bash about 7.
+
+Disarm needs a weapon on both sides. A mob with no weapon item whose
+natural attack is a weapon by its verb (slash, stab, cleave, shoot, and
+the like) counts as armed; disarmed, it hits for half until it
+recovers. A bite or a claw cannot be disarmed.
 
 Twin Strike is the first of a chain: Triple Strike follows (and Quad
 Strike, if ever, for special cases), each a further swing. Improvement: each use (each round in a fight, for passives) has

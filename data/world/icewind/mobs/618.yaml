@@ -7,9 +7,10 @@ look: |
   sword-and-shield of Tempus burned into one forearm. The townsfolk
   give him the whole bench. He says the Lord of Battles comes to a man
   in the fight and fills him red; he will show you how to let him in,
-  for coin, and for the look on your face afterwards.
+  for coin, and for the look on your face afterwards. For two of the
+  tundra wolves' fangs he will teach you to tear like one.
 level: 12
 flags: [peaceful]
-teaches: [berserk]
+teaches: [berserk, rend]
 attack:
   verb: cleave

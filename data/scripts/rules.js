@@ -59,7 +59,10 @@ var P = {
   // Empty, a character dodges exhaustedDodge less.
   staminaBase: 20, staminaPerLevel: 1, staminaRegenRounds: 10, staminaRestMult: 2,
   staminaHeavyArmor: 0.25, staminaPlateArmor: 0.4, staminaHeavyWeapon: 0.1,
-  exhaustedDodge: 0.05
+  exhaustedDodge: 0.05,
+  // A disarmed mob whose natural attack is a weapon (armedNatural) hits
+  // for this share of it until the weapon is back in hand (RULES 7.4).
+  disarmedNatural: 0.5
 };
 // The engine warns at start when this disagrees with timing.round_ms.
 function roundSeconds() { return P.roundSeconds; }
@@ -440,8 +443,39 @@ function kFor(att) { return P.K * Math.pow(P.levelGrowth, Math.max(0, (att.level
 // swing meter; here roll, modify, dodge, block, reduce.
 // ---------------------------------------------------------------------
 function naturalAttack(c) {
-  if (c.mob && c.mob.attack) return c.mob.attack;
+  if (c.mob && c.mob.attack) {
+    var a = c.mob.attack;
+    // Disarmed with no weapon item, a mob whose natural attack is a
+    // weapon fights with what it has left.
+    if (hasEffect(c, "disarmed") && armedNatural(c)) {
+      return { damage: a.damage * P.disarmedNatural, spread: a.spread, speed: a.speed, hands: 0, kind: "blunt", verb: "punch" };
+    }
+    return a;
+  }
   return WEAPON_BASELINES.unarmed(c.level || 1);
+}
+
+// ARMED_VERBS are the natural-attack verbs that mean a weapon in hand:
+// a mob written with one can be disarmed though it wields no item. A
+// bite, a claw, or a spell cannot.
+var ARMED_VERBS = ["slash", "stab", "shoot", "cleave", "hack", "smash", "pound", "club", "thrust", "hammer",
+  "strike", "smite", "whack", "poke", "jab", "crush", "cut", "las-shot", "hew", "flail", "chop", "swing",
+  "spear", "slice", "skewer", "impale", "glaive", "reaper", "dakka", "lunge", "shear", "bolt", "dart"];
+
+// armedNatural reports whether c, a mob with no weapon item, fights with
+// a weapon its natural attack stands for.
+function armedNatural(c) {
+  if (!c.mob || !c.mob.attack || (c.equipment && c.equipment.wield)) return false;
+  return ARMED_VERBS.indexOf(c.mob.attack.verb) >= 0;
+}
+
+// critMult rolls a crit for att's blow with weapon: the best crit effect
+// and the weapon family's edge. It returns the multiplier, 1 for none.
+function critMult(att, weapon) {
+  var ce = bestEffect(att, "crit", "chance");
+  var chance = (ce ? num(ce.params.chance) : 0) + num(traitsOf(weapon).crit);
+  if (chance <= 0 || random.float() >= chance) return 1;
+  return ((ce && num(ce.params.mult)) || 2) + sumEffects(att, "critMult", "amount");
 }
 
 function resolveAttack(att, def, weapon, round) {
@@ -472,13 +506,8 @@ function resolveAttack(att, def, weapon, round) {
 
   // Modify: crits exist only as effects (4.2) and the axe's edge; execute
   // finishes the wounded.
-  var crit = false;
-  var ce = bestEffect(att, "crit", "chance");
-  var critChance = (ce ? num(ce.params.chance) : 0) + num(traitsOf(weapon).crit);
-  if (critChance > 0 && random.float() < critChance) {
-    dmg *= ((ce && num(ce.params.mult)) || 2) + sumEffects(att, "critMult", "amount");
-    crit = true;
-  }
+  var cm = critMult(att, weapon), crit = cm > 1;
+  dmg *= cm;
   dmg *= executeMult(att, def);
 
   // Reduce: D / (D + K), with D from armor or natural hide, Constitution,
@@ -1050,7 +1079,8 @@ function describeEffect(e) {
 // innate skills need none (RULES 7.4, 2026-10-11).
 // ---------------------------------------------------------------------
 // Fields beyond the engine's: damage (units of a standard swing, or a
-// function of user and target), verb, stunChance (a lost round, scaled by
+// function of user and target), strike (a damage skill: see STRIKE),
+// verb, stunChance (a lost round, scaled by
 // rating), bleed, unavoidable (no dodge or block), unarmed (Iron Fist
 // applies), check (a reason the use cannot go ahead, or ""), effects (what
 // a landed use leaves, scaled by rating), self (a use on the user alone),
@@ -1058,16 +1088,16 @@ function describeEffect(e) {
 // fighting).
 var SKILLS = [
   { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 0, stamina: 4, start: 30, innate: true,
-    damage: 1.2, verb: "kick", unarmed: true,
-    description: "A kick worth more than a swing at full skill, and it needs no weapon." },
+    damage: 1.8, strike: true, verb: "kick", unarmed: true,
+    description: "A kick worth nearly two rounds of your weapon at full skill, and it needs no weapon in hand." },
   { id: "bash", stats: { strength: 12 }, name: "Bash", level: 3, passive: false, target: "single", cooldown: 3, stamina: 8, start: 25, innate: false, price: 300,
-    damage: 0.6, verb: "bash", stunChance: 1.0,
+    damage: 0.5, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
   { id: "twin", stats: { dexterity: 13 }, name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
     description: "A second swing in the same round, as often as your skill allows. Triple Strike follows." },
   { id: "rend", stats: { strength: 12 }, name: "Rend", level: 3, passive: false, target: "single", cooldown: 0, stamina: 6, start: 30, innate: false, price: 100,
-    requires: [{ material: "wolf fang", count: 2 }], damage: 0.8, verb: "rend", bleed: 0.25,
-    description: "Tear at them like a beast: some damage now, and a wound that bleeds for three rounds. The beast-master wants wolf fangs for it." },
+    requires: [{ material: "wolf fang", count: 2 }], damage: 1.2, strike: true, verb: "rend", bleed: 0.4,
+    description: "Tear at them like a beast: a round's worth and more now, and a wound that bleeds for three rounds. The trainer wants wolf fangs for it." },
   { id: "riposte", stats: { dexterity: 12 }, name: "Riposte", level: 4, passive: true, start: 20, innate: false, price: 500,
     description: "Turn a swing aside with your own blade: at full skill, one swing in five is blocked, weapon in hand." },
 
@@ -1090,34 +1120,34 @@ var SKILLS = [
   { id: "shield_block", stats: { constitution: 12 }, name: "Shield Block", level: 3, passive: true, start: 20, innate: false, price: 400,
     description: "Take blows on your shield: up to 15 percent more blocked, shield worn." },
   { id: "backstab", stats: { dexterity: 13 }, name: "Backstab", level: 4, passive: false, target: "single", cooldown: 0, stamina: 10, start: 25, innate: false, price: 500,
-    damage: 3.0, verb: "backstab",
+    damage: 4.0, strike: true, verb: "backstab",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to backstab.";
       if (u.fighting) return "You are too busy fighting to slip a blade in. Try circle.";
       if (t.fighting) return "They are fighting already, and watching for it.";
       return "";
     },
-    description: "Open a fight with a dagger in the back: three swings' worth at full skill. Only on someone not yet fighting." },
+    description: "Open a fight with a dagger in the back: four rounds' worth at full skill. Only on someone not yet fighting." },
   { id: "fast_healing", stats: { constitution: 12 }, name: "Fast Healing", level: 4, passive: true, start: 20, innate: false, price: 400, rest: true,
     description: "Mend quickly: resting brings health back up to half again as fast. Improves while you rest." },
   { id: "enhanced_damage", stats: { strength: 13 }, name: "Enhanced Damage", level: 5, passive: true, start: 15, innate: false, price: 1000,
     description: "Put your weight behind it: up to 15 percent more damage on every swing." },
   { id: "hamstring", stats: { dexterity: 13 }, name: "Hamstring", level: 6, passive: false, target: "single", cooldown: 4, stamina: 8, start: 25, innate: false, price: 600,
-    damage: 0.5, verb: "hamstring",
+    damage: 0.4, verb: "hamstring",
     effects: function (u, t, scale) { return [{ on: "target", kind: "speedMult", params: { mult: 1 - 0.3 * scale, source: "hamstring" }, rounds: 4 }]; },
     description: "Cut the tendon: some damage, and their swings slow to 70 percent for four rounds at full skill." },
   { id: "disarm", stats: { dexterity: 14 }, name: "Disarm", level: 6, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 700,
     verb: "disarm",
     check: function (u, t) {
       if (!wielded(u)) return "You need a weapon of your own to disarm with.";
-      if (!wielded(t)) return "They have nothing to disarm.";
+      if (!wielded(t) && !armedNatural(t)) return "They have nothing to disarm.";
       return "";
     },
     effects: function (u, t, scale, out) {
       out.message = "Their weapon goes wide, and they fight bare-handed.";
       return [{ on: "target", kind: "disarmed", params: {}, rounds: 1 + Math.round(2 * scale) }];
     },
-    description: "Knock their weapon aside: they fight with what nature gave them for up to three rounds." },
+    description: "Knock their weapon aside: for up to three rounds they fight bare-handed, or at half strength if all they have is what they were born with." },
   { id: "feint", stats: { dexterity: 14 }, name: "Feint", level: 7, passive: false, target: "single", cooldown: 3, stamina: 6, start: 25, innate: false, price: 700,
     verb: "feint", unavoidable: true,
     effects: function (u, t, scale, out) {
@@ -1151,32 +1181,32 @@ var SKILLS = [
     },
     description: "Step in front of a friend: everyone fighting them turns on you, and they take less damage for two rounds." },
   { id: "circle", stats: { dexterity: 16 }, name: "Circle", level: 10, passive: false, target: "single", cooldown: 2, stamina: 8, start: 20, innate: false, price: 1200,
-    damage: 1.8, verb: "circle",
+    damage: 2.4, strike: true, verb: "circle",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to circle.";
       if (!u.fighting) return "Circle is for a fight under way; backstab opens one.";
       return "";
     },
-    description: "Slip around them mid-fight and stab: nearly two swings' worth at full skill. Dagger only." },
+    description: "Slip around them mid-fight and stab: nearly two and a half rounds' worth at full skill. Dagger only." },
   { id: "sunder", stats: { strength: 16 }, name: "Sunder", level: 12, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 1500,
-    damage: 1.0, verb: "sunder",
+    damage: 0.6, verb: "sunder",
     check: function (u) { return isHeavy(wielded(u)) ? "" : "You need a heavy weapon to sunder armor."; },
     effects: function (u, t, scale, out) {
       out.message = "Their armor buckles.";
       return [{ on: "target", kind: "defense", params: { amount: -0.5 * ARMOR_BASELINES.medium(t.level).defense * scale }, rounds: 5 }];
     },
-    description: "Break their armor with a heavy weapon: a swing's damage, and for five rounds half a set of armor stops nothing." },
+    description: "Break their armor with a heavy weapon: a glancing blow, and for five rounds half a set of armor stops nothing." },
   { id: "second_wind", stats: { constitution: 16 }, name: "Second Wind", level: 12, passive: false, target: "none", cooldown: 30, stamina: 0, start: 25, innate: false, price: 1500,
     check: function (u) { return u.health >= u.healthMax ? "You are not winded." : ""; },
     self: function (u, scale, out) { out.heal = Math.max(1, Math.round(u.healthMax * (0.10 + 0.15 * scale))); },
     verb: "second wind",
     description: "Catch your breath, even mid-fight: up to a quarter of your health back at once." },
   { id: "whirlwind", stats: { strength: 17 }, name: "Whirlwind", level: 15, passive: false, target: "area", cooldown: 3, stamina: 12, start: 20, innate: false, price: 2500,
-    damage: 0.8, verb: "whirlwind",
-    description: "Spin through them: most of a swing to every foe fighting you." },
+    damage: 1.2, strike: true, verb: "whirlwind",
+    description: "Spin through them: more than a round's worth to every foe fighting you." },
   { id: "coup_de_grace", stats: { strength: 18 }, name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 0, stamina: 10, start: 20, innate: false, price: 3000,
-    damage: function (u, t) { return t.healthMax > 0 && t.health / t.healthMax < 0.25 ? 3.5 : 0.5; }, verb: "coup de grace",
-    description: "Finish them: three and a half swings' worth against a foe below a quarter of their health, little otherwise." },
+    damage: function (u, t) { return t.healthMax > 0 && t.health / t.healthMax < 0.25 ? 5.0 : 0.6; }, strike: true, verb: "coup de grace",
+    description: "Finish them: five rounds' worth against a foe below a quarter of their health, little otherwise." },
   { id: "triple", stats: { dexterity: 16 }, name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
     description: "A third swing in the same round, as often as your skill allows, on top of Twin Strike." }
 ];
@@ -1189,6 +1219,22 @@ function hasSource(c, source) {
 }
 
 var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how far from 100
+
+// STRIKE: damage skills (RULES 7.4, 2026-10-11) are measured in rounds of
+// the user's own weapon (damage times speed, or a standard swing if that
+// is more), so they keep pace with gear; the rating takes them from
+// floor to full rather than from nothing; they can crit, and Enhanced
+// Damage adds to them. Utility skills (Bash, Trip, Hamstring, Sunder)
+// keep a small flat damage on the standard swing: their point is what
+// they do, not what they deal.
+var STRIKE = { floor: 0.5 };
+
+function strikeUnit(c, weapon) {
+  var u = unit(c);
+  if (!weapon || !weapon.weapon) return u;
+  var w = weapon.weapon;
+  return Math.max(u, num(w.damage) * (num(w.speed) || 1) * attunedScale(weapon, c));
+}
 
 function skillList() {
   return SKILLS.map(function (sk) {
@@ -1279,8 +1325,16 @@ function useSkill(user, target, skill, e) {
   var units = typeof sk.damage === "function" ? sk.damage(user, target) : (sk.damage || 0);
   if (units > 0) {
     var weapon = wielded(user);
-    var dmg = spreadRoll(unit(user) * units * scale, 0.2) * strikeMult(user, weapon) * levelMult(user) *
-      damageMult(user, weapon) * opportunistMult(user, target);
+    // A strike draws on the user's own weapon and delivers at least
+    // STRIKE.floor of itself; a utility skill's damage is a flat aside.
+    var potency = sk.strike ? STRIKE.floor + (1 - STRIKE.floor) * scale : scale;
+    var dmg = spreadRoll((sk.strike ? strikeUnit(user, weapon) : unit(user)) * units * potency, 0.2) *
+      strikeMult(user, weapon) * levelMult(user) * damageMult(user, weapon) * opportunistMult(user, target);
+    if (sk.strike) {
+      dmg *= 1 + 0.15 * skillRating(user, "enhanced_damage") / 100;
+      var cm = critMult(user, weapon);
+      if (cm > 1) { dmg *= cm; out.crit = true; out.message = "A telling blow!"; }
+    }
     if (sk.unarmed) eachEffect(user, function (fx) { if (fx.kind === "unarmedMult") dmg *= num(fx.params.mult) || 1; });
     var K = kFor(user);
     dmg = dmg * K / (defense(target) + K) * protectMult(target);

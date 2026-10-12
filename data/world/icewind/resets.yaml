@@ -5,7 +5,7 @@ resets:
   - { mob: 601, room: 601 }   # a market trader
   - { mob: 621, room: 601, equip: [{ item: 643, slot: shoulders }] }   # Kemp of Targos, shouting at Cassius, in his sealskin coat
   - { mob: 602, room: 602 }   # the tavern keeper, and what he sells
-  - { mob: 618, room: 602 }   # the barbarian of Tempus by the fire, who teaches berserk
+  - { mob: 618, room: 602 }   # the barbarian of Tempus by the fire, who teaches berserk and rend (for two wolf fangs)
   - { item: 606, room: 602 }
   - { item: 607, room: 602 }
   # --- Lonelywood and the lake ---

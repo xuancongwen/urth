@@ -24,7 +24,8 @@ market and can be fought like him. Peaceful: Guenhwyvar (16) in the
 shadow at the back of Drizzt's cave, who teaches circle, and Wulfgar
 (12) working the bellows in the forge, five years Bruenor's servant,
 who teaches bash and rescue. The barbarian of Tempus in the
-tavern teaches berserk, and the smith bash and shield block.
+tavern teaches berserk, and rend for two of the wolves' fangs; the
+smith teaches bash and shield block.
 
 Map (north is up; x east, y south, z up):
 
