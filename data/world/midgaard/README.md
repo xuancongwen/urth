@@ -104,7 +104,7 @@ questmaster.
 | 3028 | Hassan's scimitar: hard crits, a dancer's dodge, cruel to the wounded | 15 | Hassan, the Grunting Boar |
 | 3032 | the Peacekeeper's steel halberd: parries, the hook trips | 14 | the Peacekeeper, Market Square |
 | 3040 | the Peacekeeper's badge: sanctuary's softer blows, unflinching | 14 | the Peacekeeper |
-| 3024 | the mayor's gold signet ring: charisma, knows secrets, trouble slides off | 13 | the mayor |
+| 3024 | the mayor's gold signet ring: knows secrets, trouble slides off | 13 | the mayor |
 | 3036 | the sword of the ancients: the old kings' wrath, sees the unseen | 10 | the crypt ghoul (3047) |
 | 3037 | the rat king's crown: sees the hidden, rat-quick, stinks | 10 | the rat king, Rats' Nest |
 | 3039 | a ring of regeneration: heals even in a fight | 10 | the rat king (3064) |

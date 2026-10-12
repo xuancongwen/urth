@@ -13,7 +13,7 @@ look: |
   not too proud to use it.
 level: 22
 health: 600
-stats: {charisma: 16, intelligence: 15}
+stats: {intelligence: 15}
 silver: 400
 attack:
   verb: punch

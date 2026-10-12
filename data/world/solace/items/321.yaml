@@ -13,4 +13,3 @@ level: 6
 value: 150
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

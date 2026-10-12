@@ -14,5 +14,3 @@ level: 20
 baseline: cloth
 value: 900
 rarity: uncommon
-effects:
-  - { kind: stat, params: { stat: charisma, amount: 3 } }

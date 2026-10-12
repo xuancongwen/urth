@@ -13,8 +13,6 @@ slot: neck
 level: 10
 baseline: light
 effects:
-  - kind: stat
-    params: { stat: charisma, amount: 3 }
   - kind: protect
     params: { mult: 0.92 }
   - kind: dodge

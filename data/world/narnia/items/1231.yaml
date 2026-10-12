@@ -18,4 +18,3 @@ rarity: rare
 effects:
   - { kind: regen, params: { fraction: 0.015 } }
   - { kind: steady, params: { chance: 0.3 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }

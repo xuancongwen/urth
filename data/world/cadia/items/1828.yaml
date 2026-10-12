@@ -24,4 +24,3 @@ effects:
   - kind: proc
     params: { chance: 0.15, power: 0.9, verb: hot-shot volley }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }

@@ -12,7 +12,7 @@ look: |
   wound she opens feeds her.
 level: 27
 health: 1400
-stats: {intelligence: 16, dexterity: 13, charisma: 16}
+stats: {intelligence: 16, dexterity: 13}
 silver: 600
 xp: 6000
 attack:

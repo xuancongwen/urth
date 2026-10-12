@@ -36,10 +36,10 @@ the Crones' rune (held; an aura of creeping rot, leeches life,
 Intelligence and Wisdom), the crown of the King of the Wild Hunt
 (head, 36; Strength, Constitution, steadiness, a cold that bites
 back), Zireael (Ciri's sword, 30; finesse, crits, dodge, Dexterity),
-Dandelion's feathered cap (20; Charisma), Zoltan's sihill (24; crits,
+Dandelion's feathered cap (20; worn for show), Zoltan's sihill (24; crits,
 Strength and Constitution), Keira Metz's magic lamp (held, 26; sees the
 invisible and the hidden, Intelligence), and Yennefer's obsidian star
-(neck, 30; sees the invisible, Intelligence, Wisdom, Charisma).
+(neck, 30; sees the invisible, Intelligence, Wisdom).
 Common finds: a rusty boat hook, drowned man's boots, a dented Redanian helmet, bandits' hatchets, deserters'
 arming swords, a reaper's scythe, a Redanian crossbow, bog-iron greaves,
 a leshen-root cudgel, Wild Hunt gauntlets, longswords, and skull helms.

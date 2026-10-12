@@ -20,5 +20,4 @@ weapon:
 effects:
   - kind: opportunist
     params: { mult: 1.15 }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

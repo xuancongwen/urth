@@ -30,7 +30,7 @@ and surging for 1.75x, Intelligence), the axe of
 the Bloodthirster (leech, crits, burns, Strength), the Helspear (Haarken; procs when hurled, crits, Strength and
 Dexterity), the Talon of Horus (Abaddon; crits, hard crits, combi-bolter procs, leech, Strength and
 Constitution). By trade: Duty, Lord Castellan Creed's laspistol (30;
-crits, hot-shot procs, Dexterity, Charisma), a spirit stone of Ulthwé
+crits, hot-shot procs, Dexterity), a spirit stone of Ulthwé
 (46; neck, a dodge, sees the invisible, Intelligence and Wisdom), a
 feather of the Living Saint (50; neck, regeneration, less damage taken,
 Wisdom and Constitution). Common finds: cultist autoguns, rotted greatcoats, Ork

@@ -23,7 +23,7 @@ the grotto.
 Boss: King Mrgl-Mrgl (13, 2616, the crown of shells). Named carrier:
 Old Murk-Eye (12, the shipwreck 2611, the fish on a stick).
 
-Uniques (minor): the crown of shells (head; Charisma, Constitution,
+Uniques (minor): the crown of shells (head; Constitution,
 dodge) and the fish on a stick (a dried cod on a spar; crits,
 Strength). Common finds: murloc fins on every murloc, lumpy pearls on
 the oracles, royal guards, and king, makrura claws from the

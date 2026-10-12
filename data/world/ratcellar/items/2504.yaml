@@ -17,5 +17,3 @@ value: 300
 effects:
   - kind: stat
     params: { stat: constitution, amount: 1 }
-  - kind: stat
-    params: { stat: charisma, amount: 2 }

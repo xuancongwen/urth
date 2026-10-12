@@ -19,5 +19,3 @@ effects:
     params: { fraction: 0.1 }
   - kind: damage
     params: { mult: 1.05 }
-  - kind: stat
-    params: { stat: charisma, amount: -2 }

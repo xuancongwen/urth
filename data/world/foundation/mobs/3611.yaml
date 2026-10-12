@@ -14,7 +14,7 @@ look: |
 level: 28
 flags: [assist]
 health: 3000
-stats: {strength: 16, dexterity: 15, constitution: 16, charisma: 16}
+stats: {strength: 16, dexterity: 15, constitution: 16}
 silver: 500
 xp: 6000
 attack:

@@ -16,5 +16,4 @@ level: 30
 value: 3500
 effects:
   - { kind: protect, params: { mult: 0.93 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

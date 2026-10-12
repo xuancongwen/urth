@@ -28,7 +28,7 @@ that soaks blows), plasma bugs 36 (slow, half a swing a round, and
 every swing a heavy one), royal guard bugs 40, the Brain Bug 42.
 
 Uniques: Lt. Rasczak's sidearm (28; crits, finishes the wounded, takes
-less damage near death, Charisma and Constitution), the Mobile
+less damage near death, Constitution), the Mobile
 Infantry helmet (32; sees bugs dug into the walls, wards, Constitution
 and Wisdom), the Roughnecks' Morita (42; an underslung grenade now and
 then, crits, dodge, Dexterity and Strength). Common finds: warrior bug
@@ -52,7 +52,7 @@ Merchants (`list`, `buy`, `sell`):
   carapace plates and two hopper wings; TW-203 flamethrower for 700
   plus a tanker fire gland and a hopper wing.
 - Private Ace Levy (1721, drill ground 1704): his fiddle (held, 20;
-  Charisma and Dexterity) for 250 silver.
+  Dexterity) for 250 silver.
 
 Carapace comes from every kind of warrior bug, diggers, and burrowers;
 hopper wings from hoppers; fire glands from the tanker bug; plasma

@@ -375,6 +375,21 @@ drawn from numbers the system actually has. Any stat with fewer than
 two jobs when the rules are built is merged into its neighbour. The
 table is the decision; the names are the flexibility.
 
+**Revision (decided, 2026-10-11): five stats; Charisma is gone.** No
+rule ever read Charisma. Both of its jobs in the table below would have
+been the sort a player feels obliged to buy rather than wants, which
+makes the build choice more min-maxy, not less. The one thing that
+would justify it is making it the power stat of a third branch of
+magic, as D&D does for sorcerers and warlocks, and a branch is too much
+to build just to keep a stat. The themes it carried (presence,
+command, charm) go to the stats that already work: a commanding
+presence is Wisdom, a quick tongue is Dexterity. If a third branch is
+ever wanted, a stat costs no Go to add back. Folding Constitution into
+Strength was considered at the same time and rejected: health is the
+one thing every build needs, so Strength would become the stat no one
+can skip, and the trade-off between hitting hard and lasting would
+vanish.
+
 The numbers available to assign, gathered from the sections above:
 weapon damage multiplier (4.1), spell power multiplier (6.4), defense
 `D` multiplier (4.3), dodge and block chances (4.3), health maximum and
@@ -390,27 +405,23 @@ NPCs will tell you and what things cost.
 | Constitution | health maximum | health regeneration | defense `D` multiplier |
 | Intelligence | arcane spell power multiplier (6.1) | potency of effects the character applies (buff strength, DoT damage) | |
 | Wisdom | divine spell power multiplier (6.1) | resistance to spells and timed effects (shorter, weaker) | optional: the width of the character's own stat band (4.2), a wise character being a steady one |
-| Charisma | what NPCs tell you: hint depth in discovery (6.1) | prices, and group benefits (2.4: an aura effect on allies) | |
 
 Intelligence and Wisdom split the way D&D splits them: arcane power
 against divine power (6.1), so the two are told apart by which branch
 of magic a character pursues rather than by class. Wisdom's optional
 third job, narrowing the stat band, is a proposal: it fits the name but
 means one stat modifies the randomness of the others, and it should be
-adopted only if the simulator shows it is felt. Charisma as the
-discovery stat is the one that makes it not a
-dump stat here specifically: in a game where power comes from finding
-totems, the stat that makes NPCs talk is a power stat. If discovery
-turns out to be authored so that Charisma does not matter to it,
-Charisma is the first merge candidate.
+adopted only if the simulator shows it is felt. What NPCs tell you and
+what things cost belong to no stat; discovery (6.1) and prices are
+authored, not rolled.
 
-Mobs use the same six with prototype values; the builder sets what is
+Mobs use the same five with prototype values; the builder sets what is
 needed and the rest default. A mob's stats are how "brute" or "caster"
 is expressed (8), not a separate role system.
 
 Consequences: 4.3's open questions close (dodge from Dexterity, block
 from Strength, `D` from Constitution). 4.4 honours Dexterity as the
-speed multiplier. `derivedStats` reads all six.
+speed multiplier. `derivedStats` reads all five.
 
 ### 3.3 Multiplier shape, and a starting point
 
@@ -440,7 +451,7 @@ Starting values, to be adjusted in playtesting:
 
 | Quantity | Starting value | Why this and not another |
 |---|---|---|
-| Baseline stat | 10 in each of the six | D&D-familiar; multiplier of exactly 1 |
+| Baseline stat | 10 in each of the five | D&D-familiar; multiplier of exactly 1 |
 | `k`, per point | 0.05 (5 percent) | 7.2 asked for a point to be visible, on the order of a few percent |
 | Points at creation | 6, placed freely | enough to make a build identity on day one, not enough to hollow a stat |
 | Points per level | 2 | with few levels (7.2), two is one meaningful choice per level beside the feat |
@@ -1030,7 +1041,7 @@ cannot drop the best sword in the game.
 
   | From item level | Affix (slots) |
   |---|---|
-  | 1 | the six stats (any); damage (weapon); defense (any armor) |
+  | 1 | the five stats (any); damage (weapon); defense (any armor) |
   | 5 | crit (weapon, hands, finger); dodge (feet, legs, body); protect (body, shield, head, shoulders, arms); steady (any) |
   | 10 | leech (weapon, neck, finger); ignite, chill, venom (weapon); thorns (body, shield); soak (body, shield, belt, legs) |
   | 15 | crit damage (weapon, neck, finger); opportunist (weapon); shield block (shield); regen (neck, finger, body, belt) |
@@ -1986,7 +1997,7 @@ starting quantities in 3.3:
    keeping with 3.1's rule that power is multiplicative. It is the
    smallest of the grants on purpose: it keeps level a real pillar
    (2.2) without making it the visible one. Alongside it, each level
-   grants stat points the player spends on any of the six (decided
+   grants stat points the player spends on any of the five (decided
    2026-09-24; the count is a 3.3 starting value). This is the
    continuous build 7.3 promised.
 2. **Feats.** One or two per level, chosen by the player from what is

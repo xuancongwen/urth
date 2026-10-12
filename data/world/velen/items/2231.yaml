@@ -19,4 +19,3 @@ effects:
   - kind: detectInvisible
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

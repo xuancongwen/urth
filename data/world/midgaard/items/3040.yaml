@@ -16,4 +16,3 @@ value: 700
 effects:
   - { kind: protect, params: { mult: 0.9 } }
   - { kind: steady, params: { chance: 0.3 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

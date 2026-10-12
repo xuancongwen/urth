@@ -15,4 +15,3 @@ baseline: heavy
 value: 6500
 effects:
   - { kind: leech, params: { fraction: 0.08 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }

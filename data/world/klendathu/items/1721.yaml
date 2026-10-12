@@ -25,6 +25,4 @@ effects:
   - kind: lastStand
     params: { threshold: 0.25, mult: 0.8 }
   - kind: stat
-    params: { stat: charisma, amount: 2 }
-  - kind: stat
     params: { stat: constitution, amount: 1 }

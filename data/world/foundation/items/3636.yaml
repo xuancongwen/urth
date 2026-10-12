@@ -13,6 +13,5 @@ weight: 1
 level: 45
 value: 6500
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 3 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }
   - { kind: protect, params: { mult: 0.92 } }

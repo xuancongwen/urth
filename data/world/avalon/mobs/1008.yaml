@@ -11,6 +11,6 @@ look: |
 level: 11
 health: 320
 silver: 70
-stats: {dexterity: 14, charisma: 16}
+stats: {dexterity: 14}
 attack:
   verb: strike

@@ -15,6 +15,5 @@ weight: 2
 level: 20
 value: 3000
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 3 } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: regen, params: { fraction: 0.01 } }

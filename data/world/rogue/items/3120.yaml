@@ -14,5 +14,4 @@ weight: 0
 level: 26
 value: 2200
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 3 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

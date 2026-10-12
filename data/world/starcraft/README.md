@@ -25,14 +25,12 @@ themselves but will fight back: Arcturus Mengsk on the concourse (22,
 a vespene-charged gauss rifle and a fat purse) and Executor Tassadar on
 the mesa (24, his psi blade and khaydarin amulet).
 
-Uniques: Raynor's revolver (crits, finishes the wounded, Dexterity and
-Charisma), the claws of the Queen of Blades (bare hands hit harder and
+Uniques: Raynor's revolver (crits, finishes the wounded, Dexterity), the claws of the Queen of Blades (bare hands hit harder and
 poison, zerg regeneration), Zeratul's warp blade (hard crits, dodge,
 sees the cloaked), the Xel'Naga artifact (held; a burning light aura,
 Intelligence and Wisdom), Raynor's marshal's star (neck; holds on when
-hurt, Charisma and Constitution), which Raynor trades for his revolver,
-and General Duke's peaked cap (hard to shove, a little protection,
-Charisma). Common finds: neosteel greaves, welding
+hurt, Constitution), which Raynor trades for his revolver,
+and General Duke's peaked cap (hard to shove, a little protection). Common finds: neosteel greaves, welding
 goggles, a zergling scythe claw, a glave wurm, miners' lamps, fuel
 harnesses, plasma shield emitters, a carapace spaulder in the tunnels,
 a khaydarin ring, and a shock baton in the barracks.

@@ -37,9 +37,9 @@ rank and file, 25 for squad leaders, 20 for the detention guards). They
 are armoured above their level and carry armour plates for Han.
 
 Uniques: TK-421's E-11 blaster rifle (18; crits, Dexterity), Admiral
-Motti's cap (26; Intelligence, Charisma, less damage taken), Princess
-Leia's sporting blaster (28, by trade; crits, Dexterity, Charisma), Tarkin's
-code cylinder (35, held; Intelligence, Charisma, steady), the Royal
+Motti's cap (26; Intelligence, less damage taken), Princess
+Leia's sporting blaster (28, by trade; crits, Dexterity), Tarkin's
+code cylinder (35, held; Intelligence, steady), the Royal
 Guard force pike (38; a shock proc, Strength, dodge), Darth Vader's
 lightsaber (55; red, crits at the cap and hard, Strength, a
 little block), Darth Vader's helmet (55; Constitution, Strength, less

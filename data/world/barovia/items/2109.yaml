@@ -20,5 +20,4 @@ effects:
   - kind: aura
     params: { power: 0.25, verb: blaze of holy radiance }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: protect, params: { mult: 0.95 } }

@@ -21,5 +21,4 @@ effects:
   - kind: regen
     params: { fraction: 0.01 }
   - { kind: dodge, params: { amount: 0.04 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -17,7 +17,7 @@ general (17, Ash's boomstick) in the barracks of the dead.
 
 Uniques: the Necronomicon Ex-Mortis (held; a rotting aura, life leech,
 Intelligence and Wisdom), Ash's boomstick (a two-handed shotgun: crits,
-finishes the wounded, Charisma), Ash's chainsaw hand (one hand; a
+finishes the wounded), Ash's chainsaw hand (one hand; a
 roaring second bite, crits, Strength). Common finds: a rusted gladius
 and cracked bone greaves (13), notched skeleton swords and a rotted
 leather jerkin (14), a bone-handled mace (on the barracks rack), rusted

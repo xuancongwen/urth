@@ -41,7 +41,7 @@ takes less harm when nearly beaten), Durin's axe (hard crits, Strength
 and Constitution, soak), Gollum's string of goblin teeth (neck: dodge,
 sees the hidden, Dexterity), Gimli's axe of Erebor (crits, sure
 footing, Strength and Constitution; from Gimli), the Horn of Gondor
-(held: a last stand, Strength, Constitution, Charisma), and the staff
+(held: a last stand, Strength, Constitution), and the staff
 of Gandalf (two-handed, level 50: more damage, sees the hidden and the
 invisible, Wisdom and Intelligence). Common finds: goblin
 scimitars, a goblin shield, warg-hide cloaks, black orc bows, orc-iron helms, Uruk

@@ -29,11 +29,11 @@ god's found spell; Lady Fiona Wachter's look points to it). Kiril Stoyanovich (2
 Karelova and Volenta Popofsky (34) are named but carry nothing unique.
 
 Uniques: the Sunsword (20; flares with sunlight, sees the invisible,
-Strength and Charisma), Rahadin's scimitar (32; crits, finishes the
+Strength), Rahadin's scimitar (32; crits, finishes the
 wounded, Dexterity), the Holy Symbol of Ravenkind (34, held; a holy
-aura, wards, Wisdom and Charisma), the Tome of Strahd (45, held;
+aura, wards, Wisdom), the Tome of Strahd (45, held;
 Intelligence and Wisdom, sees the hidden), Strahd's cloak (45; leech,
-regeneration, dodge, Charisma and Dexterity), Baba Lysaga's bone staff
+regeneration, dodge, Dexterity), Baba Lysaga's bone staff
 (26, two-handed; blasts of flies, Intelligence and Wisdom), and
 Ezmerelda's silvered rapier (24; finesse, crits, Dexterity). Common
 finds: grey wolf pelts, grave dirt, Vistani curved knives, rotting livery tabards on the

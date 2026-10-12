@@ -15,7 +15,7 @@ Boss: the Rat King (6), a knot of a dozen rats bound by their tails, on
 its throne (2514), with dire rats around it. Named carrier: Mortimer
 the wererat (5), in his den off the cistern (2510).
 
-Uniques: the Rat King's crown (head; Constitution and Charisma), carried
+Uniques: the Rat King's crown (head; Constitution), carried
 by the Rat King; Mortimer's moonstone ring on a bit of string (finger;
 dodge and Dexterity), carried by Mortimer.
 

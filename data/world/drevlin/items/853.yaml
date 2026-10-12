@@ -13,5 +13,3 @@ baseline: light
 effects:
   - kind: soak
     params: { power: 0.05 }
-  - kind: stat
-    params: { stat: charisma, amount: 1 }

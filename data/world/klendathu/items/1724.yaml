@@ -14,5 +14,4 @@ weight: 1
 level: 20
 value: 500
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

@@ -19,7 +19,7 @@ look: |
 level: 45
 flags: [boss]
 health: 17000
-stats: {intelligence: 22, wisdom: 20, charisma: 22, constitution: 16, dexterity: 14}
+stats: {intelligence: 22, wisdom: 20, constitution: 16, dexterity: 14}
 silver: 3000
 xp: 60000
 attack:

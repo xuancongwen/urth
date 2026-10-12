@@ -22,4 +22,3 @@ weapon:
 effects:
   - { kind: execute, params: { threshold: 0.3, mult: 1.5 } }
   - { kind: leech, params: { fraction: 0.08 } }
-  - { kind: stat, params: { stat: charisma, amount: -2 } }

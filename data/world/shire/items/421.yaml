@@ -12,5 +12,3 @@ slot: finger
 level: 2
 weight: 0
 value: 10
-effects:
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

@@ -13,7 +13,7 @@ level: 34
 flags: [assist]
 health: 2000
 silver: 250
-stats: {dexterity: 14, charisma: 16}
+stats: {dexterity: 14}
 attack:
   kind: claw
   verb: rake

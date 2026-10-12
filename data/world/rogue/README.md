@@ -40,16 +40,15 @@ the Nokozan Relic).
 
 Uniques: Blood Raven's Charge (25; a bow whose arrows burst, crits,
 Dexterity), the Torch of Iro (24; a wand that ignites and leeches,
-Intelligence), the Gull (26; a lucky dagger, opportunist, Charisma and
-Dexterity), Bloodfist (26; gloves, steady, Constitution and
+Intelligence), the Gull (26; a lucky dagger, opportunist, Dexterity), Bloodfist (26; gloves, steady, Constitution and
 Strength), Sigon's Gage (28; gauntlets, Strength and Dexterity),
 Sigon's Shelter (28; a breastplate, defense, Constitution), the
 Nokozan Relic (29; an amulet that soaks blows, steadies, and sees the
 hidden), Andariel's Visage (30; a helm that leeches, Strength and
 Constitution), the Spineripper (30; a venomous dagger that crits and
 leeches), the Horadric Malus (28; a hammer, Strength). Gheed's
-Nagelring (24; thorns, Dexterity and Charisma) and Gheed's Fortune
-(26, held; Charisma and Wisdom). Runewords: Stealth (27; light body
+Nagelring (24; thorns, Dexterity) and Gheed's Fortune
+(26, held; Wisdom). Runewords: Stealth (27; light body
 armour, dodge, soak, Dexterity) and Lore (27; a helm, Intelligence and
 Wisdom, sees the hidden). Charsi's imbued blade (30; crits, hits
 harder, Strength).

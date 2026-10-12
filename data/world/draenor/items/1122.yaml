@@ -20,7 +20,5 @@ effects:
     params: { power: 0.15, verb: creeping grave-frost }
   - kind: stat
     params: { stat: intelligence, amount: 2 }
-  - kind: stat
-    params: { stat: charisma, amount: 1 }
   - kind: steady
     params: { chance: 0.3 }

@@ -72,7 +72,7 @@ P.regenRounds = P.regenSeconds / P.roundSeconds;
 P.manaRegenRounds = P.manaRegenSeconds / P.roundSeconds;
 P.corpseRounds = Math.round(P.corpseMinutes * 60 / P.roundSeconds);
 
-var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom"];
 
 // ---------------------------------------------------------------------
 // Baselines by level (RULES 5.2, 8). An item or mob prototype names its
@@ -1569,7 +1569,6 @@ var AFFIXES = [
   { id: "con",       from: 1,  on: ["any"], weight: 3, prefix: "stalwart",   suffix: "of the ox",         effect: function (L, q) { return { kind: "stat", params: { stat: "constitution", amount: statAmount(L, q) } }; } },
   { id: "int",       from: 1,  on: ["any"], weight: 2, prefix: "clever",     suffix: "of the owl",        effect: function (L, q) { return { kind: "stat", params: { stat: "intelligence", amount: statAmount(L, q) } }; } },
   { id: "wis",       from: 1,  on: ["any"], weight: 2, prefix: "wise",       suffix: "of the sage",       effect: function (L, q) { return { kind: "stat", params: { stat: "wisdom", amount: statAmount(L, q) } }; } },
-  { id: "cha",       from: 1,  on: ["any"], weight: 1, prefix: "gracious",   suffix: "of grace",          effect: function (L, q) { return { kind: "stat", params: { stat: "charisma", amount: statAmount(L, q) } }; } },
   { id: "damage",    from: 1,  on: ["wield"], weight: 3, prefix: "cruel",    suffix: "of slaying",        effect: function (L, q) { return { kind: "damage", params: { mult: round2(1 + 0.06 * q), weapon: true } }; } },
   { id: "defense",   from: 1,  on: ["armor"], weight: 2, prefix: "sturdy",   suffix: "of the turtle",     effect: function (L, q) { return { kind: "defense", params: { amount: round2(0.45 * growth(L) * q) } }; } },
   // Item level 5.

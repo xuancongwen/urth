@@ -35,7 +35,7 @@ and Gennaro (a fat wallet) fight back and can be killed for what they
 carry.
 
 Uniques: Muldoon's shotgun (crits, finishes the wounded, Dexterity and
-Wisdom), Hammond's amber-topped cane (held; Charisma, Wisdom,
+Wisdom), Hammond's amber-topped cane (held; Wisdom,
 regeneration), the can of Barbasol shaving cream (held; Intelligence
 and Dexterity; Hammond's price for the cane), the raptor claw dagger
 (crits that hit harder, dodge, Dexterity), the Tyrannosaurus rex tooth

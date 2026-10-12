@@ -14,5 +14,4 @@ weight: 0
 value: 500
 rarity: uncommon
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

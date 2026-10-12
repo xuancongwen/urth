@@ -12,9 +12,9 @@ import (
 
 const sheetWidth = 62
 
-// statOrder is the display order for the six stats; anything else the
+// statOrder is the display order for the five stats; anything else the
 // rules define follows alphabetically.
-var statOrder = []string{"strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"}
+var statOrder = []string{"strength", "dexterity", "constitution", "intelligence", "wisdom"}
 
 type sheet struct{ b strings.Builder }
 
@@ -169,7 +169,7 @@ func cmdScore(w *World, p *Player, _ string) {
 	p.Send(s.b.String())
 }
 
-// orderedStats returns the six stats in their canonical order, then any
+// orderedStats returns the five stats in their canonical order, then any
 // others alphabetically.
 func orderedStats(stats map[string]int) []string {
 	var out []string

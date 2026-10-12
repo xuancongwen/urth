@@ -32,12 +32,12 @@ Frozenstein 18000, Pindleskin 16000, Nihlathak 40000, each Ancient
 Nihlathak the elder (56; 16000 health, leeches) sits among the empty
 chairs of the council in town (3505). He is not peaceful and his house
 is not safe: attacked, he fights, and he wears the seal of the Elder
-Council (56; Intelligence, Wisdom, Charisma, sees the hidden). His
+Council (56; Intelligence, Wisdom, sees the hidden). His
 other self waits in the Halls of Vaught.
 
 Uniques: Shenk's whip (52; punishes the staggered, burns, Strength),
 the seal of the Elder Council (56; on Nihlathak the elder;
-Intelligence, Wisdom, Charisma, sees the hidden), Pindleskin's skull
+Intelligence, Wisdom, sees the hidden), Pindleskin's skull
 (55; thorns, last stand, Constitution), Frozenstein's grip
 (55; chills, Intelligence and Strength), Nihlathak's staff (56; corpse
 explosion, leech, Intelligence and Wisdom, necromancy stronger, mana), Immortal King's Stone

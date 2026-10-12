@@ -13,6 +13,6 @@ look: |
 level: 50
 health: 9999
 flags: [peaceful]
-stats: { strength: 30, dexterity: 30, constitution: 30, intelligence: 40, wisdom: 40, charisma: 30 }
+stats: { strength: 30, dexterity: 30, constitution: 30, intelligence: 40, wisdom: 40 }
 attack:
   verb: swat

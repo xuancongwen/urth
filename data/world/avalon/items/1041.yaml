@@ -19,4 +19,3 @@ rarity: rare
 effects:
   - { kind: protect, params: { mult: 0.93 } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

@@ -23,5 +23,4 @@ weapon:
 effects:
   - { kind: damage, params: { mult: 1.08, weapon: true } }
   - { kind: stat, params: { stat: strength, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: steady, params: { chance: 0.3 } }

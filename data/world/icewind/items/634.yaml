@@ -15,4 +15,3 @@ baseline: light
 value: 350
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

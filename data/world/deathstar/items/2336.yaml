@@ -15,5 +15,4 @@ baseline: cloth
 value: 1600
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }
   - { kind: protect, params: { mult: 0.95 } }

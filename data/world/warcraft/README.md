@@ -28,8 +28,7 @@ of the keep (1416) trade or teach and cannot be attacked.
 Uniques: the Skull of Gul'dan (held; a fel-fire aura, Intelligence, sees
 the invisible, costs Wisdom), Quel'Serrar (a defender's blade: parries,
 dodge, armor), the Demon Soul (held; gouts of dragonfire and life
-drained), the Mask of Death (leech, a little more damage, costs
-Charisma), Hogger's huge claw (a festering rake, Strength), the Cruel
+drained), the Mask of Death (leech, a little more damage), Hogger's huge claw (a festering rake, Strength), the Cruel
 Barb (crits, strikes the off-balance, Dexterity), Zul'jin's axe (crits,
 troll regeneration, Dexterity), the raven mantle of Medivh (shoulders; lashing beaks, Intelligence,
 Wisdom, dodge), Atiesh, Greatstaff of the Guardian (1448, 20, Medivh's

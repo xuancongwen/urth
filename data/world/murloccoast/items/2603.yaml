@@ -15,6 +15,5 @@ level: 13
 baseline: light
 value: 900
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 1 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }
   - { kind: dodge, params: { amount: 0.03 } }

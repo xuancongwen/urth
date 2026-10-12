@@ -14,5 +14,3 @@ value: 220
 effects:
   - kind: stat
     params: { stat: strength, amount: 2 }
-  - kind: stat
-    params: { stat: charisma, amount: 2 }

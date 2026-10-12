@@ -24,4 +24,3 @@ effects:
     params: { chance: 0.2, power: 1.0, verb: flare of sunlight }
   - kind: detectInvisible
   - { kind: stat, params: { stat: strength, amount: 1 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

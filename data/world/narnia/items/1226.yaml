@@ -15,4 +15,3 @@ value: 60
 rarity: uncommon
 effects:
   - { kind: chill, params: { chance: 0.1, mult: 0.75, rounds: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

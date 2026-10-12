@@ -18,4 +18,3 @@ rarity: rare
 effects:
   - { kind: dodge, params: { amount: 0.04 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
-  - { kind: stat, params: { stat: charisma, amount: 2 } }

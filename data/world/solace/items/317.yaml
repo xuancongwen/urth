@@ -12,5 +12,3 @@ weight: 2
 level: 3
 baseline: cloth
 value: 60
-effects:
-  - { kind: stat, params: { stat: charisma, amount: 1 } }

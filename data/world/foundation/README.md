@@ -38,24 +38,23 @@ her transcriber).
 
 Uniques: the Mule's regalia, all level 45 and all worn by him: the
 hood of the First Citizen (head; Intelligence, Wisdom, steady, less
-damage taken), the Mule's chain of office (neck; Charisma,
-Constitution, less damage taken), the Mule's padded shoulders
+damage taken), the Mule's chain of office (neck; Constitution, less damage taken), the Mule's padded shoulders
 (shoulders; Constitution, Strength, soak), the robe of the Union of
 Worlds (body, plate; Constitution, less damage taken, regeneration),
 the Mule's sleeves of black mesh (arms; Strength, Dexterity, a wash of
 dread on those who strike), the Mule's long gloves (hands; Dexterity,
 crits, harder crits), the bracer of despair (wrist; a slowing chill,
-Wisdom), the bracer of ecstasy (wrist; leech, Charisma), the Mule's
+Wisdom), the bracer of ecstasy (wrist; leech), the Mule's
 shield belt (belt; block, less damage taken, Constitution), the Mule's
 riding breeches (legs; Dexterity, Strength, dodge), Magnifico's
 long-toed boots (feet; dodge, Dexterity), the ring of converted
 loyalty (finger; last stand, Constitution, Wisdom), the signet of the
-First Citizen (finger; executes, Charisma, Intelligence); and above
+First Citizen (finger; executes, Intelligence); and above
 them all the Visi-Sonor (55, held; a surge of despair on everyone
-near, a crashing chord of terror, leech, Charisma, Intelligence,
+near, a crashing chord of terror, leech, Intelligence,
 steady), the best item in the area. Others: the Prince Regent's
 blaster (28; crits, Dexterity), the Commdora's necklace (30, neck;
-less damage taken, Charisma), Bel Riose's sword (35; crits, steady,
+less damage taken), Bel Riose's sword (35; crits, steady,
 Strength), Bayta Darell's blaster (36; crits, executes, Dexterity),
 Ebling Mis's spectacles (34, face; Intelligence, Wisdom, sees the
 hidden), Hari Seldon's cane (38, staff; Intelligence, Wisdom, steady,

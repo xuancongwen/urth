@@ -14,5 +14,4 @@ level: 12
 baseline: light
 value: 300
 effects:
-  - { kind: stat, params: { stat: charisma, amount: 3 } }
   - { kind: steady, params: { chance: 0.25 } }

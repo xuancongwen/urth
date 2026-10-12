@@ -20,6 +20,4 @@ effects:
   - kind: protect
     params: { mult: 0.95 }
   - kind: stat
-    params: { stat: charisma, amount: 2 }
-  - kind: stat
     params: { stat: constitution, amount: 1 }
