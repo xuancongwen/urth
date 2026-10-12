@@ -117,7 +117,10 @@
   #casting:empty { display: none; }
   #combatlog { font: 12px/1.45 var(--mono); color: #b9b6ab; margin-top: 6px; padding: 6px 8px; background: #0c0909;
     border-radius: 8px; flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
-  #combatlog div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* flex: none keeps each line its full height: overflow: hidden would
+     otherwise let the column squeeze lines into each other once the feed
+     outgrows the box, instead of letting the oldest fall off the top. */
+  #combatlog div { flex: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #combatlog:empty { display: none; }
   /* The reward card sits in the screen's column above the tab bar, so it
      takes room from the panel rather than covering anything. Its header
