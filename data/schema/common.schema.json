@@ -56,7 +56,7 @@
       "additionalProperties": false,
       "required": ["kind"],
       "properties": {
-        "kind": { "type": "string", "examples": ["stat", "crit", "block", "dodge", "attacks", "regen", "proc", "aura", "thorns", "resist"] },
+        "kind": { "type": "string", "examples": ["stat", "crit", "block", "dodge", "attacks", "regen", "proc", "added", "aura", "thorns", "resist"] },
         "params": { "type": "object" }
       }
     },

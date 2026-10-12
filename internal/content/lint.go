@@ -242,7 +242,7 @@ func Errors(problems []Problem) int {
 
 // LintKinds warns on damage kinds the rules do not know (docs/RULES.md
 // 4.8): a weapon's or a natural attack's kind, and the kind a resist,
-// proc, aura, or thorns effect names. The kinds come from the rules'
+// proc, added, aura, or thorns effect names. The kinds come from the rules'
 // damageKinds hook, with the families a resistance may name besides.
 func LintKinds(w *World, kinds []string) []Problem {
 	known := map[string]bool{}
@@ -262,7 +262,7 @@ func LintKinds(w *World, kinds []string) []Problem {
 			case k == "":
 			case e.Kind == "resist" && !known[k] && !family[k]:
 				warn(area, file, vnum, what+"'s resist effect", k)
-			case (e.Kind == "proc" || e.Kind == "aura" || e.Kind == "thorns") && !known[k]:
+			case (e.Kind == "proc" || e.Kind == "added" || e.Kind == "aura" || e.Kind == "thorns") && !known[k]:
 				warn(area, file, vnum, what+"'s "+e.Kind+" effect", k)
 			}
 		}

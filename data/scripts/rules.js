@@ -28,6 +28,7 @@ var P = {
   statBand: 0.10,       // ±10% jitter on every stat multiplier (4.2)
   levelK: 0.02,         // slight per-level multiplier (7.2)
   levelGrowth: 1.10,    // every baseline grows by this factor per level (RULES 5.2, decided 2026-09-24)
+  weaponGrowth: 1.07,   // a weapon's own damage grows by this instead (5.2, decided 2026-10-12); added damage fills the rest
   healthBase: 50,       // health at level 1; grows by levelGrowth
   mobDamage: 0.45,      // a mob's natural attack as a fraction of a standard weapon (RULES 8)
   dodgeBase: 0.03,      // intrinsic dodge before stats and effects (4.3)
@@ -300,13 +301,15 @@ function aggroRange(L, stated) {
 // invisible and hidden on a character or its gear make it unseen, and
 // detectInvisible and detectHidden on the viewer see through them.
 // ---------------------------------------------------------------------
+// fn gets the item an effect is on as its second argument, or nothing
+// for the character's own effects and its prototype's.
 function eachEffect(c, fn) {
   var i, s;
   if (c.effects) for (i = 0; i < c.effects.length; i++) fn(c.effects[i]);
   if (c.mob && c.mob.effects) for (i = 0; i < c.mob.effects.length; i++) fn(c.mob.effects[i]);
   if (c.equipment) for (s in c.equipment) {
     var it = c.equipment[s];
-    if (it && it.effects) for (i = 0; i < it.effects.length; i++) fn(it.effects[i]);
+    if (it && it.effects) for (i = 0; i < it.effects.length; i++) fn(it.effects[i], it);
   }
 }
 
@@ -343,6 +346,7 @@ function hasEffect(v, kind) {
 // Stacking, per kind (5.4):
 //   attuned    the item's weapon and armor numbers follow its wearer's level
 //   proc       each rolls on its own: {chance, power, verb}, on every hit
+//   added      adds, each part on its own: {kind, power} more damage on every hit (5.3)
 //   ignite     a burn per hit, stacking up to maxStacks: {power, rounds, maxStacks}
 //   chill      slows the target; never stacks: {chance, mult, rounds}
 //   leech      adds, capped at LIMITS.leech: {fraction} of damage dealt healed
@@ -354,7 +358,9 @@ function hasEffect(v, kind) {
 //   aura       each strikes on its own: {power, verb} to every foe, every round
 //   resist     adds, a player's total limited: {kind, amount} (RULES 4.8)
 // proc, aura, and thorns take an optional {kind} (4.8): magic, pierce for
-// thorns, when none is stated.
+// thorns, when none is stated. On an item, the powers of proc, added,
+// ignite, envenom, and aura are units at the item's level, or at
+// {level} when the roll set one (effectUnit).
 // ---------------------------------------------------------------------
 var LIMITS = { leech: 0.5, thorns: 1.0, soakFloor: 0.4, regen: 0.10, resist: 0.75 };
 
@@ -404,7 +410,24 @@ function immune(c, kind) { return resistance(c, kind) >= 1; }
 // resistance to kind.
 function resistDamage(target, kind, damage) { return Math.round(resisted(target, kind, damage)); }
 
-function unit(c) { return WEAPON_BASELINES.standard(c.level || 1).damage; }
+function unit(c) { return unitAt(c.level); }
+
+// unitAt is the power unit at level L: a standard weapon's swing on the
+// old curve, 6 * growth(L) (5.2).
+function unitAt(L) { return 6 * growth(L); }
+
+// effectUnit is the unit an effect of c's is sized in (5.3). One on an
+// item is sized at the item's level: the level it was rolled at, if the
+// roll says, or the prototype's. So old gear falls behind as its weapon
+// does. An attuned item's, and c's own, are sized at c's level.
+function effectUnit(c, e, it) {
+  if (!it || hasEffect(it, "attuned")) return unit(c);
+  return unitAt(num(e.params.level) || it.level || c.level);
+}
+
+// weaponShare is the part of the power unit a weapon's own damage
+// carries at level L (5.2): all of it at level 1, a fifth at 60.
+function weaponShare(L) { return Math.pow(P.weaponGrowth / P.levelGrowth, Math.max(0, (L || 1) - 1)); }
 
 // attunedScale is how much an attuned item's numbers grow on c: the
 // baseline ratio between c's level and the item's own.
@@ -430,29 +453,29 @@ function burningStacks(c, source) {
 // attacker's procs, burns, chills, and leech, and the defender's thorns.
 function onHit(att, def, dmg, out) {
   var procs = [], effects = [], dealt = dmg;
-  eachEffect(att, function (e) {
+  eachEffect(att, function (e, it) {
     var p = e.params;
     if (e.kind === "proc" && random.float() < (p.chance === undefined ? 1 : num(p.chance))) {
       var kind = p.kind || "magic";
       if (immune(def, kind)) { procs.push({ verb: p.verb || "magic", damage: 0, kind: kind, resisted: true }); return; }
-      var d = Math.round(resisted(def, kind, spreadRoll(unit(att) * num(p.power), 0.2) * protectMult(def) * lastStandMult(def)));
+      var d = Math.round(resisted(def, kind, spreadRoll(effectUnit(att, e, it) * num(p.power), 0.2) * protectMult(def) * lastStandMult(def)));
       if (d > 0) { procs.push({ verb: p.verb || "magic", damage: d, kind: kind }); dealt += d; }
     }
   });
   var stacks = burningStacks(def);
-  eachEffect(att, function (e) {
+  eachEffect(att, function (e, it) {
     var p = e.params;
     if (e.kind === "ignite" && stacks < (num(p.maxStacks) || 1)) {
-      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "ignite", kind: "fire" }, rounds: num(p.rounds) || 3 });
+      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(effectUnit(att, e, it) * num(p.power))), source: "ignite", kind: "fire" }, rounds: num(p.rounds) || 3 });
       stacks++;
     }
   });
   // Envenom: poison on the blade, its own stack beside the burns.
   var venom = burningStacks(def, "venom");
-  eachEffect(att, function (e) {
+  eachEffect(att, function (e, it) {
     var p = e.params;
     if (e.kind === "envenom" && venom < (num(p.maxStacks) || 1)) {
-      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(unit(att) * num(p.power))), source: "venom", kind: "poison" }, rounds: num(p.rounds) || 3 });
+      effects.push({ on: "target", kind: "dot", params: { damage: Math.max(1, Math.round(effectUnit(att, e, it) * num(p.power))), source: "venom", kind: "poison" }, rounds: num(p.rounds) || 3 });
       venom++;
     }
   });
@@ -613,14 +636,33 @@ function resolveAttack(att, def, weapon, round, hand) {
   dmg = dmg * lastStandMult(def) * protectMult(def);
   var landed = Math.round(dmg) > 0;
 
-  // Resist: last, by the swing's kind (4.8). A swing wholly resisted
-  // still lands, so what rides on it (a flaming blade's fire) is weighed
-  // on its own kind.
-  var kind = w.kind || "blunt";
-  dmg = resisted(def, kind, dmg);
-  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit, verb: verb, stage: "", kind: kind };
-  if (immune(def, kind)) { out.damage = 0; out.crit = false; out.resisted = true; }
+  // Resist: last, part by part (4.8). The swing is weighed by its kind,
+  // and each part of added damage (5.3) by its own, so a creature immune
+  // to the blade still takes its fire. A swing wholly resisted still
+  // lands, so what rides on it is weighed too.
+  var kind = w.kind || "blunt", shrugged = immune(def, kind);
+  dmg = shrugged ? 0 : resisted(def, kind, dmg);
+  if (landed) eachAdded(att, weapon, function (e, u) {
+    var k = e.params.kind || "magic";
+    if (immune(def, k)) return;
+    shrugged = false;
+    dmg += resisted(def, k, spreadRoll(u * num(e.params.power), 0.2) * cm * protectMult(def) * lastStandMult(def));
+  });
+  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit && !shrugged, verb: verb, stage: "", kind: kind };
+  if (shrugged) out.resisted = true;
   return landed ? onHit(att, def, out.damage, out) : out;
+}
+
+// eachAdded calls fn(effect, unit) for every part of added damage (5.3)
+// riding on a swing with weapon: c's own, its prototype's, and what its
+// gear carries, but a weapon's only on that weapon's swings. It is part
+// of the hit: past armor, as a proc is, and it crits with the swing.
+function eachAdded(c, weapon, fn) {
+  eachEffect(c, function (e, it) {
+    if (e.kind !== "added") return;
+    if (it && it.type === "weapon" && !(weapon && weapon.id === it.id)) return;
+    fn(e, effectUnit(c, e, it));
+  });
 }
 
 // defense is the defender's D for this hit: the sum of worn armor's draws,
@@ -824,8 +866,8 @@ function onTick(c) {
   var regen = Math.round(c.healthMax * capped(c, "regen", "fraction", LIMITS.regen));
   if (c.fighting) {
     var aura = [];
-    eachEffect(c, function (e) {
-      if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", kind: e.params.kind || "magic", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
+    eachEffect(c, function (e, it) {
+      if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", kind: e.params.kind || "magic", damage: Math.max(1, Math.round(spreadRoll(effectUnit(c, e, it) * num(e.params.power), 0.2))) });
     });
     var fightMana = P.manaFightRegen > 0 ? manaRegen(c, P.manaFightRegen) : 0;
     // Divine Favor and the like: a trickle of mana even in a fight (6.6).
@@ -1443,6 +1485,7 @@ function describeEffect(e) {
     case "lastStand": return "Below " + pct(p.threshold) + " health, take " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
     case "execute": return "Deal " + Math.round((num(p.mult) - 1) * 100) + " percent more damage to foes below " + pct(p.threshold) + " health" + tail;
     case "regen": return "Heals " + pct(p.fraction) + " of your health every round, even in a fight" + tail;
+    case "added": return "Every hit adds " + (num(p.level) > 0 ? "about " + Math.round(unitAt(num(p.level)) * num(p.power)) : units(p.power)) + " " + (p.kind || "magic") + " damage, past armor" + tail;
     case "aura": return "Aura (" + (p.verb || "aura") + ", " + (p.kind || "magic") + "): " + units(p.power) + " to every foe fighting you, each round" + tail;
     case "blind": return "Blinded: " + pct(p.miss) + " of swings go wide" + tail;
     case "disarmed": return "Disarmed: fights bare-handed" + tail;
@@ -1878,11 +1921,15 @@ var AFFIXES = [
   { id: "dodge",     from: 5,  on: ["feet", "legs", "body"], weight: 2, prefix: "elusive", suffix: "of evasion",   effect: function (L, q) { return { kind: "dodge", params: { amount: round2(0.02 * q) } }; } },
   { id: "protect",   from: 5,  on: ["body", "shield", "head", "shoulders", "arms"], weight: 2, prefix: "warded", suffix: "of warding", effect: function (L, q) { return { kind: "protect", params: { mult: round2(1 - 0.04 * q) } }; } },
   { id: "steady",    from: 5,  on: ["any"], weight: 1, prefix: "steadfast",  suffix: "of the mountain",   effect: function (L, q) { return { kind: "steady", params: { chance: round2(0.2 * q) } }; } },
+  { id: "fire",      from: 5,  on: ["wield"], weight: 2, prefix: "flaming",  suffix: "of flame",          effect: function (L, q) { return addedAffix("fire", L, q); } },
+  { id: "cold",      from: 5,  on: ["wield"], weight: 2, prefix: "icy",      suffix: "of ice",            effect: function (L, q) { return addedAffix("cold", L, q); } },
+  { id: "lightning", from: 5,  on: ["wield"], weight: 2, prefix: "sparking", suffix: "of sparks",         effect: function (L, q) { return addedAffix("lightning", L, q); } },
+  { id: "poison",    from: 5,  on: ["wield"], weight: 2, prefix: "noxious",  suffix: "of the asp",        effect: function (L, q) { return addedAffix("poison", L, q); } },
   // Item level 10.
   { id: "leech",     from: 10, on: ["wield", "neck", "finger"], weight: 1, prefix: "thirsting", suffix: "of the leech", effect: function (L, q) { return { kind: "leech", params: { fraction: round2(0.04 * q) } }; } },
-  { id: "ignite",    from: 10, on: ["wield"], weight: 1, prefix: "smoldering", suffix: "of embers",       effect: function (L, q) { return { kind: "ignite", params: { power: round2(0.1 * q), rounds: 3, maxStacks: 2 } }; } },
+  { id: "ignite",    from: 10, on: ["wield"], weight: 1, prefix: "smoldering", suffix: "of embers",       effect: function (L, q) { return { kind: "ignite", params: { power: round2(0.1 * q), rounds: 3, maxStacks: 2, level: L } }; } },
   { id: "chill",     from: 10, on: ["wield"], weight: 1, prefix: "frozen",     suffix: "of frost",         effect: function (L, q) { return { kind: "chill", params: { chance: round2(0.1 * q), mult: 0.8, rounds: 2 } }; } },
-  { id: "venom",     from: 10, on: ["wield"], weight: 1, prefix: "venomous",   suffix: "of venom",         effect: function (L, q) { return { kind: "envenom", params: { power: round2(0.05 * q), maxStacks: 2 } }; } },
+  { id: "venom",     from: 10, on: ["wield"], weight: 1, prefix: "venomous",   suffix: "of venom",         effect: function (L, q) { return { kind: "envenom", params: { power: round2(0.05 * q), maxStacks: 2, level: L } }; } },
   { id: "thorns",    from: 10, on: ["body", "shield"], weight: 1, prefix: "thorned", suffix: "of thorns",   effect: function (L, q) { return { kind: "thorns", params: { fraction: round2(0.08 * q), verb: "thorns" } }; } },
   { id: "soak",      from: 10, on: ["body", "shield", "belt", "legs"], weight: 1, prefix: "stony", suffix: "of stone", effect: function (L, q) { return { kind: "soak", params: { power: round2(0.05 * q) } }; } },
   // Item level 15.
@@ -1892,9 +1939,9 @@ var AFFIXES = [
   { id: "regen",     from: 15, on: ["neck", "finger", "body", "belt"], weight: 1, prefix: "mending", suffix: "of mending", effect: function (L, q) { return { kind: "regen", params: { fraction: round2(0.005 * q) } }; } },
   // Item level 20.
   { id: "haste",     from: 20, on: ["wield", "hands"], weight: 1, prefix: "swift", suffix: "of haste",       effect: function (L, q) { return { kind: "attacks", params: { amount: round2(0.15 * q) } }; } },
-  { id: "thunder",   from: 20, on: ["wield"], weight: 1, prefix: "thundering", suffix: "of thunder",       effect: function (L, q) { return { kind: "proc", params: { kind: "lightning", chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
+  { id: "thunder",   from: 20, on: ["wield"], weight: 1, prefix: "thundering", suffix: "of thunder",       effect: function (L, q) { return { kind: "proc", params: { kind: "lightning", chance: 0.1, power: round2(0.3 * q), verb: "thunderclap", level: L } }; } },
   { id: "execute",   from: 20, on: ["wield"], weight: 1, prefix: "merciless",  suffix: "of mercy",         effect: function (L, q) { return { kind: "execute", params: { threshold: 0.25, mult: round2(1 + 0.15 * q) } }; } },
-  { id: "brambles",  from: 20, on: ["body", "shield"], weight: 1, prefix: "briared", suffix: "of brambles", effect: function (L, q) { return { kind: "aura", params: { kind: "pierce", power: round2(0.05 * q), verb: "brambles" } }; } },
+  { id: "brambles",  from: 20, on: ["body", "shield"], weight: 1, prefix: "briared", suffix: "of brambles", effect: function (L, q) { return { kind: "aura", params: { kind: "pierce", power: round2(0.05 * q), verb: "brambles", level: L } }; } },
   { id: "last",      from: 20, on: ["body", "neck"], weight: 1, prefix: "defiant", suffix: "of the last stand", effect: function (L, q) { return { kind: "lastStand", params: { threshold: 0.3, mult: round2(1 - 0.15 * q) } }; } },
   // Item level 30.
   { id: "focus",     from: 30, on: ["any"], weight: 0.5, prefix: "focused",    suffix: "of focus",         effect: function (L, q) { return { kind: "cooldownCut", params: { rounds: 1 } }; } },
@@ -1903,6 +1950,14 @@ var AFFIXES = [
 ];
 
 function round2(x) { return Math.round(x * 100) / 100; }
+
+// addedAffix is added damage of kind on every hit (5.3), sized so a
+// full-quality roll makes up what the flatter weapon curve (5.2) leaves
+// a weapon of item level L short of the power unit. Like every damage
+// affix it carries the level it was rolled at, which sizes it.
+function addedAffix(kind, L, q) {
+  return { kind: "added", params: { kind: kind, power: round2(q * (1 - weaponShare(L))), level: L } };
+}
 
 // statAmount: one point at low level, a point more every ten levels, more
 // on a good roll.

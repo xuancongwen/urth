@@ -1089,7 +1089,8 @@ So the curve is split in two:
 - The *power unit* is the standard weapon's old damage, `6 * 1.10^(L
   - 1)`. It sizes everything that is not a weapon's own swing: health
   (3.3), mob natural attacks (8), procs, auras, soak, skills, spells
-  (6.5), and added damage (5.3). In the rules it is `unit(level)`.
+  (6.5), and added damage (5.3). In the rules it is `unitAt(level)`,
+  and `unit(c)` at a character's level.
 - A weapon's own damage grows by 1.07 a level instead, so its share of
   the power unit falls: all of it at level 1, about 60 percent at 20, a
   third at 40, a fifth at 60. The table above keeps its level-1 values
@@ -1246,20 +1247,37 @@ cannot drop the best sword in the game.
   since a share that grew with level would pass any cap in time.
   Affixes are existing effect kinds, so every one already works in the
   pipeline and `describeEffect` already words it.
-- **Added damage (decided 2026-10-12).** Since a weapon's own damage
-  falls behind the power unit with level (5.2), most of a late weapon's
-  damage is affixes. A family of weapon affixes adds damage of a kind
-  (4.8) to every hit: fire, cold, lightning, poison, and the like,
-  each sized in power units at the item's level and scaled by the
-  roll's quality, so it grows with item level as stats and defense do.
-  Procs (thunder, ignite, venom) are sized the same way, at the item's
-  level rather than the wielder's, so old gear falls behind as the
-  weapon itself does; an attuned item scales to its wielder, as now.
-  Every part of a hit is resisted by its own kind, so a weapon with
-  three kinds of added damage loses one part, not the whole hit, to a
-  creature immune to one of them. Named weapons are strong the same
-  way: several affixes, several procs, or one large one, never a stated
-  damage number.
+- **Added damage (decided 2026-10-12, built the same day).** Since a
+  weapon's own damage falls behind the power unit with level (5.2),
+  most of a late weapon's damage is affixes. The `added {kind, power}`
+  effect adds `power` units of damage of a kind (4.8) to every hit. It
+  is part of the hit: it goes past armor, as a proc does, crits with
+  the swing, and is resisted by its own kind, so a weapon with three
+  kinds of added damage loses one part, not the whole hit, to a
+  creature immune to one of them, and a creature immune to the blade
+  still takes its fire. Added damage on a weapon rides only that
+  weapon's swings; on anything else (a ring, a spell, a mob's own) it
+  rides every swing. Four weapon affixes roll it from item level 5,
+  weight 2 each: fire (flaming, of flame), cold (icy, of ice),
+  lightning (sparking, of sparks), and poison (noxious, of the asp).
+  A full-quality roll is `1 - weaponShare(L)` units, exactly what the
+  flatter curve leaves a weapon of item level `L` short of the power
+  unit, so one such affix makes a plain weapon whole again: a tenth of
+  a unit at level 5, two fifths at 20, four fifths at 60. Quality
+  scales it as any roll, so an epic's or relic's can exceed it.
+- **Effects on gear are sized at the item's level.** Every effect
+  whose power is in units (proc, added, ignite, envenom, aura) is
+  sized at the level of the item it is on, not its wearer's, so old
+  gear falls behind as the weapon itself does. A rolled affix records
+  the level it was rolled at (`level` in its params), which may be
+  above the prototype's when a deeper reset or drop rolled it; an
+  intrinsic effect uses the prototype's level. An attuned item's
+  effects, and a character's own (a skill's venom, a mob's prototype
+  effects), are sized at the character's level. Items rolled before
+  this have no recorded level and use the prototype's.
+- **Named weapons** are strong the same way as rolled ones: several
+  affixes, several procs, or one large one, never a stated damage
+  number.
 - **Drops.** On a death the rules say how many extra items the corpse
   gets and how wide a level band they come from. The engine draws each
   from the rollable weapon and armor prototypes of the victim's own
