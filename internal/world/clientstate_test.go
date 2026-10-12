@@ -52,9 +52,12 @@ func TestClientState(t *testing.T) {
 	if len(s.Inventory) != 2 || s.Inventory[0].Ref != "cap" || s.Inventory[0].Slot != "head" || s.Inventory[1].Type != "weapon" {
 		t.Fatalf("inventory: %+v", s.Inventory)
 	}
+	if c := s.Inventory[0].Compare; c == nil || !c.Empty || c.Dir != "up" {
+		t.Fatalf("cap against an empty head: %+v", c)
+	}
 	send(w, 1, "wear "+s.Inventory[0].Ref)
 	s, _ = lastState(bob)
-	if len(s.Equipment) != 1 || s.Equipment[0].Slot != "head" || s.Equipment[0].Ref != "cap" {
+	if len(s.Equipment) != 1 || s.Equipment[0].Slot != "head" || s.Equipment[0].Ref != "cap" || s.Equipment[0].Compare != nil {
 		t.Fatalf("equipment: %+v", s.Equipment)
 	}
 

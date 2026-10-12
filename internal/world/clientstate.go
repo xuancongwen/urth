@@ -105,6 +105,7 @@ func (w *World) clientState(p *Player) output.StateData {
 	for _, g := range item.Group(c.Inventory) {
 		gi := gearItem(g.Item, itemRef(c.Inventory, pool, g.Item))
 		gi.Slot = string(g.Item.Proto.WearSlot())
+		gi.Compare = gearCompare(c, g.Item)
 		if g.Count > 1 {
 			gi.Count = g.Count
 		}

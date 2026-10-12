@@ -349,6 +349,20 @@ type GearItem struct {
 	Hands      int     `json:"hands,omitempty"`
 	Defense    float64 `json:"defense,omitempty"`
 	Effects    int     `json:"effects,omitempty"`
+	// Compare weighs a carried weapon or armor piece against what is worn
+	// where it would go; nil for anything else and for worn items.
+	Compare *GearCompare `json:"compare,omitempty"`
+}
+
+// GearCompare is the verdict `inventory` marks an item with. Dir is up,
+// down, or same. Delta is the item's score less the weakest worn piece's
+// in its slot, Worn that piece's id; Empty means the slot has room, and
+// then Delta is the item's own score.
+type GearCompare struct {
+	Dir   string  `json:"dir"`
+	Delta float64 `json:"delta"`
+	Worn  uint64  `json:"worn,omitempty"`
+	Empty bool    `json:"empty,omitempty"`
 }
 
 // Action is a skill or spell the character can use. Command is what to

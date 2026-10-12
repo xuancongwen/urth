@@ -61,7 +61,7 @@ var helpText = map[string]string{
 	"second":    "second <weapon>: wield a one-handed weapon in your off hand beside your main one, for extra swings each round. It takes the hand a shield would, and without the Dual Wield feat both hands hit much softer.",
 	"hold":      "hold <item>: hold an item, such as an orb or a tome. A torch or lantern is lit by wearing or holding it; dark rooms need one.",
 	"remove":    "remove <item>: take off something worn, wielded, or held.",
-	"inventory": "inventory: what you carry.",
+	"inventory": "inventory: what you carry. Weapons and armor are marked against the weakest worn in the same slot: (+n) better, (-n) worse, (=) about the same, (empty slot) nothing worn there. Weapons weigh damage per round, armor its defense; effects are not counted.",
 	"equipment": "equipment: what you wear, wield, and hold.",
 
 	"list": "list: what the merchant here sells and its price. Some wares cost silver, some cost other goods, some both.",

@@ -1029,24 +1029,19 @@
   }
 
   // ---- Is it an upgrade? ---------------------------------------------
-  // Base numbers only: a weapon's damage per round (the middle of its
-  // range times its swings), armor's defense. Effects are not scored, but
-  // the comparison says how many each side carries.
-  function score(it) { return it.type === 'weapon' ? (it.damageLow + it.damageHigh) / 2 * (it.speed || 1) : it.defense || 0; }
+  // The server weighs it (the same verdict `inventory` marks): a weapon's
+  // damage per round against the main hand, armor's defense against the
+  // weakest worn in its slot. Effects are not scored, but the comparison
+  // says how many each side carries.
   function family(slot) { return String(slot || '').replace(/[12]$/, ''); }
-  var FAMILY_SIZE = { wrist: 2, finger: 2 };
   // compare returns {worn, delta, dir} against the weakest worn item in the
-  // same slot, or {empty: true} when the slot has room; null when it does
-  // not apply (not wearable, or no numbers to weigh).
+  // same slot, or {empty: true, delta, dir} when the slot has room; null
+  // when it does not apply (not wearable, or no numbers to weigh).
   function compare(it, s) {
-    if (it.type !== 'weapon' && it.type !== 'armor') return null;
-    var fam = family(it.slot), worn = s.equipment.filter(function (e) { return family(e.slot) === fam; });
-    if (worn.length < (FAMILY_SIZE[fam] || 1)) return { empty: true, dir: 'up' };
-    var weakest = worn.reduce(function (a, b) { return score(b) < score(a) ? b : a; });
-    var mine = score(it), theirs = score(weakest);
-    if (!mine && !theirs) return null;
-    var d = mine - theirs, rel = theirs ? d / theirs : (d > 0 ? 1 : 0);
-    return { worn: weakest, delta: d, dir: rel > 0.02 ? 'up' : rel < -0.02 ? 'down' : 'same' };
+    var c = it.compare;
+    if (!c) return null;
+    var worn = c.worn ? s.equipment.filter(function (e) { return e.id === c.worn; })[0] : null;
+    return { worn: worn, delta: c.delta, dir: c.dir, empty: !!c.empty };
   }
   function numbers(it) {
     if (it.type === 'weapon') return (it.damageLow === it.damageHigh ? it.damageLow : it.damageLow + '–' + it.damageHigh) + ' ×' + (it.speed || 1);
@@ -1062,7 +1057,7 @@
     if (!c) return;
     var line = el('div');
     line.appendChild(el('span', 'dim', numbers(it) + (it.effects ? ' · ' + it.effects + ' effect' + (it.effects > 1 ? 's' : '') : '')));
-    line.appendChild(document.createTextNode(c.empty ? '  ' : '  vs ' + c.worn.name + ' ' + numbers(c.worn) + '  '));
+    line.appendChild(document.createTextNode(c.empty || !c.worn ? '  ' : '  vs ' + c.worn.name + ' ' + numbers(c.worn) + '  '));
     line.appendChild(compareMark(c));
     box.appendChild(line);
   }
@@ -1173,13 +1168,15 @@
     return family(b.slot) === family(slot);
   }
   function wearCmd(b, slot) { return (slot === 'second' ? 'second #' : 'wear #') + b.id; }
+  // Within a slot every upgrade is weighed against the same worn piece (or
+  // the same empty slot), so the largest delta is the best of them.
   function upgradePicks(s) {
     var best = {};
     s.inventory.forEach(function (it) {
-      var c = compare(it, s);
+      var c = it.compare;
       if (!c || c.dir !== 'up') return;
       var fam = family(it.slot);
-      if (!best[fam] || score(it) > score(best[fam])) best[fam] = it;
+      if (!best[fam] || c.delta > best[fam].compare.delta) best[fam] = it;
     });
     return Object.keys(best).map(function (k) { return best[k]; });
   }

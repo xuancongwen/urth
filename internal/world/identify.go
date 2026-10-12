@@ -169,3 +169,76 @@ func pluralNoun(w string) string {
 		return w + "s"
 	}
 }
+
+// gearScore is what carried gear is weighed by, as the tap client weighs
+// it: a weapon's damage per round (the middle of its range times its
+// swings), armor's defense. Effects are not scored.
+func gearScore(p *item.Proto) float64 {
+	if p.Type == item.Weapon {
+		lo, hi := spreadBounds(p.Resolved.Weapon.Damage, p.Resolved.Weapon.Spread)
+		return float64(lo+hi) / 2 * max(p.Resolved.Weapon.Speed, 1)
+	}
+	return p.Resolved.Armor.Defense
+}
+
+// gearCompare weighs a carried weapon or piece of armor against the
+// weakest one worn where it would go (either wrist, either finger; the
+// main hand for a weapon). Within 2% is the same. It is nil for anything
+// else, or when neither side has numbers.
+func gearCompare(c *Character, it *item.Item) *output.GearCompare {
+	p := it.Proto
+	if p.Type != item.Weapon && p.Type != item.Armor {
+		return nil
+	}
+	mine := gearScore(p)
+	var weakest *item.Item
+	for _, pos := range item.Positions(p.WearSlot()) {
+		worn, ok := c.Equipment[pos]
+		if !ok {
+			return &output.GearCompare{Dir: "up", Delta: math.Round(mine*10) / 10, Empty: true}
+		}
+		if weakest == nil || gearScore(worn.Proto) < gearScore(weakest.Proto) {
+			weakest = worn
+		}
+	}
+	if weakest == nil {
+		return nil
+	}
+	theirs := gearScore(weakest.Proto)
+	if mine == 0 && theirs == 0 {
+		return nil
+	}
+	d := mine - theirs
+	rel := 0.0
+	switch {
+	case theirs != 0:
+		rel = d / theirs
+	case d > 0:
+		rel = 1
+	}
+	cmp := &output.GearCompare{Dir: "same", Delta: math.Round(d*10) / 10, Worn: weakest.ID}
+	switch {
+	case rel > 0.02:
+		cmp.Dir = "up"
+	case rel < -0.02:
+		cmp.Dir = "down"
+	}
+	return cmp
+}
+
+// compareMark is gearCompare as `inventory` shows it: "(+2)" in green,
+// "(-1.5)" in red, "(=)", "(empty slot)"; "" when it does not apply.
+func compareMark(c *Character, it *item.Item) string {
+	cmp := gearCompare(c, it)
+	switch {
+	case cmp == nil:
+		return ""
+	case cmp.Empty:
+		return "{G}(empty slot){x}"
+	case cmp.Dir == "up":
+		return "{G}(+" + trimNum(cmp.Delta) + "){x}"
+	case cmp.Dir == "down":
+		return "{R}(" + trimNum(cmp.Delta) + "){x}"
+	}
+	return "{D}(=){x}"
+}

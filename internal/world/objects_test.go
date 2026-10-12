@@ -512,3 +512,43 @@ func TestScoreKeepsItsBorder(t *testing.T) {
 		}
 	}
 }
+
+func TestInventoryComparesGear(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	weapon := func(name string, dmg, speed float64) *item.Item {
+		pr := &item.Proto{Vnum: 900, Name: name, Keywords: []string{"blade"}, Type: item.Weapon}
+		pr.Resolved.Weapon = item.WeaponSpec{Damage: dmg, Speed: speed}
+		return item.New(pr)
+	}
+	armor := func(name string, slot item.Slot, def float64) *item.Item {
+		pr := &item.Proto{Vnum: 901, Name: name, Keywords: []string{"gear"}, Type: item.Armor, Slot: slot}
+		pr.Resolved.Armor.Defense = def
+		return item.New(pr)
+	}
+	p.Equipment["wield"] = weapon("a worn blade", 4, 1)
+	p.Equipment["head"] = armor("a worn helm", "head", 2)
+	p.Equipment["finger1"] = armor("a worn ring", "finger", 1)
+	p.Inventory = append(p.Inventory,
+		weapon("a quick blade", 3, 2), weapon("a dull blade", 3, 1), weapon("a twin blade", 4, 1),
+		armor("a tin helm", "head", 1), armor("a spare ring", "finger", 1), armor("a pair of boots", "feet", 0),
+		item.New(&item.Proto{Vnum: 902, Name: "a loaf", Keywords: []string{"loaf"}, Type: "food"}))
+	bob.take()
+	send(w, 1, "inventory")
+	out := output.Strip(bob.take())
+	for _, want := range []string{"a quick blade (+2)", "a dull blade (-1)", "a twin blade (=)", "a tin helm (-1)",
+		"a spare ring (empty slot)", "a pair of boots (empty slot)", "a loaf\n"} {
+		if !strings.Contains(out, want) {
+			t.Fatalf("missing %q in %q", want, out)
+		}
+	}
+	if c := gearCompare(p.Character, p.Inventory[3]); c.Dir != "down" || c.Delta != -1 || c.Worn != p.Equipment["head"].ID {
+		t.Fatalf("tin helm: %+v", c)
+	}
+	p.Equipment["finger2"] = armor("a second ring", "finger", 3)
+	send(w, 1, "inventory")
+	if out := output.Strip(bob.take()); !strings.Contains(out, "a spare ring (=)") {
+		t.Fatalf("ring against the weaker finger: %q", out)
+	}
+}

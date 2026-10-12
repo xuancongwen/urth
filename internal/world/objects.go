@@ -11,7 +11,8 @@ import (
 // those are rules. This is pure bookkeeping in ROM's vocabulary.
 
 func cmdInventory(_ *World, p *Player, _ string) {
-	p.Send("You are carrying:\n" + listItems(p.Inventory, "Nothing."))
+	mark := func(it *item.Item) string { return compareMark(p.Character, it) }
+	p.Send("You are carrying:\n" + listItemsMarked(p.Inventory, "Nothing.", mark))
 }
 
 func cmdEquipment(_ *World, p *Player, _ string) {
@@ -29,6 +30,12 @@ func cmdEquipment(_ *World, p *Player, _ string) {
 
 // listItems renders an inventory-style listing with duplicates grouped.
 func listItems(list []*item.Item, empty string) string {
+	return listItemsMarked(list, empty, nil)
+}
+
+// listItemsMarked is listItems with a note after each name, from mark
+// when it gives one.
+func listItemsMarked(list []*item.Item, empty string, mark func(*item.Item) string) string {
 	if len(list) == 0 {
 		return "     " + empty + "\n"
 	}
@@ -39,7 +46,13 @@ func listItems(list []*item.Item, empty string) string {
 		} else {
 			b.WriteString("     ")
 		}
-		b.WriteString(shownName(g.Item) + "\n")
+		b.WriteString(shownName(g.Item))
+		if mark != nil {
+			if m := mark(g.Item); m != "" {
+				b.WriteString(" " + m)
+			}
+		}
+		b.WriteString("\n")
 	}
 	return b.String()
 }
