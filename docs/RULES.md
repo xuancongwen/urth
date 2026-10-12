@@ -957,8 +957,8 @@ computes them (D15, D16).
 
 **Thesis.** No randomness in loot. Section 8 already makes a guaranteed
 drop an equipped item, visible on `look` before the fight, and every
-unique is a builder's prototype with intrinsic effects. What you see is
-what you get, and the world's hints (6.1) can point at a specific
+named item is a builder's prototype with intrinsic effects. What you see
+is what you get, and the world's hints (6.1) can point at a specific
 reward.
 
 **Antithesis.** Then every guard drops the same spear forever. Once a
@@ -969,78 +969,140 @@ reason to fight one more mob, and a fixed table cannot provide it. A
 graphical or companion front end built on these rules (discussed
 2026-10-11) leans on that pull even harder than the text game does.
 
-**Synthesis (leaning, 2026-10-11).** Keep both. Fixed items stay fixed,
-and ordinary gear can come out better than its prototype. Rarity is a
-*count of rolled effects*, as 5.4 asked: an affix is an effect (5.4)
-rolled onto an instance, stored in the instance's applied effects
-the same way an enchantment is, so nothing new is persisted but the
-rarity's name.
+**Synthesis (leaning, 2026-10-11; revised the same day).** Keep both.
+Fixed items stay fixed, and ordinary gear can come out better than its
+prototype. Rarity is a *count of effects on the instance*, as 5.4
+asked: an affix is an effect (5.4) rolled onto an instance, stored in
+the instance's applied effects the same way an enchantment is, so
+nothing new is persisted but the tier's name. Once randomness is in,
+everything that rolls is gated by the item's level, so a level-2 rat
+cannot drop the best sword in the game.
 
-- **Tiers** (revised 2026-10-11). A tier is a range of affix counts:
-  common none, uncommon up to two, rare up to four, epic up to six,
-  legendary up to eight, unique up to ten, and artifact beyond that
-  (eleven or twelve as the rules stand). The tier is shown in the
-  item's color and on `look`.
+- **Item level.** Every rolled instance has an item level: the
+  victim's level for a drop, the higher of the reset's level and the
+  prototype's for a reset item, the recipe's level for a craft (5.5).
+  Item level decides which tiers can roll, which affixes can roll, and
+  how strong they are. It is not a level requirement (5.2).
+- **Tiers.** A tier is a range of effect counts, and the highest tier
+  is open-ended:
+
+  | Tier | Effects | Rolls from item level |
+  |---|---|---|
+  | common | none | 1 |
+  | uncommon | 1 to 2 | 1 |
+  | rare | 3 to 4 | 5 |
+  | epic | 5 to 6 | 15 |
+  | legendary | 7 to 8 | 30 |
+  | relic | 9 or more | 40 (a roll gives 9 or 10) |
+
+  A tier above an item's level is removed from the table before the
+  draw, and the rest renormalized. The tier is the count however the
+  effects got there: an uncommon sword enchanted (5.6) to a third
+  effect is rare. A roll reaches ten at most; only enchanting goes
+  past, at the rising risk 5.6 puts on it, so the top of relic is
+  where the gamble lives. The tier is shown in the item's color and
+  on `look`.
+- **Named items and artifacts are not tiers.** A prototype with
+  intrinsic effects is a builder's named item: never rolled, shown
+  without a tier, exactly as written, which keeps everything the world
+  hints at exact. Artifacts are named items of a further kind, kept out
+  of loot altogether and designed separately (Trackstar); the word
+  "unique" is not used for a tier.
 - **Names.** Every affix lends a name both a prefix word and a suffix
   phrase, and any affix may supply either; there is no split of
   affixes into prefixes and suffixes and no limit per side, as there is
   in Diablo. The strongest roll names the suffix and the next strongest
   the prefix: "a merciless rusty sword of the bear". Both sets of words
-  work as keywords. A rolled tier called unique is not the same thing
-  as a builder's named item with intrinsic effects, which never rolls
-  and has no tier; if the two words collide in play, one should be
-  renamed.
+  work as keywords.
 - **What can roll.** Weapons and armor with a vnum and no intrinsic
-  effects, and not flagged `quest`, `newbie`, or `norandom`. A
-  prototype with intrinsic effects is a named item and is never
-  rolled; that keeps uniques, and everything the world hints at,
-  exactly as the builder wrote them.
+  effects, and not flagged `quest`, `newbie`, or `norandom`.
 - **When.** At creation by a reset, which covers the gear a mob
   spawns wearing (still visible before the fight, so 8 holds) and
-  gear lying in rooms; and at a mob's death, as an extra *drop*. Merchants and
-  quest vendors sell plain items; what they sell is the
-  prototype.
-- **Drops.** On a death, the rules say how many extra items the
-  corpse gets and how wide a level band they come from. The engine
-  draws each from the rollable weapon and armor prototypes of the
-  victim's own area within that band, so a drop fits where it fell,
-  and rolls it like a reset item. An area with no such prototype drops
-  nothing extra, so every area carries plain gear up to the level of
-  its strongest mobs; a prototype flagged `drop` is gear made for this,
-  placed by no reset and found only in corpses (a test checks every
-  hostile mob has something to drop).
-- **Magnitudes.** An affix is a starting value scaled by the item's
-  level and by a quality drawn from a band, the higher tiers drawing
-  from a better band. Affixes come from the existing effect kinds
-  (stats, steadiness, and shorter cooldowns on anything; crit, crit
-  damage, damage, extra swings, leech, ignite, chill, a thunder proc,
-  venom, execute, and opportunist on weapons; defense, dodge,
-  protect, shield block, thorns, a bramble aura, soak, regen, last
-  stand, and the two sights on armor), so
-  every one already works in the pipeline, `describeEffect`
-  already words it, and enchanting (5.6) still has slots to fill.
-  An item's number of enchantment slots is separate from its rarity.
+  gear lying in rooms; at a mob's death, as an extra *drop*; and on a
+  successful craft (5.5). Merchants and quest vendors sell plain items;
+  what they sell is the prototype.
+- **Affixes are gated by item level and by slot.** Each affix names
+  the lowest item level it rolls at and the slots it goes on, so early
+  gear reads simply ("mighty", "sturdy") and the procs and keystones
+  arrive as a character goes deeper. An enchantment (5.6) obeys the
+  same gates. Starting gates:
 
-Starting values, arbitrary in the sense of 3.3, per thousand items: a
-reset item rolls common 700, uncommon 200, rare 70, epic 24, legendary
-5, unique 0.9, artifact 0.1; a drop rolls from a richer table (400,
-350, 150, 70, 24, 5, 1) because a drop is the event the player hoped
-for. Higher tiers also draw each affix from a better quality band.
-About thirty affixes exist, eighteen or so open to any one item, so
-even an artifact rarely repeats one; past the pool's size they repeat
-and stack. A kill drops an extra item one time
-in five, one level either side of the victim's; a mob flagged `boss`
-always drops two. These are for playtest: the `loot` builder command
-samples the table so a change can be seen before anyone farms it.
+  | From item level | Affix (slots) |
+  |---|---|
+  | 1 | the six stats (any); damage (weapon); defense (any armor) |
+  | 5 | crit (weapon, hands, finger); dodge (feet, legs, body); protect (body, shield, head, shoulders, arms); steady (any) |
+  | 10 | leech (weapon, neck, finger); ignite, chill, venom (weapon); thorns (body, shield); soak (body, shield, belt, legs) |
+  | 15 | crit damage (weapon, neck, finger); opportunist (weapon); shield block (shield); regen (neck, finger, body, belt) |
+  | 20 | extra swings (weapon, hands); thunder, execute (weapon); brambles (body, shield); last stand (body, neck) |
+  | 30 | shorter cooldowns (any); true sight and hawk sight (head, face) |
+
+  `hold` and `light` take only the affixes open to any slot. Where an
+  item's open pool is smaller than its count, affixes repeat and
+  stack, as before.
+- **Magnitudes.** An affix is a starting value scaled by a quality
+  drawn from its tier's band, the higher tiers drawing from a better
+  band. Stats and defense also grow with item level, as the baselines
+  do (5.2); ratios (crit chance, dodge, leech, and the like) do not,
+  since a share that grew with level would pass any cap in time.
+  Affixes are existing effect kinds, so every one already works in the
+  pipeline and `describeEffect` already words it.
+- **Drops.** On a death the rules say how many extra items the corpse
+  gets and how wide a level band they come from. The engine draws each
+  from the rollable weapon and armor prototypes of the victim's own
+  area within that band, so a drop fits where it fell, and rolls it.
+  An area with no such prototype drops nothing extra, so every area
+  carries plain gear up to the level of its strongest mobs; a
+  prototype flagged `drop` is gear made for this, placed by no reset
+  and found only in corpses.
+- **Deeper is better, more than more.** The chance of a drop rises
+  slowly with the victim's level, and the tier weights rise faster.
+  A drop that is likelier to matter is worth more than a bag that
+  fills faster.
+- **Loot tables.** Section 8 makes a worn item a guaranteed drop and
+  leaves what is not worn to here. A mob prototype may carry a `loot`
+  list, each entry an item vnum and a chance; on a death the engine
+  draws each entry once and puts what comes up in the corpse, before
+  the extra drops above. This is how a boss drops its named blade one
+  time in twenty, how a key or a quest token can be carried without
+  being worn, and how deterministic materials (6.2) enter the world.
+  A rollable item that comes from a table rolls as a drop; a named
+  item comes out as written. A table drop is not visible before the
+  fight, which is the point of it: a worn item is the reward you can
+  plan for, a table entry the one you hope for. An area file may carry
+  a `loot` list too, drawn for every mob of the area that dies, for
+  the area's farmed materials.
+
+Starting values, arbitrary in the sense of 3.3, as weights per thousand
+at item level 1 and at 40, linear between and held past 40, before
+tiers above the item level are removed:
+
+| Tier | Reset, level 1 | Reset, 40 | Drop, level 1 | Drop, 40 |
+|---|---|---|---|---|
+| common | 750 | 600 | 450 | 250 |
+| uncommon | 220 | 250 | 400 | 350 |
+| rare | 30 | 100 | 150 | 230 |
+| epic | 0 | 40 | 0 | 120 |
+| legendary | 0 | 9 | 0 | 40 |
+| relic | 0 | 1 | 0 | 10 |
+
+A kill drops an extra item with a chance of 15 percent at level 1,
+rising to 25 percent at 40 and held there, one level either side of
+the victim's; a mob flagged `boss` always drops two. A craft rolls
+from the drop column, shifted by the crafter's rating (5.5). These are
+for playtest: the `loot` builder command samples the table so a change
+can be seen before anyone farms it.
 
 Consequences: an optional `rollItem(item, context)` hook returning
-`{rarity, color, prefix, suffix, effects}`, and an optional `lootRules(victim)`
-returning `{drops, levelBand}`; without them nothing rolls. The item
-instance gains `rarity`, `color`, `prefix`, and `suffix`, saved in the player
-file; the item view carries `rarity`. Listings stop folding a rolled
-item into a stack of its plain prototype. Open: whether merchants
-should pay more for a higher tier, and whether a tier should also add
-an enchantment slot.
+`{rarity, color, prefix, suffix, effects}`, with `context.source` one
+of `reset`, `drop`, or `craft`; an optional `lootRules(victim)`
+returning `{drops, levelBand}`; without them nothing rolls. Affixes
+carry a minimum level and a slot list in the rules. The item instance
+gains `rarity`, `color`, `prefix`, and `suffix`, saved in the player
+file; the item view carries `rarity`, and an enchantment that changes
+the count asks the rules for the tier again. Mob and area prototypes
+gain a `loot` list of `{item, chance}`, checked at load like resets.
+Listings stop folding a rolled item into a stack of its plain
+prototype. Open: whether merchants should pay more for a higher tier.
 
 ### 5.4 Effects
 
@@ -1136,8 +1198,9 @@ pipeline with two or three kinds, not a library.
   is that stacking is a property of the kind (`stat` adds, `crit` takes
   the larger, `roll twice` does not stack), decided per kind in its
   code, not a global rule.
-- A cap on effects per item: none, per 2.2. Rarity (5.3) may make the
-  count expensive rather than bounded.
+- A cap on effects per item: none, per 2.2. The count is the tier
+  (5.3), and enchanting past a roll's ten is bounded by risk (5.6),
+  not by a number.
 - Feats (7.2) are permanent effects a character holds; no distinct
   system.
 - Whether effects can be conditional on the target (only against
@@ -1181,11 +1244,17 @@ The pieces, tied to what exists:
   consequence, and with rare materials it is a real one. Note against
   4.2: success is a binary roll, admitted for the same reason saves are
   (6.4): it is rare, it is costed, and no fight turns on it.
-- **Quality.** On success the item is the recipe's item at the recipe's
-  level, resolved through the baseline like any other (5.2). The rating
-  can add: a higher rating gives a chance at a *fine* result, which
-  carries an intrinsic effect the recipe names, or a level above the
-  recipe's. How much is a starting value for playtest.
+- **Quality** (revised 2026-10-11). On success the item is the
+  recipe's item at the recipe's level, resolved through the baseline
+  like any other (5.2), and then rolled for a tier (5.3) with the
+  recipe's level as its item level, so crafting can make every tier a
+  drop can, under the same gates. The crafter's rating shifts the
+  weights toward the higher tiers, and the rarest material in the
+  recipe sets how far they can shift: a common recipe in a master's
+  hands makes good uncommon and rare things, and a relic wants a rare
+  material as well as the hands. How much is a starting value for
+  playtest. Crafting is where the roll is; enchanting (5.6) is where
+  the player chooses.
 - **Crafted items are marked** as such on the instance, for the record
   and for whatever later cares who made a thing.
 
@@ -1208,17 +1277,19 @@ enchanted most, and every item is a blank to be filled. Something has
 to make the tenth enchantment rarer than the first, and something has
 to make one sword worth enchanting and another not.
 
-**Synthesis (decided 2026-09-25, revised the same day, design only).**
-Any item can be enchanted. Each item carries a fixed number of
-*enchantment slots*, set on its prototype, and that number is where
-rarity lives: most found gear has none or one, good gear has a few, and
-the rare and deterministic items of 6.2 have many. There is no global
-cap on slots; a builder may make an item with twenty. Balance is done
-per item, later, by the count.
+**Synthesis (decided 2026-09-25, revised the same day, design only;
+slots removed 2026-10-11).** Any item can be enchanted, with no count
+of slots and no cap. The limit is risk. An earlier version gave each
+prototype a fixed number of enchantment slots, where rarity lived;
+rarity now lives in the count of effects (5.3), and a second number
+beside it would only say the same thing worse.
 
 An enchantment is an attempt, like a craft: it names materials, it can
-fail, and success fills one slot with one *permanent* effect (5.4), the
-applied-effect storage the engine already persists. Failure consumes
+fail, and success adds one *permanent* effect (5.4), the applied-effect
+storage the engine already persists. The effect counts toward the
+item's tier (5.3), so enchanting is how a rare becomes an epic and how
+a relic goes past the ten a roll can give; the effect must be open at
+the item's level and slot under 5.3's gates. Failure consumes
 the materials, and has a small chance of destroying the item, a chance
 that grows with every enchantment already on it. So the first
 enchantment on a plain sword is cheap and safe, and the twelfth on a
@@ -1231,20 +1302,19 @@ sword with eleven is a gamble with something irreplaceable.
   item, the attempt is harder than at zero, and on failure the chance
   the item is destroyed is small at zero and rises with `n`. Both are
   asymptotic, never certain, the shape the document uses everywhere.
-- **Powerful items are rare by construction.** An item's ceiling is its
-  slot count, so an item that could become extraordinary is one the
-  world places rarely and guards well, and filling it means surviving a
-  rising risk of losing it. The unbounded top end exists, and almost
-  nobody reaches it.
+- **Powerful items are rare by construction.** An item has no
+  ceiling but the risk, and the risk is steepest on exactly the items
+  worth enchanting: a relic already carries nine or ten effects, so
+  every further attempt starts near the top of the destruction curve.
+  The unbounded top end exists, and almost nobody reaches it.
 - **Enchanting is a skill** (7.4) with a rating that lowers the failure
   chance; open, leaning one enchanting skill shared across crafts.
 - **Materials** are the one pool. The effect decides the cost: a stat
   effect wants common things, a crit or attack effect wants rare ones,
-  and the deterministic drops are what the last slots on the best items
-  are for.
-- **Crafted items** (5.5) are ordinary items with slots like any other;
-  a fine result from a high crafting rating may carry an extra slot,
-  which is one reason to craft.
+  and the deterministic drops (5.3's loot tables) are what the last
+  effects on the best items are for.
+- **Crafted items** (5.5) enchant like any other; a crafted relic is
+  a starting point no drop is likelier to give.
 
 Starting formulas, arbitrary in the sense of 3.3:
 
@@ -1259,9 +1329,8 @@ Consequences for the engine (both sections): a `recipeList`
 and `enchantList` from the rules with materials, difficulty, station,
 and result; `craft` and `enchant` commands that take an attempt through
 `resolveCraft` and `resolveEnchant` hooks and apply the result, which
-for an enchant may be "destroyed"; a `slots` field on item prototypes
-and a `crafted` mark on instances, persisted; station flags on rooms;
-`look` shows slots used and free; `describeEffect` already covers what
+for an enchant may be "destroyed"; a `crafted` mark on instances, persisted; station flags on rooms;
+`look` shows the effects and the tier; `describeEffect` already covers what
 an enchantment does.
 
 ---
