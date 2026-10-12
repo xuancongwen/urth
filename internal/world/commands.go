@@ -90,6 +90,7 @@ func init() {
 		{"who", 2, cmdWho, false},
 		{"color", 3, cmdColor, false},
 		{"settings", 3, cmdSettings, false},
+		{"scroll", 3, cmdScroll, false},
 		{"autoloot", 5, cmdAutoloot, false},
 		{"autogold", 5, cmdAutogold, false},
 		{"autosac", 5, cmdAutosac, false},

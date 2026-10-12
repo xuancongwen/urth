@@ -39,6 +39,9 @@ type Record struct {
 	AutoGold bool `yaml:"autogold,omitempty"`
 	AutoSac  bool `yaml:"autosac,omitempty"`
 	Color    bool `yaml:"color"`
+	// Scroll is the pager's page length in lines: 0 is the default,
+	// negative turns paging off.
+	Scroll int `yaml:"scroll,omitempty"`
 	// Visited is every room the character has stood in, for the map.
 	Visited []int `yaml:"visited,omitempty,flow"`
 	// Sheet. Stats is free-form because the stat set is a rules decision.

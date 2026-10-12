@@ -271,7 +271,7 @@ func (w *World) runCommands() {
 		p := w.players[id]
 		line := p.dequeue()
 		if p.State == StatePlaying {
-			w.dispatch(p, line)
+			w.command(p, line)
 		} else {
 			w.handleLogin(p, line)
 		}

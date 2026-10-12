@@ -96,6 +96,7 @@ var playerSettings = []setting{
 	{"autoloot", "take everything from your kills", func(p *Player) bool { return p.rec != nil && p.rec.AutoLoot }, cmdAutoloot},
 	{"autogold", "take the coins from your kills", func(p *Player) bool { return p.rec != nil && p.rec.AutoGold }, cmdAutogold},
 	{"autosac", "sacrifice your kills' corpses once they are empty", func(p *Player) bool { return p.rec != nil && p.rec.AutoSac }, cmdAutosac},
+	{"scroll", "pause long replies a page at a time (scroll <lines> sets the page)", func(p *Player) bool { return p.pageLines() > 0 }, toggleScroll},
 	{"color", "color in what you read", func(p *Player) bool { return p.Color }, cmdColor},
 }
 

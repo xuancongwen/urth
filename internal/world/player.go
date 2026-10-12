@@ -77,6 +77,8 @@ type Player struct {
 
 	input   []string
 	pending []output.Message
+	// more is the rest of a long reply the pager is holding (pager.go).
+	more []string
 	// closing is set by quit; the connection is closed after the final flush
 	// so the farewell is delivered.
 	closing bool

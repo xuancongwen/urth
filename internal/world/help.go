@@ -24,7 +24,7 @@ var helpSections = []helpSection{
 	{"Groups", []string{"follow", "group", "gtell"}},
 	{"Talking", []string{"say", "tell", "reply", "chat", "yell"}},
 	{"Resting", []string{"rest", "sleep", "wake", "stand", "affects"}},
-	{"Character", []string{"score", "stats", "settings", "train", "feat", "practice", "quest", "who", "color", "save", "password", "expedition", "client", "quit"}},
+	{"Character", []string{"score", "stats", "settings", "scroll", "train", "feat", "practice", "quest", "who", "color", "save", "password", "expedition", "client", "quit"}},
 	{"Builder", []string{"goto", "at", "stat", "load", "purge", "force", "restore", "transfer", "peace", "reload", "simulate", "loot", "copyover", "shutdown"}},
 	{"Admin", []string{"outfit", "promote", "demote", "passwd", "deny", "allow", "users"}},
 }
@@ -48,6 +48,7 @@ var helpText = map[string]string{
 	"affects":  "affects: what is acting on you: spells, poisons, and burning with the time they have left, then your permanent effects.",
 	"autoloot": "autoloot: toggle taking everything from the corpses of what you kill.",
 	"autogold": "autogold: toggle taking just the coins from the corpses of what you kill.",
+	"scroll":   "scroll | scroll <lines> | scroll on | scroll off: how long a reply runs before it pauses. A long list (inventory, skills, help, a shop's wares) shows one page of that many lines; press Enter for the next, or type any command to drop the rest. 'scroll off' shows everything at once.",
 	"autosac":  "autosac: toggle sacrificing the corpses of what you kill, once they are empty, for a coin.",
 	"recall":   "recall | recall set | recall clear | recall show: recall takes you straight to your recall point, anywhere in the world, but not out of a fight. 'recall set' makes the room you stand in your recall point; 'recall clear' puts it back to where everyone starts; 'recall show' names it. 'recall tutorial' goes back to the start of the tutorial whenever you want a refresher.",
 
