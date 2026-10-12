@@ -1404,6 +1404,33 @@ records the deity beside the schools. Hints are a builder concern:
 builder tooling should make it easy to see which totems exist and
 where their hints are. No dependency on a quest system.
 
+**Learning spells within a school (decided 2026-10-11).** The designer
+asked for more spells, most of them trainable. Read against the
+antithesis above, a trainer is exactly what 6.1 rejected: magic as a
+function of level and coin. The answer is to keep the door and train
+the rooms behind it. Unlocking a school or a god still decides
+*whether* a character has that magic at all, and nothing else grants
+it; within an unlocked school or god, a spell is learned in one of
+three ways:
+
+- **Innate.** A school's or god's first spells are known the moment it
+  is unlocked, so a found totem is usable at once. The thirteen spells
+  of 6.5's first list are innate, which also means no character loses
+  a spell it could cast before this change.
+- **Taught.** Most spells are sold by trainers placed in the world, for
+  coin, to a character that has the school or god, the level, and the
+  stat (6.4). A trainer teaches only what it knows, and the trainers
+  for a school live where that school would be studied, so finding the
+  teacher is a smaller discovery inside the large one.
+- **Found.** The strongest spell of each school and god is taught by
+  no one. It is learned from a scroll found in the world, by studying
+  it (the scroll is used up), with the same requirements. This keeps
+  the top of every school a project, as 6.2's deterministic materials
+  once did.
+
+A learned spell is a permanent effect on the character, as a learned
+skill is (7.4), so it needs no new storage and survives death.
+
 ### 6.2 Casting costs mana; some spells also want items
 
 **Thesis.** Casting draws from a mana pool that regenerates. Cheap to
@@ -1550,13 +1577,17 @@ why a long cast is a real decision in a fight. Open: whether an
 interrupted cast also triggers the cooldown.
 
 **Requirements (leaning, 2026-10-11).** Unlocking a school or a god
-(6.1) gives access to its spells; each spell also names a level and a
+(6.1) gives access to its spells, and learning one (innate, taught, or
+found, 6.1) makes it the caster's; each spell also names a level and a
 trained stat (Intelligence for arcane, Wisdom for divine) the caster
 must have before it can be cast, so finding the evocation totem at
 level one does not put Fireball in a beginner's hands. A spell that is
 not ready yet still shows in `spells`, with what it needs, so the
 player knows what to work toward. Like skills (7.4), requirements
-read trained stats, not gear. The numbers are in 6.5's tables.
+read trained stats, not gear. The numbers are in 6.5's tables. A
+trainer will not sell a spell whose requirements are unmet, and a
+scroll cannot be studied before them, so a spell, once learned, is
+always castable.
 
 **Saves.** A target resists a spell by a saving throw in the Dungeons
 and Dragons manner, and the spell names which: *reflex* (Dexterity),
@@ -1665,6 +1696,168 @@ anything global. Each needs an engine return channel that does not yet
 exist.
 
 ---
+
+**The expanded list (2026-10-11).** The first list above became the
+innate spells of each school and god (6.1). Around them each school
+grew to six or seven spells and each god to six: simple damage early,
+then defence, buffs and debuffs, stronger spells taught at higher
+levels, and one spell per school and god learned only from a scroll
+(6.1), around levels 36 to 45. They live in
+`data/scripts/spells_arcane.js` and `spells_divine.js`, which append to
+the list in `rules.js`. Damage is in standard swings, as above; the
+effect column names the kinds attached and their rounds; "Learned" is
+innate, a trainer's price, or a scroll. Trainers are named in each
+area's README. Two capstones are deliberately extreme and are the first
+to watch in play: Time Stop (every enemy to a tenth of its speed for
+five rounds, no save) and Power Word Stun.
+
+The neutral god, which had no reachable temple, now has one: the
+heart tree in Winterfell's godswood, with a weirwood seed as its
+sacrifice.
+
+**Arcane** (56 spells)
+
+| Spell | School | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
+|---|---|---|---|---|---|---|---|---|---|
+| Shield | abjuration | 1, 11 Int | 6 | 0 | 10 | self | none | block 5r | 100 silver |
+| Ward | abjuration | 2, 11 Int | 8 | 0 | 10 | ally | none | defense 10r | innate |
+| Stoneskin | abjuration | 12, 16 Int | 14 | 1 | 20 | ally | none | soak 10r | 1200 silver |
+| Repulsion | abjuration | 18, 18 Int | 16 | 1 | 12 | area | will, negate | speedMult 3r | 1800 silver |
+| Globe of Invulnerability | abjuration | 26, 19 Int | 26 | 2 | 30 | group | none | protect 5r | 3000 silver |
+| Prismatic Ward | abjuration | 38, 21 Int | 35 | 2 | 40 | group | none | protect 6r; thorns 6r | scroll |
+| Acid Splash | conjuration | 3, 12 Int | 7 | 1 | 0 | single | fortitude, half | 1.5x damage; dot 3r | innate |
+| Mage Armor | conjuration | 5, 13 Int | 8 | 1 | 0 | ally | none | defense 40r | 500 silver |
+| Acid Arrow | conjuration | 7, 14 Int | 10 | 1 | 4 | single | reflex, half | 1x damage; dot 4r | 700 silver |
+| Web | conjuration | 9, 15 Int | 10 | 1 | 10 | area | reflex, negate | speedMult 3r | 900 silver |
+| Ice Storm | conjuration | 16, 17 Int | 18 | 2 | 8 | area | reflex, half | 1.7x damage | 1600 silver |
+| Cloudkill | conjuration | 24, 19 Int | 22 | 2 | 12 | area | fortitude, half | dot 6r | 2400 silver |
+| Incendiary Cloud | conjuration | 40, 22 Int | 38 | 3 | 25 | area | reflex, half | 1.5x damage; dot 6r | scroll |
+| True Strike | divination | 1, 11 Int | 6 | 0 | 10 | self | none | crit 3r | 100 silver |
+| Foresight | divination | 4, 12 Int | 8 | 0 | 20 | self | none | dodge 10r | innate |
+| See Invisible | divination | 6, 13 Int | 8 | 1 | 0 | self | none | detectInvisible 60r | 500 silver |
+| Find Weakness | divination | 10, 16 Int | 10 | 1 | 10 | single | will, negate | protect 4r | 1000 silver |
+| Insight | divination | 16, 17 Int | 16 | 1 | 20 | group | none | dodge 8r | 1600 silver |
+| True Seeing | divination | 28, 20 Int | 20 | 1 | 30 | self | none | detectInvisible 10r; detectHidden 10r; crit 10r; dodge 10r | 3000 silver |
+| Greater Foresight | divination | 36, 21 Int | 30 | 1 | 40 | group | none | dodge 6r; crit 6r | scroll |
+| Daze | enchantment | 3, 12 Int | 6 | 1 | 5 | single | will, negate | speedMult 3r | innate |
+| Mind Spike | enchantment | 5, 13 Int | 8 | 1 | 0 | single | will, half | 1.8x damage | 500 silver |
+| Sleep | enchantment | 7, 14 Int | 10 | 1 | 8 | single | will, negate | speedMult 3r | 700 silver |
+| Heroism | enchantment | 10, 16 Int | 12 | 1 | 20 | ally | none | damage 10r; steady 10r | 1000 silver |
+| Confusion | enchantment | 18, 18 Int | 18 | 1 | 12 | area | will, negate | blind 3r; speedMult 3r | 1800 silver |
+| Hold Monster | enchantment | 28, 20 Int | 22 | 1 | 15 | single | will, negate | speedMult 4r | 3000 silver |
+| Power Word Stun | enchantment | 38, 21 Int | 30 | 0 | 30 | single | none | speedMult 3r; protect 3r | scroll |
+| Firebolt | evocation | 1, 11 Int | 6 | 1 | 0 | single | reflex, half | 2x damage | innate |
+| Magic Missile | evocation | 2, 11 Int | 6 | 1 | 0 | single | none | 1.4x damage | 150 silver |
+| Fireball | evocation | 10, 16 Int | 15 | 2 | 8 | area | reflex, half | 1.5x damage | innate |
+| Fire Shield | evocation | 12, 16 Int | 12 | 1 | 20 | self | none | thorns 10r | 1200 silver |
+| Lightning Bolt | evocation | 14, 17 Int | 14 | 1 | 4 | single | reflex, half | 2.5x damage | 1400 silver |
+| Cone of Cold | evocation | 20, 18 Int | 20 | 2 | 10 | area | reflex, half | 1.8x damage; speedMult 2r | 2000 silver |
+| Chain Lightning | evocation | 30, 20 Int | 28 | 2 | 12 | area | reflex, half | 2.2x damage | 3600 silver |
+| Meteor Swarm | evocation | 42, 22 Int | 40 | 3 | 20 | area | reflex, half | 3.5x damage; dot 3r | scroll |
+| Color Spray | illusion | 2, 11 Int | 7 | 1 | 6 | area | will, negate | blind 2r | 150 silver |
+| Blur | illusion | 5, 13 Int | 8 | 1 | 15 | self | none | dodge 5r | innate |
+| Invisibility | illusion | 6, 13 Int | 10 | 1 | 10 | ally | none | invisible 30r | 600 silver |
+| Mirror Image | illusion | 9, 15 Int | 12 | 1 | 20 | self | none | dodge 4r | 900 silver |
+| Phantasmal Killer | illusion | 20, 18 Int | 18 | 2 | 8 | single | will, half | 2.6x damage | 2000 silver |
+| Mislead | illusion | 30, 20 Int | 22 | 1 | 30 | self | none | dodge 6r; crit 6r | 3600 silver |
+| Weird | illusion | 38, 21 Int | 36 | 2 | 25 | area | will, half | 2.5x damage; speedMult 2r | scroll |
+| Chill Touch | necromancy | 1, 11 Int | 6 | 1 | 0 | single | fortitude, half | 1.6x damage; stat 3r | 100 silver |
+| Drain | necromancy | 5, 13 Int | 7 | 1 | 3 | single | fortitude, half | 1.5x damage; drains 50% | innate |
+| Ray of Enfeeblement | necromancy | 8, 15 Int | 10 | 1 | 8 | single | fortitude, negate | stat 8r | 800 silver |
+| False Life | necromancy | 12, 16 Int | 12 | 1 | 20 | self | none | regen 10r | 1200 silver |
+| Vampiric Touch | necromancy | 16, 17 Int | 14 | 1 | 6 | single | fortitude, half | 2.2x damage; drains 75% | 1600 silver |
+| Circle of Death | necromancy | 32, 20 Int | 30 | 2 | 15 | area | fortitude, half | 2x damage | 3800 silver |
+| Finger of Death | necromancy | 44, 22 Int | 38 | 1 | 30 | single | fortitude, half | 4.5x damage; drains 25% | scroll |
+| Stone Fist | transmutation | 2, 11 Int | 6 | 1 | 10 | self | none | damage 6r; unarmedMult 6r | 150 silver |
+| Haste | transmutation | 8, 15 Int | 15 | 2 | 20 | self | none | attacks 5r | innate |
+| Slow | transmutation | 12, 16 Int | 14 | 1 | 10 | area | will, negate | speedMult 3r | 1200 silver |
+| Iron Body | transmutation | 22, 18 Int | 20 | 1 | 30 | self | none | soak 8r; defense 8r; speedMult 8r | 2400 silver |
+| Tenser's Transformation | transmutation | 24, 19 Int | 22 | 2 | 30 | self | none | attacks 8r; damage 8r; defense 8r | 2600 silver |
+| Disintegrate | transmutation | 34, 21 Int | 28 | 2 | 15 | single | fortitude, half | 3.5x damage | 4000 silver |
+| Time Stop | transmutation | 45, 22 Int | 40 | 1 | 50 | area | none | speedMult 5r | scroll |
+
+**Divine** (18 spells)
+
+| Spell | God | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
+|---|---|---|---|---|---|---|---|---|---|
+| Rotting Touch | evil | 1, 11 Wis | 6 | 1 | 0 | single | fortitude, half | dot 4r | 60 silver |
+| Dread | evil | 4, 12 Wis | 8 | 1 | 6 | single | will, negate | speedMult 4r; damage 4r | 320 silver |
+| Blight | evil | 6, 14 Wis | 12 | 1 | 6 | area | fortitude, half | dot 5r | innate |
+| Malediction | evil | 12, 16 Wis | 12 | 1 | 8 | single | will, negate | stat 8r; stat 8r; stat 8r | 1080 silver |
+| Harm | evil | 28, 19 Wis | 26 | 2 | 8 | single | fortitude, half | 2.8x damage; drains 33% | 2800 silver |
+| Unholy Word | evil | 44, 22 Wis | 40 | 2 | 25 | area | will, half | 2.2x damage; speedMult 3r; damage 3r | scroll |
+| Mend | good | 1, 11 Wis | 8 | 1 | 0 | ally | none | heals 30% | innate |
+| Bless | good | 3, 12 Wis | 8 | 1 | 10 | ally | none | defense 15r; protect 15r | 240 silver |
+| Sanctuary | good | 8, 15 Wis | 20 | 2 | 30 | group | none | protect 5r | innate |
+| Smite | good | 12, 16 Wis | 12 | 1 | 2 | single | will, half | 2.2x damage | 1080 silver |
+| Prayer of Healing | good | 28, 19 Wis | 28 | 2 | 12 | group | none | heals 25%; regen 6r | 2800 silver |
+| Holy Word | good | 42, 22 Wis | 38 | 2 | 25 | area | will, half | 2.5x damage; blind 2r | scroll |
+| Entangle | neutral | 2, 11 Wis | 7 | 1 | 4 | single | reflex, negate | speedMult 3r; dodge 3r | 160 silver |
+| Stillness | neutral | 4, 12 Wis | 12 | 1 | 10 | area | will, negate | speedMult 2r | innate |
+| Barkskin | neutral | 7, 14 Wis | 10 | 1 | 15 | ally | none | soak 12r; defense 12r | 560 silver |
+| Call Lightning | neutral | 14, 17 Wis | 16 | 2 | 6 | single | reflex, half | 2.8x damage | 1260 silver |
+| Restoration | neutral | 26, 19 Wis | 22 | 2 | 10 | ally | none | heals 35%; regen 5r | 2600 silver |
+| Storm of Vengeance | neutral | 44, 22 Wis | 40 | 3 | 25 | area | reflex, half | 2.2x damage; speedMult 3r | scroll |
+
+### 6.6 Strengthening magic: caster feats and caster gear (decided 2026-10-11)
+
+**Thesis.** Magic grows with the branch stat and level (6.4) and needs
+nothing else; feats and gear are for steel.
+
+**Antithesis.** Then a caster's build is one number. Every level's
+feat pick (7.2) is a combat feat a caster does not want, gear is
+chosen for its Intelligence or Wisdom alone, and two casters of a
+school differ only in how many points they put in one stat. 7.3 says
+there are no classes, so a build has to be made of choices, and a
+caster has had none.
+
+**Synthesis.** Casters get feats and gear of their own, built on new
+effect kinds the spell path reads, and the arcane and divine branches
+reward different things, so that the choice of branch is felt in the
+build and not only in the spell list:
+
+- **Arcane rewards specialisation and force.** Spell Focus (more power
+  for one school, taken per school), Empower (more damage from damage
+  spells), Penetration (saves are harder), Arcane Reservoir (a deeper
+  mana pool), Quicken and Combat Casting (shorter casts, casting that
+  damage does not break), and a chance for spells to strike critically.
+- **Divine rewards devotion and the group.** Devotion (more power for
+  your god's spells), Healer's Grace (stronger healing), Channel
+  (harder saves against your god's spells), Martyr (healing another
+  heals you a little), Divine Favor (mana returns slowly even in a
+  fight), Shield of Faith (casting a helpful spell guards you).
+
+A caster feat needs its branch (7.2): an arcane feat wants an arcane
+school unlocked, a divine one an apostleship. The new effect kinds,
+which items may also carry (5.4):
+
+| Kind | Params | Read where |
+|---|---|---|
+| `spellPower` | `mult`, and one of `school`, `deity`, `branch`, or `kind` (damage, heal) | spell power, before saves |
+| `spellCrit` | `chance`, `mult` | each damaging or healing target |
+| `penetration` | `amount` (a multiplier on the caster's side of the save) | saves |
+| `manaMax` | `amount` (percent of the pool) | derived stats |
+| `manaFight` | `fraction` (of the pool per round, in a fight) | regeneration |
+| `castCost` | `mana` (multiplier), `rounds` (cut), `steady` (no interruption), with an optional `branch` | the engine's cast, through a `castCost` hook |
+| `martyr` | `fraction` (of healing given, back to the caster) | resolution |
+| `faithShield` | `mult`, `rounds` (a `protect` on the caster after a helpful spell) | resolution |
+
+Casting cost, cast time, and interruption are engine-owned (6.4), so
+the rules reach them through one optional hook, `castCost(caster,
+spell)`, which returns the mana, cast rounds, and whether damage
+interrupts, defaulting to the spell's own numbers. Everything else is
+rules-only.
+
+Caster gear uses the same kinds: staves and wands, orbs and tomes held
+in the off hand, robes, circlets, and holy symbols, arcane pieces
+leaning on spell power, mana, and penetration, divine ones on healing
+and devotion. Their power is priced in the item budget like any
+effect (5.2), a step below the feats so that gear supplements a build
+rather than replacing it: on one item, spell power at most 15 percent,
+spell criticals 8 percent, penetration 20 percent, mana 25 percent,
+in-fight mana 2 percent a round, casting at most 15 percent cheaper,
+Martyr 20 percent, a faith shield no stronger than 15 percent, and no
+quicker casting at all, which stays a feat.
 
 ## 7. Progression
 
@@ -1827,7 +2020,20 @@ new storage; banked counts of unspent stat points and feat picks; and
 a command to spend either (`train` is ROM's word, and a trainer NPC can use the same
 path). `onLevel` returns the picks granted and the message; the choice
 itself is a command, since a hook cannot ask a question. Feats have a
-`level` field and the pick command enforces it. 3.3's per-level
+`level` field and the pick command enforces it.
+
+**Requirements (decided 2026-10-11).** The designer asked for feats,
+skills, and spells to be gated by level and stats. A feat names, beside
+its `level` and the feats it `requires`, the trained `stats` it wants
+and, for a caster feat, its `branch` (6.6): an arcane feat needs an
+arcane school unlocked, a divine feat an apostleship. Combat feats
+want the stat that powers them (Strength for Brawn's heirs and the
+extra attacks, Dexterity for evasion and finesse, Constitution for
+toughness and soaking), rising with the feat's level as skills' do
+(7.4). As with skills, requirements read trained stats, not gear, and a
+feat once taken is kept even if a later change raises its bar. `feat`
+lists every feat with what it needs, so the build is visible before the
+points are spent. 3.3's per-level
 multiplier and 7.1's curve are the next things to set, and they should
 be set together against a target of levels per session.
 

@@ -122,6 +122,9 @@ type Proto struct {
 	Rarity   string `yaml:"rarity,omitempty"`
 	// School is the arcane school a totem unlocks.
 	School string `yaml:"school,omitempty"`
+	// Spell is the id of a spell this item teaches when studied: a
+	// scroll, for the spells no trainer sells (docs/RULES.md 6.1).
+	Spell string `yaml:"spell,omitempty"`
 	// Sacrifice names the deity ("good", "neutral", "evil") that accepts
 	// this item as a great sacrifice at its temple.
 	Sacrifice string `yaml:"sacrifice,omitempty"`

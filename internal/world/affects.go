@@ -12,6 +12,9 @@ import (
 func cmdAffects(w *World, p *Player, _ string) {
 	var timed, lasting []effect.Active
 	for _, e := range p.Effects {
+		if e.Kind == "spell" {
+			continue // a learned spell is listed by spells, not here
+		}
 		if e.Rounds > 0 {
 			timed = append(timed, e)
 		} else {
@@ -35,7 +38,9 @@ func cmdAffects(w *World, p *Player, _ string) {
 	if len(lasting) > 0 {
 		b.WriteString("Always:\n")
 		for _, e := range lasting {
-			b.WriteString("  " + w.describeEffect(e) + "\n")
+			if d := w.describeEffect(e); d != "" {
+				b.WriteString("  " + d + "\n")
+			}
 		}
 	}
 	p.Send(b.String())

@@ -7,9 +7,10 @@ import (
 	"urth/internal/output"
 )
 
-// Trainers (docs/RULES.md 7.4): a mob whose prototype lists the skills it
-// teaches. practice at a trainer buys a skill for its price in silver;
-// innate skills need no trainer.
+// Trainers (docs/RULES.md 7.4, 6.1): a mob whose prototype lists the
+// skills and spells it teaches. practice at a trainer buys one for its
+// price in silver; innate skills and spells need no trainer, and a spell
+// is sold only to a character with its school or god.
 
 // trainersHere returns every trainer in the player's room.
 func (w *World) trainersHere(p *Player) []*Character {
@@ -82,6 +83,21 @@ func cmdPractice(w *World, p *Player, args string) {
 				b.WriteString(line + "\n")
 				offers.Items = append(offers.Items, o)
 			}
+			for _, sp := range w.spellList() {
+				if !teaches(trainer, sp.ID) || sp.Innate || sp.Found {
+					continue
+				}
+				n++
+				cost := escapeMoney(sp.Price)
+				line := "  " + padRight(output.Escape(sp.Name), 14) + padRight(cost, 34)
+				o := output.Offer{Name: sp.Name, Price: output.Strip(cost), Command: "practice " + sp.ID}
+				if why := spellBlocker(p.Character, sp); why != "" {
+					line += "(" + why + ")"
+					o.Note, o.Disabled = why, true
+				}
+				b.WriteString(line + "\n")
+				offers.Items = append(offers.Items, o)
+			}
 			if n == 0 {
 				b.WriteString("  nothing, it turns out.\n")
 			}
@@ -115,6 +131,10 @@ func cmdPractice(w *World, p *Player, args string) {
 		}
 	}
 	if match == nil {
+		if sp, who := w.taughtSpell(trainers, want); who != nil {
+			w.teachSpell(p, who, sp)
+			return
+		}
 		w.act("$N can't teach you that.", p.Character, trainers[0], "", toChar)
 		return
 	}
@@ -175,4 +195,62 @@ func needsText(needs map[string]int) string {
 		parts = append(parts, itoa(needs[k])+" "+k)
 	}
 	return strings.Join(parts, " and ")
+}
+
+// taughtSpell finds a spell one of the trainers sells by typed name.
+func (w *World) taughtSpell(trainers []*Character, want string) (Spell, *Character) {
+	var match Spell
+	var who *Character
+	for _, sp := range w.spellList() {
+		if sp.Innate || sp.Found {
+			continue
+		}
+		var t *Character
+		for _, tr := range trainers {
+			if teaches(tr, sp.ID) {
+				t = tr
+				break
+			}
+		}
+		if t == nil {
+			continue
+		}
+		if strings.ToLower(sp.Name) == want || strings.ToLower(sp.ID) == want {
+			return sp, t
+		}
+		if strings.HasPrefix(strings.ToLower(sp.Name), want) && who == nil {
+			match, who = sp, t
+		}
+	}
+	return match, who
+}
+
+// teachSpell sells sp to p, if p has the spell's school or god, its level,
+// and its stats (docs/RULES.md 6.1, 6.4).
+func (w *World) teachSpell(p *Player, trainer *Character, sp Spell) {
+	name := output.Escape(sp.Name)
+	switch {
+	case knowsSpell(p.Character, sp):
+		p.Send("You already know " + name + ".\n")
+		return
+	case !hasAccess(p.Character, sp):
+		w.act("'"+name+" is not for you,' says $N. 'It takes "+output.Escape(accessNeeds(sp))+".'", p.Character, trainer, "", toChar)
+		return
+	case p.Level < sp.Level:
+		w.act("$N looks you over. 'Come back at level "+itoa(sp.Level)+".'", p.Character, trainer, "", toChar)
+		return
+	}
+	if short := unmetStats(p.Character, sp.Stats); short != "" {
+		w.act("$N looks you over. 'You'll want "+short+" before I teach you "+name+".'", p.Character, trainer, "", toChar)
+		return
+	}
+	if p.Silver < sp.Price {
+		p.Send(name + " costs " + escapeMoney(sp.Price) + ". You have " + escapeMoney(p.Silver) + ".\n")
+		return
+	}
+	p.Silver -= sp.Price
+	learnSpell(p.Character, sp)
+	w.act("You pay $N $t and learn {Y}"+name+"{x}.", p.Character, trainer, escapeMoney(sp.Price), toChar)
+	w.act("$n studies with $N.", p.Character, trainer, "", toNotVict)
+	w.save(p)
 }

@@ -84,6 +84,7 @@ func init() {
 		{"stand", 2, cmdStand, false},
 		{"affects", 2, cmdAffects, false},
 		{"brandish", 2, cmdBrandish, false},
+		{"study", 3, cmdStudy, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
 		{"who", 2, cmdWho, false},

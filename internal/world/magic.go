@@ -9,7 +9,9 @@ import (
 )
 
 // Magic (docs/RULES.md 6): spells are defined by the rules (spellList),
-// access comes from consumed totems and a great sacrifice, casting takes
+// access comes from consumed totems and a great sacrifice, a spell is
+// innate to its school or god, taught by a trainer, or studied from a
+// scroll (6.1), casting takes
 // rounds and can be interrupted, materials are committed when a cast
 // begins, and resolveCast decides what happens to each target. The engine
 // owns the timing, the target set, the materials, and the messages.
@@ -27,8 +29,14 @@ type Spell struct {
 	Mana int `json:"mana"`
 	// Level and Stats are what a caster with access to the spell must have
 	// before it can be cast (6.4): a level and trained stats.
-	Level             int             `json:"level"`
-	Stats             map[string]int  `json:"stats"`
+	Level int            `json:"level"`
+	Stats map[string]int `json:"stats"`
+	// Innate spells are known as soon as the school or god is unlocked;
+	// the rest are learned, from a trainer for Price silver, or, when
+	// Found, only from a scroll (docs/RULES.md 6.1).
+	Innate            bool            `json:"innate"`
+	Price             int             `json:"price"`
+	Found             bool            `json:"found"`
 	InterruptOnDamage bool            `json:"interruptOnDamage"`
 	Cooldown          int             `json:"cooldown"`
 	Materials         []SpellMaterial `json:"materials"`
@@ -91,6 +99,31 @@ func (w *World) spellList() []Spell {
 	return list
 }
 
+// castCost lets the rules adjust what sp costs this caster: its mana, its
+// cast rounds, and whether damage interrupts it (docs/RULES.md 6.6:
+// Quicken, Combat Casting, thrift). Optional; without the hook, or for a
+// field it leaves out, the spell's own numbers stand.
+func (w *World) castCost(c *Character, sp Spell) Spell {
+	var r struct {
+		Mana              *int  `json:"mana"`
+		CastRounds        *int  `json:"castRounds"`
+		InterruptOnDamage *bool `json:"interruptOnDamage"`
+	}
+	if !w.callOptional("castCost", &r, w.view(c), spellView(sp)) {
+		return sp
+	}
+	if r.Mana != nil {
+		sp.Mana = max(0, *r.Mana)
+	}
+	if r.CastRounds != nil {
+		sp.CastRounds = max(0, *r.CastRounds)
+	}
+	if r.InterruptOnDamage != nil {
+		sp.InterruptOnDamage = *r.InterruptOnDamage
+	}
+	return sp
+}
+
 // spellUnready says why c cannot cast sp yet ("level 10", "16
 // intelligence"), or "" when it can.
 func spellUnready(c *Character, sp Spell) string {
@@ -112,12 +145,61 @@ func spellNeeds(sp Spell) string {
 	return strings.Join(parts, " and ")
 }
 
-// knowsSpell reports whether c has access to sp.
-func knowsSpell(c *Character, sp Spell) bool {
+// hasAccess reports whether c has unlocked sp's school or god.
+func hasAccess(c *Character, sp Spell) bool {
 	if sp.Branch == "divine" {
 		return sp.Deity != "" && c.Deity == sp.Deity
 	}
 	return c.HasSchool(sp.School)
+}
+
+// accessNeeds names what unlocks sp, for a character without it.
+func accessNeeds(sp Spell) string {
+	if sp.Branch == "divine" {
+		return "the " + sp.Deity + " god's favour"
+	}
+	return "the " + sp.School + " school"
+}
+
+// knowsSpell reports whether c can call on sp: its school or god is
+// unlocked, and the spell is innate or learned.
+func knowsSpell(c *Character, sp Spell) bool {
+	return hasAccess(c, sp) && (sp.Innate || learnedSpell(c, sp.ID))
+}
+
+// learnedSpell reports whether c has learned the spell id, which is kept
+// as a permanent "spell" effect, as a learned skill is.
+func learnedSpell(c *Character, id string) bool {
+	for _, e := range c.Effects {
+		if e.Kind == "spell" && e.Params["spell"] == id {
+			return true
+		}
+	}
+	return false
+}
+
+// learnSpell records that c knows sp.
+func learnSpell(c *Character, sp Spell) {
+	if learnedSpell(c, sp.ID) {
+		return
+	}
+	c.Effects = append(c.Effects, effect.Active{Spec: effect.Spec{Kind: "spell", Params: map[string]any{"spell": sp.ID}}})
+}
+
+// spellBlocker says why c cannot learn sp now, or "" when it can: no
+// access, already known, level, or stats.
+func spellBlocker(c *Character, sp Spell) string {
+	switch {
+	case !hasAccess(c, sp):
+		return "needs " + accessNeeds(sp)
+	case knowsSpell(c, sp):
+		return "you know this"
+	case c.Level < sp.Level:
+		return "level " + itoa(sp.Level)
+	case unmetStats(c, sp.Stats) != "":
+		return "needs " + needsText(sp.Stats)
+	}
+	return ""
 }
 
 // findSpell matches a typed name against the spells c knows.
@@ -179,11 +261,16 @@ func commitMaterials(c *Character, sp Spell) {
 func cmdSpells(w *World, p *Player, _ string) {
 	var b strings.Builder
 	n := 0
+	var learnable []Spell
 	for _, sp := range w.spellList() {
 		if !knowsSpell(p.Character, sp) {
+			if hasAccess(p.Character, sp) {
+				learnable = append(learnable, sp)
+			}
 			continue
 		}
 		n++
+		sp = w.castCost(p.Character, sp)
 		line := padRight(output.Escape(sp.Name), 14)
 		if sp.Branch == "divine" {
 			line += padRight(output.Escape(sp.Deity), 14)
@@ -211,6 +298,20 @@ func cmdSpells(w *World, p *Player, _ string) {
 	}
 	if n == 0 {
 		b.WriteString("You know no spells.\n")
+	}
+	if len(learnable) > 0 {
+		b.WriteString("Still to learn:\n")
+		for _, sp := range learnable {
+			how := "from a trainer"
+			if sp.Found {
+				how = "from a scroll, found in the world"
+			}
+			line := "  " + padRight(output.Escape(sp.Name), 14) + how
+			if t := spellNeeds(sp); t != "" {
+				line += "  {D}(" + t + "){x}"
+			}
+			b.WriteString(line + "\n")
+		}
 	}
 	if len(p.Schools) > 0 {
 		b.WriteString("Schools: " + output.Escape(strings.Join(p.Schools, ", ")) + "\n")
@@ -241,6 +342,7 @@ func cmdCast(w *World, p *Player, args string) {
 		p.Send("You don't know that spell.\n")
 		return
 	}
+	sp = w.castCost(p.Character, sp)
 	if why := spellUnready(p.Character, sp); why != "" {
 		p.Send("You cannot cast " + output.Escape(sp.Name) + " yet: it takes " + spellNeeds(sp) + ", and you lack " + why + ".\n")
 		return
@@ -377,7 +479,9 @@ func (w *World) interruptCast(c *Character, why string) {
 func (w *World) resolveCastNow(c *Character, sp Spell, targets []*Character) {
 	var views []any
 	for _, t := range targets {
-		views = append(views, w.view(t))
+		v := w.view(t)
+		v["self"] = t == c // Martyr and the like tell the caster apart
+		views = append(views, v)
 	}
 	var r CastResult
 	if !w.call("resolveCast", &r, w.view(c), views, spellView(sp)) || !r.OK {
@@ -521,6 +625,7 @@ func spellView(sp Spell) map[string]any {
 		"id": sp.ID, "name": sp.Name, "branch": sp.Branch, "school": sp.School, "deity": sp.Deity,
 		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown, "mana": sp.Mana, "level": sp.Level, "stats": sp.Stats,
 		"materials": mats, "target": sp.Target, "save": sp.Save, "saveEffect": sp.SaveEffect,
+		"innate": sp.Innate, "price": sp.Price, "found": sp.Found,
 	}
 }
 
@@ -643,5 +748,51 @@ func (w *World) greatSacrifice(p *Player, it *item.Item) {
 	}
 	p.Deity = p.Room.Temple
 	p.Send("{Y}You are now an apostle of the " + output.Escape(p.Deity) + " god.{x}\n")
+	w.save(p)
+}
+
+// cmdStudy: study <scroll>. A scroll names a spell no trainer sells;
+// studying it teaches the spell to a character with its school or god,
+// level, and stats, and uses the scroll up (docs/RULES.md 6.1).
+func cmdStudy(w *World, p *Player, args string) {
+	if args == "" {
+		p.Send("Study what?\n")
+		return
+	}
+	found := item.Find(p.Inventory, item.ParseTarget(args))
+	if len(found) == 0 {
+		p.Send("You don't have that.\n")
+		return
+	}
+	it := found[0]
+	var sp Spell
+	ok := false
+	for _, s := range w.spellList() {
+		if it.Proto.Spell != "" && s.ID == it.Proto.Spell {
+			sp, ok = s, true
+			break
+		}
+	}
+	if !ok {
+		p.Send("There is nothing in " + output.Escape(it.Name()) + " to learn.\n")
+		return
+	}
+	name := output.Escape(sp.Name)
+	switch {
+	case knowsSpell(p.Character, sp):
+		p.Send("You already know " + name + ".\n")
+		return
+	case !hasAccess(p.Character, sp):
+		p.Send("The words of " + name + " slide off your mind. It takes " + output.Escape(accessNeeds(sp)) + ".\n")
+		return
+	}
+	if why := spellUnready(p.Character, sp); why != "" {
+		p.Send("You cannot hold " + name + " yet: it takes " + spellNeeds(sp) + ", and you lack " + why + ".\n")
+		return
+	}
+	p.Inventory = item.Remove(p.Inventory, it)
+	learnSpell(p.Character, sp)
+	w.actItem("You study $p, and {Y}"+name+"{x} is yours. The scroll crumbles.", p.Character, nil, output.Escape(it.Name()), "", toChar)
+	w.actItem("$n studies $p, which crumbles.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
 	w.save(p)
 }

@@ -72,14 +72,40 @@ type CreateResult struct {
 }
 
 // Feat is one entry of featList (docs/RULES.md 7.2): a permanent effect
-// with a minimum level and optional prerequisites.
+// with a minimum level, trained stats, and optional prerequisites. A
+// caster feat names its Branch (arcane needs a school unlocked, divine an
+// apostleship), or a particular School or Deity (6.6).
 type Feat struct {
-	ID          string      `json:"id"`
-	Name        string      `json:"name"`
-	Level       int         `json:"level"`
-	Description string      `json:"description"`
-	Requires    []string    `json:"requires"`
-	Effect      effect.Spec `json:"effect"`
+	ID          string         `json:"id"`
+	Name        string         `json:"name"`
+	Level       int            `json:"level"`
+	Stats       map[string]int `json:"stats"`
+	Branch      string         `json:"branch"`
+	School      string         `json:"school"`
+	Deity       string         `json:"deity"`
+	Description string         `json:"description"`
+	Requires    []string       `json:"requires"`
+	Effect      effect.Spec    `json:"effect"`
+}
+
+// featBlocker says what c lacks for f beyond picks and prerequisites: a
+// level, trained stats, or the magic it serves; "" when nothing.
+func featBlocker(c *Character, f Feat) string {
+	switch {
+	case c.Level < f.Level:
+		return "level " + itoa(f.Level)
+	case unmetStats(c, f.Stats) != "":
+		return "needs " + needsText(f.Stats)
+	case f.School != "" && !c.HasSchool(f.School):
+		return "needs the " + f.School + " school"
+	case f.Deity != "" && c.Deity != f.Deity:
+		return "needs the " + f.Deity + " god's favour"
+	case f.Branch == "arcane" && len(c.Schools) == 0:
+		return "needs an arcane school"
+	case f.Branch == "divine" && c.Deity == "":
+		return "needs a god's favour"
+	}
+	return ""
 }
 
 // kitEntry is one item of standardKit: enough to build a prototype.

@@ -623,13 +623,13 @@ func TestSimulateFighterUsesStandardKit(t *testing.T) {
 const magicRules = testRules + `
 function spellList() {
   return [
-    { id: "bolt", name: "Bolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+    { id: "bolt", name: "Bolt", innate: true, branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 3,
       materials: [{ material: "ash", count: 1 }], target: "single", save: "reflex", saveEffect: "half" },
-    { id: "ward", name: "Ward", branch: "abjuration" === "x" ? "" : "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 0,
+    { id: "ward", name: "Ward", innate: true, branch: "abjuration" === "x" ? "" : "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 0,
       materials: [], target: "self", save: "none" },
-    { id: "nova", name: "Nova", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: false, cooldown: 0,
+    { id: "nova", name: "Nova", innate: true, branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: false, cooldown: 0,
       materials: [], target: "area", save: "none" },
-    { id: "mend", name: "Mend", branch: "divine", deity: "good", castRounds: 0, interruptOnDamage: false, cooldown: 0,
+    { id: "mend", name: "Mend", innate: true, branch: "divine", deity: "good", castRounds: 0, interruptOnDamage: false, cooldown: 0,
       materials: [], target: "ally", save: "none" }
   ];
 }
@@ -1433,5 +1433,49 @@ func TestCastSpendsMana(t *testing.T) {
 	send(w, 1, "cast nova")
 	if o := bob.take(); !strings.Contains(o, "You need 4 mana to cast Nova; you have 1.") || p.Mana != 1 {
 		t.Fatalf("short of mana: %q mana %d", o, p.Mana)
+	}
+}
+
+// TestFeatsGatedByStatsAndMagic: a feat can want trained stats, an
+// arcane school, a particular school, or a god (docs/RULES.md 7.2, 6.6).
+func TestFeatsGatedByStatsAndMagic(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, testRules+`
+function featList() {
+  return [
+    { id: "brawn", name: "Brawn", level: 1, stats: { might: 3 }, description: "Strong.", effect: { kind: "tough", params: {} } },
+    { id: "focus", name: "Focus", level: 1, branch: "arcane", description: "Arcane.", effect: { kind: "tough", params: {} } },
+    { id: "evo", name: "Evoker", level: 1, school: "evocation", description: "Evocation.", effect: { kind: "tough", params: {} } },
+    { id: "grace", name: "Grace", level: 1, branch: "divine", description: "Divine.", effect: { kind: "tough", params: {} } }
+  ];
+}
+`)
+	p := w.players[1]
+	p.FeatPoints = 4
+	send(w, 1, "feat")
+	if o := bob.take(); !strings.Contains(o, "(needs 3 might)") || !strings.Contains(o, "(needs an arcane school)") || !strings.Contains(o, "(needs the evocation school)") || !strings.Contains(o, "(needs a god's favour)") {
+		t.Fatalf("feat list: %q", o)
+	}
+	for _, c := range []struct{ cmd, want string }{
+		{"feat brawn", "Brawn needs 3 might."},
+		{"feat focus", "Focus needs an arcane school."},
+		{"feat evoker", "Evoker needs the evocation school."},
+		{"feat grace", "Grace needs a god's favour."},
+	} {
+		send(w, 1, c.cmd)
+		if o := bob.take(); !strings.Contains(o, c.want) {
+			t.Fatalf("%s: %q", c.cmd, o)
+		}
+	}
+	p.Stats["might"] = 3
+	p.Schools = []string{"illusion"}
+	p.Deity = "good"
+	send(w, 1, "feat brawn")
+	send(w, 1, "feat focus")
+	send(w, 1, "feat grace")
+	send(w, 1, "feat evoker")
+	if o := bob.take(); !strings.Contains(o, "Evoker needs the evocation school.") || !takenFeats(p.Character)["brawn"] || !takenFeats(p.Character)["focus"] || !takenFeats(p.Character)["grace"] || p.FeatPoints != 1 {
+		t.Fatalf("after meeting gates: %q taken=%v points=%d", o, takenFeats(p.Character), p.FeatPoints)
 	}
 }

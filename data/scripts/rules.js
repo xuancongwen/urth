@@ -665,7 +665,8 @@ function derivedStats(c) {
 
 function manaMax(c) {
   var m = Math.max(mult(c, "intelligence"), mult(c, "wisdom"));
-  return Math.max(0, Math.round((P.manaBase + P.manaPerLevel * ((c.level || 1) - 1)) * m));
+  // Arcane Reservoir, Deep Faith, and caster gear deepen the pool (6.6).
+  return Math.max(0, Math.round((P.manaBase + P.manaPerLevel * ((c.level || 1) - 1)) * m * (1 + sumEffects(c, "manaMax", "amount"))));
 }
 
 // manaRegen is mana back per round at a position multiplier.
@@ -714,6 +715,9 @@ function onTick(c) {
       if (e.kind === "aura") aura.push({ verb: e.params.verb || "aura", damage: Math.max(1, Math.round(spreadRoll(unit(c) * num(e.params.power), 0.2))) });
     });
     var fightMana = P.manaFightRegen > 0 ? manaRegen(c, P.manaFightRegen) : 0;
+    // Divine Favor and the like: a trickle of mana even in a fight (6.6).
+    var favor = sumEffects(c, "manaFight", "fraction");
+    if (favor > 0 && c.manaMax && c.mana < c.manaMax) fightMana += Math.max(1, Math.round(c.manaMax * favor));
     return { healthDelta: regen - Math.round(dot), manaDelta: fightMana, staminaDelta: staminaRegen(c, 1),
       skills: improvePassives(c), aura: aura };
   }
@@ -764,78 +768,138 @@ function onLevel(c, newLevel) {
 // add.
 // ---------------------------------------------------------------------
 var FEATS = [
-  { id: "toughness", name: "Toughness", level: 1, description: "+2 Constitution.",
+  { id: "toughness", name: "Toughness", level: 1, stats: { constitution: 11 }, description: "+2 Constitution.",
     effect: { kind: "stat", params: { stat: "constitution", amount: 2 } } },
-  { id: "brawn", name: "Brawn", level: 1, description: "+2 Strength.",
+  { id: "brawn", name: "Brawn", level: 1, stats: { strength: 11 }, description: "+2 Strength.",
     effect: { kind: "stat", params: { stat: "strength", amount: 2 } } },
-  { id: "nimble", name: "Nimble", level: 1, description: "+2 Dexterity.",
+  { id: "nimble", name: "Nimble", level: 1, stats: { dexterity: 11 }, description: "+2 Dexterity.",
     effect: { kind: "stat", params: { stat: "dexterity", amount: 2 } } },
-  { id: "keen", name: "Keen Edge", level: 3, description: "A 5 percent chance to critically hit for double damage.",
+  { id: "keen", name: "Keen Edge", level: 3, stats: { dexterity: 12 }, description: "A 5 percent chance to critically hit for double damage.",
     effect: { kind: "crit", params: { chance: 0.05, mult: 2 } } },
-  { id: "parry", name: "Parry", level: 3, description: "Block one swing in ten with your weapon.",
+  { id: "parry", name: "Parry", level: 3, stats: { dexterity: 12 }, description: "Block one swing in ten with your weapon.",
     effect: { kind: "block", params: { chance: 0.10 } } },
-  { id: "evasion", name: "Evasion", level: 5, description: "Dodge 5 percent more often.",
+  { id: "evasion", name: "Evasion", level: 5, stats: { dexterity: 13 }, description: "Dodge 5 percent more often.",
     effect: { kind: "dodge", params: { amount: 0.05 } } },
-  { id: "second_attack", name: "Second Attack", level: 5, description: "One extra swing every round.",
+  { id: "second_attack", name: "Second Attack", level: 5, stats: { strength: 13 }, description: "One extra swing every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
-  { id: "deadly", name: "Deadly Edge", level: 8, requires: ["keen"], description: "A 10 percent chance to critically hit for double damage.",
+  { id: "deadly", name: "Deadly Edge", level: 8, stats: { dexterity: 14 }, requires: ["keen"], description: "A 10 percent chance to critically hit for double damage.",
     effect: { kind: "crit", params: { chance: 0.10, mult: 2 } } },
-  { id: "iron_skin", name: "Iron Skin", level: 10, requires: ["toughness"], description: "+4 Constitution.",
+  { id: "iron_skin", name: "Iron Skin", level: 10, stats: { constitution: 15 }, requires: ["toughness"], description: "+4 Constitution.",
     effect: { kind: "stat", params: { stat: "constitution", amount: 4 } } },
-  { id: "third_attack", name: "Third Attack", level: 12, requires: ["second_attack"], description: "Another extra swing every round.",
+  { id: "third_attack", name: "Third Attack", level: 12, stats: { strength: 15 }, requires: ["second_attack"], description: "Another extra swing every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
 
   // --- approved 2026-09-28 ---
-  { id: "iron_will", name: "Iron Will", level: 1, description: "+2 Wisdom.",
+  { id: "iron_will", name: "Iron Will", level: 1, stats: { wisdom: 11 }, description: "+2 Wisdom.",
     effect: { kind: "stat", params: { stat: "wisdom", amount: 2 } } },
-  { id: "keen_mind", name: "Keen Mind", level: 1, description: "+2 Intelligence.",
+  { id: "keen_mind", name: "Keen Mind", level: 1, stats: { intelligence: 11 }, description: "+2 Intelligence.",
     effect: { kind: "stat", params: { stat: "intelligence", amount: 2 } } },
-  { id: "thick_hide", name: "Thick Hide", level: 2, description: "Every hit on you is a tenth of a swing smaller.",
+  { id: "thick_hide", name: "Thick Hide", level: 2, stats: { constitution: 12 }, description: "Every hit on you is a tenth of a swing smaller.",
     effect: { kind: "soak", params: { power: 0.10 } } },
-  { id: "shield_focus", name: "Shield Focus", level: 3, description: "Block 8 percent more with a shield worn.",
+  { id: "shield_focus", name: "Shield Focus", level: 3, stats: { strength: 12 }, description: "Block 8 percent more with a shield worn.",
     effect: { kind: "shieldBlock", params: { chance: 0.08 } } },
-  { id: "finesse", name: "Weapon Finesse", level: 3, description: "With a dagger, Dexterity drives your damage instead of Strength.",
+  { id: "finesse", name: "Weapon Finesse", level: 3, stats: { dexterity: 12 }, description: "With a dagger, Dexterity drives your damage instead of Strength.",
     effect: { kind: "finesse", params: {} } },
-  { id: "blind_fighting", name: "Blind-Fighting", level: 4, description: "Blinded, you miss half as often.",
+  { id: "blind_fighting", name: "Blind-Fighting", level: 4, stats: { wisdom: 12 }, description: "Blinded, you miss half as often.",
     effect: { kind: "blindFighting", params: { mult: 0.5 } } },
-  { id: "sure_footing", name: "Sure Footing", level: 4, description: "An even chance to keep your feet when tripped or bashed.",
+  { id: "sure_footing", name: "Sure Footing", level: 4, stats: { strength: 12 }, description: "An even chance to keep your feet when tripped or bashed.",
     effect: { kind: "steady", params: { chance: 0.5 } } },
-  { id: "power_attack", name: "Power Attack", level: 5, description: "15 percent more damage, 5 percent less dodge.",
+  { id: "power_attack", name: "Power Attack", level: 5, stats: { strength: 13 }, description: "15 percent more damage, 5 percent less dodge.",
     effect: { kind: "powerAttack", params: { mult: 1.15, dodge: -0.05 } } },
-  { id: "die_hard", name: "Die Hard", level: 6, requires: ["toughness"], description: "Below a quarter of your health, take a quarter less damage.",
+  { id: "die_hard", name: "Die Hard", level: 6, stats: { constitution: 13 }, requires: ["toughness"], description: "Below a quarter of your health, take a quarter less damage.",
     effect: { kind: "lastStand", params: { threshold: 0.25, mult: 0.75 } } },
-  { id: "opportunist", name: "Opportunist", level: 6, description: "25 percent more damage against a foe who is stunned, tripped, or slowed.",
+  { id: "opportunist", name: "Opportunist", level: 6, stats: { dexterity: 13 }, description: "25 percent more damage against a foe who is stunned, tripped, or slowed.",
     effect: { kind: "opportunist", params: { mult: 1.25 } } },
-  { id: "bloodthirst", name: "Bloodthirst", level: 7, description: "Heal 5 percent of the damage you deal.",
+  { id: "bloodthirst", name: "Bloodthirst", level: 7, stats: { constitution: 13 }, description: "Heal 5 percent of the damage you deal.",
     effect: { kind: "leech", params: { fraction: 0.05 } } },
-  { id: "retaliation", name: "Retaliation", level: 8, requires: ["parry"], description: "A tenth of every hit on you goes back to the attacker.",
+  { id: "retaliation", name: "Retaliation", level: 8, stats: { dexterity: 14 }, requires: ["parry"], description: "A tenth of every hit on you goes back to the attacker.",
     effect: { kind: "thorns", params: { fraction: 0.10, verb: "riposte" } } },
-  { id: "precise", name: "Precise Strikes", level: 8, requires: ["keen"], description: "Critical hits deal two and a half times damage instead of double.",
+  { id: "precise", name: "Precise Strikes", level: 8, stats: { dexterity: 14 }, requires: ["keen"], description: "Critical hits deal two and a half times damage instead of double.",
     effect: { kind: "critMult", params: { amount: 0.5 } } },
-  { id: "weapon_master", name: "Weapon Master", level: 9, description: "10 percent more damage with a weapon in hand.",
+  { id: "weapon_master", name: "Weapon Master", level: 9, stats: { strength: 14 }, description: "10 percent more damage with a weapon in hand.",
     effect: { kind: "damage", params: { mult: 1.10, weapon: true } } },
-  { id: "iron_fist", name: "Iron Fist", level: 9, description: "Bare hands and kicks hit 25 percent harder.",
+  { id: "iron_fist", name: "Iron Fist", level: 9, stats: { strength: 14 }, description: "Bare hands and kicks hit 25 percent harder.",
     effect: { kind: "unarmedMult", params: { mult: 1.25 } } },
-  { id: "executioner", name: "Executioner", level: 10, description: "25 percent more damage to foes below a fifth of their health.",
+  { id: "executioner", name: "Executioner", level: 10, stats: { strength: 15 }, description: "25 percent more damage to foes below a fifth of their health.",
     effect: { kind: "execute", params: { threshold: 0.20, mult: 1.25 } } },
-  { id: "stalwart", name: "Stalwart", level: 11, requires: ["thick_hide"], description: "Every hit on you is a quarter of a swing smaller, with Thick Hide.",
+  { id: "stalwart", name: "Stalwart", level: 11, stats: { constitution: 15 }, requires: ["thick_hide"], description: "Every hit on you is a quarter of a swing smaller, with Thick Hide.",
     effect: { kind: "soak", params: { power: 0.15 } } },
-  { id: "lightning_reflexes", name: "Lightning Reflexes", level: 11, requires: ["evasion"], description: "Dodge 5 percent more often.",
+  { id: "lightning_reflexes", name: "Lightning Reflexes", level: 11, stats: { dexterity: 15 }, requires: ["evasion"], description: "Dodge 5 percent more often.",
     effect: { kind: "dodge", params: { amount: 0.05 } } },
-  { id: "regeneration", name: "Regeneration", level: 12, requires: ["toughness"], description: "1 percent of your health back every round, even in a fight.",
+  { id: "regeneration", name: "Regeneration", level: 12, stats: { constitution: 15 }, requires: ["toughness"], description: "1 percent of your health back every round, even in a fight.",
     effect: { kind: "regen", params: { fraction: 0.01 } } },
-  { id: "bulwark", name: "Bulwark", level: 13, requires: ["shield_focus"], description: "Block 7 percent more again with a shield worn.",
+  { id: "bulwark", name: "Bulwark", level: 13, stats: { strength: 16 }, requires: ["shield_focus"], description: "Block 7 percent more again with a shield worn.",
     effect: { kind: "shieldBlock", params: { chance: 0.07 } } },
-  { id: "relentless", name: "Relentless", level: 14, description: "Every skill's cooldown is a round shorter, never below one, and skills cost a fifth less stamina.",
+  { id: "relentless", name: "Relentless", level: 14, stats: { constitution: 16 }, description: "Every skill's cooldown is a round shorter, never below one, and skills cost a fifth less stamina.",
     effect: { kind: "cooldownCut", params: { rounds: 1 } } },
-  { id: "unstoppable", name: "Unstoppable", level: 16, requires: ["sure_footing"], description: "Nothing takes your round from you, and slows are halved.",
+  { id: "unstoppable", name: "Unstoppable", level: 16, stats: { strength: 17 }, requires: ["sure_footing"], description: "Nothing takes your round from you, and slows are halved.",
     effect: { kind: "steady", params: { chance: 1, slow: 0.5 } } },
-  { id: "deathblow", name: "Deathblow", level: 18, requires: ["deadly"], description: "A 15 percent chance to critically hit for double damage.",
+  { id: "deathblow", name: "Deathblow", level: 18, stats: { dexterity: 17 }, requires: ["deadly"], description: "A 15 percent chance to critically hit for double damage.",
     effect: { kind: "crit", params: { chance: 0.15, mult: 2 } } },
-  { id: "fourth_attack", name: "Fourth Attack", level: 20, requires: ["third_attack"], description: "Yet another extra swing every round.",
+  { id: "fourth_attack", name: "Fourth Attack", level: 20, stats: { strength: 18 }, requires: ["third_attack"], description: "Yet another extra swing every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
-  { id: "juggernaut", name: "Juggernaut", level: 22, requires: ["iron_skin"], description: "Take 10 percent less damage from everything.",
-    effect: { kind: "protect", params: { mult: 0.9 } } }
+  { id: "juggernaut", name: "Juggernaut", level: 22, stats: { constitution: 18 }, requires: ["iron_skin"], description: "Take 10 percent less damage from everything.",
+    effect: { kind: "protect", params: { mult: 0.9 } } },
+
+  // --- caster feats (RULES 6.6), 2026-10-11 ---
+  // Arcane: specialisation and force.
+  { id: "focus_abjuration", name: "Spell Focus (Abjuration)", level: 3, stats: { intelligence: 12 }, school: "abjuration", description: "Abjuration spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "abjuration" } } },
+  { id: "focus_conjuration", name: "Spell Focus (Conjuration)", level: 3, stats: { intelligence: 12 }, school: "conjuration", description: "Conjuration spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "conjuration" } } },
+  { id: "focus_divination", name: "Spell Focus (Divination)", level: 3, stats: { intelligence: 12 }, school: "divination", description: "Divination spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "divination" } } },
+  { id: "focus_enchantment", name: "Spell Focus (Enchantment)", level: 3, stats: { intelligence: 12 }, school: "enchantment", description: "Enchantment spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "enchantment" } } },
+  { id: "focus_evocation", name: "Spell Focus (Evocation)", level: 3, stats: { intelligence: 12 }, school: "evocation", description: "Evocation spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "evocation" } } },
+  { id: "focus_illusion", name: "Spell Focus (Illusion)", level: 3, stats: { intelligence: 12 }, school: "illusion", description: "Illusion spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "illusion" } } },
+  { id: "focus_necromancy", name: "Spell Focus (Necromancy)", level: 3, stats: { intelligence: 12 }, school: "necromancy", description: "Necromancy spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "necromancy" } } },
+  { id: "focus_transmutation", name: "Spell Focus (Transmutation)", level: 3, stats: { intelligence: 12 }, school: "transmutation", description: "Transmutation spells are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, school: "transmutation" } } },
+  { id: "arcane_reservoir", name: "Arcane Reservoir", level: 4, stats: { intelligence: 12 }, branch: "arcane", description: "A quarter more mana.",
+    effect: { kind: "manaMax", params: { amount: 0.25 } } },
+  { id: "empower", name: "Empower Spell", level: 6, stats: { intelligence: 13 }, branch: "arcane", description: "Arcane spells that harm are 15 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.15, branch: "arcane", kind: "damage" } } },
+  { id: "combat_casting", name: "Combat Casting", level: 6, stats: { intelligence: 13 }, branch: "arcane", description: "Blows no longer break your arcane casting.",
+    effect: { kind: "castCost", params: { steady: true, branch: "arcane" } } },
+  { id: "penetration", name: "Spell Penetration", level: 8, stats: { intelligence: 14 }, branch: "arcane", description: "Arcane spells are a quarter harder to resist.",
+    effect: { kind: "penetration", params: { amount: 0.25, branch: "arcane" } } },
+  { id: "arcane_precision", name: "Arcane Precision", level: 10, stats: { intelligence: 15 }, branch: "arcane", description: "A 10 percent chance for an arcane spell to surge for half again.",
+    effect: { kind: "spellCrit", params: { chance: 0.10, mult: 1.5, branch: "arcane" } } },
+  { id: "quicken", name: "Quicken Spell", level: 12, stats: { intelligence: 16 }, branch: "arcane", requires: ["combat_casting"], description: "Arcane spells of two rounds or more take a round less.",
+    effect: { kind: "castCost", params: { rounds: 1, branch: "arcane" } } },
+  { id: "arcane_thrift", name: "Arcane Thrift", level: 14, stats: { intelligence: 16 }, branch: "arcane", requires: ["arcane_reservoir"], description: "Arcane spells cost a fifth less mana.",
+    effect: { kind: "castCost", params: { mana: 0.8, branch: "arcane" } } },
+  { id: "greater_penetration", name: "Greater Penetration", level: 16, stats: { intelligence: 17 }, branch: "arcane", requires: ["penetration"], description: "Arcane spells are a quarter harder again to resist.",
+    effect: { kind: "penetration", params: { amount: 0.25, branch: "arcane" } } },
+  { id: "archmage", name: "Archmage", level: 20, stats: { intelligence: 18 }, branch: "arcane", requires: ["empower"], description: "Every arcane spell is 15 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.15, branch: "arcane" } } },
+  // Divine: devotion and the group.
+  { id: "devotion", name: "Devotion", level: 3, stats: { wisdom: 12 }, branch: "divine", description: "Your god's spells are 15 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.15, branch: "divine" } } },
+  { id: "healers_grace", name: "Healer's Grace", level: 4, stats: { wisdom: 12 }, branch: "divine", description: "Spells that heal are 25 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.25, kind: "heal" } } },
+  { id: "deep_faith", name: "Deep Faith", level: 4, stats: { wisdom: 12 }, branch: "divine", description: "A fifth more mana.",
+    effect: { kind: "manaMax", params: { amount: 0.20 } } },
+  { id: "shield_of_faith", name: "Shield of Faith", level: 5, stats: { wisdom: 13 }, branch: "divine", description: "A helpful spell leaves you taking 15 percent less damage for three rounds.",
+    effect: { kind: "faithShield", params: { mult: 0.85, rounds: 3 } } },
+  { id: "martyr", name: "Martyr", level: 6, stats: { wisdom: 13 }, branch: "divine", description: "Healing another heals you for a quarter of it.",
+    effect: { kind: "martyr", params: { fraction: 0.25 } } },
+  { id: "steadfast_prayer", name: "Steadfast Prayer", level: 7, stats: { wisdom: 13 }, branch: "divine", description: "Blows no longer break your prayers.",
+    effect: { kind: "castCost", params: { steady: true, branch: "divine" } } },
+  { id: "channel", name: "Channel Divinity", level: 8, stats: { wisdom: 14 }, branch: "divine", description: "Your god's spells are a quarter harder to resist.",
+    effect: { kind: "penetration", params: { amount: 0.25, branch: "divine" } } },
+  { id: "divine_favor", name: "Divine Favor", level: 10, stats: { wisdom: 15 }, branch: "divine", description: "Two percent of your mana returns each round, even in a fight.",
+    effect: { kind: "manaFight", params: { fraction: 0.02 } } },
+  { id: "zealous_wrath", name: "Zealous Wrath", level: 12, stats: { wisdom: 16 }, branch: "divine", requires: ["devotion"], description: "Divine spells that harm are 20 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.20, branch: "divine", kind: "damage" } } },
+  { id: "miracle", name: "Miracle", level: 16, stats: { wisdom: 17 }, branch: "divine", requires: ["healers_grace"], description: "A 10 percent chance for a divine spell to surge for double.",
+    effect: { kind: "spellCrit", params: { chance: 0.10, mult: 2, branch: "divine" } } },
+  { id: "saint", name: "Saint", level: 20, stats: { wisdom: 18 }, branch: "divine", requires: ["devotion"], description: "Every divine spell is 15 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.15, branch: "divine" } } }
 ];
 
 function featList() { return FEATS; }
@@ -879,52 +943,52 @@ function deathRules() {
 // level (6.4).
 // ---------------------------------------------------------------------
 var SPELLS = [
-  { id: "firebolt", level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "firebolt", innate: true, level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
     description: "A bolt of fire at one target." },
-  { id: "fireball", level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
+  { id: "fireball", innate: true, level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
     target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
     description: "Fire fills the room." },
-  { id: "ward", level: 2, stats: { intelligence: 11 }, mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
+  { id: "ward", innate: true, level: 2, stats: { intelligence: 11 }, mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
     target: "ally", save: "none",
     effect: function (caster, target) { return { kind: "defense", params: { amount: target.level + 2 }, rounds: 10 }; },
     description: "A ward as strong as armor, for ten rounds." },
-  { id: "acid", level: 3, stats: { intelligence: 12 }, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "acid", innate: true, level: 3, stats: { intelligence: 12 }, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.3 * power) }, rounds: 3 }; },
     description: "Acid that keeps burning." },
-  { id: "foresight", level: 4, stats: { intelligence: 12 }, mana: 8, name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
+  { id: "foresight", innate: true, level: 4, stats: { intelligence: 12 }, mana: 8, name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
     target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.10 }, rounds: 10 }; },
     description: "See the blow before it lands." },
-  { id: "daze", level: 3, stats: { intelligence: 12 }, mana: 6, name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
+  { id: "daze", innate: true, level: 3, stats: { intelligence: 12 }, mana: 6, name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
     target: "single", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 3 }; },
     description: "The target's swings come slow." },
-  { id: "blur", level: 5, stats: { intelligence: 13 }, mana: 8, name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
+  { id: "blur", innate: true, level: 5, stats: { intelligence: 13 }, mana: 8, name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
     target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.15 }, rounds: 5 }; },
     description: "Your outline swims." },
-  { id: "drain", level: 5, stats: { intelligence: 13 }, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+  { id: "drain", innate: true, level: 5, stats: { intelligence: 13 }, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
     description: "Take their life for your own." },
-  { id: "haste", level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
+  { id: "haste", innate: true, level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
     target: "self", save: "none",
     effect: function () { return { kind: "attacks", params: { amount: 1 }, rounds: 5 }; },
     description: "One more swing every round." },
-  { id: "mend", level: 1, stats: { wisdom: 11 }, mana: 8, name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "mend", innate: true, level: 1, stats: { wisdom: 11 }, mana: 8, name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "ally", save: "none", heal: 0.30,
     description: "Close wounds." },
-  { id: "sanctuary", level: 8, stats: { wisdom: 15 }, mana: 20, name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
+  { id: "sanctuary", innate: true, level: 8, stats: { wisdom: 15 }, mana: 20, name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
     target: "group", save: "none",
     effect: function () { return { kind: "protect", params: { mult: 0.5 }, rounds: 5 }; },
     description: "The group takes half damage." },
-  { id: "stillness", level: 4, stats: { wisdom: 12 }, mana: 12, name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
+  { id: "stillness", innate: true, level: 4, stats: { wisdom: 12 }, mana: 12, name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
     target: "area", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 2 }; },
     description: "Every enemy slows." },
-  { id: "blight", level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
-    target: "area", save: "fortitude", saveEffect: "half",
+  { id: "blight", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
+    target: "area", save: "fortitude", saveEffect: "half", dot: true,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
     description: "Rot spreads through every enemy." }
 ];
@@ -935,6 +999,7 @@ function spellList() {
     return { id: sp.id, name: sp.name, branch: sp.branch, school: sp.school || "", deity: sp.deity || "",
       castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage, cooldown: sp.cooldown || 0, mana: sp.mana || 0, level: sp.level || 1, stats: sp.stats || {},
       materials: sp.materials || [], target: sp.target, save: sp.save || "none", saveEffect: sp.saveEffect || "",
+      innate: !!sp.innate, price: sp.price || 0, found: !!sp.found,
       description: sp.description || "" };
   });
 }
@@ -947,7 +1012,53 @@ var SAVE_STAT = { reflex: "dexterity", fortitude: "constitution", will: "wisdom"
 // weapon's damage at the caster's level, times the branch stat and level.
 function spellPower(caster, sp) {
   var statName = sp.branch === "divine" ? "wisdom" : "intelligence";
-  return WEAPON_BASELINES.standard(caster.level || 1).damage * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell"));
+  return WEAPON_BASELINES.standard(caster.level || 1).damage * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell")) * spellPowerMult(caster, sp);
+}
+
+// Caster effects (RULES 6.6) name which spells they help: a school, a
+// deity, a branch, or a kind (damage: spells that hurt, heal: spells that
+// heal). An effect with none of these helps every spell; with several,
+// the spell must fit them all.
+function spellMatches(e, sp) {
+  var p = e.params || {};
+  if (p.school && p.school !== sp.school) return false;
+  if (p.deity && p.deity !== sp.deity) return false;
+  if (p.branch && p.branch !== sp.branch) return false;
+  if (p.kind === "damage" && !(sp.damage || sp.dot)) return false;
+  if (p.kind === "heal" && !sp.heal) return false;
+  return true;
+}
+
+// spellPowerMult multiplies every spellPower effect that fits the spell.
+function spellPowerMult(c, sp) {
+  var m = 1;
+  eachEffect(c, function (e) { if (e.kind === "spellPower" && spellMatches(e, sp)) m *= num(e.params.mult) || 1; });
+  return m;
+}
+
+// spellSum adds params[field] over the effects of kind that fit the spell.
+function spellSum(c, kind, field, sp) {
+  var total = 0;
+  eachEffect(c, function (e) { if (e.kind === kind && spellMatches(e, sp)) total += num(e.params[field]); });
+  return total;
+}
+
+// castCost is the engine's hook for what a spell costs this caster (6.6):
+// thrift cuts the mana, Quicken shortens a cast of two rounds or more
+// (never below one), and Combat Casting keeps damage from breaking it.
+function castCost(caster, spell) {
+  var sp = spellById(spell.id) || spell;
+  var manaMult = 1, cut = 0, steady = false;
+  eachEffect(caster, function (e) {
+    if (e.kind !== "castCost" || !spellMatches(e, sp)) return;
+    if (e.params.mana) manaMult *= num(e.params.mana);
+    cut += num(e.params.rounds);
+    if (e.params.steady) steady = true;
+  });
+  var rounds = spell.castRounds;
+  if (rounds >= 2) rounds = Math.max(1, rounds - cut);
+  return { mana: Math.max(0, Math.round(spell.mana * manaMult)), castRounds: rounds,
+    interruptOnDamage: !!spell.interruptOnDamage && !steady };
 }
 
 // saves rolls the target's saving throw (6.4): S / (S + 2C).
@@ -955,6 +1066,7 @@ function saves(caster, target, sp) {
   if (!sp.save || sp.save === "none") return false;
   var S = mult(target, SAVE_STAT[sp.save], true) * levelMult(target);
   var C = mult(caster, sp.branch === "divine" ? "wisdom" : "intelligence", true) * levelMult(caster);
+  C *= 1 + spellSum(caster, "penetration", "amount", sp); // Penetration, Channel
   return random.float() < S / (S + 2 * C);
 }
 
@@ -962,7 +1074,7 @@ function resolveCast(caster, targets, spell) {
   var sp = spellById(spell.id);
   if (!sp) return { ok: false, message: "Nobody remembers how that spell goes." };
   var out = { ok: true, message: "", consume: [], targets: [], casterEffects: [] };
-  var totalDrain = 0;
+  var totalDrain = 0, given = 0;
   for (var i = 0; i < targets.length; i++) {
     var t = targets[i];
     var tr = { index: i, damage: 0, heal: 0, saved: false, negated: false, effects: [], message: "" };
@@ -977,15 +1089,38 @@ function resolveCast(caster, targets, spell) {
       tr.damage = Math.max(1, Math.round(dmg));
       if (sp.drain) totalDrain += tr.damage * sp.drain;
     }
-    if (sp.heal) tr.heal = Math.max(1, Math.round(t.healthMax * sp.heal * mult(caster, "wisdom") ));
+    if (sp.heal) tr.heal = Math.max(1, Math.round(t.healthMax * sp.heal * mult(caster, "wisdom") * spellPowerMult(caster, sp)));
+    // A spell critical (Arcane Precision, Miracle) strikes or heals harder.
+    var crit = Math.min(0.5, spellSum(caster, "spellCrit", "chance", sp));
+    if (crit > 0 && (tr.damage || tr.heal) && random.float() < crit) {
+      var cm = 1.5;
+      eachEffect(caster, function (e) { if (e.kind === "spellCrit" && spellMatches(e, sp) && num(e.params.mult) > cm) cm = num(e.params.mult); });
+      tr.damage = Math.round(tr.damage * cm);
+      tr.heal = Math.round(tr.heal * cm);
+      tr.message = "Your spell surges!";
+    }
+    if (tr.heal && !t.self) given += tr.heal;
     if (sp.effect) {
       var e = sp.effect(caster, t, power * scale);
       if (e) tr.effects.push(e);
     }
+    // A spell may attach several effects at once (a curse that slows and
+    // weakens): effects returns a list.
+    if (sp.effects) {
+      var es = sp.effects(caster, t, power * scale) || [];
+      for (var k = 0; k < es.length; k++) if (es[k]) tr.effects.push(es[k]);
+    }
     out.targets.push(tr);
   }
-  // Drain heals the caster once every target is resolved.
+  // Drain heals the caster once every target is resolved, and so does
+  // Martyr, from the healing given to others (6.6).
+  totalDrain += given * Math.min(0.5, sumEffects(caster, "martyr", "fraction"));
   if (totalDrain > 0) out.heal = Math.max(1, Math.round(totalDrain));
+  // Shield of Faith: a helpful spell leaves its caster guarded.
+  if (sp.target !== "single" && sp.target !== "area") {
+    var shield = bestEffect(caster, "faithShield", "rounds");
+    if (shield) out.casterEffects.push({ kind: "protect", params: { mult: num(shield.params.mult) || 0.85 }, rounds: num(shield.params.rounds) || 3 });
+  }
   return out;
 }
 
@@ -1009,6 +1144,18 @@ function consider(me, target) {
 // ---------------------------------------------------------------------
 // describeEffect: what an effect means, in words, for look and score.
 // ---------------------------------------------------------------------
+// spellFilterText words a caster effect's filter: " of evocation",
+// " that heal", " of the divine".
+function spellFilterText(p) {
+  var t = "";
+  if (p.kind === "damage") t += " that harm";
+  if (p.kind === "heal") t += " that heal";
+  if (p.school) t += " of " + p.school;
+  if (p.deity) t += " of the " + p.deity + " god";
+  if (p.branch && !p.school && !p.deity) t += " of the " + p.branch;
+  return t;
+}
+
 function describeEffect(e) {
   var p = e.params || {};
   var pct = function (x) { return Math.round(num(x) * 100) + " percent"; };
@@ -1063,6 +1210,20 @@ function describeEffect(e) {
     case "invisible": return "Makes the wearer invisible" + tail;
     case "hidden": return "Hides the wearer" + tail;
     case "skill": return "";
+    case "spell": return "";
+    case "spellPower": return "Spells" + spellFilterText(p) + " are " + Math.round((num(p.mult) - 1) * 100) + " percent stronger" + tail;
+    case "spellCrit": return "A " + pct(p.chance) + " chance for spells" + spellFilterText(p) + " to surge for " + (num(p.mult) || 1.5) + "x" + tail;
+    case "penetration": return "Spells" + spellFilterText(p) + " are " + pct(p.amount) + " harder to resist" + tail;
+    case "manaMax": return "+" + pct(p.amount) + " mana" + tail;
+    case "manaFight": return pct(p.fraction) + " of your mana back each round in a fight" + tail;
+    case "castCost":
+      var parts = [];
+      if (p.mana) parts.push("cost " + Math.round((1 - num(p.mana)) * 100) + " percent less mana");
+      if (p.rounds) parts.push("long casts take " + num(p.rounds) + " round less");
+      if (p.steady) parts.push("are not broken by blows");
+      return "Spells" + spellFilterText(p) + " " + parts.join(", ") + tail;
+    case "martyr": return "Healing others heals you for " + pct(p.fraction) + " of it" + tail;
+    case "faithShield": return "A helpful spell leaves you taking " + Math.round((1 - (num(p.mult) || 0.85)) * 100) + " percent less damage for " + (num(p.rounds) || 3) + " rounds" + tail;
     default: return "";
   }
 }

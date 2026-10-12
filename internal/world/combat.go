@@ -635,8 +635,8 @@ func cmdFeat(w *World, p *Player, args string) {
 		if taken[f.ID] {
 			return false, "learned"
 		}
-		if p.Level < f.Level {
-			return false, "level " + itoa(f.Level)
+		if why := featBlocker(p.Character, f); why != "" {
+			return false, why
 		}
 		for _, req := range f.Requires {
 			if !taken[req] {
@@ -702,6 +702,8 @@ func cmdFeat(w *World, p *Player, args string) {
 			p.Send("You already have " + output.Escape(match.Name) + ".\n")
 		case strings.HasPrefix(why, "level"):
 			p.Send(output.Escape(match.Name) + " needs " + why + ".\n")
+		case strings.HasPrefix(why, "needs"):
+			p.Send(output.Escape(match.Name) + " " + output.Escape(why) + ".\n")
 		default:
 			p.Send(output.Escape(match.Name) + " " + why + ".\n")
 		}

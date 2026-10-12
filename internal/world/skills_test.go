@@ -210,7 +210,7 @@ func TestCastHealsCaster(t *testing.T) {
 	bob := login(t, w, 1, "Bob")
 	setRules(t, w, testRules+`
 function spellList() {
-  return [{ id: "drain", name: "Drain", branch: "arcane", school: "necromancy", castRounds: 0, cooldown: 0,
+  return [{ id: "drain", name: "Drain", innate: true, branch: "arcane", school: "necromancy", castRounds: 0, cooldown: 0,
     materials: [], target: "single", save: "none" }];
 }
 function resolveCast(caster, targets, spell) {
@@ -329,7 +329,7 @@ function skillList() {
   return [{ id: "stab", name: "Stab", level: 1, target: "single", cooldown: 0, stamina: 0, stats: { might: 3 }, start: 50, price: 0, description: "Stab." }];
 }
 function spellList() {
-  return [{ id: "nova", name: "Nova", branch: "arcane", school: "evocation", level: 4, stats: { might: 2 }, castRounds: 0, target: "self", save: "none", materials: [] }];
+  return [{ id: "nova", name: "Nova", innate: true, branch: "arcane", school: "evocation", level: 4, stats: { might: 2 }, castRounds: 0, target: "self", save: "none", materials: [] }];
 }
 function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], targets: [], casterEffects: [] }; }
 `)
@@ -357,5 +357,171 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 	send(w, 1, "cast nova")
 	if o := bob.take(); strings.Contains(o, "cannot cast") {
 		t.Fatalf("cast refused at level with the stat: %q", o)
+	}
+}
+
+// TestTrainerTeachesSpells walks a spell from a trainer: listed with what
+// it needs, refused without the school, the level, the stat, or the coin,
+// then learned and castable; a found spell is never sold.
+func TestTrainerTeachesSpells(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	setRules(t, w, testRules+`
+function spellList() {
+  return [
+    { id: "spark", name: "Spark", innate: true, branch: "arcane", school: "evocation", castRounds: 0, target: "self", save: "none", materials: [] },
+    { id: "nova", name: "Nova", price: 120, branch: "arcane", school: "evocation", level: 4, stats: { might: 2 }, castRounds: 0, target: "self", save: "none", materials: [] },
+    { id: "star", name: "Starfall", found: true, branch: "arcane", school: "evocation", castRounds: 0, target: "self", save: "none", materials: [] }
+  ];
+}
+function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], targets: [], casterEffects: [] }; }
+`)
+	w.content.Mobs[20].Teaches = []string{"nova", "star"}
+	send(w, 1, "practice")
+	if o := bob.take(); !strings.Contains(o, "Nova") || !strings.Contains(o, "(needs the evocation school)") || strings.Contains(o, "Starfall") {
+		t.Fatalf("listing without the school: %q", o)
+	}
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "Nova is not for you") || learnedSpell(p.Character, "nova") {
+		t.Fatalf("taught without the school: %q", o)
+	}
+	p.Schools = []string{"evocation"}
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "Spark") || !strings.Contains(o, "Still to learn:") || !strings.Contains(o, "Nova          from a trainer") || !strings.Contains(o, "Starfall      from a scroll") {
+		t.Fatalf("spells with the school: %q", o)
+	}
+	send(w, 1, "cast nova")
+	if o := bob.take(); !strings.Contains(o, "don't know that spell") {
+		t.Fatalf("cast unlearned: %q", o)
+	}
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "Come back at level 4.") {
+		t.Fatalf("level gate: %q", o)
+	}
+	p.Level = 4
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "You'll want 2 might") {
+		t.Fatalf("stat gate: %q", o)
+	}
+	p.Stats["might"] = 2
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "Nova costs 1 gold and 20 silver") {
+		t.Fatalf("price gate: %q", o)
+	}
+	p.Silver = 200
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "learn Nova") || p.Silver != 80 || !learnedSpell(p.Character, "nova") {
+		t.Fatalf("learn: %q silver=%d", o, p.Silver)
+	}
+	send(w, 1, "practice nova")
+	if o := bob.take(); !strings.Contains(o, "already know Nova") {
+		t.Fatalf("double buy: %q", o)
+	}
+	send(w, 1, "practice starfall")
+	if o := bob.take(); !strings.Contains(o, "can't teach you that") {
+		t.Fatalf("found spell sold: %q", o)
+	}
+	send(w, 1, "cast nova")
+	if o := bob.take(); strings.Contains(o, "don't know") || strings.Contains(o, "cannot cast") {
+		t.Fatalf("cast learned: %q", o)
+	}
+	send(w, 1, "affects")
+	if o := bob.take(); strings.Contains(o, "nova") {
+		t.Fatalf("learned spell shows as an affect: %q", o)
+	}
+}
+
+// TestShippedTeachesKnownIDs holds every trainer in the shipped world to
+// ids the rules define, and to spells a trainer can sell.
+func TestShippedTeachesKnownIDs(t *testing.T) {
+	w := shippedWorld(t)
+	skills, spells := map[string]bool{}, map[string]Spell{}
+	for _, sk := range w.skillList() {
+		skills[sk.ID] = true
+	}
+	for _, sp := range w.spellList() {
+		spells[sp.ID] = sp
+	}
+	for _, m := range w.content.Mobs {
+		for _, id := range m.Teaches {
+			sp, isSpell := spells[id]
+			switch {
+			case skills[id] && isSpell:
+				t.Errorf("%s (%d) teaches %q, which is both a skill and a spell", m.Name, m.Vnum, id)
+			case isSpell && (sp.Innate || sp.Found):
+				t.Errorf("%s (%d) teaches %q, an innate or found spell no trainer sells", m.Name, m.Vnum, id)
+			case !skills[id] && !isSpell:
+				t.Errorf("%s (%d) teaches %q, which is neither a skill nor a spell", m.Name, m.Vnum, id)
+			}
+		}
+	}
+}
+
+// TestStudyScroll: a scroll teaches its spell to someone with the school,
+// level, and stat, and is used up; otherwise it says what is missing.
+func TestStudyScroll(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	setRules(t, w, testRules+`
+function spellList() {
+  return [{ id: "star", name: "Starfall", found: true, branch: "arcane", school: "evocation", level: 3, stats: { might: 2 }, castRounds: 0, target: "self", save: "none", materials: [] }];
+}
+function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], targets: [], casterEffects: [] }; }
+`)
+	scroll := &item.Proto{Vnum: 9100, Name: "a scroll of starfall", Keywords: []string{"scroll", "starfall"}, Type: item.Other, Spell: "star"}
+	plain := &item.Proto{Vnum: 9101, Name: "a blank scroll", Keywords: []string{"blank"}, Type: item.Other}
+	p.Inventory = append(p.Inventory, item.New(scroll), item.New(plain))
+	send(w, 1, "study blank")
+	if o := bob.take(); !strings.Contains(o, "nothing in a blank scroll to learn") {
+		t.Fatalf("blank: %q", o)
+	}
+	send(w, 1, "study starfall")
+	if o := bob.take(); !strings.Contains(o, "It takes the evocation school.") {
+		t.Fatalf("no school: %q", o)
+	}
+	p.Schools = []string{"evocation"}
+	send(w, 1, "study starfall")
+	if o := bob.take(); !strings.Contains(o, "it takes level 3 and 2 might, and you lack level 3") || len(p.Inventory) != 2 {
+		t.Fatalf("level: %q", o)
+	}
+	p.Level, p.Stats["might"] = 3, 2
+	send(w, 1, "study starfall")
+	if o := bob.take(); !strings.Contains(o, "Starfall is yours") || !learnedSpell(p.Character, "star") || len(p.Inventory) != 1 {
+		t.Fatalf("study: %q inv=%d", o, len(p.Inventory))
+	}
+	send(w, 1, "spells")
+	if o := bob.take(); !strings.Contains(o, "Starfall") || strings.Contains(o, "Still to learn") {
+		t.Fatalf("spells after study: %q", o)
+	}
+}
+
+// TestShippedScrolls: every scroll names a spell that exists and is not
+// innate, and every spell that only a scroll teaches has a scroll.
+func TestShippedScrolls(t *testing.T) {
+	w := shippedWorld(t)
+	spells := map[string]Spell{}
+	for _, sp := range w.spellList() {
+		spells[sp.ID] = sp
+	}
+	scrolled := map[string]bool{}
+	for _, it := range w.content.Items {
+		if it.Spell == "" {
+			continue
+		}
+		sp, ok := spells[it.Spell]
+		switch {
+		case !ok:
+			t.Errorf("%s (%d) teaches %q, which is not a spell", it.Name, it.Vnum, it.Spell)
+		case sp.Innate:
+			t.Errorf("%s (%d) teaches %q, which is innate", it.Name, it.Vnum, it.Spell)
+		}
+		scrolled[it.Spell] = true
+	}
+	for _, sp := range spells {
+		if sp.Found && !scrolled[sp.ID] {
+			t.Errorf("%s is found only on a scroll, and no item teaches it", sp.Name)
+		}
 	}
 }

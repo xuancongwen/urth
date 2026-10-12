@@ -25,6 +25,7 @@
     "material": { "type": "string", "description": "Required for type material: the pool name a spell consumes (ash, wolf fang)." },
     "rarity": { "enum": ["common", "uncommon", "rare", "deterministic"], "default": "common" },
     "school": { "type": "string", "description": "Required for type totem: the arcane school it unlocks." },
+    "spell": { "type": "string", "description": "A spell id this item teaches when studied (a scroll); studying uses it up." },
     "sacrifice": { "$ref": "common.schema.json#/$defs/deity", "description": "The deity that accepts this as a great sacrifice at its temple." },
     "burn": { "type": "integer", "minimum": 0, "description": "Rounds a light lasts while worn; 0 never goes out." },
     "capacity": { "type": "integer", "minimum": 0, "description": "Weight a container holds; 0 is unlimited." },

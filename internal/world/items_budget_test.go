@@ -120,6 +120,42 @@ func TestShippedItemBudget(t *testing.T) {
 				if f(pr, "mult") > 1.25 {
 					fail("unarmedMult %v", f(pr, "mult"))
 				}
+			// Caster kinds (docs/RULES.md 6.6): gear is a step below the feats.
+			case "spellPower":
+				if f(pr, "mult") > 1.15 {
+					fail("spellPower %v", f(pr, "mult"))
+				}
+			case "spellCrit":
+				if f(pr, "chance") > 0.08 {
+					fail("spellCrit %v", f(pr, "chance"))
+				}
+			case "penetration":
+				if f(pr, "amount") > 0.20 {
+					fail("penetration %v", f(pr, "amount"))
+				}
+			case "manaMax":
+				if f(pr, "amount") > 0.25 {
+					fail("manaMax %v", f(pr, "amount"))
+				}
+			case "manaFight":
+				if f(pr, "fraction") > 0.02 {
+					fail("manaFight %v", f(pr, "fraction"))
+				}
+			case "castCost":
+				if m, ok := pr["mana"]; ok && f(pr, "mana") < 0.85 {
+					fail("castCost mana %v", m)
+				}
+				if f(pr, "rounds") > 0 {
+					fail("castCost rounds: a quicker cast is a feat, not gear")
+				}
+			case "martyr":
+				if f(pr, "fraction") > 0.20 {
+					fail("martyr %v", f(pr, "fraction"))
+				}
+			case "faithShield":
+				if f(pr, "mult") < 0.85 {
+					fail("faithShield %v", f(pr, "mult"))
+				}
 			case "cooldownCut":
 				if f(pr, "rounds") > 1 {
 					fail("cooldownCut %v", f(pr, "rounds"))

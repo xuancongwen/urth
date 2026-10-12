@@ -254,3 +254,18 @@ resumes. Copyover, restarts, quits, kicks, and idle hang-ups still wait
 for the player. The web server also pings every 30 seconds, so a proxy
 never sees a quiet socket, and a peer that cannot answer is closed and
 left link-dead.
+
+## D25. Spells are unlocked by discovery and then learned; feats are gated
+
+RULES 6.1 makes magic something found, not a function of level, and
+the designer asked on 2026-10-11 for many more spells, most of them
+trainable, and for feats, skills, and spells to be gated by level and
+stats. Both hold: a school's totem or a god's sacrifice still decides
+whether a character has that magic at all, and within it a spell is
+innate (the first ones, known on unlocking), taught by a trainer for
+coin, or found on a scroll (the strongest of each school and god). A
+learned spell is a permanent effect, like a learned skill, so the
+player file needs nothing new. Feats gain trained-stat requirements
+and, for caster feats, a branch; caster feats and gear read new effect
+kinds in the rules, and the engine exposes casting cost, time, and
+interruption through one optional `castCost` hook (RULES 6.6, 7.2).
