@@ -695,10 +695,15 @@ function derivedStats(c) {
     ? c.mob.health
     : Math.round(P.healthBase * growth(c.level) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
-  var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount") + passiveSwings(c)) * speedMult(c);
-  // A second weapon swings at its own speed, plus the off-hand feats.
+  // An extra attack (a feat, Haste, Twin Strike) is one more weapon's
+  // worth of swings, not one swing (RULES 4.4): a sword swings once more,
+  // a dagger twice, a maul every other round, so it adds the same damage
+  // a round whatever the weapon.
+  var speed = (w.speed || 1) * (mult(c, "dexterity") + sumEffects(c, "attacks", "amount") + passiveSwings(c)) * speedMult(c);
+  // A second weapon swings at its own speed, and the off-hand feats add
+  // to it the same way.
   var off = offhand(c), offSpeed = 0;
-  if (off) offSpeed = Math.max(0, (num(off.weapon.speed) || 1) * mult(c, "dexterity") + sumEffects(c, "offhandAttacks", "amount")) * speedMult(c);
+  if (off) offSpeed = Math.max(0, (num(off.weapon.speed) || 1) * (mult(c, "dexterity") + sumEffects(c, "offhandAttacks", "amount"))) * speedMult(c);
   var stats = {};
   for (var i = 0; i < STATS.length; i++) stats[STATS[i]] = stat(c, STATS[i]);
   return {
@@ -828,13 +833,13 @@ var FEATS = [
     effect: { kind: "block", params: { chance: 0.10 } } },
   { id: "evasion", name: "Evasion", level: 5, stats: { dexterity: 13 }, description: "Dodge 5 percent more often.",
     effect: { kind: "dodge", params: { amount: 0.05 } } },
-  { id: "second_attack", name: "Second Attack", level: 5, stats: { strength: 13 }, description: "One extra swing every round.",
+  { id: "second_attack", name: "Second Attack", level: 5, stats: { strength: 13 }, description: "One extra attack every round: a swing with a sword, two with a dagger, half with a maul.",
     effect: { kind: "attacks", params: { amount: 1 } } },
   { id: "deadly", name: "Deadly Edge", level: 8, stats: { dexterity: 14 }, requires: ["keen"], description: "A 10 percent chance to critically hit for double damage.",
     effect: { kind: "crit", params: { chance: 0.10, mult: 2 } } },
   { id: "iron_skin", name: "Iron Skin", level: 10, stats: { constitution: 15 }, requires: ["toughness"], description: "+4 Constitution.",
     effect: { kind: "stat", params: { stat: "constitution", amount: 4 } } },
-  { id: "third_attack", name: "Third Attack", level: 12, stats: { strength: 15 }, requires: ["second_attack"], description: "Another extra swing every round.",
+  { id: "third_attack", name: "Third Attack", level: 12, stats: { strength: 15 }, requires: ["second_attack"], description: "Another extra attack every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
 
   // --- approved 2026-09-28 ---
@@ -884,16 +889,16 @@ var FEATS = [
     effect: { kind: "steady", params: { chance: 1, slow: 0.5 } } },
   { id: "deathblow", name: "Deathblow", level: 18, stats: { dexterity: 17 }, requires: ["deadly"], description: "A 15 percent chance to critically hit for double damage.",
     effect: { kind: "crit", params: { chance: 0.15, mult: 2 } } },
-  { id: "fourth_attack", name: "Fourth Attack", level: 20, stats: { strength: 18 }, requires: ["third_attack"], description: "Yet another extra swing every round.",
+  { id: "fourth_attack", name: "Fourth Attack", level: 20, stats: { strength: 18 }, requires: ["third_attack"], description: "Yet another extra attack every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
   // --- fighting styles (RULES 4.4), 2026-10-11 ---
   // Two weapons: the first feat takes away the untrained penalty, the
   // next ones add swings to the off hand.
   { id: "dual_wield", name: "Dual Wield", level: 3, stats: { dexterity: 12 }, description: "Fight with a second weapon without the penalty to either hand.",
     effect: { kind: "dualWield", params: {} } },
-  { id: "two_weapon", name: "Two-Weapon Fighting", level: 10, stats: { dexterity: 15 }, requires: ["dual_wield"], description: "One extra swing every round with your second weapon.",
+  { id: "two_weapon", name: "Two-Weapon Fighting", level: 10, stats: { dexterity: 15 }, requires: ["dual_wield"], description: "One extra attack every round with your second weapon.",
     effect: { kind: "offhandAttacks", params: { amount: 1 } } },
-  { id: "greater_two_weapon", name: "Greater Two-Weapon Fighting", level: 18, stats: { dexterity: 17 }, requires: ["two_weapon"], description: "Another extra swing every round with your second weapon.",
+  { id: "greater_two_weapon", name: "Greater Two-Weapon Fighting", level: 18, stats: { dexterity: 17 }, requires: ["two_weapon"], description: "Another extra attack every round with your second weapon.",
     effect: { kind: "offhandAttacks", params: { amount: 1 } } },
   // A two-handed weapon: each feat makes its swings hit harder.
   { id: "great_weapon", name: "Great Weapon Fighting", level: 3, stats: { strength: 12 }, description: "20 percent more damage with a two-handed weapon.",
@@ -1039,7 +1044,7 @@ var SPELLS = [
   { id: "haste", innate: true, level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
     target: "self", save: "none",
     effect: function () { return { kind: "attacks", params: { amount: 1 }, rounds: 5 }; },
-    description: "One more swing every round." },
+    description: "One more attack every round." },
   { id: "mend", innate: true, level: 1, stats: { wisdom: 11 }, mana: 8, name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "ally", save: "none", heal: 0.30,
     description: "Close wounds." },
@@ -1300,10 +1305,10 @@ function describeEffect(e) {
     case "crit": return "A " + pct(p.chance) + " chance to critically hit for " + (num(p.mult) || 2) + "x damage" + tail;
     case "block": return "Blocks " + pct(p.chance) + " of swings" + tail;
     case "dodge": return (num(p.amount) >= 0 ? "+" : "") + pct(p.amount) + " dodge" + tail;
-    case "offhandAttacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " swing" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round with a second weapon" + tail;
+    case "offhandAttacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " attack" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round with a second weapon, at its speed" + tail;
     case "dualWield": return "Fights with a second weapon without penalty" + tail;
     case "greatWeapon": return Math.round((num(p.mult) - 1) * 100) + " percent more damage with a two-handed weapon" + tail;
-    case "attacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " swing" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round" + tail;
+    case "attacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " attack" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round, at your weapon's speed" + tail;
     case "defense": return "+" + Math.round(num(p.amount)) + " defense" + tail;
     case "protect": return num(p.mult) > 1
       ? "Takes " + Math.round((num(p.mult) - 1) * 100) + " percent more damage" + tail
@@ -1387,7 +1392,7 @@ var SKILLS = [
     damage: 0.5, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
   { id: "twin", stats: { dexterity: 13 }, name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
-    description: "A second swing in the same round, as often as your skill allows. Triple Strike follows." },
+    description: "A second attack in the same round, as often as your skill allows. Triple Strike follows." },
   { id: "rend", stats: { strength: 12 }, name: "Rend", level: 3, passive: false, target: "single", cooldown: 0, stamina: 6, start: 30, innate: false, price: 100,
     requires: [{ material: "wolf fang", count: 2 }], damage: 1.2, strike: true, verb: "rend", bleed: 0.4,
     description: "Tear at them like a beast: a round's worth and more now, and a wound that bleeds for three rounds. The trainer wants wolf fangs for it." },
@@ -1519,7 +1524,7 @@ var SKILLS = [
     verb: "sneak",
     description: "Move quietly for up to five minutes: nobody who cannot see the hidden notices you come or go, and aggressive creatures pass you by." },
   { id: "triple", stats: { dexterity: 16 }, name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
-    description: "A third swing in the same round, as often as your skill allows, on top of Twin Strike." }
+    description: "A third attack in the same round, as often as your skill allows, on top of Twin Strike." }
 ];
 
 // hasSource reports whether c carries an effect tagged with source.
@@ -1583,8 +1588,9 @@ function riposteBlock(c) {
   return 0.2 * skillRating(c, "riposte") / 100;
 }
 
-// passiveSwings: Twin Strike grants rating/100 of an extra swing per
-// round, and Triple Strike as much again, but only on top of Twin.
+// passiveSwings: Twin Strike grants rating/100 of an extra attack per
+// round (a weapon's worth of swings, as feats give), and Triple Strike as
+// much again, but only on top of Twin.
 function passiveSwings(c) {
   var twin = skillRating(c, "twin") / 100;
   return twin + (twin > 0 ? skillRating(c, "triple") / 100 : 0);

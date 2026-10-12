@@ -688,12 +688,26 @@ handles any rate without a roll, so a slow weapon is exactly as
 reliable as a fast one, just lumpier. Speed is per round.
 
 Total speed is the weapon's speed, multiplied by Dexterity (3.2, which
-gives Dexterity its second job as promised), plus any additive swings
-from effects. The additive part is where ROM's second and third attack
-live: each is a feat (7.2) that adds one full swing per round to the
-meter, level-locked, deterministic, no roll. A half-swing feat (one
-extra swing every other round) is equally expressible and is a
+gives Dexterity its second job as promised), plus any extra attacks
+from effects. The extra attacks are where ROM's second and third attack
+live: each is a feat (7.2) that adds one attack per round to the
+meter, level-locked, deterministic, no roll. A half-attack feat (one
+extra attack every other round) is equally expressible and is a
 plausible lower-level rung.
+
+**An extra attack is a weapon's worth of swings (decided 2026-10-11).**
+At first an extra attack added one swing whatever the weapon. A maul's
+swing carries four times a dagger's damage, so the same feat was worth
+four times as much on the maul: with Second, Third, and Fourth Attack
+at level 20 a maul dealt 289 a round against a sword's 164. Now an
+extra attack adds the weapon's own speed to the meter, so speed is
+`weapon speed * (Dexterity multiplier + extra attacks)`: a sword swings
+once more, a dagger twice, a maul every other round, and each adds the
+same damage a round. Every source of extra attacks works this way
+(feats, Haste, Berserk, Twin and Triple Strike, the haste affix), and
+the off-hand feats add the second weapon's speed. Weapons keep their
+rhythm and their traits as their identity, not a different worth for
+the same feat.
 
 What speed buys, and what to watch:
 
@@ -749,18 +763,20 @@ shield the way the dual line does, in damage per swing rather than
 swings.
 
 Measured on 2026-10-11 against an even fighter in the standard kit,
-with the extra-attack feats the level allows, damage per round:
+with the extra-attack feats the level allows, damage per round (after
+extra attacks became a weapon's worth of swings, above):
 
-| Level | Sword | Two swords, untrained | Two swords, all dual feats | Maul | Maul, all Great Weapon feats |
-|---|---|---|---|---|---|
-| 5 | 16 | 13 | 24 | 24 | 29 |
-| 10 | 28 | 22 | 55 | 42 | 58 |
-| 20 | 164 | 114 | 286 | 289 | 462 |
+| Level | Sword, dagger, or maul | Two swords, untrained | Two weapons, all dual feats | Maul, all Great Weapon feats |
+|---|---|---|---|---|
+| 5 | 16 | 13 | 24 | 19 |
+| 10 | 28 | 22 | 55 | 39 |
+| 20 | 164 | 114 | 286 | 262 |
 
-The maul leads already without its feats, because Second, Third, and
-Fourth Attack add a whole swing whatever the weapon, and a whole swing
-of a slow, heavy weapon is worth more. That bias predates the styles
-and is tracked as its own question.
+A sword, a dagger, and a maul deal the same with the same feats, and two
+daggers the same as two swords. The styles differ by what they give up:
+sword and shield keeps the shield's block and defense, two weapons trade
+it for the most damage, and a two-hander for a little less than that
+with a single weapon to find.
 
 Consequences: `weapon.speed` on the item and in the view,
 default 1. `derivedStats` returns `attacksPerRound` as the total speed

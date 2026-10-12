@@ -183,3 +183,36 @@ func TestFightingStylesShippedRules(t *testing.T) {
 		t.Fatalf("untrained dual wield on the sheet: %v", sheet)
 	}
 }
+
+// An extra attack is a weapon's worth of swings, not one swing (RULES
+// 4.4), so Second, Third, and Fourth Attack add the same damage a round
+// to a dagger, a sword, and a maul alike.
+func TestExtraAttacksFairAcrossWeapons(t *testing.T) {
+	w := shippedWorld(t)
+	foe := w.simFighter(20)
+	feats := map[string]Feat{}
+	for _, f := range w.featList() {
+		feats[f.ID] = f
+	}
+	dpr := func(baseline string, hands int) float64 {
+		c := w.simFighter(20)
+		for _, id := range []string{"second_attack", "third_attack", "fourth_attack"} {
+			w.grantFeat(c, feats[id])
+		}
+		p := &item.Proto{Vnum: 9300, Name: "a " + baseline, Type: item.Weapon, Slot: "wield", Level: 20, Baseline: baseline,
+			Weapon: &item.WeaponSpec{Hands: hands}}
+		w.resolveItem(p)
+		c.Equipment["wield"] = item.New(p)
+		w.recalc(c)
+		return meanHands(w, c, foe, 300)
+	}
+	sword := dpr("standard", 1)
+	for _, b := range []struct {
+		baseline string
+		hands    int
+	}{{"dagger", 1}, {"heavy", 2}} {
+		if r := dpr(b.baseline, b.hands) / sword; r < 0.95 || r > 1.05 {
+			t.Fatalf("with three extra attacks a %s deals %.2fx a sword", b.baseline, r)
+		}
+	}
+}
