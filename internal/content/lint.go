@@ -132,6 +132,14 @@ func Lint(w *World, startRoom int) []Problem {
 		for _, t := range m.Trades {
 			placedItem[t.Item] = true // a merchant's stock
 		}
+		for _, e := range m.Loot {
+			placedItem[e.Item] = true // found in its corpse
+		}
+	}
+	for _, a := range w.Rooms.Areas {
+		for _, e := range a.Loot {
+			placedItem[e.Item] = true // found in the area's corpses
+		}
 	}
 	for _, p := range w.Items {
 		if p.HasFlag("quest") {

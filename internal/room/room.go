@@ -12,6 +12,8 @@ import (
 	"strings"
 
 	"gopkg.in/yaml.v3"
+
+	"urth/internal/item"
 )
 
 // Directions in the order ROM displays them.
@@ -97,6 +99,9 @@ type Area struct {
 	// from the start room, nor to place its prototypes by reset (the
 	// balance range), so the content check does not report either.
 	Detached bool `yaml:"detached,omitempty"`
+	// Loot is drawn for every mob of the area that dies, after the mob's
+	// own table: the area's farmed materials (docs/RULES.md 5.3).
+	Loot []item.LootEntry `yaml:"loot,omitempty"`
 }
 
 // World is the loaded map.

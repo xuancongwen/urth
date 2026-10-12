@@ -84,6 +84,7 @@ func TestSchemasMatchStructs(t *testing.T) {
 		{"common.schema.json", "$defs/weapon", item.WeaponSpec{}},
 		{"common.schema.json", "$defs/armor", item.ArmorSpec{}},
 		{"common.schema.json", "$defs/effect", effect.Spec{}},
+		{"common.schema.json", "$defs/loot/items", item.LootEntry{}},
 	}
 	for _, c := range cases {
 		want := yamlKeys(reflect.TypeOf(c.typ))

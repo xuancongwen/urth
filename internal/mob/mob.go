@@ -54,6 +54,9 @@ type Proto struct {
 	// over for silver, other items, or both. A merchant also buys what
 	// players sell it, for half the item's value.
 	Trades []Trade `yaml:"trades,omitempty"`
+	// Loot is the mob's loot table: items its corpse may hold besides
+	// what it wears, each drawn once on a death (docs/RULES.md 5.3).
+	Loot []item.LootEntry `yaml:"loot,omitempty"`
 	// Effects every instance carries (a poisonous bite, thick hide).
 	Effects []effect.Spec `yaml:"effects,omitempty"`
 	// Spawns makes the mob a generator: while it lives it adds another

@@ -299,3 +299,10 @@ func capitalize(s string) string {
 	}
 	return strings.ToUpper(s[:1]) + s[1:]
 }
+
+// LootEntry is one line of a loot table on a mob or an area (docs/RULES.md
+// 5.3): on a death the item comes up with this chance, from above 0 to 1.
+type LootEntry struct {
+	Item   int     `yaml:"item"`
+	Chance float64 `yaml:"chance"`
+}

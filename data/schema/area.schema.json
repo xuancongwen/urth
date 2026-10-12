@@ -8,6 +8,7 @@
   "properties": {
     "name": { "type": "string", "description": "Display name; defaults to the directory name." },
     "author": { "type": "string" },
-    "detached": { "type": "boolean", "description": "Not meant to be reachable on foot or to place its prototypes by reset; the content check leaves it alone." }
+    "detached": { "type": "boolean", "description": "Not meant to be reachable on foot or to place its prototypes by reset; the content check leaves it alone." },
+    "loot": { "$ref": "common.schema.json#/$defs/loot", "description": "Drawn for every mob of the area that dies, after the mob's own table: the area's farmed materials (docs/RULES.md 5.3)." }
   }
 }

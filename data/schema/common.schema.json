@@ -4,6 +4,19 @@
   "title": "Shared definitions for Urth content files",
   "$defs": {
     "vnum": { "type": "integer", "minimum": 1, "description": "Unique across every area." },
+    "loot": {
+      "type": "array",
+      "description": "A loot table (docs/RULES.md 5.3): on a death each line is drawn once, and the item goes in the corpse with that chance. A plain weapon or armor rolls a tier as a drop; a named item comes out as written.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "chance"],
+        "properties": {
+          "item": { "$ref": "#/$defs/vnum", "description": "The item prototype." },
+          "chance": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "The chance it drops, above 0 and at most 1 (0.05 is one death in twenty)." }
+        }
+      }
+    },
     "direction": { "enum": ["north", "east", "south", "west", "up", "down"] },
     "position": {
       "type": "string",

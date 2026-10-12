@@ -112,7 +112,7 @@ var helpText = map[string]string{
 	"reload":     "reload [scripts | area <name> | world]: re-read the rules, one area, or everything from disk.",
 	"client":     "client state [on|off]: ask for a snapshot of your character, room, gear, and skills whenever it changes. Used by graphical clients such as /play.html; text clients have no use for it.",
 	"expedition": "expedition | expedition <area> [fights] [seed]: from a safe room, send your character on a run of fights in an area near its level. It sleeps when hurt, turns back when badly hurt, and returns with experience, coin, and whatever dropped, or falls and returns with nothing. Fights use auto-attack only. The seed replays a run exactly; afterwards you rest for half the time it took.",
-	"loot":       "loot <mob> [kills] [seed]: kill the mob that many times on paper and report what its deaths drop, by rarity, with an example of each tier (RULES 5.3).",
+	"loot":       "loot <mob> [kills] [seed]: kill the mob that many times on paper and report what its deaths drop: each line of its loot table and how often it came up, then the extra drops by rarity, with an example of each tier (RULES 5.3).",
 	"simulate":   "simulate <mob | me | fighter[:level] | outfit[:level]> <mob> [fights] [seed]: run fights through the rules and report the numbers. outfit:N is a level-N fighter wearing the outfit set.",
 	"outfit":     "outfit: conjure the admin regalia and put on every piece that fits a free slot; the rest go in your pack. The set grows with your level, so it stays strong without being godlike.",
 	"copyover":   "copyover: restart the server without disconnecting anyone.",

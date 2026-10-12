@@ -53,6 +53,20 @@ func Load(dir string) (*World, error) {
 	return w, w.validate()
 }
 
+// validateLoot checks a loot table: every item exists and every chance is
+// above 0 and at most 1.
+func (w *World) validateLoot(where string, loot []item.LootEntry) error {
+	for _, e := range loot {
+		if _, ok := w.Items[e.Item]; !ok {
+			return fmt.Errorf("%s: loot item %d does not exist", where, e.Item)
+		}
+		if e.Chance <= 0 || e.Chance > 1 {
+			return fmt.Errorf("%s: loot item %d has chance %g; it must be above 0 and at most 1", where, e.Item, e.Chance)
+		}
+	}
+	return nil
+}
+
 func (w *World) validate() error {
 	for _, m := range w.Mobs {
 		if m.Spawns != nil {
@@ -71,6 +85,14 @@ func (w *World) validate() error {
 					return fmt.Errorf("mob %d (%s): trades item %d, which does not exist", m.Vnum, m.Name, v)
 				}
 			}
+		}
+		if err := w.validateLoot(fmt.Sprintf("mob %d (%s)", m.Vnum, m.Name), m.Loot); err != nil {
+			return err
+		}
+	}
+	for name, a := range w.Rooms.Areas {
+		if err := w.validateLoot("area "+name, a.Loot); err != nil {
+			return err
 		}
 	}
 	for _, r := range w.Rooms.Rooms {

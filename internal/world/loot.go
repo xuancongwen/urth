@@ -2,12 +2,14 @@ package world
 
 import (
 	"math/rand/v2"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
 
 	"urth/internal/effect"
 	"urth/internal/item"
+	"urth/internal/mob"
 	"urth/internal/output"
 )
 
@@ -89,12 +91,39 @@ func (w *World) newResetItem(p *item.Proto, level int) *item.Item {
 	return it
 }
 
-// lootDrops makes the extra items a death drops, drawn with rng from the
-// rollable prototypes of the victim's area within the rules' level band.
+// lootDrops makes what a death adds to the corpse besides the victim's own
+// gear: its loot tables, then the rules' extra drops.
 func (w *World) lootDrops(victim *Character, rng *rand.Rand) []*item.Item {
 	if victim.mob == nil {
 		return nil
 	}
+	return append(w.tableDrops(victim, rng), w.extraDrops(victim, rng)...)
+}
+
+// lootTable is a mob's loot table followed by its area's.
+func (w *World) lootTable(p *mob.Proto) []item.LootEntry {
+	return append(slices.Clone(p.Loot), w.content.Rooms.Areas[p.Area].Loot...)
+}
+
+// tableDrops draws each line of the victim's loot tables once with rng. A
+// rollable item rolls as a drop; a named item comes out as written.
+func (w *World) tableDrops(victim *Character, rng *rand.Rand) []*item.Item {
+	var out []*item.Item
+	for _, e := range w.lootTable(victim.mob.Proto) {
+		p := w.content.Items[e.Item]
+		if p == nil || rng.Float64() >= e.Chance {
+			continue
+		}
+		it := item.New(p)
+		w.rollItem(it, "drop", victim.Level)
+		out = append(out, it)
+	}
+	return out
+}
+
+// extraDrops makes the extra items a death drops, drawn with rng from the
+// rollable prototypes of the victim's area within the rules' level band.
+func (w *World) extraDrops(victim *Character, rng *rand.Rand) []*item.Item {
 	var rules LootRules
 	if !w.callOptional("lootRules", &rules, w.view(victim)) || rules.Drops <= 0 {
 		return nil
@@ -195,8 +224,13 @@ func cmdLoot(w *World, p *Player, args string) {
 	var order []string
 	examples := map[string]*item.Item{}
 	drops := 0
+	table := w.lootTable(proto)
+	found := map[int]int{}
 	for range n {
-		for _, it := range w.lootDrops(victim, rng) {
+		for _, it := range w.tableDrops(victim, rng) {
+			found[it.Proto.Vnum]++
+		}
+		for _, it := range w.extraDrops(victim, rng) {
 			drops++
 			tier := it.Rarity
 			if tier == "" {
@@ -217,8 +251,22 @@ func cmdLoot(w *World, p *Player, args string) {
 		cands = len(w.dropCandidates(proto.Area, victim.Level, max(rules.LevelBand, 0)))
 	}
 	var b strings.Builder
-	b.WriteString(itoa(n) + " kills of " + output.Escape(proto.Name) + " (level " + itoa(victim.Level) + "): " +
-		plural(drops, "drop") + " from " + plural(cands, "candidate prototype") + ".\n")
+	b.WriteString(itoa(n) + " kills of " + output.Escape(proto.Name) + " (level " + itoa(victim.Level) + ")")
+	if len(table) > 0 {
+		b.WriteString(", loot table:\n")
+		seen := map[int]bool{}
+		for _, e := range table {
+			b.WriteString("  " + padLeft(strconv.FormatFloat(100*e.Chance, 'g', 4, 64)+"%", 7) + "  " +
+				output.Escape(w.content.Items[e.Item].Name) + " [" + itoa(e.Item) + "]")
+			if !seen[e.Item] { // a vnum listed twice is counted once, on its first line
+				b.WriteString(", found " + itoa(found[e.Item]))
+				seen[e.Item] = true
+			}
+			b.WriteString("\n")
+		}
+		b.WriteString("Extra drops")
+	}
+	b.WriteString(": " + plural(drops, "drop") + " from " + plural(cands, "candidate prototype") + ".\n")
 	for _, tier := range order {
 		it := examples[tier]
 		b.WriteString("  " + padRight(output.Escape(tier), 10) + padLeft(itoa(counts[tier]), 6) + "  e.g. " + shownName(it) + "\n")

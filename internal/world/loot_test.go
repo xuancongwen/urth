@@ -1,12 +1,14 @@
 package world
 
 import (
+	"math/rand/v2"
 	"strings"
 	"testing"
 
 	"urth/internal/effect"
 	"urth/internal/item"
 	"urth/internal/output"
+	"urth/internal/room"
 )
 
 // lootRulesJS rolls every item rare with one affix and drops two items.
@@ -278,4 +280,48 @@ func TestShippedLootGates(t *testing.T) {
 			t.Errorf("rolled the retired tier %s", old)
 		}
 	}
+}
+
+// TestLootTables draws a mob's table and its area's: a sure line always
+// comes up, a rollable item rolls, a named one does not, and a half chance
+// comes up about half the time.
+func TestLootTables(t *testing.T) {
+	w := testWorld(t)
+	setRules(t, w, lootRulesJS+"\nfunction lootRules(v) { return { drops: 0, levelBand: 0 }; }\n")
+	room, _ := w.content.Rooms.Get(1)
+	guard := w.contents(room).mobs[0]
+	guard.Proto.Loot = []item.LootEntry{{Item: 13, Chance: 1}, {Item: 10, Chance: 1}, {Item: 10, Chance: 1e-9}}
+	w.content.Rooms.Areas["a"] = roomArea(w, "a", []item.LootEntry{{Item: 13, Chance: 1}})
+	drops := w.lootDrops(guard.Character, w.rng)
+	if len(drops) != 3 || drops[0].Proto.Vnum != 13 || drops[1].Proto.Vnum != 10 || drops[2].Proto.Vnum != 13 {
+		t.Fatalf("drops: %v", drops)
+	}
+	if drops[0].Rolled() || !drops[1].Rolled() {
+		t.Fatalf("bread rolled %v, sword rolled %v", drops[0].Rolled(), drops[1].Rolled())
+	}
+
+	guard.Proto.Loot = []item.LootEntry{{Item: 13, Chance: 0.5}}
+	w.content.Rooms.Areas["a"] = roomArea(w, "a", nil)
+	rng := rand.New(rand.NewPCG(1, 2))
+	n := 0
+	for range 2000 {
+		n += len(w.tableDrops(guard.Character, rng))
+	}
+	if n < 900 || n > 1100 {
+		t.Errorf("a half chance came up %d times in 2000", n)
+	}
+
+	bob := login(t, w, 1, "Bob")
+	w.players[1].Admin = true
+	send(w, 1, "loot 20 100 7")
+	if o := bob.take(); !strings.Contains(o, "loot table:") || !strings.Contains(o, "50%") || !strings.Contains(o, "[13], found") {
+		t.Fatalf("loot: %q", o)
+	}
+}
+
+// roomArea is area name's metadata with its loot table replaced.
+func roomArea(w *World, name string, loot []item.LootEntry) room.Area {
+	a := w.content.Rooms.Areas[name]
+	a.Loot = loot
+	return a
 }
