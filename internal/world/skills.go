@@ -442,7 +442,7 @@ func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillR
 		} else {
 			dmg := itoa(r.Damage)
 			_, word, punct := w.hitWords(r.Damage, target)
-			w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}", c, target, "", toChar)
+			w.act("Your "+verb+" "+word+" $N"+punct+" {Y}["+dmg+"]{x}", c, target, "", toChar)
 			w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}", c, target, "", toVict)
 			w.act("$n's "+verb+" "+word+" $N"+punct, c, target, "", toNotVict)
 			target.Health -= r.Damage

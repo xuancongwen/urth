@@ -1,6 +1,7 @@
 package world
 
 import (
+	"maps"
 	"math/rand/v2"
 	"strings"
 	"testing"
@@ -93,10 +94,19 @@ func TestStrikesScaleUtilityDoesNot(t *testing.T) {
 		t.Errorf("bash: %.1f against a round's %.1f, ratio %.2f: utility damage has grown", bash, round, r)
 	}
 
-	// Twice the weapon: Kick follows it, Bash does not.
+	// Twice the weapon, and what it carries: Kick follows it, Bash does
+	// not.
 	old := user.Equipment["wield"]
 	better := *old.Proto
 	better.Resolved.Weapon.Damage *= 2
+	better.Effects = nil
+	for _, e := range old.Proto.Effects {
+		params := maps.Clone(e.Params)
+		if e.Kind == "added" {
+			params["power"] = toFloat(params["power"]) * 2
+		}
+		better.Effects = append(better.Effects, effect.Spec{Kind: e.Kind, Params: params})
+	}
 	user.Equipment["wield"] = item.New(&better)
 	kick2 := meanSkill(t, w, user, target, "kick", 100, 2000)
 	bash2 := meanSkill(t, w, user, target, "bash", 100, 2000)

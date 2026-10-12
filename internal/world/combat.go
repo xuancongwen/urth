@@ -203,7 +203,7 @@ func (w *World) attackRound(att, def *Character, hand item.Slot) {
 		}
 		dmg := itoa(r.Damage)
 		_, word, punct := w.hitWords(r.Damage, def)
-		w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}"+crit, att, def, "", toChar)
+		w.act("Your "+verb+" "+word+" $N"+punct+" {Y}["+dmg+"]{x}"+crit, att, def, "", toChar)
 		w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}"+crit, att, def, "", toVict)
 		w.act("$n's "+verb+" "+word+" $N"+punct+crit, att, def, "", toNotVict)
 	}
@@ -290,7 +290,7 @@ func (w *World) actProc(src, dst *Character, pr Proc) {
 	if pluralPhrase(pr.Verb) {
 		word = base
 	}
-	w.act("Your "+verb+" "+word+" $N"+punct+" {W}["+dmg+"]{x}", src, dst, "", toChar)
+	w.act("Your "+verb+" "+word+" $N"+punct+" {Y}["+dmg+"]{x}", src, dst, "", toChar)
 	w.act("$n's "+verb+" "+word+" you"+punct+" {R}["+dmg+"]{x}", src, dst, "", toVict)
 	w.act("$n's "+verb+" "+word+" $N"+punct, src, dst, "", toNotVict)
 }

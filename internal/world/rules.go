@@ -115,7 +115,8 @@ func featBlocker(c *Character, f Feat) string {
 	return ""
 }
 
-// kitEntry is one item of standardKit: enough to build a prototype.
+// kitEntry is one item of standardKit: enough to build a prototype, and
+// the effects it carries.
 type kitEntry struct {
 	Name     string           `json:"name"`
 	Type     string           `json:"type"`
@@ -123,6 +124,7 @@ type kitEntry struct {
 	Baseline string           `json:"baseline"`
 	Weapon   *item.WeaponSpec `json:"weapon"`
 	Armor    *item.ArmorSpec  `json:"armor"`
+	Effects  []effect.Spec    `json:"effects"`
 }
 
 // Derived is what derivedStats returns. Speed is swings per round and may
@@ -416,8 +418,9 @@ func (w *World) featList() []Feat {
 }
 
 // standardKit asks the rules what a level-N character wears for balance
-// runs, and builds resolved prototypes for it. Optional; default nothing.
-func (w *World) standardKit(level int) []*item.Proto {
+// runs, and builds resolved prototypes for it, with the effects each
+// carries unless plain. Optional; default nothing.
+func (w *World) standardKit(level int, plain bool) []*item.Proto {
 	var entries []kitEntry
 	if !w.callOptional("standardKit", &entries, level) {
 		return nil
@@ -426,6 +429,9 @@ func (w *World) standardKit(level int) []*item.Proto {
 	for _, e := range entries {
 		p := &item.Proto{Name: e.Name, Keywords: keywordsOf(e.Name), Type: item.Type(e.Type), Slot: item.Slot(e.Slot),
 			Level: level, Baseline: e.Baseline, Weapon: e.Weapon, Armor: e.Armor}
+		if !plain {
+			p.Effects = e.Effects
+		}
 		if p.Type == item.Weapon && p.Slot == "" {
 			p.Slot = "wield"
 		}

@@ -600,7 +600,7 @@ func (w *World) applyCastTarget(c, t *Character, sp Spell, name string, tr CastT
 			resist = " partly"
 		}
 		_, word, punct := w.hitWords(tr.Damage, t)
-		w.act("Your "+name+" "+word+" $N"+resist+punct+" {W}["+dmg+"]{x}", c, t, "", toChar)
+		w.act("Your "+name+" "+word+" $N"+resist+punct+" {Y}["+dmg+"]{x}", c, t, "", toChar)
 		w.act("$n's "+name+" "+word+" you"+resist+punct+" {R}["+dmg+"]{x}", c, t, "", toVict)
 		w.act("$n's "+name+" "+word+" $N"+resist+punct, c, t, "", toNotVict)
 		t.Health -= tr.Damage

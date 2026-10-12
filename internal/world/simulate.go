@@ -144,7 +144,13 @@ func (w *World) cloneForSim(src *Character) *Character {
 // simFighter builds a level-N character in the rules' standard kit with
 // a fresh sheet and no points spent: the "player at level in standard
 // gear" that docs/RULES.md 4.5 measures against.
-func (w *World) simFighter(level int) *Character {
+func (w *World) simFighter(level int) *Character { return w.simKitted(level, false) }
+
+// simPlainFighter is simFighter with the kit's effects left off: plain
+// gear, for comparison (5.2).
+func (w *World) simPlainFighter(level int) *Character { return w.simKitted(level, true) }
+
+func (w *World) simKitted(level int, plain bool) *Character {
 	c := newCharacter("a level "+itoa(level)+" fighter", []string{"fighter"})
 	c.Level = level
 	r := w.onCreate(c)
@@ -152,7 +158,7 @@ func (w *World) simFighter(level int) *Character {
 		c.Stats[k] = v
 	}
 	c.Experience = w.xpToLevel(level)
-	for _, proto := range w.standardKit(level) {
+	for _, proto := range w.standardKit(level, plain) {
 		if slot := proto.WearSlot(); slot != "" {
 			c.Equipment[freePosition(c, slot)] = item.New(proto)
 		}
@@ -249,11 +255,11 @@ func copyStats(m map[string]int) map[string]int {
 	return out
 }
 
-// cmdSimulate: simulate <mobvnum | me | fighter[:level] | outfit[:level]> <mobvnum> [fights] [seed]
+// cmdSimulate: simulate <mobvnum | me | fighter[:level] | plain[:level] | outfit[:level]> <mobvnum> [fights] [seed]
 func cmdSimulate(w *World, p *Player, args string) {
 	fields := strings.Fields(args)
 	if len(fields) < 2 {
-		p.Send("Syntax: simulate <mob vnum | me | fighter[:level] | outfit[:level]> <mob vnum> [fights] [seed]\n")
+		p.Send("Syntax: simulate <mob vnum | me | fighter[:level] | plain[:level] | outfit[:level]> <mob vnum> [fights] [seed]\n")
 		return
 	}
 	var makeA func() *Character
@@ -262,7 +268,7 @@ func cmdSimulate(w *World, p *Player, args string) {
 	case fields[0] == "me":
 		makeA = func() *Character { return w.cloneForSim(p.Character) }
 		nameA = "you"
-	case strings.HasPrefix(fields[0], "fighter"), strings.HasPrefix(fields[0], "outfit"):
+	case strings.HasPrefix(fields[0], "fighter"), strings.HasPrefix(fields[0], "plain"), strings.HasPrefix(fields[0], "outfit"):
 		level := 1
 		if _, lv, ok := strings.Cut(fields[0], ":"); ok {
 			n, err := strconv.Atoi(lv)
@@ -275,6 +281,11 @@ func cmdSimulate(w *World, p *Player, args string) {
 		if strings.HasPrefix(fields[0], "outfit") {
 			makeA = func() *Character { return w.simOutfitter(level) }
 			nameA = "a level " + itoa(level) + " fighter in the outfit"
+			break
+		}
+		if strings.HasPrefix(fields[0], "plain") {
+			makeA = func() *Character { return w.simPlainFighter(level) }
+			nameA = "a level " + itoa(level) + " fighter in plain gear"
 			break
 		}
 		makeA = func() *Character { return w.simFighter(level) }

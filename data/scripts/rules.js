@@ -28,7 +28,7 @@ var P = {
   statBand: 0.10,       // ±10% jitter on every stat multiplier (4.2)
   levelK: 0.02,         // slight per-level multiplier (7.2)
   levelGrowth: 1.10,    // every baseline grows by this factor per level (RULES 5.2, decided 2026-09-24)
-  weaponGrowth: 1.07,   // a weapon's own damage grows by this instead (5.2, decided 2026-10-12); added damage fills the rest
+  weaponGrowth: 1.07,   // a weapon's own damage grows by this instead (5.2, decided 2026-10-12); what it carries makes up the rest
   healthBase: 50,       // health at level 1; grows by levelGrowth
   mobDamage: 0.45,      // a mob's natural attack as a fraction of a standard weapon (RULES 8)
   dodgeBase: 0.03,      // intrinsic dodge before stats and effects (4.3)
@@ -89,21 +89,26 @@ var STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom"];
 // what lets one win-rate row hold everywhere (RULES 4.5).
 function growth(L) { return Math.pow(P.levelGrowth, Math.max(0, (L || 1) - 1)); }
 
+// weaponGrowth is the flatter curve a weapon's own damage rides (5.2,
+// decided 2026-10-12): weaponGrowth^(L-1). The rest of a late weapon's
+// damage is what it carries (added damage, procs: 5.3).
+function weaponGrowth(L) { return Math.pow(P.weaponGrowth, Math.max(0, (L || 1) - 1)); }
+
 // Every weapon baseline deals about the standard's damage per round
 // (damage * speed near 6 at level 1); they differ in rhythm, spread, and
 // the trait in BASELINE_TRAITS. hands is the default when an item states
 // none.
 var WEAPON_BASELINES = {
-  standard: function (L) { return { damage: 6 * growth(L), speed: 1.0, spread: 0.2, verb: "hit", kind: "slash" }; },
-  dagger:   function (L) { return { damage: 3 * growth(L), speed: 2.0, spread: 0.1, verb: "stab", kind: "pierce" }; },
-  heavy:    function (L) { return { damage: 12 * growth(L), speed: 0.5, spread: 0.4, verb: "smash", kind: "blunt" }; },
-  unarmed:  function (L) { return { damage: 1.5 * growth(L), speed: 1.0, spread: 0.2, verb: "punch", kind: "blunt" }; },
-  axe:      function (L) { return { damage: 7.2 * growth(L), speed: 0.8, spread: 0.35, verb: "hack", kind: "slash" }; },
-  mace:     function (L) { return { damage: 6.6 * growth(L), speed: 0.9, spread: 0.15, verb: "crush", kind: "blunt" }; },
-  spear:    function (L) { return { damage: 5.4 * growth(L), speed: 1.1, spread: 0.15, verb: "thrust", kind: "pierce" }; },
-  flail:    function (L) { return { damage: 8.4 * growth(L), speed: 0.7, spread: 0.5, verb: "flail", kind: "blunt" }; },
-  whip:     function (L) { return { damage: 2.8 * growth(L), speed: 2.1, spread: 0.2, verb: "lash", kind: "slash" }; },
-  staff:    function (L) { return { damage: 5.4 * growth(L), speed: 1.0, spread: 0.1, verb: "strike", kind: "blunt", hands: 2 }; }
+  standard: function (L) { return { damage: 6 * weaponGrowth(L), speed: 1.0, spread: 0.2, verb: "hit", kind: "slash" }; },
+  dagger:   function (L) { return { damage: 3 * weaponGrowth(L), speed: 2.0, spread: 0.1, verb: "stab", kind: "pierce" }; },
+  heavy:    function (L) { return { damage: 12 * weaponGrowth(L), speed: 0.5, spread: 0.4, verb: "smash", kind: "blunt" }; },
+  unarmed:  function (L) { return { damage: 1.5 * weaponGrowth(L), speed: 1.0, spread: 0.2, verb: "punch", kind: "blunt" }; },
+  axe:      function (L) { return { damage: 7.2 * weaponGrowth(L), speed: 0.8, spread: 0.35, verb: "hack", kind: "slash" }; },
+  mace:     function (L) { return { damage: 6.6 * weaponGrowth(L), speed: 0.9, spread: 0.15, verb: "crush", kind: "blunt" }; },
+  spear:    function (L) { return { damage: 5.4 * weaponGrowth(L), speed: 1.1, spread: 0.15, verb: "thrust", kind: "pierce" }; },
+  flail:    function (L) { return { damage: 8.4 * weaponGrowth(L), speed: 0.7, spread: 0.5, verb: "flail", kind: "blunt" }; },
+  whip:     function (L) { return { damage: 2.8 * weaponGrowth(L), speed: 2.1, spread: 0.2, verb: "lash", kind: "slash" }; },
+  staff:    function (L) { return { damage: 5.4 * weaponGrowth(L), speed: 1.0, spread: 0.1, verb: "strike", kind: "blunt", hands: 2 }; }
 };
 
 // Armor baselines are a whole set's D; a piece takes its slot's share
@@ -257,8 +262,7 @@ function mobBaseline(p) {
   // mobDamage (RULES 8). A mirror fight can only end with the winner near
   // empty, so a level-N mob must hit softer than a level-N player in
   // standard gear for an even fight to end at the 4.5 health target.
-  var base = WEAPON_BASELINES.standard(L);
-  base.damage = base.damage * P.mobDamage;
+  var base = { damage: unitAt(L) * P.mobDamage, spread: 0.2, speed: 1.0 };
   var arm = p.armor || {};
   var ab = ARMOR_BASELINES.medium(L);
   return {
@@ -412,8 +416,8 @@ function resistDamage(target, kind, damage) { return Math.round(resisted(target,
 
 function unit(c) { return unitAt(c.level); }
 
-// unitAt is the power unit at level L: a standard weapon's swing on the
-// old curve, 6 * growth(L) (5.2).
+// unitAt is the power unit at level L, 6 * growth(L): what a standard
+// weapon's swing was before weapons took the flatter curve (5.2).
 function unitAt(L) { return 6 * growth(L); }
 
 // effectUnit is the unit an effect of c's is sized in (5.3). One on an
@@ -427,12 +431,14 @@ function effectUnit(c, e, it) {
 
 // weaponShare is the part of the power unit a weapon's own damage
 // carries at level L (5.2): all of it at level 1, a fifth at 60.
-function weaponShare(L) { return Math.pow(P.weaponGrowth / P.levelGrowth, Math.max(0, (L || 1) - 1)); }
+function weaponShare(L) { return weaponGrowth(L) / growth(L); }
 
 // attunedScale is how much an attuned item's numbers grow on c: the
-// baseline ratio between c's level and the item's own.
+// baseline ratio between c's level and the item's own, on the weapon
+// curve for a weapon and the power curve for armor.
 function attunedScale(it, c) {
   if (!hasEffect(it, "attuned")) return 1;
+  if (it.type === "weapon") return weaponGrowth(c.level) / weaponGrowth(it.level);
   return growth(c.level) / growth(it.level);
 }
 
@@ -616,39 +622,47 @@ function resolveAttack(att, def, weapon, round, hand) {
 
   // Roll: the weapon's spread, then Strength (or Dexterity, with Weapon
   // Finesse and a dagger) and level. An attuned weapon is drawn at its
-  // wielder's level.
+  // wielder's level. An armed mob keeps power-unit damage (8): its weapon
+  // counts against a plain one of its level, so one at its level hits as
+  // its natural attack's standard would, unscaled by mobDamage.
   var base = w.damage * (weapon ? attunedScale(weapon, att) : 1);
-  var dmg = spreadRoll(base, w.spread) * strikeMult(att, weapon) * levelMult(att);
-  dmg *= swingMult(att, def, weapon) * dualMult(att, hand);
+  if (weapon && att.mob) base /= weaponShare(att.level);
+  var hitMult = strikeMult(att, weapon) * levelMult(att) * swingMult(att, def, weapon) * dualMult(att, hand);
 
   // Modify: crits exist only as effects (4.2) and the axe's edge; execute
   // finishes the wounded.
   var cm = critMult(att, weapon), crit = cm > 1;
-  dmg *= cm;
-  dmg *= executeMult(att, def);
+  hitMult *= cm * executeMult(att, def);
+  // The hit is the swing and the added damage it carries (5.3), each
+  // part with its own kind.
+  var kind = w.kind || "blunt";
+  var parts = [{ kind: kind, dmg: spreadRoll(base, w.spread) * hitMult }];
+  eachAdded(att, weapon, function (e, u) {
+    parts.push({ kind: e.params.kind || "magic", dmg: spreadRoll(u * num(e.params.power), 0.2) * hitMult });
+  });
+  var whole = 0, i;
+  for (i = 0; i < parts.length; i++) whole += parts[i].dmg;
 
-  // Reduce: D / (D + K), with D from armor or natural hide, Constitution,
-  // and level, less what a mace ignores; then soak, a last stand, and
-  // protection effects.
+  // Reduce, the whole hit: D / (D + K), with D from armor or natural
+  // hide, Constitution, and level, less what a mace ignores; then soak,
+  // a last stand, and protection effects.
   var D = defense(def) * (1 - Math.min(1, num(traitsOf(weapon).pierce))), K = kFor(att);
-  dmg = dmg * K / (D + K);
+  var dmg = whole * K / (D + K);
   dmg = Math.max(dmg * LIMITS.soakFloor, dmg - soakAmount(def));
   dmg = dmg * lastStandMult(def) * protectMult(def);
-  var landed = Math.round(dmg) > 0;
+  var landed = Math.round(dmg) > 0, kept = whole > 0 ? dmg / whole : 0;
 
-  // Resist: last, part by part (4.8). The swing is weighed by its kind,
-  // and each part of added damage (5.3) by its own, so a creature immune
-  // to the blade still takes its fire. A swing wholly resisted still
-  // lands, so what rides on it is weighed too.
-  var kind = w.kind || "blunt", shrugged = immune(def, kind);
-  dmg = shrugged ? 0 : resisted(def, kind, dmg);
-  if (landed) eachAdded(att, weapon, function (e, u) {
-    var k = e.params.kind || "magic";
-    if (immune(def, k)) return;
+  // Resist: last, part by part (4.8), each part keeping its share of
+  // what got through. A creature immune to the blade still takes its
+  // fire; a hit wholly resisted still lands, so what rides on it (a
+  // proc) is weighed on its own kind.
+  var total = 0, shrugged = true;
+  for (i = 0; i < parts.length; i++) {
+    if (immune(def, parts[i].kind)) continue;
     shrugged = false;
-    dmg += resisted(def, k, spreadRoll(u * num(e.params.power), 0.2) * cm * protectMult(def) * lastStandMult(def));
-  });
-  var out = { hit: true, damage: Math.max(0, Math.round(dmg)), crit: crit && !shrugged, verb: verb, stage: "", kind: kind };
+    total += resisted(def, parts[i].kind, parts[i].dmg * kept);
+  }
+  var out = { hit: true, damage: Math.max(0, Math.round(total)), crit: crit && !shrugged, verb: verb, stage: "", kind: kind };
   if (shrugged) out.resisted = true;
   return landed ? onHit(att, def, out.damage, out) : out;
 }
@@ -656,7 +670,9 @@ function resolveAttack(att, def, weapon, round, hand) {
 // eachAdded calls fn(effect, unit) for every part of added damage (5.3)
 // riding on a swing with weapon: c's own, its prototype's, and what its
 // gear carries, but a weapon's only on that weapon's swings. It is part
-// of the hit: past armor, as a proc is, and it crits with the swing.
+// of the hit: what scales the swing (Strength, level, damage effects, a
+// crit) scales it, and armor, soak, and protection take from it as from
+// the swing; only resistance weighs it apart.
 function eachAdded(c, weapon, fn) {
   eachEffect(c, function (e, it) {
     if (e.kind !== "added") return;
@@ -1076,10 +1092,21 @@ var FEATS = [
 function featList() { return FEATS; }
 
 // standardKit is what "a level N fighter" wears in the simulator (RULES
-// 4.5): a standard weapon and a medium armor set, all at level N.
+// 4.5): a standard weapon and a medium armor set, all at level N, with
+// the effects a character can expect to carry at that level (5.2). The
+// weapon is the best of the drops a character has seen, not a typical
+// one: one full-quality roll of added damage (5.3), which makes it whole
+// against the power unit. A rare averages about 0.8 of such a roll and
+// an epic 1.2, so the kit sits between. No affix rolls below item level
+// 5, so below it the kit is plain. `simulate plain:N` leaves the
+// effects off.
+var KIT_ADDED_FROM = 5;
+
 function standardKit(level) {
+  var sword = { name: "a standard sword", type: "weapon", slot: "wield", baseline: "standard", weapon: { hands: 1, verb: "slash" } };
+  if (level >= KIT_ADDED_FROM) sword.effects = [addedAffix("fire", level, 1)];
   return [
-    { name: "a standard sword", type: "weapon", slot: "wield", baseline: "standard", weapon: { hands: 1, verb: "slash" } },
+    sword,
     { name: "a standard breastplate", type: "armor", slot: "body", baseline: "medium" },
     { name: "standard greaves", type: "armor", slot: "legs", baseline: "medium" },
     { name: "a standard helm", type: "armor", slot: "head", baseline: "medium" },
@@ -1109,9 +1136,8 @@ function deathRules() {
 // Magic (RULES 6). spellList defines the spells; mana is each one's cost,
 // and materials an extra cost only some spells name. The engine owns cast
 // time, targets, materials, and cooldowns; resolveCast decides what each
-// target suffers or gains. Damage is a multiple of the standard weapon's
-// per-swing damage at the caster's level (6.5), times the branch stat and
-// level (6.4).
+// target suffers or gains. Damage is a multiple of the power unit at the
+// caster's level (6.5, 5.2), times the branch stat and level (6.4).
 // ---------------------------------------------------------------------
 var SPELLS = [
   { id: "firebolt", kind: "fire", innate: true, level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
@@ -1179,11 +1205,11 @@ function spellById(id) { for (var i = 0; i < SPELLS.length; i++) if (SPELLS[i].i
 
 var SAVE_STAT = { reflex: "dexterity", fortitude: "constitution", will: "wisdom" };
 
-// spellPower is the caster's number for one "unit" of spell: the standard
-// weapon's damage at the caster's level, times the branch stat and level.
+// spellPower is the caster's number for one "unit" of spell: the power
+// unit at the caster's level, times the branch stat and level.
 function spellPower(caster, sp) {
   var statName = sp.branch === "divine" ? "wisdom" : "intelligence";
-  return WEAPON_BASELINES.standard(caster.level || 1).damage * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell")) * spellPowerMult(caster, sp);
+  return unit(caster) * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell")) * spellPowerMult(caster, sp);
 }
 
 // Caster effects (RULES 6.6) name which spells they help: a school, a
@@ -1704,8 +1730,8 @@ function hasSource(c, source) {
 var SKILL_IMPROVE = { chance: 0.5, min: 1, max: 3 };  // per use, scaled by how far from 100
 
 // STRIKE: damage skills (RULES 7.4, 2026-10-11) are measured in rounds of
-// the user's own weapon (damage times speed, or a standard swing if that
-// is more), so they keep pace with gear; the rating takes them from
+// the user's own weapon (its damage and the added damage it carries,
+// times speed, or a power unit if that is more), so they keep pace with gear; the rating takes them from
 // floor to full rather than from nothing; they can crit, and Enhanced
 // Damage adds to them. Utility skills (Bash, Trip, Hamstring, Sunder)
 // keep a small flat damage on the standard swing: their point is what
@@ -1715,8 +1741,9 @@ var STRIKE = { floor: 0.5 };
 function strikeUnit(c, weapon) {
   var u = unit(c);
   if (!weapon || !weapon.weapon) return u;
-  var w = weapon.weapon;
-  return Math.max(u, num(w.damage) * (num(w.speed) || 1) * attunedScale(weapon, c));
+  var w = weapon.weapon, swing = num(w.damage) * attunedScale(weapon, c);
+  eachAdded(c, weapon, function (e, eu) { swing += eu * num(e.params.power); });
+  return Math.max(u, swing * (num(w.speed) || 1));
 }
 
 function skillList() {

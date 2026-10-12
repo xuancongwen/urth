@@ -843,6 +843,32 @@ and +3 is favourable. Two knobs move it, and they are independent:
 whole row without changing its shape. Neither has been moved; the
 designer asked for 1.10 as the starting point.
 
+**Re-measured 2026-10-12, weapons on the flatter curve (5.2).**
+`simulate fighter:N` now wears the kit with the effects a character
+can expect at its level (`standardKit`: one full-quality roll of added
+fire on the sword from item level 5, 5.3), and `simulate plain:N` the
+same kit without them. Dummies above level 25 were made at the same
+baseline for the run; 500 seeded fights per cell. +1 is 100 and +5 is
+0 in every kit row.
+
+| Level | Kit rounds | Health left | sd | +3 win | Plain rounds | Plain health left | Plain even win |
+|---|---|---|---|---|---|---|---|
+| 1 | 10.3 | 58 percent | 5.0 | 71 | 10.3 | 58 percent | 100 |
+| 5 | 10.4 | 58 | 4.7 | 75 | 11.6 | 52 | 100 |
+| 10 | 10.5 | 58 | 4.5 | 77 | 13.5 | 44 | 100 |
+| 20 | 10.9 | 57 | 4.6 | 78 | 18.0 | 26 | 100 |
+| 30 | 11.2 | 57 | 4.4 | 80 | 23.5 | 6 | 58 |
+| 40 | 11.4 | 57 | 3.9 | 82 | 24.8 | | 0 |
+| 50 | 11.7 | 57 | 4.3 | 74 | 25.3 | | 0 |
+| 60 | 12.0 | 57 | 4.3 | 75 | 25.9 | | 0 |
+
+The kit matches the old plain kit on the old curve within noise at
+every level (measured the same day before the change: 10.3 to 11.9
+rounds, 57 to 58 percent, +3 at 70 to 84), which is what sizing a
+full-quality affix to the curve's gap was for. Plain gear loses ground
+from level 5 and stops winning even fights past about level 35: the
+"stopgap" of 5.2 at its harshest.
+
 **History.** The first measurement used linear baselines (`4 + 2L`,
 `40 + 10L`, `L + 2`) and found +3 at 0 percent for a level-1 fighter
 and 100 percent for a level-15 one: three levels was a 2x jump at
@@ -1073,8 +1099,8 @@ The families added 2026-09-28 (axe to staff) each come to about the
 standard's damage per round; what they add is a trait, kept in the
 rules' `BASELINE_TRAITS` and read from the baseline an item names.
 
-**Weapons ride a flatter curve than everything else (decided
-2026-10-12).** Health, armor, mob attacks, spells, procs, auras, and
+**Weapons ride a flatter curve than everything else (decided and
+built 2026-10-12).** Health, armor, mob attacks, spells, procs, auras, and
 soak all grow by 1.10 a level, and so did weapons, so a plain level-60
 sword hit for 1,660 a swing before Strength. The numbers were in
 proportion, which is what holds an even fight at 8 to 10 rounds at
@@ -1251,11 +1277,16 @@ cannot drop the best sword in the game.
   weapon's own damage falls behind the power unit with level (5.2),
   most of a late weapon's damage is affixes. The `added {kind, power}`
   effect adds `power` units of damage of a kind (4.8) to every hit. It
-  is part of the hit: it goes past armor, as a proc does, crits with
-  the swing, and is resisted by its own kind, so a weapon with three
-  kinds of added damage loses one part, not the whole hit, to a
-  creature immune to one of them, and a creature immune to the blade
-  still takes its fire. Added damage on a weapon rides only that
+  is part of the hit: what scales the swing (Strength, level, damage
+  effects, a crit) scales it, and armor, soak, and protection take from
+  the whole hit, so armor keeps its meaning however a weapon's damage
+  is made up. Only resistance weighs the parts apart, each by its own
+  kind, so a weapon with three kinds of added damage loses one part,
+  not the whole hit, to a creature immune to one of them, and a
+  creature immune to the blade still takes its fire. (Built first past
+  armor, as a proc; the 4.5 re-measure showed that made a weapon whole
+  plus a quarter late, where armor takes most, so it was moved inside
+  the hit the same day.) Added damage on a weapon rides only that
   weapon's swings; on anything else (a ring, a spell, a mob's own) it
   rides every swing. Four weapon affixes roll it from item level 5,
   weight 2 each: fire (flaming, of flame), cold (icy, of ice),
@@ -1871,9 +1902,10 @@ to consume. Cooldowns are counted in rounds on the character.
 
 A starting point to edit, sized so that every school and deity has one
 spell and the engine has something to resolve. Damage is written as a
-multiple of the standard weapon's per-swing damage at the caster's
-level (5.2), before the spell's stat and level scaling, so the list
-stays true when the curve moves. Durations are rounds.
+multiple of the power unit at the caster's level (5.2; the standard
+weapon's swing before weapons took the flatter curve), before the
+spell's stat and level scaling, so the list stays true when the curve
+moves. Durations are rounds.
 
 **Materials pool.** Rarity sets how often farming yields it; the last
 tier is never random. Since 2026-10-11 no spell on the lists below
@@ -1936,7 +1968,7 @@ then defence, buffs and debuffs, stronger spells taught at higher
 levels, and one spell per school and god learned only from a scroll
 (6.1), around levels 36 to 45. They live in
 `data/scripts/spells_arcane.js` and `spells_divine.js`, which append to
-the list in `rules.js`. Damage is in standard swings, as above; the
+the list in `rules.js`. Damage is in power units, as above; the
 effect column names the kinds attached and their rounds; "Learned" is
 innate, a trainer's price, or a scroll. Trainers are named in each
 area's README. Two capstones are deliberately extreme and are the first
@@ -2419,15 +2451,16 @@ character's gear and extra swings grew, and at its starting rating a
 Kick was a third of a swing. So the skills split in two:
 
 - A *strike* (Kick, Rend, Backstab, Circle, Whirlwind, Coup de Grace)
-  is measured in rounds of the user's own weapon: its damage times its
-  speed, or a standard swing if that is more, so a dagger and a maul of
-  the same damage per round give the same Kick. The rating takes it
+  is measured in rounds of the user's own weapon: its damage and the
+  added damage it carries (5.3) times its speed, or a power unit if
+  that is more, so a dagger and a maul of the same damage per round
+  give the same Kick. The rating takes it
   from half its potential to all of it rather than from nothing, it can
   crit as a swing does, and Enhanced Damage adds to it. Multipliers are
   in the tables above.
 - A *utility* skill (Bash, Trip, Hamstring, Sunder, Disarm, Dirt
   Kicking, Feint) is for what it does. Its damage, where it has any,
-  stays a small flat share of a standard swing that gear does not grow;
+  stays a small flat share of a power unit that gear does not grow;
   the rating scales its effect.
 
 Measured at level 10 in standard kit on an even mob: a round of
@@ -2643,7 +2676,7 @@ the player's side of the fight.
 sets a *baseline* for everything, the same way an item's level does
 (5.2), and every value is overridable in the prototype. The baseline
 gives it the six stats at 10, health from the 3.3 curve, a natural
-attack that is a `standard` weapon at its level scaled by `mobDamage`
+attack that is the power unit at its level (5.2) scaled by `mobDamage`
 (0.45 to start), and natural armor on the `medium` armor baseline, all
 at its level.
 

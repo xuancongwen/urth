@@ -68,29 +68,28 @@ func toFloat(v any) float64 {
 
 func unitAtLevel(L int) float64 { return 6 * math.Pow(1.10, float64(L-1)) }
 
-// A weapon's added damage rides its own swings, past armor, each part
-// resisted by its own kind.
+// A weapon's added damage rides its own swings, scaled and reduced as
+// the swing is, each part resisted by its own kind. Here the fire is the
+// size of the blade's own swing, so it doubles the hit.
 func TestAddedDamageRidesItsWeapon(t *testing.T) {
 	w, att, def := resistFixture(t)
 	blade := plainBlade(t, w)
 	att.Equipment["wield"] = blade
-	base, _ := swingWith(t, w, att, def, blade, 800)
-	fire := unitAtLevel(10)
+	base, _ := swingWith(t, w, att, def, blade, 1500)
+	share := math.Pow(1.07/1.10, 9)
+	near := func(got, want float64) bool { return got > 0.88*want && got < 1.12*want }
 
-	blade.Effects = []effect.Active{added("fire", 1, 10)}
-	got, _ := swingWith(t, w, att, def, blade, 800)
-	if d := got - base; d < 0.85*fire || d > 1.15*fire {
-		t.Fatalf("fire adds %.1f a swing, want about %.1f", d, fire)
+	blade.Effects = []effect.Active{added("fire", share, 10)}
+	if got, _ := swingWith(t, w, att, def, blade, 1500); !near(got, 2*base) {
+		t.Fatalf("with fire: %.1f a swing, want about twice the plain %.1f", got, base)
 	}
-
 	def.Effects = []effect.Active{resist("fire", 1)}
-	if got, _ := swingWith(t, w, att, def, blade, 800); got < 0.85*base || got > 1.15*base {
+	if got, _ := swingWith(t, w, att, def, blade, 1500); !near(got, base) {
 		t.Errorf("fire-immune: %.1f a swing, want about the plain %.1f", got, base)
 	}
 	def.Effects = []effect.Active{resist("slash", 1)}
-	got, resisted := swingWith(t, w, att, def, blade, 800)
-	if got < 0.85*fire || got > 1.15*fire || resisted != 0 {
-		t.Errorf("immune to the blade: %.1f a swing (%d shrugged off), want about %.1f of fire", got, resisted, fire)
+	if got, resisted := swingWith(t, w, att, def, blade, 1500); !near(got, base) || resisted != 0 {
+		t.Errorf("immune to the blade: %.1f a swing (%d shrugged off), want about %.1f of fire", got, resisted, base)
 	}
 	def.Effects = []effect.Active{resist("slash", 1), resist("fire", 1)}
 	if got, resisted := swingWith(t, w, att, def, blade, 100); got != 0 || resisted == 0 {
@@ -103,7 +102,7 @@ func TestAddedDamageRidesItsWeapon(t *testing.T) {
 	dagger := plainBlade(t, w)
 	dagger.Effects = []effect.Active{added("fire", 1, 10)}
 	att.Equipment["second"] = dagger
-	if got, _ := swingWith(t, w, att, def, blade, 800); got > 1.15*base {
+	if got, _ := swingWith(t, w, att, def, blade, 1500); got > 1.12*base {
 		t.Errorf("the off hand's fire rode the main hand: %.1f a swing, plain %.1f", got, base)
 	}
 }
@@ -191,5 +190,50 @@ func TestAddedAffixRolls(t *testing.T) {
 	var words string
 	if err := w.scripts.Call("describeEffect", &words, map[string]any{"kind": "added", "params": map[string]any{"kind": "fire", "power": 0.5, "level": 10}, "rounds": 0}); err != nil || words != "Every hit adds about 7 fire damage, past armor" {
 		t.Errorf("describe: %q (%v)", words, err)
+	}
+}
+
+// A weapon's own damage rides the flatter curve (5.2): a plain level-60
+// sword is about a fifth of the power unit.
+func TestWeaponsRideTheFlatterCurve(t *testing.T) {
+	w := shippedWorld(t)
+	for _, L := range []int{1, 20, 60} {
+		var r struct {
+			Weapon struct {
+				Damage float64 `json:"damage"`
+			} `json:"weapon"`
+		}
+		if err := w.scripts.Call("itemBaseline", &r, map[string]any{"type": "weapon", "level": L, "baseline": "standard"}); err != nil {
+			t.Fatal(err)
+		}
+		if want := 6 * math.Pow(1.07, float64(L-1)); math.Abs(r.Weapon.Damage-want) > 0.01*want {
+			t.Errorf("level %d sword: %.1f, want %.1f", L, r.Weapon.Damage, want)
+		}
+	}
+}
+
+// An armed mob keeps power-unit damage (8): with a plain weapon of its
+// level it hits as hard as the power unit, harder than a player with the
+// same weapon by the share the weapon curve lost.
+func TestArmedMobKeepsPowerUnitDamage(t *testing.T) {
+	w, player, def := resistFixture(t)
+	var mobAtt *Character
+	for _, p := range w.content.Mobs {
+		if p.Level == 10 && !p.HasFlag("peaceful") && len(p.Effects) == 0 && p != def.mob.Proto {
+			mobAtt = w.newMob(p).Character
+			break
+		}
+	}
+	mobAtt.Effects = nil
+	mobAtt.Stats = copyStats(player.Stats)
+	blade := plainBlade(t, w)
+	mobAtt.Equipment["wield"] = blade
+	player.Equipment["wield"] = blade
+	w.recalc(mobAtt)
+	w.recalc(player)
+	mine, _ := swingWith(t, w, player, def, blade, 1500)
+	theirs, _ := swingWith(t, w, mobAtt, def, blade, 1500)
+	if r, want := theirs/mine, 1/math.Pow(1.07/1.10, 9); r < 0.9*want || r > 1.1*want {
+		t.Errorf("armed mob %.1f against a player's %.1f: ratio %.2f, want about %.2f", theirs, mine, r, want)
 	}
 }
