@@ -269,3 +269,19 @@ player file needs nothing new. Feats gain trained-stat requirements
 and, for caster feats, a branch; caster feats and gear read new effect
 kinds in the rules, and the engine exposes casting cost, time, and
 interruption through one optional `castCost` hook (RULES 6.6, 7.2).
+
+## D26. Weapons ride a flatter curve; damage has kinds, and kinds are resisted
+
+Every baseline grew by 1.10 a level, weapons included, so late weapons
+hit for thousands and a character's power sat in one number. The
+designer asked on 2026-10-12 for high damage to come from effects
+stacking instead, with health left as it is. The curve is split: the
+power unit (`unit` in the rules) keeps 1.10 and sizes health, mob
+attacks, spells, procs, and added damage; a weapon's own damage grows
+by 1.07, a fifth of the power unit by level 60, and affixes, procs,
+feats, and spells make up the rest (RULES 5.2, 5.3). To make the mix
+of that stack matter, every part of a hit has a kind and a `resist`
+effect grades it, from vulnerability through resistance to immunity,
+with immunity kept for mobs (RULES 4.8). Both are rules-script work;
+the engine's share is carrying a kind on spells and procs and showing
+resistances on `consider`.

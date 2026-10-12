@@ -242,7 +242,9 @@ ahead, full stop. What distinguishes them is not their weight but their
 job. Level *gates*: it decides which mobs give experience (and, if 5.2's
 leaning changes, what can be worn). Gear *sets the base numbers*: the
 weapon is the damage, the armor is the defense, and the item table (5.2)
-is the progression curve made visible. Stats *multiply* and are the
+is the progression curve made visible. (Revised 2026-10-12: past the
+first levels the weapon is the smaller part of the damage, and what is
+on it, its affixes and procs, is the larger; 5.2.) Stats *multiply* and are the
 build: two characters of the same level in the same gear differ by
 their stat allocation.
 
@@ -919,6 +921,67 @@ session; experience split on kill; `follow`, `group`, `assist`, `gtell`.
 Views gain `group: [...]` and `enemies: [...]` so that hooks can see
 both sets. `resolveCast` takes a target *set*, not a single target.
 
+### 4.8 Damage types and resistance
+
+**Status: decided 2026-10-12.** Asked for by the designer alongside the
+weapon curve (5.2): once high damage is effects stacking, something has
+to make a fight ask which effects, and immunities are the oldest answer.
+
+**Thesis.** Every hit has a kind, and creatures can be immune to kinds.
+A skeleton cannot be stabbed, a fire elemental cannot be burned. The
+player learns the world's rules and brings the right weapon.
+
+**Antithesis.** Binary immunity is a wall. A player who arrives with
+the wrong weapon does nothing at all, which is a lookup failure rather
+than a decision, and a player who stacks immunities stops taking a
+kind of damage forever. Applied to physical kinds it can make whole
+areas unplayable for a build.
+
+**Synthesis.** Resistance is graded, and immunity is its rare top.
+
+- **Kinds.** Every part of every hit has a kind. A weapon's swing has
+  its weapon's `kind`, which content already carries (slash, pierce,
+  blunt; bite and claw for natural attacks). Spells gain a `kind`
+  (fire, cold, lightning, poison, magic, psionic, drain, and so on), as
+  do procs, added damage (5.3), and the damage over time they leave
+  behind (ignite is fire, venom is poison). Physical kinds and
+  elements are both resistable.
+- **Families.** A resistance may name a kind or a family: `physical`
+  (slash, pierce, blunt, bite, claw), `elemental` (fire, cold,
+  lightning, poison, acid), or `all`, so a ghost can shrug off weapons
+  without a line per kind.
+- **One effect.** `resist {kind, amount}`. Amounts add across sources,
+  as `stat` does. A part of a hit of that kind is multiplied by `1 -
+  amount`: 0.5 halves it, 1 is immunity, and a negative amount is a
+  vulnerability (-0.5 makes it hit 1.5 times as hard).
+- **Immunity is rare.** A player's total resistance to a kind stops
+  short of immunity (a limit in the rules, like leech's), so gear and
+  feats give partial resistance and a player always takes some of
+  every kind. Full immunity is for mobs, and a builder writes it on
+  named creatures and bosses, not on ordinary ones.
+- **Where it applies.** Last: after the avoidance tries and armor for a
+  swing (4.3), after the save for a spell (6.4). A hit made of several
+  kinds (a fire sword's slash and its flame) is resisted part by part,
+  so one immunity takes one part.
+- **Seen before the fight.** `consider` names a creature's immunities
+  and vulnerabilities, and an identified item lists its resistances.
+  When a part of a hit is wholly resisted, the message says so ("The
+  skeleton shrugs off your stab").
+
+Why graded: the designer wants high damage to come from stacked
+effects; graded resistance makes the mix of kinds in that stack matter
+in every fight, not only against the few immune creatures, and a
+player with the wrong kit is slowed, not stopped.
+
+Consequences: `resolveAttack`, `resolveCast`, and the proc, aura, and
+damage-over-time paths split damage by kind and apply `resist`; spells,
+procs, and added-damage affixes carry a kind; the kinds already in
+content are checked against one list (the one `blast` is folded into
+an existing kind); `consider` and identification show resistances.
+Open: whether anything lowers a target's resistance (an armor-pierce
+for kinds, or a curse), and whether a family resistance and a kind
+resistance on the same creature add or take the larger.
+
 ---
 
 ## 5. Items
@@ -994,6 +1057,45 @@ the engine so that rounding does not distort low levels.
 The families added 2026-09-28 (axe to staff) each come to about the
 standard's damage per round; what they add is a trait, kept in the
 rules' `BASELINE_TRAITS` and read from the baseline an item names.
+
+**Weapons ride a flatter curve than everything else (decided
+2026-10-12).** Health, armor, mob attacks, spells, procs, auras, and
+soak all grow by 1.10 a level, and so did weapons, so a plain level-60
+sword hit for 1,660 a swing before Strength. The numbers were in
+proportion, which is what holds an even fight at 8 to 10 rounds at
+every level (4.5), but they put the whole of a character's power in the
+weapon's one number, and left the effects on it (5.3, 5.4) as small
+change on top. The designer asked for the opposite: high damage should
+be effects, affixes, procs, and spells stacking, not a weapon with an
+innate range in the thousands. Health is left as it is.
+
+So the curve is split in two:
+
+- The *power unit* is the standard weapon's old damage, `6 * 1.10^(L
+  - 1)`. It sizes everything that is not a weapon's own swing: health
+  (3.3), mob natural attacks (8), procs, auras, soak, skills, spells
+  (6.5), and added damage (5.3). In the rules it is `unit(level)`.
+- A weapon's own damage grows by 1.07 a level instead, so its share of
+  the power unit falls: all of it at level 1, about 60 percent at 20, a
+  third at 40, a fifth at 60. The table above keeps its level-1 values
+  and family ratios; only the growth differs.
+
+The rest is meant to come from what the weapon carries and what the
+character has built: added damage and procs on the weapon (5.3),
+feats (7.2), stats, and spells. Plain gear is therefore weak late, by
+design: past level 40 a common weapon is a stopgap, and a rare or named
+one is what carries a fight. Level 1 is untouched, because no affix
+rolls that early.
+
+Consequences: 4.5's targets are now measured with a fighter whose
+weapon carries the effects a character can expect at its level (the
+tier a drop at that level most often gives, with typical affixes), not
+a plain one; the kit is a rules table and the simulator reports both.
+An armed mob (8) keeps power-unit damage: its weapon sets the swing's
+kind, verb, speed, spread, and effects, and the weapon's damage counts
+against a plain weapon of the mob's level, so a weapon above its level
+still makes it stronger. Named weapons (5.3) get their strength from
+more effects and stronger procs, not stated damage.
 
 | Baseline | Total `D` at level, across all slots | Spread | Notes |
 |---|---|---|---|
@@ -1129,6 +1231,20 @@ cannot drop the best sword in the game.
   since a share that grew with level would pass any cap in time.
   Affixes are existing effect kinds, so every one already works in the
   pipeline and `describeEffect` already words it.
+- **Added damage (decided 2026-10-12).** Since a weapon's own damage
+  falls behind the power unit with level (5.2), most of a late weapon's
+  damage is affixes. A family of weapon affixes adds damage of a kind
+  (4.8) to every hit: fire, cold, lightning, poison, and the like,
+  each sized in power units at the item's level and scaled by the
+  roll's quality, so it grows with item level as stats and defense do.
+  Procs (thunder, ignite, venom) are sized the same way, at the item's
+  level rather than the wielder's, so old gear falls behind as the
+  weapon itself does; an attuned item scales to its wielder, as now.
+  Every part of a hit is resisted by its own kind, so a weapon with
+  three kinds of added damage loses one part, not the whole hit, to a
+  creature immune to one of them. Named weapons are strong the same
+  way: several affixes, several procs, or one large one, never a stated
+  damage number.
 - **Drops.** On a death the rules say how many extra items the corpse
   gets and how wide a level band they come from. The engine draws each
   from the rollable weapon and armor prototypes of the victim's own
@@ -2506,7 +2622,10 @@ than a level-N player. Health stays equal so the fight length is set by
 the player's damage; the mob's damage sets how much the player has left.
 A mob that *wields* a weapon uses the weapon's full numbers, so an armed
 mob is markedly stronger than its level's baseline; that is the
-builder's lever for guards and champions, and it is visible on `look`. A builder who writes only
+builder's lever for guards and champions, and it is visible on `look`
+(revised 2026-10-12: an armed mob keeps power-unit damage scaled by its
+weapon against a plain one of its level, 5.2, so a wielded weapon still
+helps it now that weapons ride a flatter curve). A builder who writes only
 `level: 8` gets a plain level-8 creature; one who writes `stats:
 {strength: 14, intelligence: 6}` gets a brute; `health: 300` gets a
 boss. Role tags are unnecessary because a role is just a set of
@@ -2531,6 +2650,11 @@ can list feats (7.2) and unlocked schools (6.1), and the same
 `resolveCast` and pipeline apply. Whether mobs *choose* to cast is an
 AI question for the engine's behaviour scripts, not a rules question;
 the rules only need the mob to be able to.
+
+**Resistances (decided 2026-10-12).** A mob carries `resist` effects
+(4.8) like any other: a skeleton resists pierce, a fire elemental is
+immune to fire and weak to cold. Full immunity is a builder's choice
+for named creatures and bosses, and is visible before the fight (4.8).
 
 Consequences: a `mobBaseline(prototype)` hook alongside
 `itemBaseline`, same contract. Mob prototypes gain `baseline`
