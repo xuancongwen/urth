@@ -83,7 +83,12 @@ func capitalizeWord(s string) string {
 func cmdScore(w *World, p *Player, _ string) {
 	var s sheet
 	s.rule()
-	s.line(padRight(output.Escape(p.Name), 36) + padRight("Level "+itoa(p.Level), 12) + "Speed " + ftoa(p.Speed))
+	combat := w.combatSheet(p.Character)
+	head := padRight(output.Escape(p.Name), 36) + padRight("Level "+itoa(p.Level), 12)
+	if len(combat) == 0 {
+		head += "Speed " + ftoa(p.Speed) // otherwise it is Attacks in the combat rows
+	}
+	s.line(head)
 	s.rule()
 	next := w.xpToLevel(p.Level + 1)
 	xp := itoa(p.Experience)
@@ -124,6 +129,16 @@ func cmdScore(w *World, p *Player, _ string) {
 				l2, v2 = capitalizeWord(keys[j]), show(keys[j])
 			}
 			s.pair(l1, v1, l2, v2)
+		}
+	}
+	if rows := combat; len(rows) > 0 {
+		s.rule()
+		for i := 0; i < len(rows); i += 2 {
+			l2, v2 := "", ""
+			if i+1 < len(rows) {
+				l2, v2 = rows[i+1].Label, rows[i+1].Value
+			}
+			s.pair(rows[i].Label, rows[i].Value, l2, v2)
 		}
 	}
 	var extras []func()
@@ -167,6 +182,30 @@ func cmdScore(w *World, p *Player, _ string) {
 	}
 	s.rule()
 	p.Send(s.b.String())
+}
+
+// sheetRow is one label and value the rules put on the score sheet.
+type sheetRow struct {
+	Label string `json:"label"`
+	Value string `json:"value"`
+}
+
+// combatSheet asks the rules what a character's feats, gear, skills, and
+// stats add up to: attacks a round, dodge, block, and the like. Optional;
+// without the hook the sheet has no such section.
+func (w *World) combatSheet(c *Character) []sheetRow {
+	var rows []sheetRow
+	if !w.callOptional("combatSheet", &rows, w.view(c)) {
+		return nil
+	}
+	out := rows[:0]
+	for _, r := range rows {
+		if r.Label != "" {
+			r.Label, r.Value = output.Escape(r.Label), output.Escape(r.Value)
+			out = append(out, r)
+		}
+	}
+	return out
 }
 
 // orderedStats returns the five stats in their canonical order, then any

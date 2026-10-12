@@ -558,20 +558,21 @@ function blindMiss(c) {
   return num(b.params.miss) * bf;
 }
 
-// dodgeChance is c's chance to dodge a swing or a skill.
-function dodgeChance(c) {
-  return P.dodgeBase * mult(c, "dexterity", true) + sumEffects(c, "dodge", "amount") + sumEffects(c, "powerAttack", "dodge") +
+// dodgeChance is c's chance to dodge a swing or a skill; flat leaves out
+// the stat band, for the score sheet.
+function dodgeChance(c, flat) {
+  return P.dodgeBase * mult(c, "dexterity", !flat) + sumEffects(c, "dodge", "amount") + sumEffects(c, "powerAttack", "dodge") +
     armorTrait(c, "dodge") + weaponTrait(c, "dodge") + 0.10 * skillRating(c, "dodge") / 100 - (exhausted(c) ? P.exhaustedDodge : 0);
 }
 
 // blockChance is c's chance to block, Riposte aside: block effects that do
 // not come from the shield, then the shield's own (shieldBlock), unless
-// the blow goes over it. Strength scales it.
-function blockChance(c, overShield) {
+// the blow goes over it. Strength scales it; flat leaves out the band.
+function blockChance(c, overShield, flat) {
   var own = 0, sh = shield(c);
   if (sh && sh.effects) for (var i = 0; i < sh.effects.length; i++) if (sh.effects[i].kind === "block") own += num(sh.effects[i].params.chance);
   var b = sumEffects(c, "block", "chance") - own + (overShield ? 0 : shieldBlock(c));
-  return P.blockBase + b * mult(c, "strength", true);
+  return P.blockBase + b * mult(c, "strength", !flat);
 }
 
 // strikeMult is the stat multiplier on c's damage: Strength, or Dexterity
@@ -1151,6 +1152,65 @@ function consider(me, target) {
   if (gap <= 3) return "Risky. Bring something more than steel.";
   if (gap === 4) return "Death will thank you for your gift.";
   return "You ARE mad!";
+}
+
+// ---------------------------------------------------------------------
+// combatSheet: what feats, gear, skills, and stats add up to, for the
+// score sheet. Each row is {label, value}; the core rows always show, the
+// rest only when something grants them. Averages, without the stat band.
+// ---------------------------------------------------------------------
+function combatSheet(c) {
+  var rows = [];
+  var add = function (label, value) { rows.push({ label: label, value: value }); };
+  var pct = function (x) { return Math.round(x * 100) + "%"; };
+  var signed = function (x) { var v = Math.round(x * 100); return (v >= 0 ? "+" : "") + v + "%"; };
+  var weapon = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield : null;
+
+  add("Attacks", (Math.round(num(c.speed) * 10) / 10) + " a round");
+  var dm = damageMult(c, weapon) * (1 + 0.15 * skillRating(c, "enhanced_damage") / 100);
+  if (!weapon && !c.mob) dm *= unarmedMult(c);
+  add("Damage", signed(dm - 1));
+
+  var ce = bestEffect(c, "crit", "chance");
+  var critChance = (ce ? num(ce.params.chance) : 0) + num(traitsOf(weapon).crit);
+  var critX = ((ce && num(ce.params.mult)) || 2) + sumEffects(c, "critMult", "amount");
+  add("Critical", critChance > 0 ? pct(critChance) + " for " + critX + "x" : "none");
+
+  add("Dodge", pct(Math.max(0, dodgeChance(c, true))));
+  var block = blockChance(c, false, true) + riposteBlock(c) * mult(c, "strength", false);
+  add("Block", block > 0 ? pct(block) : "none");
+
+  // Armor: the share an even foe's blow loses to defense, as resolveAttack
+  // reduces it, then protection (Juggernaut, Sanctuary).
+  var D = 0, worn = false, s;
+  if (c.equipment) for (s in c.equipment) {
+    var it = c.equipment[s];
+    if (it && it.armor && it.armor.defense) { D += it.armor.defense * attunedScale(it, c); worn = true; }
+  }
+  if (!worn && c.mob && c.mob.armor) D = num(c.mob.armor.defense);
+  D = Math.max(0, (D + sumEffects(c, "defense", "amount")) * mult(c, "constitution", false) * levelMult(c));
+  add("Armor", pct(D / (D + kFor(c))) + " off hits");
+  var pm = protectMult(c);
+  if (pm !== 1) add("Damage taken", signed(pm - 1));
+
+  var soak = soakAmount(c);
+  if (soak > 0) add("Soak", Math.max(1, Math.round(soak)) + " off each hit");
+  var leech = capped(c, "leech", "fraction", LIMITS.leech);
+  if (leech > 0) add("Leech", pct(leech) + " of damage");
+  var thorns = capped(c, "thorns", "fraction", LIMITS.thorns);
+  if (thorns > 0) add("Thorns", pct(thorns) + " returned");
+  var regen = capped(c, "regen", "fraction", LIMITS.regen);
+  if (regen > 0) add("Regen", pct(regen) + " a round");
+  var ex = bestEffect(c, "execute", "mult");
+  if (ex) add("Execute", signed(num(ex.params.mult) - 1) + " under " + pct(num(ex.params.threshold)));
+  var ls = null;
+  eachEffect(c, function (e) { if (e.kind === "lastStand" && (!ls || num(e.params.mult) < num(ls.params.mult))) ls = e; });
+  if (ls) add("Last stand", signed(num(ls.params.mult) - 1) + " under " + pct(num(ls.params.threshold)));
+  var opp = opportunistMult(c, { effects: [{ kind: "speedMult", params: { mult: 0.5 } }] });
+  if (opp > 1) add("Opportunist", signed(opp - 1) + " vs slowed");
+  var st = steadiness(c);
+  if (st.chance > 0) add("Footing", st.chance >= 1 ? "never lose a round" : pct(st.chance) + " keep a round");
+  return rows;
 }
 
 // ---------------------------------------------------------------------
