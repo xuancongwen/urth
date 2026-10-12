@@ -93,6 +93,7 @@ func TestKillMobAwardsXPAndLevels(t *testing.T) {
 func TestWeaponDamageAndDeathDrops(t *testing.T) {
 	w := testWorld(t)
 	bob := login(t, w, 1, "Bob")
+	noAuto(w.players[1])
 	send(w, 1, "kill guard") // guard wields the 4-damage sword and carries bread
 	bob.take()
 	for i := 0; i < 10; i++ {
@@ -1184,6 +1185,8 @@ func TestMoneyDropsGiveAndCorpse(t *testing.T) {
 	alice := login(t, w, 2, "Alice")
 	setRules(t, w, testRules+`function moneyFor(v) { return 37; }`)
 	p := w.players[1]
+	noAuto(p)
+	noAuto(w.players[2])
 	if moneyString(0) != "no coins" || moneyString(5) != "5 silver" || moneyString(100) != "1 gold" || moneyString(250) != "2 gold and 50 silver" {
 		t.Fatalf("money strings: %q %q %q %q", moneyString(0), moneyString(5), moneyString(100), moneyString(250))
 	}
@@ -1280,6 +1283,7 @@ func TestSacrificeCorpse(t *testing.T) {
 	w := testWorld(t)
 	bob := login(t, w, 1, "Bob")
 	p := w.players[1]
+	noAuto(p)
 	guard := w.contents(p.Room).mobs[0]
 	guard.Health = 1
 	send(w, 1, "kill guard")

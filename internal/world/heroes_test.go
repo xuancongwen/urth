@@ -140,6 +140,7 @@ func TestKillTikaForHerFryingPan(t *testing.T) {
 	w.Events() <- session.Input{ID: 1, Line: "secret5"}
 	tickUntil(t, w, c, "Welcome, Bob")
 	p := w.players[1]
+	noAuto(p)
 	p.Room = w.content.Rooms.Rooms[312]
 	p.Level = 20
 	w.recalc(p.Character)

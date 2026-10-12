@@ -205,6 +205,11 @@ func TestAutoLootGoldSac(t *testing.T) {
 		bob.take()
 	}
 
+	// A new character starts with all three on.
+	if !p.rec.AutoLoot || !p.rec.AutoGold || !p.rec.AutoSac {
+		t.Fatalf("new character's auto settings: %+v", p.rec)
+	}
+	noAuto(p)
 	send(w, 1, "autogold")
 	if o := bob.take(); !strings.Contains(o, "take the coins") || !p.rec.AutoGold {
 		t.Fatalf("autogold: %q", o)
@@ -237,4 +242,10 @@ func TestAffects(t *testing.T) {
 	if o := bob.take(); !strings.Contains(o, "You are affected by") || !strings.Contains(o, "30 seconds") {
 		t.Fatalf("timed: %q", o)
 	}
+}
+
+// noAuto turns off the auto settings a new character starts with, for
+// tests that look at the corpse a kill leaves.
+func noAuto(p *Player) {
+	p.rec.AutoLoot, p.rec.AutoGold, p.rec.AutoSac = false, false, false
 }

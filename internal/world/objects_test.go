@@ -471,7 +471,7 @@ func TestSettings(t *testing.T) {
 	bob := login(t, w, 1, "Bob")
 	send(w, 1, "settings")
 	o := bob.take()
-	for _, want := range []string{"autoloot  off", "autosac   off", "color     on"} {
+	for _, want := range []string{"autoloot  on", "autosac   on", "color     on"} {
 		if !strings.Contains(o, want) {
 			t.Fatalf("settings missing %q: %q", want, o)
 		}
@@ -479,7 +479,7 @@ func TestSettings(t *testing.T) {
 	send(w, 1, "settings autol")
 	bob.take()
 	send(w, 1, "settings")
-	if o := bob.take(); !strings.Contains(o, "autoloot  on") || !w.players[1].rec.AutoLoot {
+	if o := bob.take(); !strings.Contains(o, "autoloot  off") || w.players[1].rec.AutoLoot {
 		t.Fatalf("after flipping autoloot: %q", o)
 	}
 	send(w, 1, "set nope")

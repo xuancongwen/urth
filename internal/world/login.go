@@ -155,6 +155,11 @@ func (w *World) loginConfirmPassword(p *Player, line string) {
 				LastLogin:    now,
 				Room:         w.cfg.World.StartRoom,
 				Color:        true,
+				// New characters loot, pocket coins, and sacrifice corpses
+				// by default; each can be turned off with settings.
+				AutoLoot: true,
+				AutoGold: true,
+				AutoSac:  true,
 			}
 			if err := w.store.Save(rec); err != nil {
 				w.log.Error("save new player", "name", name, "err", err)
