@@ -1,0 +1,19 @@
+vnum: 3945
+name: the Water Medallion
+keywords: [water, medallion, blue, amulet]
+description: A blue medallion marked with a sign like a wave lies here.
+look: |
+  The medallion of the Sage of Water, a disc of blue metal with the sign
+  of water on it, which Ruto awakens to in the cleansed temple. It is
+  always cool and a little wet, and the mind under it runs clear.
+type: armor
+slot: neck
+weight: 0
+level: 25
+value: 2500
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: manaMax, params: { amount: 0.1 } }
+  - { kind: protect, params: { mult: 0.94 } }

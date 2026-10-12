@@ -1,0 +1,14 @@
+vnum: 3810
+name: a Black Moon wolf
+keywords: [black, moon, wolf, wolves, beast]
+description: A black wolf with pale eyes slinks between the trunks.
+look: |
+  A wolf of the Black Moon Forest, black as the moss and as big as a
+  pony, with eyes that shine white in any light at all. They hunt in
+  packs, and they have learned that the people of Lahan do not come into
+  the forest; you have not learned it yet.
+level: 27
+flags: [assist, aggressive]
+attack:
+  kind: bite
+  verb: bite

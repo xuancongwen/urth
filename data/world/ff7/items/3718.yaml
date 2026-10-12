@@ -1,0 +1,17 @@
+vnum: 3718
+name: a rune blade
+keywords: [rune, blade, sword]
+description: A sword etched with glowing runes lies here.
+look: |
+  A long sword whose blade is etched from guard to tip with runes that
+  glow faintly when it is drawn. Whose runes, nobody knows any more.
+  The edge has never needed sharpening.
+type: weapon
+weight: 3
+level: 45
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+flags: [drop]

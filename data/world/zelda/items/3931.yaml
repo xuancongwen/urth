@@ -1,0 +1,14 @@
+vnum: 3931
+name: a Zora-scale mail
+keywords: [zora-scale, zora, scale, mail, armor, armour]
+description: A shirt of overlapping silver-blue scales lies here.
+look: |
+  A shirt of scales shed by the Zoras, overlapped like a fish's and sewn
+  onto supple leather. It is light, it never rusts, and it slides
+  through water as though it wanted to.
+type: armor
+slot: body
+weight: 3
+level: 16
+baseline: light
+value: 400

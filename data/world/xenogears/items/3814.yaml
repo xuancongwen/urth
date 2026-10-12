@@ -1,0 +1,13 @@
+vnum: 3814
+name: a Gebler soldier's helmet
+keywords: [gebler, soldier's, soldier, helmet, helm]
+description: A grey visored helmet with a red eye-slit lies here.
+look: |
+  The helmet of a Gebler soldier, grey alloy with a smooth visor and a
+  single red slit, so that every soldier of Solaris looks like every
+  other, which is the point.
+type: armor
+slot: head
+weight: 2
+level: 44
+baseline: heavy

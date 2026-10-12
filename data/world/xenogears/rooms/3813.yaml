@@ -1,0 +1,12 @@
+vnum: 3813
+name: The Throne Room of Fatima Castle
+description: |
+  A long hall of white marble and blue tile, cool after the desert, with
+  tall windows looking out over Bledavik. The throne at the end of it
+  belongs by right to Bart Fatima, the last prince of the old line.
+  Shakhan sits in it now, but the man actually running Aveh is the huge
+  Gebler commander lounging beside it with his boots on the steps,
+  Vanderkaum, who answers to Solaris and laughs at everything. The gate
+  is south.
+exits:
+  south: 3812

@@ -1,0 +1,23 @@
+vnum: 3737
+name: Elena's pistol
+keywords: [elena's, elena, pistol, gun]
+description: A neat black service pistol lies here.
+look: |
+  The service pistol of Elena, the newest of the Turks, kept clean
+  enough to eat off and loaded with exactly as many rounds as the
+  regulations say. She is very eager to impress Tseng. She is also a
+  very good shot.
+type: weapon
+weight: 1
+level: 40
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.07, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: steady, params: { chance: 0.2 } }

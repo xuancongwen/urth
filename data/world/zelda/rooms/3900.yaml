@@ -1,0 +1,21 @@
+vnum: 3900
+name: Kokiri Forest
+description: |
+  You step out of a hollow stump into a ring of green. Kokiri Forest is
+  a village of little houses grown inside tree trunks, with ladders up
+  to round doors and a creek winding between them, and the light falls
+  through the leaves in coins of gold. Children who never grow up chase
+  each other across the grass, each with a fairy bobbing at their
+  shoulder, and they stop to stare at you, because you are big. A small
+  shop with a striped awning stands to the west; the path to the Great
+  Deku Tree runs north past a guarded gap in the hedge; east, a log
+  bridge crosses the creek out of the forest into Hyrule Field. The
+  carved door in the stump behind you, to the south, leads back to the
+  Hall of Old Tales.
+exits:
+  south: 12
+  west: 3901
+  north: 3902
+  east: 3910
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

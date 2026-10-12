@@ -1,0 +1,16 @@
+vnum: 3825
+name: Shevat, the City in the Sky
+description: |
+  Shevat floats: an island of white towers and hanging gardens drifting
+  high over the clouds, the last free city to have defied Solaris for
+  five hundred years behind a barrier of light. Fresh, thin air; birds
+  below you. Queen Zephyr has ruled here, unchanging, the whole of that
+  time. Children in the gardens are playing with a small pink creature
+  that might be a rabbit or a koala. The air crane goes down to Thames;
+  the gear hangar is north; west, across a bridge of light, is the sky
+  road to Solaris.
+exits:
+  down: 3822
+  north: 3826
+  west: 3827
+flags: [safe]

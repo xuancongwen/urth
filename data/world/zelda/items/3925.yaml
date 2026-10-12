@@ -1,0 +1,14 @@
+vnum: 3925
+name: a bomb flower
+keywords: [bomb, flower, plant]
+description: A round, dark plant like a bomb with a fuse of leaves sits here.
+look: |
+  A bomb flower, the plant that grows on Death Mountain and nowhere
+  else, round and black and hard with a tuft of green leaves on top like
+  a fuse. Pull it up and it hisses and blows up a few breaths later.
+  Dodongos eat them; the Gorons farm them; their shop pays for them.
+type: material
+weight: 1
+value: 30
+material: bomb flower
+rarity: common

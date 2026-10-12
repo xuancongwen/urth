@@ -1,0 +1,23 @@
+vnum: 3746
+name: the Conformer
+keywords: [conformer, shuriken, star]
+description: A huge four-bladed throwing star lies here.
+look: |
+  A four-pointed shuriken as wide as a cartwheel, in steel bright as a
+  mirror, which Yuffie Kisaragi throws as easily as a frisbee and
+  catches on the way back. The Conformer does not care who or what it
+  hits: a dragon or a rat, it takes the same bite. Yuffie stole it,
+  she says, fair and square.
+type: weapon
+weight: 2
+level: 49
+baseline: standard
+value: 6500
+weapon:
+  hands: 1
+  kind: slash
+  verb: whirl
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }
+  - { kind: dodge, params: { amount: 0.03 } }

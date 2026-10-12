@@ -1,0 +1,17 @@
+vnum: 3800
+name: A Crashed Gear in the Lahan Woods
+description: |
+  A path of packed earth runs through pine and birch on the hills above
+  a farming village, and across it, half buried in the loam it ploughed
+  up when it fell, lies a gear: a fighting machine three storeys tall,
+  its grey armour scorched, one arm torn away, its cockpit hatch hanging
+  open and empty. Saplings have already been snapped flat in a long
+  furrow behind it. Somebody in Lahan will want to know what fell out of
+  the sky last night. Behind you in the trunk of a great pine is a door
+  that does not belong here, scored as if by enormous metal claws, which
+  leads back east to the hall you came from; the path runs west to the
+  village.
+exits:
+  east: 11
+  west: 3801
+position: {x: 0, y: 0, z: 0}

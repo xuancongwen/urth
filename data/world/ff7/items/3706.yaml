@@ -1,0 +1,13 @@
+vnum: 3706
+name: a Shinra MP uniform
+keywords: [shinra, mp, uniform, armor, armour]
+description: A blue uniform with steel shoulder plates lies here.
+look: |
+  The blue fatigues of the Shinra military police, with a padded vest
+  under the tunic and the company's red logo on the arm. It smells of
+  cheap cigarettes.
+type: armor
+slot: body
+weight: 4
+level: 21
+baseline: medium

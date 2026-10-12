@@ -1,0 +1,16 @@
+vnum: 3812
+name: a Shevat air-guard's spear
+keywords: [shevat, air-guard's, air, guard, spear, lance]
+description: A slender white spear with a blade like a feather lies here.
+look: |
+  The spear of the Shevat air guard, white metal, long and very light,
+  with a blade shaped like a feather. Shevat's soldiers fight on sky-
+  bikes, and need weapons that do not drag them out of the air.
+type: weapon
+weight: 2
+level: 42
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

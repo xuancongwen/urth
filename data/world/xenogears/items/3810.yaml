@@ -1,0 +1,12 @@
+vnum: 3810
+name: a convict's padded coat
+keywords: [convict's, convict, padded, coat, jacket]
+description: A grey quilted prison coat lies here.
+look: |
+  A quilted coat of prison grey, stuffed with rags and lined, by its
+  owner, with flattened tin cans in all the places a knife would go.
+type: armor
+slot: body
+weight: 4
+level: 38
+baseline: medium

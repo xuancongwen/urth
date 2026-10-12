@@ -1,0 +1,14 @@
+vnum: 3739
+name: The Rim of the Northern Crater
+description: |
+  The lip of an enormous crater at the top of the world, where
+  something fell from the sky two thousand years ago and wounded the
+  Planet, and where the Lifestream has gathered ever since to heal the
+  wound. It is a bowl of black rock miles wide, with a whirlwind of
+  green light turning in its heart. The glacier is west. A path winds
+  down into the crater, and on the far side of the rim, east,
+  something vast has made a lair.
+exits:
+  east: 3742
+  west: 3738
+  down: 3740

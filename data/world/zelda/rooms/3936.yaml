@@ -1,0 +1,13 @@
+vnum: 3936
+name: The Water Temple
+description: |
+  A temple at the bottom of the lake, all blue tiles and dripping walls,
+  where the water rises and falls with the sages' harp and every
+  corridor is flooded or dry depending on when you came. Like Likes,
+  slug-like things that swallow shields and spit them out chewed, wait
+  at the corners. West is a door to a room full of mist. Down, the floor
+  drains into a pool where something wet is moving. The lake is up.
+exits:
+  up: 3935
+  west: 3937
+  down: 3938

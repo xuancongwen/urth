@@ -1,0 +1,27 @@
+vnum: 3832
+name: Miang Hawwa
+keywords: [miang, hawwa, chancellor, woman]
+description: Miang Hawwa, smiling, steps out from among the monoliths.
+look: |
+  A beautiful woman with long blue-black hair and a red-lipped smile, in
+  the robes of a Solarian chancellor. She is Miang, the woman who never
+  dies: born again in a new body in every age, for ten thousand years,
+  to whisper in the ears of kings and turn humanity back toward Deus.
+  She has been the Empress of Kislev's mistress and the Gazel's servant
+  and Krelian's lover, and she finds you interesting. She is not afraid
+  of you at all.
+level: 50
+flags: [assist]
+health: 16000
+stats: {intelligence: 22, wisdom: 18}
+silver: 1500
+xp: 22000
+attack:
+  kind: psionic
+  verb: whisper
+effects:
+  - { kind: attacks, params: { amount: 0.5 } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "whisper that stops the heart" } }
+  - { kind: protect, params: { mult: 0.85 } }
+  - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

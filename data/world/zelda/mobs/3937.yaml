@@ -1,0 +1,24 @@
+vnum: 3937
+name: Phantom Ganon
+keywords: [phantom, ganon, shade, rider, ghost]
+description: Phantom Ganon rides out of a painting on a black horse, spear crackling.
+look: |
+  A phantom in Ganondorf's image, the King of Thieves in a horned mask
+  and a black cape, riding a horse of shadow with burning eyes. It rides
+  in and out of the paintings and throws balls of lightning from its
+  spear, which can be knocked back if you are quick. Ganondorf made it
+  to guard the temple; when it is beaten it will say, in his voice, that
+  it was only a phantom, and that you will not be so lucky with the real
+  thing.
+level: 21
+flags: [assist]
+health: 950
+stats: {strength: 16, dexterity: 16, constitution: 16}
+silver: 600
+xp: 7000
+attack:
+  kind: magic
+  verb: ball of lightning
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: dodge, params: { amount: 0.05 } }

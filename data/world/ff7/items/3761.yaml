@@ -1,0 +1,19 @@
+vnum: 3761
+name: the carapace of Ultima Weapon
+keywords: [carapace, ultima, weapon, armor, armour, plate]
+description: A vast shell of pale armour, glowing faintly along its seams, lies here.
+look: |
+  A great curved section of Ultima Weapon's breast armour, cut and
+  fitted to a human body, pale as bone and lit from inside by veins of
+  green. The Planet grew it to stop Meteor. It closes its own
+  scratches as you watch, and it will close yours.
+type: armor
+slot: body
+weight: 8
+level: 60
+baseline: plate
+value: 9000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.01 } }

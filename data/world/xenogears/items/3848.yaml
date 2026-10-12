@@ -1,0 +1,18 @@
+vnum: 3848
+name: the arm-cables of Deus
+keywords: [arm-cables, arm, cables, deus, deus's, vambraces, arms]
+description: A pair of vambraces wound with living black cables lies here.
+look: |
+  Vambraces of black metal wound about with cables that were once the
+  nerves of a god, which still flex and lash on their own. Whoever
+  strikes the arm inside them is struck in turn.
+type: armor
+slot: arms
+weight: 3
+level: 60
+baseline: heavy
+value: 10000
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: "lash of severed cable" } }

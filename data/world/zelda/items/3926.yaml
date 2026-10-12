@@ -1,0 +1,14 @@
+vnum: 3926
+name: a Goron's stone bracer
+keywords: [goron's, goron, stone, bracer, armguard]
+description: A heavy armguard of carved stone lies here.
+look: |
+  A Goron's armguard, a curved slab of mountain stone carved with the
+  Goron crest and strapped on with leather, heavy enough that a Hylian
+  feels it in the shoulder. Gorons wear them for rolling.
+type: armor
+slot: arms
+weight: 4
+level: 13
+baseline: heavy
+value: 300

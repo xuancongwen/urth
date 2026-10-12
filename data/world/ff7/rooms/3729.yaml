@@ -1,0 +1,13 @@
+vnum: 3729
+name: The Shinra Mansion
+description: |
+  A big, decaying house that Shinra built for its scientists: dusty
+  carpets, a grand staircase, and a safe with a combination lock that
+  nobody has ever opened on the first try. In a bedroom upstairs a
+  section of the stone wall swings open on a spiral stair that winds
+  down into the rock. The village is south, and the hidden stair goes
+  down.
+exits:
+  south: 3728
+  down: 3730
+flags: [dark]

@@ -1,8 +1,9 @@
 vnum: 2
 name: The Long Hall
 description: |
-  A high, plain corridor of dressed stone that ends in a bricked-up
-  arch. Torches burn in brackets. An old soldier sits on a bench by the
+  A high, plain corridor of dressed stone that ends, to the west, in an
+  arch whose bricks have been knocked through; beyond it a warm,
+  storybook light. Torches burn in brackets. An old soldier sits on a bench by the
   wall, watching everyone who passes with the same faint amusement.
   Across from him a hooded herald leans on a staff with a ledger under
   one arm, waiting for volunteers. A small door in the east wall leads
@@ -10,4 +11,5 @@ description: |
 exits:
   south: 1
   east: 4
+  west: 12
 flags: [safe]

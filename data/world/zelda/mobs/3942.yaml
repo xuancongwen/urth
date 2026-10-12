@@ -1,0 +1,19 @@
+vnum: 3942
+name: Rauru
+keywords: [rauru, sage, light, old, man]
+description: Rauru, the Sage of Light, stands by the pedestal of the Master Sword, his hands in his sleeves.
+look: |
+  A bald old man with a white beard and a long robe of red and orange
+  with a bird on it, the oldest of the Sages, who built the Temple of
+  Time and keeps the Sacred Realm behind it. "Only the one who holds the
+  Ocarina of Time, the key to the Door of Time, may draw the Blade of
+  Evil's Bane from the pedestal." He means it: bring him the Ocarina and
+  silver enough for its keeping, and he will give you the Master Sword.
+  Type 'list'.
+level: 40
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: light
+trades:
+  - { item: 3946, silver: 1500, items: [3909] }

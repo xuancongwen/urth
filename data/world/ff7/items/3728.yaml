@@ -1,0 +1,22 @@
+vnum: 3728
+name: Reno's electro-mag rod
+keywords: [reno's, reno, electro-mag, electro, mag, rod, nightstick, baton]
+description: A collapsible black nightstick with a crackling tip lies here.
+look: |
+  The collapsible nightstick of Reno of the Turks, with a battery in
+  the grip and two prongs at the tip that crackle blue when he flicks
+  it out. He twirls it when he is bored, which is often. A touch of it
+  locks every muscle in the body for a moment, long enough for a Turk
+  to finish whatever he came to do.
+type: weapon
+weight: 1
+level: 30
+baseline: mace
+value: 3500
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

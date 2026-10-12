@@ -1,0 +1,16 @@
+vnum: 3806
+name: The Black Moon Forest
+description: |
+  The pines close overhead and the light goes out of the day. This is
+  the Black Moon Forest, where the trees grow so thick that the sun
+  never reaches the moss, and the villagers say the moon that shines in
+  here is black. Strange insects glow and go out among the roots. Paths
+  of a sort wander between the trunks and lead nowhere in particular;
+  the wolves that use them know where they go. The hill path is back
+  east; a glow of firelight is north between the trees, and the forest
+  goes on, deeper, to the west.
+exits:
+  east: 3804
+  north: 3807
+  west: 3808
+flags: [dark]

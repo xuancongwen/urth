@@ -1,0 +1,12 @@
+vnum: 3939
+name: Gerudo Valley
+description: |
+  A deep red gorge cut through the desert's edge, crossed by a rickety
+  rope bridge over a river roaring far below, where a carpenter's tent
+  stands and hawks wheel. Gerudo, a people of desert thieves who are all
+  women, but for one man born every hundred years, keep watch from the
+  far side. South is their fortress; east, the path goes back down to
+  Lake Hylia.
+exits:
+  east: 3935
+  south: 3940

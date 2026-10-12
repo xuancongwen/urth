@@ -1,0 +1,13 @@
+vnum: 3906
+name: The Lost Woods
+description: |
+  A maze of identical clearings, hollow logs, and moss-hung stumps,
+  where every path looks like every other and the trees seem to shuffle
+  behind your back. Those who lose their way here, the Kokiri say, turn
+  into Stalfos, or into Skull Kids, and the Skull Kids in the branches
+  above you are certainly laughing at something. A tune played on a
+  flute seems to come from the west; follow it, and the trees open. The
+  way back to the Deku Tree's path is east.
+exits:
+  east: 3902
+  west: 3907

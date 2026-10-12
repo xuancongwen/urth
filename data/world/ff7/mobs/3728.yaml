@@ -1,0 +1,23 @@
+vnum: 3728
+name: Rude of the Turks
+keywords: [rude, turk, turks, bald]
+description: Rude of the Turks stands by the fuel lines, adjusting his sunglasses.
+look: |
+  A tall, bald, heavily built man in a dark suit and wraparound
+  sunglasses, Reno's partner and the quiet half of the Turks. He has
+  said perhaps forty words since you first met him, and most of them
+  were "Yeah." He has a soft spot for Tifa that he would never admit.
+  He fights with his fists, and he does not miss.
+level: 48
+flags: [assist]
+health: 9000
+stats: {strength: 20, constitution: 17}
+silver: 1200
+attack:
+  kind: blunt
+  verb: punch
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: "Grand Spark" } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: soak, params: { power: 0.08 } }

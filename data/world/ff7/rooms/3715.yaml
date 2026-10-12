@@ -1,0 +1,12 @@
+vnum: 3715
+name: The Specimen Chamber
+description: |
+  A sealed room on the sixty-eighth floor, dim and cold, built around
+  a single great tank marked JENOVA. The tank is open. Something has
+  climbed out of it and is still here: a pale, writhing mass of
+  tentacles around a woman's torso, with one red eye. A trail of blood
+  leads up the stairs toward the President's office. The elevators go
+  up and down.
+exits:
+  up: 3716
+  down: 3714

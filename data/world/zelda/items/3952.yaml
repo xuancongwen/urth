@@ -1,0 +1,20 @@
+vnum: 3952
+name: the Lens of Truth
+keywords: [lens, truth, glass, eye]
+description: A round lens in a purple frame carved with an eye lies here.
+look: |
+  The Lens of Truth, a great round glass in a purple frame carved with
+  the Sheikah eye, made by the Sheikah to see through their own false
+  walls. Through it the invisible stands plain, the hidden door is a
+  door, and Bongo Bongo's hands have a body behind them.
+type: armor
+slot: hold
+weight: 1
+level: 26
+value: 3000
+rarity: rare
+effects:
+  - { kind: detectInvisible }
+  - { kind: detectHidden }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

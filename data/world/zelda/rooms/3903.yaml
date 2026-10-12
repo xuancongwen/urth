@@ -1,0 +1,13 @@
+vnum: 3903
+name: The Great Deku Tree's Meadow
+description: |
+  A clearing walled with sheer cliffs and roofed with branches, and in
+  the middle of it a tree so vast that it is a hill: the Great Deku
+  Tree, the guardian spirit of the forest, with a face in its bark, a
+  great moustache of roots, and eyes that open slowly when you come
+  near. Its mouth gapes open as a doorway, and the air inside smells of
+  sickness. Webs hang from the lower branches. The way down into the
+  tree is through its mouth; the path back is south.
+exits:
+  south: 3902
+  down: 3904

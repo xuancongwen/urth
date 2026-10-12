@@ -1,0 +1,12 @@
+vnum: 3941
+name: The Desert Colossus
+description: |
+  The far side of the Haunted Wasteland, where a vast stone statue of a
+  woman sits carved into the cliff with her hands cupped, and an oasis
+  of palms has dried to a pit of sand. Leevers, spinning sand-burrowers,
+  rise out of the dunes. A Gerudo woman leans on a palm, sharpening her
+  blade and looking at the Spirit Temple door, west, between the
+  statue's knees. The wasteland back to the fortress is east.
+exits:
+  east: 3940
+  west: 3942

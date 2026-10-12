@@ -1,0 +1,16 @@
+vnum: 3805
+name: an Aveh patrol rifle
+keywords: [aveh, patrol, rifle, gun]
+description: A long-barrelled rifle with a sand cover over its breech lies here.
+look: |
+  A long rifle from the locker of an Aveh patrol gear, made for a pilot
+  to fire from the cockpit hatch at whatever he cannot be bothered to
+  stamp on. A canvas sleeve keeps the sand out of the breech.
+type: weapon
+weight: 4
+level: 29
+baseline: standard
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shot

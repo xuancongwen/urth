@@ -1,0 +1,18 @@
+vnum: 3909
+name: Malon
+keywords: [malon, ranch, girl, red, singer]
+description: Malon leans on the paddock fence, singing to the horses.
+look: |
+  A girl with a cloud of red hair and a white dress with a brooch at the
+  collar, the daughter of Lon Lon Ranch, who sings Epona's Song to the
+  horses all day and makes them come running. The chestnut foal, Epona,
+  follows her about. "Want some milk? It's the best in Hyrule!" She
+  sells bottles of it, and the farm's spare riding gear. Type 'list'.
+level: 12
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: slap
+trades:
+  - { item: 3915, silver: 15 }
+  - { item: 3913, silver: 60 }

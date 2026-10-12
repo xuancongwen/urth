@@ -1,0 +1,11 @@
+vnum: 3721
+name: The Marsh South of Kalm
+description: |
+  A wide, reeking swamp of black water and rotting reeds, the only way
+  to the Mythril Mine beyond. The locals rent chocobos to cross it
+  fast, because something lives in the marsh: an enormous serpent that
+  rises out of the mud and swallows whatever moves. There is a ripple
+  in the water off to your left. Kalm is west, and the mine is east.
+exits:
+  east: 3722
+  west: 3720

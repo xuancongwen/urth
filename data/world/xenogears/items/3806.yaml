@@ -1,0 +1,17 @@
+vnum: 3806
+name: an Aveh royal guard's halberd
+keywords: [aveh, royal, guard's, guard, halberd, polearm]
+description: A tall halberd with a blue tassel lies here.
+look: |
+  A halberd of the Fatima royal guard, its blade etched with the sun-
+  and-lion of the old kings, which Shakhan has not yet had the money to
+  replace. It is long, heavy, and decorative, and only one of those is a
+  drawback.
+type: weapon
+weight: 6
+level: 32
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

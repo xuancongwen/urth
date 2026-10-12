@@ -1,0 +1,9 @@
+vnum: 3912
+name: The Lon Lon Stables
+description: |
+  A long, warm barn smelling of hay and horse and cow, with stalls down
+  both sides and Lon Lon's famous cows chewing in them, and in the
+  middle of the floor, among the milk crates, a big man with a black
+  moustache fast asleep and snoring. The paddock is north.
+exits:
+  north: 3911

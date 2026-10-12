@@ -1,0 +1,11 @@
+vnum: 3710
+name: The Sector 6 Sewers
+description: |
+  A long tunnel of slimy brick, knee-deep in dark water that smells of
+  everything Midgar has ever thrown away. Rats swim past you. Far down
+  the tunnel something big shifts in the water and blows a bubble the
+  size of a barrel. The trapdoor to the Don's mansion is up, out of
+  reach unless you climb the chain.
+exits:
+  up: 3709
+flags: [dark]

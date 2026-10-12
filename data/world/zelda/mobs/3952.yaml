@@ -1,0 +1,16 @@
+vnum: 3952
+name: a Stalfos knight
+keywords: [stalfos, knight, skeleton, armoured, armored]
+description: A Stalfos knight in black armour lifts its greatsword and comes on.
+look: |
+  A huge skeleton in black plate, with a greatsword as long as you are
+  tall, one of the guard Ganondorf raised from the dead of the Hylian
+  knights and set in his halls. It fights with all their skill and none
+  of their mercy, and when it falls it gets up again if you do not
+  finish it.
+level: 33
+flags: [assist]
+silver: 80
+attack:
+  kind: slash
+  verb: hack

@@ -1,0 +1,10 @@
+vnum: 3717
+name: The Shinra Building Rooftop
+description: |
+  The helipad at the very top of Midgar, in a howling wind, with the
+  whole city below and the dark Planet beyond it. A helicopter has
+  just landed. A young man in a white suit steps out of it, with a
+  black panther-like dog at his heel, and looks at you as though you
+  were a line in a budget. The stair is back down.
+exits:
+  down: 3716

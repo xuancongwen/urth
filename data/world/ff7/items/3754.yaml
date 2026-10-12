@@ -1,0 +1,23 @@
+vnum: 3754
+name: the Missing Score
+keywords: [missing, score, gun-arm, gun, arm]
+description: A gun-arm of black steel covered in engraved musical notes lies here.
+look: |
+  Barret Wallace's best gun-arm, a long barrel of black steel engraved
+  all over with musical notes from a song that was never finished. He
+  says it is for Marlene, and for Dyne, and for everyone in Sector 7.
+  Its shots land harder the more they are needed.
+type: weapon
+weight: 4
+level: 45
+baseline: standard
+value: 6000
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,12 @@
+vnum: 3812
+name: The Gates of Fatima Castle
+description: |
+  The great gate of Fatima Castle, with the sun-and-lion crest of the
+  old royal line chiselled off the lintel and Shakhan's own badge bolted
+  over it. Aveh royal guards stand in pairs along the walls, and behind
+  them, in grey Solarian uniforms that nobody in Aveh is supposed to
+  notice, Gebler advisers come and go. The city is south; the throne
+  room is north.
+exits:
+  south: 3811
+  north: 3813

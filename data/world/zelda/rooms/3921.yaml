@@ -1,0 +1,14 @@
+vnum: 3921
+name: The Kakariko Graveyard
+description: |
+  A quiet graveyard behind the village, with rows of headstones and old
+  flowers and a hut where the gravekeeper lives. At night Poes, ghosts
+  with lanterns, drift between the stones and giggle. At the back, a
+  royal tomb of the Sheikah stands open, its door carved with the eye
+  that weeps, and stairs inside go down into darkness that is colder
+  than it should be. The village is west.
+exits:
+  west: 3920
+  down: 3922
+doors:
+  down: { name: the Sheikah tomb door, closed: true }

@@ -1,0 +1,19 @@
+vnum: 3847
+name: the carapace of Deus
+keywords: [carapace, deus, deus's, armor, armour, body]
+description: A huge ribbed carapace of black and iridescent metal lies here.
+look: |
+  The breastplate of the god: ribbed black metal that shimmers with
+  every colour, grown rather than built, with a hollow at the heart
+  where the Zohar sat. It took ten thousand years of human beings to
+  build the body it came from, and it is the hardest thing in the world.
+type: armor
+slot: body
+weight: 8
+level: 60
+baseline: plate
+value: 11000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.01 } }

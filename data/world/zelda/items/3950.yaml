@@ -1,0 +1,15 @@
+vnum: 3950
+name: a ReDead's grave wrappings
+keywords: [redead's, redead, grave, wrappings, bandages]
+description: A tangle of brown, stiff burial wrappings lies here.
+look: |
+  The burial wrappings of a ReDead, stiff and brown with age and grave
+  oils, which kept a corpse together long after it should have fallen
+  apart. Worn, they are cold, and there is a smell that does not wash
+  out.
+type: armor
+slot: body
+weight: 2
+level: 24
+baseline: cloth
+value: 150

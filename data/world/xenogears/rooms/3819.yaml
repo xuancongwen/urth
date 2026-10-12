@@ -1,0 +1,13 @@
+vnum: 3819
+name: The Battling Arena
+description: |
+  A great bowl of iron and concrete, packed with screaming Kislevians,
+  and on the scorched floor of it gears fight one another to the last
+  working joint, which is called Battling and is the only thing in
+  Kislev that everyone loves. The champion's gear, a heavy machine
+  painted in the colours of D-Block, stands at the far gate. Its pilot
+  is leaning against its foot: a huge man with grey skin and a lizard-
+  like tail, who was raised in the prison and has never lost a bout. The
+  streets are south.
+exits:
+  south: 3818

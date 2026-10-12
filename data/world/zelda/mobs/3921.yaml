@@ -1,0 +1,20 @@
+vnum: 3921
+name: Darunia
+keywords: [darunia, goron, chief, big, brother]
+description: Darunia, Big Brother of the Gorons, paces his chamber with a great hammer in his fist.
+look: |
+  The chief of the Gorons, bigger than any of them, with a mane of white
+  hair, a beard to match, and arms like boulders, and over his shoulder
+  the Megaton Hammer, which his ancestor used to kill the dragon
+  Volvagia. He is worried and he is cross, and he hits things when he is
+  cross. "Don't bother me! The Gorons are starving because the Dodongos
+  have taken our cavern, and you come here to sightsee?" He has not
+  danced in a week. Somebody should play him a song.
+level: 20
+health: 1500
+stats: {strength: 17, constitution: 17}
+silver: 400
+xp: 4000
+attack:
+  kind: blunt
+  verb: pound

@@ -1,0 +1,14 @@
+vnum: 3935
+name: a Skull Kid's carved mask
+keywords: [skull, kid's, kid, carved, mask]
+description: A wooden mask with a painted grin lies here.
+look: |
+  A mask of carved wood with round eyeholes and a wide painted grin, of
+  the kind the Skull Kids of the Lost Woods wear to hide their faces,
+  which are not faces at all any more.
+type: armor
+slot: face
+weight: 1
+level: 17
+baseline: cloth
+value: 150

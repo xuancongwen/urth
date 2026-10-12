@@ -1,0 +1,14 @@
+vnum: 3924
+name: The Death Mountain Trail
+description: |
+  A rocky track switchbacking up the side of Death Mountain, the volcano
+  that smokes over all Hyrule, with boulders rolling down it and
+  Tektites, one-eyed spider-crabs, jumping from rock to rock. A tunnel
+  north leads into Goron City; east, a great cave mouth is blocked by a
+  boulder someone has bombed aside: Dodongo's Cavern. The trail climbs
+  on, up, to the summit; Kakariko's gate is down.
+exits:
+  down: 3920
+  north: 3925
+  east: 3927
+  up: 3929

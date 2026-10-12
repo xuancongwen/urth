@@ -1,0 +1,17 @@
+vnum: 3936
+name: a Moblin's spear
+keywords: [moblin's, moblin, spear, pike]
+description: A long, crude spear with a broad iron head lies here.
+look: |
+  A Moblin's spear, a crude broad head of black iron lashed to a trunk
+  of a sapling, twice as tall as you are. Moblins are not clever and
+  they do not need to be.
+type: weapon
+weight: 5
+level: 18
+baseline: spear
+value: 200
+weapon:
+  hands: 2
+  kind: pierce
+  verb: stab

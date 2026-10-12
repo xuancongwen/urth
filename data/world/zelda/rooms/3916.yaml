@@ -1,0 +1,13 @@
+vnum: 3916
+name: The Temple of Time
+description: |
+  A tall, cool, white hall of stone, lit by high windows, silent after
+  the market. Before the altar three stones would sit, if anyone had
+  them: the spiritual stones of forest, fire, and water. Beyond the
+  altar stands the Door of Time, open, and through it, in a shaft of
+  light on a pedestal carved with the Triforce, a sword waits that evil
+  cannot touch. A blue-robed old sage stands by it, and in the shadow of
+  a pillar someone wrapped in Sheikah blue watches you with one red eye.
+  The market is west.
+exits:
+  west: 3913

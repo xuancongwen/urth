@@ -1,0 +1,21 @@
+vnum: 3814
+name: Bart Fatima
+keywords: [bart, bartholomew, fatima, young, master, pirate]
+description: Bart Fatima, the young master, cracks his whip and grins at you.
+look: |
+  A young man with blond hair tied back, a patch over one eye, a
+  pirate's coat, and a grin like a sunrise: Bartholomew Fatima, the true
+  heir of Aveh, who leads the rebellion against Shakhan from the deck of
+  a sand ship and is sneaking into his own castle through the drains to
+  rescue his cousin. He is brave, rash, loud, and much more clever than
+  he lets anyone know, and he does not take kindly to strangers creeping
+  up behind him in the dark. He will not start a fight, but he finishes
+  them.
+level: 33
+flags: [assist]
+health: 2800
+stats: {dexterity: 18, strength: 15}
+silver: 600
+attack:
+  kind: slash
+  verb: lash

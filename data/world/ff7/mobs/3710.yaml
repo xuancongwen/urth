@@ -1,0 +1,21 @@
+vnum: 3710
+name: Red XIII
+keywords: [red, xiii, nanaki, beast, lion, specimen]
+description: Red XIII paces his glass cage, his flaming tail twitching.
+look: |
+  A great red beast like a lion or a wolf, with a mane of red hair
+  hung with silver ornaments, a tail tipped with fire, and an old scar
+  over one eye. Hojo calls him Red XIII and plans to breed him to the
+  last of the Cetra. His real name is Nanaki, he is forty-eight years
+  old, which is very young for his kind, and he speaks better than
+  most people. He is waiting for somebody to open the cage. He will
+  fight anyone who comes at him through it.
+level: 33
+health: 2200
+stats: {dexterity: 16, wisdom: 14}
+silver: 100
+attack:
+  kind: claw
+  verb: claw
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }

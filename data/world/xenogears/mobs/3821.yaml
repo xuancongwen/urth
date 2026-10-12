@@ -1,0 +1,23 @@
+vnum: 3821
+name: Stier
+keywords: [stier, inquisitor, ethos, cyborg]
+description: Stier, the Ethos inquisitor, turns from the sealed door with a smile.
+look: |
+  A gaunt man in the robes of an Ethos inquisitor, bald and pale and
+  smiling, who has been searching the excavation for something the
+  church is not supposed to know is there. Under the robe he is not
+  entirely flesh: his right hand is a three-clawed steel machine, and
+  when he raises it the claws drip. He serves the Gazel Ministry, not
+  the Ethos, and you have seen too much.
+level: 41
+flags: [assist, aggressive]
+health: 5600
+stats: {dexterity: 18, strength: 17}
+silver: 1000
+xp: 13000
+attack:
+  kind: slash
+  verb: claw
+effects:
+  - { kind: soak, params: { power: 0.08 } }
+  - { kind: steady, params: { chance: 0.25 } }

@@ -1,0 +1,20 @@
+vnum: 3914
+name: Princess Zelda
+keywords: [princess, zelda, girl, royal]
+description: Princess Zelda peers through the throne room window, then turns to look at you.
+look: |
+  A girl of ten or eleven in a pink-and-white gown with the royal crest
+  on it, a jewelled circlet in her fair hair, and a serious look far
+  older than she is. She has dreamt that dark clouds billowed over
+  Hyrule, and a man from the desert has come to her father bowing, and
+  she does not trust him. "The Triforce must not fall into his hands.
+  The three spiritual stones, and the Ocarina of Time, will open the
+  Door of Time. If you have found the stones, bring them to me, and I
+  will give you the Ocarina." Type 'list'.
+level: 20
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: light
+trades:
+  - { item: 3909, items: [3906, 3907, 3908] }

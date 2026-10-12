@@ -1,0 +1,14 @@
+vnum: 3929
+name: a Biri
+keywords: [biri, jellyfish, jelly]
+description: A Biri floats in the air, its tentacles crackling with electricity.
+look: |
+  A jellyfish that floats in the air of Jabu-Jabu's belly as if it were
+  water, glassy blue and pulsing, its tentacles crackling with stolen
+  current. Barinade spawns them. Touching one is a mistake.
+level: 15
+flags: [assist]
+silver: 25
+attack:
+  kind: magic
+  verb: shock

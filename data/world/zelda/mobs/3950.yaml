@@ -1,0 +1,15 @@
+vnum: 3950
+name: an Iron Knuckle
+keywords: [iron, knuckle, knight, armoured, armored]
+description: An Iron Knuckle stands motionless as a statue, its great axe held across its body.
+look: |
+  A knight in massive black armour with a horned helm, standing still as
+  a statue until you are close enough, then swinging an axe as tall as
+  you are, slowly, so slowly that you think you can get out of the way.
+  It cuts through the pillar behind you.
+level: 30
+flags: [assist]
+silver: 70
+attack:
+  kind: slash
+  verb: cleave

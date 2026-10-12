@@ -1,0 +1,9 @@
+vnum: 3938
+name: Morpha's Pool
+description: |
+  A square chamber flooded to the knee, with stone pillars round a
+  deeper pool, and in the pool a red nucleus, the heart of Morpha, the
+  giant amoeba of the Water Temple. The water itself rises into
+  tentacles at its command and lashes out. Up is the way back.
+exits:
+  up: 3936

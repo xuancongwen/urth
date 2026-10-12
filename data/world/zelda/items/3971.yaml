@@ -1,0 +1,19 @@
+vnum: 3971
+name: the Gerudo King's mantle
+keywords: [gerudo, king's, king, mantle, pauldrons, cape]
+description: A pair of heavy black pauldrons with a long cape lies here.
+look: |
+  Ganondorf's pauldrons, black iron shaped like the skulls of beasts,
+  with a long cape of dark cloth hanging from them, the regalia of the
+  Gerudo King. They make the shoulders under them very broad and very
+  hard to bring down.
+type: armor
+slot: shoulders
+weight: 5
+level: 35
+baseline: plate
+value: 5000
+rarity: rare
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

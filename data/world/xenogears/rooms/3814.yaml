@@ -1,0 +1,13 @@
+vnum: 3814
+name: The Underground Waterway
+description: |
+  A vaulted tunnel of old brick, running under Bledavik, with black
+  water sliding through a channel down the middle and narrow walkways on
+  either side. It was built by the first Fatima kings to bring water
+  from the oases to the castle, and the castle has forgotten it is here:
+  the rebels have not. Lanterns hang at long intervals, most of them
+  out. Somewhere ahead, voices; someone young and cocky giving orders.
+  The grating up into the city is north.
+exits:
+  north: 3811
+flags: [dark]

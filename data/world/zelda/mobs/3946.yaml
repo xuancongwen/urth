@@ -1,0 +1,23 @@
+vnum: 3946
+name: Bongo Bongo
+keywords: [bongo, shadow, beast, hands, drum]
+description: Bongo Bongo's huge hands beat the drum, and its single red eye blinks open in the air.
+look: |
+  The shadow beast of the Shadow Temple: two huge severed hands that
+  beat on a drum of stretched skin, and between them a body you cannot
+  see without the Lens of Truth, and a single red eye that opens when it
+  is ready to strike. It was sealed in the well under Kakariko, and it
+  got out, and it has been playing its drum ever since.
+level: 28
+flags: [assist]
+health: 2650
+stats: {strength: 16, dexterity: 16, constitution: 17}
+silver: 700
+xp: 10000
+attack:
+  kind: blunt
+  verb: slap
+  damage: 68
+effects:
+  - { kind: dodge, params: { amount: 0.06 } }
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }

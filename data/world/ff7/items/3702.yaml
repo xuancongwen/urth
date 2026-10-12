@@ -1,0 +1,15 @@
+vnum: 3702
+name: the White Materia
+keywords: [white, materia, holy, orb, marble]
+description: A small, clear white orb lies here, shining softly.
+look: |
+  A little sphere of milky white, no bigger than a marble, that Aerith
+  wore in her hair all her life and never knew the use of: the White
+  Materia, the key to Holy, the only magic that can stand against
+  Meteor. It glows when you hold it, very faintly, as if someone were
+  still praying through it. It fell into the water at the altar of the
+  Forgotten Capital, and someone would give a great deal to have it
+  found.
+type: other
+weight: 0
+flags: [quest]

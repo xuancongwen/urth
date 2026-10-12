@@ -1,0 +1,12 @@
+vnum: 3914
+name: The Bazaar
+description: |
+  An upstairs shop full of everything a traveller might need, hung from
+  the rafters and stacked to the ceiling: shields, swords, bottles,
+  arrows in quivers, bombs in crates kept well away from the lamp. On
+  the wall behind the counter, in pride of place, hangs a tall blue
+  shield with a red bird and a golden triangle on its face. The market
+  is down the stairs.
+exits:
+  down: 3913
+flags: [safe]

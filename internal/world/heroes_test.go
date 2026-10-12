@@ -48,6 +48,9 @@ var famousCharacters = []int{
 	1824,       // cadia: Haarken Worldclaimer
 	3030, 3031, // midgaard: Odif Yltsaeb, Puff
 	3610, 3611, 3614, 3617, 3621, 3624, 3625, 3627, 3630, 3634, 3635, // foundation: Lefkin, Wienis, Argo, Bel Riose, Seldon, Demerzel, Ebling Mis, Bayta, Arkady, Han Pritcher, the Mule
+	3706, 3708, 3710, 3711, 3713, 3714, 3715, 3716, 3720, 3723, 3725, 3726, 3728, 3730, 3731, 3739, // ff7: Corneo, Reno, Red XIII, Hojo, President Shinra, Heidegger, Scarlet, Rufus, Elena, Gi Nattak, Vincent, Palmer, Rude, Yuffie, Tseng, Sephiroth
+	3814, 3815, 3817, 3821, 3822, 3823, 3825, 3826, 3827, 3828, 3829, 3832, 3833, 3834, 3835, 3836, 3839, 3840, // xenogears: Bart, Vanderkaum, Rico, Stier, Seibzehn, Chu-Chu, the four Elements, Ramsus, Miang, Cain, Grahf, Weltall-Id, Id, Krelian, Deus
+	3902, 3910, 3911, 3921, 3930, 3943, 3948, // zelda: Mido, Talon, Ingo, Darunia, Ruto, Sheik, Nabooru
 }
 
 // TestFamousCharactersCanBeKilledForTheirLoot holds the shipped world to

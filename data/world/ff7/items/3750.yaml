@@ -1,0 +1,21 @@
+vnum: 3750
+name: the Ribbon
+keywords: [ribbon, pink, bow]
+description: A pink ribbon, tied in a bow, lies here.
+look: |
+  A plain ribbon of pink silk, tied in a bow, the very thing a girl
+  from the slums might wear in her hair. It is the most precious
+  accessory in the world. Whoever wears it cannot be poisoned, put to
+  sleep, confused, or turned to stone; slows and stuns slide off them,
+  and they keep their head when everyone else's is gone. It was found
+  in the depths of the Northern Crater, in Jenova's grip.
+type: armor
+slot: neck
+weight: 0
+level: 57
+value: 8000
+effects:
+  - { kind: steady, params: { chance: 0.5, slow: 0.5 } }
+  - { kind: protect, params: { mult: 0.92 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

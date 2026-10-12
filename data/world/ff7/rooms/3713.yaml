@@ -1,0 +1,13 @@
+vnum: 3713
+name: The Shinra Building Lobby
+description: |
+  The ground floor of the Shinra headquarters, the tallest building in
+  Midgar: a cathedral of polished marble and glass, with a model of
+  the city under a dome, a gift shop selling Shinra souvenirs, and a
+  great golden staircase sweeping upward. Security guards stand at
+  every pillar. A walkway is back west, the Midgar expressway is east,
+  and the elevators go up.
+exits:
+  east: 3718
+  west: 3712
+  up: 3714

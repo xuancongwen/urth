@@ -1,0 +1,13 @@
+vnum: 3722
+name: The Mythril Mine
+description: |
+  An old mine cut into the mountains, its walls glittering with veins
+  of mythril that catch any light you bring. Roots hang from the
+  ceiling like ropes, and something with leathery wings nests in the
+  dark. A woman in a dark suit is waiting at the far end of the
+  tunnel, arms folded. The marsh is back west, and the tunnel runs
+  east.
+exits:
+  east: 3723
+  west: 3721
+flags: [dark]

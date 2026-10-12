@@ -1,0 +1,12 @@
+vnum: 3907
+name: The Sacred Forest Meadow
+description: |
+  A high, quiet meadow inside a ring of hedges and old stone walls,
+  where a grassy maze winds up a slope to a stone stump, and a girl with
+  green hair sits on it playing an ocarina. Moblins, pig-faced brutes
+  with long spears, patrol the maze below her, and Wolfos prowl along
+  the hedges, but the song goes on. Beyond her, broken stairs climb
+  north to the doors of the Forest Temple. The Lost Woods are east.
+exits:
+  east: 3906
+  north: 3908

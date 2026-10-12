@@ -1,0 +1,14 @@
+vnum: 3935
+name: Lake Hylia
+description: |
+  A great still lake in the south of Hyrule, ringed with cliffs, with a
+  little island in it holding a tree and a stone tablet, and a lakeside
+  laboratory where an old scientist keeps a tank. River Zoras, the wild,
+  fish-headed kind, surface in the reeds and spit fireballs. Out in the
+  lake, under the island, a stone door is drowned: the Water Temple,
+  down. West, a path climbs to Gerudo Valley; north, the waterway goes
+  back under the cliffs to Zora's Domain.
+exits:
+  north: 3932
+  down: 3936
+  west: 3939

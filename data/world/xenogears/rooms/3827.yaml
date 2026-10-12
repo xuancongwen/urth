@@ -1,0 +1,14 @@
+vnum: 3827
+name: The Gate of Solaris
+description: |
+  Solaris: the hidden city in the sky, which has ruled the world below
+  in secret for five hundred years, and which you have reached by the
+  road no one is supposed to know about. Etrenank, its capital, rises in
+  tiers of white metal, perfectly clean and perfectly silent, and the
+  gate before you is guarded by Solarian Gebler in grey armour. A stair
+  goes up north to the barracks of the Gebler; the bridge of light back
+  to Shevat is east, and the city goes on west.
+exits:
+  east: 3825
+  north: 3828
+  west: 3829

@@ -1,0 +1,21 @@
+vnum: 3840
+name: Grahf's cloak
+keywords: [grahf's, grahf, cloak, mantle, cape]
+description: A long black cloak, tattered at the hem, lies here like a shadow.
+look: |
+  The cloak of Grahf, the ghost in black who has haunted Fei's steps
+  since Lahan burned, who asks every man he meets if he desires power.
+  It is darker than cloth should be, and the edges of it smoke. Whoever
+  wears it carries a little of his darkness about him, and whoever
+  strikes him feels it bite back.
+type: armor
+slot: shoulders
+weight: 2
+level: 53
+baseline: heavy
+value: 8000
+effects:
+  - { kind: aura, params: { power: 0.15, verb: "pall of Grahf's darkness" } }
+  - { kind: thorns, params: { fraction: 0.15, verb: "black flame" } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

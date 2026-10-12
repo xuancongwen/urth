@@ -1,0 +1,17 @@
+vnum: 3966
+name: a Stalfos knight's greatsword
+keywords: [stalfos, knight's, knight, greatsword, sword]
+description: A huge black greatsword, notched and rusted, lies here.
+look: |
+  The greatsword of one of Ganondorf's Stalfos knights, a slab of black
+  iron as long as you are tall, rusted and notched and still very sharp
+  where it matters.
+type: weapon
+weight: 7
+level: 33
+baseline: heavy
+value: 400
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

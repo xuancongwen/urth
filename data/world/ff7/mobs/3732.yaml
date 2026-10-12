@@ -1,0 +1,14 @@
+vnum: 3732
+name: a Bizarre Bug
+keywords: [bizarre, bug, insect]
+description: A Bizarre Bug buzzes in circles, its wings clattering.
+look: |
+  A huge, glossy insect with a long stinging tail and four clattering
+  wings, of the kind that swarm in the forests around the Forgotten
+  Capital and the halls of the temple. They eat mako. Their bodies are
+  full of little shards of it.
+level: 51
+flags: [assist, aggressive]
+attack:
+  kind: pierce
+  verb: sting

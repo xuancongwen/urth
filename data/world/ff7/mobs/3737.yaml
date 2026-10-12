@@ -1,0 +1,15 @@
+vnum: 3737
+name: a Malboro
+keywords: [malboro, plant, tentacles]
+description: A Malboro squats in the dark, its wide mouth gaping, tentacles waving.
+look: |
+  A great green lump of a plant-creature with a mouth like a cave and
+  a crown of waving tentacles. Its breath is legendary: a stinking
+  green cloud that leaves those it touches poisoned, blinded, confused
+  and very sorry. They grow huge in the mako-soaked depths of the
+  crater.
+level: 57
+flags: [assist, aggressive]
+attack:
+  kind: drain
+  verb: Bad Breath

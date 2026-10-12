@@ -1,0 +1,17 @@
+vnum: 3837
+name: an angel of the Merkaba
+keywords: [angel, merkaba, seraph, white]
+description: An angel of the Merkaba spreads its white wings, empty-faced.
+look: |
+  A tall white figure with many wings and no face, only a smooth mask of
+  bone: one of the biological weapons of Deus, which the Merkaba is
+  hatching by the thousand. They were human once, before Krelian's
+  Project Noah gathered them up and gave them to the god. They sing
+  softly as they kill.
+level: 56
+flags: [assist, aggressive]
+attack:
+  kind: slash
+  verb: wing-blade
+effects:
+  - { kind: proc, params: { chance: 0.2, power: 1.0, verb: "hymn of unmaking" } }

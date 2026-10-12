@@ -1,0 +1,19 @@
+vnum: 3953
+name: the Hover Boots
+keywords: [hover, boots, winged, gold]
+description: A pair of boots with little golden wings at the heel lies here.
+look: |
+  The Hover Boots, a pair of soft boots with little winged soles of
+  gold, which let the one who wears them step out over empty air and
+  walk on it for a breath or two before falling. Nothing grips well in
+  them. Nothing grips you, either.
+type: armor
+slot: feet
+weight: 1
+level: 28
+baseline: light
+value: 4000
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

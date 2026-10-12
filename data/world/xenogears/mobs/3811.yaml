@@ -1,0 +1,14 @@
+vnum: 3811
+name: a sand stalker
+keywords: [sand, stalker, crab, scorpion, beast]
+description: A sand stalker bursts out of the dune, pincers wide.
+look: |
+  A desert crawler the size of a cart, all armoured legs and clashing
+  pincers, which lies under the sand with its eyestalks just showing and
+  comes up under anything that walks over it. The sand pirates eat them,
+  boiled, and swear they taste like lobster.
+level: 29
+flags: [assist, aggressive]
+attack:
+  kind: slash
+  verb: pincer

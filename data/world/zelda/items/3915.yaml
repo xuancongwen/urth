@@ -1,0 +1,12 @@
+vnum: 3915
+name: a bottle of Lon Lon milk
+keywords: [bottle, lon, milk]
+description: A bottle of fresh milk with a Lon Lon label lies here.
+look: |
+  A glass bottle of Lon Lon milk, rich and fresh and still a little
+  warm, from the cows Malon sings to. Everyone in Hyrule says it is the
+  best milk there is. It does nothing at all for you in a fight, but it
+  is very good.
+type: other
+weight: 1
+value: 15

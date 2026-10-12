@@ -1,0 +1,15 @@
+vnum: 3955
+name: a Sheikah iron mask
+keywords: [sheikah, iron, mask, face]
+description: An iron mask carved with a weeping eye lies here.
+look: |
+  An iron mask from a Sheikah tomb, carved with the weeping eye and worn
+  by the guardians who stood watch over the dead. It is heavy, and it is
+  very hard to see your fear behind it.
+type: armor
+slot: face
+weight: 2
+level: 27
+baseline: heavy
+value: 200
+flags: [drop]

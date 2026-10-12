@@ -1,0 +1,14 @@
+vnum: 3728
+name: Nibelheim
+description: |
+  A mountain village under Mount Nibel, with a water tower in the
+  square and a great dark mansion on the hill: Cloud's home town and
+  Tifa's. Shinra burned it to the ground five years ago, and then
+  rebuilt it exactly as it was and filled it with paid actors who
+  insist they have always lived here. Men in black cloaks wander the
+  streets, moaning, each with a number tattooed on his arm. Cosmo
+  Canyon is west, Rocket Town is east, and the mansion is north.
+exits:
+  north: 3729
+  east: 3731
+  west: 3726

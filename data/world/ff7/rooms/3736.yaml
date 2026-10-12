@@ -1,0 +1,14 @@
+vnum: 3736
+name: The Forgotten Capital
+description: |
+  The city of the Cetra, deep in a forest of white, glowing trees:
+  houses grown from great shells and coils of coral, silent and empty
+  for two thousand years. The streets are full of whispers. Shinra
+  thinks there is a Promised Land somewhere here; the Cetra knew that
+  the Promised Land is not a place. The temple path is west, a long
+  stair runs down to the water to the south, and the snowfields lie
+  east.
+exits:
+  east: 3738
+  south: 3737
+  west: 3735

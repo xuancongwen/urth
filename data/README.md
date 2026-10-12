@@ -51,8 +51,13 @@ Park, 4 to 40); the Hall of Distant Stars (room 10) on `klendathu`
 and down to `gauntlet` (the arcade game, 28 to 34). A hatch in the
 Gauntlet's first room (2900) goes down to the Hall of Far Futures (room
 11), which opens north on `foundation` (Asimov's Foundation, 20 to 45,
-with the Mule as a raid boss for a full group); its other three doors
-are sealed, kept for areas to come. Five farming areas
+with the Mule as a raid boss for a full group), east on `ff7` (Midgar
+and the Planet of Final Fantasy VII, 20 to 60, with Sephiroth and a
+Weapon as its raid boss), and west on `xenogears` (25 to 60, from Lahan
+to Deus); its south door is still sealed. West of the Long Hall (room
+2), a knocked-through arch opens on the Hall of Old Tales (room 12),
+whose north door leads to `zelda` (Hyrule, 5 to 35, ending at
+Ganondorf); its other doors are kept for fantasy areas to come. Five farming areas
 keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
 at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`

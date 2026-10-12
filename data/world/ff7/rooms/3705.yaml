@@ -1,0 +1,12 @@
+vnum: 3705
+name: Seventh Heaven
+description: |
+  A small, warm bar of dark wood and lamplight, the friendliest room
+  in the slums, with a counter polished by years of elbows, a jukebox
+  in the corner, and a pinball machine that is not quite what it
+  seems: press the right button and it sinks into the floor, taking
+  you down to AVALANCHE's hideout. A little girl is drawing at one of
+  the tables. The door is south.
+exits:
+  south: 3704
+flags: [safe]

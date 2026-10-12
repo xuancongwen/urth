@@ -1,0 +1,16 @@
+vnum: 3809
+name: a D-Block shiv
+keywords: [d-block, shiv, knife, dagger, blade]
+description: A knife made from a sharpened gear spring lies here.
+look: |
+  A blade ground out of a leaf from a gear's suspension spring, wrapped
+  in rag for a grip. In D-Block everybody has one and nobody has ever
+  seen one.
+type: weapon
+weight: 1
+level: 38
+baseline: dagger
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

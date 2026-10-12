@@ -1,0 +1,13 @@
+vnum: 3716
+name: a gladiator's helm
+keywords: [gladiator's, gladiator, helm, helmet]
+description: A crested bronze helm with a grilled visor lies here.
+look: |
+  A heavy helm of bronze with a red crest and a grilled visor, worn by
+  the house fighters of the Battle Square. It is hot and loud inside,
+  and it has kept a great many heads on their shoulders.
+type: armor
+slot: head
+weight: 3
+level: 42
+baseline: heavy

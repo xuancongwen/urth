@@ -1,0 +1,16 @@
+vnum: 3914
+name: Ingo's riding crop
+keywords: [ingo's, ingo, riding, crop, whip]
+description: A short leather riding crop lies here.
+look: |
+  A short riding crop of plaited black leather with a wrist loop,
+  Ingo's, used on the horses more than it should have been. It stings.
+type: weapon
+weight: 1
+level: 11
+baseline: whip
+value: 60
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash

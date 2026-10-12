@@ -1,0 +1,16 @@
+vnum: 3712
+name: a hardedge
+keywords: [hardedge, sword, blade]
+description: A long, broad-bladed sword with a squared tip lies here.
+look: |
+  A heavy sword with a long, squared blade, sold in the weapon shops
+  of Kalm to mercenaries who have outgrown their first one. It is
+  nothing special, and it does the job.
+type: weapon
+weight: 3
+level: 36
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

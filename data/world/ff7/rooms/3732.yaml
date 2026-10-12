@@ -1,0 +1,10 @@
+vnum: 3732
+name: The Launch Pad
+description: |
+  The concrete apron under Shinra No. 26, the rocket that never flew.
+  Shinra has come back for it: soldiers in blue uniform swarm over the
+  gantry, a fat executive is shouting orders in a Hawaiian shirt, and
+  a bald man in sunglasses stands by the fuel lines, watching you,
+  saying nothing. Rocket Town is south.
+exits:
+  south: 3731

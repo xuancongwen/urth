@@ -1,0 +1,22 @@
+vnum: 3744
+name: the Wall Market dealer
+keywords: [wall, market, dealer, shopkeeper, merchant]
+description: The Wall Market dealer leans on his counter, chewing a toothpick.
+look: |
+  A wiry, shifty man in a stained vest who runs the weapon and materia
+  shop in Wall Market, where nothing is new and nothing is cheap and
+  no questions are asked. "Gil or crystal, friend, I ain't fussy." He
+  buys almost anything. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: punch
+trades:
+  - { item: 3701, silver: 30 }   # a mako lamp
+  - { item: 3709, silver: 300 }   # a set of brass knuckles
+  - { item: 3710, silver: 360 }   # a mythril saber
+  - { item: 3711, silver: 420 }   # a Shinra security carbine
+  - { item: 3755, silver: 900, items: [3700, 3700] }   # a Fire materia
+  - { item: 3756, silver: 900, items: [3700, 3700] }   # a Cure materia
+  - { item: 3701, items: [3700] }   # a mako lamp

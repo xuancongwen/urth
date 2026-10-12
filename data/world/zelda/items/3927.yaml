@@ -1,0 +1,17 @@
+vnum: 3927
+name: a Lizalfos blade
+keywords: [lizalfos, blade, sword, scimitar]
+description: A short curved blade with a scaled grip lies here.
+look: |
+  A Lizalfos's curved sword, short and broad and notched, with a grip
+  wrapped in shed skin. The Lizalfos fight in pairs and fight fast, and
+  their swords are made for fast fighting.
+type: weapon
+weight: 2
+level: 14
+baseline: standard
+value: 80
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

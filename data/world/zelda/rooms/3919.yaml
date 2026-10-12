@@ -1,0 +1,10 @@
+vnum: 3919
+name: The Top of Ganon's Tower
+description: |
+  A round chamber at the top of the tower, open to the storm on every
+  side, with a great pipe organ against the far wall and lightning
+  crawling across the clouds below. A huge man with red hair and dark
+  skin sits at the organ, playing, with the back of his right hand
+  glowing gold. He stops, and turns. The stair down is the only way out.
+exits:
+  down: 3918

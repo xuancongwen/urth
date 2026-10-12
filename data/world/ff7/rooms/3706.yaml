@@ -1,0 +1,13 @@
+vnum: 3706
+name: The Sector 5 Slums
+description: |
+  Another slum under another stretch of the plate, quieter and greener
+  than Sector 7, because here and there among the junk heaps a few
+  flowers grow, which nobody in Midgar can quite explain. A
+  broken-down church stands at the end of the lane to the south. Wall
+  Market's lights glare to the east, and the road back to Sector 7 is
+  north.
+exits:
+  north: 3704
+  east: 3708
+  south: 3707

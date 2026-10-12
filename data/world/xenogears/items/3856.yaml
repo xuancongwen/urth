@@ -1,0 +1,18 @@
+vnum: 3856
+name: the ring of the Antitype
+keywords: [ring, antitype, deus]
+description: A ring of black metal set with a red shard lies here.
+look: |
+  A black ring set with a red shard, the token of the Antitype, the one
+  who in every age is born to oppose Deus and in every age dies of it.
+  It lends a cold certainty that the end of a thing is near, and the
+  will to make it so.
+type: armor
+slot: finger
+weight: 0
+level: 60
+value: 10000
+effects:
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

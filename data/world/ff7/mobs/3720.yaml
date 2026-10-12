@@ -1,0 +1,18 @@
+vnum: 3720
+name: Elena of the Turks
+keywords: [elena, turk, turks, blonde]
+description: Elena of the Turks stands in your way, hand on her holster.
+look: |
+  A young woman with short blonde hair in a neat dark suit, the newest
+  of the Turks, promoted when Rude and Reno came back from the pillar
+  a man short. She is very earnest, very proud, and talks too much.
+  "Tseng gave me this job and I'm going to... oh, I shouldn't have
+  said that." She draws her pistol.
+level: 40
+flags: [assist]
+health: 3600
+stats: {dexterity: 16, wisdom: 13}
+silver: 900
+attack:
+  kind: fire
+  verb: shoot

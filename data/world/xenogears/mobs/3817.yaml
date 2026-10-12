@@ -1,0 +1,22 @@
+vnum: 3817
+name: Rico Banderas
+keywords: [rico, banderas, champion, demi-human]
+description: Rico Banderas, the Battling champion, leans against his gear's foot.
+look: |
+  A huge grey-skinned demi-human with a heavy jaw, a long lizard's tail,
+  and a champion's belt, the undefeated king of Kislev Battling, who was
+  born in D-Block and has lived in it ever since. He is proud, sullen
+  and honest, and he does not like being stared at. Champions are there
+  to be challenged; challenge him if you like. He fights with his fists,
+  out of his gear as in it.
+level: 38
+flags: [assist]
+health: 5000
+stats: {strength: 20, constitution: 19}
+silver: 900
+attack:
+  kind: blunt
+  verb: punch
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - { kind: steady, params: { chance: 0.3 } }

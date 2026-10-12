@@ -1,0 +1,15 @@
+vnum: 3903
+name: a Kokiri tunic
+keywords: [kokiri, tunic, green, shirt]
+description: A green tunic with a pointed cap tucked in its belt lies here.
+look: |
+  A tunic of soft forest green, belted, with a long pointed cap to
+  match, the kind every Kokiri wears. It is light and it lets you move,
+  and once you have worn one, it is hard to feel properly dressed in
+  anything else.
+type: armor
+slot: body
+weight: 2
+level: 6
+baseline: light
+value: 60

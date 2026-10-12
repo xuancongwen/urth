@@ -1,0 +1,13 @@
+vnum: 3724
+name: The Gold Saucer
+description: |
+  An amusement park on the top of a tower of girders in the middle of
+  the desert, all neon and music and fireworks, with a chocobo race
+  track, a theatre, a ghost hotel and a roller coaster that loops over
+  everything. A pleasant voice announces that today is a special day,
+  every day. The ropeway is south, and the Battle Square, a dome of
+  hard red light, is north.
+exits:
+  north: 3725
+  south: 3723
+flags: [safe]

@@ -1,0 +1,19 @@
+vnum: 3903
+name: the Great Deku Tree
+keywords: [great, deku, tree, guardian, spirit]
+description: The Great Deku Tree looks down at you out of its bark, very old and very tired.
+look: |
+  The guardian spirit of the forest, a tree as big as a hill with a face
+  in its bark, a moustache of roots, and eyes like knotholes that open
+  slowly when it speaks. It is dying, of a curse a man of the desert put
+  into it, and it knows it, and it is not afraid. "The forest," it
+  rumbles, "will teach thee to make the earth hold thine enemy fast, and
+  thy skin as hard as bark, if thou hast given thyself to the old gods
+  of growing things." Those devoted to the Neutral god may learn its
+  Entangle and its Barkskin. Type 'practice'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: root
+teaches: [entangle, barkskin]

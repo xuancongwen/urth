@@ -1,0 +1,12 @@
+vnum: 3832
+name: The Emperor's Palace
+description: |
+  The palace at the top of Etrenank, where Emperor Cain has reigned for
+  five hundred years and grown weary of it. It is very quiet. White
+  columns, a throne of white metal, a window full of clouds. Beyond the
+  throne, a lift shaft that the Emperor alone uses drops straight down
+  through the floor of the city, through the clouds and the barrier, to
+  the ruins of the ancient world below. The district is east.
+exits:
+  east: 3829
+  down: 3833

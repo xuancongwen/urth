@@ -1,0 +1,13 @@
+vnum: 3957
+name: a pair of Gerudo silk trousers
+keywords: [gerudo, silk, trousers, pants, pantaloons]
+description: A pair of loose, white silk trousers lies here.
+look: |
+  Wide white trousers of desert silk gathered at the ankle, the Gerudo
+  style, cool in the heat and loose enough to fight and climb in.
+type: armor
+slot: legs
+weight: 1
+level: 28
+baseline: light
+value: 200

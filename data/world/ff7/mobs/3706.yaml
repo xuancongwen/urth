@@ -1,0 +1,20 @@
+vnum: 3706
+name: Don Corneo
+keywords: [don, corneo, corneo, don]
+description: Don Corneo lounges on a heap of cushions, rubbing his hands.
+look: |
+  A fat little man in a fur-collared coat, with a gold tooth, a chain
+  of gold and a wide, greasy grin, the boss of Wall Market and every
+  racket in the slums. He sells information to Shinra and buys himself
+  a bride every night. "Hoo-hoo-hoo! Which one will it be?" He is not
+  much of a fighter himself, which is why he has so many lackeys and a
+  pet in the sewer. He has pulled on a pair of red fighting gloves, a
+  trophy he bought for its looks, and is flexing his fingers in them.
+level: 27
+flags: [assist]
+health: 1600
+stats: {dexterity: 12}
+silver: 1200
+attack:
+  kind: blunt
+  verb: slap

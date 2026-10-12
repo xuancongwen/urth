@@ -1,0 +1,13 @@
+vnum: 3976
+name: a Gold Skulltula token
+keywords: [gold, skulltula, token, skull]
+description: A small golden token shaped like a skull lies here.
+look: |
+  A small token of gold shaped like a spider's skull, the soul of a Gold
+  Skulltula, the cursed spiders that hide in trees and walls all over
+  Hyrule. The rich man of Kakariko and his children were turned into
+  Skulltulas for their greed, and each token you bring back makes them a
+  little more human. Somebody is looking for this one.
+type: other
+weight: 0
+flags: [quest]

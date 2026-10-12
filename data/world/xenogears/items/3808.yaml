@@ -1,0 +1,13 @@
+vnum: 3808
+name: a pair of Battling pilot's gauntlets
+keywords: [battling, pilot's, pilot, gauntlets, gloves]
+description: A pair of heavy steel-backed gauntlets lies here.
+look: |
+  Gauntlets of leather and steel plate, worn in the Kislev arena by
+  pilots whose gears' controls kick like mules. They are scarred all
+  over, and one knuckle has a name scratched into it, crossed out.
+type: armor
+slot: hands
+weight: 2
+level: 35
+baseline: heavy

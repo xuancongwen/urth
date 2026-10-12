@@ -1,0 +1,18 @@
+vnum: 3700
+name: The Sector 7 Train Station
+description: |
+  A grimy platform under the plate, lit by flickering sodium lamps and
+  the sickly green glow of the mako pipes that run along the ceiling.
+  The last train of the night has just pulled in, hissing, and people
+  in work clothes step off without looking at each other. A Shinra
+  poster on the wall shows a smiling family under a clean sky, and
+  someone has written AVALANCHE across it in red paint. A grey door
+  marked with the Shinra logo opens west, back to the hall you came
+  from. The tracks run north toward the Sector 1 reactor, and the
+  slums are east.
+exits:
+  north: 3701
+  east: 3704
+  west: 11
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

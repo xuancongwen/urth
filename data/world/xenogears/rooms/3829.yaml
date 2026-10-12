@@ -1,0 +1,14 @@
+vnum: 3829
+name: Etrenank, the First Class District
+description: |
+  The upper tiers of Etrenank, where only the Solarians of the first
+  class may live: wide, silent boulevards of white metal, gardens under
+  glass, and citizens in pale clothes who do not look at you, because
+  you are clearly a Lamb, one of the people of the ground, bred to work
+  and to be eaten. A food plant hums below the street: the Soylent
+  System, which you do not want to ask about. The gate is east; the
+  ministry is north; the Emperor's palace is west.
+exits:
+  east: 3827
+  north: 3831
+  west: 3832

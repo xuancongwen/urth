@@ -1,0 +1,19 @@
+vnum: 3707
+name: Aps
+keywords: [aps, sewer, monster, beast]
+description: Aps rises out of the sewer water, dripping and bloated.
+look: |
+  Don Corneo's pet: a huge, flabby blue monster with tiny arms and a
+  wide mouth, that lives in the sewer under the mansion and eats what
+  the Don drops through the trapdoor. It spits filthy water, sends
+  waves down the tunnel, and has not been hungry in years.
+level: 29
+flags: [assist, aggressive]
+health: 2600
+stats: {constitution: 16, strength: 14}
+silver: 200
+attack:
+  kind: blunt
+  verb: slam
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }

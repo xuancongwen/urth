@@ -1,0 +1,15 @@
+vnum: 3833
+name: The Ruins of Zeboim
+description: |
+  Ruins under the earth, older than Solaris, older than anything: a city
+  of glass towers and highways, buried by the catastrophe that ended the
+  civilisation of Zeboim four thousand years ago and preserved by it
+  like a fly in amber. Cars rust in the streets. A lift shaft goes up
+  toward the sky. In the dark a girl with green hair and no shoes walks
+  the old streets as if she were looking for someone; she is made of
+  nanomachines, and she is older than she looks and younger than she
+  seems. A road runs west into the dark.
+exits:
+  up: 3832
+  west: 3834
+flags: [dark]

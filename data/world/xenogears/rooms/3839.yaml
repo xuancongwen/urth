@@ -1,0 +1,13 @@
+vnum: 3839
+name: The Throne of Deus
+description: |
+  A cathedral the size of a mountain, whose pillars are the ribs of a
+  god. In the middle of it, wired into the Merkaba through cables as
+  thick as trees, hangs Deus: the interplanetary invasion weapon whose
+  crash ten thousand years ago brought humanity to this world, and which
+  made humanity as spare parts for itself. It is waking. It is
+  beautiful, after a fashion, and its body is coiled about itself like a
+  serpent swallowing its tail, the Urobolus, the end that is the
+  beginning. In its breast, the Zohar burns. The laboratory is east.
+exits:
+  east: 3838

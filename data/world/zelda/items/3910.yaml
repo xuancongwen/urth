@@ -1,0 +1,18 @@
+vnum: 3910
+name: the Fairy Ocarina
+keywords: [fairy, ocarina, wooden, instrument]
+description: A little wooden ocarina, worn smooth with playing, lies here.
+look: |
+  A small ocarina of brown wood, Saria's, worn smooth by her fingers and
+  given to a friend who was leaving the forest so that he would not
+  forget it. Held, it plays the song of the Lost Woods by itself when
+  you are not paying attention, and the trees seem to make way.
+type: armor
+slot: hold
+weight: 0
+level: 8
+value: 250
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.02 } }

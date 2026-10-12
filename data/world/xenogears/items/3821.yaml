@@ -1,0 +1,13 @@
+vnum: 3821
+name: an angel's carapace
+keywords: [angel's, angel, carapace, armor, armour, shell]
+description: A white ribbed shell of bone-like plates lies here.
+look: |
+  The breastplate of one of Deus's angels: plates of white, ribbed
+  carapace grown over one another like the scales of a pine cone. It is
+  lighter than steel and harder.
+type: armor
+slot: body
+weight: 5
+level: 57
+baseline: heavy

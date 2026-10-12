@@ -1,0 +1,22 @@
+vnum: 3948
+name: Sheik's needles
+keywords: [sheik's, sheik, needles, needle, knives, throwing]
+description: A bundle of long, slim throwing needles lies here.
+look: |
+  A bundle of the slim steel needles Sheik throws three at a time, each
+  as long as a hand and sharp enough to pin a Deku leaf to a wall from
+  across a room. They are Sheikah work, and the Sheikah do not miss.
+type: weapon
+weight: 1
+level: 30
+baseline: dagger
+value: 4000
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: pin
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }
+  - { kind: dodge, params: { amount: 0.04 } }

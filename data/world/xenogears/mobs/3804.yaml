@@ -1,0 +1,25 @@
+vnum: 3804
+name: Maison
+keywords: [maison, butler, steward]
+description: Maison, the young master's butler, presides over a table of gear parts and fine tea.
+look: |
+  An elderly gentleman with an immaculate white moustache, a black
+  tailcoat, and perfect posture on a pitching deck, who has served the
+  Fatima family all his life and followed the young master Bart into
+  piracy without a word of complaint. He keeps the Yggdrasil's stores,
+  which means its spare parts, and he will sell gear alloys and weapons
+  to friends of the young master, and buy salvaged parts, which the
+  Yggdrasil's mechanics are always short of. Type 'list'.
+level: 36
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: rap
+trades:
+  - { item: 3802, silver: 30 }
+  - { item: 3808, silver: 350 }
+  - { item: 3811, silver: 400 }
+  - { item: 3812, silver: 420 }
+  - { item: 3813, silver: 300, items: [3800, 3800] }
+  - { item: 3808, silver: 150, items: [3800, 3800] }
+  - { item: 3802, items: [3800] }

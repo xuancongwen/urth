@@ -1,0 +1,18 @@
+vnum: 3852
+name: the girdle of the Urobolus
+keywords: [girdle, urobolus, belt, serpent]
+description: A broad belt of overlapping black scales lies here.
+look: |
+  A broad girdle of black scales, overlapping like a serpent's, that
+  closes with a buckle shaped as a mouth biting a tail. Blows slide off
+  it the way they slide off a snake.
+type: armor
+slot: belt
+weight: 2
+level: 60
+baseline: plate
+value: 10000
+effects:
+  - { kind: block, params: { chance: 0.12 } }
+  - { kind: protect, params: { mult: 0.93 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

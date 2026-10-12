@@ -1,0 +1,12 @@
+vnum: 3837
+name: The Outer Hull of the Merkaba
+description: |
+  The Merkaba: Solaris's last fortress, a vast living ship that rose out
+  of the earth when Deus called, and is bringing its biological weapons
+  into the sky. Its hull is metal and bone and something like skin,
+  breathing. Angels walk along it, white and many-winged and empty-
+  faced, and coils of something serpentine move under the deck. The
+  field is east; deeper in, west, is the prophet's laboratory.
+exits:
+  east: 3835
+  west: 3838

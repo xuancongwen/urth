@@ -1,0 +1,19 @@
+vnum: 3846
+name: the wing-roots of Deus
+keywords: [wing-roots, wing, roots, deus, deus's, shoulders, pauldrons]
+description: A pair of great curved pauldrons, sprouting stubs of white wing, lies here.
+look: |
+  The shoulder plates of Deus, where its vast wings joined its body:
+  black armour sprouting the stubs of white pinions, which twitch now
+  and then as if still trying to open. They spread a blow out over the
+  whole body, so that no one blow lands where it was meant to.
+type: armor
+slot: shoulders
+weight: 3
+level: 60
+baseline: plate
+value: 10000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: soak, params: { power: 0.08 } }

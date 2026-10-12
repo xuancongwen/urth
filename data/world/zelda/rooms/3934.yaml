@@ -1,0 +1,9 @@
+vnum: 3934
+name: The Depths of Jabu-Jabu
+description: |
+  The pit of Lord Jabu-Jabu's belly, where Barinade has rooted itself to
+  the ceiling: a parasite like a great electric jellyfish, crowned with
+  smaller jellies, its tentacles sunk into the fish's flesh, crackling
+  with stolen current. The way back is west.
+exits:
+  west: 3933

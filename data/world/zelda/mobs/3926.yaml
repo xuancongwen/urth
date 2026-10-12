@@ -1,0 +1,24 @@
+vnum: 3926
+name: the Great Fairy
+keywords: [great, fairy, fountain, laughing]
+description: The Great Fairy floats over her fountain, laughing, her hair streaming.
+look: |
+  A woman as tall as a house, risen out of the water with a great peal
+  of laughter, with long ivy-green hair, boots, and not very much else,
+  and the light of a hundred little fairies about her. "Welcome, hero! I
+  am the Great Fairy of Power!" She grants gifts to those who bring her
+  pieces of heart: a whole Heart Container for four, and for three and a
+  little silver, Din's Fire, Nayru's Love, or Farore's Wind. To those
+  sworn to the Good god, she teaches its blessings. Type 'list' and
+  'practice'.
+level: 35
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: laugh
+teaches: [bless, smite, prayer_of_healing]
+trades:
+  - { item: 3975, items: [3924, 3924, 3924, 3924] }
+  - { item: 3972, silver: 800, items: [3924, 3924, 3924] }
+  - { item: 3973, silver: 800, items: [3924, 3924, 3924] }
+  - { item: 3974, silver: 800, items: [3924, 3924, 3924] }

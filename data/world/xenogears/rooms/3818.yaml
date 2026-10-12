@@ -1,0 +1,18 @@
+vnum: 3818
+name: The Streets of Nortune
+description: |
+  Nortune, the capital of Kislev: grey stone, grey sky, smoke from a
+  thousand factory stacks, and gears everywhere, marching in parade,
+  hauling coal, standing at street corners like policemen. Kislev has
+  been at war with Aveh for longer than anyone can remember, and has
+  grown proud of it. Posters advertise the Battling tournament and its
+  champion. A black-market dealer has an awning against the wall of a
+  warehouse. The Battling arena is north; D-Block, the prison quarter,
+  is south; the Nisan road is east, and the ship-city Thames is moored
+  at the river docks to the west.
+exits:
+  east: 3816
+  north: 3819
+  south: 3820
+  west: 3822
+flags: [safe]

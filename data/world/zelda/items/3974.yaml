@@ -1,0 +1,18 @@
+vnum: 3974
+name: Farore's Wind
+keywords: [farore's, farore, wind, green, jewel, magic]
+description: A green jewel with a breeze curled inside it lies here.
+look: |
+  Farore's Wind, a gift of the Great Fairy: a green jewel with a little
+  wind curled inside it, which lifts the one who holds it out of harm's
+  way, the gift of the goddess of Courage.
+type: armor
+slot: hold
+weight: 0
+level: 24
+value: 2500
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

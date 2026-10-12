@@ -1,0 +1,12 @@
+vnum: 3703
+name: The Core of Mako Reactor 1
+description: |
+  The heart of the reactor: a vast round pit where the mako wells up
+  from the Planet in a column of shimmering green, too bright to look
+  at for long. Gantries ring it at every level, and on the lowest one
+  a great crab-shaped machine of red steel unfolds on four legs, its
+  searchlight sweeping toward you, its scorpion tail rising. AVALANCHE
+  would very much like a bomb set here. The catwalks lead back south.
+exits:
+  south: 3702
+flags: [dark]

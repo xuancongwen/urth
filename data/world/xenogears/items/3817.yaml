@@ -1,0 +1,17 @@
+vnum: 3817
+name: a Zeboim alloy blade
+keywords: [zeboim, alloy, blade, sword, ancient]
+description: A sword of strange dull-green metal lies here.
+look: |
+  A blade of some alloy the world has forgotten how to make, dull green
+  and almost weightless, dug out of the ruins of Zeboim where it has
+  lain for four thousand years without a fleck of rust.
+type: weapon
+weight: 2
+level: 50
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+flags: [drop]

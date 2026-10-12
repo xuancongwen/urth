@@ -1,0 +1,17 @@
+vnum: 3917
+name: a Hylian broadsword
+keywords: [hylian, broadsword, sword, blade]
+description: A plain steel broadsword with a blue grip lies here.
+look: |
+  A soldier's broadsword of the Hylian guard, plain good steel with a
+  blue-wrapped grip and a winged guard. The Bazaar sells them to
+  travellers who mean to cross the field at night.
+type: weapon
+weight: 3
+level: 12
+baseline: standard
+value: 300
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

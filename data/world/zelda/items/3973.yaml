@@ -1,0 +1,17 @@
+vnum: 3973
+name: Nayru's Love
+keywords: [nayru's, nayru, love, blue, jewel, magic]
+description: A blue jewel with a crystal heart lies here.
+look: |
+  Nayru's Love, a gift of the Great Fairy: a blue jewel with a crystal
+  in its heart. Held up, it wraps you in a diamond of blue light that
+  blows glance off, the love of the goddess of Wisdom.
+type: armor
+slot: hold
+weight: 0
+level: 24
+value: 2500
+rarity: rare
+effects:
+  - { kind: protect, params: { mult: 0.88 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

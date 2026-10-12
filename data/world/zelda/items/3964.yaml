@@ -1,0 +1,19 @@
+vnum: 3964
+name: the Spirit Medallion
+keywords: [spirit, medallion, orange, amulet]
+description: An orange medallion marked with a sun-like sign lies here.
+look: |
+  The medallion of the Sage of Spirit, a disc of orange metal with the
+  spirit's sign on it, which Nabooru awakens to when the witches are
+  gone. It burns warm when you are hurt, and keeps you on your feet.
+type: armor
+slot: neck
+weight: 0
+level: 31
+value: 3000
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }

@@ -1,0 +1,21 @@
+vnum: 3949
+name: the Triforce of Wisdom
+keywords: [triforce, wisdom, golden, triangle]
+description: A golden triangle of light floats here, humming.
+look: |
+  One of the three golden triangles of the Triforce, left by the
+  goddesses when they made the world: the piece of Nayru, of Wisdom,
+  which came to the princess of Hyrule when Ganondorf touched the whole.
+  It shines through the back of whatever hand holds it, and the mind
+  behind that hand sees further.
+type: armor
+slot: hold
+weight: 0
+level: 30
+value: 6000
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: spellPower, params: { mult: 1.1, branch: divine } }

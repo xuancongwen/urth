@@ -1,0 +1,17 @@
+vnum: 3910
+name: Talon
+keywords: [talon, rancher, farmer, fat, moustache]
+description: Talon, the owner of Lon Lon Ranch, is asleep on a pile of hay, snoring.
+look: |
+  A big, round, cheerful man in overalls with a black moustache and a
+  bald head, the owner of Lon Lon Ranch and Malon's father, who sleeps
+  wherever he sits down and leaves the work to Ingo. He wakes with a
+  start when you come in and grabs for the pitchfork, which is not where
+  he left it. "Eh? Oh, it's you! I was just resting my eyes." His purse
+  is fat with milk money.
+level: 8
+health: 160
+silver: 150
+attack:
+  kind: pierce
+  verb: jab

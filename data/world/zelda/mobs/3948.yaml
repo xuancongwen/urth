@@ -1,0 +1,21 @@
+vnum: 3948
+name: Nabooru
+keywords: [nabooru, gerudo, thief, woman]
+description: Nabooru leans on a palm by the Spirit Temple, sharpening a scimitar.
+look: |
+  A tall, proud Gerudo woman with red hair and gold at her ears and
+  wrists, the second-in-command of the Gerudo and a thief who steals
+  only from the rich, and never kills. She has had enough of Ganondorf,
+  the Gerudo King, who steals from the poor and kills whoever he likes,
+  and she is going into the Spirit Temple to steal the Silver Gauntlets
+  out from under him. She is wearing them already, in fact, and she is
+  not going to share.
+level: 29
+health: 2300
+stats: {dexterity: 17, strength: 15}
+silver: 500
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

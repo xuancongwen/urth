@@ -1,0 +1,15 @@
+vnum: 3904
+name: a Deku Baba
+keywords: [deku, baba, plant, carnivorous]
+description: A Deku Baba sways up out of the grass, its leafy jaws snapping.
+look: |
+  A carnivorous plant on a long, bending stalk, its head a pair of green
+  jaws lined with thorns that snap at anything that moves. It rises out
+  of the grass when you come close, sways, and lunges. Cut, its stalk
+  dries into a passable Deku stick.
+level: 5
+flags: [assist]
+silver: 8
+attack:
+  kind: bite
+  verb: snap

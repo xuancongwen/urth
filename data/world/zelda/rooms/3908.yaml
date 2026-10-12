@@ -1,0 +1,14 @@
+vnum: 3908
+name: The Forest Temple
+description: |
+  A ruined manor of a temple swallowed by the forest, its courtyards
+  overgrown, its halls twisted so that you are never sure which way is
+  up. The paintings on the walls watch you; the four Poe sisters stole
+  the temple's flames and fled into them. Stalfos, skeletons with rusted
+  swords and round shields, rise from the floor whenever someone opens a
+  door. A stair north ends at a gallery of paintings. The meadow is
+  south.
+exits:
+  south: 3907
+  north: 3909
+flags: [dark]

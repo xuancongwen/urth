@@ -1,0 +1,23 @@
+vnum: 3735
+name: Rufus's shotgun
+keywords: [rufus's, rufus, shotgun, gun]
+description: A white-stocked, silver-barrelled shotgun lies here.
+look: |
+  The shotgun of Rufus Shinra, Vice President and then President,
+  silver and white like his suit, which he twirls one-handed and fires
+  without seeming to aim. He rules by fear, he says, and he means it.
+  Every shot finds its mark, and the last one in a fight lands
+  hardest.
+type: weapon
+weight: 2
+level: 37
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

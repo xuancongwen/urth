@@ -1,0 +1,20 @@
+vnum: 3730
+name: Yuffie Kisaragi
+keywords: [yuffie, kisaragi, ninja, girl, thief]
+description: Yuffie Kisaragi sits on the shrine roof, spinning a shuriken on one finger.
+look: |
+  A skinny teenage girl in shorts and a green turtleneck, with a
+  headband and short black hair, the daughter of Lord Godo and the
+  greatest ninja in Wutai, she tells you, and also its greatest thief.
+  She has been stealing everyone's materia since she met them. "I'm
+  the White Rose of Wutai! Hey, is that materia in your pocket?" The
+  great shuriken spinning on her finger is the Conformer.
+level: 49
+health: 5000
+stats: {dexterity: 18, constitution: 13}
+silver: 2000
+attack:
+  kind: slash
+  verb: throw
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

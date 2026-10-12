@@ -1,0 +1,19 @@
+vnum: 3932
+name: the Zora Tunic
+keywords: [zora, tunic, blue, shirt]
+description: A blue tunic of fine, slippery cloth lies here.
+look: |
+  A Zora tunic, blue as deep water, woven by the Zoras so that a Hylian
+  can breathe beneath the lake. It is cool to wear on the hottest day
+  and slips through a grasping hand like a fish.
+type: armor
+slot: body
+weight: 2
+level: 18
+baseline: light
+value: 1800
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }

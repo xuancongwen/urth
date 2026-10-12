@@ -1,0 +1,14 @@
+vnum: 3816
+name: Nisan, the Holy City
+description: |
+  A quiet city of white stone and green gardens set among cliffs, the
+  holy place of the Nisan sect, who keep the old faith of the Holy
+  Mother Sophia, who died five hundred years ago saving this land from
+  Solaris. Pilgrims walk the stone streets in white. The cathedral rises
+  over everything to the north. The Yggdrasil lies at the sand moorings,
+  east; a road runs west toward the Kislev border.
+exits:
+  east: 3815
+  north: 3817
+  west: 3818
+flags: [safe]

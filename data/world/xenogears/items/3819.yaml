@@ -1,0 +1,14 @@
+vnum: 3819
+name: a pair of crimson gear-plate gauntlets
+keywords: [crimson, gear-plate, gear, plate, gauntlets, gloves]
+description: A pair of red-lacquered gauntlets lies here, still warm.
+look: |
+  Gauntlets beaten out of a scrap of crimson gear plate, red as blood
+  and warm to the touch, as though the machine they came from were still
+  angry.
+type: armor
+slot: hands
+weight: 3
+level: 55
+baseline: plate
+flags: [drop]

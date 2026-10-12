@@ -1,0 +1,26 @@
+vnum: 3739
+name: Sephiroth
+keywords: [sephiroth, one-winged, angel, soldier]
+description: Sephiroth waits over the light, the Masamune held loosely at his side.
+look: |
+  Tall and terrible and beautiful, with long silver hair and cat's
+  green eyes, in a long black coat, holding a sword longer than he is:
+  Sephiroth, the greatest of SOLDIER, who learned in a cellar in
+  Nibelheim that his mother was Jenova and decided the Planet was his.
+  He burned Nibelheim. He killed Aerith. He has called Meteor down,
+  and will take the Lifestream that rushes to heal the wound and
+  become a god. A single black wing unfolds from his right shoulder as
+  you look: he is not done changing, and the next shape he takes will
+  be worse. "I am the chosen one." He is a fight for a whole party.
+level: 59
+flags: [assist, boss]
+health: 32000
+stats: {strength: 15, dexterity: 16, constitution: 18, intelligence: 18}
+silver: 4000
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "Octaslash" } }
+  - { kind: steady, params: { chance: 0.5 } }
+  - { kind: soak, params: { power: 0.1 } }

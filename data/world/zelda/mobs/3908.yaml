@@ -1,0 +1,14 @@
+vnum: 3908
+name: a Peahat
+keywords: [peahat, plant, spinning, blades]
+description: A Peahat whirls over the grass on its spinning leaves, roots dangling.
+look: |
+  A great flying plant, its leaves a whirling rotor of blades, its roots
+  hanging under it like a beard and its eye looking down from the
+  middle. It hovers, dips, and spins at whatever comes near, and it is
+  hard to hurt from below.
+level: 10
+silver: 20
+attack:
+  kind: slash
+  verb: whirl

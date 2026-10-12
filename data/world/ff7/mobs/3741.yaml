@@ -1,0 +1,24 @@
+vnum: 3741
+name: Tifa Lockhart
+keywords: [tifa, lockhart, barmaid, fighter]
+description: Tifa Lockhart polishes a glass behind the bar and smiles at you.
+look: |
+  A young woman with long dark hair, a white vest and black braces,
+  and fighting gloves tucked into her belt, who runs Seventh Heaven
+  and keeps AVALANCHE's secrets under the floor. She grew up in
+  Nibelheim with a boy who went off to join SOLDIER, and she is still
+  waiting for him to tell her the truth. She learned to fight from
+  Zangan, the master of the mountain, and she will teach you what she
+  can: how to fight with your bare hands, how to slip a blow, and how
+  to sweep a man off his feet. Type 'practice'. She also keeps a few
+  things behind the bar for regulars. Type 'list'.
+level: 40
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: punch
+teaches: [hand_to_hand, dodge, trip]
+trades:
+  - { item: 3701, silver: 30 }   # a mako lamp
+  - { item: 3701, items: [3700] }   # a mako lamp
+  - { item: 3709, silver: 280 }   # a set of brass knuckles

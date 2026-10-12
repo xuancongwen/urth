@@ -1,0 +1,12 @@
+vnum: 3826
+name: The Gear Hangar of Shevat
+description: |
+  A vast, bright hangar cut into the underside of the floating city,
+  where Shevat keeps its gears. Most of them are slim Shevat fighters.
+  One is not: an enormous, ancient gear of gleaming gold and black,
+  twice the height of any other, standing quite still with its hands
+  folded, as though at prayer. This is Seibzehn, built by Maria
+  Balthasar's father, and it obeys nobody but her; she is sitting on its
+  shoulder. The city is south.
+exits:
+  south: 3825

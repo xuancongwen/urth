@@ -1,0 +1,10 @@
+vnum: 3943
+name: The Chamber of Twinrova
+description: |
+  A high round chamber at the top of the Colossus, with a platform in
+  the middle and two pillars of ice and fire, where Koume and Kotake,
+  the Gerudo witches who raised Ganondorf, fly round each other on their
+  brooms, cackling, one throwing fire and the other ice. When they are
+  hurt, they merge into one. The stair down is the only way out.
+exits:
+  down: 3942

@@ -1,0 +1,21 @@
+vnum: 3912
+name: the Bazaar shopkeeper
+keywords: [bazaar, shopkeeper, shop, keeper, merchant]
+description: The Bazaar shopkeeper rubs his hands behind a counter piled high with goods.
+look: |
+  A round little man with a big moustache and an apron, who sells
+  everything an adventurer could want and keeps the good shield on the
+  wall where everyone can see it. "Welcome! That one? Ah, the Hylian
+  Shield, the very same the knights carry. It'll cost you, mind." He
+  also sells broadswords, Deku shields, and fairies in bottles. Type
+  'list'.
+level: 15
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: slap
+trades:
+  - { item: 3916, silver: 900 }
+  - { item: 3917, silver: 300 }
+  - { item: 3902, silver: 45 }
+  - { item: 3904, silver: 35 }

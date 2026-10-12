@@ -1,0 +1,11 @@
+vnum: 3918
+name: a red potion
+keywords: [red, potion, bottle]
+description: A bottle of red potion lies here, glowing faintly.
+look: |
+  A bottle of bright red potion that the Potion Shop swears will put the
+  heart back into anyone. It smells of cherries and iron, and it makes
+  you feel rather braver than you are.
+type: other
+weight: 1
+value: 30

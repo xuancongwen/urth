@@ -1,0 +1,12 @@
+vnum: 3901
+name: The Kokiri Shop
+description: |
+  A single round room inside a hollow tree, the shelves cut into the
+  living wood and crowded with Deku sticks, Deku nuts in baskets, little
+  wooden shields with a red leaf painted on them, and a row of corked
+  bottles in which tiny fairies glow and bump against the glass. A
+  counter of a split log runs across the middle. The village is back
+  east.
+exits:
+  east: 3900
+flags: [safe]

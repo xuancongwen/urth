@@ -1,0 +1,24 @@
+vnum: 3951
+name: Twinrova
+keywords: [twinrova, koume, kotake, witches, twins]
+description: Koume and Kotake, the witches Twinrova, circle each other on their brooms, cackling.
+look: |
+  Two tiny, ancient Gerudo witches with hooked noses and jewels on their
+  foreheads, flying round each other on broomsticks: Koume, who throws
+  fire, and Kotake, who throws ice. They are four hundred years old and
+  they raised Ganondorf, and they bicker about how old the other one is.
+  When they are hurt, they merge, cackling, into one young witch with
+  fire in one hand and ice in the other.
+level: 31
+flags: [assist]
+health: 3600
+stats: {intelligence: 18, wisdom: 17, constitution: 16}
+silver: 900
+xp: 13000
+attack:
+  kind: fire
+  verb: blast of fire
+  damage: 110
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: proc, params: { verb: twin blast of fire and ice, chance: 0.15, power: 1.3 } }

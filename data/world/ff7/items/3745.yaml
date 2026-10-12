@@ -1,0 +1,23 @@
+vnum: 3745
+name: the Venus Gospel
+keywords: [venus, gospel, spear, lance]
+description: A long spear with a broad golden head lies here.
+look: |
+  A long spear with a broad, gleaming golden head, the finest lance
+  Cid Highwind ever held, given him by an old man in Rocket Town who
+  had been keeping it for someone worthy. Cid says it handles like a
+  dream and swears at it lovingly. It never falters in the hand.
+type: weapon
+weight: 4
+level: 48
+baseline: spear
+value: 7000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

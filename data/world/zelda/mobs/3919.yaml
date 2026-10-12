@@ -1,0 +1,14 @@
+vnum: 3919
+name: a Tektite
+keywords: [tektite, spider, crab, jumper]
+description: A Tektite crouches on a rock, its one eye on you, ready to jump.
+look: |
+  A one-eyed creature like a big red tick on four jointed legs, which
+  jumps from rock to rock on Death Mountain and lands on whatever it was
+  looking at. It is mostly legs and teeth.
+level: 12
+flags: [assist]
+silver: 20
+attack:
+  kind: bite
+  verb: bite

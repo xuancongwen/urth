@@ -1,0 +1,16 @@
+vnum: 3800
+name: a salvaged gear part
+keywords: [salvaged, gear, part, scrap, servo, actuator]
+description: A greasy chunk of gear machinery lies here, trailing cut wires.
+look: |
+  A servo actuator the size of a loaf, torn out of a gear's joint with
+  its cables still dangling, its housing stamped with a maker's mark
+  from Aveh, Kislev, or somewhere older. Every gear in the world runs on
+  parts like this, and nobody can make the best of them any more: they
+  are dug up, salvaged, and sold again. Mechanics and sand-pirates will
+  pay well for it, or trade.
+type: material
+material: gear part
+rarity: common
+weight: 2
+value: 40

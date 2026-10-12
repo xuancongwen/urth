@@ -1,0 +1,16 @@
+vnum: 3831
+name: a mind of the Gazel Ministry
+keywords: [mind, gazel, ministry, monolith, ghost, voice]
+description: A monolith of the Gazel Ministry glows, and a voice comes out of the dark.
+look: |
+  A tall black monolith bearing a number, lit from within, and the voice
+  of the mind that lives in it: one of the Gazel, the last of the
+  colonists who brought humanity here, who uploaded themselves into the
+  Solarian machine five hundred years ago to wait for Deus to make them
+  gods. They are petty, cruel, and very bored, and they have not been
+  attacked in a long time. They hit with the sheer weight of contempt.
+level: 48
+flags: [assist]
+attack:
+  kind: psionic
+  verb: contempt

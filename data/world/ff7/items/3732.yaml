@@ -1,0 +1,18 @@
+vnum: 3732
+name: the President's signet
+keywords: [president's, president, signet, ring, shinra]
+description: A heavy gold ring set with a red stone lies here.
+look: |
+  The signet of the President of the Shinra Electric Power Company,
+  heavy gold set with a ruby cut in the shape of the company logo. It
+  has stamped the orders that built Midgar, dropped the Sector 7
+  plate, and bought every mayor on the continent. Whoever wears it
+  expects to be obeyed, and very often is.
+type: armor
+slot: finger
+weight: 0
+level: 35
+value: 4000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: protect, params: { mult: 0.95 } }

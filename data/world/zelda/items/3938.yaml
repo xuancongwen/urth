@@ -1,0 +1,18 @@
+vnum: 3938
+name: a broken Giant's Knife
+keywords: [broken, giant's, giant, knife, sword, greatsword]
+description: A huge sword, its blade snapped off a foot from the hilt, lies here.
+look: |
+  A Giant's Knife, the great two-handed blade that a Goron smith on
+  Death Mountain makes, broken off short. A Stalfos was still swinging
+  it. Biggoron, at the summit, makes the only blades that never break,
+  and he can tell a broken one from across the mountain.
+type: weapon
+weight: 6
+level: 19
+baseline: heavy
+value: 200
+weapon:
+  hands: 2
+  kind: slash
+  verb: hack

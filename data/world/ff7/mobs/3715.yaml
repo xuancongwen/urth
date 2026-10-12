@@ -1,0 +1,20 @@
+vnum: 3715
+name: Scarlet
+keywords: [scarlet, woman, blonde, weapons]
+description: Scarlet lounges against the window in a red dress, smiling.
+look: |
+  A tall blonde woman in a long red dress, with red lips and very red
+  gloves, head of Shinra's weapons development, who builds cannons the
+  size of a city and the robot armour to match. She laughs at everyone
+  and slaps those she does not laugh at. "Kyahahaha! What have we
+  here?" She is far more dangerous than she bothers to look.
+level: 35
+flags: [assist]
+health: 2800
+stats: {dexterity: 15}
+silver: 1500
+attack:
+  kind: blunt
+  verb: slap
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }

@@ -1,0 +1,13 @@
+vnum: 3702
+name: Inside Mako Reactor 1
+description: |
+  A maze of catwalks and ladders deep inside the reactor, where the
+  only light comes from the mako itself: a luminous green fluid, thick
+  as syrup, pouring down through glass pipes the width of a man. The
+  air tastes of metal and ozone. Somewhere below, the Planet's life is
+  being pumped up and burned. The core is further in, north, and the
+  way back out to the station is south.
+exits:
+  north: 3703
+  south: 3701
+flags: [dark]

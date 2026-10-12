@@ -1,0 +1,19 @@
+vnum: 3844
+name: the halo of Deus
+keywords: [halo, deus, deus's, crown, head]
+description: A ring of white light, set on a frame of black metal, lies here.
+look: |
+  A ring of hard white light hung on a skeletal frame of black metal,
+  which crowned the head of Deus and fits yours. Under it the world goes
+  quiet and slow, and everything in it looks like a part with a purpose.
+type: armor
+slot: head
+weight: 2
+level: 60
+baseline: heavy
+value: 10000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: protect, params: { mult: 0.95 } }

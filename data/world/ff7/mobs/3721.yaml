@@ -1,0 +1,15 @@
+vnum: 3721
+name: a Battle Square gladiator
+keywords: [battle, square, gladiator, fighter, champion]
+description: A Battle Square gladiator flexes for the crowd and beckons you on.
+look: |
+  One of the Gold Saucer's house fighters, oiled and armoured in
+  bronze, who fights for the crowd six bouts a night and has not lost
+  in a month. The crowd chants his name. He has a trident, a crested
+  helm and no intention of losing tonight.
+level: 41
+flags: [assist]
+silver: 200
+attack:
+  kind: pierce
+  verb: thrust

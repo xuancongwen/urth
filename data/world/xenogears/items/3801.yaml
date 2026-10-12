@@ -1,0 +1,14 @@
+vnum: 3801
+name: a Drive
+keywords: [drive, pill, capsule, gear]
+description: A small capsule of glowing amber liquid lies here.
+look: |
+  A Drive: a capsule of amber fluid the size of a thumb, which a gear
+  pilot breaks into his machine's intake to make it hit harder, run
+  faster, or heal its own frame for a little while. Some are only
+  coolant with ambitions. The good ones are worth a great deal, and
+  somebody, somewhere, has lost this one and wants it back.
+type: other
+weight: 0
+value: 200
+flags: [quest]

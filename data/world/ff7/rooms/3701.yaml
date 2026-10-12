@@ -1,0 +1,12 @@
+vnum: 3701
+name: The Sector 1 Station
+description: |
+  A wide platform of steel plate in the shadow of Mako Reactor 1,
+  where the trains stop to unload workers and soldiers. The reactor
+  rises to the north, a tower of pipes and gantries crowned with green
+  light, its stacks venting steam into a sky you cannot see. Shinra
+  military police patrol in pairs, rifles slung, and a dog on a chain
+  growls at nothing. The train back to Sector 7 is south.
+exits:
+  north: 3702
+  south: 3700

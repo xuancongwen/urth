@@ -1,0 +1,24 @@
+vnum: 3947
+name: the Biggoron's Sword
+keywords: [biggoron's, biggoron, sword, greatsword, two-handed]
+description: An enormous two-handed sword, as long as a man is tall, lies here.
+look: |
+  The Biggoron's Sword, forged by the biggest Goron on Death Mountain
+  from the best rocks there are, a two-handed blade as long as you are
+  tall with a hilt wrapped in red. Unlike the Giant's Knife his brother
+  sells, it never breaks. It is too heavy to carry a shield with, and
+  you will not want one.
+type: weapon
+weight: 8
+level: 30
+baseline: heavy
+value: 6000
+rarity: rare
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }

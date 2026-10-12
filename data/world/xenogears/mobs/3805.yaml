@@ -1,0 +1,23 @@
+vnum: 3805
+name: Margie
+keywords: [margie, marguerite, fatima, heiress, nisan]
+description: Margie, the heiress of Nisan, sits on the altar steps sorting a bundle of letters.
+look: |
+  A girl of fifteen in the white robes of Nisan, with fair hair and a
+  determined chin: Marguerite Fatima, Bart's cousin and the heiress of
+  the holy city, who was kidnapped by Shakhan and was not much impressed
+  by it. Pilgrims bring her their troubles, and she has a list. "You
+  look useful," she says. "Somebody's lost a Drive, somebody's being
+  robbed on the Kislev road, and somebody has to do something about it."
+  Try 'quest request' and 'quest list'.
+level: 34
+flags: [peaceful, questmaster]
+attack:
+  kind: blunt
+  verb: slap
+sells:
+  - { item: 3802, points: 10 }
+  - { item: 3810, points: 20 }
+  - { item: 3812, points: 25 }
+  - { item: 3815, points: 35 }
+  - { item: 3816, points: 40 }

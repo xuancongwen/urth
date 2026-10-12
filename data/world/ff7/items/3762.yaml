@@ -1,0 +1,18 @@
+vnum: 3762
+name: Ultima Weapon's forelimb plates
+keywords: [ultima, weapon's, forelimb, plates, vambraces, arms]
+description: A pair of ridged armguards of pale horn lies here.
+look: |
+  Ridged plates from the forelimbs of Ultima Weapon, pale horn shot
+  through with green fire. Whatever strikes them is struck back by the
+  mako burning inside.
+type: armor
+slot: arms
+weight: 3
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: "lash of mako fire" } }

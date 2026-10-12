@@ -1,0 +1,18 @@
+vnum: 3764
+name: the bracer of the Lifestream
+keywords: [bracer, lifestream, wrist, bracelet]
+description: A bracer of green crystal, shimmering as if full of water, lies here.
+look: |
+  A bracer of green crystal that seems full of moving light, grown
+  around one of Ultima Weapon's lesser joints. It drinks a little of
+  every wound it helps to make, as the Lifestream drinks every life,
+  and gives it back to its wearer.
+type: armor
+slot: wrist
+weight: 1
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: leech, params: { fraction: 0.08 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

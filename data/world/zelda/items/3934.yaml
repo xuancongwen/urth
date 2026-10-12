@@ -1,0 +1,22 @@
+vnum: 3934
+name: the Boomerang
+keywords: [boomerang, curved, wooden]
+description: A curved boomerang of blue-painted wood lies here.
+look: |
+  A boomerang of bent wood, painted blue with a red star, which Barinade
+  had swallowed along with half the inside of Lord Jabu-Jabu. It comes
+  back when you throw it, and whatever it hits is stunned for a moment,
+  long enough.
+type: weapon
+weight: 1
+level: 17
+baseline: dagger
+value: 1500
+rarity: rare
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

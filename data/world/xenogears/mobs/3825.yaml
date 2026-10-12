@@ -1,0 +1,17 @@
+vnum: 3825
+name: Seraphita
+keywords: [seraphita, element, elements, cat]
+description: Seraphita of the Elements stretches like a cat and grins at you.
+look: |
+  The youngest of the Elements, with bobbed pink hair, a cat's habits, a
+  cat's grin, and a little bell at her throat, who is mistress of the
+  wind and pilots a gear that flies like a kite. She thinks everything
+  is a game. She also thinks you are a mouse.
+level: 45
+flags: [assist]
+health: 3400
+stats: {dexterity: 19}
+silver: 600
+attack:
+  kind: slash
+  verb: wind-cut

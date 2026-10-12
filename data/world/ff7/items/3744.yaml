@@ -1,0 +1,20 @@
+vnum: 3744
+name: Rude's sunglasses
+keywords: [rude's, rude, sunglasses, glasses, shades]
+description: A pair of black wraparound sunglasses lies here.
+look: |
+  The wraparound sunglasses of Rude of the Turks, who wears them night
+  and day and says very little. Behind them, the world looks calm and
+  dark, every threat a little further away and every hidden thing a
+  little clearer. He has a spare pair. He always has a spare pair.
+type: armor
+slot: face
+weight: 0
+level: 48
+baseline: medium
+value: 5500
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: detectHidden }
+  - { kind: protect, params: { mult: 0.95 } }

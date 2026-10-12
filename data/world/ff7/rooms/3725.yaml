@@ -1,0 +1,10 @@
+vnum: 3725
+name: The Battle Square
+description: |
+  The Gold Saucer's arena: a ring of sand under a dome, with stands
+  full of screaming spectators and a scoreboard of champions. Fighters
+  come here from all over the world to win prizes, and the house
+  champions do not like to lose. Dio's statue, in a lion-skin and very
+  little else, flexes over the door. The park is back south.
+exits:
+  south: 3724

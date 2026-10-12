@@ -1,0 +1,18 @@
+vnum: 3808
+name: Emeralda
+keywords: [emeralda, nanomachine, girl, green]
+description: Emeralda, a girl with green hair and bare feet, stands among the ruins.
+look: |
+  A girl who looks about twelve, with short green hair and grave green
+  eyes and no shoes, who is made of nanomachines: Emeralda, the last
+  creation of Zeboim, who slept in these ruins for four thousand years
+  waiting for the man who made her to come back. He was Kim, and he was
+  Fei, and she knew him at once. She can mend any wound in her own body
+  in a moment, and she can show you a little of how, so that you heal
+  quicker at rest and catch your breath in a fight. Type 'practice'.
+level: 50
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: nanomachine fist
+teaches: [fast_healing, second_wind]

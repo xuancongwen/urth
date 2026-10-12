@@ -1,0 +1,17 @@
+vnum: 3755
+name: a Fire materia
+keywords: [fire, materia, orb, red]
+description: A small green orb with a flicker of flame inside lies here.
+look: |
+  A sphere of green crystal no bigger than a walnut, with a little
+  flame dancing in its heart: magic materia, made from mako crystal by
+  someone who knew how. Held in the off hand, it lends the knowledge
+  of the Ancients to any spell of fire and force.
+type: armor
+slot: hold
+weight: 0
+level: 28
+value: 900
+effects:
+  - { kind: spellPower, params: { mult: 1.08, school: evocation } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

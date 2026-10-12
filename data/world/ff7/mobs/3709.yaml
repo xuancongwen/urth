@@ -1,0 +1,15 @@
+vnum: 3709
+name: a Shinra security officer
+keywords: [shinra, security, officer, guard]
+description: A Shinra security officer in a black uniform watches you closely.
+look: |
+  A guard of the Shinra Building itself, in black, with a carbine, a
+  radio, and the confidence of a man who works for the biggest company
+  in the world. He has been told about the terrorists. He has been
+  told to shoot.
+level: 31
+flags: [assist]
+silver: 120
+attack:
+  kind: fire
+  verb: shoot

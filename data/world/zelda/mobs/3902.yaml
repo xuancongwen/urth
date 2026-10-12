@@ -1,0 +1,18 @@
+vnum: 3902
+name: Mido
+keywords: [mido, boss, kokiri, boy, freckled]
+description: Mido, boss of the Kokiri, stands in the middle of the path with his arms folded.
+look: |
+  A freckled Kokiri boy with red hair sticking out from under his cap,
+  his fists on his hips, his chin up. He is the boss of the Kokiri
+  because he says so, and he does not like you, because Saria likes you
+  better than him. "Hey you! You can't go and see the Great Deku Tree
+  without a sword and a shield!" He has a sword. He has a shield. They
+  are not his; he took the Kokiri Sword out of its chest to show
+  everyone, and he is not going to give it back.
+level: 6
+health: 140
+silver: 60
+attack:
+  kind: slash
+  verb: slash

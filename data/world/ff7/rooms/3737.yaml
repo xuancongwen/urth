@@ -1,0 +1,12 @@
+vnum: 3737
+name: The Altar of the Forgotten Capital
+description: |
+  At the bottom of a crystal stair, a still, clear pool with a little
+  platform of stone in the middle: an altar. This is where Aerith came
+  to pray, alone, to call Holy against Meteor, and where Sephiroth
+  dropped from the air above and ran her through. The White Materia
+  fell from her hair and rolled into the water, and her prayer went
+  with it to the Planet. Something pale is rising out of the pool now,
+  as if it had been waiting. The stair is north.
+exits:
+  north: 3736

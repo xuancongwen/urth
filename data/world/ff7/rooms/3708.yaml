@@ -1,0 +1,14 @@
+vnum: 3708
+name: Wall Market
+description: |
+  The pleasure quarter of the slums, all neon, noise and sharp
+  practice: a street of bars, a gym, a clinic of dubious reputation,
+  an inn, the Honey Bee Inn with its pink lights, and shops that will
+  sell you anything if you have the gil. At the end of the street a
+  gaudy mansion with a gold-trimmed door belongs to Don Corneo, to the
+  south. The pillar is north, and the Sector 5 slums are west.
+exits:
+  north: 3711
+  south: 3709
+  west: 3706
+flags: [safe]

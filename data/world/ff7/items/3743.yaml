@@ -1,0 +1,23 @@
+vnum: 3743
+name: Palmer's mako gun
+keywords: [palmer's, palmer, mako, gun, pistol]
+description: A fat, stubby pistol with a glowing green tank lies here.
+look: |
+  The gun of Palmer, head of the Shinra space programme, a squat thing
+  with a tank of mako bolted on top that fires gobbets of sticky,
+  glowing slime. It is undignified and it works: whatever it hits
+  slows down. Palmer likes it because it does not need aiming, and he
+  is no longer as quick as he was. Uhuhuhu.
+type: weapon
+weight: 2
+level: 46
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: fire
+  verb: squirt
+effects:
+  - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

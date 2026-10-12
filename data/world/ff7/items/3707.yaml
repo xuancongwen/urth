@@ -1,0 +1,16 @@
+vnum: 3707
+name: a SOLDIER's broadsword
+keywords: [soldier's, soldier, broadsword, sword]
+description: A heavy single-edged broadsword lies here.
+look: |
+  A broad, single-edged sword of the kind SOLDIER issues to its third
+  class: plain, heavy, and sharpened by men who were given mako and
+  told they were the best.
+type: weapon
+weight: 3
+level: 24
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

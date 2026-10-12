@@ -1,0 +1,23 @@
+vnum: 3803
+name: a bazaar trader of Bledavik
+keywords: [bazaar, trader, merchant, bledavik, aveh]
+description: A bazaar trader under a striped awning calls out his wares.
+look: |
+  A small, quick man in a red fez and a waistcoat covered in pockets,
+  who sells everything Aveh's soldiers have lost, mislaid, or traded for
+  drink: sabres, rifles, helms, halberds, flight jackets, and lanterns
+  for the road. He will take gear parts in trade, and asks no questions
+  about where they came from. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: slash
+trades:
+  - { item: 3802, silver: 30 }
+  - { item: 3803, silver: 260 }
+  - { item: 3804, silver: 260 }
+  - { item: 3805, silver: 290 }
+  - { item: 3806, silver: 320 }
+  - { item: 3807, silver: 320 }
+  - { item: 3802, items: [3800] }

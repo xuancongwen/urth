@@ -1,0 +1,27 @@
+vnum: 3836
+name: Id
+keywords: [id, fei, other, self, red]
+description: Id, with Fei's face and red hair, grins at you from the fire.
+look: |
+  He is Fei: the same face, the same body, the same long hair, though
+  his is red, and the eyes are wrong, gleeful and empty and very old. He
+  is the self that took over when the boy could not bear what had been
+  done to him, who destroyed Lahan and a city of Kislev and does not
+  remember being sorry. He fights with Fei's hands and Fei's arts and
+  none of Fei's restraint, and he is the most dangerous single person
+  you will meet in this world.
+level: 57
+flags: [assist, boss, aggressive]
+health: 30000
+stats: {strength: 22, dexterity: 22, constitution: 22}
+silver: 2500
+xp: 40000
+attack:
+  kind: blunt
+  verb: punch
+effects:
+  - { kind: attacks, params: { amount: 0.5 } }
+  - { kind: protect, params: { mult: 0.8 } }
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: leech, params: { fraction: 0.05 } }
+  - { kind: steady, params: { chance: 0.5 } }

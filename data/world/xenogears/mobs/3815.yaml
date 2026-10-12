@@ -1,0 +1,25 @@
+vnum: 3815
+name: Vanderkaum
+keywords: [vanderkaum, commander, gebler, fat]
+description: Vanderkaum, the Gebler commander, lounges beside the throne, laughing.
+look: |
+  An enormous man, tall and vast, in a Gebler commander's uniform
+  straining at every button, with gold epaulettes like tea trays and a
+  face like a delighted ham. He is Solaris's man in Aveh: he put Shakhan
+  on the throne and he tells him what to do from it, and he finds the
+  whole business very funny. He fights like a landslide, laughing all
+  the way down.
+level: 34
+flags: [assist, boss]
+health: 4800
+stats: {strength: 22, constitution: 20}
+silver: 1200
+xp: 11000
+attack:
+  kind: blunt
+  verb: slam
+effects:
+  - { kind: attacks, params: { amount: 0.25 } }
+  - { kind: proc, params: { chance: 0.25, power: 1.5, verb: "belly slam" } }
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: steady, params: { chance: 0.3 } }

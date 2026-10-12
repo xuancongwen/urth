@@ -1,0 +1,14 @@
+vnum: 3961
+name: an Iron Knuckle's helm
+keywords: [iron, knuckle's, knuckle, helm, helmet]
+description: A great iron helm with horns and a narrow slit lies here.
+look: |
+  The horned helm of an Iron Knuckle, a bucket of black iron with a slit
+  to see through and nothing at all inside it but dark. It is very
+  heavy.
+type: armor
+slot: head
+weight: 5
+level: 30
+baseline: plate
+value: 300

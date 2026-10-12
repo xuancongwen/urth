@@ -1,0 +1,16 @@
+vnum: 3820
+name: a Merkaba angel's wing-blade
+keywords: [merkaba, angel's, angel, wing-blade, wing, blade]
+description: A long white blade shaped like a pinion feather lies here.
+look: |
+  A blade that grew, rather than was forged: a long white pinion of
+  something between bone and metal, torn from one of the Merkaba's
+  angels. Its edge is finer than any smith could make.
+type: weapon
+weight: 3
+level: 57
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice

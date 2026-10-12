@@ -1,0 +1,22 @@
+vnum: 3843
+name: Krelian's robe
+keywords: [krelian's, krelian, robe, prophet's, prophet]
+description: A long white robe, spotless, embroidered with silver lies here.
+look: |
+  The white robe of Krelian, once a doctor of Solaris, now the prophet
+  of a god he made himself: spotless, long, embroidered at the cuffs
+  with silver formulae that are, if you read them, the design of a soul.
+  He wanted no one ever to have to lose anyone again. Worn, it fills
+  your mind with that terrible patient certainty.
+type: armor
+slot: body
+weight: 2
+level: 58
+baseline: cloth
+value: 9000
+effects:
+  - { kind: spellPower, params: { mult: 1.12, branch: arcane } }
+  - { kind: manaFight, params: { fraction: 0.015 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

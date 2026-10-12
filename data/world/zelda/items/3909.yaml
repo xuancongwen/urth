@@ -1,0 +1,21 @@
+vnum: 3909
+name: the Ocarina of Time
+keywords: [ocarina, time, blue, instrument]
+description: A small blue ocarina with the Triforce on its mouthpiece lies here.
+look: |
+  The Ocarina of Time, the royal family's treasure: a little blue
+  instrument of glazed clay with a silver mouthpiece and the Triforce
+  painted on it. Zelda threw it into the moat as she fled; it is the
+  key, with the spiritual stones, to the Door of Time. Held, it hums
+  under your fingers, and the songs it plays move the sun, the rain, and
+  the hearts of those who listen.
+type: armor
+slot: hold
+weight: 0
+level: 16
+value: 2500
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: cooldownCut, params: { rounds: 1 } }
+  - { kind: dodge, params: { amount: 0.03 } }

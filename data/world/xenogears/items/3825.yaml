@@ -1,0 +1,19 @@
+vnum: 3825
+name: Vanderkaum's epaulettes
+keywords: [vanderkaum's, vanderkaum, epaulettes, shoulders, pauldrons]
+description: A pair of enormous gold-fringed epaulettes lies here.
+look: |
+  The epaulettes of the Gebler commander of Aveh, gold fringe on plates
+  of solid alloy, wide enough to land a small bird on. Vanderkaum is a
+  large man and likes to look larger. They take a blow like a wall.
+type: armor
+slot: shoulders
+weight: 3
+level: 34
+baseline: heavy
+value: 3500
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: protect, params: { mult: 0.94 } }
+  - { kind: soak, params: { power: 0.05 } }

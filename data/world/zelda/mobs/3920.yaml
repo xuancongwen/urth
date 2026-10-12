@@ -1,0 +1,19 @@
+vnum: 3920
+name: the Goron shopkeeper
+keywords: [goron, shopkeeper, shop, keeper, merchant]
+description: The Goron shopkeeper sits behind a counter of rock, beaming at you.
+look: |
+  A Goron, huge and round and the colour of sandstone, with a belly like
+  a boulder and a smile like the sunrise. He sells the red tunic that
+  lets a Hylian breathe in fire, and stone bracers, and he buys bomb
+  flowers by the armful because the Dodongos have taken all of theirs.
+  "Brother! Buy something, goro!" Type 'list'.
+level: 18
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: roll
+trades:
+  - { item: 3930, silver: 1400 }
+  - { item: 3930, silver: 700, items: [3925, 3925, 3925] }
+  - { item: 3926, silver: 300 }

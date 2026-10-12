@@ -1,0 +1,13 @@
+vnum: 3818
+name: a Solarian imperial cuirass
+keywords: [solarian, imperial, cuirass, armor, armour]
+description: A cuirass of white and gold alloy lies here.
+look: |
+  A cuirass of the Emperor's own household, white alloy chased with
+  gold, made five hundred years ago and never once dented.
+type: armor
+slot: body
+weight: 7
+level: 52
+baseline: plate
+flags: [drop]

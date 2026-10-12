@@ -1,0 +1,16 @@
+vnum: 3715
+name: a gladiator's trident
+keywords: [gladiator's, gladiator, trident, spear]
+description: A long three-pronged trident lies here.
+look: |
+  A fighting trident from the Battle Square, long and heavy, its
+  prongs dulled by a hundred bouts and sharpened again for a hundred
+  more. The crowd likes tridents. They look good on the big screen.
+type: weapon
+weight: 4
+level: 42
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

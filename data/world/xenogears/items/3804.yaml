@@ -1,0 +1,13 @@
+vnum: 3804
+name: a gear pilot's flight jacket
+keywords: [gear, pilot's, pilot, flight, jacket, coat]
+description: A padded leather flight jacket lies here.
+look: |
+  A short jacket of padded leather with a high collar and a harness sewn
+  into the lining, made to keep a gear pilot in one piece when his
+  machine falls over, which they do. It smells of oil and sweat.
+type: armor
+slot: body
+weight: 3
+level: 26
+baseline: light

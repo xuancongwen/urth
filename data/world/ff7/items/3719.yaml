@@ -1,0 +1,16 @@
+vnum: 3719
+name: a SOLDIER First Class broadsword
+keywords: [soldier, first, class, broadsword, sword]
+description: A massive two-handed broadsword lies here.
+look: |
+  A huge two-handed sword of the kind SOLDIER First Class carries, far
+  too heavy for anyone without mako in his blood. It was made to
+  imitate one very famous sword, and does not quite manage it.
+type: weapon
+weight: 6
+level: 47
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

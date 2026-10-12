@@ -1,0 +1,18 @@
+vnum: 3734
+name: Scarlet's crimson gloves
+keywords: [scarlet's, scarlet, crimson, gloves, gauntlets]
+description: A pair of long red evening gloves lies here.
+look: |
+  Long red evening gloves of silk over fine mesh, worn by Scarlet,
+  head of Shinra's weapons development, who designs cannons the size
+  of cities and slaps anyone who disappoints her. Kyahahaha. Whoever
+  wears them finds the soft place in everything they hit.
+type: armor
+slot: hands
+weight: 0
+level: 35
+baseline: light
+value: 4000
+effects:
+  - { kind: crit, params: { chance: 0.07, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

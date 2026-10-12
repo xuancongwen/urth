@@ -1,0 +1,20 @@
+vnum: 3830
+name: Maria's Seibzehn core
+keywords: [maria's, maria, seibzehn, core, sphere, heart]
+description: A sphere of gold metal, warm and humming, lies here.
+look: |
+  A sphere of gold metal the size of a child's head, warm, humming, and
+  faintly alive: the heart of Seibzehn, the great gear that Nikolai
+  Balthasar built and that will obey no one but his daughter Maria. It
+  remembers her. Held, it shields you as the gear shielded her, and
+  keeps you going when you should have fallen.
+type: armor
+slot: hold
+weight: 2
+level: 42
+value: 5000
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.015 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

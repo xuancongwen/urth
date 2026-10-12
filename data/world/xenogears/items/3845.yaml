@@ -1,0 +1,17 @@
+vnum: 3845
+name: the torc of the Urobolus
+keywords: [torc, urobolus, serpent, necklace, neck]
+description: A torc of black metal, a serpent swallowing its own tail, lies here.
+look: |
+  A heavy torc of black metal shaped as a serpent with its tail in its
+  mouth: the Urobolus, the end that is the beginning, the form Deus took
+  at the last. It is never quite still. Worn, it mends you as fast as
+  you break, as the serpent eats itself and is never eaten.
+type: armor
+slot: neck
+weight: 1
+level: 60
+value: 10000
+effects:
+  - { kind: regen, params: { fraction: 0.015 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

@@ -1,0 +1,12 @@
+vnum: 3920
+name: a blue potion
+keywords: [blue, potion, bottle]
+description: A bottle of blue potion lies here, glowing faintly.
+look: |
+  A bottle of blue potion, the best the Potion Shop makes, which puts
+  both heart and magic back at once; it takes a Poe's soul to brew, and
+  the shopkeeper will not say how. It is the colour of the sky over Lake
+  Hylia.
+type: other
+weight: 1
+value: 120

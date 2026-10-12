@@ -1,0 +1,22 @@
+vnum: 3931
+name: Barinade
+keywords: [barinade, parasite, jellyfish, tentacle]
+description: Barinade hangs from the ceiling of the pit, crackling, jellies circling its body.
+look: |
+  A bio-electric anemone rooted in Lord Jabu-Jabu's flesh: a great stalk
+  of pink and white with a crown of smaller jellyfish and three long
+  tentacles sunk into the ceiling, crackling with the current it has
+  been drinking out of the fish. It swallowed Zora's Sapphire and a
+  boomerang, among other things, and it shoots lightning out of its
+  body.
+level: 17
+flags: [assist]
+health: 900
+stats: {constitution: 16, wisdom: 15}
+silver: 500
+xp: 5000
+attack:
+  kind: magic
+  verb: lightning
+effects:
+  - { kind: proc, params: { verb: lash of electric tentacles, chance: 0.12, power: 1.2 } }

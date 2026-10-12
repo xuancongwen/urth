@@ -1,0 +1,18 @@
+vnum: 3769
+name: the ring of the Weapons
+keywords: [ring, weapons, band, horn]
+description: A ring of pale horn, carved with four beasts, lies here.
+look: |
+  A ring cut from a sliver of Ultima Weapon's horn and carved round
+  with four great beasts: Ultima, Ruby, Emerald and Sapphire, the
+  Planet's last defenders, who never stop while it is in danger. Worn
+  when all is nearly lost, it will not let you fall.
+type: armor
+slot: finger
+weight: 0
+level: 60
+value: 8000
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

@@ -1,0 +1,21 @@
+vnum: 3749
+name: Cid Highwind
+keywords: [cid, highwind, pilot, captain]
+description: Cid Highwind leans against a fence, a cigarette in his mouth and a spear on his shoulder.
+look: |
+  A lean, weathered man with goggles on his forehead, a cigarette in
+  his mouth and a spear on his shoulder, who was going to be the first
+  man in space before Shinra cancelled his rocket. He curses the way
+  other people breathe. "Sit down and drink your goddamn tea!" He
+  keeps a lantern or two for the long road and, if you have the gil
+  and a few shards of crystal for his engines, the best spear he has
+  ever held. Type 'list'.
+level: 50
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: thrust
+trades:
+  - { item: 3701, silver: 30 }   # a mako lamp
+  - { item: 3745, silver: 7000, items: [3700, 3700, 3700, 3700] }   # the Venus Gospel
+  - { item: 3701, items: [3700] }   # a mako lamp

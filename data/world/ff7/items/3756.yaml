@@ -1,0 +1,16 @@
+vnum: 3756
+name: a Cure materia
+keywords: [cure, materia, orb, green]
+description: A small green orb with a soft white glow inside lies here.
+look: |
+  A sphere of green crystal no bigger than a walnut, with a soft white
+  light in its heart: restore materia. Held in the off hand, it makes
+  healing come warmer and quicker.
+type: armor
+slot: hold
+weight: 0
+level: 28
+value: 900
+effects:
+  - { kind: spellPower, params: { mult: 1.08, kind: heal } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

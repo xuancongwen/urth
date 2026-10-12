@@ -1,0 +1,15 @@
+vnum: 3944
+name: a ReDead
+keywords: [redead, corpse, mummy, zombie]
+description: A ReDead stands perfectly still in the corridor, its blank face turned toward you.
+look: |
+  A corpse in grey burial wrappings with a blank wooden face, standing
+  perfectly still, which shrieks when you come close, a sound that
+  freezes you where you stand, and then shuffles up and wraps itself
+  round you and gnaws.
+level: 24
+flags: [assist]
+silver: 40
+attack:
+  kind: drain
+  verb: gnaw

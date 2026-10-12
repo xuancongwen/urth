@@ -1,0 +1,14 @@
+vnum: 3902
+name: The Path to the Great Deku Tree
+description: |
+  A narrow track between high hedges, where the village ends and the old
+  forest begins. Mido, the self-appointed boss of the Kokiri, has
+  decided that nobody passes here without a sword and a shield, and he
+  means it. Deku Babas, snapping plants with heads like green mouths,
+  rise out of the grass along the verge. North the track climbs to the
+  Great Deku Tree's meadow; west, a dark gap in the trees opens on the
+  Lost Woods, and a faint tune drifts out of it. The village is south.
+exits:
+  south: 3900
+  north: 3903
+  west: 3906

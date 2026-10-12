@@ -1,0 +1,18 @@
+vnum: 3925
+name: Biggoron
+keywords: [biggoron, goron, giant, big]
+description: Biggoron sits on the summit like a second mountain, rubbing his streaming eyes.
+look: |
+  The biggest Goron there has ever been, so big that he sits on the
+  mountain like part of it and you talk to his chin. He is the finest
+  smith in Hyrule, and his eyes are sore from the volcano. "Huh? A
+  little one? You've got a broken knife, I can smell it." He forges the
+  Biggoron's Sword, a blade that never breaks, from a broken Giant's
+  Knife and a good deal of silver. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: pat
+trades:
+  - { item: 3947, silver: 1800, items: [3938] }

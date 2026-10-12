@@ -1,0 +1,18 @@
+vnum: 3827
+name: Chu-Chu's ribbon
+keywords: [chu-chu's, chu, chu, ribbon, bow]
+description: A big pink ribbon tied in a bow lies here.
+look: |
+  A huge pink ribbon, tied in a bow, which Chu-Chu wore on her ear and
+  was very proud of. She is a small pink creature who wanted to be a
+  great hero and, against all the odds, was. Worn, it makes you feel
+  quick and lucky and a little ridiculous.
+type: armor
+slot: neck
+weight: 0
+level: 40
+value: 3000
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

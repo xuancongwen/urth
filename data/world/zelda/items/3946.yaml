@@ -1,0 +1,26 @@
+vnum: 3946
+name: the Master Sword
+keywords: [master, sword, blade, evil's, bane]
+description: A long sword with a purple hilt and a Triforce on its blade lies here.
+look: |
+  The Master Sword, the Blade of Evil's Bane, which no evil hand can
+  touch: a long blade of bright steel with the Triforce engraved near
+  the guard, a grip wrapped in purple, and a hilt with wings. It slept
+  in its pedestal in the Temple of Time for seven years while the hero
+  grew tall enough to wield it. It finishes what it starts.
+type: weapon
+weight: 3
+level: 30
+baseline: standard
+value: 6000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.4 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: steady, params: { chance: 0.3 } }

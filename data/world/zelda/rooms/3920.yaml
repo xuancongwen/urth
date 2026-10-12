@@ -1,0 +1,17 @@
+vnum: 3920
+name: Kakariko Village
+description: |
+  A village of whitewashed houses with red roofs on a slope at the foot
+  of Death Mountain, founded by the Sheikah for ordinary folk. Cuccos
+  run underfoot, carpenters are building a house that is never finished,
+  and a windmill turns lazily on the hill. A gate at the top of the
+  village, up, opens on the trail to Death Mountain; east is the
+  graveyard; south, a path drops down to Zora's River; west, stone
+  stairs lead down to Hyrule Field. One house, its windows boarded, has
+  a sign that says HOUSE OF SKULLTULA.
+exits:
+  west: 3910
+  east: 3921
+  up: 3924
+  south: 3931
+flags: [safe]

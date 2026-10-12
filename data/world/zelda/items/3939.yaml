@@ -1,0 +1,14 @@
+vnum: 3939
+name: a Stalfos's round shield
+keywords: [stalfos's, stalfos, round, shield]
+description: A round iron shield with a skull painted on it lies here.
+look: |
+  A Stalfos's round shield, dented iron with a skull painted on it in
+  something that was red once. The Stalfos hold them close and peek over
+  the rim, and they are very hard to get round.
+type: armor
+slot: shield
+weight: 4
+level: 20
+baseline: shield
+value: 200

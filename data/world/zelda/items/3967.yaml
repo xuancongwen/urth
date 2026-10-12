@@ -1,0 +1,14 @@
+vnum: 3967
+name: a pair of dark knight's gauntlets
+keywords: [dark, knight's, knight, gauntlets, gloves]
+description: A pair of black iron gauntlets with clawed fingers lies here.
+look: |
+  Black iron gauntlets from Ganondorf's guard, the fingers ending in
+  claws, the backs stamped with the crest of the King of Thieves.
+type: armor
+slot: hands
+weight: 3
+level: 34
+baseline: plate
+value: 300
+flags: [drop]

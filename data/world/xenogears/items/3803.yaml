@@ -1,0 +1,16 @@
+vnum: 3803
+name: an Aveh soldier's sabre
+keywords: [aveh, soldier's, soldier, sabre, sword]
+description: A curved sabre with a brass hilt lies here.
+look: |
+  A cavalry sabre of the kingdom of Aveh, curved and light, with a brass
+  guard shaped like a lion's head. Aveh's gear pilots carry one in the
+  cockpit, in case they have to climb out.
+type: weapon
+weight: 3
+level: 26
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

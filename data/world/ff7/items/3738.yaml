@@ -1,0 +1,17 @@
+vnum: 3738
+name: the HP Shout
+keywords: [hp, shout, megaphone, horn]
+description: A battered pink megaphone with a cartoon cat painted on it lies here.
+look: |
+  A megaphone of pink plastic with a grinning cat painted on the side,
+  the sort that Cait Sith waves from the head of his giant moogle.
+  Held and shouted into, it makes everyone listen to you, and for a
+  moment you feel ready to stand up to anything.
+type: armor
+slot: hold
+weight: 1
+level: 40
+value: 3500
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.8 } }

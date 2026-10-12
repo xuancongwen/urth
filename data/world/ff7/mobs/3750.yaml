@@ -1,0 +1,17 @@
+vnum: 3750
+name: Lord Godo
+keywords: [lord, godo, leader, wutai]
+description: Lord Godo sits cross-legged at the top of the pagoda, waiting.
+look: |
+  A broad, bald man in red robes with a magnificent white moustache,
+  the lord of Wutai, who lost the war with Shinra and has never quite
+  forgiven his daughter for minding. He sits at the top of the Pagoda
+  of the Five Gods and fights those who climb to him. He will teach
+  the ninja's way of slipping round behind an enemy in a fight, and of
+  cutting down every foe around you. Type 'practice'.
+level: 50
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: strike
+teaches: [circle, whirlwind]

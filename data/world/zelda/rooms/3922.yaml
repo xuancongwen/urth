@@ -1,0 +1,14 @@
+vnum: 3922
+name: The Shadow Temple
+description: |
+  The hidden temple of the Sheikah, deep under the graveyard: a place of
+  torture and secrets, where false walls hide true doors, guillotines
+  drop from the dark, and what you see is not always what is there.
+  ReDeads, mummified corpses, stand perfectly still in the corridors
+  until you come close, then shriek. Something with a single huge hand
+  waits in a pit of grasping arms. Further down a huge drum booms. The
+  way up is to the graveyard.
+exits:
+  up: 3921
+  down: 3923
+flags: [dark]

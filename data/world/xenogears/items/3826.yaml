@@ -1,0 +1,19 @@
+vnum: 3826
+name: Rico's gauntlets
+keywords: [rico's, rico, gauntlets, gloves, fists]
+description: A pair of huge grey gauntlets, studded at the knuckles, lies here.
+look: |
+  The gauntlets of Rico Banderas, champion of the Kislev Battling arena,
+  made to fit a demi-human's hands, each knuckle studded with a steel
+  rivet as big as a thumb. He won his title in a gear and kept it with
+  these, in the yard of D-Block, where there are no gears.
+type: armor
+slot: hands
+weight: 3
+level: 38
+baseline: heavy
+value: 4000
+effects:
+  - { kind: unarmedMult, params: { mult: 1.2 } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

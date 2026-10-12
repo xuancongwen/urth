@@ -1,0 +1,12 @@
+vnum: 3740
+name: The Depths of the Northern Crater
+description: |
+  Deep inside the crater, on a winding path of rock and crystal over a
+  drop into the green glow of the Lifestream. Things grown huge on
+  mako crawl through the caverns. The air vibrates with a slow,
+  enormous heartbeat. Pieces of Jenova lie everywhere, still moving.
+  The path climbs up toward the rim and goes on down.
+exits:
+  up: 3739
+  down: 3741
+flags: [dark]

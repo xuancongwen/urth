@@ -1,0 +1,21 @@
+vnum: 3746
+name: Dio
+keywords: [dio, owner, showman]
+description: Dio, owner of the Gold Saucer, flexes in a leopard-skin loincloth.
+look: |
+  An enormous, deeply tanned man with a bald head, a fine moustache
+  and a body like a statue's, wearing nothing but a leopard-skin
+  loincloth and a cape, the owner of the Gold Saucer and of the
+  largest collection of rare curios in the world. He loves fighters.
+  He loves champions even more. "Come back with a few shards of
+  crystal and I will make you one." He hands out the Battle Square's
+  prizes. Type 'list'.
+level: 45
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: flex
+trades:
+  - { item: 3739, silver: 5000, items: [3700, 3700, 3700] }   # a champion belt
+  - { item: 3715, silver: 550 }   # a gladiator's trident
+  - { item: 3716, silver: 520 }   # a gladiator's helm

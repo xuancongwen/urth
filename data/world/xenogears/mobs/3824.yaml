@@ -1,0 +1,16 @@
+vnum: 3824
+name: a Solarian Gebler soldier
+keywords: [solarian, gebler, soldier, trooper]
+description: A Solarian Gebler soldier levels a glowing rifle at you.
+look: |
+  A soldier of the Gebler, the army of Solaris, in grey alloy armour and
+  a smooth helmet with a red slit for eyes. Under the helmet he is a
+  Solarian of the third class, given a number and a purpose and taught
+  that people from the ground are animals. He has never been to the
+  ground. He thinks you smell.
+level: 44
+flags: [assist, aggressive]
+silver: 200
+attack:
+  kind: fire
+  verb: beam

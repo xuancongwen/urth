@@ -1,0 +1,18 @@
+vnum: 3928
+name: the Zora shopkeeper
+keywords: [zora, shopkeeper, shop, keeper, merchant]
+description: The Zora shopkeeper leans on a counter at the water's edge, dripping.
+look: |
+  A tall, slim Zora, blue-white and glistening, with a long fishlike
+  head hanging down his back and fins at his elbows, who keeps the
+  Zoras' shop and is very polite about it. He sells the blue tunic that
+  lets a Hylian breathe underwater, and shirts of Zora scale. Type
+  'list'.
+level: 18
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: fin
+trades:
+  - { item: 3932, silver: 1400 }
+  - { item: 3931, silver: 400 }

@@ -1,0 +1,15 @@
+vnum: 3818
+name: a D-Block convict
+keywords: [d-block, convict, prisoner, thug]
+description: A D-Block convict looks up from his card game and slides off his crate.
+look: |
+  A convict of D-Block in prison grey, with a shaved head, a bent nose,
+  and a home-made knife, who has been inside so long he has forgotten
+  what for. In D-Block everyone fights, and the strongest makes the
+  rules.
+level: 36
+flags: [assist, aggressive]
+silver: 80
+attack:
+  kind: blunt
+  verb: punch

@@ -1,0 +1,16 @@
+vnum: 3917
+name: a Poe
+keywords: [poe, ghost, lantern, spirit]
+description: A Poe drifts between the gravestones with its lantern, giggling.
+look: |
+  A ghost in a ragged grey hood, with a pale grinning face and long
+  arms, carrying a lantern that burns with a cold purple flame. Poes are
+  the souls of those who died with a grudge, and they hold onto it. It
+  vanishes when you look straight at it, and giggles behind you when you
+  do not.
+level: 11
+flags: [assist]
+silver: 25
+attack:
+  kind: cold
+  verb: lantern swing

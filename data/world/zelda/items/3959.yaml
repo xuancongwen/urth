@@ -1,0 +1,20 @@
+vnum: 3959
+name: the Silver Gauntlets
+keywords: [silver, gauntlets, gloves, nabooru's]
+description: A pair of heavy gauntlets of polished silver lies here.
+look: |
+  The Silver Gauntlets, the treasure of the Spirit Temple, which Nabooru
+  went in to steal before Ganondorf could have them: heavy gloves of
+  silver plate that let the one who wears them lift a block of stone the
+  size of a cart. A punch in them is a serious matter.
+type: armor
+slot: hands
+weight: 3
+level: 29
+baseline: heavy
+value: 3500
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: crit, params: { chance: 0.04, mult: 2 } }

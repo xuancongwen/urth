@@ -1,0 +1,14 @@
+vnum: 3835
+name: The Field of the Crimson Gear
+description: |
+  A wide plain of glassed sand at the foot of the tower, blasted flat by
+  a battle that happened before you came. In the middle of it stands a
+  gear: the same shape as Weltall, Fei's gear, but red as blood, its
+  eyes glowing, its frame grown into a shape no engineer designed. It is
+  Weltall-Id, the gear of Fei's other self. Its pilot is not in it.
+  South, among the glass, you hear someone laughing. The tower is east;
+  the Merkaba looms on the horizon to the west.
+exits:
+  east: 3834
+  south: 3836
+  west: 3837

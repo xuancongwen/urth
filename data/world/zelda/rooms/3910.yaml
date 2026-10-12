@@ -1,0 +1,16 @@
+vnum: 3910
+name: Hyrule Field
+description: |
+  A vast rolling plain of grass under a big sky, crossed by dirt roads
+  and dotted with lone trees, and so wide that a day's walk barely
+  crosses it. At night the Stalchildren claw up out of the earth and
+  hunt in packs; by day the Peahats, great spinning plants, whirl their
+  blades over the grass. North, the walls of Hyrule Castle Town stand on
+  a rise; south, a red-roofed ranch sits on its hill; east, a stair
+  climbs to Kakariko Village under Death Mountain, which smokes against
+  the sky; west, the log bridge leads back into Kokiri Forest.
+exits:
+  west: 3900
+  north: 3913
+  south: 3911
+  east: 3920

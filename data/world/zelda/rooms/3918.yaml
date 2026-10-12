@@ -1,0 +1,12 @@
+vnum: 3918
+name: Ganon's Castle
+description: |
+  A castle of black stone raised on the ruins of Hyrule Castle, with a
+  barrier of six coloured lights at its heart and a great tower above
+  it. Stalfos knights in black armour stand in its halls, swords as tall
+  as men grounded before them, and the organ music that comes down the
+  tower stair is so loud that the walls hum. Up the stair is the top of
+  the tower; south, through the gate, is the castle courtyard.
+exits:
+  south: 3917
+  up: 3919

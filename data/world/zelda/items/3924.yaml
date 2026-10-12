@@ -1,0 +1,15 @@
+vnum: 3924
+name: a piece of heart
+keywords: [piece, heart, quarter]
+description: A quarter of a red crystal heart lies here, glinting.
+look: |
+  A piece of a heart: a quarter-wedge of red crystal, shaped like a
+  slice of a heart, that pulses faintly when you hold it. They turn up
+  in the strangest places in Hyrule, under rocks and in the bellies of
+  monsters. Four make a whole heart, and the Great Fairy knows what to
+  do with them.
+type: material
+weight: 0
+value: 60
+material: heart piece
+rarity: common

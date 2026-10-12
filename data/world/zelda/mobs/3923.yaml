@@ -1,0 +1,15 @@
+vnum: 3923
+name: a Lizalfos
+keywords: [lizalfos, lizard, swordsman, reptile]
+description: A Lizalfos drops from a ledge, sword out, its tail lashing.
+look: |
+  A tall lizard warrior, green and scaled, standing on its hind legs
+  with a curved sword and a small round shield, which fights fast and
+  dirty and always in pairs. It hisses when it is hurt and calls the
+  other one.
+level: 14
+flags: [assist]
+silver: 30
+attack:
+  kind: slash
+  verb: slash

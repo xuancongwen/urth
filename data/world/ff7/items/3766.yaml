@@ -1,0 +1,17 @@
+vnum: 3766
+name: the girdle of Weapon-scale
+keywords: [girdle, weapon-scale, weapon, scale, belt]
+description: A broad belt of overlapping pale scales lies here.
+look: |
+  A wide girdle of overlapping scales from Ultima Weapon's belly, each
+  the size of a hand and harder than steel. Blows skid off it.
+type: armor
+slot: belt
+weight: 2
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: block, params: { chance: 0.1 } }
+  - { kind: protect, params: { mult: 0.95 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

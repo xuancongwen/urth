@@ -1,0 +1,15 @@
+vnum: 3830
+name: a Solarian imperial guard
+keywords: [solarian, imperial, guard, palace, soldier]
+description: A Solarian imperial guard in white armour bars your way.
+look: |
+  A guard of the Emperor's household in white alloy armour chased with
+  gold, a humming halberd in his hands, chosen from the first class for
+  his height and his looks and his unquestioning loyalty. He has never
+  had to use the halberd. He has practised every day of his life.
+level: 47
+flags: [assist, aggressive]
+silver: 250
+attack:
+  kind: slash
+  verb: cleave

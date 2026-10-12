@@ -1,0 +1,15 @@
+vnum: 3912
+name: a Hylian traveller's cap
+keywords: [hylian, traveller's, traveler's, cap, hat, leather]
+description: A battered leather cap lies here.
+look: |
+  A leather cap with a turned-down brim, of the kind travellers wear
+  crossing Hyrule Field, battered by rain and with a slash across the
+  crown where a Peahat's blade passed a little too close.
+type: armor
+slot: head
+weight: 1
+level: 9
+baseline: light
+value: 40
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 3908
+name: Zora's Sapphire
+keywords: [zora's, zora, sapphire, spiritual, stone, water]
+description: A blue jewel set in gold lies here, cool and wet.
+look: |
+  The Spiritual Stone of Water, a sapphire in a setting of gold that
+  Princess Ruto's mother gave her to give to the one she would marry. It
+  turned up inside Lord Jabu-Jabu, in the tentacles of the thing that
+  was eating him. Princess Zelda will want to know you have it.
+type: other
+weight: 1
+value: 300

@@ -1,0 +1,25 @@
+vnum: 3829
+name: Kahran Ramsus
+keywords: [kahran, kahr, ramsus, commander, gebler]
+description: Kahran Ramsus, Commander of the Gebler, turns from the window, his hand on his sword.
+look: |
+  A tall, handsome man with long fair hair and the uniform of the
+  Commander of the Gebler, whose face is beautiful and twisted, as
+  though something were always pulling at it from inside. He was made,
+  not born: Krelian built him in a tank to be the perfect man, the next
+  Emperor, and then Fei Fong Wong existed, and Ramsus was not perfect
+  after all. He has never got over it. He is the best swordsman in
+  Solaris, and he hates you because you came here instead of Fei.
+level: 50
+flags: [assist, boss]
+health: 16000
+stats: {strength: 17, dexterity: 18, constitution: 18}
+silver: 1500
+xp: 24000
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: protect, params: { mult: 0.8 } }
+  - { kind: steady, params: { chance: 0.35 } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

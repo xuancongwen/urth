@@ -1,0 +1,20 @@
+vnum: 3745
+name: the Kalm shopkeeper
+keywords: [kalm, shopkeeper, merchant]
+description: The Kalm shopkeeper beams at you over a counter stacked with goods.
+look: |
+  A plump, cheerful woman in an apron who keeps the weapon and item
+  shop in Kalm and does good business off travellers leaving Midgar in
+  a hurry. "Crossing the marsh? You'll want something better than
+  that." Type 'list'.
+level: 36
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: swat
+trades:
+  - { item: 3701, silver: 30 }   # a mako lamp
+  - { item: 3712, silver: 420 }   # a hardedge
+  - { item: 3713, silver: 380 }   # a carbon bangle
+  - { item: 3714, silver: 520 }   # a butterfly edge
+  - { item: 3701, items: [3700] }   # a mako lamp

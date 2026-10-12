@@ -1,0 +1,21 @@
+vnum: 3723
+name: Gi Nattak
+keywords: [gi, nattak, ghost, chief]
+description: Gi Nattak stands in the deepest chamber, his spear lowered at you.
+look: |
+  The chief of the Gi, a towering spectre in rotten feathers and bone
+  armour, with a long grey spear and two little soul-fires circling
+  him. Five hundred years ago Seto, the warrior of Cosmo Canyon, held
+  the gate of this cave against him alone, and was turned to stone for
+  it. Nattak has never forgiven the canyon. "Let us see your
+  strength." His spear is hungry.
+level: 44
+flags: [assist, aggressive]
+health: 9500
+stats: {strength: 17, constitution: 17, wisdom: 16}
+silver: 1500
+attack:
+  kind: cold
+  verb: impale
+effects:
+  - { kind: aura, params: { power: 0.15, verb: "chill of the Gi" } }

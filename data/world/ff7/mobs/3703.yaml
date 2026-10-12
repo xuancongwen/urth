@@ -1,0 +1,15 @@
+vnum: 3703
+name: a SOLDIER third class
+keywords: [soldier, third, class, 3rd, mako]
+description: A SOLDIER third class stands here, eyes glowing faintly blue.
+look: |
+  A young man in the purple uniform of SOLDIER, Shinra's elite, third
+  class: given mako and Jenova's cells and told he was a hero. His
+  eyes glow with it. He carries a broadsword and wears it like a
+  promise of promotion. Most of them never make second class.
+level: 24
+flags: [assist]
+silver: 80
+attack:
+  kind: slash
+  verb: slash

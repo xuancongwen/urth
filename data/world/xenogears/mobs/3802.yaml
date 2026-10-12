@@ -1,0 +1,23 @@
+vnum: 3802
+name: Elly Van Houten
+keywords: [elly, elehayym, van, houten, gebler, officer]
+description: Elly Van Houten sits by the fire, watching you warily in the firelight.
+look: |
+  A young woman with long auburn hair in the grey and red uniform of a
+  Gebler officer of Solaris, who crashed her gear in the forest and has
+  not decided yet whether you are an enemy. Her eyes are very blue. She
+  is a Solarian, and she has been taught that the people of the ground
+  are Lambs; she is beginning to suspect she has been taught wrong. She
+  commands the Ether, the art that draws power from the world, and to
+  someone who has found the school of evocation, she will teach the
+  lightning and the frost. Her old rod, which she says she does not
+  need, she would sell to someone who can use it. Type 'practice' and
+  'list'.
+level: 45
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: ether bolt
+teaches: [lightning_bolt, cone_of_cold, chain_lightning]
+trades:
+  - { item: 3835, silver: 7500 }

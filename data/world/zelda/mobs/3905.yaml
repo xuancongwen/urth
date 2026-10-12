@@ -1,0 +1,14 @@
+vnum: 3905
+name: a Skulltula
+keywords: [skulltula, spider, skull]
+description: A Skulltula hangs from a thread above you, its skull-marked back turning slowly.
+look: |
+  A spider as big as a shield, hanging upside down from a thread, its
+  back hard as a beetle's and marked with the pattern of a skull. It
+  turns slowly on its thread to show you its soft belly, then drops.
+level: 7
+flags: [assist]
+silver: 12
+attack:
+  kind: bite
+  verb: bite

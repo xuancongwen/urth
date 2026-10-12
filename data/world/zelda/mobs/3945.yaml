@@ -1,0 +1,22 @@
+vnum: 3945
+name: the Dead Hand
+keywords: [dead, hand, corpse, white]
+description: The Dead Hand rises out of its pit, a white bloated body with a long neck.
+look: |
+  A bloated white thing with a red-lipped face on a long, long neck, and
+  around it, rising from the floor, dozens of grey arms that grab. It
+  feeds on what they bring it. Something glass glints in its fist: a
+  lens in a purple frame, which it took from the last Sheikah who came
+  down here.
+level: 26
+flags: [assist]
+health: 2000
+stats: {constitution: 16}
+silver: 500
+xp: 6500
+attack:
+  kind: blunt
+  verb: crushing bite
+  damage: 100
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }

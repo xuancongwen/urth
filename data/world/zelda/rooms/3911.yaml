@@ -1,0 +1,12 @@
+vnum: 3911
+name: Lon Lon Ranch
+description: |
+  A green paddock behind a high stone wall, with a white fence round a
+  track where horses run, a farmhouse with a red roof, and a tower of
+  milk crates. A red-haired girl in a white dress stands by the fence
+  singing to a chestnut foal, who comes when she sings. A sour-faced
+  ranch hand watches the horses as though they owed him money. The
+  stables are south; the gate to Hyrule Field is north.
+exits:
+  north: 3910
+  south: 3912

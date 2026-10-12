@@ -1,0 +1,12 @@
+vnum: 3719
+name: The Grasslands Beyond Midgar
+description: |
+  Open country at last, under a sky full of stars: rolling grey-green
+  grass running out to low hills, with Midgar behind you like a great
+  dark wheel lit from within. The ground near the city is grey and
+  dead where the reactors have drunk it dry. Wolves hunt in the long
+  grass. A ladder climbs up to the expressway, and a road leads east
+  toward the lights of a small town.
+exits:
+  east: 3720
+  up: 3718

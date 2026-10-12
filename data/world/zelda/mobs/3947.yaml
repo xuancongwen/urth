@@ -1,0 +1,16 @@
+vnum: 3947
+name: a Gerudo guard
+keywords: [gerudo, guard, thief, warrior, woman]
+description: A Gerudo guard swings a pair of scimitars and grins at you.
+look: |
+  A tall Gerudo woman with red hair in a high tail, dark skin, and a
+  purple veil, with a scimitar in each hand and a whistle on a cord to
+  call the others. The Gerudo are thieves, and very good ones, and they
+  take strangers who wander into their fortress and throw them in a
+  cell.
+level: 27
+flags: [assist]
+silver: 60
+attack:
+  kind: slash
+  verb: slash

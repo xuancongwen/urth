@@ -1,0 +1,22 @@
+vnum: 3742
+name: Barret Wallace
+keywords: [barret, wallace, avalanche, leader]
+description: Barret Wallace stomps about the bar, his gun-arm swinging.
+look: |
+  A huge, dark man with a shaved head, a beard and a gun bolted to the
+  stump of his right arm, the leader of AVALANCHE, who blow up mako
+  reactors to save the Planet and are called terrorists for it. He
+  lost his hand, his wife and his home town to Shinra, and he is
+  raising his friend's little girl, Marlene, who is drawing at the
+  table. "This Planet's dyin', and Shinra's suckin' it dry! You in or
+  not?" He has jobs for anyone who will take them, and pays in kind.
+  Try 'quest request' and 'quest list'.
+level: 40
+flags: [peaceful, questmaster]
+attack:
+  kind: fire
+  verb: blast
+sells:
+  - { item: 3701, points: 10 }   # a mako lamp
+  - { item: 3753, points: 40 }   # the Buster Sword
+  - { item: 3754, points: 80 }   # the Missing Score

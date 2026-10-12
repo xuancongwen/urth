@@ -1,0 +1,22 @@
+vnum: 3731
+name: Tseng of the Turks
+keywords: [tseng, turk, turks, leader]
+description: Tseng of the Turks leans against the temple wall, bleeding but alert.
+look: |
+  A calm man with long black hair and a red mark on his forehead, in a
+  dark suit, leader of the Turks. He has watched Aerith since she was
+  a child, slapped her once, and regretted it. Sephiroth has just run
+  him through with the Masamune on the temple steps, and he is not
+  quite dead. "Sephiroth... he's... the Black Materia..." Hurt or not,
+  he still has his pistol, and he is still the best of the Turks.
+level: 50
+flags: [assist]
+health: 7500
+stats: {dexterity: 17, intelligence: 15}
+silver: 1500
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

@@ -1,0 +1,18 @@
+vnum: 3855
+name: the ring of Contact
+keywords: [ring, contact, deus]
+description: A ring of pale metal set with a tiny glowing shard lies here.
+look: |
+  A ring set with a shard of the light of the Wave Existence, the being
+  Deus imprisoned, which spoke to Fei through the Contact and would not
+  let him give up. Worn when things go badly, it will not let you
+  either.
+type: armor
+slot: finger
+weight: 0
+level: 60
+value: 10000
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

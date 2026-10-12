@@ -1,0 +1,14 @@
+vnum: 3717
+name: a Kalm Fang
+keywords: [kalm, fang, wolf, beast]
+description: A Kalm Fang slinks through the long grass, ears flat.
+look: |
+  A rangy grey wolf of the grasslands around Kalm, with a long muzzle
+  and a mouth full of yellow teeth. They hunt in packs, they are
+  always hungry, and in the last few years the grass they hunt in has
+  been turning grey.
+level: 37
+flags: [assist, aggressive]
+attack:
+  kind: bite
+  verb: bite

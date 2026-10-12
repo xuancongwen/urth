@@ -1,0 +1,18 @@
+vnum: 3975
+name: a Heart Container
+keywords: [heart, container, red, crystal]
+description: A whole red crystal heart lies here, beating faintly.
+look: |
+  A Heart Container, a whole red crystal heart that beats faintly, made
+  by the Great Fairy from four pieces of heart, or left behind by a
+  great beast when it falls. Worn on a cord over your own heart, it
+  gives you more of one.
+type: armor
+slot: neck
+weight: 0
+level: 20
+value: 2000
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: regen, params: { fraction: 0.01 } }

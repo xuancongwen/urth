@@ -1,0 +1,15 @@
+vnum: 3923
+name: a tattered grave shroud
+keywords: [tattered, grave, shroud, mantle, cloth]
+description: A grey shroud, torn and stained with grave-earth, lies here.
+look: |
+  A length of grey burial linen, worn by a Poe as a hood and cloak and
+  left behind when the Poe went. It is cold to the touch and it hangs
+  oddly still in a wind.
+type: armor
+slot: shoulders
+weight: 1
+level: 12
+baseline: cloth
+value: 50
+flags: [drop]

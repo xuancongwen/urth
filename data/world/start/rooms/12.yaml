@@ -1,0 +1,15 @@
+vnum: 12
+name: The Hall of Old Tales
+description: |
+  Through the broken arch the stone gives way to warm timber and
+  plaster, and the light is the colour of an afternoon in a story read
+  aloud. The walls are painted with faded scenes: a boy in green with a
+  sword and shield, a princess at a window, a castle on a hill, a
+  shadow with a crown. Four doors stand here. The one to the north is
+  carved with three golden triangles joined at their points, and a
+  little fairy light bobs at its keyhole. The others are plain, shut,
+  and waiting for stories not yet told. The Long Hall is back east.
+exits:
+  east: 2
+  north: 3900
+flags: [safe]

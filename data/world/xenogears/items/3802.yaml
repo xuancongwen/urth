@@ -1,0 +1,13 @@
+vnum: 3802
+name: a gear-oil lantern
+keywords: [gear-oil, gear, oil, lantern, lamp, light]
+description: A brass lantern burning gear oil lies here.
+look: |
+  A squat brass lantern with a thick glass chimney, burning the heavy
+  oil that gears drink, which is smoky but lasts for ever. Dr. Uzuki
+  makes them in his workshop for anyone in Lahan who has to go near the
+  Black Moon Forest after dark, and sand-pirates swear by them.
+type: light
+weight: 1
+burn: 3000
+value: 30

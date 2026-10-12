@@ -1,0 +1,13 @@
+vnum: 3958
+name: a Gerudo guard's veil
+keywords: [gerudo, guard's, guard, veil, mask]
+description: A veil of purple gauze lies here.
+look: |
+  A veil of purple gauze that covers the face below the eyes, as the
+  Gerudo guards wear it against the sand and against being known.
+type: armor
+slot: face
+weight: 0
+level: 27
+baseline: cloth
+value: 150

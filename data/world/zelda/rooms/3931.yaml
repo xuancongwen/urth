@@ -1,0 +1,12 @@
+vnum: 3931
+name: Zora's River
+description: |
+  A river canyon below Kakariko, the water loud and white over the
+  rocks, with narrow ledges along the cliffs and a frog choir on a log.
+  Octoroks, round creatures with snouts like trumpets, surface in the
+  pools and spit stones at anyone on the bank. Upstream, east, the
+  canyon ends in a waterfall, and behind the waterfall is Zora's Domain.
+  Kakariko is up the path, north.
+exits:
+  north: 3920
+  east: 3932

@@ -1,0 +1,21 @@
+vnum: 3730
+name: Hojo's lab coat
+keywords: [hojo's, hojo, lab, coat, labcoat, robe]
+description: A long white lab coat with stained cuffs lies here.
+look: |
+  Professor Hojo's lab coat, white once, now spotted with things he
+  did not bother to wash out, its pockets full of pens, syringes and
+  notes in a tiny, sloping hand. He put Jenova's cells into an unborn
+  child and called it science. The coat seems to sharpen the mind of
+  whoever wears it, and to dull their conscience.
+type: armor
+slot: body
+weight: 1
+level: 34
+baseline: cloth
+value: 3500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: spellPower, params: { mult: 1.1, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.1 } }

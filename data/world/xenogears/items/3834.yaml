@@ -1,0 +1,24 @@
+vnum: 3834
+name: Dominia's sabre
+keywords: [dominia's, dominia, sabre, sword, blade]
+description: A straight sabre with a red guard and a flame-etched blade lies here.
+look: |
+  The sabre of Dominia, leader of the Elements, mistress of fire,
+  Ramsus's most loyal officer: straight and red-guarded, with flames
+  etched along the blade. She uses it to finish what her gear has
+  started, and she does not leave things half done.
+type: weapon
+weight: 3
+level: 47
+baseline: standard
+value: 5500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.07, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.25 } }
+  - { kind: ignite, params: { power: 0.07, rounds: 3, maxStacks: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

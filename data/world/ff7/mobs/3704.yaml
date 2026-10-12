@@ -1,0 +1,21 @@
+vnum: 3704
+name: the Guard Scorpion
+keywords: [guard, scorpion, machine, robot, crab]
+description: The Guard Scorpion stalks the gantry, its tail-laser rising.
+look: |
+  A security robot the size of a truck, red steel on four jointed
+  legs, with a searchlight for an eye and a great tail curled over its
+  back, tipped with a laser cannon. Shinra installed it to guard the
+  core of Mako Reactor 1 against exactly the kind of people standing
+  in front of it now. Somebody once shouted a warning about it: attack
+  while its tail is up and it will counter-attack. Its tail is up.
+level: 25
+flags: [assist, aggressive]
+health: 2200
+stats: {constitution: 16, strength: 14}
+silver: 300
+attack:
+  kind: fire
+  verb: laser
+effects:
+  - { kind: thorns, params: { fraction: 0.15, verb: "tail laser" } }

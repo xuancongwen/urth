@@ -1,0 +1,16 @@
+vnum: 3727
+name: a SOLDIER first class
+keywords: [soldier, first, class, 1st, mako]
+description: A SOLDIER first class watches you, eyes burning bright blue.
+look: |
+  One of SOLDIER's best, in a black uniform with steel pauldrons, eyes
+  burning blue with mako, a great broadsword on his back. There were
+  never many of them, and fewer every year: Sephiroth was one, and so
+  was Zack Fair. This one has been sent to take Shinra No. 26 back for
+  the company, and the rocket's crew are not going to stop him.
+level: 47
+flags: [assist]
+silver: 250
+attack:
+  kind: slash
+  verb: cleave

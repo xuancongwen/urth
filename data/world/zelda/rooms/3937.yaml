@@ -1,0 +1,11 @@
+vnum: 3937
+name: The Room of Mist
+description: |
+  A room that is not a room: a shallow lake of still water stretching
+  away in every direction under a white sky of mist, with a single dead
+  tree on an island in the middle. Your reflection walks beside you in
+  the water. Then you notice it is not walking beside you. It is walking
+  toward you, out of the water, and it is dark, and it has a sword. The
+  door is east.
+exits:
+  east: 3936

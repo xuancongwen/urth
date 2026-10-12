@@ -1,0 +1,23 @@
+vnum: 3906
+name: Queen Gohma
+keywords: [queen, gohma, spider, parasite, arachnid]
+description: Queen Gohma clings to the ceiling, her single great eye fixed on you.
+look: |
+  A parasitic arachnid the size of a cart, armoured in green chitin,
+  with long hooked legs, pincers like scythes, and one huge eye in the
+  middle of her head that glows red when she is angry. She crawled into
+  the Great Deku Tree on a curse from Ganondorf and has been eating it
+  from inside, and laying her eggs among its roots. She swallowed the
+  Kokiri Emerald too. When her eye is open, it is a target.
+level: 9
+flags: [assist]
+health: 360
+stats: {strength: 14, constitution: 14}
+silver: 200
+xp: 1500
+attack:
+  kind: claw
+  verb: pincer
+  damage: 16
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }

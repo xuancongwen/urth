@@ -1,0 +1,17 @@
+vnum: 3827
+name: Tolone
+keywords: [tolone, element, elements, earth, spectacles]
+description: Tolone of the Elements pushes up her spectacles and sets her feet.
+look: |
+  A sturdy woman with short brown hair and round spectacles, the quiet
+  scholar of the Elements and mistress of earth, who reads in her bunk
+  between battles and fights like a mountain falling over. She
+  apologises before she hits you. It does not help.
+level: 46
+flags: [assist]
+health: 3800
+stats: {strength: 19, constitution: 19}
+silver: 600
+attack:
+  kind: blunt
+  verb: earthshock

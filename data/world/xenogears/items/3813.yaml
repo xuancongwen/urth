@@ -1,0 +1,16 @@
+vnum: 3813
+name: a Gebler rifle
+keywords: [gebler, rifle, gun, solarian]
+description: A sleek grey rifle with a glowing sight lies here.
+look: |
+  A Solarian rifle, grey and seamless, with a sight that glows red when
+  it finds a target. The Gebler issue them to the soldiers they lend to
+  the kingdoms of the ground, and take them back afterwards.
+type: weapon
+weight: 3
+level: 44
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: beam

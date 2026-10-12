@@ -1,0 +1,12 @@
+vnum: 3830
+name: Commander Ramsus's Command Deck
+description: |
+  The command deck of the Gebler's flagship, which is docked against the
+  tower: a long, cold room of glass and screens, from which Solaris's
+  armies are directed. At the window a tall man with long fair hair and
+  a scar of fury on his face stands with his hands behind his back,
+  watching the world below. He is Kahran Ramsus, Commander of the
+  Gebler, and he hates Fei Fong Wong more than anything in the world.
+  The stair down to the Elements' hall is south.
+exits:
+  south: 3828

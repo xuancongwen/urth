@@ -1,0 +1,12 @@
+vnum: 3942
+name: The Spirit Temple
+description: |
+  The temple inside the Colossus, where sun streams through holes in the
+  stone onto mirrors that throw it about the halls, and the statue of a
+  goddess with six arms looks down. Iron Knuckles, armoured giants with
+  axes taller than you, stand motionless as statues until something
+  comes close. A stair climbs up through the goddess's face to the
+  chamber of the witches. The desert is east.
+exits:
+  east: 3941
+  up: 3943

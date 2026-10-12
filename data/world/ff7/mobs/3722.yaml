@@ -1,0 +1,14 @@
+vnum: 3722
+name: a Gi spectre
+keywords: [gi, spectre, ghost, spirit]
+description: A Gi spectre drifts between the cave walls, moaning.
+look: |
+  The shade of a warrior of the Gi, the tribe who came to Cosmo Canyon
+  long ago to take it and died here: a tall, thin shape of grey smoke
+  with a spear and a face like one of the carvings on the walls. It
+  has had five hundred years to grow bitter.
+level: 42
+flags: [assist, aggressive]
+attack:
+  kind: cold
+  verb: pierce

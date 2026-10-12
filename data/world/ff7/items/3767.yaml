@@ -1,0 +1,18 @@
+vnum: 3767
+name: Ultima Weapon's hind-greaves
+keywords: [ultima, weapon's, hind-greaves, hind, greaves, legs]
+description: A pair of long greaves of pale, jointed armour lies here.
+look: |
+  Long greaves of jointed horn from Ultima Weapon's hind legs, which
+  have carried it across oceans and up mountains. They make the wearer
+  quick and sure on any ground.
+type: armor
+slot: legs
+weight: 3
+level: 60
+baseline: medium
+value: 8000
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }

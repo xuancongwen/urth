@@ -1,0 +1,18 @@
+vnum: 3915
+name: Impa
+keywords: [impa, sheikah, woman, nursemaid, warrior]
+description: Impa, the last of the Sheikah, stands with her arms folded by the well, watching everything.
+look: |
+  A tall, broad, grey-haired woman of the Sheikah, with her hair bound
+  back, a red eye painted on her tunic, and the stillness of someone who
+  has killed a great many people for her king. She was Zelda's nursemaid
+  and her guard, and she founded this village for the ordinary folk; she
+  will be the Sage of Shadow. "The Sheikah fight from the shadows," she
+  says. "It is not honourable. It works." She will teach you the knife
+  in the back and the circle round to the side for it. Type 'practice'.
+level: 32
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: slash
+teaches: [backstab, circle]

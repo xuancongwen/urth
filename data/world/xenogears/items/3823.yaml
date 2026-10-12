@@ -1,0 +1,24 @@
+vnum: 3823
+name: Citan's katana
+keywords: [citan's, citan, katana, sword, blade]
+description: A katana in a plain black scabbard lies here.
+look: |
+  A katana of grey steel with a black lacquered scabbard, its edge
+  sharpened every evening with the same patience Dr. Uzuki brings to his
+  tea. He calls it his second-best blade, and there is a story in the
+  way he says it. It cuts cleanly, and it answers a blow before the blow
+  is done.
+type: weapon
+weight: 2
+level: 30
+baseline: standard
+value: 3000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: steady, params: { chance: 0.2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

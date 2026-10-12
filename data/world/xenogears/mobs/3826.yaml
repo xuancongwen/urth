@@ -1,0 +1,17 @@
+vnum: 3826
+name: Kelvena
+keywords: [kelvena, element, elements, water]
+description: Kelvena of the Elements watches you with calm, cold eyes.
+look: |
+  A tall, still woman with long blue hair and a veil over her mouth,
+  mistress of water, the calm one of the Elements, who speaks rarely and
+  softly and kills without ever seeming to be in a hurry. She is utterly
+  loyal to Ramsus, and only Dominia knows what she thinks of him.
+level: 46
+flags: [assist]
+health: 3600
+stats: {wisdom: 19, intelligence: 18}
+silver: 600
+attack:
+  kind: cold
+  verb: water lance

@@ -1,0 +1,19 @@
+vnum: 3905
+name: the eye of Queen Gohma
+keywords: [eye, queen, gohma, gohma's, amulet]
+description: A great green eye set in a ring of black chitin lies here, staring.
+look: |
+  The single great eye of Queen Gohma, the parasite who poisoned the
+  Great Deku Tree, dried hard and set in a ring of her own chitin on a
+  thong. Its pupil still narrows when something moves in the dark, and
+  wearing it you find you notice things you were meant to miss.
+type: armor
+slot: neck
+weight: 1
+level: 9
+value: 900
+rarity: rare
+effects:
+  - { kind: detectHidden }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

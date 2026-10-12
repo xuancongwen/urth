@@ -1,0 +1,14 @@
+vnum: 3819
+name: a sewer chimera
+keywords: [sewer, chimera, experiment, beast, monster]
+description: A sewer chimera rises dripping out of the dark water.
+look: |
+  Something Kislev's scientists made and flushed: the body of a bull,
+  the claws of a crab, the head of something nobody has a name for, and
+  a collar with a serial number. It is very large and very hungry, and
+  it has had nothing to do down here for years but grow.
+level: 38
+flags: [assist, aggressive]
+attack:
+  kind: claw
+  verb: claw

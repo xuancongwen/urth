@@ -1,0 +1,14 @@
+vnum: 3824
+name: The Ethos Excavation Site
+description: |
+  A pit cut deep into the ground below the chapel, propped with timber
+  and lit by nothing: the Ethos digs here for the relics of the old
+  world and, mostly, for the gears buried in it, which it restores and
+  sells. Half-excavated machines stick out of the walls. Some of them,
+  it seems, have been restored without permission, and are walking
+  about. Deeper down is a door with the Ethos seal on it that no
+  ordinary priest is allowed past, and someone has left it open. The
+  stair up to the chapel is north.
+exits:
+  north: 3823
+flags: [dark]

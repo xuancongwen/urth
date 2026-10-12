@@ -1,0 +1,18 @@
+vnum: 3811
+name: Bledavik, Capital of Aveh
+description: |
+  A white city under the desert sun, its bazaar crowded for the festival
+  of the new king, Shakhan, whose banners hang from every balcony and
+  whose guards stand at every corner with their eyes on the crowd. Sand
+  ship sails can be seen beyond the walls; spice-sellers, gear
+  mechanics, water carriers and fortune tellers shout their wares.
+  Fatima Castle rises over the city to the north. A grating in the
+  gutter by the fountain opens on the old underground waterway, south;
+  the desert gate is east, and a gate in the western wall opens on the
+  sand-ship moorings.
+exits:
+  east: 3810
+  north: 3812
+  south: 3814
+  west: 3815
+flags: [safe]

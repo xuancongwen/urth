@@ -1,0 +1,15 @@
+vnum: 3921
+name: a Poe's soul
+keywords: [poe's, poe, soul, ghost, wisp]
+description: A small, pale flame drifts here, giggling to itself.
+look: |
+  The soul of a Poe, a little purple-white flame that drifts and giggles
+  and will not quite go out, caught when its ghost was beaten. You can
+  carry it in a bottle or in your hand; it does not burn. In Castle Town
+  they brew potions from them, and Dampé the gravekeeper likes to have
+  them back.
+type: material
+weight: 0
+value: 40
+material: poe soul
+rarity: common

@@ -1,0 +1,17 @@
+vnum: 3913
+name: a farmer's pitchfork
+keywords: [farmer's, farmer, pitchfork, fork]
+description: A three-tined pitchfork lies here, with hay still on it.
+look: |
+  A long-handled pitchfork from Lon Lon Ranch, three iron tines and a
+  smooth ash handle, used for hay and, once or twice, for wolves. It has
+  never been asked to fight a man. It would do.
+type: weapon
+weight: 3
+level: 8
+baseline: spear
+value: 40
+weapon:
+  hands: 2
+  kind: pierce
+  verb: jab

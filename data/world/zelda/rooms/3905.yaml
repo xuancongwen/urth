@@ -1,0 +1,12 @@
+vnum: 3905
+name: The Roots of the Deku Tree
+description: |
+  The bottom of the tree, among roots as thick as houses, where the
+  floor is wet and soft and something has been laying eggs. In the
+  ceiling a single huge eye opens and fixes on you: Queen Gohma, the
+  parasitic arachnid who has been killing the Great Deku Tree from
+  within, unfolding her legs from where she clung above. The only way
+  out is back up.
+exits:
+  up: 3904
+flags: [dark]

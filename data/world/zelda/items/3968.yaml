@@ -1,0 +1,14 @@
+vnum: 3968
+name: a black cuirass of Ganon's guard
+keywords: [black, cuirass, ganon's, guard, breastplate]
+description: A breastplate of black iron chased with red lies here.
+look: |
+  A cuirass of black iron chased with red, the armour of the guard of
+  Ganon's Castle, heavy, cold, and made to last a thousand years.
+type: armor
+slot: body
+weight: 12
+level: 35
+baseline: plate
+value: 500
+flags: [drop]

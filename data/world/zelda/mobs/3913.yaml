@@ -1,0 +1,20 @@
+vnum: 3913
+name: the Potion Shop keeper
+keywords: [potion, shop, keeper, shopkeeper, old]
+description: The Potion Shop keeper squints at you through the steam over the counter.
+look: |
+  A thin, stooped old man in a green robe with a long nose and a bad
+  back, who smells of herbs and has opinions about everything in every
+  jar. "Red is for your heart, green for your magic, and blue for both,"
+  he wheezes. "Blue costs a Poe's soul, mind, or a great deal of
+  silver." Type 'list'.
+level: 15
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: slap
+trades:
+  - { item: 3918, silver: 30 }
+  - { item: 3919, silver: 30 }
+  - { item: 3920, silver: 120 }
+  - { item: 3920, items: [3921, 3921] }

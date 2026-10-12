@@ -1,0 +1,18 @@
+vnum: 3930
+name: Princess Ruto
+keywords: [princess, ruto, zora, girl]
+description: Princess Ruto stands in a puddle, hands on hips, demanding to be carried.
+look: |
+  The Zora princess, a small blue-white girl with a fishlike head and a
+  very high opinion of herself, who climbed into Lord Jabu-Jabu to find
+  her mother's stone and has been lost in here ever since, and will not
+  admit it. "Who are you? I'm not lost! Carry me!" She wears a silver
+  scale on a chain and does not take it off. She will be the Sage of
+  Water, one day, and a very bossy one.
+level: 15
+health: 380
+stats: {dexterity: 15}
+silver: 200
+attack:
+  kind: slash
+  verb: slap

@@ -1,0 +1,26 @@
+vnum: 3740
+name: Ultima Weapon
+keywords: [ultima, weapon, beast, monster]
+description: Ultima Weapon rears over the ledge, wings spread, green light burning along its body.
+look: |
+  One of the Weapons, the great beasts the Planet sleeps beneath the
+  Northern Crater and wakes only when it is dying: a creature taller
+  than the Shinra Building, pale-armoured and winged, with a long
+  curving neck and a head like a crested skull, lit along every seam
+  with the green fire of the Lifestream. It has torn airships out of
+  the sky and swum the deepest sea. It does not care that you came to
+  save the Planet. In its body it carries the Knights of the Round,
+  and you can hear the clash of their swords inside it. It is a raid
+  boss: no one hero stands against it, and not many companies.
+level: 60
+flags: [boss]
+health: 65000
+stats: {strength: 20, constitution: 20, dexterity: 14, wisdom: 18}
+silver: 5000
+xp: 100000
+attack:
+  kind: magic
+  verb: Ultima Beam
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: steady, params: { chance: 0.5 } }

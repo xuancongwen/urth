@@ -1,0 +1,14 @@
+vnum: 3938
+name: a river Zora
+keywords: [river, zora, fish, monster]
+description: A river Zora surfaces in the reeds and spits a fireball.
+look: |
+  A wild river Zora, green and slimy, with a fish's head and glaring red
+  eyes, which never went to live behind the waterfall and spits fire
+  from the water at anything on the bank. Its people are ashamed of it.
+level: 21
+flags: [assist]
+silver: 40
+attack:
+  kind: fire
+  verb: fireball

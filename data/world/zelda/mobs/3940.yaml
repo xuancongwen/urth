@@ -1,0 +1,23 @@
+vnum: 3940
+name: Dark Link
+keywords: [dark, link, shadow, reflection]
+description: Dark Link stands in the water, your own shadow with red eyes and a black sword.
+look: |
+  Your own shape, in a tunic of black, with a black sword and a black
+  shield and red eyes, made of the shadow under you. It moves when you
+  move. It strikes when you strike, at the same moment, and steps back
+  when you step forward; it was made by Ganondorf to be the one enemy
+  the hero cannot beat by being better, because it is always exactly as
+  good.
+level: 24
+flags: [assist]
+health: 1200
+stats: {dexterity: 17, strength: 15}
+silver: 500
+xp: 6000
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: dodge, params: { amount: 0.08 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: mirrored stroke } }

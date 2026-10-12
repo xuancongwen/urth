@@ -1,0 +1,24 @@
+vnum: 3727
+name: the Premium Heart
+keywords: [premium, heart, glove, gloves, knuckle]
+description: A pair of red fighting gloves with a heart-shaped guard lies here.
+look: |
+  A pair of red leather fighting gloves with a steel guard over the
+  knuckles in the shape of a heart, made for a martial artist and
+  found, of all places, in a back room of Wall Market, where Don
+  Corneo kept it with the things he liked to look at. In the right
+  hands it hits harder the closer its wearer is to the edge.
+type: weapon
+weight: 1
+level: 27
+baseline: dagger
+value: 3000
+weapon:
+  hands: 1
+  kind: blunt
+  verb: punch
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.25 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

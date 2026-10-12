@@ -1,0 +1,17 @@
+vnum: 3960
+name: an Iron Knuckle's axe
+keywords: [iron, knuckle's, knuckle, axe, greataxe]
+description: An enormous double-bladed axe lies here.
+look: |
+  An Iron Knuckle's axe, a double crescent of black iron on a haft as
+  thick as your arm, swung so slowly and so hard that it cuts through
+  stone pillars on the way to you.
+type: weapon
+weight: 9
+level: 30
+baseline: heavy
+value: 400
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

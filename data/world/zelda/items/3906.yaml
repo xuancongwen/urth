@@ -1,0 +1,13 @@
+vnum: 3906
+name: the Kokiri Emerald
+keywords: [kokiri, emerald, spiritual, stone, forest]
+description: A great green jewel set in gold lies here, glowing softly.
+look: |
+  The Spiritual Stone of the Forest, a great green emerald held in a
+  setting of gold, which the Great Deku Tree kept safe for the Kokiri.
+  Ganondorf wanted it; Queen Gohma swallowed it. Princess Zelda will
+  want to know you have it: the three spiritual stones together open the
+  Door of Time.
+type: other
+weight: 1
+value: 300

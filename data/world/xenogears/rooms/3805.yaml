@@ -1,0 +1,14 @@
+vnum: 3805
+name: Dr. Citan's House on the Hill
+description: |
+  A neat house on the top of the hill, half home and half workshop, with
+  a herb garden, a forge out the back and a telescope on the roof.
+  Inside it is all books, bottles of medicine and curious instruments,
+  and a katana in a plain black scabbard hanging above the hearth. Yui
+  Uzuki, the doctor's wife, is pouring tea, and their little daughter
+  Midori sits silent at the table drawing pictures she shows to nobody.
+  The doctor himself knows a great deal more than a country physician
+  ought to. The log steps go back down south to the path.
+exits:
+  south: 3804
+flags: [safe]

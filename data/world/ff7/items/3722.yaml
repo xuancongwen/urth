@@ -1,0 +1,14 @@
+vnum: 3722
+name: a dragon armlet
+keywords: [dragon, armlet, arm, guards]
+description: A pair of arm guards of red dragon scale lies here.
+look: |
+  Arm guards of overlapping red scales, each the size of a palm,
+  stripped from a dragon of the northern mountains. Fire slides off
+  them. So do most other things.
+type: armor
+slot: arms
+weight: 2
+level: 54
+baseline: heavy
+flags: [drop]

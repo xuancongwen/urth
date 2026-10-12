@@ -1,0 +1,141 @@
+interval_seconds: 300
+resets:
+  # --- Sector 7 and the night train (the station and Seventh Heaven are safe) ---
+  - { mob: 3741, room: 3705 }   # Tifa behind the bar, who teaches hand to hand, dodge and trip and sells lamps and knuckles
+  - { mob: 3742, room: 3705 }   # Barret, handing out AVALANCHE jobs as quests
+  - { item: 3701, room: 3701 }   # a mako lamp dropped on the platform, for the dark reactor beyond
+  - { mob: 3700, room: 3701, max: 7, equip: [{ item: 3705, slot: wield }] }   # MPs on the Sector 1 platform
+  - { mob: 3700, room: 3701, max: 7, equip: [{ item: 3705, slot: wield }, { item: 3706, slot: body }] }   # another, with a Shinra MP rifle and a Shinra MP uniform
+  - { mob: 3700, room: 3701, max: 7, equip: [{ item: 3706, slot: body }] }   # another, with a Shinra MP uniform
+  - { mob: 3700, room: 3704, max: 7, equip: [{ item: 3705, slot: wield }] }   # and patrolling the Sector 7 slums
+  - { mob: 3700, room: 3704, max: 7, equip: [{ item: 3706, slot: body }] }   # another, with a Shinra MP uniform
+  - { mob: 3700, room: 3704, max: 7, equip: [{ item: 3705, slot: wield }, { item: 3706, slot: body }] }   # another, with a Shinra MP rifle and a Shinra MP uniform
+  # --- Mako Reactor 1 (dark) ---
+  - { mob: 3701, room: 3702, max: 3, equip: [{ item: 3700 }] }   # Mono Drives humming along the catwalks, crystal rattling inside
+  - { mob: 3701, room: 3702, max: 3 }   # another
+  - { mob: 3701, room: 3702, max: 3, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3703, room: 3702, max: 6, equip: [{ item: 3707, slot: wield }, { item: 3700 }] }   # SOLDIERs on guard in the reactor
+  - { mob: 3703, room: 3702, max: 6, equip: [{ item: 3708, slot: head }] }   # another, with a Shinra infantry helmet
+  - { mob: 3704, room: 3703, equip: [{ item: 3726, slot: wield }, { item: 3700 }, { item: 3700 }] }   # the Guard Scorpion on the core gantry, its spare Assault Gun mounted
+  # --- Sector 5, the church, and Wall Market (the church and the market are safe) ---
+  - { mob: 3702, room: 3706, max: 3 }   # hedgehog pies in the junk heaps
+  - { mob: 3702, room: 3706, max: 3 }   # another
+  - { mob: 3702, room: 3706, max: 3 }   # another
+  - { mob: 3743, room: 3707 }   # Aerith among her flowers, who teaches bless and prayer of healing and sells flowers and the Princess Guard
+  - { mob: 3744, room: 3708 }   # the Wall Market dealer, selling blades, guns and materia
+  - { mob: 3705, room: 3709, max: 3, equip: [{ item: 3709, slot: wield }] }   # the Don's lackeys in the hall
+  - { mob: 3705, room: 3709, max: 3, equip: [{ item: 3709, slot: wield }] }   # another, with a set of brass knuckles
+  - { mob: 3705, room: 3709, max: 3 }   # another
+  - { mob: 3706, room: 3709, equip: [{ item: 3727, slot: wield }] }   # Don Corneo on his cushions, in the Premium Heart
+  - { mob: 3707, room: 3710, equip: [{ item: 3700 }, { item: 3700 }] }   # Aps in the sewer under the trapdoor, crystal in its gut
+  # --- The Sector 7 pillar ---
+  - { mob: 3703, room: 3711, max: 6, equip: [{ item: 3707, slot: wield }, { item: 3708, slot: head }] }   # SOLDIERs taking up positions on the pillar stair
+  - { mob: 3703, room: 3711, max: 6, equip: [{ item: 3707, slot: wield }] }   # another, with a SOLDIER's broadsword
+  - { mob: 3703, room: 3711, max: 6, equip: [{ item: 3708, slot: head }, { item: 3700 }] }   # another, with a Shinra infantry helmet and a shard of mako crystal
+  - { mob: 3703, room: 3711, max: 6, equip: [{ item: 3707, slot: wield }] }   # another, with a SOLDIER's broadsword
+  - { mob: 3708, room: 3712, equip: [{ item: 3728, slot: wield }] }   # Reno at the control panel with his electro-mag rod
+  # --- The Shinra Building ---
+  - { mob: 3709, room: 3713, max: 6, equip: [{ item: 3711, slot: wield }] }   # security officers at the lobby pillars
+  - { mob: 3709, room: 3713, max: 6, equip: [{ item: 3711, slot: wield }, { item: 3700 }] }   # another, with a Shinra security carbine and a shard of mako crystal
+  - { mob: 3709, room: 3713, max: 6 }   # another
+  - { mob: 3709, room: 3713, max: 6, equip: [{ item: 3711, slot: wield }] }   # another, with a Shinra security carbine
+  - { mob: 3709, room: 3718, max: 6, equip: [{ item: 3711, slot: wield }] }   # and two holding the expressway
+  - { mob: 3709, room: 3718, max: 6, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3711, room: 3714, equip: [{ item: 3730, slot: body }] }   # Hojo at his notes, in his lab coat
+  - { mob: 3710, room: 3714, equip: [{ item: 3729, slot: wield }] }   # Red XIII in his cage, the Limited Moon in his mane
+  - { mob: 3712, room: 3715, equip: [{ item: 3731, slot: shoulders }] }   # Jenova BIRTH out of its tank, the White Cape caught on it
+  - { mob: 3713, room: 3716, equip: [{ item: 3732, slot: finger1 }] }   # President Shinra at his desk, his signet on his finger
+  - { mob: 3714, room: 3716, equip: [{ item: 3733, slot: body }] }   # Heidegger at his shoulder, in his greatcoat
+  - { mob: 3715, room: 3716, equip: [{ item: 3734, slot: hands }] }   # Scarlet by the window, in her crimson gloves
+  - { mob: 3716, room: 3717, equip: [{ item: 3735, slot: wield }] }   # Rufus on the helipad with his shotgun: the end of Midgar
+  # --- Kalm and the marsh (Kalm is safe) ---
+  - { mob: 3717, room: 3719, max: 4 }   # Kalm Fangs hunting in the grey grass
+  - { mob: 3717, room: 3719, max: 4 }   # another
+  - { mob: 3717, room: 3719, max: 4 }   # another
+  - { mob: 3717, room: 3719, max: 4 }   # another
+  - { mob: 3745, room: 3720 }   # the Kalm shopkeeper, selling hardedges, bangles and butterfly edges
+  - { mob: 3719, room: 3721, equip: [{ item: 3736, slot: body }] }   # the Midgar Zolom in the marsh
+  # --- The Mythril Mine (dark) ---
+  - { mob: 3718, room: 3722, max: 3, equip: [{ item: 3700 }] }   # Ark Dragons on the mine roof, crystal in their gizzards
+  - { mob: 3718, room: 3722, max: 3 }   # another
+  - { mob: 3718, room: 3722, max: 3, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3720, room: 3722, equip: [{ item: 3737, slot: wield }] }   # Elena at the end of the tunnel, with her pistol
+  # --- The Gold Saucer (the park is safe) ---
+  - { mob: 3746, room: 3724 }   # Dio, who trades the champion belt and sells gladiators' gear
+  - { mob: 3747, room: 3724 }   # Cait Sith on his moogle, selling the HP Shout
+  - { mob: 3721, room: 3725, max: 4, equip: [{ item: 3715, slot: wield }, { item: 3716, slot: head }] }   # house gladiators in the Battle Square
+  - { mob: 3721, room: 3725, max: 4, equip: [{ item: 3715, slot: wield }, { item: 3700 }] }   # another, with a gladiator's trident and a shard of mako crystal
+  - { mob: 3721, room: 3725, max: 4, equip: [{ item: 3716, slot: head }] }   # another, with a gladiator's helm
+  - { mob: 3721, room: 3725, max: 4, equip: [{ item: 3715, slot: wield }] }   # another, with a gladiator's trident
+  # --- Cosmo Canyon (safe) and the Cave of the Gi (dark) ---
+  - { mob: 3748, room: 3726 }   # Bugenhagen, who teaches entangle, barkskin, call lightning and restoration
+  - { mob: 3722, room: 3727, max: 4 }   # Gi spectres drifting through the cave
+  - { mob: 3722, room: 3727, max: 4, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3722, room: 3727, max: 4 }   # another
+  - { mob: 3722, room: 3727, max: 4 }   # another
+  - { mob: 3723, room: 3727, equip: [{ item: 3740, slot: wield }] }   # Gi Nattak in the deepest chamber, with his spear
+  # --- Nibelheim and the Shinra Mansion (the mansion is dark) ---
+  - { mob: 3724, room: 3728, max: 6, equip: [{ item: 3717, slot: body }] }   # black-cloaked men shuffling round the square
+  - { mob: 3724, room: 3728, max: 6 }   # another
+  - { mob: 3724, room: 3728, max: 6, equip: [{ item: 3717, slot: body }] }   # another, with a black cloak
+  - { mob: 3724, room: 3729, max: 6, equip: [{ item: 3717, slot: body }] }   # and through the mansion halls
+  - { mob: 3724, room: 3729, max: 6, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3724, room: 3729, max: 6, equip: [{ item: 3717, slot: body }] }   # another, with a black cloak
+  - { mob: 3725, room: 3730, equip: [{ item: 3742, slot: wield }] }   # Vincent Valentine on the edge of his coffin, the Death Penalty in his holster
+  # --- Rocket Town (safe) and the launch pad ---
+  - { mob: 3749, room: 3731 }   # Cid Highwind, who sells lamps and trades the Venus Gospel
+  - { mob: 3727, room: 3732, max: 3, equip: [{ item: 3719, slot: wield }] }   # SOLDIER First Class come for the rocket
+  - { mob: 3727, room: 3732, max: 3, equip: [{ item: 3719, slot: wield }, { item: 3700 }] }   # another, with a SOLDIER First Class broadsword and a shard of mako crystal
+  - { mob: 3727, room: 3732, max: 3 }   # another
+  - { mob: 3726, room: 3732, equip: [{ item: 3743, slot: wield }] }   # Palmer shouting orders, his mako gun in his fist
+  - { mob: 3728, room: 3732, equip: [{ item: 3744, slot: face }] }   # Rude by the fuel lines, in his sunglasses
+  # --- Wutai (safe) and the Da-Chao ---
+  - { mob: 3750, room: 3733 }   # Lord Godo, who teaches circle and whirlwind
+  - { mob: 3729, room: 3734, max: 3, equip: [{ item: 3720, slot: body }] }   # Wutai ninja on the rock faces
+  - { mob: 3729, room: 3734, max: 3 }   # another
+  - { mob: 3729, room: 3734, max: 3, equip: [{ item: 3720, slot: body }] }   # another, with a Wutai lacquered cuirass
+  - { mob: 3730, room: 3734, equip: [{ item: 3746, slot: wield }] }   # Yuffie on the shrine roof, spinning the Conformer
+  # --- The Temple of the Ancients (dark) ---
+  - { mob: 3732, room: 3735, max: 6, equip: [{ item: 3700 }] }   # Bizarre Bugs in the temple halls, full of mako
+  - { mob: 3732, room: 3735, max: 6 }   # another
+  - { mob: 3731, room: 3735, equip: [{ item: 3747, slot: wield }] }   # Tseng, wounded by the door, still armed
+  - { mob: 3733, room: 3735, equip: [{ item: 3748, slot: hold }, { item: 3703 }] }   # the Red Dragon guarding the inner sanctum, Bahamut in its breast and the Black Materia beneath it
+  # --- The Forgotten Capital ---
+  - { mob: 3732, room: 3736, max: 6, equip: [{ item: 3700 }] }   # Bizarre Bugs swarming the white forest
+  - { mob: 3732, room: 3736, max: 6 }   # another
+  - { mob: 3732, room: 3736, max: 6 }   # another
+  - { mob: 3732, room: 3736, max: 6 }   # another
+  - { mob: 3734, room: 3737, equip: [{ item: 3749, slot: wrist1 }] }   # Jenova LIFE risen from the altar pool, the Wizard Bracelet in its grip
+  # --- The Great Glacier and the Northern Crater ---
+  - { mob: 3735, room: 3738, max: 4 }   # bandersnatches hunting on the glacier
+  - { mob: 3735, room: 3738, max: 4 }   # another
+  - { mob: 3735, room: 3738, max: 4 }   # another
+  - { mob: 3735, room: 3738, max: 4 }   # another
+  - { mob: 3736, room: 3739, max: 3 }   # dragon zombies on the crater rim
+  - { mob: 3736, room: 3739, max: 3, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3736, room: 3739, max: 3 }   # another
+  - { mob: 3737, room: 3740, max: 3 }   # Malboros in the depths
+  - { mob: 3737, room: 3740, max: 3, equip: [{ item: 3700 }] }   # another, with a shard of mako crystal
+  - { mob: 3737, room: 3740, max: 3 }   # another
+  - { mob: 3738, room: 3740, equip: [{ item: 3750, slot: neck }] }   # Jenova SYNTHESIS at the bottom of the path, the Ribbon tangled in it
+  - { mob: 3739, room: 3741, equip: [{ item: 3751, slot: wield }, { item: 3752, slot: body }] }   # Sephiroth over the Lifestream, with the Masamune and his black coat: the final fight, for a party
+  # --- the roost of Ultima Weapon: the raid ---
+  # Ultima Weapon on its ledge, in the armour the Planet grew it: the raid's great payout
+  - mob: 3740
+    room: 3742
+    equip:
+      - { item: 3771, slot: hold }        # the Knights of the Round materia
+      - { item: 3757 }                    # the Ultima Weapon, carried in its body, not wielded
+      - { item: 3758, slot: head }        # the brow-horn of Ultima Weapon
+      - { item: 3759, slot: neck }        # the Planet's tear
+      - { item: 3760, slot: shoulders }   # Ultima Weapon's wing-plates
+      - { item: 3761, slot: body }        # the carapace of Ultima Weapon
+      - { item: 3762, slot: arms }        # Ultima Weapon's forelimb plates
+      - { item: 3763, slot: hands }       # Ultima Weapon's talon-gauntlets
+      - { item: 3764, slot: wrist1 }      # the bracer of the Lifestream
+      - { item: 3765, slot: wrist2 }      # the bracer of the Planet's wrath
+      - { item: 3766, slot: belt }        # the girdle of Weapon-scale
+      - { item: 3767, slot: legs }        # Ultima Weapon's hind-greaves
+      - { item: 3768, slot: feet }        # the clawed boots of Ultima Weapon
+      - { item: 3769, slot: finger1 }     # the ring of the Weapons
+      - { item: 3770, slot: finger2 }     # the ring of the Planet's will

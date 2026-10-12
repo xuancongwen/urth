@@ -1,0 +1,115 @@
+interval_seconds: 300
+resets:
+  # --- Lahan (the village and the chief's house are safe) ---
+  - { mob: 3800, room: 3802 }                                   # Fei at his easel, who teaches hand to hand, dodge, and trip
+  - { mob: 3809, room: 3803, max: 4, equip: [{ item: 3804 }] }  # Heimdal gears burning the far end of the village, a pilot's jacket in the cockpit
+  - { mob: 3809, room: 3803, max: 4, equip: [{ item: 3803 }] }  # one with a sabre stowed behind the seat
+  - { mob: 3809, room: 3803, max: 4 }                           # and a third, stamping on gardens
+  - { item: 3802, room: 3804 }                                  # a gear-oil lantern hung on the signpost, for the forest
+  - { mob: 3801, room: 3805 }                                   # Dr. Citan Uzuki at home: riposte and feint, lanterns, his katana, and the Shevat sword
+  # --- the Black Moon Forest (dark) ---
+  - { mob: 3810, room: 3804, max: 8 }                           # a wolf come up out of the forest onto the hill path
+  - { mob: 3810, room: 3806, max: 8 }                           # wolves among the trunks
+  - { mob: 3810, room: 3806, max: 8 }
+  - { mob: 3810, room: 3806, max: 8 }
+  - { mob: 3802, room: 3807 }                                   # Elly by the campfire, who teaches the Ether of lightning and frost and sells her old rod
+  - { mob: 3810, room: 3808, max: 8 }                           # the pack at the heart of the forest
+  - { mob: 3810, room: 3808, max: 8 }
+  - { mob: 3810, room: 3808, max: 8 }
+  - { mob: 3810, room: 3808, max: 8 }
+  # --- the Aveh desert and Bledavik (Dazil and Bledavik are safe) ---
+  - { mob: 3811, room: 3810, max: 4 }                           # sand stalkers under the dunes
+  - { mob: 3811, room: 3810, max: 4 }
+  - { mob: 3811, room: 3810, max: 4 }
+  - { mob: 3812, room: 3810, max: 2, equip: [{ item: 3805 }] }  # patrol gears on the ridgeline, rifles in their lockers
+  - { mob: 3812, room: 3810, max: 2 }
+  - { mob: 3803, room: 3811 }                                   # the bazaar trader under his awning
+  - { mob: 3813, room: 3812, max: 8, equip: [{ item: 3806, slot: wield }, { item: 3807, slot: head }] }   # royal guards at the castle gates
+  - { mob: 3813, room: 3812, max: 8, equip: [{ item: 3806, slot: wield }] }
+  - { mob: 3813, room: 3812, max: 8, equip: [{ item: 3807, slot: head }] }
+  - { mob: 3813, room: 3813, max: 8, equip: [{ item: 3806, slot: wield }, { item: 3807, slot: head }] }   # two at the foot of the throne
+  - { mob: 3813, room: 3813, max: 8, equip: [{ item: 3806, slot: wield }, { item: 3807, slot: head }] }
+  - { mob: 3815, room: 3813, equip: [{ item: 3825, slot: shoulders }] }   # Vanderkaum beside the throne, in his gold epaulettes
+  - { mob: 3813, room: 3814, max: 8, equip: [{ item: 3807, slot: head }] }   # guards hunting the rebels in the waterway
+  - { mob: 3813, room: 3814, max: 8, equip: [{ item: 3806, slot: wield }] }
+  - { mob: 3814, room: 3814, equip: [{ item: 3824, slot: wield }, { item: 3804, slot: body }] }   # Bart in the dark, whip in hand, come to rescue Margie
+  # --- the Yggdrasil and Nisan (safe) ---
+  - { mob: 3804, room: 3815 }                                   # Maison at his table of parts and tea
+  - { mob: 3805, room: 3817 }                                   # Margie on the cathedral steps, handing out quests
+  # --- Kislev: Nortune, the arena, D-Block ---
+  - { mob: 3806, room: 3818 }                                   # the black-marketeer under his awning
+  - { mob: 3816, room: 3819, max: 3, equip: [{ item: 3808 }] }  # Battling contenders, spare gauntlets in their cockpits
+  - { mob: 3816, room: 3819, max: 3 }
+  - { mob: 3817, room: 3819, equip: [{ item: 3826, slot: hands }] }   # Rico Banderas, the champion, in his gauntlets
+  - { mob: 3818, room: 3820, max: 5, equip: [{ item: 3809, slot: wield }] }   # convicts at their cards
+  - { mob: 3818, room: 3820, max: 5, equip: [{ item: 3809, slot: wield }, { item: 3810, slot: body }] }
+  - { mob: 3818, room: 3820, max: 5, equip: [{ item: 3810, slot: body }] }
+  - { mob: 3818, room: 3820, max: 5, equip: [{ item: 3809, slot: wield }] }
+  - { mob: 3819, room: 3821, max: 3 }                           # chimeras in the sewer
+  - { mob: 3819, room: 3821, max: 3 }
+  - { mob: 3819, room: 3821, max: 3 }
+  # --- Thames and the Ethos (the deck and the chapel are safe) ---
+  - { mob: 3807, room: 3823 }                                   # Billy at the altar: bless, smite, the prayer of healing, and his guns for Stier's claw
+  - { mob: 3820, room: 3824, max: 4, equip: [{ item: 3811 }] }  # excavated gears walking the dig, a relic-hammer caught in one's joints
+  - { mob: 3820, room: 3824, max: 4 }
+  - { mob: 3820, room: 3824, max: 4 }
+  - { mob: 3821, room: 3824, equip: [{ item: 3829, slot: wield }] }   # Stier at the sealed door, his claw dripping
+  # --- Shevat (the city is safe) ---
+  - { mob: 3822, room: 3826, equip: [{ item: 3830, slot: hold }] }   # Seibzehn in the hangar, its core humming, Maria on its shoulder
+  - { mob: 3823, room: 3826, equip: [{ item: 3827, slot: neck }] }   # Chu-Chu at its feet, in her ribbon
+  # --- Solaris ---
+  - { mob: 3824, room: 3827, max: 6, equip: [{ item: 3813, slot: wield }, { item: 3814, slot: head }] }   # Gebler soldiers at the gate
+  - { mob: 3824, room: 3827, max: 6, equip: [{ item: 3813, slot: wield }] }
+  - { mob: 3824, room: 3827, max: 6, equip: [{ item: 3814, slot: head }] }
+  - { mob: 3825, room: 3828, equip: [{ item: 3831, slot: neck }] }   # Seraphita, bell at her throat
+  - { mob: 3826, room: 3828, equip: [{ item: 3832, slot: face }] }   # Kelvena, veiled
+  - { mob: 3827, room: 3828, equip: [{ item: 3833, slot: wrist1 }] } # Tolone, in her earthen bracer
+  - { mob: 3828, room: 3828, equip: [{ item: 3834, slot: wield }, { item: 3815, slot: body }] }   # Dominia, sabre drawn
+  - { mob: 3829, room: 3830, equip: [{ item: 3836, slot: wield }, { item: 3815, slot: body }] }   # Commander Ramsus on his deck, his sword at his side
+  - { mob: 3824, room: 3829, max: 6, equip: [{ item: 3813, slot: wield }, { item: 3814, slot: head }] }   # Gebler patrolling the first class district
+  - { mob: 3824, room: 3829, max: 6, equip: [{ item: 3815, slot: body }] }   # an officer among them
+  - { mob: 3824, room: 3829, max: 6, equip: [{ item: 3813, slot: wield }] }
+  - { mob: 3831, room: 3831, max: 4 }                           # the minds of the Gazel in their monoliths
+  - { mob: 3831, room: 3831, max: 4 }
+  - { mob: 3831, room: 3831, max: 4 }
+  - { mob: 3831, room: 3831, max: 4 }
+  - { mob: 3832, room: 3831, equip: [{ item: 3838, slot: head }] }   # Miang among them, in her circlet
+  - { mob: 3830, room: 3832, max: 4, equip: [{ item: 3816, slot: wield }, { item: 3814, slot: head }] }   # the imperial guard in the palace
+  - { mob: 3830, room: 3832, max: 4, equip: [{ item: 3816, slot: wield }] }
+  - { mob: 3830, room: 3829, max: 4, equip: [{ item: 3816, slot: wield }] }   # and two on the boulevards
+  - { mob: 3830, room: 3829, max: 4, equip: [{ item: 3816, slot: wield }, { item: 3814, slot: head }] }
+  - { mob: 3833, room: 3832, equip: [{ item: 3839, slot: head }] }   # Emperor Cain on his throne, crowned
+  # --- below: Zeboim, Babel, the crimson gear, Id ---
+  - { mob: 3808, room: 3833 }                                   # Emeralda in the ruins, who teaches fast healing and second wind
+  - { mob: 3834, room: 3834, equip: [{ item: 3840, slot: shoulders }] }   # Grahf in the tower, in his black cloak
+  - { mob: 3835, room: 3835, equip: [{ item: 3841, slot: body }] }   # Weltall-Id on the glassed plain, its frame plating red with rage
+  - { mob: 3836, room: 3836, equip: [{ item: 3842, slot: hands }] }  # Id in the place within, in Fei's gloves
+  # --- the Merkaba ---
+  - { mob: 3837, room: 3837, max: 6, equip: [{ item: 3820 }] }   # angels on the hull, wing-blades folded into their pinions
+  - { mob: 3837, room: 3837, max: 6, equip: [{ item: 3820 }, { item: 3821, slot: body }] }
+  - { mob: 3837, room: 3837, max: 6, equip: [{ item: 3821, slot: body }] }
+  - { mob: 3838, room: 3837, max: 6 }                           # coils of the Urobolus heaving through the deck
+  - { mob: 3838, room: 3837, max: 6 }
+  - { mob: 3837, room: 3838, max: 6, equip: [{ item: 3820 }, { item: 3821, slot: body }] }   # two angels guarding the laboratory
+  - { mob: 3837, room: 3838, max: 6, equip: [{ item: 3820 }] }
+  - { mob: 3839, room: 3838, equip: [{ item: 3843, slot: body }] }   # Krelian among his tanks, in his white robe
+  - { mob: 3838, room: 3839, max: 6 }                           # two coils about the throne
+  - { mob: 3838, room: 3839, max: 6 }
+  # Deus on its throne, in its regalia: the raid's great payout
+  - mob: 3840
+    room: 3839
+    equip:
+      - { item: 3857, slot: hold }        # a fragment of the Zohar
+      - { item: 3844, slot: head }        # the halo of Deus
+      - { item: 3845, slot: neck }        # the torc of the Urobolus
+      - { item: 3846, slot: shoulders }   # the wing-roots of Deus
+      - { item: 3847, slot: body }        # the carapace of Deus
+      - { item: 3848, slot: arms }        # the arm-cables of Deus
+      - { item: 3849, slot: hands }       # the gauntlets of Deus
+      - { item: 3850, slot: wrist1 }      # the bracer of the Animus
+      - { item: 3851, slot: wrist2 }      # the bracer of the Anima
+      - { item: 3852, slot: belt }        # the girdle of the Urobolus
+      - { item: 3853, slot: legs }        # the greaves of Deus
+      - { item: 3854, slot: feet }        # the treads of Deus
+      - { item: 3855, slot: finger1 }     # the ring of Contact
+      - { item: 3856, slot: finger2 }     # the ring of the Antitype

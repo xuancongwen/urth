@@ -1,0 +1,10 @@
+vnum: 3928
+name: The Lair of King Dodongo
+description: |
+  A round pit with a lake of lava in the middle, hot enough to blister,
+  where the king of the Dodongos sleeps: a lizard as big as a house,
+  with a frill and a mouth that holds a furnace. He wakes, and inhales.
+  The only way out is west.
+exits:
+  west: 3927
+flags: [dark]

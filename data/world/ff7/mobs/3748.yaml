@@ -1,0 +1,18 @@
+vnum: 3748
+name: Bugenhagen
+keywords: [bugenhagen, elder, sage, grandfather]
+description: Bugenhagen floats a little above the floor, chuckling to himself.
+look: |
+  A tiny, ancient man with a white beard and a round nose, who floats
+  about the observatory on a little cushion of air. He is the elder of
+  Cosmo Canyon and Nanaki's grandfather, and he has spent a hundred
+  and thirty years listening to the Planet. "Ho ho hoo! The Planet is
+  dying. Can you hear it crying?" He will teach those who follow the
+  Neutral god the old ways of root and bark, storm, and the balance
+  that heals. Type 'practice'.
+level: 50
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: tap
+teaches: [entangle, barkskin, call_lightning, restoration]

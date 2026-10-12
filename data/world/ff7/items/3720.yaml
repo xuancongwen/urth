@@ -1,0 +1,13 @@
+vnum: 3720
+name: a Wutai lacquered cuirass
+keywords: [wutai, lacquered, cuirass, armor, armour]
+description: A breastplate of red lacquer and silk cord lies here.
+look: |
+  A light cuirass of red-lacquered plates laced with silk cord, in the
+  old style of Wutai, from before the war. The ninja of the Da-Chao
+  still wear them, out of pride and because they work.
+type: armor
+slot: body
+weight: 3
+level: 48
+baseline: light

@@ -1,0 +1,21 @@
+vnum: 3970
+name: the Triforce of Power
+keywords: [triforce, power, golden, triangle]
+description: A golden triangle of light floats here, burning.
+look: |
+  One of the three golden triangles of the Triforce: the piece of Din,
+  of Power, which stayed with Ganondorf when the whole broke apart in
+  his hand because his heart was out of balance. It burns gold through
+  the back of whatever hand holds it, and it does not let that hand
+  fall.
+type: armor
+slot: hold
+weight: 0
+level: 35
+value: 8000
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: damage, params: { mult: 1.08, weapon: true } }
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }

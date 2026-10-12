@@ -1,0 +1,22 @@
+vnum: 3716
+name: Rufus Shinra
+keywords: [rufus, shinra, vice, president]
+description: Rufus Shinra stands on the helipad in a white coat, shotgun in hand.
+look: |
+  A young man with neat blond hair, in a white suit and a long white
+  coat, the son of the President and, as of tonight, the new one. He
+  is cold where his father was warm, and much more frightening. "My
+  father ruled with money. I'll rule with fear." His black dog, Dark
+  Nation, circles at his feet, and his shotgun is already in his hand.
+  He means to see how good you are.
+level: 37
+flags: [assist]
+health: 5500
+stats: {dexterity: 16, constitution: 15}
+silver: 2500
+attack:
+  kind: fire
+  verb: blast
+effects:
+  - { kind: block, params: { chance: 0.1 } }
+  - { kind: steady, params: { chance: 0.3 } }

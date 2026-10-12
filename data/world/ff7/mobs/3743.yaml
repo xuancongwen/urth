@@ -1,0 +1,22 @@
+vnum: 3743
+name: Aerith Gainsborough
+keywords: [aerith, gainsborough, flower, girl, cetra]
+description: Aerith Gainsborough kneels among the flowers, humming to herself.
+look: |
+  A young woman in a long pink dress and a short red jacket, with her
+  brown hair in a long braid tied with a pink ribbon, and green eyes
+  that laugh at you. She grows flowers in the church and sells them on
+  the plate for a gil apiece. She is the last of the Cetra, the
+  Ancients, and she can hear the Planet talking; she says it is a
+  little sad. She will teach those who serve the Good god how to bless
+  and how to heal many at once (type 'practice'), and she sells her
+  flowers and an old staff she does not need (type 'list').
+level: 40
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: strike
+teaches: [bless, prayer_of_healing]
+trades:
+  - { item: 3704, silver: 40 }   # a Midgar flower
+  - { item: 3741, silver: 6000, items: [3700, 3700, 3700, 3700] }   # the Princess Guard

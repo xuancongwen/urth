@@ -1,0 +1,12 @@
+vnum: 3965
+name: Ganon's boss key
+keywords: [ganon's, ganon, boss, key, big]
+description: A huge key with a red jewel and horns lies here.
+look: |
+  A great key of dark gold, as long as your forearm, with horns at the
+  bow and a red jewel in it like an eye. It opens the gate of Ganon's
+  Castle, behind Hyrule Castle's courtyard. Twinrova kept it for their
+  son.
+type: other
+weight: 1
+value: 100

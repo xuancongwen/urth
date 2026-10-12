@@ -1,0 +1,13 @@
+vnum: 3720
+name: The Town of Kalm
+description: |
+  A quiet, pretty town of stone houses and cobbled lanes on a hill,
+  with a clock tower and a well and an inn with green shutters. People
+  here are nervous of Midgar and its Shinra, but polite to travellers
+  with gil. The inn is where Cloud told the long story of Nibelheim,
+  five years ago, and the town is full of shops. The grasslands are
+  west, and the road east leads down to the marsh.
+exits:
+  east: 3721
+  west: 3719
+flags: [safe]

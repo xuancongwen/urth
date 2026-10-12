@@ -1,0 +1,13 @@
+vnum: 3716
+name: The President's Office
+description: |
+  The seventieth floor: a long hall of black marble and
+  floor-to-ceiling windows, with all of Midgar spread out below like a
+  circuit board, eight reactors glowing green on its rim. At the far
+  end, behind a huge desk, the President of Shinra is holding a
+  meeting with his executives: the head of public safety, the head of
+  weapons development, and their guards. The elevators go down, and a
+  stair climbs to the roof.
+exits:
+  up: 3717
+  down: 3715

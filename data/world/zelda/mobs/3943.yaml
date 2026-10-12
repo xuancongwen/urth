@@ -1,0 +1,21 @@
+vnum: 3943
+name: Sheik
+keywords: [sheik, sheikah, masked, harpist, ninja]
+description: Sheik leans on a pillar in the shadows, a harp in hand, watching you.
+look: |
+  A slender figure in the close blue wrappings of the Sheikah, with the
+  weeping eye on the chest, a cowl and a mask over the lower face, and
+  one red eye showing under a fringe of fair hair. Sheik appears
+  wherever you are going, plays a song on a harp, says something
+  cryptic, and vanishes in a flash. Nobody knows who Sheik is. On the
+  back of one hand, under the wrappings, something golden glows. Sheik
+  does not want to fight you, and would win.
+level: 30
+health: 2600
+stats: {dexterity: 19, wisdom: 16}
+silver: 300
+attack:
+  kind: pierce
+  verb: needle
+effects:
+  - { kind: dodge, params: { amount: 0.06 } }

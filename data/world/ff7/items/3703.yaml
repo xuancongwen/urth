@@ -1,0 +1,17 @@
+vnum: 3703
+name: the Black Materia
+keywords: [black, materia, meteor, orb]
+description: A dark orb the size of a fist lies here, drinking the light.
+look: |
+  An orb of black crystal, heavy and cold, that the Cetra hid in their
+  temple and shrank the whole temple to make: the Black Materia, the
+  key to Meteor, the ultimate destructive magic, which calls a star
+  down out of the sky. Sephiroth wants it more than anything in the
+  world. Deep inside it, if you look, words of power turn slowly round
+  each other, and an evoker strong enough could study them and learn
+  to call down a swarm of burning stones. The words would fade from it
+  after; the orb would remain.
+type: other
+weight: 1
+value: 3000
+spell: meteor_swarm

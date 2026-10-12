@@ -1,0 +1,16 @@
+vnum: 3816
+name: a Solarian palace guard's halberd
+keywords: [solarian, palace, guard's, guard, halberd, polearm]
+description: A white halberd with a humming blade lies here.
+look: |
+  A halberd of white Solarian alloy, whose blade hums faintly and cuts
+  as though the air were not there. The Emperor's guard carry them
+  because the Emperor likes things to be beautiful.
+type: weapon
+weight: 5
+level: 48
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

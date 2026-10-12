@@ -1,0 +1,16 @@
+vnum: 3714
+name: a butterfly edge
+keywords: [butterfly, edge, sword, blade]
+description: A sword with a notched, wing-shaped blade lies here.
+look: |
+  A sword whose blade flares near the tip into two curved wings, like
+  a butterfly's. It is heavier at the end than it looks, and it bites
+  deep.
+type: weapon
+weight: 3
+level: 39
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

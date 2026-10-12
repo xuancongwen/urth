@@ -1,0 +1,16 @@
+vnum: 3911
+name: Ingo
+keywords: [ingo, ranch, hand, sour]
+description: Ingo, the ranch hand, glowers at the horses with his riding crop in his hand.
+look: |
+  A thin, sour, moustached ranch hand in overalls, who does all the work
+  on Lon Lon Ranch and thinks he should own it. He mutters to himself
+  about Talon and the horses and about the man from the desert who has
+  promised him the whole ranch, one day, if he does as he is told. He
+  uses the crop on the horses. He will use it on you.
+level: 11
+health: 170
+silver: 120
+attack:
+  kind: slash
+  verb: lash

@@ -1,0 +1,23 @@
+vnum: 3747
+name: Tseng's pistol
+keywords: [tseng's, tseng, pistol, gun]
+description: A long-barrelled black pistol with a silver sight lies here.
+look: |
+  The pistol of Tseng, leader of the Turks, long in the barrel and
+  very precise, with a silver sight he has never needed. He has
+  followed Aerith since she was a child and has never once shot at
+  her. He has shot at almost everyone else.
+type: weapon
+weight: 1
+level: 50
+baseline: standard
+value: 6000
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

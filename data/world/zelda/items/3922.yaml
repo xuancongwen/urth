@@ -1,0 +1,12 @@
+vnum: 3922
+name: a gravekeeper's lantern
+keywords: [gravekeeper's, gravekeeper, lantern, lamp, light]
+description: A battered tin lantern lies here, its flame steady.
+look: |
+  A tin lantern with a horn window and a wire handle, battered from a
+  lifetime of being carried among the graves at night, of the kind Dampé
+  makes in his hut and sells to anyone who means to go somewhere dark.
+type: light
+weight: 1
+value: 30
+burn: 3000

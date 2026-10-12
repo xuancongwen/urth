@@ -1,0 +1,18 @@
+vnum: 3933
+name: Ruto's silver scale
+keywords: [ruto's, ruto, silver, scale, pendant]
+description: A large silver scale on a chain lies here.
+look: |
+  A Zora's silver scale on a fine chain, Princess Ruto's own, which lets
+  the one who wears it dive deeper than anyone born on land. She is very
+  proud of it and has told you so several times.
+type: armor
+slot: neck
+weight: 0
+level: 15
+value: 1000
+rarity: rare
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

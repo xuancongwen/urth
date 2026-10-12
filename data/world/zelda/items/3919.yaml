@@ -1,0 +1,10 @@
+vnum: 3919
+name: a green potion
+keywords: [green, potion, bottle]
+description: A bottle of green potion lies here, glowing faintly.
+look: |
+  A bottle of green potion, for the magic, the shopkeeper says, and it
+  certainly fizzes. It tastes of grass and lightning.
+type: other
+weight: 1
+value: 30

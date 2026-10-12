@@ -1,0 +1,16 @@
+vnum: 3854
+name: the treads of Deus
+keywords: [treads, deus, deus's, boots, feet]
+description: A pair of clawed boots of black metal lies here.
+look: |
+  Boots of black metal with clawed toes, which grip any surface, even
+  the sky, and step aside from a blow on their own.
+type: armor
+slot: feet
+weight: 2
+level: 60
+baseline: heavy
+value: 10000
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

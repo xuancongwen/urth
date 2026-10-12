@@ -1,0 +1,13 @@
+vnum: 3904
+name: Inside the Great Deku Tree
+description: |
+  A hollow shaft rising through the heart of the tree, ringed with
+  ledges and vines and lit, where it is lit at all, by torches someone
+  left long ago. Great webs stretch across the floor, and Skulltulas,
+  spiders with skull patterns on their backs, hang from threads above
+  you and drop without warning. A hole in the web leads further down,
+  where something heavy is breathing. The tree's mouth is up.
+exits:
+  up: 3903
+  down: 3905
+flags: [dark]

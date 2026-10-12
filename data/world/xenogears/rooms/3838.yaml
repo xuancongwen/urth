@@ -1,0 +1,14 @@
+vnum: 3838
+name: Krelian's Laboratory
+description: |
+  A white laboratory at the heart of the Merkaba, perfectly clean, its
+  walls lined with tanks in which unfinished people float. Here Krelian,
+  once a doctor of Solaris who lost the woman he loved, set out to make
+  a god, so that no one would ever have to lose anyone again. He
+  succeeded. A great sealed door at the west end of the room, ribbed
+  like a throat, opens on the throne of Deus. The hull is east.
+exits:
+  east: 3837
+  west: 3839
+doors:
+  west: { name: "the throat-door of Deus", closed: true }

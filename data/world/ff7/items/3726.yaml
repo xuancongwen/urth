@@ -1,0 +1,23 @@
+vnum: 3726
+name: the Assault Gun
+keywords: [assault, gun, gun-arm, arm]
+description: A heavy gun-arm with a rotating barrel lies here.
+look: |
+  A heavy gatling gun built to be bolted onto the stump of an arm, of
+  the kind Barret Wallace wears in place of the hand Shinra took from
+  him. This one was salvaged from the wreck of the Guard Scorpion,
+  which had mounted it as a spare. It spins up with a whine and sprays
+  bullets across everything in front of it.
+type: weapon
+weight: 4
+level: 25
+baseline: standard
+value: 2500
+weapon:
+  hands: 1
+  kind: fire
+  verb: spray
+effects:
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

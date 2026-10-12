@@ -1,0 +1,15 @@
+vnum: 3701
+name: a Mono Drive
+keywords: [mono, drive, machine, drone, floating]
+description: A Mono Drive hovers here, its single lens glowing.
+look: |
+  A round security machine the size of a barrel, floating on a humming
+  field of mako, with one glowing lens and a cluster of nozzles that
+  spit fire. Shinra builds them to patrol the reactors where it does
+  not want to send people. Shards of crystallised mako rattle loose
+  inside its casing.
+level: 22
+flags: [assist, aggressive]
+attack:
+  kind: fire
+  verb: spit

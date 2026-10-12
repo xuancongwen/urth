@@ -1,0 +1,23 @@
+vnum: 3829
+name: Stier's claw
+keywords: [stier's, stier, claw, mechanical, hand]
+description: A clawed mechanical hand, torn off at the wrist, lies here.
+look: |
+  The mechanical hand of Stier, the Ethos inquisitor who was something
+  else under his robe: three long steel claws on a jointed wrist, which
+  he wore in place of the hand he lost. The claws carry a poison, and
+  the wrist a pump that draws a little back with every wound.
+type: weapon
+weight: 2
+level: 41
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: slash
+  verb: claw
+effects:
+  - { kind: envenom, params: { power: 0.06, rounds: 3, maxStacks: 1 } }
+  - { kind: leech, params: { fraction: 0.06 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

@@ -1,0 +1,11 @@
+vnum: 3727
+name: The Cave of the Gi
+description: |
+  A long cave below Cosmo Canyon, its walls covered in strange faces
+  carved by the Gi tribe, who tried to conquer the canyon long ago and
+  were stopped by its warriors. They are not at rest. Pale spectres
+  drift between the spider webs, and from the deepest chamber comes a
+  slow, hollow laughter. The canyon is north.
+exits:
+  north: 3726
+flags: [dark]

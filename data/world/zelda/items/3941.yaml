@@ -1,0 +1,19 @@
+vnum: 3941
+name: the Forest Medallion
+keywords: [forest, medallion, green, amulet]
+description: A green medallion marked with a leaf-shaped sign lies here.
+look: |
+  The medallion of the Sage of the Forest, a disc of green metal marked
+  with the forest's sign, which Saria awakens to when the temple is
+  cleansed. It smells of moss and sunlight, and wearing it you heal as a
+  tree does, quietly and without stopping.
+type: armor
+slot: neck
+weight: 0
+level: 21
+value: 2500
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: steady, params: { chance: 0.2 } }

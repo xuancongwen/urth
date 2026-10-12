@@ -1,0 +1,23 @@
+vnum: 3741
+name: the Princess Guard
+keywords: [princess, guard, staff, rod]
+description: A slender staff topped with a gold crown lies here.
+look: |
+  A slender staff of white wood, capped with a tiny gold crown, made
+  long ago for a daughter of the Cetra and found in the Temple of the
+  Ancients. Aerith carries it the way she carries everything, lightly.
+  Held, it makes healing come easily, and it seems to remember every
+  prayer ever said over it.
+type: weapon
+weight: 2
+level: 45
+baseline: staff
+value: 6000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: spellPower, params: { mult: 1.12, kind: heal } }
+  - { kind: manaMax, params: { amount: 0.15 } }

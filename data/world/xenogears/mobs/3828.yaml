@@ -1,0 +1,21 @@
+vnum: 3828
+name: Dominia
+keywords: [dominia, element, elements, leader, fire]
+description: Dominia, leader of the Elements, draws her red-guarded sabre.
+look: |
+  A fierce woman with short red hair, a Gebler officer's precision, and
+  a scar along her jaw: Dominia, leader of the Elements, mistress of
+  fire, who has followed Commander Ramsus since she was a child and
+  would burn the world for him. She does not waste words on Lambs, and
+  she does not leave a fight unfinished.
+level: 47
+flags: [assist]
+health: 4200
+stats: {strength: 18, dexterity: 18}
+silver: 800
+xp: 15000
+attack:
+  kind: fire
+  verb: fire-slash
+effects:
+  - { kind: steady, params: { chance: 0.3 } }

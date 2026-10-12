@@ -1,0 +1,12 @@
+vnum: 3929
+name: The Summit of Death Mountain
+description: |
+  The top of the trail, under the smoking crater, where the air is thin
+  and hot and the whole of Hyrule spreads out below you. Sitting on the
+  mountain like a second, smaller mountain is Biggoron, a Goron so vast
+  that you have to shout up at him, his eyes red and watering in the
+  fumes. A crack in the rock to the north glows with a soft pink light.
+  The trail is down.
+exits:
+  down: 3924
+  north: 3930

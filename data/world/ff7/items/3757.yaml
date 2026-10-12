@@ -1,0 +1,26 @@
+vnum: 3757
+name: the Ultima Weapon
+keywords: [ultima, weapon, sword, blade, cloud's]
+description: A broad sword whose blade is pure blue-green light lies here.
+look: |
+  A sword whose blade is not steel at all but light: a long, broad
+  edge of glowing blue-green, set in a hilt of white metal, that grew
+  inside Ultima Weapon as a pearl grows in an oyster. It is the
+  ultimate sword of the Planet's champion. It weighs nothing, it never
+  wavers, and it finds the weak place in anything the Planet wants
+  gone.
+type: weapon
+weight: 3
+level: 60
+baseline: standard
+value: 14000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

@@ -1,0 +1,20 @@
+vnum: 3901
+name: the Kokiri shopkeeper
+keywords: [kokiri, shopkeeper, shop, keeper, child]
+description: The Kokiri shopkeeper peers at you over the log counter, his fairy circling his head.
+look: |
+  A Kokiri boy, like all of them, with a round face and a green cap and
+  a fairy that never leaves his shoulder; he has kept this shop for
+  longer than your grandparents have been alive, and he is still nine.
+  He sells Deku sticks and Deku shields, Kokiri tunics, and fairies in
+  bottles for the dark, and he takes silver very seriously. Type 'list'.
+level: 8
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: slap
+trades:
+  - { item: 3901, silver: 20 }
+  - { item: 3902, silver: 40 }
+  - { item: 3903, silver: 60 }
+  - { item: 3904, silver: 30 }

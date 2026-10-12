@@ -1,0 +1,25 @@
+vnum: 3833
+name: Emperor Cain
+keywords: [emperor, cain, cain's, solaris, old, man]
+description: Emperor Cain, the eternal Emperor of Solaris, rises slowly from his throne.
+look: |
+  An old man with a white beard and white robes, tired beyond any age,
+  who has been Emperor of Solaris for five hundred years, kept alive by
+  the Gazel so that their orders would wear a crown. In all that time he
+  has grown wise, and sad, and at last he has begun to disobey. He does
+  not want to fight you. He was once the greatest warrior of his age,
+  and if he must, he will.
+level: 52
+flags: [assist, boss]
+health: 20000
+stats: {wisdom: 22, strength: 18, constitution: 20}
+silver: 2000
+xp: 28000
+attack:
+  kind: slash
+  verb: imperial blade
+effects:
+  - { kind: attacks, params: { amount: 0.5 } }
+  - { kind: proc, params: { chance: 0.2, power: 1.2, verb: "stroke of the imperial blade" } }
+  - { kind: soak, params: { power: 0.12 } }
+  - { kind: steady, params: { chance: 0.4 } }

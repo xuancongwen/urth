@@ -1,0 +1,16 @@
+vnum: 3709
+name: a set of brass knuckles
+keywords: [brass, knuckles, knuckle, dusters]
+description: A set of scuffed brass knuckles lies here.
+look: |
+  Heavy brass knuckle-dusters, scratched from use, the kind sold in
+  Wall Market to people who mean to settle an argument quickly. A
+  fighter who trusts her fists more than a blade could do worse.
+type: weapon
+weight: 1
+level: 27
+baseline: dagger
+weapon:
+  hands: 1
+  kind: blunt
+  verb: punch

@@ -1,0 +1,17 @@
+vnum: 3723
+name: a Ragnarok
+keywords: [ragnarok, sword, blade]
+description: A great sword with a red, forked blade lies here.
+look: |
+  A sword with a long red blade that forks near the tip, found in the
+  deep places of the Northern Crater, where things grown huge on mako
+  hoard what falls into the Lifestream. It is heavy with old power.
+type: weapon
+weight: 3
+level: 57
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+flags: [drop]

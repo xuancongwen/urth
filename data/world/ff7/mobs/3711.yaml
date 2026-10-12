@@ -1,0 +1,22 @@
+vnum: 3711
+name: Professor Hojo
+keywords: [professor, hojo, scientist, doctor]
+description: Professor Hojo looks up from his notes and pushes his glasses up his nose.
+look: |
+  A thin, stooped man in a white lab coat, with greasy black hair in a
+  ponytail, round glasses and a laugh like a hiccup, head of the
+  Shinra science department. He made Sephiroth, out of his own son and
+  Jenova's cells, and he regards that as his finest result. He has
+  injected himself with those cells too, which is why, when you get
+  close, something twists under his skin. "Kukuku. A new specimen," he
+  says.
+level: 34
+flags: [assist]
+health: 3000
+stats: {intelligence: 18, constitution: 14}
+silver: 900
+attack:
+  kind: drain
+  verb: inject
+effects:
+  - { kind: leech, params: { fraction: 0.05 } }

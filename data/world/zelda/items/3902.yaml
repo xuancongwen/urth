@@ -1,0 +1,14 @@
+vnum: 3902
+name: a Deku shield
+keywords: [deku, shield, wooden]
+description: A small round wooden shield with a red leaf painted on it lies here.
+look: |
+  A small round shield of Deku wood with a red leaf crest painted on its
+  face, light enough for a Kokiri child to carry. It turns a blow well
+  enough. Keep it away from fire.
+type: armor
+slot: shield
+weight: 2
+level: 6
+baseline: shield
+value: 40

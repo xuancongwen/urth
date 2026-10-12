@@ -1,0 +1,19 @@
+vnum: 3760
+name: Ultima Weapon's wing-plates
+keywords: [ultima, weapon's, wing-plates, wing, plates, pauldrons, mantle]
+description: A pair of great curved plates of pale armour lies here.
+look: |
+  Two curved plates from the roots of Ultima Weapon's wings, pale as
+  bone, each wide as a shield, strapped together into a mantle. They
+  bear the scorch marks of a Shinra fleet's cannon and not one of them
+  went through.
+type: armor
+slot: shoulders
+weight: 4
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: soak, params: { power: 0.1 } }

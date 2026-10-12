@@ -1,0 +1,23 @@
+vnum: 3835
+name: Weltall-Id
+keywords: [weltall-id, weltall, id, gear, crimson]
+description: Weltall-Id, the crimson gear, turns its glowing eyes on you.
+look: |
+  A gear shaped like Weltall but red as blood, with a frame grown into
+  spikes and a light in its eyes that no pilot put there: the gear of
+  Fei's other self, which has burned a city of Kislev to the ground and
+  will do it again. It is empty. It moves anyway.
+level: 55
+flags: [assist, boss, aggressive]
+health: 26000
+stats: {strength: 22, constitution: 24}
+silver: 1500
+xp: 34000
+attack:
+  kind: fire
+  verb: crimson fist
+effects:
+  - { kind: attacks, params: { amount: 0.5 } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "crimson burst" } }
+  - { kind: soak, params: { power: 0.15 } }
+  - { kind: steady, params: { chance: 0.4 } }

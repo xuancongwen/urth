@@ -1,0 +1,13 @@
+vnum: 3701
+name: a mako lamp
+keywords: [mako, lamp, lantern, light]
+description: A small lantern glowing a steady green lies here.
+look: |
+  A miner's lantern of tin and glass with a pinch of mako crystal
+  sealed inside, glowing a steady, cold green. Shinra sells them in
+  every company store. They never go out, and nobody likes to ask what
+  they are burning.
+type: light
+weight: 1
+burn: 3000
+value: 30

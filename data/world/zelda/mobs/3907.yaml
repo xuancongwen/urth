@@ -1,0 +1,15 @@
+vnum: 3907
+name: a Stalchild
+keywords: [stalchild, skeleton, bones, undead]
+description: A Stalchild claws its way up out of the earth, rattling.
+look: |
+  A small skeleton with a big skull and long arms, which crawls up out
+  of the earth of Hyrule Field when the sun goes down and wanders about
+  clawing at travellers. They come in packs, and more come up the longer
+  you stay.
+level: 8
+flags: [assist]
+silver: 15
+attack:
+  kind: claw
+  verb: claw

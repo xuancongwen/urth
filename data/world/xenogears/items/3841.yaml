@@ -1,0 +1,21 @@
+vnum: 3841
+name: Weltall's frame plating
+keywords: [weltall's, weltall, frame, plating, armor, armour, plate]
+description: A great curved plate of dark grey and crimson armour lies here.
+look: |
+  A plate from the chest of Weltall, Fei's gear, or of Weltall-Id, its
+  crimson other self, which comes to the same thing: dark grey alloy
+  shading into blood red where Id's rage has changed it. Cut down and
+  strapped on it covers a man from neck to waist. It turns a blade like
+  a gear's armour turns a rifle bullet.
+type: armor
+slot: body
+weight: 8
+level: 55
+baseline: plate
+value: 9000
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: soak, params: { power: 0.08 } }
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

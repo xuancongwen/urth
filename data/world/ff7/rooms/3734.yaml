@@ -1,0 +1,11 @@
+vnum: 3734
+name: The Da-Chao Statue
+description: |
+  A mountain above Wutai carved into the vast faces of the Da-Chao
+  gods, their open mouths and staring eyes gouged into the cliff, with
+  a little shrine at their feet and a long drop below. Ninja move
+  across the rock faces. A girl in shorts and a green turtleneck is
+  sitting on the shrine roof, juggling a giant shuriken and grinning
+  down at you. Wutai is south.
+exits:
+  south: 3733

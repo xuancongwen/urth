@@ -1,0 +1,24 @@
+vnum: 3900
+name: the Kokiri Sword
+keywords: [kokiri, sword, blade, short]
+description: A short, bright sword with a blue hilt lies here, just the size for a child.
+look: |
+  The treasure of the Kokiri, kept in a chest in the forest's training
+  ground until a boy without a fairy came along: a short blade of bright
+  steel, a blue grip, and a guard shaped like a pair of leaves. It is
+  small and quick, made for a child's hand, and it finds the soft places
+  in things. Mido has been carrying it about to show that he is the
+  boss, and he has been holding it wrong.
+type: weapon
+weight: 1
+level: 6
+baseline: dagger
+value: 500
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

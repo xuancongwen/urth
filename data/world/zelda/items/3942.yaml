@@ -1,0 +1,15 @@
+vnum: 3942
+name: a river Zora's scaled greaves
+keywords: [river, zora's, zora, scaled, greaves, leggings]
+description: A pair of greaves of green, slimy scale lies here.
+look: |
+  Greaves of tough green scale, cut from a river Zora, the wild kind
+  that never left the rivers and spits fire at those who come near. They
+  smell of the lake and they are surprisingly hard to cut.
+type: armor
+slot: legs
+weight: 3
+level: 21
+baseline: medium
+value: 200
+flags: [drop]

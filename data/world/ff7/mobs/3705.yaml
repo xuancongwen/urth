@@ -1,0 +1,15 @@
+vnum: 3705
+name: one of Corneo's lackeys
+keywords: [corneo's, corneo, lackey, thug, henchman]
+description: One of Don Corneo's lackeys leans against the wall, picking his teeth.
+look: |
+  A thug in a cheap brown suit, one of the Don's household men, who
+  carry his messages, fetch his brides, and drop people through the
+  trapdoor into the sewers. He has brass knuckles on one hand and a
+  smirk on his face.
+level: 26
+flags: [assist]
+silver: 120
+attack:
+  kind: blunt
+  verb: punch

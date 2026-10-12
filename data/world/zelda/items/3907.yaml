@@ -1,0 +1,12 @@
+vnum: 3907
+name: the Goron's Ruby
+keywords: [goron's, goron, ruby, spiritual, stone, fire]
+description: A red jewel set in gold lies here, warm to the touch.
+look: |
+  The Spiritual Stone of Fire, a ruby the size of a fist in a setting of
+  gold, the treasure of the Gorons, warm as a coal. King Dodongo
+  swallowed it with a mouthful of good rocks. Princess Zelda will want
+  to know you have it.
+type: other
+weight: 1
+value: 300

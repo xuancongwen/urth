@@ -1,0 +1,14 @@
+vnum: 3809
+name: Dazil, the Desert Village
+description: |
+  A village of sandstone houses with blue doors, huddled round a deep
+  well at the edge of the Aveh desert, its people burnt brown and
+  careful with water. Since Shakhan seized the throne in Bledavik, Dazil
+  has quietly fed and hidden the rebels who still fight for the Fatima
+  line, and every stranger is watched until he has drunk his first cup
+  of water and proved he is not Shakhan's spy. Children sell dates from
+  the shade of the walls. The forest is east; the desert west.
+exits:
+  east: 3808
+  west: 3810
+flags: [safe]

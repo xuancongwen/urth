@@ -1,0 +1,21 @@
+vnum: 3749
+name: the Wizard Bracelet
+keywords: [wizard, bracelet, armlet]
+description: A bracelet of silver set with eight small coloured orbs lies here.
+look: |
+  A bracelet of silver set with eight little hollows, each holding a
+  coloured chip of materia, which rose out of the water at the altar
+  of the Forgotten Capital clutched in Jenova's grip. The Cetra wore
+  such things to call on the Planet's knowledge. It makes spells come
+  stronger and more often.
+type: armor
+slot: wrist
+weight: 0
+level: 53
+baseline: cloth
+value: 7000
+effects:
+  - { kind: spellPower, params: { mult: 1.12, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

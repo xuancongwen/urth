@@ -1,0 +1,13 @@
+vnum: 3904
+name: a bottled fairy
+keywords: [bottled, fairy, bottle, light]
+description: A corked glass bottle with a tiny fairy glowing inside it lies here.
+look: |
+  A small glass bottle with a cork, and inside it a fairy, a ball of
+  pink-white light with wings, bumping gently against the glass. It
+  lights the way wherever you carry it, and it seems quite happy to.
+  "Hey! Listen!" it says, now and then, about nothing in particular.
+type: light
+weight: 1
+value: 30
+burn: 2400

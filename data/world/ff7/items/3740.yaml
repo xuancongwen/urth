@@ -1,0 +1,24 @@
+vnum: 3740
+name: Gi Nattak's spear
+keywords: [gi, nattak's, nattak, spear, lance]
+description: A long spear of grey bone, carved with screaming faces, lies here.
+look: |
+  The spear of Gi Nattak, chief of the Gi, who led his tribe against
+  Cosmo Canyon five hundred years ago and was turned back at the gate
+  by Seto and his warriors. The Gi were not people, as people go;
+  their spirits remained in the cave and grew hungry. The spear drinks
+  from what it strikes.
+type: weapon
+weight: 3
+level: 44
+baseline: spear
+value: 5000
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: leech, params: { fraction: 0.06 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }

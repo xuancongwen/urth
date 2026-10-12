@@ -1,0 +1,20 @@
+vnum: 3752
+name: Sephiroth's black coat
+keywords: [sephiroth's, sephiroth, black, coat, leather, armor, armour]
+description: A long coat of black leather with silver pauldrons lies here.
+look: |
+  The long black leather coat of SOLDIER's greatest hero, open at the
+  chest, with silver pauldrons and straps across the body. It has been
+  through fire, the Lifestream and the end of the world without a
+  mark. Wounds close quickly under it.
+type: armor
+slot: body
+weight: 5
+level: 59
+baseline: plate
+value: 10000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.01 } }

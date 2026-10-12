@@ -1,0 +1,117 @@
+interval_seconds: 300
+resets:
+  # --- Kokiri Forest (the village and its shop are safe) ---
+  - { mob: 3900, room: 3900 }                                         # Link by his treehouse, who teaches riposte, shield block, and the spin of the blade
+  - { mob: 3901, room: 3901 }                                         # the Kokiri shopkeeper behind his log counter
+  - { item: 3904, room: 3903 }                                        # a bottled fairy left in the meadow for the dark inside the tree
+  - { mob: 3902, room: 3902, equip: [{ item: 3900, slot: wield }, { item: 3902, slot: shield }] }  # Mido barring the path with the Kokiri Sword he took and a Deku shield
+  - { mob: 3904, room: 3902, max: 5, equip: [{ item: 3901 }] }        # Deku Babas along the verge of the path
+  - { mob: 3904, room: 3902, max: 5 }                                 # likewise
+  - { mob: 3904, room: 3903, max: 5, equip: [{ item: 3901 }] }        # and in the Deku Tree's meadow
+  - { mob: 3904, room: 3903, max: 5 }                                 # likewise
+  - { mob: 3904, room: 3903, max: 5 }                                 # likewise
+  - { mob: 3903, room: 3903 }                                         # the Great Deku Tree, who teaches Entangle and Barkskin
+  - { mob: 3905, room: 3904, max: 4 }                                 # Skulltulas hanging in the shaft of the tree
+  - { mob: 3905, room: 3904, max: 4, equip: [{ item: 3903 }] }        # likewise
+  - { mob: 3905, room: 3904, max: 4 }                                 # likewise
+  - { mob: 3905, room: 3905, max: 4 }                                 # one more among the roots
+  - { mob: 3906, room: 3905, equip: [{ item: 3905, slot: neck }, { item: 3906 }, { item: 3924 }] }  # Queen Gohma on the ceiling of the roots, her eye on a thong round her neck and the Kokiri Emerald inside her
+  # --- Hyrule Field and Lon Lon Ranch ---
+  - { mob: 3907, room: 3910, max: 5 }                                 # Stalchildren clawing up out of the field
+  - { mob: 3907, room: 3910, max: 5, equip: [{ item: 3911, slot: wield }] }  # likewise
+  - { mob: 3907, room: 3910, max: 5 }                                 # likewise
+  - { mob: 3907, room: 3910, max: 5, equip: [{ item: 3911, slot: wield }] }  # likewise
+  - { mob: 3908, room: 3910, max: 2, equip: [{ item: 3912, slot: head }] }  # Peahats whirling over the grass
+  - { mob: 3908, room: 3910, max: 2 }                                 # likewise
+  - { mob: 3909, room: 3911 }                                         # Malon by the paddock fence, selling milk
+  - { mob: 3911, room: 3911, equip: [{ item: 3914, slot: wield }] }   # Ingo glowering at the horses, crop in hand
+  - { mob: 3910, room: 3912, equip: [{ item: 3913 }, { item: 3915 }] }  # Talon asleep in the stables, his pitchfork beside him
+  # --- Castle Town (safe) and the Temple of Time ---
+  - { mob: 3912, room: 3914 }                                         # the Bazaar shopkeeper under the Hylian Shield
+  - { mob: 3913, room: 3915 }                                         # the Potion Shop keeper in the steam
+  - { mob: 3914, room: 3917 }                                         # Princess Zelda at the courtyard window, who gives the Ocarina of Time for the three spiritual stones
+  - { mob: 3942, room: 3916 }                                         # Rauru by the pedestal, who gives the Master Sword for the Ocarina of Time
+  - { mob: 3943, room: 3916, equip: [{ item: 3948, slot: wield }, { item: 3949, slot: hold }] }  # Sheik in the shadow of a pillar, with needles and the Triforce of Wisdom
+  # --- Kakariko and the graveyard ---
+  - { mob: 3915, room: 3920 }                                         # Impa by the well, who teaches backstab and circle
+  - { mob: 3916, room: 3920 }                                         # the cursed man of the House of Skulltula, handing out quests
+  - { mob: 3918, room: 3921 }                                         # Dampé among the graves, selling lanterns
+  - { mob: 3917, room: 3921, max: 3, equip: [{ item: 3921 }] }        # Poes drifting between the stones, each with a soul to lose
+  - { mob: 3917, room: 3921, max: 3, equip: [{ item: 3921 }, { item: 3923, slot: shoulders }] }  # likewise
+  - { mob: 3917, room: 3921, max: 3, equip: [{ item: 3921 }] }        # likewise
+  # --- Shadow Temple, below the graveyard ---
+  - { mob: 3944, room: 3922, max: 3, equip: [{ item: 3950, slot: body }] }  # ReDeads standing still in the corridors
+  - { mob: 3944, room: 3922, max: 3 }                                 # likewise
+  - { mob: 3944, room: 3922, max: 3, equip: [{ item: 3950, slot: body }, { item: 3921 }] }  # likewise
+  - { mob: 3945, room: 3922, equip: [{ item: 3952, slot: hold }, { item: 3924 }] }  # the Dead Hand in its pit, the Lens of Truth in its fist
+  - { mob: 3946, room: 3923, equip: [{ item: 3953, slot: feet }, { item: 3954, slot: neck }, { item: 3924 }] }  # Bongo Bongo at its drum, in the Hover Boots, the Shadow Medallion round what passes for its neck
+  # --- Death Mountain ---
+  - { mob: 3919, room: 3924, max: 3 }                                 # Tektites jumping on the trail
+  - { mob: 3919, room: 3924, max: 3 }                                 # likewise
+  - { mob: 3919, room: 3924, max: 3, equip: [{ item: 3925 }] }        # likewise
+  - { mob: 3920, room: 3925 }                                         # the Goron shopkeeper, who sells the Goron Tunic
+  - { mob: 3921, room: 3926, equip: [{ item: 3929, slot: wield }] }   # Darunia in his chamber, the Megaton Hammer on his shoulder
+  - { mob: 3922, room: 3927, max: 3, equip: [{ item: 3925 }] }        # Dodongos in the cavern, full of bomb flowers
+  - { mob: 3922, room: 3927, max: 3, equip: [{ item: 3925 }, { item: 3925 }] }  # likewise
+  - { mob: 3922, room: 3927, max: 3 }                                 # likewise
+  - { mob: 3923, room: 3927, max: 2, equip: [{ item: 3927, slot: wield }] }  # Lizalfos in a pair on the ledges
+  - { mob: 3923, room: 3927, max: 2, equip: [{ item: 3927, slot: wield }, { item: 3926, slot: arms }] }  # likewise
+  - { mob: 3924, room: 3928, equip: [{ item: 3928, slot: wrist1 }, { item: 3907 }, { item: 3925 }, { item: 3924 }] }  # King Dodongo in his pit, the Goron's Ruby in his belly and the Goron's Bracelet in his frill
+  - { mob: 3925, room: 3929 }                                         # Biggoron on the summit, who forges his sword from a broken Giant's Knife
+  - { mob: 3926, room: 3930 }                                         # the Great Fairy in her fountain, who teaches the Good god's blessings and gives gifts for pieces of heart
+  # --- Zora's River, Zora's Domain (safe), and Jabu-Jabu ---
+  - { mob: 3927, room: 3931, max: 3 }                                 # Octoroks in the river pools
+  - { mob: 3927, room: 3931, max: 3, equip: [{ item: 3924 }] }        # likewise
+  - { mob: 3927, room: 3931, max: 3 }                                 # likewise
+  - { mob: 3928, room: 3932 }                                         # the Zora shopkeeper, who sells the Zora Tunic
+  - { mob: 3929, room: 3933, max: 3 }                                 # Biri floating in Jabu-Jabu's belly
+  - { mob: 3929, room: 3933, max: 3, equip: [{ item: 3931, slot: body }] }  # likewise
+  - { mob: 3929, room: 3933, max: 3 }                                 # likewise
+  - { mob: 3930, room: 3933, equip: [{ item: 3933, slot: neck }] }    # Princess Ruto in a puddle, in her silver scale
+  - { mob: 3931, room: 3934, equip: [{ item: 3908 }, { item: 3934, slot: wield }, { item: 3924 }] }  # Barinade on the ceiling of the pit, with Zora's Sapphire and the Boomerang inside it
+  # --- the Lost Woods and the Sacred Forest Meadow ---
+  - { mob: 3932, room: 3906, max: 3, equip: [{ item: 3935, slot: face }] }  # Skull Kids in the branches of the Lost Woods
+  - { mob: 3932, room: 3906, max: 3 }                                 # likewise
+  - { mob: 3932, room: 3906, max: 3, equip: [{ item: 3935, slot: face }, { item: 3924 }] }  # likewise
+  - { mob: 3933, room: 3906, max: 3 }                                 # a Wolfos in the woods
+  - { mob: 3933, room: 3907, max: 3, equip: [{ item: 3937, slot: shoulders }] }  # and two along the meadow hedges
+  - { mob: 3933, room: 3907, max: 3 }                                 # likewise
+  - { mob: 3934, room: 3907, max: 3, equip: [{ item: 3936, slot: wield }] }  # Moblins patrolling the maze
+  - { mob: 3934, room: 3907, max: 3, equip: [{ item: 3936, slot: wield }] }  # likewise
+  - { mob: 3934, room: 3907, max: 3 }                                 # likewise
+  - { mob: 3935, room: 3907 }                                         # Saria on her stump, who sells the Fairy Ocarina
+  - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3938, slot: wield }, { item: 3939, slot: shield }] }  # Stalfos in the Forest Temple halls
+  - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3938, slot: wield }] }  # likewise
+  - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3939, slot: shield }, { item: 3921 }] }  # likewise
+  - { mob: 3937, room: 3909, equip: [{ item: 3940, slot: wield }, { item: 3941, slot: neck }, { item: 3924 }] }  # Phantom Ganon in his gallery, with his spear and the Forest Medallion
+  # --- Lake Hylia and the Water Temple ---
+  - { mob: 3938, room: 3935, max: 3, equip: [{ item: 3942, slot: legs }] }  # river Zoras spitting fire from the reeds
+  - { mob: 3938, room: 3935, max: 3 }                                 # likewise
+  - { mob: 3938, room: 3935, max: 3 }                                 # likewise
+  - { mob: 3939, room: 3936, max: 3, equip: [{ item: 3943, slot: head }] }  # Like Likes at the temple's corners
+  - { mob: 3939, room: 3936, max: 3 }                                 # likewise
+  - { mob: 3939, room: 3936, max: 3, equip: [{ item: 3924 }] }        # likewise
+  - { mob: 3940, room: 3937, equip: [{ item: 3944, slot: wield }] }   # Dark Link in the Room of Mist, with your sword's shadow
+  - { mob: 3941, room: 3938, equip: [{ item: 3945, slot: neck }, { item: 3924 }] }  # Morpha in its pool, the Water Medallion inside the nucleus
+  # --- Gerudo Valley, the fortress, and the Desert Colossus ---
+  - { mob: 3947, room: 3939, max: 6, equip: [{ item: 3956, slot: wield }] }  # Gerudo guards watching the bridge
+  - { mob: 3947, room: 3939, max: 6, equip: [{ item: 3958, slot: face }] }  # likewise
+  - { mob: 3947, room: 3940, max: 6, equip: [{ item: 3956, slot: wield }, { item: 3957, slot: legs }] }  # and on the fortress walls
+  - { mob: 3947, room: 3940, max: 6, equip: [{ item: 3956, slot: wield }, { item: 3958, slot: face }] }  # likewise
+  - { mob: 3947, room: 3940, max: 6, equip: [{ item: 3957, slot: legs }] }  # likewise
+  - { mob: 3947, room: 3940, max: 6, equip: [{ item: 3956, slot: wield }] }  # likewise
+  - { mob: 3949, room: 3941, max: 3 }                                 # Leevers in the dunes of the Colossus
+  - { mob: 3949, room: 3941, max: 3 }                                 # likewise
+  - { mob: 3949, room: 3941, max: 3, equip: [{ item: 3924 }] }        # likewise
+  - { mob: 3948, room: 3941, equip: [{ item: 3959, slot: hands }, { item: 3956, slot: wield }, { item: 3957, slot: legs }] }  # Nabooru by the temple door, in the Silver Gauntlets
+  # --- the Spirit Temple ---
+  - { mob: 3950, room: 3942, max: 3, equip: [{ item: 3960, slot: wield }, { item: 3961, slot: head }] }  # Iron Knuckles standing like statues
+  - { mob: 3950, room: 3942, max: 3, equip: [{ item: 3960, slot: wield }] }  # likewise
+  - { mob: 3950, room: 3942, max: 3, equip: [{ item: 3961, slot: head }] }  # likewise
+  - { mob: 3951, room: 3943, equip: [{ item: 3963, slot: shield }, { item: 3964, slot: neck }, { item: 3965 }, { item: 3924 }] }  # Twinrova on their brooms, with the Mirror Shield, the Spirit Medallion, and the key to Ganon's Castle
+  # --- Ganon's Castle, through the locked gate north of the courtyard ---
+  - { mob: 3952, room: 3918, max: 4, equip: [{ item: 3966, slot: wield }] }  # Stalfos knights in the halls
+  - { mob: 3952, room: 3918, max: 4, equip: [{ item: 3966, slot: wield }] }  # likewise
+  - { mob: 3952, room: 3918, max: 4 }                                 # likewise
+  - { mob: 3952, room: 3918, max: 4, equip: [{ item: 3966, slot: wield }] }  # likewise
+  - { mob: 3953, room: 3919, equip: [{ item: 3969, slot: wield }, { item: 3970, slot: hold }, { item: 3971, slot: shoulders }] }  # Ganondorf at his organ, in the Gerudo King's mantle, with his sword and the Triforce of Power

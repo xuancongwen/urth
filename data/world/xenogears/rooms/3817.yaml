@@ -1,0 +1,13 @@
+vnum: 3817
+name: The Cathedral of Nisan
+description: |
+  A cathedral of white stone and stained glass, the light falling
+  through it in long blue and gold bars. Above the altar is a great
+  painting of the Holy Mother Sophia, and those who have seen Elly Van
+  Houten will look at its face twice. A girl of about fifteen in white
+  robes, with a determined chin, sits on the altar steps with a bundle
+  of letters. She is Marguerite Fatima, Bart's cousin, the heiress of
+  Nisan, and she is keeping a list. The city is south.
+exits:
+  south: 3816
+flags: [safe]

@@ -1,0 +1,24 @@
+vnum: 3742
+name: the Death Penalty
+keywords: [death, penalty, gun, revolver, pistol]
+description: A long three-barrelled revolver of black steel lies here.
+look: |
+  A huge revolver with three barrels stacked one above another, black
+  steel inlaid with silver, which Vincent Valentine once carried as a
+  Turk and which waited in a cave by a waterfall for him to come for
+  it. It grows stronger with every life it takes. Vincent says that is
+  only fitting.
+type: weapon
+weight: 2
+level: 46
+baseline: standard
+value: 6000
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.3 } }
+  - { kind: leech, params: { fraction: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }

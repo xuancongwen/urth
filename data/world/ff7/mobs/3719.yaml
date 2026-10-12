@@ -1,0 +1,21 @@
+vnum: 3719
+name: the Midgar Zolom
+keywords: [midgar, zolom, serpent, snake]
+description: The Midgar Zolom rears out of the swamp, dripping, higher than a house.
+look: |
+  A snake as long as a train, green-black and scaled, with a head
+  bigger than a wagon and a throat that swallows chocobos whole. It
+  lives in the marsh south of Kalm, and everyone who crosses it hires
+  a chocobo and runs. Someday someone will find it impaled on a dead
+  tree by a man with a very long sword. Not today.
+level: 39
+flags: [assist, aggressive]
+health: 6000
+stats: {strength: 17, constitution: 18}
+silver: 400
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: proc, params: { chance: 0.12, power: 1.2, verb: "Beta" } }

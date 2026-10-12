@@ -1,0 +1,20 @@
+vnum: 3758
+name: the brow-horn of Ultima Weapon
+keywords: [brow-horn, brow, horn, ultima, helm, crest]
+description: A crest of pale, ridged horn shaped to a head lies here.
+look: |
+  A crest of pale horn, ridged and veined with green light, that grew
+  from Ultima Weapon's brow, hollowed into a helm. Wearing it, you
+  hear something enormous breathing slowly, very far down: the Planet,
+  and its patience, which is running out.
+type: armor
+slot: head
+weight: 3
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: protect, params: { mult: 0.95 } }

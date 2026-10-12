@@ -1,0 +1,24 @@
+vnum: 3738
+name: Jenova SYNTHESIS
+keywords: [jenova, synthesis, alien, calamity]
+description: Jenova SYNTHESIS hangs from the cavern roof, writhing and whole.
+look: |
+  Every piece of Jenova, drawn together at last at the bottom of the
+  crater: a vast, pulsing mass of pale flesh hanging from the cavern
+  roof, with a body like a great seed-pod and tentacles that end in
+  hands. It is counting down. "Ultima," it whispers, without a mouth.
+  It is the reunion every black-cloaked man was walking toward, and
+  Sephiroth is beyond it.
+level: 57
+flags: [assist, aggressive]
+health: 40000
+stats: {constitution: 19, intelligence: 19}
+silver: 2000
+attack:
+  kind: psionic
+  verb: lash
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - { kind: aura, params: { power: 0.15, verb: "pulse of the Calamity" } }
+  - { kind: proc, params: { chance: 0.12, power: 1.3, verb: "Ultima" } }
+  - { kind: soak, params: { power: 0.1 } }

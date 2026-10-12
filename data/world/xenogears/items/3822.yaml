@@ -1,0 +1,15 @@
+vnum: 3822
+name: a plate of Deus's hull
+keywords: [plate, deus's, deus, hull, armor, armour]
+description: A curved plate of iridescent black metal lies here.
+look: |
+  A plate of the hull of Deus itself, black metal that shimmers with
+  colour like oil on water, shaped by some craft ten thousand years old
+  to fit a body that was not human. Strapped on, it fits yours, which is
+  somehow worse.
+type: armor
+slot: body
+weight: 8
+level: 60
+baseline: plate
+flags: [drop]

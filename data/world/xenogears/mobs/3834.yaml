@@ -1,0 +1,26 @@
+vnum: 3834
+name: Grahf
+keywords: [grahf, ghost, black, pilot]
+description: Grahf, the black-cloaked ghost, steps out of the girders. "Do you desire power?"
+look: |
+  A tall figure in a black cloak and a domed helmet of black metal that
+  hides his whole face, who appears wherever there is war, asking each
+  man he meets whether he desires power. He was at Lahan when it burned.
+  He is a man five hundred years dead who will not stay dead, the first
+  Contact of an age ago, wearing the body of his own son. He wants Fei;
+  you are in his way. He fights with his bare hands, and the dark comes
+  off him like smoke.
+level: 53
+flags: [assist, boss, aggressive]
+health: 22000
+stats: {strength: 22, constitution: 20, dexterity: 18}
+silver: 2000
+xp: 32000
+attack:
+  kind: psionic
+  verb: black fist
+effects:
+  - { kind: protect, params: { mult: 0.85 } }
+  - { kind: proc, params: { chance: 0.25, power: 1.5, verb: "black flame" } }
+  - { kind: leech, params: { fraction: 0.05 } }
+  - { kind: steady, params: { chance: 0.4 } }

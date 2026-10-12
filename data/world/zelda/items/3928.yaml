@@ -1,0 +1,19 @@
+vnum: 3928
+name: the Goron's Bracelet
+keywords: [goron's, goron, bracelet, band, bangle]
+description: A thick band of red-gold metal, too big for a Hylian wrist, lies here.
+look: |
+  A bracelet of the Gorons, a thick band of red-gold metal stamped with
+  the Goron crest, given by Darunia to his sworn brothers. A child who
+  wears it can pull up a bomb flower without blowing up; a grown hand
+  finds itself stronger and steadier.
+type: armor
+slot: wrist
+weight: 1
+level: 15
+value: 1200
+rarity: rare
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }
+  - { kind: steady, params: { chance: 0.2 } }

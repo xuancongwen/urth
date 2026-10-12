@@ -1,0 +1,14 @@
+vnum: 3810
+name: The Aveh Desert
+description: |
+  Sand, as far as there is anything to see, in long gold dunes under a
+  white sky. The heat comes up off the ground like the breath of an
+  oven. Here and there the ribs of a gear stick up out of the sand,
+  scoured silver, the remains of some battle no one remembers. Things
+  move under the surface: you can see the sand tremble ahead of them. An
+  Aveh patrol gear stalks along the ridgeline, scanning for the rebels'
+  sand ship. Dazil is east; the walls of Bledavik shimmer on the horizon
+  to the west.
+exits:
+  east: 3809
+  west: 3811

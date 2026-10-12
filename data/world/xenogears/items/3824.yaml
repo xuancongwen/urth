@@ -1,0 +1,22 @@
+vnum: 3824
+name: Bart's whip
+keywords: [bart's, bart, whip, lash]
+description: A long whip of braided black leather with a steel tip lies here.
+look: |
+  The whip of Bartholomew Fatima, young master of the Yggdrasil and
+  rightful heir to the throne of Aveh, braided from desert-serpent
+  leather with a steel tip that cracks louder than a rifle. He can take
+  the hat off a man at twenty paces, and the hand off him at fifteen.
+type: weapon
+weight: 1
+level: 33
+baseline: whip
+value: 3500
+weapon:
+  hands: 1
+  kind: slash
+  verb: lash
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.75, rounds: 2 } }
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,11 @@
+vnum: 3836
+name: The Place Within
+description: |
+  This is not really a place, though it looks like one: a burning
+  village that is also a laboratory, a child's bedroom that is also a
+  battlefield, all of it red. Here Fei's other self lives, the one who
+  took over when the boy could not bear what was happening to him. He is
+  Id, and he is waiting for you, grinning, with Fei's face and red hair
+  and nothing of Fei in his eyes. The field is north.
+exits:
+  north: 3835

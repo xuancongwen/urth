@@ -1,0 +1,21 @@
+vnum: 3963
+name: the Mirror Shield
+keywords: [mirror, shield, polished, silver]
+description: A tall shield of polished silver with a red snake-and-face crest lies here.
+look: |
+  The Mirror Shield, the treasure the Spirit Temple was built to keep: a
+  tall shield of polished silver with a face of red snakes painted on
+  it, which catches the sunlight, and spells, and throws them back at
+  whoever sent them. Twinrova were using it to look at themselves.
+type: armor
+slot: shield
+weight: 6
+level: 31
+baseline: shield
+value: 4500
+rarity: rare
+effects:
+  - { kind: block, params: { chance: 0.15 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: flash of reflected light } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

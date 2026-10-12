@@ -1,0 +1,14 @@
+vnum: 3736
+name: a dragon zombie
+keywords: [dragon, zombie, undead]
+description: A dragon zombie drags itself across the rocks, bones showing through its hide.
+look: |
+  A dragon that died on the rim of the crater, drawn there by the
+  Lifestream, and did not stay dead: hide hanging in rags from its
+  bones, wings torn, eyes gone, and a green glow where its heart was.
+  Its breath is the breath of the grave.
+level: 56
+flags: [assist, aggressive]
+attack:
+  kind: drain
+  verb: bite

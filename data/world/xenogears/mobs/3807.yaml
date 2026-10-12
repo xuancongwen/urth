@@ -1,0 +1,23 @@
+vnum: 3807
+name: Billy Lee Black
+keywords: [billy, lee, black, priest, etone]
+description: Billy Lee Black, priest of the Ethos, polishes a pistol at the altar rail.
+look: |
+  A slight boy of sixteen with pale hair and a pale serious face, in the
+  white cassock of an Etone, a priest of the Ethos, with a pair of
+  silver-chased pistols on his hips. He keeps the orphanage behind the
+  chapel and his little sister Primera with the money he makes hunting
+  monsters for the church. He prays to the good god and means it, and to
+  one who has taken the god's apostleship he teaches blessing, smiting,
+  and the prayer of healing. He has heard that Stier, the inquisitor, is
+  something other than he seems, and hiding below the chapel; bring him
+  Stier's claw and he will give you his spare pair of guns. Type
+  'practice' and 'list'.
+level: 42
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: shot
+teaches: [bless, smite, prayer_of_healing]
+trades:
+  - { item: 3828, items: [3829] }

@@ -1,0 +1,26 @@
+vnum: 3836
+name: Ramsus's sword
+keywords: [ramsus's, ramsus, kahran, kahr, sword, blade]
+description: A long, heavy sword with a guard like a crown lies here.
+look: |
+  The sword of Kahran Ramsus, Commander of the Gebler, made for him by
+  Krelian when he was made, and as perfect as he was meant to be: long,
+  straight, balanced, and so sharp that it seems to arrive before it is
+  swung. He was built to be the perfect man and he was never quite good
+  enough, and the sword knows it, and cuts as if to make up the
+  difference.
+type: weapon
+weight: 3
+level: 50
+baseline: standard
+value: 7500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: steady, params: { chance: 0.2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,20 @@
+vnum: 3930
+name: the Goron Tunic
+keywords: [goron, tunic, red, shirt]
+description: A red tunic of heavy, fireproof cloth lies here.
+look: |
+  A Goron tunic, red as a coal, woven by the Gorons for the Hylians who
+  are their friends so that they can breathe in the heart of a volcano.
+  It is heavy and thick and it smells of brimstone, and very little gets
+  through it.
+type: armor
+slot: body
+weight: 5
+level: 18
+baseline: medium
+value: 1800
+rarity: rare
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }

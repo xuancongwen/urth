@@ -1,0 +1,15 @@
+vnum: 3943
+name: a half-digested Hylian helm
+keywords: [half-digested, hylian, helm, helmet]
+description: A steel helm, slimy and pitted as if by acid, lies here.
+look: |
+  A Hylian knight's helm, pitted and smeared and very slightly
+  dissolved, spat out by a Like Like that could not quite manage it. It
+  still does the job. It smells awful.
+type: armor
+slot: head
+weight: 3
+level: 23
+baseline: heavy
+value: 200
+flags: [drop]

@@ -1,0 +1,25 @@
+vnum: 3822
+name: Seibzehn
+keywords: [seibzehn, gear, golden, giant, maria]
+description: Seibzehn, a golden gear twice the height of any other, unfolds its hands.
+look: |
+  Seibzehn, the seventeenth and last of Nikolai Balthasar's gears, gold
+  and black and ancient, made before Shevat learned to make gears and
+  better than anything it has made since. It answers only to Maria, the
+  small determined girl sitting on its shoulder, and it will not let
+  anyone touch her. Its great hands come apart from its body and fly. It
+  does not start fights. If you start one, you will not like how it
+  ends.
+level: 42
+flags: [assist]
+health: 7000
+stats: {strength: 20, constitution: 22}
+silver: 700
+xp: 14000
+attack:
+  kind: blunt
+  verb: flying fist
+effects:
+  - { kind: attacks, params: { amount: 0.3 } }
+  - { kind: proc, params: { chance: 0.25, power: 1.2, verb: "flying fist" } }
+  - { kind: soak, params: { power: 0.12 } }

@@ -1,0 +1,27 @@
+vnum: 3839
+name: Krelian
+keywords: [krelian, prophet, doctor]
+description: Krelian, the prophet of Deus, looks up from his tanks with sorrowful eyes.
+look: |
+  A slender man with long dark hair and white robes, with a gentle face
+  and the saddest eyes you have ever seen: Krelian, once a doctor of
+  Solaris, who loved a woman named Sophia and watched her die, and
+  decided that God must be made, since He had obviously not been. He
+  made Ramsus; he made the angels; he is waking Deus. He wants nothing
+  for himself. That is the frightening part. His Ether is the greatest
+  in the world.
+level: 58
+flags: [assist, boss]
+health: 34000
+stats: {intelligence: 24, wisdom: 22, constitution: 20}
+silver: 3000
+xp: 45000
+attack:
+  kind: magic
+  verb: ether storm
+effects:
+  - { kind: attacks, params: { amount: 0.5 } }
+  - { kind: protect, params: { mult: 0.8 } }
+  - { kind: aura, params: { power: 0.15, verb: "ether storm" } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "lance of Ether" } }
+  - { kind: steady, params: { chance: 0.5 } }

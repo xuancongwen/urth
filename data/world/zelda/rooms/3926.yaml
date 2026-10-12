@@ -1,0 +1,11 @@
+vnum: 3926
+name: Darunia's Chamber
+description: |
+  The chief's room, a cave with a rug and a stone throne, where Darunia
+  paces back and forth with his arms folded, fretting over his people's
+  food: the Dodongos have taken the cavern of good rocks, and the Gorons
+  are starving. He has not danced in a week. He hits the wall when he is
+  upset, and the wall has a dent in it the shape of a hammer. The city
+  is west.
+exits:
+  west: 3925

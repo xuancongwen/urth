@@ -1,0 +1,13 @@
+vnum: 3723
+name: The Ropeway Station at North Corel
+description: |
+  A rusted mining town of tin shacks below a scarred mountain, where
+  the people remember Barret Wallace and the day Shinra burned old
+  Corel to the ground. A ropeway gondola, painted in bright stripes,
+  climbs from here north into the sky to the Gold Saucer. The tunnel
+  to the Mythril Mine is west, and the desert road runs east toward
+  Cosmo Canyon.
+exits:
+  north: 3724
+  east: 3726
+  west: 3722

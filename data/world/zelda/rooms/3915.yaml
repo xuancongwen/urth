@@ -1,0 +1,11 @@
+vnum: 3915
+name: The Potion Shop
+description: |
+  A dim, steamy shop down three steps, its shelves crowded with bottles
+  of red, green, and blue liquid that glow faintly in the gloom. Strange
+  things float in jars: a fish with legs, a mushroom with a face. It
+  smells of herbs and something that is not herbs. The market is up the
+  steps.
+exits:
+  up: 3913
+flags: [safe]

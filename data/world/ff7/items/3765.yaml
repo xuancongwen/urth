@@ -1,0 +1,17 @@
+vnum: 3765
+name: the bracer of the Planet's wrath
+keywords: [bracer, planet's, planet, wrath, wrist, bracelet]
+description: A bracer of dark horn, cold as deep water, lies here.
+look: |
+  A bracer of dark grey horn, cold to the touch, from Ultima Weapon's
+  other foreleg. The Planet's anger is slow and heavy, and those it
+  touches grow slow and heavy too.
+type: armor
+slot: wrist
+weight: 1
+level: 60
+baseline: heavy
+value: 8000
+effects:
+  - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

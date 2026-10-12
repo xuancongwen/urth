@@ -1,0 +1,22 @@
+vnum: 3734
+name: Jenova LIFE
+keywords: [jenova, life, alien, calamity]
+description: Jenova LIFE rises from the pool, pale and dripping, its tendrils spread.
+look: |
+  Another shape of Jenova, risen from the pool at the altar where
+  Aerith died: a pale, glistening body like a great anemone, its
+  tendrils blue and translucent, every one of them reaching. It drips
+  with water and with something else. Sephiroth has left it here to
+  guard the place where the prayer was said.
+level: 53
+flags: [assist, aggressive]
+health: 30000
+stats: {constitution: 18, intelligence: 18}
+silver: 1500
+attack:
+  kind: cold
+  verb: lash
+effects:
+  - { kind: attacks, params: { amount: 1 } }
+  - { kind: proc, params: { chance: 0.15, power: 1.2, verb: "Blue Light" } }
+  - { kind: thorns, params: { fraction: 0.1, verb: "reflecting skin" } }

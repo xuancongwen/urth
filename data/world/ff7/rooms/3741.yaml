@@ -1,0 +1,11 @@
+vnum: 3741
+name: The Center of the Planet
+description: |
+  The bottom of the crater, where the Lifestream gathers in a sea of
+  light. In a cocoon of green crystal hangs a body, the real
+  Sephiroth, dreaming the Meteor down. And before you, standing on
+  nothing over the glow, waits Sephiroth as you know him: silver hair,
+  black coat, a sword longer than he is tall. Music seems to swell
+  from everywhere. The path climbs back up.
+exits:
+  up: 3740

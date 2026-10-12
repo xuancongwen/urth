@@ -1,0 +1,15 @@
+vnum: 3922
+name: a Dodongo
+keywords: [dodongo, lizard, fire]
+description: A Dodongo waddles across the cavern floor, smoke curling from its nostrils.
+look: |
+  A fat lizard the size of a pony, with a thick tail and a frill, which
+  eats bomb flowers and rocks and breathes fire, slowly, after a long
+  intake of breath that you can hear coming. Its hide is tough
+  everywhere but its belly and its mouth.
+level: 13
+flags: [assist]
+silver: 20
+attack:
+  kind: fire
+  verb: flame

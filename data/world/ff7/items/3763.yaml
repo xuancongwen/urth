@@ -1,0 +1,18 @@
+vnum: 3763
+name: Ultima Weapon's talon-gauntlets
+keywords: [ultima, weapon's, talon-gauntlets, talon, gauntlets, talons, hands]
+description: A pair of gauntlets tipped with hooked claws of horn lies here.
+look: |
+  Gauntlets made from the talons of Ultima Weapon, each finger ending
+  in a hooked claw of pale horn. They find seams in armour the way
+  water finds cracks.
+type: armor
+slot: hands
+weight: 1
+level: 60
+baseline: light
+value: 8000
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: crit, params: { chance: 0.07, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.25 } }

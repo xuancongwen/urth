@@ -1,0 +1,14 @@
+vnum: 3834
+name: The Tower of Babel
+description: |
+  The ruin of a great tower, the Tower of Babel, built from the wreckage
+  of the colony ship that brought humans to this world ten thousand
+  years ago: girders and hull plates heaped into a spire that pierces
+  the clouds. The wind howls through it. It is here that Grahf, the
+  ghostly pilot in black, who appears wherever there is fighting and has
+  haunted Fei's every step, comes to wait for him. "Have you come to
+  seek power?" says a voice from the girders. Zeboim is east; the tower
+  opens west on a plain where a crimson gear stands.
+exits:
+  east: 3833
+  west: 3835

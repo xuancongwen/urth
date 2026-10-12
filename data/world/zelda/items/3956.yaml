@@ -1,0 +1,17 @@
+vnum: 3956
+name: a Gerudo scimitar
+keywords: [gerudo, scimitar, sword, curved]
+description: A curved, broad-bladed scimitar with a golden guard lies here.
+look: |
+  A Gerudo scimitar, a broad crescent of bright steel with a hilt of
+  brass, made to be swung in pairs by women who learned to fight before
+  they learned to read. It is very sharp.
+type: weapon
+weight: 2
+level: 27
+baseline: standard
+value: 300
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

@@ -1,0 +1,15 @@
+vnum: 3815
+name: Aboard the Sand Ship Yggdrasil
+description: |
+  The deck of the Yggdrasil, the rebel sand ship, a long low hull of
+  steel and teak that sails the dunes as a ship sails the sea, with a
+  conning tower aft and a gear hangar below. Pirates in bandanas coil
+  lines and polish the guns. Sigurd, tall and dark with a patch over one
+  eye, stands at the helm. Down by the hatch, an elderly butler with an
+  immaculate moustache has set up a table of spare parts, gear alloys,
+  and good tea. The Bledavik moorings are east; when the ship next sails
+  it will carry you west, to the holy city of Nisan.
+exits:
+  east: 3811
+  west: 3816
+flags: [safe]

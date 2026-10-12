@@ -1,0 +1,20 @@
+vnum: 3916
+name: the Hylian Shield
+keywords: [hylian, shield, blue, large]
+description: A tall blue shield with a red bird and a golden Triforce lies here.
+look: |
+  The shield of the Hylian knights, tall and blue and steel-rimmed, with
+  the red bird of the royal family and the golden Triforce on its face.
+  It is too big for a child to hold and just right for anyone else, and
+  it does not burn. Behind it you stand a little straighter.
+type: armor
+slot: shield
+weight: 6
+level: 12
+baseline: shield
+value: 900
+rarity: rare
+effects:
+  - { kind: block, params: { chance: 0.14 } }
+  - { kind: protect, params: { mult: 0.92 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

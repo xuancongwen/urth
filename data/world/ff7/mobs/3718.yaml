@@ -1,0 +1,14 @@
+vnum: 3718
+name: an Ark Dragon
+keywords: [ark, dragon, wyvern]
+description: An Ark Dragon clings to the mine roof, wings folded.
+look: |
+  A small dragon with ragged leather wings, mottled like the rock of
+  the mine, that nests among the mythril veins and breathes a short,
+  hot gout of flame. It swallows ore for its gizzard, and shards of
+  crystal rattle inside it.
+level: 38
+flags: [assist, aggressive]
+attack:
+  kind: fire
+  verb: breathe on

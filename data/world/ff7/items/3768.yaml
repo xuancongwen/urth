@@ -1,0 +1,18 @@
+vnum: 3768
+name: the clawed boots of Ultima Weapon
+keywords: [clawed, boots, ultima, weapon, feet]
+description: A pair of boots ending in three curved claws lies here.
+look: |
+  Boots made from the feet of Ultima Weapon, light horn ending in
+  three curved claws that grip rock and ice alike. The beast could
+  vanish from one place and be in another in a breath. So, nearly, can
+  you.
+type: armor
+slot: feet
+weight: 1
+level: 60
+baseline: light
+value: 8000
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

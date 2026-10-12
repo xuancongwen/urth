@@ -1,0 +1,11 @@
+vnum: 3738
+name: The Great Glacier
+description: |
+  A world of white: snowfields and ice cliffs under a low grey sky,
+  where the wind takes your breath and a man can wander in circles for
+  a day without knowing it. Hot springs steam in a valley. The tracks
+  of large things are everywhere in the snow. The Forgotten Capital is
+  west, and the land falls away east toward the crater.
+exits:
+  east: 3739
+  west: 3736

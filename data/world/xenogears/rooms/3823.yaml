@@ -1,0 +1,17 @@
+vnum: 3823
+name: The Ethos Chapel
+description: |
+  A white chapel of the Ethos church, the faith that keeps the world's
+  peace and digs up its past, with rows of pews and a bell and an
+  orphanage built on behind it. A small girl with grave eyes, Primera,
+  watches from the orphanage door and says nothing at all; she has not
+  spoken since her mother died. Her brother is the young priest at the
+  altar, a boy of sixteen with pale hair, a white cassock, and a pair of
+  pistols on his hips, which the Ethos does not encourage. The docks are
+  north; a closed stair goes down, south, to the church's excavation.
+exits:
+  north: 3822
+  south: 3824
+doors:
+  south: { name: "the excavation door", closed: true }
+flags: [safe]

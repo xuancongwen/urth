@@ -1,0 +1,19 @@
+vnum: 3833
+name: Tolone's earthen bracer
+keywords: [tolone's, tolone, earthen, bracer, bracelet]
+description: A heavy bracer of brown stone-like metal lies here.
+look: |
+  A broad bracer of brown alloy as heavy as stone, worn by Tolone of the
+  Elements, mistress of earth, a quiet woman who wears spectacles and
+  strikes like a landslide. Blows on the arm that wears it seem to fall
+  on rock.
+type: armor
+slot: wrist
+weight: 2
+level: 46
+baseline: heavy
+value: 4500
+effects:
+  - { kind: soak, params: { power: 0.07 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

@@ -1,0 +1,11 @@
+vnum: 3821
+name: The Sewers below D-Block
+description: |
+  A brick sewer under the prison, ankle deep in water you do not want to
+  think about, and smelling of it. Kislev's scientists have been tipping
+  their failed experiments down here for years, and some of them did not
+  die. Something large is moving in the dark, sloshing. The grating up
+  into D-Block is north.
+exits:
+  north: 3820
+flags: [dark]

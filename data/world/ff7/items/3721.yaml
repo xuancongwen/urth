@@ -1,0 +1,17 @@
+vnum: 3721
+name: a crystal sword
+keywords: [crystal, sword, blade]
+description: A sword of clear, faceted crystal lies here.
+look: |
+  A sword with a blade of clear, faceted crystal, light as glass and
+  harder than steel, of a kind the Cetra are said to have made. It
+  rings faintly when it strikes.
+type: weapon
+weight: 2
+level: 51
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+flags: [drop]

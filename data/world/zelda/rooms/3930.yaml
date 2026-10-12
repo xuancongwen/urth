@@ -1,0 +1,12 @@
+vnum: 3930
+name: The Great Fairy's Fountain
+description: |
+  A secret cave behind the summit, its walls tiled in pink and gold, its
+  floor a pool of clear water lit from below, and the air full of small
+  fairies. A Triforce is set in the floor before the pool. Stand on it
+  and play a song, and the Great Fairy rises from the water, laughing,
+  enormous, magnificent, with hair the colour of ivy. The way out is
+  south.
+exits:
+  south: 3929
+flags: [safe]

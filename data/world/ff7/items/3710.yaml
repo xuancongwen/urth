@@ -1,0 +1,16 @@
+vnum: 3710
+name: a mythril saber
+keywords: [mythril, saber, sword]
+description: A slim sword of pale, shining mythril lies here.
+look: |
+  A slender saber of mythril, light and bright, its blade catching the
+  light like water. The ore comes from the old mine south of Kalm, and
+  Wall Market's smiths turn it into the best blade a slum can buy.
+type: weapon
+weight: 2
+level: 30
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

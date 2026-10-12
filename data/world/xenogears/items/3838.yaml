@@ -1,0 +1,21 @@
+vnum: 3838
+name: Miang's circlet
+keywords: [miang's, miang, hawwa, circlet, diadem]
+description: A delicate circlet of silver set with a single red stone lies here.
+look: |
+  A circlet of silver wire, delicate as a spider's web, set with a red
+  stone over the brow: the token of Miang Hawwa, the woman who has been
+  born again and again in different bodies for ten thousand years to
+  guide humanity back to Deus, and who has been every chancellor, every
+  whisper, every sweet reasonable voice behind every war. Worn, it makes
+  your words very hard to refuse.
+type: armor
+slot: head
+weight: 0
+level: 50
+baseline: cloth
+value: 7000
+effects:
+  - { kind: spellPower, params: { mult: 1.12, school: enchantment } }
+  - { kind: penetration, params: { amount: 0.12, branch: arcane } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

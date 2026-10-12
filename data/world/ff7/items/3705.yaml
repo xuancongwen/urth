@@ -1,0 +1,16 @@
+vnum: 3705
+name: a Shinra MP rifle
+keywords: [shinra, mp, rifle, gun]
+description: A blue-grey Shinra rifle lies here.
+look: |
+  A standard-issue rifle of the Shinra military police, blue-grey
+  steel with the company logo stamped on the stock. It is cheap,
+  reliable, and made by the thousand, like the men who carry it.
+type: weapon
+weight: 3
+level: 21
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

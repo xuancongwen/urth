@@ -1,0 +1,15 @@
+vnum: 3936
+name: a Stalfos
+keywords: [stalfos, skeleton, swordsman, undead]
+description: A Stalfos rattles up out of the floor, sword raised over its shield.
+look: |
+  A tall skeleton warrior in the remains of armour, a great broken sword
+  in its hands, which rises from the floor of the Forest Temple whenever
+  a door shuts and fights with all the skill it had when it was a man.
+  It leaps back from your swings and comes in under them.
+level: 20
+flags: [assist]
+silver: 40
+attack:
+  kind: slash
+  verb: hack

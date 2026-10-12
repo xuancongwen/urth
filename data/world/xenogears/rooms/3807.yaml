@@ -1,0 +1,12 @@
+vnum: 3807
+name: A Campfire in the Black Moon Forest
+description: |
+  A small clearing where someone has made a careful fire of dry pine and
+  rolled a log beside it to sit on. Not far off, half sunk in the moss,
+  lies a slender red gear with Aveh's mark, its pilot evidently unhurt:
+  she is sitting by the fire in a Gebler officer's uniform, with her
+  knees pulled up and her chin on them, watching the flames. The
+  firelight does not reach far. The forest path is south.
+exits:
+  south: 3806
+flags: [dark]

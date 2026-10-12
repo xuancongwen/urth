@@ -1,0 +1,18 @@
+vnum: 3911
+name: a stalchild's femur
+keywords: [stalchild's, stalchild, femur, bone, club]
+description: A long, brown thighbone lies here in the grass.
+look: |
+  The thighbone of something that was nearly a person once, brown with
+  earth and knobbed at both ends. The Stalchildren lose bits of
+  themselves as they fight, and this one makes a decent club.
+type: weapon
+weight: 2
+level: 9
+baseline: mace
+value: 40
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club
+flags: [drop]

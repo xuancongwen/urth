@@ -1,0 +1,14 @@
+vnum: 3949
+name: a Leever
+keywords: [leever, sand, burrower, spinning]
+description: A Leever spins up out of the sand, its spines whirring.
+look: |
+  A spiny green thing like a cactus that spins out of the sand and rolls
+  at you, spines first, then sinks back in before you can hit it. The
+  desert is full of them.
+level: 28
+flags: [assist]
+silver: 40
+attack:
+  kind: pierce
+  verb: spin

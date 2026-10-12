@@ -1,0 +1,14 @@
+vnum: 3802
+name: The Village Chief's House
+description: |
+  A low, warm room under the eaves of the chief's house, smelling of
+  linseed oil and turpentine. Canvases lean against every wall: the
+  woods, the well, the bride's face, a strange tall tower, and again and
+  again a woman with long hair whose face is never finished. An easel
+  stands by the window with a half-done painting of Lahan in the evening
+  light. A young man with a long black ponytail found three years ago at
+  the edge of the village, hurt, with no memory of who he was, has lived
+  here ever since. The stair goes back down, south, to the square.
+exits:
+  south: 3801
+flags: [safe]

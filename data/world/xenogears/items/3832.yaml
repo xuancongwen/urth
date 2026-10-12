@@ -1,0 +1,20 @@
+vnum: 3832
+name: Kelvena's veil of still water
+keywords: [kelvena's, kelvena, veil, still, water, mask]
+description: A veil of blue gauze that ripples like water lies here.
+look: |
+  A veil of blue gauze, worn by Kelvena of the Elements, the calm one,
+  mistress of water, who never raises her voice and never misses. It
+  ripples as though it were wet, though it is dry, and it is cool on the
+  face. Behind it the mind goes quiet and clear.
+type: armor
+slot: face
+weight: 0
+level: 46
+baseline: cloth
+value: 4500
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.1 } }
+  - { kind: chill, params: { chance: 0.12, mult: 0.75, rounds: 2 } }

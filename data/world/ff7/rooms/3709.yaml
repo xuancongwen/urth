@@ -1,0 +1,12 @@
+vnum: 3709
+name: Don Corneo's Mansion
+description: |
+  A gaudy house of red carpets, gilt frames and paintings of the Don
+  himself, guarded by men in bad suits who smirk at you. Upstairs a
+  bedroom with a heart-shaped bed waits for whichever bride the Don
+  chooses tonight. A trapdoor in the floor of the hall drops into the
+  sewers below, which is where the Don sends people who disappoint
+  him. The street is north.
+exits:
+  north: 3708
+  down: 3710

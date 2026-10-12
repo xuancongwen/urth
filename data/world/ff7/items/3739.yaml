@@ -1,0 +1,19 @@
+vnum: 3739
+name: a champion belt
+keywords: [champion, belt]
+description: A huge gold belt with a lion's head on the buckle lies here.
+look: |
+  The prize belt of the Battle Square, a broad band of red leather
+  with a golden lion's-head buckle the size of a dinner plate, awarded
+  by Dio himself to fighters who win every bout in a row. It is heavy,
+  gaudy, and an honour. It makes you stand up straighter.
+type: armor
+slot: belt
+weight: 2
+level: 42
+baseline: heavy
+value: 5000
+effects:
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: protect, params: { mult: 0.95 } }

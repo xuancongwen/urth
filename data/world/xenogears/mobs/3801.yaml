@@ -1,0 +1,26 @@
+vnum: 3801
+name: Dr. Citan Uzuki
+keywords: [citan, uzuki, doctor, dr., dr, spectacles]
+description: Dr. Citan Uzuki pours tea with a bow, his spectacles catching the light.
+look: |
+  A slim man in a plain gi and round spectacles, polite, unhurried, and
+  a little amused at everything, who is the country doctor of Lahan and
+  an inventor and a scholar, and who seems to know a remarkable amount
+  about gears, Solaris, and the history of the world for a man who lives
+  on a hill. "Ah, Fei's friend," he says. "Do sit down." He makes
+  lanterns for the forest; he will part with his second-best katana for
+  a price; and his true sword, a Shevat blade, he keeps for a day he
+  hopes will not come, though for enough silver and enough gear parts to
+  mend what he is building he might let it go. To someone who can
+  already hold a blade, he teaches how to answer a blow and how to make
+  an opening where there is none. Type 'list' and 'practice'.
+level: 45
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: slash
+teaches: [riposte, feint]
+trades:
+  - { item: 3802, silver: 30 }
+  - { item: 3823, silver: 3000 }
+  - { item: 3837, silver: 9000, items: [3800, 3800, 3800] }

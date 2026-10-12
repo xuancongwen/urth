@@ -1,0 +1,15 @@
+vnum: 3733
+name: Wutai
+description: |
+  A town of red pagodas and paper lanterns on an island far to the
+  west, once a great nation that went to war with Shinra and lost. Now
+  it lives on tourism and old pride. The Pagoda of the Five Gods
+  stands over the town, and its lord, Godo, waits on the top floor for
+  anyone who wants to fight their way to him. The sea crossing back to
+  Rocket Town is west, the Da-Chao mountain north, and the road east
+  leads to the forests where the Ancients built their temple.
+exits:
+  north: 3734
+  east: 3735
+  west: 3731
+flags: [safe]

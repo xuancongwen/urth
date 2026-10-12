@@ -1,0 +1,19 @@
+vnum: 3748
+name: the Bahamut materia
+keywords: [bahamut, materia, orb, summon, red]
+description: A red orb glowing with a slow, fiery light lies here.
+look: |
+  A sphere of red crystal as big as an apple, which the Red Dragon of
+  the Temple of the Ancients kept in its breast: summon materia,
+  holding the King of Dragons himself. Held, it burns warm in the
+  palm, and every now and then something vast stirs inside it and
+  looses a breath of flare upon whatever you are fighting.
+type: armor
+slot: hold
+weight: 1
+level: 52
+value: 7000
+effects:
+  - { kind: proc, params: { chance: 0.15, power: 1.5, verb: "Mega Flare" } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

@@ -1,0 +1,13 @@
+vnum: 3735
+name: a bandersnatch
+keywords: [bandersnatch, wolf, beast]
+description: A bandersnatch prowls through the snow, its white fur bristling.
+look: |
+  A great white wolf-like beast of the Great Glacier, with frost in
+  its fur and eyes like chips of ice. It hunts by stealth, and it can
+  smell blood across a mile of snow.
+level: 54
+flags: [assist, aggressive]
+attack:
+  kind: bite
+  verb: bite

@@ -1,0 +1,18 @@
+vnum: 3726
+name: Palmer
+keywords: [palmer, fat, executive, space]
+description: Palmer waddles about the launch pad in a Hawaiian shirt, shouting.
+look: |
+  A short, round, balding man in a loud shirt, head of Shinra's space
+  programme, which the company cancelled years ago and has now, for
+  its own reasons, revived. He giggles when he is nervous, which is
+  always. "Uhuhuhu! Lard! I need more lard in my tea!" He has a gun.
+  It squirts mako. He is not as slow as he looks, quite.
+level: 46
+flags: [assist]
+health: 3000
+stats: {constitution: 15}
+silver: 2000
+attack:
+  kind: fire
+  verb: squirt

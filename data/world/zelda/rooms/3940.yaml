@@ -1,0 +1,12 @@
+vnum: 3940
+name: Gerudo's Fortress
+description: |
+  A fortress of sandstone built into the cliffs, all ladders, walkways,
+  and doorways hung with cloth, where Gerudo guards with paired
+  scimitars patrol the roofs and arrows come from nowhere. Their king is
+  away. West, beyond the gate, the Haunted Wasteland stretches off into
+  blowing sand, and a line of flags marks a way across it; north is the
+  valley.
+exits:
+  north: 3939
+  west: 3941

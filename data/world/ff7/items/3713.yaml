@@ -1,0 +1,13 @@
+vnum: 3713
+name: a carbon bangle
+keywords: [carbon, bangle, bracelet, armlet]
+description: A black bangle of woven carbon fibre lies here.
+look: |
+  A light bracelet of woven carbon fibre, worn over the wrist to turn
+  a blade. Kalm's shops sell them by the dozen to travellers who are
+  about to cross the marsh.
+type: armor
+slot: wrist
+weight: 1
+level: 36
+baseline: medium

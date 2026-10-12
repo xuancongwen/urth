@@ -1,0 +1,16 @@
+vnum: 3700
+name: a shard of mako crystal
+keywords: [shard, mako, crystal, materia]
+description: A sliver of glowing green crystal lies here.
+look: |
+  A finger-long sliver of crystallised mako, the Planet's life
+  condensed until it turns to stone, glowing a faint, cold green. Deep
+  in the reactors and wherever the Lifestream runs close to the
+  surface, mako hardens into crystal like this, and from crystal like
+  this materia is made. Every shopkeeper from Midgar to Wutai will
+  take it in trade.
+type: material
+material: mako crystal
+rarity: common
+weight: 0
+value: 25

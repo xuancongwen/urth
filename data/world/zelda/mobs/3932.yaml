@@ -1,0 +1,15 @@
+vnum: 3932
+name: a Skull Kid
+keywords: [skull, kid, imp, mask]
+description: A Skull Kid squats on a stump, playing a flute and grinning at you.
+look: |
+  A little imp with a wooden mask for a face, a straw hat, and spindly
+  arms, playing a flute on a stump. Skull Kids were children who got
+  lost in the woods and never came out. They are not happy with grown-
+  ups, and they throw needles.
+level: 17
+flags: [assist]
+silver: 30
+attack:
+  kind: pierce
+  verb: needle

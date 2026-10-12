@@ -1,0 +1,15 @@
+vnum: 3932
+name: Zora's Domain
+description: |
+  A great blue cavern behind the waterfall, all pools and falls and
+  light shimmering on stone, where the Zoras, a tall, graceful people
+  with fishlike heads, live in the water. King Zora, very fat, sits on
+  his throne and wobbles. Behind the throne a passage east leads to
+  Zora's Fountain, where Lord Jabu-Jabu, the giant fish the Zoras
+  worship, floats with his mouth open. A deep pool to the south is a
+  waterway to Lake Hylia. The river is west.
+exits:
+  west: 3931
+  east: 3933
+  south: 3935
+flags: [safe]

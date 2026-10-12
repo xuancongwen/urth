@@ -1,0 +1,14 @@
+vnum: 3711
+name: The Foot of the Sector 7 Pillar
+description: |
+  The great support pillar of the Sector 7 plate: a column of steel
+  and concrete so wide you could build a town round its base, which is
+  what the slums have done. A spiral stairway climbs its outside
+  toward the plate, past girders and walkways where Shinra soldiers
+  are taking up positions. If the pillar ever fell, the whole plate
+  would come down on the slums. The slums are west, Wall Market south,
+  and the stairs go up.
+exits:
+  south: 3708
+  west: 3704
+  up: 3712

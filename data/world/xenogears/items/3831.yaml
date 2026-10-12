@@ -1,0 +1,18 @@
+vnum: 3831
+name: Seraphita's bell collar
+keywords: [seraphita's, seraphita, bell, collar, choker]
+description: A ribbon collar with a little silver bell lies here.
+look: |
+  A red ribbon collar with a silver bell, which Seraphita of the
+  Elements, who is very fond of cats and acts like one, wore around her
+  neck and jingled to annoy Dominia. Worn, it makes you light on your
+  feet and very hard to catch.
+type: armor
+slot: neck
+weight: 0
+level: 45
+value: 4500
+effects:
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

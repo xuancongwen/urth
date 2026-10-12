@@ -1,0 +1,17 @@
+vnum: 3816
+name: a Battling contender
+keywords: [battling, contender, gear, pilot, machine]
+description: A Battling contender's gear flexes its arms at the edge of the arena.
+look: |
+  A fighting gear painted in loud stripes and covered in sponsors'
+  names, its arms reinforced for Battling, with a scarred pilot in the
+  open cockpit grinning at you. They fight in the arena for money and
+  glory, and in the alleys behind it for money alone.
+level: 35
+flags: [assist]
+silver: 150
+attack:
+  kind: blunt
+  verb: punch
+loot:
+  - { item: 3800, chance: 0.4 }

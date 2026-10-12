@@ -1,0 +1,20 @@
+vnum: 3839
+name: the crown of Emperor Cain
+keywords: [crown, emperor, cain, cain's, solarian]
+description: A slender crown of white gold lies here.
+look: |
+  The crown of the Emperor of Solaris, a thin band of white gold, which
+  Cain has worn for five hundred years, kept alive by the Gazel Ministry
+  to rule in their name. He has grown tired and wise under it. It is
+  heavy with all that patience.
+type: armor
+slot: head
+weight: 1
+level: 52
+baseline: heavy
+value: 8000
+effects:
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }

@@ -1,0 +1,12 @@
+vnum: 3730
+name: The Basement of the Shinra Mansion
+description: |
+  A cellar of rough stone below the mansion: a library of moldering
+  research notes where Sephiroth once read for days and came out mad,
+  a laboratory, and a crypt lined with coffins. One coffin is open. A
+  tall, pale man in a red cloak sits on its edge, his golden claw
+  folded on his knee, and asks you why you have woken him. The stair
+  goes up.
+exits:
+  up: 3729
+flags: [dark]

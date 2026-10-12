@@ -1,0 +1,14 @@
+vnum: 3729
+name: a Wutai ninja
+keywords: [wutai, ninja, shinobi]
+description: A Wutai ninja crouches on a ledge, half hidden.
+look: |
+  A ninja of Wutai in red-lacquered armour and a dark hood, one of the
+  few who kept to the old ways after the war with Shinra. They guard
+  the Da-Chao with long blades and a great deal of pride.
+level: 48
+flags: [assist]
+silver: 150
+attack:
+  kind: slash
+  verb: slash

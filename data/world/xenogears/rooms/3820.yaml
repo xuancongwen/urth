@@ -1,0 +1,13 @@
+vnum: 3820
+name: D-Block
+description: |
+  The prison quarter of Nortune, a city within the city, walled and
+  roofed and full: Kislev keeps its convicts here, and its convicts keep
+  D-Block. Laundry hangs between the cell windows. Men play cards on
+  upturned crates and watch you with professional interest. A Battling
+  poster with the champion's face has been carefully defaced. The gate
+  to the streets is north; a broken drain grating opens south into the
+  sewers.
+exits:
+  north: 3818
+  south: 3821

@@ -1,0 +1,17 @@
+vnum: 3812
+name: an Aveh patrol gear
+keywords: [aveh, patrol, gear, machine, mech]
+description: An Aveh patrol gear sweeps the dunes with its searchlight.
+look: |
+  A light, fast gear on long legs built for the sand, with a searchlight
+  for a head and a rifle on its arm, which patrols the desert hunting
+  for the rebel sand ship and anyone who helps it. Its pilot has been in
+  the sun a long time and has stopped asking questions.
+level: 30
+flags: [assist, aggressive]
+silver: 90
+attack:
+  kind: pierce
+  verb: shot
+loot:
+  - { item: 3800, chance: 0.4 }

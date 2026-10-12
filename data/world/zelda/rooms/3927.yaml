@@ -1,0 +1,14 @@
+vnum: 3927
+name: Dodongo's Cavern
+description: |
+  A huge cavern in the mountain where the Gorons once quarried their
+  best rocks, now full of lava pools, bomb flowers, and Dodongos, fat
+  fire-breathing lizards that eat both. Lizalfos, quick reptile
+  swordsmen, drop from the ledges in pairs. A huge skull, the size of a
+  house, is carved into the far wall with its mouth closed and its eyes
+  dark. The trail is west; east, past the skull, a passage descends to
+  where something enormous is snoring.
+exits:
+  west: 3924
+  east: 3928
+flags: [dark]

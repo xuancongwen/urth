@@ -1,0 +1,23 @@
+vnum: 3944
+name: Dark Link's sword
+keywords: [dark, link's, link, sword, shadow, black]
+description: A sword exactly like the Master Sword, but black, lies here.
+look: |
+  The sword of Dark Link, the shadow that rises from the water in the
+  Room of Mist: the image of the Master Sword in every line, but black,
+  and cold, and it does not reflect. It moves as you move, a moment
+  before you do.
+type: weapon
+weight: 2
+level: 24
+baseline: standard
+value: 3500
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: dodge, params: { amount: 0.04 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

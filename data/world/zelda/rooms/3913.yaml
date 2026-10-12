@@ -1,0 +1,17 @@
+vnum: 3913
+name: Castle Town Market
+description: |
+  A busy cobbled square inside Hyrule Castle Town's walls, round a
+  fountain, crowded with stalls and dogs and gossips and a man selling
+  masks from a pack. Shops crowd the square: the Bazaar is up a stair
+  over the fish stall, and the Potion Shop is down three steps behind a
+  green door. East, a lane runs to the steps of the Temple of Time,
+  whose bells ring on the hour; north, the road climbs to Hyrule Castle;
+  south, the drawbridge crosses the moat to Hyrule Field.
+exits:
+  south: 3910
+  north: 3917
+  east: 3916
+  up: 3914
+  down: 3915
+flags: [safe]

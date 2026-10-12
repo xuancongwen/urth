@@ -1,0 +1,14 @@
+vnum: 3803
+name: Lahan Ablaze
+description: |
+  The far end of the village, as it is on the night of the wedding: the
+  thatch on fire, the well-house smashed, the bride's garlands burning
+  in the street. Gears are fighting among the houses, Aveh machines and
+  a Kislevian one, stamping through gardens and firing into walls as
+  though the people inside were not there. Somewhere a woman is
+  screaming Timothy's name. In the smoke, for an instant, you see a tall
+  figure in a black cloak and a domed helmet standing on a rooftop,
+  watching, and then he is gone. The square, still somehow safe and
+  garlanded, is back north.
+exits:
+  north: 3801

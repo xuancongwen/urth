@@ -1,0 +1,16 @@
+vnum: 3838
+name: a coil of the Urobolus
+keywords: [coil, urobolus, serpent, snake]
+description: A coil of the Urobolus heaves up through the deck, jaws wide.
+look: |
+  A loop of black metal and white flesh as thick as a tree, ending in a
+  serpent's head with a human face in its throat: a coil of the
+  Urobolus, the body of Deus growing through the Merkaba and swallowing
+  it. It has no end you can find, only another head.
+level: 57
+flags: [assist, aggressive]
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - { kind: soak, params: { power: 0.08 } }

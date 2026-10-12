@@ -1,0 +1,14 @@
+vnum: 3731
+name: Rocket Town
+description: |
+  A cheerful little town built around a rocket: a real one, tilted a
+  little off true on its launch gantry, which was meant to take the
+  first man into space before Shinra cancelled the programme. The
+  townsfolk are proud of it. A small aeroplane, the Tiny Bronco, is
+  parked behind a house. Nibelheim is west, Wutai is east across the
+  sea, and the launch pad is north.
+exits:
+  north: 3732
+  east: 3733
+  west: 3728
+flags: [safe]

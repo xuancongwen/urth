@@ -1,0 +1,23 @@
+vnum: 3929
+name: the Megaton Hammer
+keywords: [megaton, hammer, maul, darunia's]
+description: A great iron hammer with a head like an anvil lies here.
+look: |
+  The hammer of the hero who killed Volvagia, the dragon of Death
+  Mountain, long ago: a head of black iron as big as a barrel on a stone
+  haft, which Darunia wields as easily as a stick. It breaks rocks, it
+  breaks statues, and it knocks the wind clean out of whatever it hits.
+type: weapon
+weight: 10
+level: 20
+baseline: heavy
+value: 3000
+rarity: rare
+weapon:
+  hands: 2
+  kind: blunt
+  verb: pound
+effects:
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 1 } }

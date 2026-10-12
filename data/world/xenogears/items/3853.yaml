@@ -1,0 +1,17 @@
+vnum: 3853
+name: the greaves of Deus
+keywords: [greaves, deus, deus's, legs, leggings]
+description: A pair of long jointed greaves of black metal lies here.
+look: |
+  Greaves of black, jointed metal, light as cloth and strong as a gear's
+  legs, which move a fraction before you do.
+type: armor
+slot: legs
+weight: 4
+level: 60
+baseline: plate
+value: 10000
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }

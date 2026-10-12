@@ -1,0 +1,25 @@
+vnum: 3924
+name: King Dodongo
+keywords: [king, dodongo, lizard, giant]
+description: King Dodongo rears out of the lava, inhaling with a sound like a forge's bellows.
+look: |
+  The king of the Dodongos, a lizard as big as a house, its hide a grey
+  crust of stone and its frilled head big enough to swallow a Goron
+  whole. It has eaten the best rocks in Dodongo's Cavern and the Goron's
+  Ruby with them. It breathes fire in great gouts and, when it is hurt,
+  curls into a ball and rolls round its pit to crush whatever is in the
+  way. Its weakness is its mouth: it eats bomb flowers, and it does not
+  learn.
+level: 15
+flags: [assist]
+health: 750
+stats: {strength: 15, constitution: 16}
+silver: 400
+xp: 4500
+attack:
+  kind: fire
+  verb: breath of fire
+  damage: 26
+effects:
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: soak, params: { power: 0.08 } }

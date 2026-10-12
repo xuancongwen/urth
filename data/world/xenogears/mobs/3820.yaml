@@ -1,0 +1,16 @@
+vnum: 3820
+name: an excavated gear
+keywords: [excavated, gear, ancient, machine, mech]
+description: An excavated gear lurches out of the wall, soil streaming off it.
+look: |
+  An ancient gear, dug half out of the wall of the excavation and
+  restored by somebody who forgot to ask whether it wanted to be. Its
+  armour is green with age and its eyes are dull red, and it moves with
+  the jerky patience of something running on very old orders.
+level: 39
+flags: [assist, aggressive]
+attack:
+  kind: blunt
+  verb: crush
+loot:
+  - { item: 3800, chance: 0.5 }

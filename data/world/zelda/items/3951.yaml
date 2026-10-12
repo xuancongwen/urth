@@ -1,0 +1,18 @@
+vnum: 3951
+name: a Sheikah ceremonial knife
+keywords: [sheikah, ceremonial, knife, dagger]
+description: A slim black knife with the Sheikah eye on its pommel lies here.
+look: |
+  A slim black knife with a pommel shaped like the Sheikah's weeping
+  eye, left among the grave goods in the Shadow Temple. It was made for
+  rites nobody remembers, and it still knows what it was for.
+type: weapon
+weight: 1
+level: 25
+baseline: dagger
+value: 200
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+flags: [drop]

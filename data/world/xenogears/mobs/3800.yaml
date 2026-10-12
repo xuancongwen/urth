@@ -1,0 +1,20 @@
+vnum: 3800
+name: Fei Fong Wong
+keywords: [fei, fong, wong, painter, ponytail]
+description: Fei Fong Wong stands at his easel by the window, a brush in his teeth.
+look: |
+  A tall young man with a long black ponytail, bare forearms spattered
+  with paint, and an easy, friendly smile that does not quite reach some
+  place behind his eyes. He was carried into Lahan three years ago by a
+  masked stranger, half dead, remembering nothing, and the chief took
+  him in. He paints, and he fights with his hands, which he learned
+  somewhere he cannot remember, and he is very, very good at both. He is
+  painting a picture for Alice and Timothy's wedding. He will show you
+  how to fight with your bare hands, and how not to be hit. Type
+  'practice'.
+level: 40
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: punch
+teaches: [hand_to_hand, dodge, trip]

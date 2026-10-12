@@ -1,0 +1,11 @@
+vnum: 3718
+name: The Midgar Expressway
+description: |
+  An elevated highway that curls out from the Shinra Building around
+  the plate and over the edge of Midgar, where it ends in mid-air,
+  unfinished, above the wasteland. Wrecked trucks and abandoned
+  motorcycles litter the lanes. The building is back west, and a
+  service ladder at the broken end goes down to the ground.
+exits:
+  west: 3713
+  down: 3719

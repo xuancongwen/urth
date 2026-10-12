@@ -1,0 +1,17 @@
+vnum: 3724
+name: an Apocalypse
+keywords: [apocalypse, sword, blade]
+description: A long sword of black steel lies here.
+look: |
+  A long sword of black steel with a jagged guard, the kind that turns
+  up in the Lifestream's backwash at the bottom of the world. It is
+  cold to hold and very sharp.
+type: weapon
+weight: 3
+level: 60
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+flags: [drop]

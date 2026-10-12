@@ -1,0 +1,17 @@
+vnum: 3711
+name: a Shinra security carbine
+keywords: [shinra, security, carbine, rifle, gun]
+description: A short, black carbine with a folding stock lies here.
+look: |
+  The short carbine carried by the Shinra Building's own security
+  officers: black, compact, and well kept, with the logo picked out in
+  red on the grip. The company pays its headquarters guards rather
+  better than its soldiers.
+type: weapon
+weight: 2
+level: 33
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

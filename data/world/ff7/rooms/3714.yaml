@@ -1,0 +1,12 @@
+vnum: 3714
+name: Hojo's Laboratory
+description: |
+  The science division, sixty-seven floors up: a long white room of
+  steel benches, tanks and humming machines, smelling of chemicals and
+  something worse. Specimens float in the tanks. In a glass cage at
+  one end paces a great red beast with a flaming tail, watching you
+  with intelligent eyes. A thin man in a lab coat is taking notes on
+  it. The elevators go up and down.
+exits:
+  up: 3715
+  down: 3713

@@ -1,0 +1,24 @@
+vnum: 3940
+name: Phantom Ganon's spear
+keywords: [phantom, ganon's, ganon, spear, trident]
+description: A black spear with a crooked head lies here, crackling.
+look: |
+  The spear of Phantom Ganon, the shade Ganondorf made in his own image
+  and sent to haunt the Forest Temple: a shaft of black wood and a head
+  of crooked iron, which crackles with a little of its master's
+  lightning even now he is gone.
+type: weapon
+weight: 3
+level: 21
+baseline: spear
+value: 3000
+rarity: rare
+weapon:
+  hands: 1
+  kind: pierce
+  verb: thrust
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: proc, params: { verb: bolt of dark lightning, chance: 0.15, power: 1.2 } }

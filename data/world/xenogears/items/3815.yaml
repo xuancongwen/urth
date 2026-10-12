@@ -1,0 +1,13 @@
+vnum: 3815
+name: a Gebler officer's greatcoat
+keywords: [gebler, officer's, officer, greatcoat, coat]
+description: A long grey greatcoat with silver facings lies here.
+look: |
+  A Gebler officer's greatcoat of heavy grey cloth over a mesh of alloy,
+  with silver facings and the eye of Solaris on the collar. Ramsus has
+  his officers' coats made to measure.
+type: armor
+slot: body
+weight: 4
+level: 46
+baseline: medium

@@ -1,0 +1,18 @@
+vnum: 3901
+name: a Deku stick
+keywords: [deku, stick, branch, club]
+description: A long, straight Deku stick lies here.
+look: |
+  A long straight branch from a Deku tree, light and dry and
+  surprisingly hard, of the kind the Kokiri carry about to whack things
+  with and to light at a torch when the way is dark. It breaks, sooner
+  or later, but there are always more.
+type: weapon
+weight: 1
+level: 5
+baseline: standard
+value: 20
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

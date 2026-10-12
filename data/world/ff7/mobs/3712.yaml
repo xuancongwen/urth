@@ -1,0 +1,21 @@
+vnum: 3712
+name: Jenova BIRTH
+keywords: [jenova, birth, alien, calamity]
+description: Jenova BIRTH writhes in the open tank, its red eye fixed on you.
+look: |
+  The thing Shinra found in a two-thousand-year-old geological layer
+  and called an Ancient: a pale, mottled body with a woman's torso and
+  a writhing mass of tentacles below, one glaring red eye and a mouth
+  that is not a mouth. It is Jenova, the Calamity from the Skies, and
+  it is waking. Its cells are in Sephiroth, and in Cloud, and in every
+  SOLDIER. It speaks to them. It is speaking to you now.
+level: 34
+flags: [assist]
+health: 3600
+stats: {constitution: 16, intelligence: 16}
+silver: 300
+attack:
+  kind: psionic
+  verb: lash
+effects:
+  - { kind: proc, params: { chance: 0.15, power: 1.0, verb: "W-laser" } }

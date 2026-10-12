@@ -1,0 +1,19 @@
+vnum: 3733
+name: Heidegger's greatcoat
+keywords: [heidegger's, heidegger, greatcoat, coat, armor, armour]
+description: A huge green military greatcoat with gold braid lies here.
+look: |
+  The greatcoat of Heidegger, head of Shinra's Public Safety
+  Maintenance Department, a vast thing of green wool and gold braid
+  with steel plates sewn into the lining, cut to fit a man shaped like
+  a barrel. It still smells of his cigars. Gyahahaha.
+type: armor
+slot: body
+weight: 6
+level: 35
+baseline: heavy
+value: 4000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: protect, params: { mult: 0.92 } }

@@ -1,0 +1,23 @@
+vnum: 3753
+name: the Buster Sword
+keywords: [buster, sword, blade, broadsword]
+description: An enormous broadsword, as tall as a man, lies here.
+look: |
+  A sword as tall as a man and as wide as a hand is long, a slab of
+  steel with two round holes near the hilt where materia once sat. It
+  belonged to Angeal, and then to Zack Fair, and then to a mercenary
+  who said he was ex-SOLDIER and could swing it as though it weighed
+  nothing. It weighs a great deal. It is a promise, and a burden.
+type: weapon
+weight: 8
+level: 30
+baseline: heavy
+value: 4000
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave
+effects:
+  - { kind: stat, params: { stat: strength, amount: 3 } }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

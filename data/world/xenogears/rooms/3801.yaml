@@ -1,0 +1,20 @@
+vnum: 3801
+name: Lahan Village
+description: |
+  A small farming village of timber houses and thatch, in a hollow among
+  wooded hills, with a well in the middle and the smell of baking bread.
+  Today it is strung with garlands and paper lanterns: Alice and Timothy
+  are to be married this evening, and half the village is carrying
+  tables and benches into the square while the other half tells them
+  where to put them. Children chase each other between the legs of the
+  grown-ups. Nothing ever happens in Lahan, the old people say, and they
+  say it contentedly. The village chief's house is north, with a
+  painter's easel at its upstairs window; a lane goes south to the far
+  end of the village, a path climbs west into the hills, and the woods
+  are east.
+exits:
+  east: 3800
+  north: 3802
+  south: 3803
+  west: 3804
+flags: [safe]

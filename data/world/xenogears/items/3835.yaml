@@ -1,0 +1,25 @@
+vnum: 3835
+name: Elly's rod
+keywords: [elly's, elly, rod, staff, wand]
+description: A slender silver rod topped with a blue gem lies here.
+look: |
+  The rod of Elehayym Van Houten, a slender length of silver tipped with
+  a blue gem in which the Ether moves like weather. Elly was a Gebler
+  officer once, and is a great deal more than that now; the rod focuses
+  her Ether arts and sharpens them, and it has known, in five hundred
+  years and more, a great many hands that were somehow hers.
+type: weapon
+weight: 1
+level: 45
+baseline: staff
+value: 7500
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.15, school: evocation } }
+  - { kind: spellCrit, params: { chance: 0.05, mult: 1.5, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

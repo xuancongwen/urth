@@ -1,0 +1,23 @@
+vnum: 3916
+name: the cursed man of the House of Skulltula
+keywords: [cursed, man, skulltula, rich, spider]
+description: A man-sized Skulltula with a human face hangs in the dark of the boarded house, sobbing.
+look: |
+  A man who was the richest in Kakariko, now a great spider with a human
+  face and a gold chain round what was his neck, hanging from the
+  ceiling of his own house. He and his children were cursed into
+  Skulltulas for their greed, and every Gold Skulltula token brought
+  back lifts a little of it. "Please," he weeps, "I'll pay. I'll pay
+  anything." He hands out errands about Hyrule, and pays for them in the
+  family's treasures. Try 'quest request' and 'quest list'.
+level: 20
+flags: [peaceful, questmaster]
+attack:
+  kind: bite
+  verb: bite
+sells:
+  - { item: 3904, points: 10 }
+  - { item: 3916, points: 30 }
+  - { item: 3930, points: 45 }
+  - { item: 3932, points: 45 }
+  - { item: 3975, points: 60 }

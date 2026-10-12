@@ -1,0 +1,16 @@
+vnum: 3811
+name: an Ethos relic-hammer
+keywords: [ethos, relic-hammer, relic, hammer, mace]
+description: A heavy excavator's hammer stamped with the Ethos seal lies here.
+look: |
+  A long-handled hammer of the kind the Ethos diggers use to break the
+  rock away from buried gears, its head stamped with the church's seal.
+  It is meant for stone. It works on most other things.
+type: weapon
+weight: 4
+level: 40
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash

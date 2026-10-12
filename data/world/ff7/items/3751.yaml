@@ -1,0 +1,25 @@
+vnum: 3751
+name: the Masamune
+keywords: [masamune, sword, katana, nodachi]
+description: An impossibly long, thin katana lies here.
+look: |
+  Sephiroth's sword: a single-edged katana with a blade longer than a
+  tall man, thin as a reed and perfectly balanced, that no one else
+  has ever been able to wield properly. With it he cut down Nibelheim,
+  and the President of Shinra, and Aerith at her prayers. It moves
+  faster than an eye can follow, and it finds the heart.
+type: weapon
+weight: 3
+level: 59
+baseline: standard
+value: 12000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }

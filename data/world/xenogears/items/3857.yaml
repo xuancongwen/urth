@@ -1,0 +1,23 @@
+vnum: 3857
+name: a fragment of the Zohar
+keywords: [fragment, zohar, shard, crystal]
+description: A shard of black crystal lies here, burning with a light that is not light.
+look: |
+  A shard broken from the Zohar, the monolith at the heart of Deus, the
+  engine of infinite energy which bound the Wave Existence and fell with
+  Deus to this world ten thousand years ago. It is black and it shines;
+  it is cold and it burns; it hums a note just below hearing. All the
+  Ether in the world comes, in the end, from this. Held, it pours that
+  power out on everything near you.
+type: armor
+slot: hold
+weight: 1
+level: 65
+value: 16000
+effects:
+  - { kind: aura, params: { power: 0.3, verb: "wave of light from the Zohar" } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "surge of the Zohar" } }
+  - { kind: leech, params: { fraction: 0.12 } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: steady, params: { chance: 0.4 } }

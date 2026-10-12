@@ -1,0 +1,11 @@
+vnum: 3707
+name: The Church in the Sector 5 Slums
+description: |
+  An old church, long abandoned, its pews broken and its windows long
+  since gone. Light falls through a hole in the roof, the only real
+  light in all the slums, onto a bed of yellow and white flowers
+  growing up through the floorboards. It is very quiet. Someone tends
+  them; there is a watering can by the altar. The door is north.
+exits:
+  north: 3706
+flags: [safe]

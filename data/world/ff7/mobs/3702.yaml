@@ -1,0 +1,14 @@
+vnum: 3702
+name: a hedgehog pie
+keywords: [hedgehog, pie, creature]
+description: A hedgehog pie snuffles through the junk, its spines bristling.
+look: |
+  A small, round creature of the slums, a ball of greasy spines with a
+  wide mouth and beady eyes, which nests in junk heaps and eats
+  anything. It looks harmless. It is not: when cornered it throws
+  fireballs, from somewhere, and it never comes alone.
+level: 23
+flags: [assist]
+attack:
+  kind: fire
+  verb: singe

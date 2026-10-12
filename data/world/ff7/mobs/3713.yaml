@@ -1,0 +1,19 @@
+vnum: 3713
+name: President Shinra
+keywords: [president, shinra, old, man]
+description: President Shinra sits behind his enormous desk, smoking a cigar.
+look: |
+  A heavy, ruddy man in a red suit with a grey moustache and the smile
+  of a salesman, President of the Shinra Electric Power Company, which
+  is to say the ruler of the world. He dropped the Sector 7 plate to
+  blame it on AVALANCHE and then went on television to mourn the dead.
+  "Money," he tells you comfortably, "is power. And power is mako." He
+  has a pistol in the desk drawer and a good many guards.
+level: 35
+flags: [assist]
+health: 2600
+stats: {intelligence: 14}
+silver: 3000
+attack:
+  kind: fire
+  verb: shoot

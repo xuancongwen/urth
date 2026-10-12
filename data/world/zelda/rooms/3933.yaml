@@ -1,0 +1,12 @@
+vnum: 3933
+name: Inside Jabu-Jabu's Belly
+description: |
+  The inside of a fish, which is exactly as wet, warm, red, and
+  squelching as you feared: walls of pink flesh that pulse, floors that
+  twitch, tentacles hanging from the ceiling, and electric jellyfish
+  called Biri floating in the air. The Zora princess is here,
+  complaining. Deeper, east, something is feeding on Jabu-Jabu from
+  inside. The way out, back to the fountain and the domain, is west.
+exits:
+  west: 3932
+  east: 3934

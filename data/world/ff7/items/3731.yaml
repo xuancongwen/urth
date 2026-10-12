@@ -1,0 +1,19 @@
+vnum: 3731
+name: the White Cape
+keywords: [white, cape, cloak, mantle]
+description: A short white cape with a high collar lies here.
+look: |
+  A short cape of pale cloth with a stiff high collar, torn from
+  Jenova's specimen chamber when the creature woke. It is unstained by
+  anything that happened in that room, which is strange. Worn, it
+  makes its wearer hard to pin down and hard to break.
+type: armor
+slot: shoulders
+weight: 1
+level: 34
+baseline: light
+value: 3500
+effects:
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3, slow: 0.5 } }

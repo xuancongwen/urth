@@ -1,0 +1,13 @@
+vnum: 3712
+name: The Top of the Pillar
+description: |
+  A windy platform near the top of the pillar, where the stairs meet
+  the underside of the plate. Cables and girders crisscross overhead.
+  A control panel has been bolted to the pillar here, its red lights
+  blinking, and a Shinra helicopter hovers nearby, rotors thudding. A
+  maintenance walkway runs east onto the plate, toward the
+  headquarters of the Shinra Electric Power Company. The stairs go
+  down.
+exits:
+  east: 3713
+  down: 3711

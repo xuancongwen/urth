@@ -1,0 +1,19 @@
+vnum: 3954
+name: the Shadow Medallion
+keywords: [shadow, medallion, purple, amulet]
+description: A purple medallion marked with a dark sign lies here.
+look: |
+  The medallion of the Sage of Shadow, a disc of purple metal marked
+  with the eye-and-wave sign of the Sheikah, which Impa awakens to when
+  Bongo Bongo is beaten. It shows the wearer the gap in every guard.
+type: armor
+slot: neck
+weight: 0
+level: 28
+value: 3000
+rarity: rare
+effects:
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: detectHidden }

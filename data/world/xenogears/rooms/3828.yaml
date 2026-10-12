@@ -1,0 +1,11 @@
+vnum: 3828
+name: The Hall of the Elements
+description: |
+  The barracks of the Elements, Commander Ramsus's personal guard: four
+  women of Solaris, each a master of her own element and her own gear.
+  The hall is spare and military, with four bunks and four lockers and a
+  training floor scarred by fire, water, wind, and earth. A stair goes
+  on up to the commander's deck, north; the gate is south.
+exits:
+  south: 3827
+  north: 3830

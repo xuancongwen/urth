@@ -1,0 +1,17 @@
+vnum: 3917
+name: The Castle Courtyard
+description: |
+  A hidden garden at the heart of Hyrule Castle, past the guards and the
+  moat, with flowers in neat beds and a fountain, and at the far end a
+  window through which, if you stand on tiptoe, you can see the throne
+  room. A girl in a pink dress with a jewelled circlet watches through
+  it, very still, as though she were afraid of what she might see.
+  North, beyond a gate in the castle's back wall, a black castle that
+  should not be there floats over a pit of lava. The way back down to
+  the market is south.
+exits:
+  south: 3913
+  north: 3918
+doors:
+  north: { name: "the gate of Ganon's Castle", locked: true, key: 3965, pickproof: true }
+flags: [safe]

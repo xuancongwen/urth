@@ -1,0 +1,13 @@
+vnum: 3808
+name: The Heart of the Black Moon Forest
+description: |
+  The oldest part of the forest, where the pines are as thick as towers
+  and their roots arch overhead like the ribs of some huge buried
+  animal. Something howls, close by, and is answered from three sides.
+  Bones lie in the moss, picked clean. To the west the trees thin at
+  last, and a hot dry wind blows in from the desert beyond; the way back
+  is east.
+exits:
+  east: 3806
+  west: 3809
+flags: [dark]

@@ -1,0 +1,18 @@
+vnum: 3972
+name: Din's Fire
+keywords: [din's, din, fire, red, jewel, magic]
+description: A red jewel with a flame in its heart lies here.
+look: |
+  Din's Fire, a gift of the Great Fairy: a red jewel in which a flame
+  burns that does not go out. Held up, it calls the fire of the goddess
+  of Power down round you in a dome that scorches everything it touches.
+type: armor
+slot: hold
+weight: 0
+level: 24
+value: 2500
+rarity: rare
+effects:
+  - { kind: proc, params: { verb: dome of Din's Fire, chance: 0.15, power: 1.6 } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

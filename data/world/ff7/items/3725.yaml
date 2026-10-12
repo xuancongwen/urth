@@ -1,0 +1,14 @@
+vnum: 3725
+name: an Escort Guard
+keywords: [escort, guard, armor, armour, plate]
+description: A heavy suit of pale, overlapping plates lies here.
+look: |
+  A suit of plate made from pale, overlapping scales like a beetle's
+  wing-case, found deep in the Northern Crater. Nobody knows who
+  forged it, or whether it was forged at all.
+type: armor
+slot: body
+weight: 7
+level: 60
+baseline: plate
+flags: [drop]

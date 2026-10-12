@@ -1,0 +1,16 @@
+vnum: 3700
+name: a Shinra MP
+keywords: [shinra, mp, military, police, guard, soldier]
+description: A Shinra MP in blue fatigues eyes you through his visor.
+look: |
+  One of the Shinra military police who keep order in Midgar, in blue
+  fatigues and a round visored helmet, a rifle in his hands. He is
+  paid to stop terrorists, which in practice means stopping anyone who
+  looks poor, and down here that is everyone. He calls for backup at
+  the first sign of trouble, and backup comes.
+level: 20
+flags: [assist]
+silver: 60
+attack:
+  kind: fire
+  verb: shoot

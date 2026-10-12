@@ -1,0 +1,25 @@
+vnum: 3969
+name: Ganondorf's sword
+keywords: [ganondorf's, ganondorf, sword, blade, sage's]
+description: A broad, heavy sword with a hilt of black and gold lies here.
+look: |
+  The sword of Ganondorf Dragmire, King of the Gerudo: a broad blade of
+  dark steel with a hilt of black and gold, which once ran through a
+  Sage and never came out clean. It drinks a little of whatever it cuts
+  and gives it to the hand that holds it.
+type: weapon
+weight: 3
+level: 35
+baseline: standard
+value: 7000
+rarity: rare
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: leech, params: { fraction: 0.08 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: steady, params: { chance: 0.3 } }

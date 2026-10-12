@@ -1,0 +1,18 @@
+vnum: 3759
+name: the Planet's tear
+keywords: [planet's, planet, tear, pendant, crystal]
+description: A teardrop of clear green crystal on a cord of sinew lies here.
+look: |
+  A teardrop of pure crystallised Lifestream, clear and green, that
+  hung in Ultima Weapon's throat where a heart might be. Every soul
+  that ever returned to the Planet passed through something like it.
+  Worn, it is heavy and warm, and wounds seem a long way off.
+type: armor
+slot: neck
+weight: 1
+level: 60
+value: 8000
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: protect, params: { mult: 0.92 } }

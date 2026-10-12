@@ -1,0 +1,15 @@
+vnum: 3724
+name: a black-cloaked man
+keywords: [black, cloaked, man, figure, number, clone]
+description: A man in a black cloak shuffles past, moaning about reunion.
+look: |
+  A man, or what is left of one, in a ragged black cloak with the hood
+  pulled low, a number tattooed on his arm and Jenova's cells in his
+  blood. Hojo made dozens of them in the Shinra Mansion. They wander
+  north, toward the crater, drawn by something calling them. "Re...
+  union..." He will kill you if you stand between him and it.
+level: 44
+flags: [assist]
+attack:
+  kind: slash
+  verb: claw

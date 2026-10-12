@@ -1,0 +1,19 @@
+vnum: 3935
+name: Saria
+keywords: [saria, kokiri, girl, green, sage]
+description: Saria sits on a stone stump, playing her ocarina.
+look: |
+  A Kokiri girl with short green hair and a green tunic, who sits on the
+  stump in the meadow playing the song of the woods, and smiles at you
+  as if you had known each other forever. She is the friend of everyone
+  in the forest and she will be the Sage of the Forest. "Oh, you came! I
+  knew you would." She has a spare ocarina, carved of the forest's wood,
+  and she will part with it for a little silver to help the Kokiri. Type
+  'list'.
+level: 20
+flags: [peaceful]
+attack:
+  kind: magic
+  verb: song
+trades:
+  - { item: 3910, silver: 250 }

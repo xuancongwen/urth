@@ -1,0 +1,13 @@
+vnum: 3742
+name: The Roost of Ultima Weapon
+description: |
+  A broken shelf of rock on the far side of the crater's rim, high
+  over the Lifestream, littered with the shattered hulls of Shinra
+  airships. The Planet woke its Weapons when Meteor came, great beasts
+  born from the Lifestream to destroy whatever threatens it, and they
+  do not know a hero from a Shinra. One of them has made this place
+  its nest: a vast shape of pale armour and folded wings, its body
+  marked with green light, rising to its full height as you step onto
+  the ledge. The rim is west.
+exits:
+  west: 3739

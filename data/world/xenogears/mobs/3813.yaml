@@ -1,0 +1,15 @@
+vnum: 3813
+name: an Aveh royal guard
+keywords: [aveh, royal, guard, soldier]
+description: An Aveh royal guard in a spired helm grips his halberd.
+look: |
+  A tall guardsman of Fatima Castle in a spired helm wrapped with a
+  white turban, a halberd in his hands and the badge of the usurper
+  Shakhan sewn over the old Fatima lion on his sash. He serves the
+  throne, whoever sits on it. He would rather it were not Shakhan.
+level: 31
+flags: [assist]
+silver: 120
+attack:
+  kind: slash
+  verb: slash

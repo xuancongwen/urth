@@ -1,0 +1,16 @@
+vnum: 3851
+name: the bracer of the Anima
+keywords: [bracer, anima, deus, wrist, bracelet, relic]
+description: A warm bracer of white metal set with a pale stone lies here.
+look: |
+  A bracer of white metal set with a pale stone like the Anima relics
+  that give the Omnigears their power, which drinks a little of the life
+  it spills and gives it to its wearer.
+type: armor
+slot: wrist
+weight: 1
+level: 60
+baseline: heavy
+value: 10000
+effects:
+  - { kind: leech, params: { fraction: 0.08 } }

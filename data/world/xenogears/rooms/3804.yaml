@@ -1,0 +1,13 @@
+vnum: 3804
+name: The Path above Lahan
+description: |
+  A path climbing through the pines above the village, with a view back
+  over the thatched roofs to the wedding lanterns in the square. A
+  wooden signpost, carved by the same careful hand that made the
+  waterwheel down in the village, points north to "Dr. Uzuki" up a
+  flight of log steps, and west to "Black Moon Forest: do not go in at
+  night". Lahan is back east.
+exits:
+  east: 3801
+  north: 3805
+  west: 3806

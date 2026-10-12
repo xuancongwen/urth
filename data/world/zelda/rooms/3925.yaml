@@ -1,0 +1,13 @@
+vnum: 3925
+name: Goron City
+description: |
+  A city hollowed out of the inside of Death Mountain, a great round pit
+  with ledges spiralling down it and a vase spinning at the bottom, warm
+  and red and smelling of rock. Gorons, huge round rock-eaters with big
+  smiles, roll from level to level. One of them keeps a shop. East, a
+  door carved with a great stone face leads to the chamber of their
+  chief, Darunia, Big Brother to all Gorons. The trail is south.
+exits:
+  south: 3924
+  east: 3926
+flags: [safe]

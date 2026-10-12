@@ -1,0 +1,15 @@
+vnum: 3937
+name: a Wolfos-pelt cloak
+keywords: [wolfos-pelt, wolfos, pelt, cloak, fur]
+description: A grey-and-white wolf pelt lies here.
+look: |
+  The pelt of a Wolfos, a forest wolf that walks on its hind legs, grey
+  and white and thick, worn across the shoulders with the head as a
+  hood. It is warm, and other wolves give it room.
+type: armor
+slot: shoulders
+weight: 2
+level: 18
+baseline: light
+value: 150
+flags: [drop]

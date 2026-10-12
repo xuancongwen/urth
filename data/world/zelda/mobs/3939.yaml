@@ -1,0 +1,15 @@
+vnum: 3939
+name: a Like Like
+keywords: [like, like-like, slug, tube]
+description: A Like Like sits in the corridor, a slimy tube with its mouth open.
+look: |
+  A great slimy tube of flesh, ringed and pulsing, with a mouth like a
+  drain at the top, which slides toward anyone carrying a shield, gulps
+  them down to the shoulders, and chews. It spits them out, eventually.
+  It keeps the shield.
+level: 23
+flags: [assist]
+silver: 45
+attack:
+  kind: drain
+  verb: gulp

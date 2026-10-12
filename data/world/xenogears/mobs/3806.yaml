@@ -1,0 +1,22 @@
+vnum: 3806
+name: a Nortune black-marketeer
+keywords: [nortune, black-marketeer, black, marketeer, dealer, merchant]
+description: A black-marketeer in a long coat leans in the shadow of his awning.
+look: |
+  A thin man in a long Kislevian army coat with the badges torn off, who
+  sells what falls off the backs of supply gears: rifles, helmets, shivs
+  from D-Block, and gauntlets from the arena. He looks at you as if
+  pricing your boots. Type 'list'.
+level: 36
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab
+trades:
+  - { item: 3802, silver: 30 }
+  - { item: 3808, silver: 350 }
+  - { item: 3809, silver: 380 }
+  - { item: 3810, silver: 380 }
+  - { item: 3813, silver: 440 }
+  - { item: 3814, silver: 440 }
+  - { item: 3802, items: [3800] }

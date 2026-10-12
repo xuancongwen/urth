@@ -1,0 +1,25 @@
+vnum: 3837
+name: the Shevat sword
+keywords: [shevat, sword, blade, katana, citan's]
+description: A long single-edged blade of white Shevat steel lies here.
+look: |
+  The sword that Citan Uzuki left in Shevat when he came down to the
+  world to watch over Fei: a long single-edged blade of white Shevat
+  steel, sheathed in a plain wood scabbard, the true sword of a man who
+  was once an Element of Solaris and once the best blade in the sky. It
+  does not hesitate, and it finishes what it begins.
+type: weapon
+weight: 2
+level: 50
+baseline: standard
+value: 9000
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.1, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

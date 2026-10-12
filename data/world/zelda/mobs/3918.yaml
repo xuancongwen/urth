@@ -1,0 +1,19 @@
+vnum: 3918
+name: Dampé
+keywords: [dampe, dampé, gravekeeper, hunchback, old]
+description: Dampé the gravekeeper shuffles among the graves with his shovel and his lantern.
+look: |
+  A hunched, ugly, cheerful old gravekeeper with one eye bigger than the
+  other, a lantern on a stick, and a shovel he leans on. He frightens
+  the village children and he likes them, and he digs, and digs. "Heh
+  heh heh. Young'un, fancy a lantern for the dark? I make 'em myself.
+  Bring me a Poe's soul and I'll swap you one, I'm collecting them."
+  Type 'list'.
+level: 18
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: shovel
+trades:
+  - { item: 3922, silver: 30 }
+  - { item: 3922, items: [3921] }

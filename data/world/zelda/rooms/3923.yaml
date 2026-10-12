@@ -1,0 +1,12 @@
+vnum: 3923
+name: The Chamber of Bongo Bongo
+description: |
+  A great drum of stretched skin floating on poisonous water at the very
+  bottom of the Shadow Temple, and above it two huge severed hands that
+  beat it, and a single red eye that is all you can see of the thing
+  that owns them: Bongo Bongo, the shadow beast sealed beneath Kakariko,
+  loosed at last. The drum heaves under you with every beat. Up is the
+  way out.
+exits:
+  up: 3922
+flags: [dark]

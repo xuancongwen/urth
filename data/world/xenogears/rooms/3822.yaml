@@ -1,0 +1,16 @@
+vnum: 3822
+name: Aboard Thames, the Ship-City
+description: |
+  Thames is a ship the size of a town: a great flat ironclad that crawls
+  up and down the rivers and the shallow seas, dredging up the wrecks of
+  the ancient world and selling what it finds. Its decks are streets,
+  with shops and taverns and a bustling scrapyard, and its people have
+  not set foot on dry land for generations. A crane on the forward deck
+  hoists visitors up to an airship bound for the sky. The Kislev docks
+  are east; a gangway leads south to the Ethos chapel on the dock, and
+  the crane lifts up toward Shevat.
+exits:
+  east: 3818
+  south: 3823
+  up: 3825
+flags: [safe]

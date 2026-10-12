@@ -1,0 +1,14 @@
+vnum: 3933
+name: a Wolfos
+keywords: [wolfos, wolf, beast]
+description: A Wolfos stalks along the hedge on its hind legs, claws out.
+look: |
+  A great grey wolf that walks upright, with long arms and longer claws,
+  which circles and circles and only strikes from the side. It guards
+  itself with its arms crossed and lashes out when you open up.
+level: 18
+flags: [assist]
+silver: 30
+attack:
+  kind: claw
+  verb: claw

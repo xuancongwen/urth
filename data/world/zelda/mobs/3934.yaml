@@ -1,0 +1,14 @@
+vnum: 3934
+name: a Moblin
+keywords: [moblin, pig, brute, spearman]
+description: A Moblin stomps through the maze with a spear twice your height.
+look: |
+  A huge, pig-faced brute in dirty leather with a spear as long as a
+  tree and a shield it drags behind it, which charges blindly at
+  whatever it sees and is too stupid to stop.
+level: 18
+flags: [assist]
+silver: 35
+attack:
+  kind: pierce
+  verb: stab

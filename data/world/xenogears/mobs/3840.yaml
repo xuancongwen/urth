@@ -1,0 +1,25 @@
+vnum: 3840
+name: Deus
+keywords: [deus, god, weapon, urobolus, zohar]
+description: Deus, the god-weapon, hangs in its cables, its eyes opening one by one.
+look: |
+  It is beautiful, after a fashion: a figure of white wings and black
+  armour, many-eyed and many-armed, hanging in the cathedral of its own
+  ribs, wired to the Merkaba by cables as thick as trees. It is Deus,
+  the interplanetary invasion system whose crash ten thousand years ago
+  seeded this world with humans, and it made them, all of them, to be
+  its spare parts. Its body is coiling about itself as it wakes,
+  serpent-wise, the Urobolus that eats its own tail; in its breast the
+  Zohar burns, and every light in the cathedral dims toward it. It is a
+  raid boss: no hero stands against it alone, and few companies.
+level: 60
+flags: [boss]
+health: 52000
+stats: {strength: 22, constitution: 22, intelligence: 24, wisdom: 22}
+silver: 5000
+xp: 90000
+attack:
+  kind: magic
+  verb: beam of annihilation
+effects:
+  - { kind: steady, params: { chance: 0.5 } }

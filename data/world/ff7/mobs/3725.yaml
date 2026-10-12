@@ -1,0 +1,21 @@
+vnum: 3725
+name: Vincent Valentine
+keywords: [vincent, valentine, man, coffin, cloak]
+description: Vincent Valentine sits on the edge of his coffin, red cloak drawn up to his eyes.
+look: |
+  A tall, pale man with long black hair, a red headband, and a high
+  red cloak that hides the lower half of his face, his left hand a
+  claw of gold. He was a Turk, thirty years ago, set to guard a
+  scientist named Lucrecia, and he loved her, and Hojo shot him and
+  made him into something else. Now he sleeps in a coffin in the
+  mansion basement as a penance. "Leave me be. I have to atone." If
+  you will not, he will rise, and he is very fast.
+level: 46
+health: 4000
+stats: {dexterity: 17, constitution: 15, wisdom: 14}
+silver: 500
+attack:
+  kind: fire
+  verb: shoot
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }

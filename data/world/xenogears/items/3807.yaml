@@ -1,0 +1,13 @@
+vnum: 3807
+name: an Aveh royal guard's helm
+keywords: [aveh, royal, guard's, guard, helm, helmet]
+description: A spired steel helm wrapped in a white turban lies here.
+look: |
+  A steel helm with a tall spike, wound about with a white turban
+  against the desert sun, as the guards of Fatima Castle have worn them
+  for three hundred years.
+type: armor
+slot: head
+weight: 3
+level: 32
+baseline: heavy

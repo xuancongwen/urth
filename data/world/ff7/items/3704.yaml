@@ -1,0 +1,18 @@
+vnum: 3704
+name: a Midgar flower
+keywords: [midgar, flower, lily, yellow]
+description: A single yellow flower lies here, fresh as if just picked.
+look: |
+  A little yellow flower from the church in the Sector 5 slums, where
+  flowers should not grow and somehow do. Aerith sells them for one
+  gil each on the plate, where nobody has ever seen a flower. Held,
+  its scent is clean and green, and it makes you feel, for no reason
+  you can name, that the Planet is listening.
+type: armor
+slot: hold
+weight: 0
+level: 20
+value: 40
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: regen, params: { fraction: 0.01 } }

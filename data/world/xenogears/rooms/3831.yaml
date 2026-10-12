@@ -1,0 +1,13 @@
+vnum: 3831
+name: The Gazel Ministry
+description: |
+  A dark circular chamber with no visible walls, in which twelve stone
+  monoliths stand in a ring, lit from within. Each bears a number and
+  nothing else. They are the Gazel Ministry, the rulers behind the
+  Emperor, the last of the old colonists, who left their bodies long ago
+  and live now as minds in a machine, waiting for the day when the god
+  they made will raise them up. Their voices come out of the dark, old
+  and petty and bored. The district is south.
+exits:
+  south: 3829
+flags: [dark]

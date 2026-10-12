@@ -1,0 +1,24 @@
+vnum: 3828
+name: Billy's guns
+keywords: [billy's, billy, guns, pistols, gun, pistol]
+description: A pair of silver-chased pistols in a double holster lies here.
+look: |
+  A pair of long-barrelled pistols chased with silver, which Billy Lee
+  Black, priest of the Ethos, carries on his hips and is very much
+  quicker with than a priest has any business being. His father taught
+  him, before he started drinking. The grips are worn smooth, and the
+  Ethos cross is engraved under the barrels.
+type: weapon
+weight: 2
+level: 41
+baseline: standard
+value: 5000
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shot
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: spellPower, params: { mult: 1.08, deity: good } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

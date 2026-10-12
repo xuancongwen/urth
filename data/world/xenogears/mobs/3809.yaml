@@ -1,0 +1,18 @@
+vnum: 3809
+name: an Aveh Heimdal gear
+keywords: [aveh, heimdal, gear, machine, mech]
+description: An Aveh Heimdal gear stamps through the burning gardens, rifle raised.
+look: |
+  A Heimdal, the standard fighting gear of the kingdom of Aveh, three
+  storeys of sand-coloured armour with a round head and a rifle the size
+  of a tree trunk. Its pilot, somewhere inside, has been told that Lahan
+  is hiding a stolen Kislev gear, and is setting fire to it house by
+  house until it comes out.
+level: 25
+flags: [assist, aggressive]
+silver: 60
+attack:
+  kind: blunt
+  verb: stomp
+loot:
+  - { item: 3800, chance: 0.4 }

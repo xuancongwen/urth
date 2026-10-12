@@ -1,0 +1,25 @@
+vnum: 3771
+name: the Knights of the Round materia
+keywords: [knights, round, materia, orb, summon, kotr]
+description: A red orb as big as a fist, full of tiny moving lights, lies here.
+look: |
+  The rarest summon materia in the world, a sphere of red crystal in
+  which, if you look closely, thirteen tiny armoured figures ride in a
+  ring. Ultima Weapon carried it in its body, taken from the sea
+  island where it lay hidden. Held and called on, it brings the
+  Knights of the Round down out of the sky one after another, each
+  blade a falling star, until the last one, the king, strikes with
+  Ultimate End. Even unspoken, their blades are always falling round
+  whoever carries it.
+type: armor
+slot: hold
+weight: 1
+level: 65
+value: 16000
+effects:
+  - { kind: aura, params: { power: 0.3, verb: "falling blades of the Knights of the Round" } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "Ultimate End" } }
+  - { kind: leech, params: { fraction: 0.1 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.4 } }

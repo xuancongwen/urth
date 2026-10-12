@@ -1,0 +1,19 @@
+vnum: 3823
+name: Chu-Chu
+keywords: [chu-chu, chu, chu, pink, creature, koala]
+description: Chu-Chu, a small pink creature with a big ribbon, waves at you.
+look: |
+  A small, round, pink creature with big ears, big eyes, a big pink
+  ribbon, and a very big opinion of herself, who is from a village of
+  creatures just like her and has come to Shevat to be a hero. She talks
+  in a high squeaky voice and ends her sentences with "chu". She can, if
+  pressed, grow to the size of a gear and sit on things. She would very
+  much rather you did not press her.
+level: 40
+flags: [assist]
+health: 2200
+stats: {dexterity: 18, constitution: 16}
+silver: 300
+attack:
+  kind: blunt
+  verb: body slam

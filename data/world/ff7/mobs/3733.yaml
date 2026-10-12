@@ -1,0 +1,21 @@
+vnum: 3733
+name: the Red Dragon
+keywords: [red, dragon, wyrm]
+description: The Red Dragon rears in the inner sanctum, smoke curling from its jaws.
+look: |
+  A dragon of the old kind, enormous and red-scaled, with great horns
+  swept back from its skull and wings that fill the chamber. The Cetra
+  set it to guard the Black Materia in the heart of their temple, and
+  it has guarded it for two thousand years. In its breast glows a red
+  orb: Bahamut, the King of Dragons, sleeping in materia.
+level: 52
+flags: [assist, aggressive]
+health: 22000
+stats: {strength: 20, constitution: 18}
+silver: 2000
+attack:
+  kind: fire
+  verb: breathe on
+effects:
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "Red Dragon Breath" } }
+  - { kind: soak, params: { power: 0.1 } }

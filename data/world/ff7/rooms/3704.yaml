@@ -1,0 +1,15 @@
+vnum: 3704
+name: The Sector 7 Slums
+description: |
+  A shanty town built of scrap in the permanent twilight under the
+  plate, which hangs fifty metres overhead like a lid of steel, held
+  up by one enormous pillar to the east. Shacks of corrugated iron
+  lean against each other, children play among rusted cars, and the
+  smell of cooking oil and mako drifts over everything. A wooden bar
+  with a hand-painted sign stands north. The road runs south toward
+  Sector 5, the station is west, and the pillar rises east.
+exits:
+  north: 3705
+  east: 3711
+  south: 3706
+  west: 3700

@@ -1,0 +1,15 @@
+vnum: 3726
+name: Cosmo Canyon
+description: |
+  A village carved into red sandstone cliffs high above the desert,
+  where scholars come from all over the world to study the Planet. The
+  Cosmo Candle burns in the square, a fire that has never gone out,
+  and an observatory crowns the highest rock. Here they teach that the
+  Planet is alive, that its life flows in the Lifestream, and that
+  Shinra is bleeding it dry. The ropeway town is west, Nibelheim is
+  east, and a narrow cave mouth opens south.
+exits:
+  east: 3728
+  south: 3727
+  west: 3723
+flags: [safe]

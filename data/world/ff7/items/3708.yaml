@@ -1,0 +1,13 @@
+vnum: 3708
+name: a Shinra infantry helmet
+keywords: [shinra, infantry, helmet, helm]
+description: A round blue helmet with a dark visor lies here.
+look: |
+  The round, visored helmet of a Shinra infantryman. Every grunt in
+  Midgar wears one, and once it is on, every grunt in Midgar looks the
+  same, which is rather the point.
+type: armor
+slot: head
+weight: 2
+level: 24
+baseline: medium

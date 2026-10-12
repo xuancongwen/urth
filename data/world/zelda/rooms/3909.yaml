@@ -1,0 +1,12 @@
+vnum: 3909
+name: The Gallery of Phantom Ganon
+description: |
+  A long, square chamber hung all round with identical paintings of the
+  same dead avenue of trees, under a sky like a storm. Something rides
+  out of one of the paintings on a black horse with fire in its eyes,
+  and rides back into another: a phantom wearing the face of the King of
+  Thieves, a spear in its hand that crackles with stolen lightning. The
+  way out is south.
+exits:
+  south: 3908
+flags: [dark]

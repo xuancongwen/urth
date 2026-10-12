@@ -1,0 +1,24 @@
+vnum: 3729
+name: the Limited Moon
+keywords: [limited, moon, hairpin, pin, comb]
+description: A crescent-shaped ornament of silver and red feathers lies here.
+look: |
+  A crescent of silver hung with red feathers, which Nanaki of Cosmo
+  Canyon, called Red XIII by Hojo, wears in his mane and flings at his
+  enemies with a toss of his head, so that it spins back to him. It
+  holds the courage of his father Seto, who stood alone at the gate of
+  the canyon against the Gi.
+type: weapon
+weight: 0
+level: 33
+baseline: standard
+value: 3500
+weapon:
+  hands: 1
+  kind: slash
+  verb: rake
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: crit, params: { chance: 0.05, mult: 2 } }

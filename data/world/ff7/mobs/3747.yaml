@@ -1,0 +1,19 @@
+vnum: 3747
+name: Cait Sith
+keywords: [cait, sith, cat, moogle, fortune, teller]
+description: Cait Sith bounces on the head of his giant moogle, waving a megaphone.
+look: |
+  A little black and white cat in a gold crown and a red cape, riding
+  on the head of an enormous stuffed moogle, who tells fortunes for
+  the Gold Saucer's visitors and gets them wrong in a cheerful
+  Scottish accent. "Yer fortune? Ah, it says... whit ye seek, ye'll
+  find! An' ye'll lose somethin' precious." He is, in fact, a toy
+  worked by remote control from Shinra headquarters, but he has come
+  to like you. He'll sell you a spare megaphone. Type 'list'.
+level: 40
+flags: [peaceful]
+attack:
+  kind: blunt
+  verb: bop
+trades:
+  - { item: 3738, silver: 3500 }   # the HP Shout

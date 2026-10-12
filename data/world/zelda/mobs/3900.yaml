@@ -1,0 +1,21 @@
+vnum: 3900
+name: Link
+keywords: [link, hero, time, boy, green]
+description: Link, the Hero of Time, leans against his treehouse ladder in a green tunic, a sword on his back.
+look: |
+  A young man in a green tunic and a long pointed cap, fair-haired,
+  quiet, with a sword and a shield on his back and a fairy in a bottle
+  at his belt. He was the boy without a fairy, once, the one the other
+  Kokiri teased, and he grew up, which Kokiri never do, because he was
+  never a Kokiri at all. On the back of his left hand three golden
+  triangles glow faintly, one brighter than the others: the Triforce of
+  Courage, which no one can take. He does not say much. He does not have
+  to. He will show you how to answer a blow with one of your own, how to
+  turn a shield into a wall, and the spin of the blade that clears a
+  circle round you. Type 'practice'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: slash
+teaches: [riposte, shield_block, whirlwind]

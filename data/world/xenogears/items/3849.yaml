@@ -1,0 +1,18 @@
+vnum: 3849
+name: the gauntlets of Deus
+keywords: [gauntlets, deus, deus's, gloves, hands]
+description: A pair of long black gauntlets with too many joints lies here.
+look: |
+  Long gauntlets of black metal with one joint more per finger than a
+  human hand has, which fold themselves to fit. Deus made men as its
+  spare parts; these are the hands it meant them to have.
+type: armor
+slot: hands
+weight: 2
+level: 60
+baseline: plate
+value: 10000
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: critMult, params: { amount: 0.4 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

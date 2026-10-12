@@ -1,0 +1,29 @@
+vnum: 3953
+name: Ganondorf
+keywords: [ganondorf, ganon, dragmire, king, thieves, gerudo]
+description: Ganondorf, the King of Thieves, rises from his organ and draws his sword, the Triforce burning on his hand.
+look: |
+  A huge man, broad and tall, with dark skin, a red mane of hair under a
+  jewelled circlet, a hooked nose, and yellow eyes, in black armour with
+  pauldrons like beasts' skulls and a long cape. Ganondorf Dragmire, the
+  Gerudo King, the one man born to the Gerudo in a hundred years, who
+  bowed to the King of Hyrule and plotted, and touched the Triforce, and
+  kept the piece of Power when the rest fled from him. He has ruled
+  Hyrule for seven years from this tower. "The Triforce of Wisdom and
+  the Triforce of Courage," he says, "will be mine." He throws balls of
+  dark energy and he fights with a sword like a butcher's cleaver, and
+  he heals himself from what he cuts. Beaten here, they say, he becomes
+  Ganon, the great boar-beast with twin swords. This is no fight for one
+  hero alone.
+level: 35
+flags: [boss]
+health: 6000
+stats: {strength: 18, constitution: 18, intelligence: 16, wisdom: 16}
+silver: 1500
+xp: 25000
+attack:
+  kind: magic
+  verb: ball of dark energy
+effects:
+  - { kind: proc, params: { verb: ball of dark energy, chance: 0.15, power: 1.3 } }
+  - { kind: steady, params: { chance: 0.3 } }

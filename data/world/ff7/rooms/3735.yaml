@@ -1,0 +1,14 @@
+vnum: 3735
+name: The Temple of the Ancients
+description: |
+  A step pyramid in the jungle, built by the Cetra, whom Shinra calls
+  the Ancients: inside it a maze of stairways that run in impossible
+  directions, and a great clock whose hands are bridges. In the inner
+  sanctum lies the Black Materia, the key to Meteor. A man in a dark
+  suit is slumped against the wall near the door, bleeding. Something
+  huge and red stirs in the inner chamber. Wutai is west, and the
+  forest path leads east.
+exits:
+  east: 3736
+  west: 3733
+flags: [dark]

@@ -1,0 +1,15 @@
+vnum: 3962
+name: an Iron Knuckle's breastplate
+keywords: [iron, knuckle's, knuckle, breastplate, cuirass]
+description: A massive iron breastplate, dented and scorched, lies here.
+look: |
+  The breastplate of an Iron Knuckle, a shell of black iron an inch
+  thick, built for a body bigger than yours, which the Iron Knuckles
+  shed in pieces when they are hurt enough to get angry.
+type: armor
+slot: body
+weight: 12
+level: 31
+baseline: plate
+value: 400
+flags: [drop]

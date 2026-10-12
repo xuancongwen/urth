@@ -1,0 +1,20 @@
+vnum: 3736
+name: the Midgar Zolom's hide
+keywords: [midgar, zolom, zolom's, hide, armor, armour]
+description: A huge, mottled sheet of serpent skin, stiff with scales, lies here.
+look: |
+  A cuirass cut from the hide of the Midgar Zolom, the giant serpent
+  of the Kalm marsh: green-black scales each as big as a hand, over a
+  layer of rubbery skin that no spear could get through. It is heavy
+  and it still smells of the swamp. Blows sink into it and barely
+  reach you.
+type: armor
+slot: body
+weight: 7
+level: 39
+baseline: heavy
+value: 4500
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: thorns, params: { fraction: 0.1, verb: "scales" } }

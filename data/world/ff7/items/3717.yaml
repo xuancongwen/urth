@@ -1,0 +1,14 @@
+vnum: 3717
+name: a black cloak
+keywords: [black, cloak, robe, cape]
+description: A ragged black cloak lies here, stiff with dried mako.
+look: |
+  A long hooded cloak of black cloth, torn and filthy, of the kind
+  Hojo's failed experiments wear as they drift north toward the
+  crater, drawn by something they cannot name. A number has been
+  stitched inside the collar. It still smells of the Shinra Mansion.
+type: armor
+slot: body
+weight: 2
+level: 45
+baseline: cloth
