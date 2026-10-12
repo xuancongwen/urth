@@ -437,7 +437,7 @@
       showQuick();
       $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
     };
-    ws.onmessage = function (e) { JSON.parse(e.data).forEach(handle); };
+    ws.onmessage = function (e) { newBatch = true; JSON.parse(e.data).forEach(handle); };
   }
 
   function handle(m) {
@@ -516,9 +516,13 @@
     }
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
     if (wasFighting && !logOnly) {
+      // A batch is one tick's output, so a blank line between batches sets
+      // each round apart.
+      if (newBatch && combatLines.length) combatLines.push('');
+      newBatch = false;
       combatLines = combatLines.concat(lines).slice(-30);
       var cl = $('combatlog'); cl.textContent = '';
-      combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l; cl.appendChild(d); });
+      combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l || '&nbsp;'; cl.appendChild(d); });
     }
     feed = feed.slice(-2); logLines = logLines.slice(-300);
     var f = $('ticker'); f.textContent = '';
@@ -745,7 +749,7 @@
     return (g ? g + 'g ' : '') + (sv ? sv + 's' : '');
   }
 
-  var wasFighting = false, combatLines = [];
+  var wasFighting = false, combatLines = [], newBatch = false; // newBatch: no line of this batch has reached the combat feed yet
   // A fight takes over the map and the pad: the battle view where the map
   // was, the actions where the pad was. The ticker steps aside for the
   // feed. They come back when the fight ends.
