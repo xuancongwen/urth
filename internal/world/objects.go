@@ -266,7 +266,7 @@ func cmdHold(w *World, p *Player, args string) {
 		return
 	}
 	it := found[0]
-	if it.Proto.Type == item.Armor {
+	if it.Proto.Type == item.Armor && it.Proto.WearSlot() != "hold" {
 		p.Send("You can't hold that.\n")
 		return
 	}

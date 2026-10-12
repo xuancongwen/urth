@@ -433,6 +433,23 @@ func TestWearWieldsWeapons(t *testing.T) {
 	}
 }
 
+func TestHoldHeldArmor(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	relic := item.New(&item.Proto{Vnum: 9001, Name: "a relic", Keywords: []string{"relic"}, Type: item.Armor, Slot: "hold"})
+	helm := item.New(&item.Proto{Vnum: 9002, Name: "a helm", Keywords: []string{"helm"}, Type: item.Armor, Slot: "head"})
+	p.Inventory = append(p.Inventory, relic, helm)
+	send(w, 1, "hold relic")
+	if o := bob.take(); p.Equipment["hold"] != relic || !strings.Contains(o, "You hold a relic") {
+		t.Fatalf("hold relic: %q", o)
+	}
+	send(w, 1, "hold helm")
+	if o := bob.take(); p.Equipment["head"] != nil || !strings.Contains(o, "You can't hold that") {
+		t.Fatalf("hold helm: %q", o)
+	}
+}
+
 func TestStatsIsScore(t *testing.T) {
 	w := testWorld(t)
 	bob := login(t, w, 1, "Bob")
