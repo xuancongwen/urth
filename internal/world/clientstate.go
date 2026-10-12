@@ -242,6 +242,7 @@ func gearItem(it *item.Item, ref string) output.GearItem {
 	case item.Weapon:
 		g.DamageLow, g.DamageHigh = spreadBounds(p.Resolved.Weapon.Damage, p.Resolved.Weapon.Spread)
 		g.Speed = p.Resolved.Weapon.Speed
+		g.Hands = p.Resolved.Weapon.Hands
 	case item.Armor:
 		g.Defense = math.Round(p.Resolved.Armor.Defense*10) / 10
 	}

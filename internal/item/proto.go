@@ -34,12 +34,13 @@ const (
 type Slot string
 
 // Slots are the positions on a character, in display order. Wield and
-// Hold take weapons and held items; the rest take armor. Which slots
-// carry defense is a rules question (docs/RULES.md 5.2).
+// Second take weapons (Second is the off hand, docs/RULES.md 4.4) and
+// Hold takes held items; the rest take armor. Which slots carry defense
+// is a rules question (docs/RULES.md 5.2).
 var Slots = []Slot{
 	"light", "head", "face", "neck", "shoulders", "body", "arms", "hands",
 	"wrist1", "wrist2", "belt", "legs", "feet", "finger1", "finger2",
-	"shield", "wield", "hold",
+	"shield", "wield", "second", "hold",
 }
 
 // families maps an item's slot to the positions it may occupy.
@@ -56,8 +57,12 @@ func Positions(s Slot) []Slot {
 	return []Slot{s}
 }
 
-// Family returns the item slot a position belongs to.
+// Family returns the item slot a position belongs to. The second hand
+// takes weapons, as the main hand does, but is never filled by wield.
 func Family(pos Slot) Slot {
+	if pos == "second" {
+		return "wield"
+	}
 	for fam, positions := range families {
 		for _, p := range positions {
 			if p == pos {
@@ -196,6 +201,31 @@ func (p *Proto) HasFlag(flag string) bool {
 		}
 	}
 	return false
+}
+
+// TwoHanded reports whether the item is a weapon that takes both hands,
+// by its resolved numbers (a baseline may give the hands).
+func (p *Proto) TwoHanded() bool {
+	return p.Type == Weapon && p.Resolved.Weapon.Hands >= 2
+}
+
+// HandsConflict checks what fills the hands (docs/RULES.md 4.4): a
+// two-handed weapon leaves no hand for a shield or a second weapon, a
+// second weapon is one-handed and leaves none for a shield. It returns
+// what is wrong, or "" when nothing is.
+func HandsConflict(worn map[Slot]*Proto) string {
+	main, off, sh := worn["wield"], worn["second"], worn["shield"]
+	switch {
+	case off != nil && off.TwoHanded():
+		return fmt.Sprintf("item %d (%s) takes both hands and cannot be a second weapon", off.Vnum, off.Name)
+	case main != nil && main.TwoHanded() && off != nil:
+		return fmt.Sprintf("item %d (%s) takes both hands, leaving none for a second weapon", main.Vnum, main.Name)
+	case main != nil && main.TwoHanded() && sh != nil:
+		return fmt.Sprintf("item %d (%s) takes both hands, leaving none for a shield", main.Vnum, main.Name)
+	case off != nil && sh != nil:
+		return fmt.Sprintf("a second weapon and a shield (item %d) cannot be held together", sh.Vnum)
+	}
+	return ""
 }
 
 // WearSlot is where the item goes when worn, wielded, or held.

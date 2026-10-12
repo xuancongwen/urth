@@ -51,7 +51,7 @@ func meanRound(w *World, att, def *Character, n int) float64 {
 		att.swing += att.Speed
 		for att.swing >= 1 {
 			att.swing--
-			total += float64(w.resolveAttack(att, def, att.Equipment["wield"], 1).Damage)
+			total += float64(w.resolveAttack(att, def, "wield", 1).Damage)
 		}
 	}
 	return total / float64(n)

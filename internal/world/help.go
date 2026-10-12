@@ -17,7 +17,7 @@ type helpSection struct {
 
 var helpSections = []helpSection{
 	{"Movement", []string{"north", "east", "south", "west", "up", "down", "look", "exits", "scan", "open", "close", "lock", "unlock", "pick", "recall"}},
-	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "hold", "remove", "inventory", "equipment"}},
+	{"Objects", []string{"get", "drop", "put", "give", "wear", "wield", "second", "hold", "remove", "inventory", "equipment"}},
 	{"Combat", []string{"kill", "flee", "consider", "assist", "skills", "autoloot", "autogold", "autosac"}},
 	{"Magic", []string{"cast", "spells", "brandish", "study", "consume", "sacrifice"}},
 	{"Trade", []string{"list", "buy", "sell"}},
@@ -57,8 +57,9 @@ var helpText = map[string]string{
 	"put":       "put <item> <container>: put an item into a container you can see.",
 	"give":      "give <item> <character> | give <amount> silver|gold <character>: hand over an item or coins.",
 	"wear":      "wear <item> | wear all: put on armor, or wield a weapon. wear all wields a weapon only if your hand is empty.",
-	"wield":     "wield <weapon>: take up a weapon. Its verb is what your swings are called.",
-	"hold":      "hold <item>: hold an item in your off hand. A torch or lantern is lit by wearing or holding it; dark rooms need one.",
+	"wield":     "wield <weapon>: take up a weapon. Its verb is what your swings are called. A two-handed weapon leaves no hand for a shield or a second weapon.",
+	"second":    "second <weapon>: wield a one-handed weapon in your off hand beside your main one, for extra swings each round. It takes the hand a shield would, and without the Dual Wield feat both hands hit much softer.",
+	"hold":      "hold <item>: hold an item, such as an orb or a tome. A torch or lantern is lit by wearing or holding it; dark rooms need one.",
 	"remove":    "remove <item>: take off something worn, wielded, or held.",
 	"inventory": "inventory: what you carry.",
 	"equipment": "equipment: what you wear, wield, and hold.",

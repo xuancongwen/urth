@@ -558,7 +558,7 @@ func (w *World) applyCastTarget(c, t *Character, sp Spell, name string, tr CastT
 	if sp.hostile() {
 		if t.Fighting == nil {
 			t.Fighting = c
-			t.swing = 0
+			t.resetSwing()
 		}
 		if c.Fighting == nil {
 			w.startFight(c, t)

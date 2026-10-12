@@ -120,12 +120,14 @@ type kitEntry struct {
 }
 
 // Derived is what derivedStats returns. Speed is swings per round and may
-// be fractional (docs/RULES.md 4.4).
+// be fractional (docs/RULES.md 4.4); OffSpeed is the second weapon's, zero
+// without one.
 type Derived struct {
 	HealthMax  int     `json:"healthMax"`
 	ManaMax    int     `json:"manaMax"`
 	StaminaMax int     `json:"staminaMax"`
 	Speed      float64 `json:"speed"`
+	OffSpeed   float64 `json:"offSpeed"`
 	// Stats are the effective stats after gear and effects, for display.
 	Stats map[string]int `json:"stats"`
 }
@@ -219,6 +221,7 @@ func (w *World) view(c *Character) map[string]any {
 		"stamina":    c.Stamina,
 		"staminaMax": c.StaminaMax,
 		"speed":      c.Speed,
+		"offSpeed":   c.OffSpeed,
 		"equipment":  eq,
 		"effects":    effect.Views(nil, c.Effects),
 		"schools":    append([]string{}, c.Schools...),
@@ -439,10 +442,11 @@ func keywordsOf(name string) []string {
 	return out
 }
 
-// resolveAttack asks the script how one swing goes. Default: a miss.
-func (w *World) resolveAttack(att, def *Character, weapon *item.Item, round int) AttackResult {
+// resolveAttack asks the script how one swing goes, with the weapon in
+// hand ("wield" or "second"). Default: a miss.
+func (w *World) resolveAttack(att, def *Character, hand item.Slot, round int) AttackResult {
 	var r AttackResult
-	if !w.call("resolveAttack", &r, w.view(att), w.view(def), itemView(weapon), round) {
+	if !w.call("resolveAttack", &r, w.view(att), w.view(def), itemView(att.Equipment[hand]), round, string(hand)) {
 		return AttackResult{Stage: "miss"}
 	}
 	if r.Damage < 0 {
@@ -453,7 +457,7 @@ func (w *World) resolveAttack(att, def *Character, weapon *item.Item, round int)
 		r.Procs[i].Damage = max(r.Procs[i].Damage, 0)
 	}
 	if r.Verb == "" {
-		r.Verb = attackVerb(att, weapon)
+		r.Verb = attackVerb(att, att.Equipment[hand])
 	}
 	if !r.Hit && r.Stage == "" {
 		r.Stage = "miss"
@@ -503,6 +507,9 @@ func (w *World) derived(c *Character) Derived {
 	}
 	if d.Speed <= 0 {
 		d.Speed = 1
+	}
+	if d.OffSpeed < 0 || c.Equipment["second"] == nil {
+		d.OffSpeed = 0
 	}
 	return d
 }
@@ -571,6 +578,7 @@ func (w *World) recalc(c *Character) {
 	c.ManaMax = d.ManaMax
 	c.StaminaMax = d.StaminaMax
 	c.Speed = d.Speed
+	c.OffSpeed = d.OffSpeed
 	c.EffStats = d.Stats
 	if c.Health > c.HealthMax {
 		c.Health = c.HealthMax

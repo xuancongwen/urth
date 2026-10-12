@@ -346,6 +346,7 @@ type GearItem struct {
 	DamageLow  int     `json:"damageLow,omitempty"`
 	DamageHigh int     `json:"damageHigh,omitempty"`
 	Speed      float64 `json:"speed,omitempty"`
+	Hands      int     `json:"hands,omitempty"`
 	Defense    float64 `json:"defense,omitempty"`
 	Effects    int     `json:"effects,omitempty"`
 }

@@ -394,10 +394,10 @@ func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillR
 			// Everyone fighting the ally turns on the rescuer.
 			for _, o := range w.attackersOf(target) {
 				o.Fighting = c
-				o.swing = 0
+				o.resetSwing()
 				if c.Fighting == nil {
 					c.Fighting = o
-					c.swing = 0
+					c.resetSwing()
 				}
 			}
 		}
@@ -468,7 +468,7 @@ func (w *World) startFightIfIdle(att, def *Character) {
 	}
 	if def.Fighting == nil {
 		def.Fighting = att
-		def.swing = 0
+		def.resetSwing()
 	}
 }
 

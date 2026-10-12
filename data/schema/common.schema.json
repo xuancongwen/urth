@@ -21,12 +21,12 @@
     "position": {
       "type": "string",
       "description": "An equipment position on a character.",
-      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist1", "wrist2", "belt", "legs", "feet", "finger1", "finger2", "shield", "wield", "hold"]
+      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist1", "wrist2", "belt", "legs", "feet", "finger1", "finger2", "shield", "wield", "second", "hold"]
     },
     "itemSlot": {
       "type": "string",
       "description": "Where an item is worn: a position, or a family (wrist, finger) that fits either side.",
-      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist", "wrist1", "wrist2", "belt", "legs", "feet", "finger", "finger1", "finger2", "shield", "wield", "hold"]
+      "enum": ["light", "head", "face", "neck", "shoulders", "body", "arms", "hands", "wrist", "wrist1", "wrist2", "belt", "legs", "feet", "finger", "finger1", "finger2", "shield", "wield", "second", "hold"]
     },
     "weapon": {
       "type": "object",

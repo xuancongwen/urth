@@ -118,6 +118,7 @@ func (w *World) validate() error {
 				if _, ok := w.Mobs[r.Mob]; !ok {
 					return fmt.Errorf("%s: mob %d does not exist", where, r.Mob)
 				}
+				worn := map[item.Slot]*item.Proto{}
 				for _, eq := range r.Equip {
 					p, ok := w.Items[eq.Item]
 					if !ok {
@@ -130,7 +131,11 @@ func (w *World) validate() error {
 						if p.WearSlot() != item.Family(item.Slot(eq.Slot)) {
 							return fmt.Errorf("%s: item %d (%s) cannot go in slot %s", where, eq.Item, p.Name, eq.Slot)
 						}
+						worn[item.Slot(eq.Slot)] = p
 					}
+				}
+				if err := item.HandsConflict(worn); err != "" {
+					return fmt.Errorf("%s: %s", where, err)
 				}
 			}
 			if r.Item != 0 {

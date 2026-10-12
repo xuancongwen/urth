@@ -165,7 +165,7 @@ func (w *World) equipFree(c *Character, it *item.Item) bool {
 		return false
 	}
 	for _, pos := range item.Positions(slot) {
-		if c.equip(it, pos) {
+		if handsFree(c, it, pos) == "" && c.equip(it, pos) {
 			return true
 		}
 	}

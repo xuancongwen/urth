@@ -40,9 +40,12 @@ type Character struct {
 	Stamina    int
 	StaminaMax int
 	// Speed is swings per round; swing is the meter that turns a fractional
-	// speed into whole swings (docs/RULES.md 4.4).
-	Speed float64
-	swing float64
+	// speed into whole swings (docs/RULES.md 4.4). OffSpeed and offSwing
+	// are the same for a second weapon in the off hand.
+	Speed    float64
+	swing    float64
+	OffSpeed float64
+	offSwing float64
 	// Effects on the character: feats are permanent, buffs and poisons are
 	// timed. The engine stores and counts them; the rules interpret them.
 	Effects []effect.Active
@@ -229,6 +232,11 @@ func (w *World) countMobs(proto *mob.Proto) int {
 	return n
 }
 
+// resetSwing empties both swing meters, so the next round is a clean one.
+func (c *Character) resetSwing() {
+	c.swing, c.offSwing = 0, 0
+}
+
 // equip puts it in the slot, returning false if the slot is taken.
 func (c *Character) equip(it *item.Item, slot item.Slot) bool {
 	if _, taken := c.Equipment[slot]; taken {
@@ -287,7 +295,7 @@ func slotLabel(s item.Slot) string {
 		"wrist1": "<worn on left wrist>", "wrist2": "<worn on right wrist>", "belt": "<worn as belt>",
 		"legs": "<worn on legs>", "feet": "<worn on feet>",
 		"finger1": "<worn on left finger>", "finger2": "<worn on right finger>",
-		"shield": "<worn as shield>", "wield": "<wielded>", "hold": "<held>",
+		"shield": "<worn as shield>", "wield": "<wielded>", "second": "<second weapon>", "hold": "<held>",
 	}
 	if l, ok := labels[s]; ok {
 		return padRight(l, 22)

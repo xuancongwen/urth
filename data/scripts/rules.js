@@ -8,7 +8,7 @@
 //   random.int(n)   random.float()   random.roll(count, sides)   log(...)
 //
 // Views (RULES section 1): characters carry name, level, xp, stats{},
-// statPoints, health, healthMax, speed, equipment{slot: item}, effects[],
+// statPoints, health, healthMax, speed, offSpeed, equipment{slot: item}, effects[],
 // isPlayer, fighting, and for mobs mob{vnum, flags, health, xp, attack,
 // armor, effects}. Items carry vnum, name, type, slot, level, baseline,
 // weapon{damage, spread, speed, hands, kind, verb}, armor{defense, spread},
@@ -62,7 +62,12 @@ var P = {
   exhaustedDodge: 0.05,
   // A disarmed mob whose natural attack is a weapon (armedNatural) hits
   // for this share of it until the weapon is back in hand (RULES 7.4).
-  disarmedNatural: 0.5
+  disarmedNatural: 0.5,
+  // Two weapons without the Dual Wield feat (RULES 4.4): every swing of
+  // the main hand hits for dualMain of itself and every swing of the off
+  // hand for dualOff, so the pair deals about what one weapon does and the
+  // shield is gone. The feat lifts both to 1.
+  dualMain: 0.6, dualOff: 0.4
 };
 // The engine warns at start when this disagrees with timing.round_ms.
 function roundSeconds() { return P.roundSeconds; }
@@ -145,6 +150,25 @@ function wielded(c) {
   var it = c.equipment && c.equipment.wield;
   return it && it.weapon ? it : null;
 }
+
+// offhand is the second weapon c swings with (RULES 4.4), or null: none
+// in the off hand, or disarmed.
+function offhand(c) {
+  if (hasEffect(c, "disarmed")) return null;
+  var it = c.equipment && c.equipment.second;
+  return it && it.weapon ? it : null;
+}
+
+// dualMult is what fighting with two weapons does to a swing of hand
+// ("wield" or "second"): nothing with the Dual Wield feat or without a
+// second weapon, else the untrained penalty on both hands.
+function dualMult(c, hand) {
+  if (!(c.equipment && c.equipment.second) || hasEffect(c, "dualWield")) return 1;
+  return hand === "second" ? P.dualOff : P.dualMain;
+}
+
+// twoHanded reports whether a weapon item takes both hands.
+function twoHanded(it) { return !!it && !!it.weapon && it.weapon.hands >= 2; }
 
 function weaponTrait(c, field) { return num(traitsOf(wielded(c))[field]); }
 
@@ -270,7 +294,8 @@ function aggroRange(L, stated) {
 // protect, speedMult, dot, the power kinds below, and the combat kinds of
 // the skills and feats: blind, disarmed, damage, powerAttack, critMult,
 // shieldBlock, finesse, blindFighting, steady, opportunist, cooldownCut,
-// unarmedMult, envenom.
+// unarmedMult, envenom, and the fighting styles' dualWield,
+// offhandAttacks, and greatWeapon.
 // The engine itself reads four kinds for visibility (world/visibility.go):
 // invisible and hidden on a character or its gear make it unseen, and
 // detectInvisible and detectHidden on the viewer see through them.
@@ -492,7 +517,9 @@ function critMult(att, weapon) {
   return ((ce && num(ce.params.mult)) || 2) + sumEffects(att, "critMult", "amount");
 }
 
-function resolveAttack(att, def, weapon, round) {
+// resolveAttack is one swing with weapon, held in hand: "wield" for the
+// main hand, "second" for the off hand (RULES 4.4).
+function resolveAttack(att, def, weapon, round, hand) {
   if (hasEffect(att, "disarmed")) weapon = null;
   var w = weapon && weapon.weapon ? weapon.weapon : naturalAttack(att);
   var verb = w.verb || "punch";
@@ -516,7 +543,7 @@ function resolveAttack(att, def, weapon, round) {
   // wielder's level.
   var base = w.damage * (weapon ? attunedScale(weapon, att) : 1);
   var dmg = spreadRoll(base, w.spread) * strikeMult(att, weapon) * levelMult(att);
-  dmg *= swingMult(att, def, weapon);
+  dmg *= swingMult(att, def, weapon) * dualMult(att, hand);
 
   // Modify: crits exist only as effects (4.2) and the axe's edge; execute
   // finishes the wounded.
@@ -586,12 +613,14 @@ function strikeMult(c, weapon) {
 }
 
 // damageMult is the sum of c's damage bonuses as one multiplier: "damage"
-// effects (a weapon-only one needs a weapon) and Power Attack.
+// effects (a weapon-only one needs a weapon), Power Attack, and the Great
+// Weapon feats with a two-handed weapon.
 function damageMult(c, weapon) {
-  var add = 0;
+  var add = 0, great = twoHanded(weapon);
   eachEffect(c, function (e) {
     if (e.kind === "damage" && (!e.params.weapon || weapon)) add += (num(e.params.mult) || 1) - 1;
     if (e.kind === "powerAttack") add += (num(e.params.mult) || 1) - 1;
+    if (e.kind === "greatWeapon" && great) add += (num(e.params.mult) || 1) - 1;
   });
   return Math.max(0, 1 + add);
 }
@@ -667,6 +696,9 @@ function derivedStats(c) {
     : Math.round(P.healthBase * growth(c.level) * mult(c, "constitution") * levelMult(c));
   var w = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield.weapon : naturalAttack(c);
   var speed = ((w.speed || 1) * mult(c, "dexterity") + sumEffects(c, "attacks", "amount") + passiveSwings(c)) * speedMult(c);
+  // A second weapon swings at its own speed, plus the off-hand feats.
+  var off = offhand(c), offSpeed = 0;
+  if (off) offSpeed = Math.max(0, (num(off.weapon.speed) || 1) * mult(c, "dexterity") + sumEffects(c, "offhandAttacks", "amount")) * speedMult(c);
   var stats = {};
   for (var i = 0; i < STATS.length; i++) stats[STATS[i]] = stat(c, STATS[i]);
   return {
@@ -674,6 +706,7 @@ function derivedStats(c) {
     manaMax: manaMax(c),
     staminaMax: staminaMax(c),
     speed: Math.max(0.1, speed),
+    offSpeed: offSpeed,
     stats: stats
   };
 }
@@ -853,6 +886,22 @@ var FEATS = [
     effect: { kind: "crit", params: { chance: 0.15, mult: 2 } } },
   { id: "fourth_attack", name: "Fourth Attack", level: 20, stats: { strength: 18 }, requires: ["third_attack"], description: "Yet another extra swing every round.",
     effect: { kind: "attacks", params: { amount: 1 } } },
+  // --- fighting styles (RULES 4.4), 2026-10-11 ---
+  // Two weapons: the first feat takes away the untrained penalty, the
+  // next ones add swings to the off hand.
+  { id: "dual_wield", name: "Dual Wield", level: 3, stats: { dexterity: 12 }, description: "Fight with a second weapon without the penalty to either hand.",
+    effect: { kind: "dualWield", params: {} } },
+  { id: "two_weapon", name: "Two-Weapon Fighting", level: 10, stats: { dexterity: 15 }, requires: ["dual_wield"], description: "One extra swing every round with your second weapon.",
+    effect: { kind: "offhandAttacks", params: { amount: 1 } } },
+  { id: "greater_two_weapon", name: "Greater Two-Weapon Fighting", level: 18, stats: { dexterity: 17 }, requires: ["two_weapon"], description: "Another extra swing every round with your second weapon.",
+    effect: { kind: "offhandAttacks", params: { amount: 1 } } },
+  // A two-handed weapon: each feat makes its swings hit harder.
+  { id: "great_weapon", name: "Great Weapon Fighting", level: 3, stats: { strength: 12 }, description: "20 percent more damage with a two-handed weapon.",
+    effect: { kind: "greatWeapon", params: { mult: 1.20 } } },
+  { id: "great_weapon_mastery", name: "Great Weapon Mastery", level: 10, stats: { strength: 15 }, requires: ["great_weapon"], description: "20 percent more damage again with a two-handed weapon.",
+    effect: { kind: "greatWeapon", params: { mult: 1.20 } } },
+  { id: "devastating_blows", name: "Devastating Blows", level: 18, stats: { strength: 17 }, requires: ["great_weapon_mastery"], description: "20 percent more damage again with a two-handed weapon.",
+    effect: { kind: "greatWeapon", params: { mult: 1.20 } } },
   { id: "juggernaut", name: "Juggernaut", level: 22, stats: { constitution: 18 }, requires: ["iron_skin"], description: "Take 10 percent less damage from everything.",
     effect: { kind: "protect", params: { mult: 0.9 } } },
 
@@ -1169,9 +1218,14 @@ function combatSheet(c) {
   var weapon = c.equipment && c.equipment.wield && c.equipment.wield.weapon ? c.equipment.wield : null;
 
   add("Attacks", (Math.round(num(c.speed) * 10) / 10) + " a round");
-  var dm = damageMult(c, weapon) * (1 + 0.15 * skillRating(c, "enhanced_damage") / 100);
+  var dm = damageMult(c, weapon) * (1 + 0.15 * skillRating(c, "enhanced_damage") / 100) * dualMult(c, "wield");
   if (!weapon && !c.mob) dm *= unarmedMult(c);
   add("Damage", signed(dm - 1));
+  var off = offhand(c);
+  if (off) {
+    var odm = damageMult(c, off) * (1 + 0.15 * skillRating(c, "enhanced_damage") / 100) * dualMult(c, "second");
+    add("Off hand", (Math.round(num(c.offSpeed) * 10) / 10) + " a round, " + signed(odm - 1));
+  }
 
   var ce = bestEffect(c, "crit", "chance");
   var critChance = (ce ? num(ce.params.chance) : 0) + num(traitsOf(weapon).crit);
@@ -1246,6 +1300,9 @@ function describeEffect(e) {
     case "crit": return "A " + pct(p.chance) + " chance to critically hit for " + (num(p.mult) || 2) + "x damage" + tail;
     case "block": return "Blocks " + pct(p.chance) + " of swings" + tail;
     case "dodge": return (num(p.amount) >= 0 ? "+" : "") + pct(p.amount) + " dodge" + tail;
+    case "offhandAttacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " swing" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round with a second weapon" + tail;
+    case "dualWield": return "Fights with a second weapon without penalty" + tail;
+    case "greatWeapon": return Math.round((num(p.mult) - 1) * 100) + " percent more damage with a two-handed weapon" + tail;
     case "attacks": return (num(p.amount) >= 0 ? "+" : "") + num(p.amount) + " swing" + (Math.abs(num(p.amount)) === 1 ? "" : "s") + " per round" + tail;
     case "defense": return "+" + Math.round(num(p.amount)) + " defense" + tail;
     case "protect": return num(p.mult) > 1

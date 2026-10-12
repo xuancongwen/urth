@@ -80,7 +80,7 @@ resets:
   - { mob: 3934, room: 3907, max: 3, equip: [{ item: 3936, slot: wield }] }  # likewise
   - { mob: 3934, room: 3907, max: 3 }                                 # likewise
   - { mob: 3935, room: 3907 }                                         # Saria on her stump, who sells the Fairy Ocarina
-  - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3938, slot: wield }, { item: 3939, slot: shield }] }  # Stalfos in the Forest Temple halls
+  - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3938, slot: wield }, { item: 3939 }] }  # Stalfos in the Forest Temple halls; the Knife takes both hands, so its shield is slung
   - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3938, slot: wield }] }  # likewise
   - { mob: 3936, room: 3908, max: 3, equip: [{ item: 3939, slot: shield }, { item: 3921 }] }  # likewise
   - { mob: 3937, room: 3909, equip: [{ item: 3940, slot: wield }, { item: 3941, slot: neck }, { item: 3924 }] }  # Phantom Ganon in his gallery, with his spear and the Forest Medallion

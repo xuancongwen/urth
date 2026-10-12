@@ -38,8 +38,8 @@ left out; the engine then uses a quiet default.
 
 | Hook | Called when | Inputs | Returns |
 |---|---|---|---|
-| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round | `{hit, damage, crit, verb, stage, procs:[{verb, damage, back}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
-| `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, staminaMax, speed}`; `speed` is swings per round, fractional allowed |
+| `resolveAttack` | each swing (the engine's swing meter decides when) | attacker, defender, weapon (null if unarmed), round, hand (`wield`, or `second` for the off hand, 4.4) | `{hit, damage, crit, verb, stage, procs:[{verb, damage, back}], heal, effects:[{on, kind, params, rounds}]}`; `stage` is `dodge`, `block`, or `miss` when `hit` is false. The rest is the 5.4 `onhit` phase, applied only on a hit: each proc is an extra strike narrated by its verb, on the defender or, with `back`, on the attacker (thorns); `heal` goes to the attacker; effects attach to the defender (`on: "target"`) or attacker (`"self"`) |
+| `derivedStats` | login, spawn, equipment change, level, effect change, script reload | character | `{healthMax, manaMax, staminaMax, speed, offSpeed}`; `speed` is swings per round, fractional allowed; `offSpeed` the second weapon's (4.4), zero without one |
 | `onTick` | once per round for every character | character | `{healthDelta, manaDelta, staminaDelta, skills:{id: rating}, aura:[{verb, damage}]}`; each aura entry strikes every enemy fighting the character in its room |
 | `xpForKill` | a player kills a mob | killer, victim | integer |
 | `xpToLevel` | after any experience gain, and on death | level | integer (total xp needed to reach it) |
@@ -114,7 +114,11 @@ left out; the engine then uses a quiet default.
 ### What the engine owns
 
 - The swing meter (4.4): each round a combatant's meter gains its
-  `speed`; every whole point is one `resolveAttack` call.
+  `speed`; every whole point is one `resolveAttack` call. A second
+  weapon has its own meter, filled by `offSpeed`, and the hands take
+  turns.
+- Hands (4.4): a two-handed weapon, a second weapon, and a shield are
+  refused when they would not fit together.
 - Effect lifetimes (5.4): timed effects count down once per round and
   are dropped at zero; `derivedStats` is re-run when a list changes.
 - Death (4.6): the corpse (a container holding everything carried and
@@ -711,8 +715,52 @@ What speed buys, and what to watch:
   chance instead of a per-swing one, decided per kind.
 
 Beyond the auto-attack, one player action per round (2.1): an ability,
-`flee`, an item. Dual wield is open and is best treated as a feat that
-lets an off-hand weapon add its speed to the meter at a penalty.
+`flee`, an item.
+
+**Hands, two weapons, and two-handers (decided 2026-10-11).** A weapon
+takes one hand or two (`hands`, stated or from its baseline). The hands
+hold three things between them: the main weapon (`wield`), a shield,
+and a second weapon (`second`, its own command, so `wear` and `wield`
+always mean the main hand). A two-handed weapon leaves no hand for a
+shield or a second weapon; a second weapon is one-handed and takes the
+hand a shield would. So the three fighting styles exclude each other by
+the hands alone, with no feat field for it: sword and shield, two
+weapons, or one great weapon. Held items (an orb, a tome) are not in the
+hand count, so a caster keeps a staff and an orb. Versatile weapons (one
+or two hands, better with two) are left for later.
+
+*Two weapons.* The second weapon fills its own swing meter at its own
+speed times Dexterity, so it adds one attack a round with a standard
+weapon, and the hands take turns. It carries its own numbers, verb, and
+family traits; its effects, like any worn item's, apply to the wearer.
+Untrained, it is a strong penalty: every main-hand swing hits for 0.6
+of itself and every off-hand swing for 0.4 (`P.dualMain`, `P.dualOff`),
+so the pair deals about what one weapon does and the shield is gone;
+with Second Attack the pair deals less than one sword. The Dual Wield
+feat removes the penalty entirely, and Two-Weapon Fighting and Greater
+Two-Weapon Fighting each add a whole swing a round to the off hand, as
+Second and Third Attack do to the main hand. Removing the main weapon
+moves the second one into the main hand.
+
+*Two-handers.* Great Weapon Fighting, Great Weapon Mastery, and
+Devastating Blows each add 20 percent damage to a two-handed weapon's
+swings (additive with other damage bonuses), so the line pays for the
+shield the way the dual line does, in damage per swing rather than
+swings.
+
+Measured on 2026-10-11 against an even fighter in the standard kit,
+with the extra-attack feats the level allows, damage per round:
+
+| Level | Sword | Two swords, untrained | Two swords, all dual feats | Maul | Maul, all Great Weapon feats |
+|---|---|---|---|---|---|
+| 5 | 16 | 13 | 24 | 24 | 29 |
+| 10 | 28 | 22 | 55 | 42 | 58 |
+| 20 | 164 | 114 | 286 | 289 | 462 |
+
+The maul leads already without its feats, because Second, Third, and
+Fourth Attack add a whole swing whatever the weapon, and a whole swing
+of a slow, heavy weapon is worth more. That bias predates the styles
+and is tracked as its own question.
 
 Consequences: `weapon.speed` on the item and in the view,
 default 1. `derivedStats` returns `attacksPerRound` as the total speed
@@ -720,7 +768,10 @@ and the engine's combat loop keeps the meter, or the rules keep it in
 effect state; the leaning is the engine, since the meter is a lifetime
 concern like an effect's rounds. Dexterity multiplies speed. Feats
 `second attack` and `third attack` are `prepare`-phase effects adding
-one swing each.
+one swing each. As built, `derivedStats` returns `speed` and
+`offSpeed`, the engine keeps a meter for each hand, and
+`resolveAttack` receives the hand (`wield` or `second`) as a fifth
+argument.
 
 ### 4.5 Pacing targets
 
@@ -2047,7 +2098,17 @@ toughness and soaking), rising with the feat's level as skills' do
 (7.4). As with skills, requirements read trained stats, not gear, and a
 feat once taken is kept even if a later change raises its bar. `feat`
 lists every feat with what it needs, so the build is visible before the
-points are spent. 3.3's per-level
+points are spent.
+
+**Fighting styles (decided 2026-10-11).** Two feat lines go with the
+hands of 4.4, each a chain where a feat requires the one before it.
+Two weapons, on Dexterity: Dual Wield (3; removes the untrained
+penalty), Two-Weapon Fighting (10) and Greater Two-Weapon Fighting
+(18), each a swing a round for the second weapon. A two-handed weapon,
+on Strength: Great Weapon Fighting (3), Great Weapon Mastery (10), and
+Devastating Blows (18), each 20 percent more damage with it. Nothing
+stops a character taking both lines or Shield Focus beside them; the
+hands decide which one is in use at a time. 3.3's per-level
 multiplier and 7.1's curve are the next things to set, and they should
 be set together against a target of levels per session.
 

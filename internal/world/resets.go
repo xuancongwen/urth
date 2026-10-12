@@ -76,6 +76,7 @@ func (w *World) resetArea(a *areaState) {
 					m.Inventory = append(m.Inventory, it)
 				}
 			}
+			settleHands(m.Character)
 			w.recalc(m.Character)
 			m.Health, m.Mana, m.Stamina = m.HealthMax, m.ManaMax, m.StaminaMax
 			w.placeMob(m, rm)

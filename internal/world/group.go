@@ -267,7 +267,7 @@ func cmdAssist(w *World, p *Player, args string) {
 	w.act("You assist $N.", p.Character, whom, "", toChar)
 	w.act("$n assists you.", p.Character, whom, "", toVict)
 	w.startFight(p.Character, whom.Fighting)
-	w.attackRound(p.Character, whom.Fighting)
+	w.attackRound(p.Character, whom.Fighting, "wield")
 }
 
 // autoAssist brings grouped players and assisting mobs into a fight that
@@ -279,7 +279,7 @@ func (w *World) autoAssist(att, def *Character) {
 			return
 		}
 		helper.Fighting = target
-		helper.swing = 0
+		helper.resetSwing()
 		w.act("You assist $N.", helper, helper.Fighting, "", toChar)
 		w.act("$n joins the fight against $N.", helper, target, "", toRoom)
 	}

@@ -72,6 +72,22 @@ func (w *World) loadCharacterItems(p *Player) {
 			p.Equipment[item.Slot(slot)] = list[0]
 		}
 	}
+	settleHands(p.Character)
+}
+
+// settleHands takes off what the hands cannot hold together, for gear
+// saved before hands were enforced (docs/RULES.md 4.4): a shield or a
+// second weapon beside a two-handed weapon, a two-handed second weapon, a
+// second weapon with no main one or beside a shield. What comes off goes
+// to the inventory.
+func settleHands(c *Character) {
+	main, off, sh := c.Equipment["wield"], c.Equipment["second"], c.Equipment["shield"]
+	if off != nil && (main == nil || main.Proto.TwoHanded() || off.Proto.TwoHanded() || sh != nil) {
+		c.unequip("second")
+	}
+	if sh != nil && main != nil && main.Proto.TwoHanded() {
+		c.unequip("shield")
+	}
 }
 
 // loadSheet restores level, experience, stats, and vitals, then derives

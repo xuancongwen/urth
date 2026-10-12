@@ -831,7 +831,7 @@ func TestAreaSpellSafeRoomAndGroupXP(t *testing.T) {
 	// A kill pays every grouped player here.
 	guard := w.contents(w.players[1].Room).mobs[0]
 	guard.Health = 1
-	w.attackRound(w.players[1].Character, guard.Character)
+	w.attackRound(w.players[1].Character, guard.Character, "wield")
 	w.Tick()
 	bob.take()
 	alice.take()
@@ -892,7 +892,7 @@ func TestKillSwitchesTargetAndManyOnOne(t *testing.T) {
 	}
 	// When the current target dies, Bob turns on the other attacker.
 	dogs[1].Health = 1
-	w.attackRound(p.Character, dogs[1].Character)
+	w.attackRound(p.Character, dogs[1].Character, "wield")
 	for i := 0; i < 10; i++ {
 		w.Tick()
 	}
@@ -1220,7 +1220,7 @@ func TestMoneyDropsGiveAndCorpse(t *testing.T) {
 	}
 	// Death puts the wallet in the corpse.
 	p.Health = 1
-	w.attackRound(guard.Character, p.Character)
+	w.attackRound(guard.Character, p.Character, "wield")
 	w.Tick()
 	bob.take()
 	if p.Silver != 0 {

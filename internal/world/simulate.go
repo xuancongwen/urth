@@ -188,13 +188,14 @@ type simFightResult struct {
 func (w *World) simFight(a, b *Character) simFightResult {
 	var f simFightResult
 	a.Fighting, b.Fighting = b, a
-	a.swing, b.swing = 0, 0
+	a.resetSwing()
+	b.resetSwing()
 	swing := func(att, def *Character, round int, dmg, swings *int) {
 		att.swing += att.Speed
-		for att.swing >= 1 && def.Health > 0 {
-			att.swing--
+		att.offSwing += att.OffSpeed
+		for hand := att.nextSwing(); hand != "" && def.Health > 0; hand = att.nextSwing() {
 			*swings++
-			r := w.resolveAttack(att, def, att.Equipment["wield"], round)
+			r := w.resolveAttack(att, def, hand, round)
 			if r.Hit {
 				before := def.Health
 				w.landHit(att, def, r)

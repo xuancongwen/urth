@@ -118,7 +118,8 @@ func (w *World) runExpedition(c *Character, foes []*mob.Proto, rules ExpeditionR
 		}
 		foe := w.simCharacter(foes[rng.IntN(len(foes))])
 		f := w.simFight(me, foe)
-		me.Fighting, me.swing = nil, 0
+		me.Fighting = nil
+		me.resetSwing()
 		ex.Rounds += f.rounds
 		switch {
 		case me.Health <= 0:

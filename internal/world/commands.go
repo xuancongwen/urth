@@ -55,6 +55,7 @@ func init() {
 		{"give", 2, cmdGive, false},
 		{"wear", 3, cmdWear, false},
 		{"wield", 2, cmdWield, false},
+		{"second", 3, cmdSecond, false},
 		{"hold", 2, cmdHold, false},
 		{"remove", 3, cmdRemove, false},
 		{"equipment", 2, cmdEquipment, false},
@@ -160,22 +161,27 @@ func (w *World) dispatch(p *Player, line string) {
 	}
 	c := lookup(word, p.Admin)
 	if c == nil {
-		if p.Position != posStanding {
-			if _, ok := w.findSkill(p.Character, word); ok {
-				p.Send("You need to be on your feet for that. 'stand' first.\n")
-				return
-			}
+		if !w.skillWord(p, word, args) {
+			p.Send("Huh?\n")
 		}
-		if w.trySkill(p, word, args) {
-			return
-		}
-		p.Send("Huh?\n")
 		return
 	}
 	if !c.admin && !positionAllows(p, c.name) {
 		return
 	}
 	c.fn(w, p, args)
+}
+
+// skillWord uses the skill a typed word names, reporting whether one
+// did; a skill wants its user on their feet.
+func (w *World) skillWord(p *Player, word, args string) bool {
+	if p.Position != posStanding {
+		if _, ok := w.findSkill(p.Character, word); ok {
+			p.Send("You need to be on your feet for that. 'stand' first.\n")
+			return true
+		}
+	}
+	return w.trySkill(p, word, args)
 }
 
 func cmdMove(dir string) func(w *World, p *Player, args string) {

@@ -50,12 +50,12 @@ func cmdKill(w *World, p *Player, args string) {
 		p.Fighting = target
 		if target.Fighting == nil {
 			target.Fighting = p.Character
-			target.swing = 0
+			target.resetSwing()
 		}
 		return
 	}
 	w.startFight(p.Character, target)
-	w.attackRound(p.Character, target)
+	w.attackRound(p.Character, target, "wield")
 }
 
 // startFight makes att fight def, and def fight back if idle. Swing meters
@@ -66,10 +66,10 @@ func (w *World) startFight(att, def *Character) {
 	w.reveal(att, true)
 	w.reveal(def, true)
 	att.Fighting = def
-	att.swing = 0
+	att.resetSwing()
 	if def.Fighting == nil {
 		def.Fighting = att
-		def.swing = 0
+		def.resetSwing()
 	}
 	w.autoAssist(att, def)
 }
@@ -129,7 +129,8 @@ func (w *World) allCharacters() []*Character {
 
 // violence runs one combat round for everyone fighting. Each combatant's
 // swing meter gains its speed; every whole point is one swing, so speed 2
-// swings twice a round and speed 0.5 swings every other round.
+// swings twice a round and speed 0.5 swings every other round. A second
+// weapon fills its own meter, and the hands take turns.
 func (w *World) violence() {
 	for _, c := range w.allCharacters() {
 		def := c.Fighting
@@ -141,22 +142,38 @@ func (w *World) violence() {
 			}
 		}
 		c.swing += c.Speed
-		for c.swing >= 1 {
-			c.swing--
+		c.offSwing += c.OffSpeed
+		for hand := c.nextSwing(); hand != ""; hand = c.nextSwing() {
 			if c.Fighting != def || def.Health <= 0 || c.Health <= 0 {
 				break
 			}
-			w.attackRound(c, def)
+			w.attackRound(c, def, hand)
 		}
 	}
 }
 
-// attackRound is one swing: ask the rules, apply, narrate, handle death.
-// Messages name the weapon's verb: "Your slash hits a guard. [12]".
-func (w *World) attackRound(att, def *Character) {
-	weapon := att.Equipment["wield"]
+// nextSwing takes one whole swing off c's meters and says which hand
+// makes it, "wield" or "second"; "" when neither meter holds one. The
+// fuller meter goes first, the main hand on a tie, so the hands take
+// turns.
+func (c *Character) nextSwing() item.Slot {
+	switch {
+	case c.swing >= 1 && c.swing >= c.offSwing:
+		c.swing--
+		return "wield"
+	case c.offSwing >= 1:
+		c.offSwing--
+		return "second"
+	}
+	return ""
+}
+
+// attackRound is one swing with the weapon in hand ("wield" or
+// "second"): ask the rules, apply, narrate, handle death. Messages name
+// the weapon's verb: "Your slash hits a guard. [12]".
+func (w *World) attackRound(att, def *Character, hand item.Slot) {
 	w.rounds++
-	r := w.resolveAttack(att, def, weapon, int(w.roundCount))
+	r := w.resolveAttack(att, def, hand, int(w.roundCount))
 	verb := output.Escape(r.Verb)
 	if !r.Hit {
 		switch r.Stage {

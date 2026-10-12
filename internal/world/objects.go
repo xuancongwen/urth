@@ -203,7 +203,8 @@ func cmdGive(w *World, p *Player, args string) {
 
 // cmdWear: wear <item> | wear all. A weapon is wielded, as wield would;
 // wear all wields one only when the hand is empty, so a bag of weapons
-// does not swap through them. A second weapon will have its own command.
+// does not swap through them. A second weapon has its own command,
+// second.
 func cmdWear(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Wear what?\n")
@@ -254,6 +255,66 @@ func cmdWield(w *World, p *Player, args string) {
 	w.wearItem(p, it, "wield", "You wield $p.", "$n wields $p.")
 }
 
+// cmdSecond: second <weapon>. A one-handed weapon in the off hand, beside
+// a one-handed main weapon and instead of a shield (docs/RULES.md 4.4).
+// Bare, it is still Second Wind for those who know it.
+func cmdSecond(w *World, p *Player, args string) {
+	if args == "" {
+		if !w.skillWord(p, "second", "") {
+			p.Send("Wield what as a second weapon?\n")
+		}
+		return
+	}
+	found := item.Find(p.Inventory, item.ParseTarget(args))
+	if len(found) == 0 {
+		p.Send("You don't have that.\n")
+		return
+	}
+	it := found[0]
+	if it.Proto.Type != item.Weapon {
+		p.Send("That is not a weapon.\n")
+		return
+	}
+	w.wearItem(p, it, "second", "You wield $p as a second weapon.", "$n wields $p as a second weapon.")
+}
+
+// handsFree says why it cannot go in pos beside what c already holds, or
+// "" when it can (docs/RULES.md 4.4): a two-handed weapon leaves no hand
+// for a shield or a second weapon, and a second weapon leaves none for a
+// shield. Whatever pos holds now is swapped out, so it does not count.
+func handsFree(c *Character, it *item.Item, pos item.Slot) string {
+	main, off, sh := c.Equipment["wield"], c.Equipment["second"], c.Equipment["shield"]
+	switch pos {
+	case "wield":
+		switch {
+		case !it.Proto.TwoHanded():
+		case sh != nil:
+			return "That takes both hands; remove your shield first."
+		case off != nil:
+			return "That takes both hands; remove your second weapon first."
+		}
+	case "second":
+		switch {
+		case it.Proto.TwoHanded():
+			return "That takes both hands; it cannot be a second weapon."
+		case main == nil:
+			return "You need a weapon in your main hand first."
+		case main.Proto.TwoHanded():
+			return "Your weapon already takes both hands."
+		case sh != nil:
+			return "Your shield is in the hand a second weapon would take."
+		}
+	case "shield":
+		switch {
+		case main != nil && main.Proto.TwoHanded():
+			return "Your weapon takes both hands; there is none free for a shield."
+		case off != nil:
+			return "Your second weapon is in the hand a shield would take."
+		}
+	}
+	return ""
+}
+
 // cmdHold: hold <item>
 func cmdHold(w *World, p *Player, args string) {
 	if args == "" {
@@ -290,6 +351,10 @@ func (w *World) wearItem(p *Player, it *item.Item, slot item.Slot, toSelf, toOth
 			break
 		}
 	}
+	if why := handsFree(p.Character, it, pos); why != "" {
+		p.Send(why + "\n")
+		return
+	}
 	if old, taken := p.Equipment[pos]; taken {
 		p.unequip(pos)
 		w.actItem("You stop using $p.", p.Character, nil, output.Escape(old.Name()), "", toChar)
@@ -322,6 +387,12 @@ func cmdRemove(w *World, p *Player, args string) {
 		p.unequip(slot)
 		w.actItem("You stop using $p.", p.Character, nil, output.Escape(it.Name()), "", toChar)
 		w.actItem("$n stops using $p.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
+	}
+	// A second weapon left without a main one becomes the main one.
+	if off := p.Equipment["second"]; off != nil && p.Equipment["wield"] == nil {
+		delete(p.Equipment, "second")
+		p.Equipment["wield"] = off
+		w.actItem("You shift $p to your main hand.", p.Character, nil, output.Escape(off.Name()), "", toChar)
 	}
 	w.recalc(p.Character)
 }

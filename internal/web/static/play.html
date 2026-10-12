@@ -1124,6 +1124,7 @@
         row(list, name, use, function () {
           var acts = [];
           if (use) acts.push(use);
+          if (it.type === 'weapon' && (it.hands || 1) < 2) acts.push(['Second hand', 'second ' + it.ref]);
           acts.push(['Give…', function () { giveSheet(it); }], ['Put in…', function () { putSheet(it); }],
             ['Drop', 'drop #' + it.id], ['Sell', 'sell #' + it.id],
             ['Sacrifice', function () { closeSheet(); sendAll(sacrificeCmds(it)); }]);
@@ -1164,7 +1165,14 @@
   // all upgrades puts on, for each slot, the best piece in the bag that
   // beats what is there (or fills it), by the same comparison as the bag.
   var SLOTS = ['light', 'head', 'face', 'neck', 'shoulders', 'body', 'arms', 'hands', 'wrist1', 'wrist2', 'belt',
-               'legs', 'feet', 'finger1', 'finger2', 'shield', 'wield', 'hold'];
+               'legs', 'feet', 'finger1', 'finger2', 'shield', 'wield', 'second', 'hold'];
+  // What a slot takes from the bag, and the command that puts it there: the
+  // second hand takes one-handed weapons, with second.
+  function fitsSlot(b, slot) {
+    if (slot === 'second') return b.type === 'weapon' && (b.hands || 1) < 2;
+    return family(b.slot) === family(slot);
+  }
+  function wearCmd(b, slot) { return (slot === 'second' ? 'second #' : 'wear #') + b.id; }
   function upgradePicks(s) {
     var best = {};
     s.inventory.forEach(function (it) {
@@ -1190,9 +1198,9 @@
       name.appendChild(el('span', 'slotname', slot.replace(/[12]$/, '')));
       if (!it) {
         name.appendChild(el('span', 'dim', '— empty'));
-        var fits = s.inventory.filter(function (b) { return family(b.slot) === family(slot); });
+        var fits = s.inventory.filter(function (b) { return fitsSlot(b, slot); });
         row(list, name, fits.length ? ['Wear…', function () {
-          openSheet('Wear on ' + slot.replace(/[12]$/, ''), null, fits.map(function (b) { return [b.name, 'wear #' + b.id]; }));
+          openSheet('Wear on ' + slot.replace(/[12]$/, ''), null, fits.map(function (b) { return [b.name, wearCmd(b, slot)]; }));
         }, ''] : null);
         return;
       }
