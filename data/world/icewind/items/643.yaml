@@ -13,7 +13,6 @@ weight: 3
 level: 10
 baseline: medium
 value: 360
-rarity: rare
 effects:
   - { kind: soak, params: { power: 0.04 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

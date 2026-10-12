@@ -12,7 +12,6 @@ weight: 3
 level: 21
 baseline: spear
 value: 3000
-rarity: rare
 weapon:
   hands: 1
   kind: pierce

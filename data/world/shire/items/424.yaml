@@ -15,7 +15,6 @@ level: 9
 baseline: dagger
 weight: 1
 value: 500
-rarity: rare
 weapon:
   hands: 1
   kind: pierce

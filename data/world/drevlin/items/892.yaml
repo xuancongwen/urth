@@ -13,7 +13,6 @@ slot: neck
 level: 8
 weight: 0
 value: 400
-rarity: uncommon
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: detectInvisible }

@@ -12,7 +12,6 @@ slot: neck
 level: 11
 weight: 2
 value: 90
-rarity: uncommon
 effects:
   - { kind: stat, params: { stat: constitution, amount: 1 } }
   - { kind: stat, params: { stat: strength, amount: 1 } }

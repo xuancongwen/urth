@@ -13,7 +13,6 @@ weight: 2
 level: 11
 baseline: standard
 value: 300
-rarity: uncommon
 weapon:
   hands: 2
   kind: pierce

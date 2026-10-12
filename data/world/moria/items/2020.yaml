@@ -15,7 +15,6 @@ weight: 1
 level: 30
 baseline: light
 value: 5000
-rarity: rare
 armor:
   defense: 28
   spread: 0.1

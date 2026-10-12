@@ -14,7 +14,6 @@ level: 12
 baseline: dagger
 weight: 2
 value: 700
-rarity: rare
 weapon:
   hands: 1
   kind: pierce

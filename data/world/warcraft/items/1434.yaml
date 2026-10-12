@@ -14,7 +14,6 @@ level: 20
 baseline: plate
 weight: 30
 value: 1800
-rarity: rare
 effects:
   - { kind: soak, params: { power: 0.12 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }

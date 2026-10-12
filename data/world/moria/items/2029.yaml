@@ -14,7 +14,6 @@ level: 50
 baseline: staff
 weight: 3
 value: 6000
-rarity: rare
 weapon:
   hands: 2
   kind: blunt

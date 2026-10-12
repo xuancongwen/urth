@@ -13,7 +13,6 @@ slot: neck
 level: 6
 weight: 0
 value: 150
-rarity: uncommon
 effects:
   - { kind: dodge, params: { amount: 0.03 } }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

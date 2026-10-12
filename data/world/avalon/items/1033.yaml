@@ -14,7 +14,6 @@ level: 10
 baseline: shield
 weight: 5
 value: 1000
-rarity: rare
 effects:
   - { kind: block, params: { chance: 0.14 } }
   - { kind: protect, params: { mult: 0.92 } }

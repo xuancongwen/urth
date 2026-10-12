@@ -14,7 +14,6 @@ slot: hold
 level: 9
 weight: 1
 value: 600
-rarity: rare
 effects:
   - { kind: regen, params: { fraction: 0.015 } }
   - { kind: steady, params: { chance: 0.3 } }

@@ -15,7 +15,6 @@ weight: 4
 level: 36
 baseline: plate
 value: 8000
-rarity: rare
 effects:
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }

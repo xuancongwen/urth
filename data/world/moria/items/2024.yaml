@@ -15,7 +15,6 @@ weight: 6
 level: 50
 baseline: axe
 value: 20000
-rarity: rare
 weapon:
   hands: 1
   kind: slash

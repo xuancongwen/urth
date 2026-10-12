@@ -12,7 +12,6 @@ slot: body
 level: 16
 baseline: heavy
 value: 900
-rarity: rare
 effects:
   - kind: soak
     params: { power: 0.08 }

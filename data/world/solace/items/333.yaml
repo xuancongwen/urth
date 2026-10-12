@@ -14,7 +14,6 @@ slot: neck
 level: 3
 weight: 0
 value: 60
-rarity: uncommon
 effects:
   - { kind: regen, params: { fraction: 0.01 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

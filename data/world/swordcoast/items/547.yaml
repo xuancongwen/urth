@@ -13,7 +13,6 @@ weight: 5
 level: 15
 baseline: heavy
 value: 900
-rarity: rare
 effects:
   - { kind: protect, params: { mult: 0.94 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }

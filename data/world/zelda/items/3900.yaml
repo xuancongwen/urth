@@ -14,7 +14,6 @@ weight: 1
 level: 6
 baseline: dagger
 value: 500
-rarity: rare
 weapon:
   hands: 1
   kind: slash

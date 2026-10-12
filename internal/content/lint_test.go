@@ -43,7 +43,9 @@ func TestLintFindsTheUsualMistakes(t *testing.T) {
 		// b's item vnum sits inside a's range.
 		"b/items/5.yaml":  "vnum: 5\nname: a stray coin\nkeywords: [coin]\n",
 		"a/items/10.yaml": "vnum: 10\nname: a sword\nkeywords: [sword]\ntype: weapon\n",
-		"a/items/11.yaml": "vnum: 11\nname: a cap\nkeywords: [cap]\ntype: armor\nslot: head\n",
+		// A cap with a material's rarity; the material's own is fine.
+		"a/items/11.yaml": "vnum: 11\nname: a cap\nkeywords: [cap]\ntype: armor\nslot: head\nrarity: rare\n",
+		"a/items/12.yaml": "vnum: 12\nname: a fang\nkeywords: [fang]\ntype: material\nmaterial: fang\nrarity: rare\n",
 		"a/mobs/20.yaml":  "vnum: 20\nname: a guard\nkeywords: [guard]\n",
 		"a/mobs/21.yaml":  "vnum: 21\nname: a ghost\nkeywords: [ghost]\n",
 		"a/resets.yaml":   "resets:\n  - mob: 20\n    room: 9\n    equip:\n      - item: 10\n        slot: wield\n",
@@ -59,9 +61,10 @@ func TestLintFindsTheUsualMistakes(t *testing.T) {
 		"description":   1, // room 3
 		"one-way":       2, // 3 up to 4, 3 west to 2
 		"mismatch":      1, // 1 east to 3, 3 west to 2
-		"unplaced":      3, // item 5, item 11, mob 21
+		"unplaced":      4, // item 5, item 11, item 12, mob 21
 		"foreign-reset": 1, // a's reset into b's room 9
 		"vnum-overlap":  1,
+		"stray-rarity":  1, // item 11
 	}
 	for k, n := range want {
 		if got[k] != n {

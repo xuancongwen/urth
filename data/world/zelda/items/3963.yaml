@@ -13,7 +13,6 @@ weight: 6
 level: 31
 baseline: shield
 value: 4500
-rarity: rare
 effects:
   - { kind: block, params: { chance: 0.15 } }
   - { kind: thorns, params: { fraction: 0.15, verb: flash of reflected light } }

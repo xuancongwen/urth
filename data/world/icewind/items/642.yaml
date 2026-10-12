@@ -15,7 +15,6 @@ weight: 2
 level: 10
 baseline: cloth
 value: 380
-rarity: rare
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

@@ -14,7 +14,6 @@ level: 22
 baseline: light
 weight: 5
 value: 1500
-rarity: uncommon
 effects:
   - { kind: protect, params: { mult: 0.92 } }
   - { kind: stat, params: { stat: wisdom, amount: 2 } }

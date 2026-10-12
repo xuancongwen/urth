@@ -13,7 +13,6 @@ slot: hold
 level: 38
 weight: 2
 value: 3500
-rarity: rare
 effects:
   - { kind: lastStand, params: { threshold: 0.3, mult: 0.8 } }
   - { kind: stat, params: { stat: strength, amount: 2 } }

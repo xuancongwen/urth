@@ -12,7 +12,6 @@ slot: neck
 weight: 1
 level: 9
 value: 900
-rarity: rare
 effects:
   - { kind: detectHidden }
   - { kind: stat, params: { stat: dexterity, amount: 1 } }

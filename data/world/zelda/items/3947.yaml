@@ -13,7 +13,6 @@ weight: 8
 level: 30
 baseline: heavy
 value: 6000
-rarity: rare
 weapon:
   hands: 2
   kind: slash

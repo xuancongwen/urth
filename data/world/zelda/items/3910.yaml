@@ -12,7 +12,6 @@ slot: hold
 weight: 0
 level: 8
 value: 250
-rarity: rare
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: dodge, params: { amount: 0.02 } }

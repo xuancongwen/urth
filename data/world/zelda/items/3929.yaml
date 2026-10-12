@@ -12,7 +12,6 @@ weight: 10
 level: 20
 baseline: heavy
 value: 3000
-rarity: rare
 weapon:
   hands: 2
   kind: blunt

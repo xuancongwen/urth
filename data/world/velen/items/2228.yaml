@@ -14,7 +14,6 @@ slot: hold
 weight: 1
 level: 26
 value: 2400
-rarity: rare
 effects:
   - kind: detectInvisible
   - kind: detectHidden

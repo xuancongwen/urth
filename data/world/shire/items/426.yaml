@@ -16,7 +16,6 @@ slot: finger
 level: 10
 weight: 0
 value: 2000
-rarity: rare
 flags: [unidentified]
 effects:
   - { kind: invisible }

@@ -15,7 +15,6 @@ level: 12
 baseline: heavy
 weight: 4
 value: 1200
-rarity: rare
 effects:
   - { kind: steady, params: { chance: 0.25 } }
   - { kind: stat, params: { stat: constitution, amount: 2 } }

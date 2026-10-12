@@ -12,7 +12,6 @@ slot: wrist
 weight: 1
 level: 15
 value: 1200
-rarity: rare
 effects:
   - { kind: stat, params: { stat: strength, amount: 2 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

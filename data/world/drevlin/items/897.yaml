@@ -14,7 +14,6 @@ slot: finger
 level: 10
 weight: 0
 value: 600
-rarity: uncommon
 effects:
   - { kind: protect, params: { mult: 0.95 } }
   - { kind: regen, params: { fraction: 0.01 } }

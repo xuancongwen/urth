@@ -14,7 +14,6 @@ slot: hold
 level: 11
 weight: 6
 value: 1200
-rarity: rare
 effects:
   - { kind: aura, params: { power: 0.25, verb: "shuddering note of the Horn of Winter" } }
   - { kind: steady, params: { chance: 0.25 } }

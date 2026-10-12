@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 
+	"urth/internal/item"
 	"urth/internal/room"
 )
 
@@ -160,6 +161,15 @@ func Lint(w *World, startRoom int) []Problem {
 		if !placedMob[p.Vnum] && !w.Rooms.Areas[p.Area].Detached {
 			add(Problem{Level: Warn, Area: p.Area, Kind: "unplaced", File: p.File, Vnum: p.Vnum,
 				Text: fmt.Sprintf("mob %d (%s) is never placed by a reset", p.Vnum, p.Name)})
+		}
+	}
+
+	// Rarity is a material's tier (docs/RULES.md 6.2); on anything else it
+	// does nothing, and a named item is colored as one whatever it says.
+	for _, p := range w.Items {
+		if p.Rarity != "" && p.Type != item.Material {
+			add(Problem{Level: Warn, Area: p.Area, Kind: "stray-rarity", File: p.File, Vnum: p.Vnum,
+				Text: fmt.Sprintf("item %d (%s) is not a material, so its rarity %q does nothing", p.Vnum, p.Name, p.Rarity)})
 		}
 	}
 

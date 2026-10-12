@@ -12,6 +12,5 @@ slot: finger
 level: 8
 weight: 0
 value: 500
-rarity: uncommon
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }

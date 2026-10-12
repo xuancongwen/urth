@@ -13,7 +13,6 @@ slot: neck
 level: 16
 weight: 0
 value: 600
-rarity: rare
 effects:
   - { kind: dodge, params: { amount: 0.04 } }
   - { kind: detectHidden }

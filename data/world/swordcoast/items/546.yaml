@@ -14,7 +14,6 @@ weight: 0
 level: 8
 baseline: light
 value: 400
-rarity: rare
 effects:
   - { kind: stat, params: { stat: intelligence, amount: 2 } }
   - { kind: detectHidden }

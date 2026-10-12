@@ -13,7 +13,6 @@ level: 9
 baseline: standard
 weight: 1
 value: 450
-rarity: rare
 weapon:
   hands: 1
   kind: cold

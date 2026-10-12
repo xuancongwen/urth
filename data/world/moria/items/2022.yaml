@@ -15,7 +15,6 @@ weight: 3
 level: 22
 baseline: standard
 value: 3000
-rarity: rare
 weapon:
   hands: 1
   kind: slash

@@ -23,7 +23,7 @@
     "mods": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Stat modifiers while worn, by stat name." },
     "effects": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/effect" }, "description": "Intrinsic to every instance." },
     "material": { "type": "string", "description": "Required for type material: the pool name a spell consumes (ash, wolf fang)." },
-    "rarity": { "enum": ["common", "uncommon", "rare", "deterministic"], "default": "common" },
+    "rarity": { "enum": ["common", "uncommon", "rare", "deterministic"], "default": "common", "description": "For type material only: how the pool spawns it, and the color its name is shown in." },
     "school": { "type": "string", "description": "Required for type totem: the arcane school it unlocks." },
     "spell": { "type": "string", "description": "A spell id this item teaches when studied (a scroll); studying uses it up." },
     "sacrifice": { "$ref": "common.schema.json#/$defs/deity", "description": "The deity that accepts this as a great sacrifice at its temple." },
@@ -34,6 +34,7 @@
   "allOf": [
     { "if": { "properties": { "type": { "const": "armor" } }, "required": ["type"] }, "then": { "required": ["slot"] } },
     { "if": { "properties": { "type": { "const": "material" } }, "required": ["type"] }, "then": { "required": ["material"] } },
-    { "if": { "properties": { "type": { "const": "totem" } }, "required": ["type"] }, "then": { "required": ["school"] } }
+    { "if": { "properties": { "type": { "const": "totem" } }, "required": ["type"] }, "then": { "required": ["school"] } },
+    { "if": { "required": ["rarity"] }, "then": { "properties": { "type": { "const": "material" } }, "required": ["type"] } }
   ]
 }

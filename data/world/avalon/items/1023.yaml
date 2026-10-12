@@ -13,6 +13,5 @@ level: 10
 baseline: light
 weight: 0
 value: 90
-rarity: uncommon
 effects:
   - { kind: dodge, params: { amount: 0.02 } }

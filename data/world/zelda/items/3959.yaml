@@ -13,7 +13,6 @@ weight: 3
 level: 29
 baseline: heavy
 value: 3500
-rarity: rare
 effects:
   - { kind: stat, params: { stat: strength, amount: 3 } }
   - { kind: stat, params: { stat: constitution, amount: 1 } }

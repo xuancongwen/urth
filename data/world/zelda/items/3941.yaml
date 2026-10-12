@@ -12,7 +12,6 @@ slot: neck
 weight: 0
 level: 21
 value: 2500
-rarity: rare
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 2 } }
   - { kind: regen, params: { fraction: 0.01 } }

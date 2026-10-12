@@ -13,7 +13,6 @@ level: 12
 baseline: axe
 weight: 9
 value: 1100
-rarity: rare
 weapon:
   hands: 2
   kind: slash

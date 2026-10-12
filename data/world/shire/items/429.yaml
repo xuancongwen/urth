@@ -13,7 +13,6 @@ weight: 2
 level: 8
 baseline: spear
 value: 250
-rarity: uncommon
 weapon:
   hands: 1
   kind: pierce

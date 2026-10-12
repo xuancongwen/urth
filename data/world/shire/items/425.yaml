@@ -15,7 +15,6 @@ level: 10
 baseline: light
 weight: 1
 value: 1500
-rarity: rare
 effects:
   - { kind: defense, params: { amount: 2 } }
   - { kind: soak, params: { power: 0.1 } }

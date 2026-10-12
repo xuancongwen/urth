@@ -13,7 +13,6 @@ level: 9
 baseline: medium
 weight: 2
 value: 300
-rarity: rare
 effects:
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
   - { kind: steady, params: { chance: 0.3 } }

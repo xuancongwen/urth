@@ -15,7 +15,6 @@ level: 12
 baseline: light
 weight: 0
 value: 900
-rarity: rare
 effects:
   - { kind: lastStand, params: { threshold: 0.25, mult: 0.6 } }
   - { kind: regen, params: { fraction: 0.01 } }

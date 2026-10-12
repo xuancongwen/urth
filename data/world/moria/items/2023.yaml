@@ -15,7 +15,6 @@ slot: hold
 weight: 3
 level: 26
 value: 3500
-rarity: rare
 effects:
   - kind: stat
     params: { stat: intelligence, amount: 2 }

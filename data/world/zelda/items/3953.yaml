@@ -13,7 +13,6 @@ weight: 1
 level: 28
 baseline: light
 value: 4000
-rarity: rare
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }

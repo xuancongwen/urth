@@ -11,7 +11,6 @@ slot: neck
 weight: 0
 level: 31
 value: 3000
-rarity: rare
 effects:
   - { kind: stat, params: { stat: strength, amount: 1 } }
   - { kind: stat, params: { stat: intelligence, amount: 1 } }

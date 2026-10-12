@@ -14,7 +14,6 @@ level: 8
 baseline: medium
 weight: 6
 value: 600
-rarity: rare
 effects:
   - { kind: dodge, params: { amount: 0.04 } }
   - { kind: stat, params: { stat: dexterity, amount: 2 } }
