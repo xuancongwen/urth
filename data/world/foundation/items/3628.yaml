@@ -1,0 +1,13 @@
+vnum: 3628
+name: a helm of the Mule's guard
+keywords: [helm, mule's, mule, guard, helmet]
+description: A black helm with a silver visor lies here.
+look: |
+  A helm of the Mule's own guard, black steel with a silver visor in
+  which you see yourself, small and distorted. The men who wear them
+  were chosen by the Mule himself, and he chose very well.
+type: armor
+slot: head
+weight: 3
+level: 42
+baseline: plate

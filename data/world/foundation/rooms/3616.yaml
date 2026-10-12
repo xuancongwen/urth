@@ -1,0 +1,15 @@
+vnum: 3616
+name: The Ruined Province of Siwenna
+description: |
+  Siwenna was once a great province of the Empire, until it rebelled
+  and the Empire made an example of it. Burned estates stand among
+  overgrown fields, and the roads are patrolled by Imperial legionaries
+  in polished armour. The Empire is dying, but here, far from Trantor,
+  it can still hurt you. An old house stands to the south; the Imperial
+  camp is north; the jump back to Korell is west and the next, to
+  Trantor, east.
+exits:
+  west: 3613
+  east: 3619
+  north: 3617
+  south: 3618

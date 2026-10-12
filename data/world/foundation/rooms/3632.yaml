@@ -1,0 +1,12 @@
+vnum: 3632
+name: The Throne Room of the Mule
+description: |
+  A long, high room of black stone and white light at the top of the
+  palace, open on one side to the sea. At the far end, on a throne
+  raised too high, sits a thin figure who seems far too small for it.
+  The air is heavy with feeling that is not your own: dread, then
+  delight, then a terrible, aching loyalty, rising and falling like
+  music. Somewhere very close, someone is playing an instrument. The
+  black door is back west.
+exits:
+  west: 3631

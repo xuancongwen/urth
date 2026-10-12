@@ -1,0 +1,19 @@
+vnum: 3637
+name: the Mule's padded shoulders
+keywords: [mule's, mule, padded, shoulders, pauldrons, mantle]
+description: A mantle of black velvet over steel, broad at the shoulders, lies here.
+look: |
+  A mantle built up broad and square at the shoulders, black velvet
+  over a frame of steel plates, to give a thin, stooped man the
+  outline of a conqueror. It is very well made, and it would turn a
+  sword. It does not make the man inside it any less thin.
+type: armor
+slot: shoulders
+weight: 3
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: soak, params: { power: 0.1 } }

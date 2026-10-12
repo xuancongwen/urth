@@ -1,0 +1,15 @@
+vnum: 3631
+name: The Hall of the Converted
+description: |
+  A great hall where the Mule's generals wait upon his pleasure, men
+  who were once his enemies and now love him more than their lives.
+  They stand in silence, at attention, glowing with a devotion that
+  was put into them like a coin into a slot. A tall door of black
+  metal leads east to the throne room. The guards' barracks are north;
+  the gates are back west.
+exits:
+  west: 3630
+  north: 3633
+  east: 3632
+doors:
+  east: {name: the black door, closed: true}

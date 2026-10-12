@@ -1,0 +1,14 @@
+vnum: 3611
+name: a naval officer's greatcoat
+keywords: [naval, officer's, officer, greatcoat, coat]
+description: A long blue greatcoat with tarnished braid lies here.
+look: |
+  The greatcoat of an officer of the Anacreonian navy, blue wool lined
+  with something tougher, with gold braid at the cuffs that has gone
+  green. The navy of Anacreon has one ship worth the name. It has a
+  great many officers.
+type: armor
+slot: body
+weight: 3
+level: 25
+baseline: light

@@ -1,0 +1,17 @@
+vnum: 3608
+name: an Anacreonian pike
+keywords: [anacreonian, pike, spear, polearm]
+description: A tall pike with a plumed collar lies here.
+look: |
+  A royal soldier's pike, long and heavy, with a collar of red plumes
+  below the blade. The Kingdom of Anacreon has warships and no longer
+  quite knows how to fly them, so its soldiers carry pikes, as their
+  grandfathers did, and are very proud of it.
+type: weapon
+weight: 4
+level: 20
+baseline: spear
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

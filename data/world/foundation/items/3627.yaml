@@ -1,0 +1,13 @@
+vnum: 3627
+name: a converted soldier's breastplate
+keywords: [converted, soldier's, soldier, breastplate, armor, armour]
+description: A black breastplate with a small silver emblem lies here.
+look: |
+  A black breastplate with the emblem of the Union of Worlds in silver
+  on the chest, polished by a man who would die for the one who gave
+  it to him, and very nearly did.
+type: armor
+slot: body
+weight: 6
+level: 41
+baseline: medium

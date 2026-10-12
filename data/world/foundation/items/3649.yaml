@@ -1,0 +1,25 @@
+vnum: 3649
+name: Bayta Darell's blaster
+keywords: [bayta, darell's, darell, bayta's, blaster, pistol, gun]
+description: A small, well-kept blaster pistol lies here.
+look: |
+  A light Foundation blaster, small enough for a coat pocket, its grip
+  wrapped in tape by a careful hand. Bayta Darell carried it across
+  the Galaxy and fired it once that mattered: in the Galactic Library,
+  at Ebling Mis, a moment before he could say aloud where the Second
+  Foundation was, with the Mule listening. It is quick and sure, and
+  it does not hesitate when its holder does.
+type: weapon
+weight: 1
+level: 36
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: execute, params: { threshold: 0.25, mult: 1.3 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

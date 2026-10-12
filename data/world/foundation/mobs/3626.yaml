@@ -1,0 +1,21 @@
+vnum: 3626
+name: the First Speaker
+keywords: [first, speaker, preem, palver, farmer, second, foundation]
+description: A stooped old man in a farmer's coat, who looks like no one in particular, sits by the black cube and nods to you.
+look: |
+  He looks like a farmer from Trantor, which is what he says he is: a
+  stout, garrulous, ordinary old man with dirty boots and a fondness
+  for apples. He is the First Speaker of the Second Foundation, the
+  hidden guardians of the Plan, mentalics who can read and turn a
+  mind as the Mule does, only quietly, and a little at a time. "Star's
+  End," he says, "is where it always was." If you have found a paper
+  that says otherwise, carried by one of the Mule's men, he would be
+  very grateful to have it, and would give you the Prime Radiant
+  itself rather than let it reach Kalgan. Type 'list'.
+level: 45
+flags: [peaceful]
+attack:
+  kind: psionic
+  verb: gentle push
+trades:
+  - { item: 3634, items: [3603] }

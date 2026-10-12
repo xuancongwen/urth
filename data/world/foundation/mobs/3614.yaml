@@ -1,0 +1,23 @@
+vnum: 3614
+name: Commdor Asper Argo
+keywords: [commdor, asper, argo, tyrant, korell]
+description: Commdor Asper Argo, the Well-Beloved, sprawls on his steel throne and glares at you.
+look: |
+  The hereditary Commdor of the Republic of Korell, called the
+  Well-Beloved by everyone who wants to live: a thick, florid man in a
+  uniform crusted with medals he awarded himself. He loves Foundation
+  gadgets and hates the Foundation, and he bought a war with it on the
+  strength of three Imperial warships. His wife, the Commdora, despises
+  him, and has given him back the glowing necklace a Trader sold her,
+  to hold for her while she sulks. He does not know what it is worth.
+level: 30
+flags: [assist]
+health: 1800
+stats: {strength: 16, constitution: 17}
+silver: 700
+xp: 6500
+attack:
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: soak, params: { power: 0.08 } }

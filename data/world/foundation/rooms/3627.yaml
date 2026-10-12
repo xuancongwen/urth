@@ -1,0 +1,11 @@
+vnum: 3627
+name: The Darells' Rooms
+description: |
+  A small apartment cut in the rock of Haven, with a stove, a cot, and
+  a battered trader's chest, borrowed for as long as the Darells hide
+  here. In the corner is a nest of blankets where a big, sad-faced
+  clown sleeps hugging a strange instrument; it is empty now, and the
+  blankets are cold, and nobody saw him go. The galleries are back
+  south.
+exits:
+  south: 3626

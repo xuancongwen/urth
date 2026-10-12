@@ -1,0 +1,19 @@
+vnum: 3610
+name: Prince Lefkin, admiral of the Wienis
+keywords: [prince, lefkin, admiral, son, wienis]
+description: Prince Lefkin, admiral of the Wienis, shouts at a dead console and turns on you instead.
+look: |
+  The Prince Regent's son, admiral of the only real warship Anacreon
+  has, a heavy young man in a blue greatcoat thick with braid. He was
+  given the ship to attack Terminus and win his father a crown, and
+  the ship is refusing, a light at a time, while the crew whisper
+  about the Spirit's anger. He badly needs to hit someone, and he has
+  just decided it will be you.
+level: 25
+flags: [assist]
+health: 1200
+stats: {strength: 15, constitution: 15}
+silver: 300
+attack:
+  kind: slash
+  verb: slash

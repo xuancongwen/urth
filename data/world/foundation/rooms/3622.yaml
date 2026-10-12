@@ -1,0 +1,12 @@
+vnum: 3622
+name: The Galactic Library
+description: |
+  The greatest library in the Galaxy, a labyrinth of reading rooms and
+  stacks and humming catalogue machines, nearly empty now. In a
+  far alcove a small man in a rumpled tunic sits among a fortress of
+  books, writing, coughing, writing. Behind a shelf of very old
+  volumes, a narrow stair goes down, where no stair is marked. The
+  spaceport is north.
+exits:
+  north: 3619
+  down: 3634

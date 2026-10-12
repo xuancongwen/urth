@@ -1,0 +1,12 @@
+vnum: 3625
+name: a Kalganian mercenary's jerkin
+keywords: [kalganian, mercenary's, mercenary, jerkin, armor, armour]
+description: A padded jerkin of bright silk over mesh lies here.
+look: |
+  A Kalganian mercenary's jerkin, bright silk on the outside for the
+  casinos and fine mesh underneath for everything else.
+type: armor
+slot: body
+weight: 3
+level: 39
+baseline: light

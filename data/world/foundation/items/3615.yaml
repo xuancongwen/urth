@@ -1,0 +1,20 @@
+vnum: 3615
+name: the Commdora's necklace
+keywords: [commdora's, commdora, necklace, glowing, jewel]
+description: A necklace of linked stones, glowing softly on its own, lies here.
+look: |
+  The necklace Hober Mallow gave the Commdora of Korell: links of
+  bright metal and stones that glow with a soft, shifting light of
+  their own, powered by an atomic cell the size of a seed. It is
+  beautiful, and it hums faintly, and the field it throws about the
+  throat is stronger than it looks. It is how Korell first came to
+  want the Foundation's things.
+type: armor
+slot: neck
+weight: 0
+level: 30
+value: 3500
+effects:
+  - { kind: protect, params: { mult: 0.93 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

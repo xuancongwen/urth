@@ -1,0 +1,10 @@
+vnum: 3635
+name: The War Room of Bel Riose
+description: |
+  The flagship's war room, a dim chamber around a great star-map table
+  where Terminus burns as a single red point and every Imperial fleet
+  is a cluster of light closing in on it. A young general paces beside
+  it, sleeves rolled, too busy winning to notice that the Emperor has
+  begun to be afraid of him. The encampment is south.
+exits:
+  south: 3617

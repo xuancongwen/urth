@@ -1,0 +1,11 @@
+vnum: 3628
+name: The Pleasure Port of Kalgan
+description: |
+  Kalgan was the pleasure world of the Galaxy, all beaches and casinos
+  and warm seas, until the Mule took it without a shot. The casinos
+  are still open. The music still plays. But the soldiers at the gates
+  smile all the time, the same smile, and nobody leaves. The city is
+  east; the jump back to Haven is west.
+exits:
+  west: 3626
+  east: 3629

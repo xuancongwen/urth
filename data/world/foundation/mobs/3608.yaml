@@ -1,0 +1,15 @@
+vnum: 3608
+name: a royal guard of Anacreon
+keywords: [royal, guard, anacreon, anacreonian, guardsman]
+description: A royal guard of Anacreon stands along the wall, hand on his pike.
+look: |
+  A tall guardsman of the royal household, in a red-crested helm and a
+  polished breastplate, chosen for his height and his loyalty to the
+  Prince Regent rather than to the boy on the throne. He watches you
+  the way a dog watches a stranger near its master's dinner.
+level: 24
+flags: [assist]
+silver: 110
+attack:
+  kind: pierce
+  verb: thrust

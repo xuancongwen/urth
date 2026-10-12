@@ -1,0 +1,10 @@
+vnum: 3633
+name: The Barracks of the Mule's Guard
+description: |
+  Spare, clean barracks where the Mule's personal guard sleep in
+  shifts. Nobody has ever deserted. Nobody has ever wanted to. On every
+  bunk lies a neatly folded black uniform, and above every bunk the
+  same small portrait of a man you cannot quite remember the face of.
+  The hall is back south.
+exits:
+  south: 3631

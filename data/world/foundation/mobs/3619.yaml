@@ -1,0 +1,15 @@
+vnum: 3619
+name: an Imperial palace guard
+keywords: [imperial, palace, guard, guardsman]
+description: An Imperial palace guard in white and gold blocks the path, halberd lowered.
+look: |
+  A guardsman of the Imperial Palace, tall and silent behind a closed
+  white visor, in armour of white and gold that has not changed in a
+  thousand years. The Emperor has many enemies, most of them in the
+  palace, and the guard are the only thing that keeps them polite.
+level: 34
+flags: [assist]
+silver: 150
+attack:
+  kind: slash
+  verb: cleave

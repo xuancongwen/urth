@@ -1,0 +1,13 @@
+vnum: 3625
+name: The Sacked Sector
+description: |
+  The future, or a piece of it: a sector of Trantor after the Great
+  Sack, its lights torn out, its corridors open to the rain through
+  holes in the dome, its metal being stripped for scrap by people who
+  have forgotten what it was for. Fires burn in oil drums. Something
+  moves in the dark between them. The corridors are back west; the
+  jump to Haven is east.
+exits:
+  west: 3620
+  east: 3626
+flags: [dark]

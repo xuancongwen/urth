@@ -1,0 +1,14 @@
+vnum: 3604
+name: Before the Time Vault
+description: |
+  The avenue ends at a low, windowless building of grey stone, set in
+  a lawn nobody walks on. This is the Time Vault, sealed by Hari Seldon
+  himself, and once in a long while, at a moment he foresaw centuries
+  ago, it opens. Today the bronze doors stand ajar, and from inside
+  comes the creak of a wheelchair that is not there. The vault is north,
+  the plaza south, and the traders' market west.
+exits:
+  south: 3601
+  north: 3605
+  west: 3606
+flags: [safe]

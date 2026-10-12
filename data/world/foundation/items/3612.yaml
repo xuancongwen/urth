@@ -1,0 +1,23 @@
+vnum: 3612
+name: the Prince Regent's blaster
+keywords: [prince, regent's, regent, wienis, wienis's, blaster, pistol]
+description: An ornate blaster pistol, chased with gold, lies here.
+look: |
+  Prince Regent Wienis's own blaster, an Imperial antique chased with
+  gold and fitted with a Foundation cell he would never admit to. He
+  drew it on Salvor Hardin at the coronation, point-blank, and fired.
+  Hardin's force shield turned the bolt aside. It hits hard enough
+  against anyone not wearing one.
+type: weapon
+weight: 1
+level: 28
+baseline: standard
+value: 3500
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

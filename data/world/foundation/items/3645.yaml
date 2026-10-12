@@ -1,0 +1,18 @@
+vnum: 3645
+name: Magnifico's long-toed boots
+keywords: [magnifico's, magnifico, long-toed, long, toed, boots, shoes]
+description: A pair of soft boots with absurdly long, curled toes lies here.
+look: |
+  Soft grey boots with toes so long they curl, the kind a court clown
+  wears to make the court laugh. Magnifico Giganticus wore them across
+  half the Galaxy, tripping over them, and nobody ever thought to
+  wonder why such a clumsy man was never, in fact, caught.
+type: armor
+slot: feet
+weight: 1
+level: 45
+baseline: light
+value: 6500
+effects:
+  - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }

@@ -1,0 +1,18 @@
+vnum: 3646
+name: the ring of converted loyalty
+keywords: [ring, converted, loyalty, mule's, mule]
+description: A plain iron ring set with a single pale stone lies here.
+look: |
+  A plain iron ring with a pale stone, the gift the Mule gives each
+  general he converts, and takes back from each one who dies for him.
+  It holds a little of all that loyalty. Worn when things go badly, it
+  will not let you give up.
+type: armor
+slot: finger
+weight: 0
+level: 45
+value: 6500
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

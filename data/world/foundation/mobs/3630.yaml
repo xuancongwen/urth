@@ -1,0 +1,19 @@
+vnum: 3630
+name: Arkady Darell
+keywords: [arkady, darell, girl, foundation]
+description: Arkady Darell, fourteen and fierce, is pretending to be a tourist and taking notes on everyone.
+look: |
+  A sharp-faced girl of fourteen from Terminus, Bayta's granddaughter,
+  who stowed away on a ship to Kalgan because she had decided, after
+  listening at a door, that the Second Foundation was real and that
+  somebody had better find it. She is a writer, she tells you; she is
+  writing it all down. She is cleverer than anybody she has met here,
+  and she knows it, and she is quite right. She dictates it all into
+  a little transcriber she keeps in her fist, and she will kick
+  anyone who tries to take it.
+level: 22
+health: 700
+stats: {intelligence: 18, dexterity: 14}
+silver: 150
+attack:
+  verb: kick

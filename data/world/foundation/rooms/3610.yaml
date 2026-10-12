@@ -1,0 +1,11 @@
+vnum: 3610
+name: The Temple of the Galactic Spirit
+description: |
+  A temple of white stone and blue light, where the Foundation's
+  priests keep Anacreon's power plant running and tell the faithful it
+  is a miracle. The altar is a reactor housing, humming warmly under
+  an embroidered cloth. The priests know exactly what it is, and so,
+  increasingly, does everyone else. The streets are back east.
+exits:
+  east: 3609
+flags: [safe]

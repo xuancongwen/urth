@@ -1,0 +1,15 @@
+vnum: 3612
+name: a Korellian secret policeman
+keywords: [korellian, secret, policeman, police, agent]
+description: A Korellian secret policeman in a grey coat watches the street with flat eyes.
+look: |
+  A thin man in a long grey coat with a black pistol under it, one of
+  the Commdor's secret police, whose job is to arrest Foundation
+  missionaries and anyone who has been seen talking to one. He owns a
+  Foundation razor. He would deny it.
+level: 27
+flags: [assist]
+silver: 120
+attack:
+  kind: fire
+  verb: shoot

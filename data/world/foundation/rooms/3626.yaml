@@ -1,0 +1,13 @@
+vnum: 3626
+name: The Underground City of Haven
+description: |
+  Haven, the Traders' last stronghold, a cold world whose people live
+  in cities cut into the rock to escape the winter. The galleries are
+  warm and lit and crowded with traders swapping news of the Mule, who
+  has taken Kalgan and is coming. The Darells' rooms are north; the
+  jump back to Trantor is west, and the next, to Kalgan, east.
+exits:
+  west: 3625
+  east: 3628
+  north: 3627
+flags: [safe]

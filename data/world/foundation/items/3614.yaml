@@ -1,0 +1,14 @@
+vnum: 3614
+name: a Korellian steel breastplate
+keywords: [korellian, steel, breastplate, armor, armour]
+description: A heavy breastplate of dark steel lies here.
+look: |
+  Korell has steel, if it has nothing else, and its soldiers wear a
+  great deal of it: a thick, dark breastplate, riveted, with the
+  Commdor's monogram on the chest. It would stop a sword. Nobody on
+  Korell has fought anyone with a sword for some time.
+type: armor
+slot: body
+weight: 8
+level: 28
+baseline: heavy

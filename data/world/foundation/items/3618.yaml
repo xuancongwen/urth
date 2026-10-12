@@ -1,0 +1,13 @@
+vnum: 3618
+name: a pair of Imperial officer's gauntlets
+keywords: [imperial, officer's, officer, gauntlets, gloves]
+description: A pair of grey gauntlets with gold piping lies here.
+look: |
+  Stiff gauntlets of grey leather over steel, piped in gold for an
+  officer of the Imperial fleet. They are made to point at maps with,
+  and to strike a subordinate with, and are good for both.
+type: armor
+slot: hands
+weight: 2
+level: 33
+baseline: heavy

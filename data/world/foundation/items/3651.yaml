@@ -1,0 +1,24 @@
+vnum: 3651
+name: Hari Seldon's cane
+keywords: [hari, seldon's, seldon, cane, stick, staff]
+description: A plain walking cane with a heavy, weighted head lies here.
+look: |
+  A plain walking cane of dark wood, its head weighted with lead, which
+  Hari Seldon carried through the corridors of Trantor long before he
+  needed it, because Dors insisted. It has broken more than one
+  would-be assassin's wrist. Leaning on it, you feel the weight of a
+  great many futures, and which way they are leaning.
+type: weapon
+weight: 2
+level: 38
+baseline: staff
+value: 4500
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: cooldownCut, params: { rounds: 1 } }

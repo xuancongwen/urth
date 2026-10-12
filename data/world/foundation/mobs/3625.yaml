@@ -1,0 +1,20 @@
+vnum: 3625
+name: Ebling Mis
+keywords: [ebling, mis, psychologist, scholar, little, man]
+description: Ebling Mis, the Foundation's greatest psychologist, hunches over a fortress of books, coughing and writing.
+look: |
+  A small, untidy, profane man with a scrubby beard and a voice like a
+  gravel crusher, the Foundation's greatest psychologist, who once
+  told the mayor of Terminus to his face to go to Space. He has come
+  to the ruins of the Galactic Library to find the Second Foundation
+  before the Mule does, and he is close, so close, and he is driving
+  himself to it at a speed that is burning him up, faster than it
+  should. He does not look up. "Go away," he says. "I haven't time.
+  I'm nearly there." He has lost his notebook somewhere, and keeps
+  patting his pockets for it.
+level: 34
+health: 1400
+stats: {intelligence: 20, wisdom: 18, constitution: 8}
+silver: 250
+attack:
+  verb: punch

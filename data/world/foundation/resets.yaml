@@ -1,0 +1,99 @@
+interval_seconds: 300
+resets:
+  # --- Terminus (safe) ---
+  - { mob: 3600, room: 3605 }                                   # Hari Seldon's recorded image in the Time Vault, handing out crises as quests
+  - { mob: 3601, room: 3603 }                                   # Salvor Hardin in the mayor's office, who teaches feint and disarm
+  - { mob: 3602, room: 3602 }                                   # Lewis Pirenne at the Encyclopedia, selling glow-tubes to be rid of you
+  - { mob: 3603, room: 3606 }                                   # Hober Mallow on a crate in the traders' market
+  # --- Anacreon ---
+  - { mob: 3606, room: 3608, max: 5, equip: [{ item: 3608, slot: wield }] }   # soldiers watching the landing field, pikes grounded
+  - { mob: 3606, room: 3608, max: 5, equip: [{ item: 3608, slot: wield }, { item: 3600 }] }
+  - { mob: 3606, room: 3609, max: 5, equip: [{ item: 3608, slot: wield }, { item: 3609, slot: body }] }   # and patrolling the streets
+  - { mob: 3606, room: 3609, max: 5, equip: [{ item: 3608, slot: wield }] }
+  - { mob: 3606, room: 3609, max: 5, equip: [{ item: 3609, slot: body }, { item: 3600 }] }
+  - { mob: 3604, room: 3610 }                                   # Poly Verisof at the altar that is a reactor
+  - { mob: 3607, room: 3612, max: 4, equip: [{ item: 3600 }] }  # sailors aboard the cruiser, pocketing spent cells from the failing consoles
+  - { mob: 3607, room: 3612, max: 4, equip: [{ item: 3609, slot: body }] }
+  - { mob: 3607, room: 3612, max: 4 }
+  - { mob: 3607, room: 3636, max: 4, equip: [{ item: 3600 }] }  # one on the bridge
+  - { mob: 3610, room: 3636, equip: [{ item: 3611, slot: body }, { item: 3600 }, { item: 3600 }] }   # Prince Lefkin in his admiral's greatcoat
+  - { mob: 3608, room: 3611, max: 4, equip: [{ item: 3610, slot: head }, { item: 3608, slot: wield }] }   # royal guards along the throne hall walls
+  - { mob: 3608, room: 3611, max: 4, equip: [{ item: 3610, slot: head }, { item: 3609, slot: body }] }
+  - { mob: 3608, room: 3611, max: 4, equip: [{ item: 3610, slot: head }] }
+  - { mob: 3611, room: 3611, equip: [{ item: 3612, slot: wield }, { item: 3609, slot: body }] }   # Prince Regent Wienis and his gold-chased blaster
+  # --- Korell ---
+  - { mob: 3613, room: 3613, max: 5, equip: [{ item: 3614, slot: body }] }   # soldiers under the cranes at the spaceport
+  - { mob: 3613, room: 3613, max: 5, equip: [{ item: 3614, slot: body }, { item: 3600 }] }
+  - { mob: 3612, room: 3614, max: 4, equip: [{ item: 3613, slot: wield }] }   # secret police in the streets
+  - { mob: 3612, room: 3614, max: 4, equip: [{ item: 3613, slot: wield }, { item: 3600 }] }
+  - { mob: 3612, room: 3614, max: 4, equip: [{ item: 3613, slot: wield }, { item: 3607 }] }   # one with a confiscated atomic knife
+  - { mob: 3613, room: 3615, max: 5, equip: [{ item: 3614, slot: body }] }   # two at the Commdor's throne
+  - { mob: 3613, room: 3615, max: 5, equip: [{ item: 3614, slot: body }] }
+  - { mob: 3614, room: 3615, equip: [{ item: 3614, slot: body }, { item: 3615 }] }   # Commdor Asper Argo, the Commdora's necklace in his pocket
+  # --- Siwenna ---
+  - { mob: 3618, room: 3618 }                                   # Ducem Barr by his fire, who teaches fast healing and second wind
+  - { mob: 3615, room: 3616, max: 6, equip: [{ item: 3616, slot: wield }] }   # legionaries patrolling the ruined province
+  - { mob: 3615, room: 3616, max: 6, equip: [{ item: 3616, slot: wield }, { item: 3617, slot: body }] }
+  - { mob: 3615, room: 3617, max: 6, equip: [{ item: 3617, slot: body }, { item: 3600 }] }   # and in the encampment
+  - { mob: 3615, room: 3617, max: 6, equip: [{ item: 3616, slot: wield }] }
+  - { mob: 3615, room: 3617, max: 6, equip: [{ item: 3616, slot: wield }, { item: 3617, slot: body }] }
+  - { mob: 3616, room: 3617, max: 3, equip: [{ item: 3618, slot: hands }] }   # officers in the camp
+  - { mob: 3616, room: 3635, max: 3, equip: [{ item: 3618, slot: hands }, { item: 3617, slot: body }] }   # and at the general's map table
+  - { mob: 3616, room: 3635, max: 3, equip: [{ item: 3618, slot: hands }] }
+  - { mob: 3617, room: 3635, equip: [{ item: 3619, slot: wield }, { item: 3617, slot: body }, { item: 3618, slot: hands }] }   # Bel Riose and his sword
+  # --- Trantor ---
+  - { mob: 3621, room: 3621, equip: [{ item: 3651, slot: wield }] }   # Hari Seldon at Streeling, his cane against the desk
+  - { mob: 3622, room: 3621 }                                   # Dors Venabili by the window, who teaches twin and riposte
+  - { mob: 3623, room: 3621 }                                   # Raych in the doorway, who teaches backstab and dirt kicking
+  - { mob: 3625, room: 3622, equip: [{ item: 3650, slot: face }] }   # Ebling Mis among his books, in his spectacles
+  - { mob: 3626, room: 3634 }                                   # the First Speaker at Star's End, who trades the Prime Radiant for Pritcher's coordinates
+  - { mob: 3619, room: 3623, max: 4, equip: [{ item: 3620, slot: wield }, { item: 3621, slot: head }] }   # palace guards on the gravel paths
+  - { mob: 3619, room: 3623, max: 4, equip: [{ item: 3620, slot: wield }] }
+  - { mob: 3619, room: 3623, max: 4, equip: [{ item: 3621, slot: head }, { item: 3600 }] }
+  - { mob: 3619, room: 3620, max: 4, equip: [{ item: 3620, slot: wield }, { item: 3621, slot: head }] }   # one at the corridor checkpoint
+  - { mob: 3624, room: 3624, equip: [{ item: 3652, slot: body }] }   # Eto Demerzel at his bare desk, in the robe of the First Minister
+  - { item: 3601, room: 3620 }                                  # a glow-tube dropped at the checkpoint, for the dark beyond
+  - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3622, slot: wield }, { item: 3623, slot: shoulders }] }   # scavengers of the Sack in the dark
+  - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3622, slot: wield }] }
+  - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3623, slot: shoulders }, { item: 3600 }] }
+  - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3622, slot: wield }, { item: 3600 }] }
+  # --- Haven (the galleries are safe) ---
+  - { mob: 3628, room: 3626 }                                   # Toran Darell with his gear on a blanket
+  - { mob: 3627, room: 3627, equip: [{ item: 3649, slot: wield }] }   # Bayta Darell, her blaster on her knees
+  # --- Kalgan ---
+  - { mob: 3630, room: 3628, equip: [{ item: 3653, slot: hold }] }   # Arkady Darell, stowed away, dictating into her transcriber
+  - { mob: 3631, room: 3628, max: 5, equip: [{ item: 3624, slot: wield }] }   # mercenaries at the port
+  - { mob: 3631, room: 3628, max: 5, equip: [{ item: 3624, slot: wield }, { item: 3625, slot: body }] }
+  - { mob: 3631, room: 3629, max: 5, equip: [{ item: 3625, slot: body }] }   # and along the avenue
+  - { mob: 3631, room: 3629, max: 5, equip: [{ item: 3624, slot: wield }, { item: 3600 }] }
+  - { mob: 3632, room: 3629, max: 6, equip: [{ item: 3626, slot: wield }] }   # converted soldiers, smiling
+  - { mob: 3632, room: 3629, max: 6, equip: [{ item: 3626, slot: wield }, { item: 3627, slot: body }] }
+  - { mob: 3632, room: 3630, max: 6, equip: [{ item: 3627, slot: body }] }   # at the gates
+  - { mob: 3632, room: 3630, max: 6, equip: [{ item: 3626, slot: wield }, { item: 3627, slot: body }] }
+  - { mob: 3632, room: 3631, max: 6, equip: [{ item: 3626, slot: wield }] }   # and in the hall
+  - { mob: 3632, room: 3631, max: 6, equip: [{ item: 3626, slot: wield }, { item: 3627, slot: body }] }
+  - { mob: 3633, room: 3630, max: 6, equip: [{ item: 3629, slot: wield }, { item: 3628, slot: head }] }   # the Mule's guard on the gates
+  - { mob: 3633, room: 3633, max: 6, equip: [{ item: 3629, slot: wield }] }   # in their barracks
+  - { mob: 3633, room: 3633, max: 6, equip: [{ item: 3628, slot: head }] }
+  - { mob: 3633, room: 3633, max: 6, equip: [{ item: 3629, slot: wield }, { item: 3628, slot: head }] }
+  - { mob: 3633, room: 3632, max: 6, equip: [{ item: 3629, slot: wield }, { item: 3628, slot: head }] }   # and two at the foot of the throne
+  - { mob: 3633, room: 3632, max: 6, equip: [{ item: 3629, slot: wield }, { item: 3628, slot: head }] }
+  - { mob: 3634, room: 3631, equip: [{ item: 3630, slot: wield }, { item: 3627, slot: body }, { item: 3603 }] }   # Han Pritcher before the black door, the coordinates of Star's End in his pocket
+  # the Mule on his throne, in his regalia: the raid's great payout
+  - mob: 3635
+    room: 3632
+    equip:
+      - { item: 3648, slot: hold }        # the Visi-Sonor
+      - { item: 3635, slot: head }        # the hood of the First Citizen
+      - { item: 3636, slot: neck }        # the Mule's chain of office
+      - { item: 3637, slot: shoulders }   # the Mule's padded shoulders
+      - { item: 3638, slot: body }        # the robe of the Union of Worlds
+      - { item: 3639, slot: arms }        # the Mule's sleeves of black mesh
+      - { item: 3640, slot: hands }       # the Mule's long gloves
+      - { item: 3641, slot: wrist1 }      # the bracer of despair
+      - { item: 3642, slot: wrist2 }      # the bracer of ecstasy
+      - { item: 3643, slot: belt }        # the Mule's shield belt
+      - { item: 3644, slot: legs }        # the Mule's riding breeches
+      - { item: 3645, slot: feet }        # Magnifico's long-toed boots
+      - { item: 3646, slot: finger1 }     # the ring of converted loyalty
+      - { item: 3647, slot: finger2 }     # the signet of the First Citizen

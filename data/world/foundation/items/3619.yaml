@@ -1,0 +1,24 @@
+vnum: 3619
+name: Bel Riose's sword
+keywords: [bel, riose's, riose, sword, blade, general's]
+description: A long, plain sword in an Imperial scabbard lies here.
+look: |
+  The sword of Bel Riose, the Empire's last great general, a plain
+  blade of good steel that he wears because a general is expected to
+  and uses because he is good with it. He won a dozen campaigns on the
+  frontier before the Emperor grew afraid of him. It cuts cleanly and
+  it does not waver.
+type: weapon
+weight: 3
+level: 35
+baseline: standard
+value: 4500
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

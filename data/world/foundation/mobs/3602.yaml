@@ -1,0 +1,19 @@
+vnum: 3602
+name: Lewis Pirenne
+keywords: [lewis, pirenne, encyclopedist, chairman, scholar]
+description: Lewis Pirenne, chairman of the Board of Trustees of the Encyclopedia, is frowning at a reader and does not want to be disturbed.
+look: |
+  A thin, precise scholar with a face like a closed book, chairman of
+  the Encyclopedia's Board of Trustees. He believes that Hari Seldon
+  sent them here to compile an encyclopedia, that nothing else could
+  possibly matter, and that the barbarians of Anacreon will surely be
+  reasonable if written to politely enough. The Board keeps glow-tubes
+  for its researchers in the field, and he will part with them, if it
+  gets you out of his office. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3601, silver: 30 }
+  - { item: 3601, items: [3600] }

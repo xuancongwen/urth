@@ -1,0 +1,13 @@
+vnum: 3623
+name: a looted Imperial mantle
+keywords: [looted, imperial, mantle, cape, shoulders]
+description: A torn mantle of purple velvet lies here.
+look: |
+  The shoulder-mantle of some Imperial functionary, purple velvet with
+  a sunburst of thread-of-gold, torn from its owner during the Sack
+  and worn now by someone who uses it to keep the rain off.
+type: armor
+slot: shoulders
+weight: 1
+level: 37
+baseline: cloth

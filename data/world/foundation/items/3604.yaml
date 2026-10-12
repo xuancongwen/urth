@@ -1,0 +1,16 @@
+vnum: 3604
+name: a personal force shield
+keywords: [personal, force, shield, generator]
+description: A small, flat generator on a wrist-strap lies here, humming.
+look: |
+  A Foundation personal shield: a flat box no bigger than a deck of
+  cards, worn on the forearm, that throws a shimmering, invisible
+  field around the wearer. The Foundation gives them to its mayors and
+  sells them to everyone else. A blaster bolt that hits it simply goes
+  somewhere else.
+type: armor
+slot: shield
+weight: 1
+level: 30
+baseline: shield
+value: 400

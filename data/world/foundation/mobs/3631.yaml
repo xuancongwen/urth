@@ -1,0 +1,15 @@
+vnum: 3631
+name: a Kalganian mercenary
+keywords: [kalganian, mercenary, soldier, sellsword]
+description: A Kalganian mercenary in bright silk lounges against a palm, hand on a blurring blade.
+look: |
+  A mercenary of the old warlord of Kalgan, in silks over mesh and a
+  vibro-blade at his hip, who took service with the Mule when his
+  master surrendered without a fight. He has not been converted. He
+  is not important enough. That frightens him more than anything.
+level: 38
+flags: [assist]
+silver: 180
+attack:
+  kind: slash
+  verb: slash

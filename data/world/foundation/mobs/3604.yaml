@@ -1,0 +1,23 @@
+vnum: 3604
+name: Poly Verisof, high priest of Anacreon
+keywords: [poly, verisof, priest, high, high-priest]
+description: Poly Verisof, the Foundation's high priest on Anacreon, adjusts the cloth on the altar and smiles at you with tired eyes.
+look: |
+  A plump, kindly man in robes of white and blue, the Foundation's
+  ambassador to Anacreon in all but name, and its high priest by
+  necessity. He knows the altar is a reactor housing and the Galactic
+  Spirit is a fiction Salvor Hardin invented for barbarians who could
+  not otherwise be persuaded to use atomic power. He keeps the
+  fiction up because, as he says, the alternative is worse for
+  everyone. He also knows exactly how many of the Regent's soldiers
+  would refuse an order against the Spirit, and is waiting to find out
+  if he is right. Meanwhile he hands out the Spirit's lamps to the
+  faithful, for a donation, or for a spent relic of the Spirit's
+  power to send back to Terminus. Type 'list'.
+level: 30
+flags: [peaceful]
+attack:
+  verb: punch
+trades:
+  - { item: 3601, silver: 30 }
+  - { item: 3601, items: [3600] }

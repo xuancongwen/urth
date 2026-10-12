@@ -1,0 +1,19 @@
+vnum: 3653
+name: Arkady's transcriber
+keywords: [arkady's, arkady, transcriber, recorder, machine]
+description: A small, scuffed transcriber, its record light still blinking, lies here.
+look: |
+  A pocket transcriber that turns speech into neat print, which Arkady
+  Darell's grandmother left her and which she uses to write down
+  everything, especially the things she is not meant to hear. Held,
+  it makes you notice things: who is lying, who is listening, and
+  where the quick way out is.
+type: armor
+slot: hold
+weight: 0
+level: 22
+value: 1500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }
+  - { kind: detectHidden }

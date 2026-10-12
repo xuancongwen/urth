@@ -1,0 +1,25 @@
+vnum: 3624
+name: Eto Demerzel
+keywords: [eto, demerzel, first, minister, minister]
+description: Eto Demerzel, First Minister of the Empire, sits at a bare desk and regards you with perfect courtesy.
+look: |
+  A tall, handsome man of indeterminate age, with a quiet voice and a
+  face that does not seem to change from year to year, which is
+  becoming noticeable. He has been First Minister through two Emperors
+  and runs the Empire better than either of them. Nobody has ever seen
+  him angry, or tired, or eat. He seems interested in Hari Seldon's
+  work, and in keeping Hari Seldon alive, to a degree that he does not
+  explain. He wishes you, very sincerely, no harm, and if you offer
+  him any he will stop you, gently, with a strength no man of flesh
+  ought to have.
+level: 45
+health: 9000
+stats: {strength: 20, dexterity: 16, constitution: 18, intelligence: 18}
+silver: 900
+xp: 18000
+attack:
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: soak, params: { power: 0.1 } }
+  - { kind: steady, params: { chance: 0.5 } }

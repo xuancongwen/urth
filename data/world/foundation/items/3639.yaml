@@ -1,0 +1,19 @@
+vnum: 3639
+name: the Mule's sleeves of black mesh
+keywords: [mule's, mule, sleeves, black, mesh, vambraces, arms]
+description: A pair of long sleeves of fine black mesh lies here.
+look: |
+  Long sleeves of steel mesh so fine it drapes like cloth, laced at the
+  shoulder. Whoever strikes at the arm inside them feels, for an
+  instant, the dread their wearer can pour into a mind, and pulls the
+  blow.
+type: armor
+slot: arms
+weight: 2
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: thorns, params: { fraction: 0.15, verb: "wash of dread" } }

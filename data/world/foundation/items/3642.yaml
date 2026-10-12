@@ -1,0 +1,18 @@
+vnum: 3642
+name: the bracer of ecstasy
+keywords: [bracer, ecstasy, mule's, mule, wrist, bracelet]
+description: A bracer of bright silver lies here, warm to the touch.
+look: |
+  A bracer of polished silver, warm as skin. The Mule wore it on his
+  other wrist: the hand that gives. Those he converted felt a joy so
+  great that they gave him everything they had, and it seems some of
+  it went into this.
+type: armor
+slot: wrist
+weight: 1
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: leech, params: { fraction: 0.08 } }
+  - { kind: stat, params: { stat: charisma, amount: 2 } }

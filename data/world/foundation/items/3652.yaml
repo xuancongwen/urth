@@ -1,0 +1,21 @@
+vnum: 3652
+name: the robe of the First Minister
+keywords: [robe, first, minister, demerzel, demerzel's, armor, armour]
+description: A plain, beautifully cut robe of dark grey lies here.
+look: |
+  The robe Eto Demerzel wears to govern the Empire: dark grey, plain,
+  beautifully cut, and lined with a weave so tough that the tailor
+  could not say what it was. It has been worn for a great many years
+  and shows none of them. In it you feel unhurried, patient, and very
+  hard to harm.
+type: armor
+slot: body
+weight: 3
+level: 45
+baseline: light
+value: 6500
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: protect, params: { mult: 0.93 } }

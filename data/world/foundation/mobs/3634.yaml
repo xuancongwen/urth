@@ -1,0 +1,24 @@
+vnum: 3634
+name: Han Pritcher
+keywords: [han, pritcher, general, captain, converted]
+description: General Han Pritcher stands at attention before the black door, his face shining with devotion.
+look: |
+  A grim, square-built, grey-haired soldier, once a captain of
+  Foundation Intelligence who went to Kalgan to assassinate the Mule.
+  He found him. Now he is a general of the Union of Worlds, the most
+  loyal of all the Mule's converts, and he loves his master with a
+  pure, clean, terrible love that he knows was put into him and does
+  not care. He is searching for the Second Foundation on the Mule's
+  orders, and he carries what he has found so far in his breast
+  pocket. He will not let you near that door.
+level: 43
+flags: [assist]
+health: 9000
+stats: {strength: 17, dexterity: 18, constitution: 18, wisdom: 16}
+silver: 1000
+xp: 20000
+attack:
+  kind: fire
+  verb: blast
+effects:
+  - { kind: lastStand, params: { threshold: 0.3, mult: 0.7 } }

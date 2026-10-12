@@ -1,0 +1,14 @@
+vnum: 3606
+name: The Traders' Market
+description: |
+  A yard behind the Encyclopedia offices where the Foundation's Traders
+  lay out their stock between voyages: atomic knives, gleaming little
+  force-shield generators, transmuters, washing machines, all of it
+  small, bright, and impossible for any world beyond the Periphery to
+  build. Crates are stencilled with the names of planets that used to
+  be provinces of the Empire. The Time Vault is east; the Encyclopedia
+  offices are south.
+exits:
+  east: 3604
+  south: 3602
+flags: [safe]

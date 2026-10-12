@@ -1,0 +1,13 @@
+vnum: 3603
+name: The Mayor's Office, City Hall
+description: |
+  A comfortable, untidy office at the top of City Hall, with a wide
+  window over the plaza and a cigar burning in a tray. On the wall,
+  framed and a little crooked, is the mayor's own motto: VIOLENCE IS
+  THE LAST REFUGE OF THE INCOMPETENT. Under it someone has added, in
+  pencil, BUT HAVE A FORCE SHIELD ANYWAY. The plaza is back west; a
+  corridor runs east to the ship berths.
+exits:
+  west: 3601
+  east: 3607
+flags: [safe]

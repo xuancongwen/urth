@@ -1,0 +1,10 @@
+vnum: 3615
+name: The Commdor's Palace
+description: |
+  A gaudy audience room, furnished with every luxury a small tyrant can
+  buy, half of it from the Foundation's Traders. A great steel throne
+  stands under a portrait of the Commdor's father-in-law, and the
+  Commdora's sitting room opens off it, bright with the light of a
+  necklace that glows on its own. The streets are back south.
+exits:
+  south: 3614

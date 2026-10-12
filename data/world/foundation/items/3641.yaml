@@ -1,0 +1,18 @@
+vnum: 3641
+name: the bracer of despair
+keywords: [bracer, despair, mule's, mule, wrist, bracelet]
+description: A bracer of dull black metal lies here, cold to look at.
+look: |
+  A bracer of black metal, plain and cold, which the Mule wore on the
+  wrist he points with. The despair he pours into those who stand
+  against him seems to settle in it, like silt. Those it strikes go
+  heavy and slow, and stop believing they can win.
+type: armor
+slot: wrist
+weight: 1
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: chill, params: { chance: 0.2, mult: 0.7, rounds: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

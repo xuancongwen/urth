@@ -1,0 +1,13 @@
+vnum: 3602
+name: The Offices of the Encyclopedia Foundation
+description: |
+  Long rooms of desks and reading machines, where fifty years of
+  scholars have been compiling the Encyclopedia Galactica, all human
+  knowledge set down for the dark ages to come. Film-spools are stacked
+  to the ceiling and labelled in a tiny, anxious hand. Nobody here has
+  looked up from a reader in a long time. The plaza is back east; a
+  side door opens north onto the traders' market.
+exits:
+  east: 3601
+  north: 3606
+flags: [safe]

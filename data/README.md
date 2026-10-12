@@ -45,7 +45,11 @@ the level their source made them. The Hall of Legends (room 9) opens on
 Park, 4 to 40); the Hall of Distant Stars (room 10) on `klendathu`
 (north, Starship Troopers, 16 to 42), `arrakis` (east, Dune, 14 to 60),
 `deathstar` (south, 15 to 55), `cadia` (west, Warhammer 40K, 22 to 65),
-and down to `gauntlet` (the arcade game, 28 to 34). Five farming areas
+and down to `gauntlet` (the arcade game, 28 to 34). A hatch in the
+Gauntlet's first room (2900) goes down to the Hall of Far Futures (room
+11), which opens north on `foundation` (Asimov's Foundation, 20 to 45,
+with the Mule as a raid boss for a full group); its other three doors
+are sealed, kept for areas to come. Five farming areas
 keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
 at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`

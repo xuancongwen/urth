@@ -1,0 +1,12 @@
+vnum: 3605
+name: The Time Vault
+description: |
+  A small, bare room with six rows of chairs facing a glass cubicle,
+  as though for a lecture. In the cubicle sits an old man in a
+  wheelchair, a book on his lap, translucent at the edges where the
+  light passes through him. He is a recording, made three hundred
+  years ago, and he appears only at a crisis. He looks up as you sit
+  down, as if he had expected you exactly. The way out is south.
+exits:
+  south: 3604
+flags: [safe]

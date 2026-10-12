@@ -1,0 +1,17 @@
+vnum: 3607
+name: an atomic knife
+keywords: [atomic, knife, blade, dagger]
+description: A slim knife with a faintly glowing edge lies here.
+look: |
+  A Foundation knife whose edge is a field a few atoms wide, which
+  cuts steel like cheese and cheese like air. The Traders sell them as
+  kitchen knives. The Korellians buy them as something else.
+type: weapon
+weight: 1
+level: 28
+baseline: dagger
+value: 300
+weapon:
+  hands: 1
+  kind: slash
+  verb: slice

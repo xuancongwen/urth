@@ -1,0 +1,11 @@
+vnum: 3611
+name: The Throne Hall of Anacreon
+description: |
+  A long hall of dark wood and old gilt, with a throne at the far end
+  too big for the boy who sits in it, and beside it a second chair,
+  only a little smaller, for the man who really rules. Banners of the
+  Kingdom of Anacreon hang from the rafters, and the royal guard stand
+  along the walls with their hands on their weapons. The streets are
+  back south.
+exits:
+  south: 3609

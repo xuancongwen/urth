@@ -1,0 +1,21 @@
+vnum: 3627
+name: Bayta Darell
+keywords: [bayta, darell, woman, foundation]
+description: Bayta Darell sits on the trader's chest, her blaster on her knees, thinking hard.
+look: |
+  A young woman of Terminus with dark hair and a direct, clever face,
+  newly married, a refugee across half the Galaxy with her husband,
+  an old psychologist and a clown, one jump ahead of the Mule. She is
+  fond of the clown, who has slipped out somewhere. She is, if she
+  only knew it, the one person in the Galaxy he has never touched,
+  because she was kind to him first. It is going to matter a great
+  deal. She is watching the door, and the blaster on her knees is the
+  one she will use, in the Galactic Library, to save the Second
+  Foundation from the man she trusted most.
+level: 36
+health: 2400
+stats: {dexterity: 16, wisdom: 18}
+silver: 300
+attack:
+  kind: fire
+  verb: blast

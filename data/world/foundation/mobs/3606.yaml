@@ -1,0 +1,16 @@
+vnum: 3606
+name: an Anacreonian soldier
+keywords: [anacreonian, soldier, royal, trooper]
+description: An Anacreonian soldier in a plumed helmet eyes you with deep suspicion.
+look: |
+  A big, sunburnt soldier of the Kingdom of Anacreon, with a pike, a
+  steel breastplate, and a plumed helmet his grandfather would have
+  recognised. He has been told that Terminus is a nest of wizards who
+  keep the power plants running by magic. He has also been told to
+  conquer it. He is not looking forward to it.
+level: 20
+flags: [assist]
+silver: 80
+attack:
+  kind: pierce
+  verb: thrust

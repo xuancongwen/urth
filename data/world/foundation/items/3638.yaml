@@ -1,0 +1,20 @@
+vnum: 3638
+name: the robe of the Union of Worlds
+keywords: [robe, union, worlds, mule's, mule, armor, armour]
+description: A long black robe, heavy with hidden plate, lies here.
+look: |
+  The Mule's robe of state, black and floor-length, with the emblem of
+  the Union of Worlds worked in silver on the breast and a shell of
+  overlapping plates sewn inside it, where nobody sees. The Mule is a
+  mutant, frail of body, and he has never trusted his body to anything
+  but the best armour on Kalgan.
+type: armor
+slot: body
+weight: 7
+level: 45
+baseline: plate
+value: 7000
+effects:
+  - { kind: stat, params: { stat: constitution, amount: 3 } }
+  - { kind: protect, params: { mult: 0.9 } }
+  - { kind: regen, params: { fraction: 0.01 } }

@@ -1,0 +1,13 @@
+vnum: 3621
+name: an Imperial palace guard's helm
+keywords: [imperial, palace, guard's, guard, helm, helmet]
+description: A white and gold helm with a closed visor lies here.
+look: |
+  A palace guard's helm of white enamel and gold, its visor closed and
+  blank. On Trantor the guard are chosen for their height and their
+  silence, and the helm makes certain of the second.
+type: armor
+slot: head
+weight: 3
+level: 35
+baseline: plate

@@ -1,0 +1,11 @@
+vnum: 3629
+name: The Avenue of the Mule
+description: |
+  A boulevard of palms and white towers leading up to the palace,
+  lined with mercenaries of the old warlord and soldiers of the new
+  master. The mercenaries look nervous. The soldiers do not; they look
+  happy, devotedly and terribly happy, and they all turn to watch you
+  at once. The palace gates are east; the port is back west.
+exits:
+  west: 3628
+  east: 3630

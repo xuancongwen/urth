@@ -1,0 +1,15 @@
+vnum: 3608
+name: The Landing Field of Anacreon
+description: |
+  Anacreon, the strongest of the Four Kingdoms that broke away from
+  the Empire, and the nearest to Terminus. The landing field is cracked
+  and patched with rusting plates; the kingdom lost its atomic power
+  generations ago and has been ashamed of it ever since. Soldiers in
+  plumed helmets watch every ship that lands. The capital is north, a
+  great grey cruiser is docked to the south, the jump back to Terminus
+  is west, and the next, to Korell, is east.
+exits:
+  west: 3607
+  east: 3613
+  north: 3609
+  south: 3612

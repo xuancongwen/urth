@@ -1,0 +1,17 @@
+vnum: 3629
+name: a halberd of the Mule's guard
+keywords: [halberd, mule's, mule, guard, polearm]
+description: A black halberd with a silver blade lies here.
+look: |
+  A guardsman's halberd, black haft and a long silver blade, heavy
+  enough to stop a charge. The Mule's guard carry them in the throne
+  room because blasters are louder, and the First Citizen dislikes
+  noise.
+type: weapon
+weight: 6
+level: 43
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

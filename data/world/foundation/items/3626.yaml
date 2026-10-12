@@ -1,0 +1,17 @@
+vnum: 3626
+name: a converted soldier's blaster
+keywords: [converted, soldier's, soldier, blaster, rifle, gun]
+description: A plain black blaster rifle, perfectly clean, lies here.
+look: |
+  A blaster rifle of the Mule's army, plain black, cleaned and cleaned
+  again by a soldier who would do anything at all for his master,
+  including keep his rifle cleaner than any soldier's rifle has ever
+  been.
+type: weapon
+weight: 3
+level: 40
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

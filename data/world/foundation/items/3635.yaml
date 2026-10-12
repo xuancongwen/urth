@@ -1,0 +1,21 @@
+vnum: 3635
+name: the hood of the First Citizen
+keywords: [hood, first, citizen, mule's, mule, helm, cowl]
+description: A deep black hood stiffened with a band of silver lies here.
+look: |
+  The Mule's hood, black cloth over a cap of light steel with a band of
+  silver at the brow, cut deep enough to hide a face that people would
+  otherwise laugh at. Nobody has laughed at it in some time. Under it
+  the world feels quieter and very clear, as though everyone's
+  feelings were a little further away than your own.
+type: armor
+slot: head
+weight: 2
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }
+  - { kind: protect, params: { mult: 0.95 } }

@@ -1,0 +1,16 @@
+vnum: 3616
+name: an Imperial blaster rifle
+keywords: [imperial, blaster, rifle, gun]
+description: A long rifle in Imperial grey and gold lies here.
+look: |
+  A legionary's rifle, made on Trantor in the days when Trantor still
+  made things, long and well balanced, with the Spaceship-and-Sun of
+  the Empire on the stock. Its cell is old, but it was built to last.
+type: weapon
+weight: 4
+level: 31
+baseline: standard
+weapon:
+  hands: 2
+  kind: fire
+  verb: shoot

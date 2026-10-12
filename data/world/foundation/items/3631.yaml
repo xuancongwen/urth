@@ -1,0 +1,14 @@
+vnum: 3631
+name: a pair of gauntlets of the Mule's guard
+keywords: [gauntlets, mule's, mule, guard, gloves]
+description: A pair of black steel gauntlets lies here.
+look: |
+  Black steel gauntlets of the Mule's guard, with silver knuckles.
+  They are cold, and they fit too well, as if they had been made for
+  the hand that finds them.
+type: armor
+slot: hands
+weight: 2
+level: 44
+baseline: plate
+flags: [drop]

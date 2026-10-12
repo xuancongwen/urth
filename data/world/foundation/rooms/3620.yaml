@@ -1,0 +1,13 @@
+vnum: 3620
+name: The Corridors of Trantor
+description: |
+  Endless corridors of metal under an artificial sky that brightens and
+  dims on the hour, lined with shops and sector checkpoints and moving
+  expressways that hum off into the distance. Imperial guards stand at
+  every checkpoint, demanding credentials. The palace grounds are
+  north, the spaceport west, and to the east the corridors run into a
+  sector where the lights are out.
+exits:
+  west: 3619
+  north: 3623
+  east: 3625

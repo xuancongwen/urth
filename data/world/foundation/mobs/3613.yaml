@@ -1,0 +1,15 @@
+vnum: 3613
+name: a Korellian soldier
+keywords: [korellian, soldier, trooper, guard]
+description: A Korellian soldier in heavy dark steel stands guard here.
+look: |
+  A thickset soldier of the Republic of Korell in a great deal of dark
+  steel, with the Commdor's monogram on his chest. Korell is building
+  a war fleet with Imperial help, and its soldiers have been told they
+  will soon teach the Foundation a lesson. They seem very sure of it.
+level: 28
+flags: [assist]
+silver: 120
+attack:
+  kind: slash
+  verb: slash

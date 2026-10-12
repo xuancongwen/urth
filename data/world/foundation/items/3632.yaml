@@ -1,0 +1,14 @@
+vnum: 3632
+name: a Kalganian warlord's cuirass
+keywords: [kalganian, warlord's, warlord, cuirass, armor, armour]
+description: A gilded cuirass, too fine for a soldier, lies here.
+look: |
+  The cuirass of the old warlord of Kalgan, gilded plate over a heavy
+  frame, made for a man who meant to conquer the Foundation. He
+  surrendered to the Mule without putting it on.
+type: armor
+slot: body
+weight: 9
+level: 45
+baseline: plate
+flags: [drop]

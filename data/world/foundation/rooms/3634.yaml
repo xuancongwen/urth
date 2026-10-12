@@ -1,0 +1,13 @@
+vnum: 3634
+name: Star's End
+description: |
+  A quiet room of soft light far below the Library, where the Second
+  Foundation meets. At the centre, on a plain desk, a black cube throws
+  the equations of the Plan into the air above it in coloured light,
+  shifting and flowering as you watch. Star's End, the saying goes, is
+  at the other end of the Galaxy from Terminus. Like everything the
+  Second Foundation says, it is true and misleading at once. The stair
+  goes back up.
+exits:
+  up: 3622
+flags: [safe]

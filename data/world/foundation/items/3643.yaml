@@ -1,0 +1,19 @@
+vnum: 3643
+name: the Mule's shield belt
+keywords: [mule's, mule, shield, belt, generator]
+description: A broad belt with a Foundation shield generator at the buckle lies here.
+look: |
+  A broad belt of black leather with a personal force shield built
+  into the buckle, a Foundation make, taken from Terminus when it fell.
+  The Mule never needed it. He wore it anyway, because he has always
+  been afraid of the one man he could not reach in time.
+type: armor
+slot: belt
+weight: 2
+level: 45
+baseline: heavy
+value: 6500
+effects:
+  - { kind: block, params: { chance: 0.1 } }
+  - { kind: protect, params: { mult: 0.95 } }
+  - { kind: stat, params: { stat: constitution, amount: 1 } }

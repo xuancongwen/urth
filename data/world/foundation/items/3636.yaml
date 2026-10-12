@@ -1,0 +1,18 @@
+vnum: 3636
+name: the Mule's chain of office
+keywords: [mule's, mule, chain, office, collar, necklace]
+description: A heavy chain of silver links, each set with a dark stone, lies here.
+look: |
+  The chain of the First Citizen of the Union of Worlds, silver links
+  each set with a stone from a world the Mule has taken: Kalgan,
+  Terminus, Haven, and a great many more. It is heavy across the
+  shoulders, and whoever wears it is hard to look away from.
+type: armor
+slot: neck
+weight: 1
+level: 45
+value: 6500
+effects:
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: stat, params: { stat: constitution, amount: 2 } }
+  - { kind: protect, params: { mult: 0.92 } }

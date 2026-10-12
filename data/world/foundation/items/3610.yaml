@@ -1,0 +1,13 @@
+vnum: 3610
+name: a royal guard's plumed helm
+keywords: [royal, guard's, guard, plumed, helm, helmet]
+description: A tall steel helm with a red crest lies here.
+look: |
+  The helm of the royal guard of Anacreon, tall and polished, with a
+  crest of red horsehair. It makes its wearer half a head taller and
+  very easy to see, which is the point of a royal guard.
+type: armor
+slot: head
+weight: 3
+level: 23
+baseline: heavy

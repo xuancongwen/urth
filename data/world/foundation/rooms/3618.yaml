@@ -1,0 +1,11 @@
+vnum: 3618
+name: The House of Ducem Barr
+description: |
+  An old patrician's house, half its rooms shut and dust-sheeted since
+  the Empire burned the province. An old man keeps a fire in the
+  library, among books he has read many times. On the mantel lies a
+  little device his father was given by a Trader from a place called
+  the Foundation, and which saved his life. The province is back north.
+exits:
+  north: 3616
+flags: [safe]

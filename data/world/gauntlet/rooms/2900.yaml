@@ -8,9 +8,12 @@ description: |
   is worn smooth in front of it by a great many feet that came back
   for another go. Nothing down here will draw a weapon; the Voice will
   not allow it. The stair climbs back up, and an archway north opens
-  on the first level.
+  on the first level. In the corner a hatch of brushed grey metal, out
+  of place among the stone, stands open on a ladder going further
+  down, and a cool clean light comes up it.
 exits:
   up: 10
   north: 2901
+  down: 11
 flags: [safe]
 position: {x: 0, y: 0, z: 0}

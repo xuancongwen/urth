@@ -1,0 +1,13 @@
+vnum: 3601
+name: an atomic glow-tube
+keywords: [atomic, glow-tube, glow, tube, light, lamp]
+description: A slim glass tube lies here, glowing a steady white.
+look: |
+  A finger-long tube of glass with an atomic pinch of something inside
+  that will glow, steady and white, for longer than you will live. On
+  Terminus they hand these out free. On Anacreon they would hang you
+  for a witch for carrying one.
+type: light
+weight: 0
+burn: 3000
+value: 30

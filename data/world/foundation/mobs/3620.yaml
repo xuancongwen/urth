@@ -1,0 +1,17 @@
+vnum: 3620
+name: a scavenger of the Sack
+keywords: [scavenger, sack, looter, squatter]
+description: A scavenger in a stolen velvet mantle crouches by a fire, prying copper out of a wall.
+look: |
+  One of the people of Trantor after the Great Sack, when the capital
+  of the Galaxy was plundered and left to rot: lean, ragged, and
+  dangerous, wearing a looted Imperial mantle over sacking and
+  carrying a length of the world's own wiring as a club. He lives by
+  stripping the metal out of the walls to sell off-world. He does not
+  care for visitors.
+level: 36
+flags: [assist]
+silver: 60
+attack:
+  kind: blunt
+  verb: smash

@@ -1,0 +1,12 @@
+vnum: 3612
+name: Aboard the Battle Cruiser Wienis
+description: |
+  A corridor inside an old Imperial battle cruiser, found derelict and
+  given to Anacreon by a Foundation fool, repaired by Foundation
+  engineers, and now renamed for the Prince Regent and pointed at
+  Terminus. It is vast, dim, and smells of oil and new paint over old.
+  Anacreonian sailors who do not fully understand the ship march about
+  it anyway. The landing field is back north; the bridge is south.
+exits:
+  north: 3608
+  south: 3636

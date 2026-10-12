@@ -1,0 +1,13 @@
+vnum: 3602
+name: Ebling Mis's notebook
+keywords: [ebling, mis's, mis, notebook, notes, book]
+description: A battered notebook, its pages crammed with tiny writing, lies here.
+look: |
+  A thick notebook in the cramped, furious hand of Ebling Mis, the
+  Foundation's greatest psychologist, crammed with references from the
+  Galactic Library and arrows and crossings-out, all converging on one
+  question: where is the Second Foundation? The last page is torn out.
+  Someone would very much like this back.
+type: other
+weight: 1
+flags: [quest]

@@ -1,0 +1,28 @@
+vnum: 3603
+name: Hober Mallow
+keywords: [hober, mallow, trader, master, merchant]
+description: Hober Mallow, Master Trader, sits on a crate among his wares, grinning at you like a man about to make a sale.
+look: |
+  A big, swarthy Smyrnian with a trader's jacket, a trader's grin and
+  a trader's eye for exactly how much you have in your purse. He won a
+  war with Korell without a single battle: he sold them washing
+  machines and atomic knives, then stopped selling. "Religion won't
+  do any more," he says. "Trade will. A man who owns a Foundation
+  transmuter is the Foundation's man for life, and doesn't even know
+  it." He sells force shields, blasters, knives and transmuters, and
+  he pays in kind for spent power cells, which he can recharge and
+  sell again. Type 'list'.
+level: 36
+flags: [peaceful]
+attack:
+  kind: fire
+  verb: blast
+trades:
+  - { item: 3601, silver: 30 }
+  - { item: 3607, silver: 300 }
+  - { item: 3604, silver: 400 }
+  - { item: 3605, silver: 500 }
+  - { item: 3606, silver: 900, items: [3600, 3600] }
+  - { item: 3604, silver: 200, items: [3600, 3600] }
+  - { item: 3605, silver: 250, items: [3600, 3600, 3600] }
+  - { item: 3601, items: [3600] }

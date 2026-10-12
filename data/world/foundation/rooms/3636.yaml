@@ -1,0 +1,11 @@
+vnum: 3636
+name: The Bridge of the Wienis
+description: |
+  The cruiser's bridge, a half-ring of consoles under a great curved
+  screen showing the stars, and Terminus small and blue among them.
+  The consoles glow, but some of them have begun, quietly, to go dark
+  one by one, as though the ship were deciding something on its own.
+  The chaplain at the drive controls is smiling. The corridor is back
+  north.
+exits:
+  north: 3612

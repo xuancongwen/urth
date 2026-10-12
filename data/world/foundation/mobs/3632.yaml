@@ -1,0 +1,16 @@
+vnum: 3632
+name: a converted soldier of the Mule
+keywords: [converted, soldier, mule, trooper]
+description: A soldier of the Mule smiles at you, the same smile as all the others.
+look: |
+  A soldier of the Union of Worlds in black with a silver emblem, once
+  a citizen of some world that fought the Mule, and now his, utterly,
+  gladly, forever. He smiles all the time. He is perfectly happy. He
+  would kill his own mother for the First Citizen, and smile while he
+  did it, and so he will certainly kill you.
+level: 40
+flags: [assist]
+silver: 200
+attack:
+  kind: fire
+  verb: shoot

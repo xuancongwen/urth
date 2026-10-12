@@ -1,0 +1,16 @@
+vnum: 3607
+name: an Anacreonian sailor
+keywords: [anacreonian, sailor, crewman, rating]
+description: An Anacreonian sailor hurries past, looking nervously at the dimming lights.
+look: |
+  A rating of the Anacreonian navy in a blue smock, one of a crew of
+  thousands raised in a hurry to man a ship nobody in the kingdom has
+  the faintest idea how to repair. He has been told the cruiser is
+  blessed by the Galactic Spirit. He has noticed the lights are going
+  out, and he is beginning to wonder what that means.
+level: 22
+flags: [assist]
+silver: 90
+attack:
+  kind: blunt
+  verb: club

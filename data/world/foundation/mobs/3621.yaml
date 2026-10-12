@@ -1,0 +1,23 @@
+vnum: 3621
+name: Hari Seldon
+keywords: [hari, seldon, mathematician, professor, psychohistorian]
+description: Hari Seldon, a mathematician of middle years, is scribbling equations on a pad and muttering about Trantor.
+look: |
+  A pleasant, rumpled mathematician from Helicon, not yet old, with a
+  limp he has not yet got and a science he has not yet finished. He is
+  working on psychohistory, the mathematics of crowds, which will one
+  day predict the fall of the Empire to the decade and plot a way
+  through the dark after it. "It's not magic," he says. "It's
+  statistics. One man is unpredictable. A quadrillion are not." Then
+  he goes back to his equations, which are beginning, to his horror,
+  to come out right. He leans on a cane he does not yet need, a gift
+  from his wife, and he is far less helpless than he looks: he learned
+  Heliconian twisting as a boy.
+level: 38
+flags: [assist]
+health: 2600
+stats: {intelligence: 20, wisdom: 18}
+silver: 400
+attack:
+  kind: blunt
+  verb: strike

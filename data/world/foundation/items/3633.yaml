@@ -1,0 +1,18 @@
+vnum: 3633
+name: a neuronic whip
+keywords: [neuronic, whip, lash]
+description: A short black rod with a coil of shimmering light lies here.
+look: |
+  A neuronic whip: a short black rod that throws a lash of light which
+  does no harm to the flesh at all and sets every nerve it touches
+  screaming. The Mule's interrogators keep them. They seldom need
+  them.
+type: weapon
+weight: 1
+level: 45
+baseline: whip
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: lash

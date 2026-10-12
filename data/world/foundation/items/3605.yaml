@@ -1,0 +1,19 @@
+vnum: 3605
+name: a nuclear blaster
+keywords: [nuclear, blaster, pistol, gun]
+description: A heavy, snub-nosed blaster pistol lies here.
+look: |
+  A Foundation blaster, short and heavy, with the four-pointed sign of
+  the Traders stamped on its grip. Its atomic cell is good for a
+  thousand shots and its bolt will burn through a steel door. The
+  Traders do not like to use them. They like everyone to know they
+  have them.
+type: weapon
+weight: 2
+level: 32
+baseline: standard
+value: 500
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast

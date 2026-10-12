@@ -1,0 +1,17 @@
+vnum: 3623
+name: Raych
+keywords: [raych, boy, dahlite, urchin]
+description: Raych, a skinny kid from Dahl with a big moustache he is trying to grow, leans in the doorway twirling a knife.
+look: |
+  A wiry young man from Dahl, the heatsinks sector, who was a street
+  urchin until Hari Seldon picked him up and made him a son. He still
+  talks like the gutter, still carries a knife in his sleeve, and still
+  remembers every dirty trick that ever kept him alive under the
+  heatsinks. He will show you a few of them, for a price, as long as
+  you promise not to tell his mother. Type 'practice'.
+level: 30
+flags: [peaceful]
+attack:
+  kind: pierce
+  verb: stab
+teaches: [backstab, dirt_kicking]

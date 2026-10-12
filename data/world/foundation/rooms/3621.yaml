@@ -1,0 +1,11 @@
+vnum: 3621
+name: Streeling University
+description: |
+  The one place on Trantor with trees: a campus under its own dome,
+  with lawns and lecture halls and a clock tower that keeps the old
+  time. In an office cluttered with paper, an old mathematician works
+  on the equations of psychohistory, the science that predicts the
+  fall of empires. His wife reads by the window, and a young man from
+  Dahl leans in the doorway. The spaceport is south.
+exits:
+  south: 3619

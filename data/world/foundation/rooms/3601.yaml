@@ -1,0 +1,16 @@
+vnum: 3601
+name: Seldon Plaza, Terminus City
+description: |
+  The heart of Terminus City: a square of clean stone and young trees,
+  with tramlines humming beneath it and every building lit by atomic
+  power so cheap nobody switches it off. In the middle stands a plain
+  statue of a hunched old man in a chair, a book on his knees. The
+  plinth says only HARI SELDON. The Encyclopedia offices are west, City
+  Hall east, the Time Vault north up a wide avenue, and the spaceport
+  south.
+exits:
+  south: 3600
+  north: 3604
+  west: 3602
+  east: 3603
+flags: [safe]

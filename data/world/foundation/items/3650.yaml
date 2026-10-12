@@ -1,0 +1,21 @@
+vnum: 3650
+name: Ebling Mis's spectacles
+keywords: [ebling, mis's, mis, spectacles, glasses, lenses]
+description: A pair of thick, smudged spectacles lies here.
+look: |
+  Thick lenses in a bent wire frame, smudged with a thumb that never
+  stopped turning pages. Ebling Mis read half the Galactic Library
+  through them, in weeks, and saw in it the one thing nobody else had
+  seen. Wearing them, the small print of the world comes clear: the
+  hidden thing, the weak joint, the line everybody else skipped.
+type: armor
+slot: face
+weight: 0
+level: 34
+baseline: cloth
+value: 3500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: detectHidden }
+  - { kind: crit, params: { chance: 0.04, mult: 2 } }

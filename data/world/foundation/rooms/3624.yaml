@@ -1,0 +1,9 @@
+vnum: 3624
+name: The First Minister's Office
+description: |
+  A spare, tidy office off the Emperor's own apartments, with a window
+  onto the gardens and a desk with nothing on it. The First Minister
+  works here, the man who truly runs the Empire, and has done for
+  longer than anyone has quite noticed. The palace grounds are south.
+exits:
+  south: 3623

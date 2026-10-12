@@ -1,0 +1,16 @@
+vnum: 3620
+name: an Imperial palace guard's halberd
+keywords: [imperial, palace, guard's, guard, halberd, polearm]
+description: A gilded halberd with a blaster built into its haft lies here.
+look: |
+  A ceremonial halberd of the palace guard, gilded and tasselled, with
+  a blade that is perfectly real and a blaster set into the haft for
+  when the ceremony is over.
+type: weapon
+weight: 6
+level: 34
+baseline: heavy
+weapon:
+  hands: 2
+  kind: slash
+  verb: cleave

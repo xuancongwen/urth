@@ -1,0 +1,14 @@
+vnum: 3609
+name: an Anacreonian breastplate
+keywords: [anacreonian, breastplate, armor, armour, cuirass]
+description: A dented steel breastplate with a gilt sunburst lies here.
+look: |
+  A breastplate of plain steel, hammered, not pressed, with a gilt
+  sunburst on the chest for the Kingdom of Anacreon. It is heavier
+  than anything the Foundation would make and it does the job almost
+  as well.
+type: armor
+slot: body
+weight: 6
+level: 21
+baseline: medium

@@ -1,0 +1,11 @@
+vnum: 3630
+name: The Palace Gates of Kalgan
+description: |
+  Gates of bronze and glass, open, guarded by the Mule's own guard in
+  black and silver. Beyond them the palace of the old warlord of
+  Kalgan rises over the sea. A banner hangs over the gate: the
+  emblem of the Union of Worlds, and under it, FIRST CITIZEN. The
+  avenue is back west; the palace hall is east.
+exits:
+  west: 3629
+  east: 3631

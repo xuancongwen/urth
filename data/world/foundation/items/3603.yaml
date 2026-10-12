@@ -1,0 +1,13 @@
+vnum: 3603
+name: the coordinates of Star's End
+keywords: [coordinates, star's, star, end, slip, paper]
+description: A folded slip of paper covered in figures lies here.
+look: |
+  A slip of flimsy covered in galactic coordinates, worked out over
+  years by a man who was searching for the Second Foundation on his
+  master's orders: Star's End, at the other end of the Galaxy. The
+  arithmetic is good. The conclusion is wrong, but not as wrong as the
+  people at Star's End would like.
+type: other
+weight: 0
+value: 100

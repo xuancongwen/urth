@@ -1,0 +1,15 @@
+vnum: 3600
+name: a spent atomic power cell
+keywords: [spent, atomic, power, cell, battery]
+description: A small, dull grey power cell lies here, faintly warm.
+look: |
+  A palm-sized atomic power cell, run down but not dead, of the kind
+  that drives everything from a Foundation blaster to an Anacreonian
+  warship. Nobody beyond the Periphery can make these any more, and
+  the Foundation's Traders will pay well to get them back: a spent
+  cell, recharged, is the beginning of a sale.
+type: material
+material: power cell
+rarity: common
+weight: 1
+value: 25

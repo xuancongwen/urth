@@ -1,0 +1,14 @@
+vnum: 3619
+name: The Spaceport of Trantor
+description: |
+  Trantor, capital of the Galactic Empire: a world roofed over from
+  pole to pole in metal, forty billion people under a single dome, and
+  not a blade of grass you did not pay for. The spaceport alone is
+  bigger than most cities. Streeling University is north, the Galactic
+  Library south, and the Imperial Sector east along the corridors. The
+  jump back to Siwenna is west.
+exits:
+  west: 3616
+  east: 3620
+  north: 3621
+  south: 3622

@@ -1,0 +1,17 @@
+vnum: 3622
+name: a length of torn conduit
+keywords: [length, torn, conduit, pipe, club]
+description: A heavy length of metal conduit, ripped from a wall, lies here.
+look: |
+  A length of conduit torn out of the walls of Trantor, which once
+  carried power for a sector of millions and now carries a dent in
+  someone's head. The scavengers of the Sack strip it for its metal
+  and swing it in the meantime.
+type: weapon
+weight: 4
+level: 36
+baseline: mace
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash

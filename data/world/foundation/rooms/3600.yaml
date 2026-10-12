@@ -1,0 +1,16 @@
+vnum: 3600
+name: The Terminus Spaceport
+description: |
+  A broad apron of fused grey stone at the edge of a small, tidy city,
+  with the sea glittering beyond it and the wind smelling of salt and
+  hot metal. Terminus is a planet at the very rim of the Galaxy, with
+  almost no metal of its own and a sky that is half empty of stars.
+  Little trading ships stand in their cradles, and a sign over the
+  customs gate reads, without irony, WELCOME TO THE FOUNDATION. A
+  grey door in a low kiosk leads back south, down to the hall you came
+  from; the city is north.
+exits:
+  south: 11
+  north: 3601
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

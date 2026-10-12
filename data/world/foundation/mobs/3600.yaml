@@ -1,0 +1,29 @@
+vnum: 3600
+name: the recorded image of Hari Seldon
+keywords: [hari, seldon, image, recording, old, man, ghost]
+description: The image of Hari Seldon sits in his wheelchair in the glass cubicle, smiling gently at the empty chairs.
+look: |
+  An old, old man in a wheelchair, a book open on his lap, his face
+  deeply lined and his eyes very much alive. He is three hundred years
+  dead; this is a recording, made before the Foundation was founded,
+  that wakes only when a crisis is due. "I am Hari Seldon," he says,
+  as if to a room full of people. "Psychohistory deals not with man
+  but with man-masses. The Plan is proceeding as it must. In a
+  thousand years the Second Empire will rise, and the dark between
+  will be shortened from thirty thousand years to one. You have very
+  little choice in the matter." He does not answer questions. He has
+  already answered the ones you were going to ask. But he does,
+  somehow, have work for you: there is always another crisis coming,
+  and the Foundation pays for help with it in Traders' goods. Try
+  'quest request' and 'quest list'.
+level: 40
+flags: [peaceful, questmaster]
+attack:
+  kind: psionic
+  verb: sigh
+sells:
+  - { item: 3601, points: 10 }   # atomic glow-tube
+  - { item: 3607, points: 25 }   # atomic knife
+  - { item: 3604, points: 30 }   # personal force shield
+  - { item: 3605, points: 35 }   # nuclear blaster
+  - { item: 3606, points: 80 }   # atomic transmuter

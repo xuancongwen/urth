@@ -1,0 +1,24 @@
+vnum: 3617
+name: Bel Riose
+keywords: [bel, riose, general, imperial]
+description: Bel Riose, the Empire's last great general, straightens from his map table and reaches for his sword.
+look: |
+  A young man, younger than you would think, lean and dark and quick,
+  in a general's uniform with the sleeves rolled up. He is the last
+  great general of the Galactic Empire, brilliant, honest, loyal, and
+  the best soldier it has had in a century, which is exactly why he is
+  doomed: a strong general under a weak Emperor is a man the Emperor
+  must destroy. He has come to conquer the Foundation, and he is
+  winning. Seldon's Plan says he cannot. He does not believe in it,
+  and he intends to show you why.
+level: 35
+flags: [assist]
+health: 5600
+stats: {strength: 17, dexterity: 17, constitution: 17, wisdom: 16}
+silver: 900
+xp: 12000
+attack:
+  kind: slash
+  verb: slash
+effects:
+  - { kind: steady, params: { chance: 0.3 } }

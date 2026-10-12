@@ -1,0 +1,11 @@
+vnum: 3614
+name: The Streets of Korell
+description: |
+  Grim streets of steel works and barracks, where a crowd gathers to
+  watch a Foundation priest being dragged away by the secret police.
+  Everyone here owns at least one Foundation appliance, a washer or a
+  cooker or a knife, and everyone is careful not to say so. The
+  Commdor's palace is north; the spaceport is south.
+exits:
+  south: 3613
+  north: 3615

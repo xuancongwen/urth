@@ -1,0 +1,12 @@
+vnum: 3617
+name: The Imperial Encampment
+description: |
+  Rows of prefabricated huts and the hulls of grounded warships, the
+  base of the last great fleet the Empire will ever send to its
+  frontier. The legionaries here are disciplined and proud and
+  well-fed, and they do not understand why they have been sent to fight
+  a small planet of scholars at the edge of the Galaxy. The general's
+  flagship stands to the north; the province is back south.
+exits:
+  south: 3616
+  north: 3635

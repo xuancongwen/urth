@@ -1,0 +1,16 @@
+vnum: 3615
+name: an Imperial legionary
+keywords: [imperial, legionary, soldier, trooper]
+description: An Imperial legionary in polished grey armour challenges you.
+look: |
+  A legionary of the Galactic Empire, disciplined, well-armed, and
+  proud, from a line regiment that has not lost a battle on the
+  frontier in a generation. His armour shines. His rifle works. He has
+  no idea why the Empire wants a small planet of scholars at the edge
+  of the Galaxy, and does not need one.
+level: 31
+flags: [assist]
+silver: 130
+attack:
+  kind: fire
+  verb: shoot

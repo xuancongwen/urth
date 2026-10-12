@@ -1,0 +1,24 @@
+vnum: 3630
+name: Han Pritcher's blaster
+keywords: [han, pritcher's, pritcher, blaster, pistol, gun]
+description: A worn service blaster with a Foundation captain's mark lies here.
+look: |
+  The service blaster of Han Pritcher, once a captain of Foundation
+  Intelligence who went to Kalgan to kill the Mule, and stayed to
+  serve him. The grip is worn to the shape of his hand. He was a very
+  good shot before his conversion. He is a better one now: he has
+  never wanted anything so much as to hit what the Mule points at.
+type: weapon
+weight: 1
+level: 43
+baseline: standard
+value: 5500
+weapon:
+  hands: 1
+  kind: fire
+  verb: blast
+effects:
+  - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: steady, params: { chance: 0.3 } }

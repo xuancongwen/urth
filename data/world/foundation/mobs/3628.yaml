@@ -1,0 +1,21 @@
+vnum: 3628
+name: Toran Darell
+keywords: [toran, darell, trader, man, haven]
+description: Toran Darell, a young trader of Haven, has a pack of gear spread out on a blanket for anyone who needs it.
+look: |
+  A lean young trader of Haven, Bayta's husband, quick-tempered and
+  good-hearted, who has spent his life on trade ships and expects to
+  die on one. Haven is arming against the Mule, and Toran is selling
+  off what he has picked up across the Periphery to anyone going the
+  other way. "You're going to Kalgan?" he says. "Take a light. And a
+  shield. And maybe don't." Type 'list'.
+level: 32
+flags: [peaceful]
+attack:
+  kind: fire
+  verb: blast
+trades:
+  - { item: 3601, silver: 30 }
+  - { item: 3604, silver: 420 }
+  - { item: 3607, silver: 320 }
+  - { item: 3601, items: [3600] }

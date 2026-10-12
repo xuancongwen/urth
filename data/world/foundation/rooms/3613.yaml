@@ -1,0 +1,13 @@
+vnum: 3613
+name: The Spaceport of Korell
+description: |
+  A hot, flat spaceport of Korell, a republic ruled by a hereditary
+  Commdor, which is to say not a republic at all. The pavement is new
+  and the cranes are Foundation-built, and every one of them has a
+  Korellian soldier standing under it. Posters of the Commdor smile
+  down from every wall. The city is north, the jump back to Anacreon
+  is west, and the next, to Siwenna, is east.
+exits:
+  west: 3608
+  east: 3616
+  north: 3614

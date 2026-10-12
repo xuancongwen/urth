@@ -1,0 +1,17 @@
+vnum: 3624
+name: a Kalganian vibro-blade
+keywords: [kalganian, vibro-blade, vibro, blade, sword]
+description: A short sword whose edge blurs faintly lies here.
+look: |
+  A mercenary's sword from Kalgan, its edge driven by a little motor
+  in the hilt so that it shivers too fast to see. The old warlord of
+  Kalgan paid his mercenaries well and armed them better. Neither
+  helped him in the end.
+type: weapon
+weight: 2
+level: 38
+baseline: standard
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

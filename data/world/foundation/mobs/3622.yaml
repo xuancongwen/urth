@@ -1,0 +1,18 @@
+vnum: 3622
+name: Dors Venabili
+keywords: [dors, venabili, historian, woman, tiger]
+description: Dors Venabili reads history by the window, a knife at each hip, and watches the door over her book.
+look: |
+  A historian of Streeling University, with dark red-gold curls and a
+  calm, watchful face, assigned to keep Hari Seldon alive and doing it
+  better than anyone has ever done anything. She fights with two
+  knives, one in each hand, and she has never lost. Some on campus call
+  her the Tiger Woman, though not to her face. She will teach you to
+  fight with a blade in each hand, and to turn a blow back on the one
+  who threw it. Type 'practice'.
+level: 40
+flags: [peaceful]
+attack:
+  kind: slash
+  verb: slash
+teaches: [twin, riposte]

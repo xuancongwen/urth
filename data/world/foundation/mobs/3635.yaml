@@ -1,0 +1,30 @@
+vnum: 3635
+name: the Mule
+keywords: [mule, first, citizen, magnifico, giganticus, clown, mutant]
+description: The Mule, First Citizen of the Union of Worlds, unfolds his long thin body from the throne and looks at you with a clown's sad eyes.
+look: |
+  A gangling, scrawny figure, six feet of skin and bone in a robe of
+  black and silver, with a great fleshy beak of a nose and long, thin
+  musician's fingers wrapped round a strange instrument. You know him:
+  he is Magnifico Giganticus, the frightened clown of Haven, and he
+  always was. The Mule, the mutant whom Seldon's Plan never foresaw,
+  who reaches into minds and turns their feelings as a man turns a
+  dial: despair to his enemies, love to his servants, so that whole
+  worlds surrender to him in a single night. He took Kalgan without a
+  shot and the Foundation in a week. He plays a chord on the Visi-Sonor,
+  and your courage drains out of you like water from a cracked jar,
+  and a voice in your head that sounds exactly like your own begins to
+  explain how much you have always loved him. He is a raid boss: no
+  one person stands against him, and not many companies.
+level: 45
+flags: [boss]
+health: 17000
+stats: {intelligence: 22, wisdom: 20, charisma: 22, constitution: 16, dexterity: 14}
+silver: 3000
+xp: 60000
+attack:
+  kind: psionic
+  verb: emotional grip
+effects:
+  - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: steady, params: { chance: 0.5 } }

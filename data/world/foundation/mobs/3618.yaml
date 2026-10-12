@@ -1,0 +1,18 @@
+vnum: 3618
+name: Ducem Barr
+keywords: [ducem, barr, patrician, old, man, siwennese]
+description: Ducem Barr, an old patrician of Siwenna, sits by his fire with a book he is not reading.
+look: |
+  A tall, stooped old man with a patrician's nose and a scholar's
+  hands, the last of his family; the Empire killed the rest when
+  Siwenna rebelled. He has read Seldon and believes in the Plan with
+  a calm that infuriates the general camped up the road. "Dead hands
+  and living hands," he says. "Seldon's dead hand is stronger than
+  Riose's living one." He has learned, in a burned province, how to
+  live through a beating and get up again, and he will teach it.
+  Type 'practice'.
+level: 34
+flags: [peaceful]
+attack:
+  verb: punch
+teaches: [fast_healing, second_wind]

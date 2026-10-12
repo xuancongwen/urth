@@ -1,0 +1,12 @@
+vnum: 3607
+name: The Ship Berths of Terminus
+description: |
+  A row of berths where the Traders' ships stand fuelled and ready,
+  their hulls scorched from a hundred jumps. A departures board lists
+  the worlds of the Periphery and beyond: ANACREON, KORELL, SIWENNA,
+  TRANTOR, HAVEN, KALGAN. Every ship goes the same way, east, out of
+  the Foundation's light and into the dark. City Hall is back west; the
+  first jump, to Anacreon, is east.
+exits:
+  west: 3603
+  east: 3608

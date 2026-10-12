@@ -1,0 +1,25 @@
+vnum: 3648
+name: the Visi-Sonor
+keywords: [visi-sonor, visi, sonor, instrument, mule's, mule, magnifico's]
+description: A strange instrument of keys and glowing panels lies here, humming.
+look: |
+  Magnifico's instrument: a box of polished wood and metal with banks of
+  keys and little glowing panels, which plays not only music but light
+  and colour straight into the nerves of everyone who hears it. In a
+  clown's hands it made the Darells weep with beauty. In the Mule's it
+  is a weapon, and the greatest he ever had: it carries his power to
+  change a mind further and deeper than his own will can, and it once
+  played the Foundation's best psychologist into a grave. Held, it
+  plays despair into everyone near you.
+type: armor
+slot: hold
+weight: 2
+level: 55
+value: 15000
+effects:
+  - { kind: aura, params: { power: 0.3, verb: "surge of despair from the Visi-Sonor" } }
+  - { kind: proc, params: { chance: 0.2, power: 1.5, verb: "crashing chord of terror" } }
+  - { kind: leech, params: { fraction: 0.12 } }
+  - { kind: stat, params: { stat: charisma, amount: 3 } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: steady, params: { chance: 0.4 } }

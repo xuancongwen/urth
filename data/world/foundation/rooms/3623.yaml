@@ -1,0 +1,11 @@
+vnum: 3623
+name: The Imperial Palace Grounds
+description: |
+  The only open ground on Trantor's surface: a hundred square
+  kilometres of gardens under the real sky, with the Imperial Palace
+  rising among them, all spires and terraces. Palace guards in gold
+  and white walk the gravel paths in pairs. The Emperor's chambers are
+  north; the corridors are back south.
+exits:
+  south: 3620
+  north: 3624

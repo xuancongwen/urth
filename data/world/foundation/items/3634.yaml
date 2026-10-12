@@ -1,0 +1,20 @@
+vnum: 3634
+name: the Prime Radiant
+keywords: [prime, radiant, cube, black]
+description: A small black cube lies here, its faces glimmering with equations.
+look: |
+  The Prime Radiant: a plain black cube that, held and willed, throws
+  the whole of the Seldon Plan into the air around it in coloured
+  light, equations within equations, red where the Second Foundation
+  has amended them. To hold it is to see, for a moment, how everything
+  fits, and to know which way everything is going to move.
+type: armor
+slot: hold
+weight: 1
+level: 42
+value: 6000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: cooldownCut, params: { rounds: 1 } }
+  - { kind: steady, params: { chance: 0.3 } }

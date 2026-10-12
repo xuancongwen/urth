@@ -1,0 +1,18 @@
+vnum: 3644
+name: the Mule's riding breeches
+keywords: [mule's, mule, riding, breeches, trousers, legs]
+description: A pair of black riding breeches reinforced with steel lies here.
+look: |
+  Long black breeches with steel splints sewn down the outside of each
+  leg, cut for spindly shanks. The Mule had them made to sit a horse on
+  Kalgan's beaches, which he never learned to do.
+type: armor
+slot: legs
+weight: 3
+level: 45
+baseline: medium
+value: 6500
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 2 } }
+  - { kind: dodge, params: { amount: 0.03 } }

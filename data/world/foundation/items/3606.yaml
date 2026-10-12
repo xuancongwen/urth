@@ -1,0 +1,18 @@
+vnum: 3606
+name: an atomic transmuter
+keywords: [atomic, transmuter, machine, device]
+description: A squat, gleaming machine with a hopper and a little dial lies here.
+look: |
+  A Trader's gadget that turns iron into gold: feed a lump of scrap in
+  at the top, turn the dial, and a small, perfect bar of gold drops out
+  at the bottom, still warm. Hober Mallow sold these to the Commdor of
+  Korell and bought a war with them. Held in the hand, it makes you
+  feel very clever, which is how the Commdor felt too.
+type: armor
+slot: hold
+weight: 3
+level: 32
+value: 900
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: charisma, amount: 1 } }

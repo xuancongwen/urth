@@ -1,0 +1,15 @@
+vnum: 11
+name: The Hall of Far Futures
+description: |
+  The ladder comes down into a round, quiet room of pale grey metal
+  that hums very faintly, as though the walls were thinking. There is
+  no dust. A ring of soft light runs around the floor, and set into
+  the walls are four doors of the same grey, three of them sealed and
+  blank. The fourth, to the north, carries a small raised emblem of a
+  spaceship and a sun, and above it, in a plain and patient script:
+  THE FOUNDATION. Somewhere beyond it a recorded voice is clearing its
+  throat. The ladder climbs back up to the arcade.
+exits:
+  up: 2900
+  north: 3600
+flags: [safe]

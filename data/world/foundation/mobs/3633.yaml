@@ -1,0 +1,16 @@
+vnum: 3633
+name: a guardsman of the Mule
+keywords: [guardsman, guard, mule, mule's]
+description: A guardsman of the Mule in black and silver stands motionless, halberd grounded.
+look: |
+  One of the Mule's personal guard, chosen and converted by the First
+  Citizen himself: a big, quiet man in black steel with a silver visor
+  and a long halberd, who has not had a thought of his own since the
+  day he was chosen and has never been happier. He will not let you
+  pass, and nothing you could say would make him want to.
+level: 42
+flags: [assist]
+silver: 220
+attack:
+  kind: slash
+  verb: cleave

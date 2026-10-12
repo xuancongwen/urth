@@ -1,0 +1,20 @@
+vnum: 3601
+name: Salvor Hardin
+keywords: [salvor, hardin, mayor]
+description: Salvor Hardin, Mayor of Terminus, leans back in his chair with a cigar, looking amused.
+look: |
+  A comfortable, untidy man in middle age, with a cigar he keeps
+  forgetting to smoke and the sharpest mind on Terminus behind a very
+  lazy smile. He took the city from the Encyclopedists without firing
+  a shot and has kept Anacreon off it with nothing but priests,
+  power plants, and nerve. "Violence," he tells you, "is the last
+  refuge of the incompetent." Then, because he is honest: "Never let
+  your sense of morals prevent you from doing what is right." He
+  teaches the art of getting your blow in first without seeming to,
+  and how to take a weapon out of a hand that means you harm. Type
+  'practice'.
+level: 38
+flags: [peaceful]
+attack:
+  verb: punch
+teaches: [feint, disarm]

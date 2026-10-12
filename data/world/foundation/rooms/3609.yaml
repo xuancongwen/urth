@@ -1,0 +1,14 @@
+vnum: 3609
+name: The Streets of Anacreon
+description: |
+  Wide, proud streets built for an imperial viceroy and now lit by
+  oil lamps, because the power plants went dark when the last
+  technician died. The only clean building in sight is the temple,
+  where Foundation priests keep the reactors humming in the name of
+  the Galactic Spirit. Patrols of royal soldiers stop anyone who
+  looks as though they came from Terminus. The palace is north, the
+  temple west, and the landing field south.
+exits:
+  south: 3608
+  north: 3611
+  west: 3610

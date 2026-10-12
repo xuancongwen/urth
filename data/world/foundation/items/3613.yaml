@@ -1,0 +1,17 @@
+vnum: 3613
+name: a Korellian secret police blaster
+keywords: [korellian, secret, police, blaster, pistol, gun]
+description: A plain black blaster pistol lies here.
+look: |
+  A short black pistol of Korellian make, with an Imperial cell in it
+  that is not quite the right size and has been wedged in with a
+  strip of tin. The Commdor's secret police carry these, and are not
+  shy of using them in the street.
+type: weapon
+weight: 1
+level: 27
+baseline: standard
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot

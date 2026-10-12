@@ -1,0 +1,16 @@
+vnum: 3616
+name: an Imperial officer
+keywords: [imperial, officer, captain, lieutenant]
+description: An Imperial officer in grey and gold looks up from a map and frowns at you.
+look: |
+  A young officer of the Imperial fleet, in grey with gold piping, the
+  kind of officer who has read all of Bel Riose's campaigns and would
+  die for him. He is efficient, brave, and certain the Empire will last
+  forever, which is the one thing about him history will find
+  quaint.
+level: 33
+flags: [assist]
+silver: 160
+attack:
+  kind: slash
+  verb: slash

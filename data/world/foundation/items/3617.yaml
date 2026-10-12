@@ -1,0 +1,13 @@
+vnum: 3617
+name: an Imperial legionary's armour
+keywords: [imperial, legionary's, legionary, armour, armor, cuirass]
+description: A polished grey cuirass with the Spaceship-and-Sun lies here.
+look: |
+  The armour of an Imperial legionary: grey plates, polished until they
+  shine, with the Spaceship-and-Sun on the breast. The Empire is dying,
+  but its soldiers do not know it, and they keep their armour bright.
+type: armor
+slot: body
+weight: 6
+level: 32
+baseline: medium
