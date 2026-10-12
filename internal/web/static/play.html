@@ -893,7 +893,7 @@
       var b = btn('', function () {
         send(o.command);
         // A feat pick changes what is available: list them again.
-        if (d.from === 'feats') setTimeout(function () { if (sheetFor === 'Feats') openSheet('Feats', 'feat', []); }, 500);
+        if (d.from === 'feats') setTimeout(function () { if (sheetFor === 'Feats') featsSheet(); }, 500);
       });
       b.appendChild(o.color ? el('span', 'c-' + o.color, o.name) : document.createTextNode(o.name));
       var meta = [o.price, o.note].filter(Boolean).join(' · ');
@@ -903,7 +903,14 @@
       b.disabled = !!o.disabled;
       box.appendChild(b);
     });
+    if (d.from === 'feats') {
+      box.appendChild(btn(featsAll ? 'Only what I can take' : 'All feats', function () { featsAll = !featsAll; featsSheet(); }));
+    }
   }
+
+  // The Feats sheet lists what can be taken now, or every feat.
+  var featsAll = false;
+  function featsSheet() { openSheet('Feats', featsAll ? 'feat all' : 'feat', []); }
 
   // The Me tab: the character, its abilities, and settings, each a sheet.
   function renderMe(s) {
@@ -911,7 +918,7 @@
     var rows = [
       ['Stats', function () { openSheet('Character', 'stats', []); }],
       ['Train stats', trainSheet, s.statPoints],
-      ['Feats', function () { openSheet('Feats', 'feat', []); }, s.featPoints],
+      ['Feats', function () { featsAll = false; featsSheet(); }, s.featPoints],
       ['Abilities', abilitiesSheet],
       ['Expeditions', function () { openSheet('Expeditions', 'expedition', []); }],
       ['Quest', function () { openSheet('Quest', 'quest info', [['Request a quest', 'quest request'], ['Complete it', 'quest complete'], ['Quest points', 'quest points']]); }],

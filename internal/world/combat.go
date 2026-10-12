@@ -641,8 +641,9 @@ func (w *World) featNames(c *Character) []string {
 	return names
 }
 
-// cmdFeat: feat | feat <name>. Lists feats with their status, or spends a
-// banked pick on one (docs/RULES.md 7.2).
+// cmdFeat: feat | feat all | feat <name>. Lists the feats the character
+// has or can take now (all of them with "all"), or spends a banked pick
+// on one (docs/RULES.md 7.2).
 func cmdFeat(w *World, p *Player, args string) {
 	feats := w.featList()
 	if len(feats) == 0 {
@@ -664,10 +665,20 @@ func cmdFeat(w *World, p *Player, args string) {
 		}
 		return true, "available"
 	}
-	if args == "" {
+	if args == "" || strings.EqualFold(args, "all") {
+		all := args != ""
+		shown := func(f Feat) bool {
+			ok, _ := available(f)
+			return all || ok || taken[f.ID]
+		}
 		var b strings.Builder
 		b.WriteString("You may choose " + plural(p.FeatPoints, "feat") + ".\n")
+		hidden := 0
 		for _, f := range feats {
+			if !shown(f) {
+				hidden++
+				continue
+			}
 			ok, why := available(f)
 			mark := "  "
 			switch {
@@ -678,10 +689,20 @@ func cmdFeat(w *World, p *Player, args string) {
 			}
 			b.WriteString(mark + padRight(output.Escape(f.Name), 16) + " (" + why + ") " + output.Escape(f.Description) + "\n")
 		}
-		b.WriteString("{G}*{x} learned  {Y}+{x} available. Type 'feat <name>' to choose one.\n")
+		if hidden == len(feats) {
+			b.WriteString("None is open to you yet.\n")
+		} else {
+			b.WriteString("{G}*{x} learned  {Y}+{x} available. Type 'feat <name>' to choose one.\n")
+		}
+		if hidden > 0 {
+			b.WriteString("'feat all' lists " + itoa(hidden) + " more you cannot take yet.\n")
+		}
 		p.Send(b.String())
 		offers := output.OffersData{From: "feats", Items: []output.Offer{}}
 		for _, f := range feats {
+			if !shown(f) {
+				continue
+			}
 			ok, why := available(f)
 			o := output.Offer{Name: f.Name, Command: "feat " + f.ID, Note: why, About: f.Description}
 			if !ok || p.FeatPoints <= 0 {

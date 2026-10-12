@@ -126,9 +126,10 @@ left out; the engine then uses a quiet default.
   and floor, respawn at the start room at `respawnHealth`.
 - Stat points and `train`: banked from `onLevel` and `onCreate`, spent
   one at a time on any stat the character has.
-- Feat picks and `feat`: banked the same way; `feat` lists every feat
-  with its status (learned, available, needs level N, needs another
-  feat) and `feat <name>` spends a pick. A learned feat is a permanent
+- Feat picks and `feat`: banked the same way; `feat` lists the feats
+  learned and available, `feat all` every feat with its status (needs
+  level N, needs another feat, and so on), and `feat <name>` spends a
+  pick. A learned feat is a permanent
   effect whose params carry `feat: <id>`, so the rules see it like any
   other effect and stacking follows the kind.
 - Baseline resolution: `itemBaseline` and `mobBaseline` run for every
@@ -1663,8 +1664,9 @@ found, 6.1) makes it the caster's; each spell also names a level and a
 trained stat (Intelligence for arcane, Wisdom for divine) the caster
 must have before it can be cast, so finding the evocation totem at
 level one does not put Fireball in a beginner's hands. A spell that is
-not ready yet still shows in `spells`, with what it needs, so the
-player knows what to work toward. Like skills (7.4), requirements
+not ready yet still shows in `spells all`, with what it needs, so the
+player knows what to work toward; bare `spells` keeps to what can be
+cast or learned now. Like skills (7.4), requirements
 read trained stats, not gear. The numbers are in 6.5's tables. A
 trainer will not sell a spell whose requirements are unmet, and a
 scroll cannot be studied before them, so a spell, once learned, is
@@ -2112,9 +2114,9 @@ want the stat that powers them (Strength for Brawn's heirs and the
 extra attacks, Dexterity for evasion and finesse, Constitution for
 toughness and soaking), rising with the feat's level as skills' do
 (7.4). As with skills, requirements read trained stats, not gear, and a
-feat once taken is kept even if a later change raises its bar. `feat`
-lists every feat with what it needs, so the build is visible before the
-points are spent.
+feat once taken is kept even if a later change raises its bar. `feat
+all` lists every feat with what it needs, so the build is visible before
+the points are spent; bare `feat` shows only what can be taken now.
 
 **Fighting styles (decided 2026-10-11).** Two feat lines go with the
 hands of 4.4, each a chain where a feat requires the one before it.

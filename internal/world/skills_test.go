@@ -386,10 +386,18 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 	if o := bob.take(); !strings.Contains(o, "Nova is not for you") || learnedSpell(p.Character, "nova") {
 		t.Fatalf("taught without the school: %q", o)
 	}
+	send(w, 1, "spells all")
+	if o := bob.take(); !strings.Contains(o, "Spark         with the evocation school\n") || !strings.Contains(o, "Nova          from a trainer  (the evocation school, level 4 and 2 might)") {
+		t.Fatalf("spells all without the school: %q", o)
+	}
 	p.Schools = []string{"evocation"}
 	send(w, 1, "spells")
-	if o := bob.take(); !strings.Contains(o, "Spark") || !strings.Contains(o, "Still to learn:") || !strings.Contains(o, "Nova          from a trainer") || !strings.Contains(o, "Starfall      from a scroll") {
+	if o := bob.take(); !strings.Contains(o, "Spark") || !strings.Contains(o, "Still to learn:") || strings.Contains(o, "Nova") || !strings.Contains(o, "Starfall      from a scroll") || !strings.Contains(o, "'spells all' lists 1 more") {
 		t.Fatalf("spells with the school: %q", o)
+	}
+	send(w, 1, "spells all")
+	if o := bob.take(); !strings.Contains(o, "Nova          from a trainer  (level 4 and 2 might)") {
+		t.Fatalf("spells all: %q", o)
 	}
 	send(w, 1, "cast nova")
 	if o := bob.take(); !strings.Contains(o, "don't know that spell") {

@@ -557,8 +557,12 @@ func TestFeatsPickAndGate(t *testing.T) {
 	bob := login(t, w, 1, "Bob")
 	setRules(t, w, featRules)
 	send(w, 1, "feat")
-	if o := bob.take(); !strings.Contains(o, "You may choose 0 feats.") || !strings.Contains(o, "Toughness") || !strings.Contains(o, "(level 3)") || !strings.Contains(o, "needs Keen Edge") {
+	if o := bob.take(); !strings.Contains(o, "You may choose 0 feats.") || !strings.Contains(o, "Toughness") || strings.Contains(o, "(level 3)") || strings.Contains(o, "needs Keen Edge") || !strings.Contains(o, "'feat all' lists 2 more") {
 		t.Fatalf("feat list: %q", o)
+	}
+	send(w, 1, "feat all")
+	if o := bob.take(); !strings.Contains(o, "Toughness") || !strings.Contains(o, "(level 3)") || !strings.Contains(o, "needs Keen Edge") || strings.Contains(o, "'feat all'") {
+		t.Fatalf("feat all: %q", o)
 	}
 	send(w, 1, "feat tough")
 	if o := bob.take(); !strings.Contains(o, "no feat picks") {
@@ -1086,6 +1090,22 @@ function onTick(c) {
 }
 `
 
+// TestSkillsAll: the bare list leaves out a skill above the character's
+// level, and "skills all" shows it with the level it needs.
+func TestSkillsAll(t *testing.T) {
+	w := testWorld(t)
+	bob := login(t, w, 1, "Bob")
+	setRules(t, w, skillRules)
+	send(w, 1, "skills")
+	if o := bob.take(); strings.Contains(o, "Bash") || !strings.Contains(o, "'skills all' lists 1 more") {
+		t.Fatalf("skills: %q", o)
+	}
+	send(w, 1, "skills all")
+	if o := bob.take(); !strings.Contains(o, "Bash          level 3") || strings.Contains(o, "'skills all'") {
+		t.Fatalf("skills all: %q", o)
+	}
+}
+
 func TestSkillsUseImproveAndPassives(t *testing.T) {
 	w := testWorld(t)
 	bob := login(t, w, 1, "Bob")
@@ -1458,6 +1478,10 @@ function featList() {
 	p := w.players[1]
 	p.FeatPoints = 4
 	send(w, 1, "feat")
+	if o := bob.take(); !strings.Contains(o, "None is open to you yet.") || strings.Contains(o, "Brawn") || !strings.Contains(o, "'feat all' lists 4 more") {
+		t.Fatalf("feat with none open: %q", o)
+	}
+	send(w, 1, "feat all")
 	if o := bob.take(); !strings.Contains(o, "(needs 3 might)") || !strings.Contains(o, "(needs an arcane school)") || !strings.Contains(o, "(needs the evocation school)") || !strings.Contains(o, "(needs a god's favour)") {
 		t.Fatalf("feat list: %q", o)
 	}

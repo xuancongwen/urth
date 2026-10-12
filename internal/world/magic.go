@@ -257,16 +257,26 @@ func commitMaterials(c *Character, sp Spell) {
 	}
 }
 
-// cmdSpells lists what the character can cast.
-func cmdSpells(w *World, p *Player, _ string) {
+// cmdSpells: spells | spells all. Lists what the character can cast and
+// the spells it can learn now; "all" adds those its level, stats, or
+// unlocked schools and god do not allow yet.
+func cmdSpells(w *World, p *Player, args string) {
+	all := strings.EqualFold(strings.TrimSpace(args), "all")
 	var b strings.Builder
-	n := 0
+	n, hidden := 0, 0
 	var learnable []Spell
 	for _, sp := range w.spellList() {
+		ready := spellUnready(p.Character, sp) == ""
 		if !knowsSpell(p.Character, sp) {
-			if hasAccess(p.Character, sp) {
+			if hasAccess(p.Character, sp) && ready || all {
 				learnable = append(learnable, sp)
+			} else {
+				hidden++
 			}
+			continue
+		}
+		if !ready && !all {
+			hidden++
 			continue
 		}
 		n++
@@ -303,12 +313,22 @@ func cmdSpells(w *World, p *Player, _ string) {
 		b.WriteString("Still to learn:\n")
 		for _, sp := range learnable {
 			how := "from a trainer"
-			if sp.Found {
+			switch {
+			case sp.Innate:
+				how = "with " + output.Escape(accessNeeds(sp))
+			case sp.Found:
 				how = "from a scroll, found in the world"
 			}
 			line := "  " + padRight(output.Escape(sp.Name), 14) + how
+			var needs []string
+			if !hasAccess(p.Character, sp) && !sp.Innate {
+				needs = append(needs, output.Escape(accessNeeds(sp)))
+			}
 			if t := spellNeeds(sp); t != "" {
-				line += "  {D}(" + t + "){x}"
+				needs = append(needs, t)
+			}
+			if len(needs) > 0 {
+				line += "  {D}(" + strings.Join(needs, ", ") + "){x}"
 			}
 			b.WriteString(line + "\n")
 		}
@@ -318,6 +338,9 @@ func cmdSpells(w *World, p *Player, _ string) {
 	}
 	if p.Deity != "" {
 		b.WriteString("Apostle of the " + output.Escape(p.Deity) + " god.\n")
+	}
+	if hidden > 0 {
+		b.WriteString("'spells all' lists " + itoa(hidden) + " more you cannot cast or learn yet.\n")
 	}
 	p.Send(b.String())
 }

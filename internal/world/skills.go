@@ -158,18 +158,25 @@ func (w *World) findSkill(c *Character, word string) (Skill, bool) {
 	return Skill{}, false
 }
 
-// cmdSkills lists the skills the character's level allows, with ratings.
-func cmdSkills(w *World, p *Player, _ string) {
+// cmdSkills: skills | skills all. Lists the skills the character knows or
+// can learn now, with ratings; "all" adds those its level or stats do not
+// allow yet.
+func cmdSkills(w *World, p *Player, args string) {
+	all := strings.EqualFold(strings.TrimSpace(args), "all")
 	var b strings.Builder
-	n := 0
+	n, hidden := 0, 0
 	for _, sk := range w.skillList() {
-		if p.Level < sk.Level {
+		ready := knowsSkill(p.Character, sk) || p.Level >= sk.Level && unmetStats(p.Character, sk.Stats) == ""
+		if !ready && !all {
+			hidden++
 			continue
 		}
 		n++
 		line := padRight(output.Escape(sk.Name), 14)
 		if e := skillEffect(p.Character, sk.ID); e != nil {
 			line += padRight(itoa(int(effectiveness(e)+0.5))+"%", 9)
+		} else if p.Level < sk.Level {
+			line += padRight("level "+itoa(sk.Level), 9)
 		} else if sk.Innate {
 			line += padRight("new", 9)
 		} else if unmetStats(p.Character, sk.Stats) != "" {
@@ -193,6 +200,9 @@ func cmdSkills(w *World, p *Player, _ string) {
 	}
 	if n == 0 {
 		b.WriteString("You have no skills yet.\n")
+	}
+	if hidden > 0 {
+		b.WriteString("'skills all' lists " + itoa(hidden) + " more you cannot learn yet.\n")
 	}
 	p.Send(b.String())
 }
