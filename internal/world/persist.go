@@ -42,6 +42,7 @@ func (w *World) loadItems(saved []store.SavedItem, owner string) []*item.Item {
 		it.Effects = s.Effects
 		it.Quest = s.Quest
 		it.Rarity, it.Color, it.Prefix, it.Suffix = s.Rarity, s.Color, s.Prefix, s.Suffix
+		w.retier(it)
 		if s.Burn != 0 {
 			it.Burn = s.Burn
 		}

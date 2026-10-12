@@ -15,7 +15,8 @@ import (
 // reset or a death better than their prototype. The rules' rollItem hook
 // decides the tier and the affixes, which are stored as the instance's
 // applied effects like an enchantment; lootRules decides how many extra
-// items a death drops. Both are optional, and without them nothing rolls.
+// items a death drops; itemTier names the tier again for an item loaded
+// from a player file. All are optional, and without them nothing rolls.
 
 // ItemRoll is what rollItem returns. An empty Rarity leaves the item plain.
 type ItemRoll struct {
@@ -63,6 +64,21 @@ func (w *World) rollItem(it *item.Item, source string, level int) {
 		if e.Kind != "" {
 			it.Effects = append(it.Effects, effect.Active{Spec: e})
 		}
+	}
+}
+
+// retier asks the rules to name a rolled item's tier again from the
+// effects it carries, so an item saved under an older table comes back
+// under the current one. Without the hook, or without a tier for the
+// count, the item keeps what it had.
+func (w *World) retier(it *item.Item) {
+	var r ItemRoll
+	if !it.Rolled() || !w.callOptional("itemTier", &r, itemView(it)) || r.Rarity == "" {
+		return
+	}
+	it.Rarity, it.Color = r.Rarity, ""
+	if output.IsColor(r.Color) {
+		it.Color = r.Color
 	}
 }
 

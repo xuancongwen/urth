@@ -53,6 +53,7 @@ left out; the engine then uses a quiet default.
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
 | `skillList` (optional) | typing a skill's name, `skills`, `practice`, level-up | | `[{id, name, level, passive, target, cooldown, stamina, start, innate, price, requires:[{material, count}], description}]`; `stamina` is the cost of a use (7.7) |
 | `rollItem` (optional) | a reset creates a plain weapon or armor, and for each extra drop (5.3) | item, `{source: "reset" or "drop", level}` | `{rarity, color, prefix, suffix, effects:[{kind, params}]}`; an empty `rarity` leaves the item plain, the effects are stored on the instance |
+| `itemTier` (optional) | a rolled item is loaded from a player file (5.3) | item | `{rarity, color}` for the count of effects the item carries; an empty `rarity` leaves it as it was |
 | `lootRules` (optional) | a mob dies | victim | `{drops, levelBand}`: extra items for the corpse, drawn from the rollable prototypes of the victim's area within the band |
 | `expeditionRules` (optional) | `expedition` | player | `{levelBand, fights, maxFights, restBelow, retreatBelow}`: which of an area's mobs a run may meet, its default and longest length, and the health fractions at which the character sleeps and turns for home |
 | `moneyFor` (optional) | a mob dies | victim | silver the corpse holds; the prototype's `silver` overrides |

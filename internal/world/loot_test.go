@@ -195,3 +195,87 @@ func TestKillSendsReward(t *testing.T) {
 		t.Fatalf("reward: %+v", *got)
 	}
 }
+
+// TestLoadRetiers checks that a rolled item saved under an older tier
+// comes back named by the rules' itemTier for its count of effects.
+func TestLoadRetiers(t *testing.T) {
+	w := testWorld(t)
+	setRules(t, w, testRules+`
+function itemTier(it) { return it.effects.length >= 2 ? { rarity: "relic", color: "R" } : { rarity: "" }; }
+`)
+	two := []effect.Active{{Spec: effect.Spec{Kind: "stat"}}, {Spec: effect.Spec{Kind: "stat"}}}
+	old := item.New(w.content.Items[10])
+	old.Rarity, old.Color, old.Effects = "unique", "W", two
+	odd := item.New(w.content.Items[10])
+	odd.Rarity, odd.Color, odd.Effects = "rare", "B", two[:1]
+	back := w.loadItems(saveItems([]*item.Item{old, odd}), "Bob")
+	if back[0].Rarity != "relic" || back[0].Color != "R" {
+		t.Errorf("old tier: %q %q", back[0].Rarity, back[0].Color)
+	}
+	if back[1].Rarity != "rare" || back[1].Color != "B" {
+		t.Errorf("no tier from the rules should keep the saved one: %q %q", back[1].Rarity, back[1].Color)
+	}
+}
+
+// TestShippedLootGates rolls the shipped tables: a low item level cannot
+// reach the high tiers or the deep affixes, a slot takes only its own
+// affixes, and a deep drop can reach relic (RULES 5.3).
+func TestShippedLootGates(t *testing.T) {
+	w := shippedWorld(t)
+	protoIn := func(slot item.Slot, typ item.Type) *item.Proto {
+		for _, vnum := range sortedItemVnums(w.content.Items) {
+			p := w.content.Items[vnum]
+			if rollable(p) && p.Type == typ && (typ == item.Weapon || p.Slot == slot) {
+				cp := *p
+				cp.Level = 1
+				return &cp
+			}
+		}
+		t.Fatalf("no rollable %s %s in the shipped world", typ, slot)
+		return nil
+	}
+	roll := func(p *item.Proto, level, n int) (tiers map[string]int, kinds map[string]bool) {
+		tiers, kinds = map[string]int{}, map[string]bool{}
+		for range n {
+			it := item.New(p)
+			w.rollItem(it, "drop", level)
+			tiers[it.Rarity]++
+			for _, e := range it.Effects {
+				kinds[e.Spec.Kind] = true
+			}
+		}
+		return tiers, kinds
+	}
+
+	tiers, kinds := roll(protoIn("head", item.Armor), 2, 2000)
+	for tier := range tiers {
+		if tier != "" && tier != "uncommon" {
+			t.Errorf("a level-2 helmet rolled %s", tier)
+		}
+	}
+	for kind := range kinds {
+		if kind != "stat" && kind != "defense" {
+			t.Errorf("a level-2 helmet rolled a %s affix", kind)
+		}
+	}
+
+	_, kinds = roll(protoIn("head", item.Armor), 40, 2000)
+	for _, kind := range []string{"shieldBlock", "attacks", "crit", "damage", "thorns"} {
+		if kinds[kind] {
+			t.Errorf("a helmet rolled %s, which is not open to the head", kind)
+		}
+	}
+	if !kinds["detectInvisible"] {
+		t.Error("a level-40 helmet never rolled true sight in 2000 drops")
+	}
+
+	tiers, _ = roll(protoIn("", item.Weapon), 40, 3000)
+	if tiers["relic"] == 0 || tiers["legendary"] == 0 {
+		t.Errorf("level-40 weapon drops never reached the top tiers: %v", tiers)
+	}
+	for _, old := range []string{"unique", "artifact"} {
+		if tiers[old] > 0 {
+			t.Errorf("rolled the retired tier %s", old)
+		}
+	}
+}

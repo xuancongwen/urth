@@ -1314,60 +1314,76 @@ function moneyFor(victim) {
 }
 
 // ---------------------------------------------------------------------
-// Loot (RULES 5.3): rarity is a count of rolled affixes. rollItem is
-// asked for each plain weapon or armor a reset creates and for each extra
-// item a death drops; lootRules says how many a death drops. Affixes are
-// ordinary effect kinds, so describeEffect words them and the pipeline
-// runs them. Every number here is a starting value for playtest.
+// Loot (RULES 5.3): rarity is a count of effects on the instance. rollItem
+// is asked for each plain weapon or armor a reset creates and for each
+// extra item a death drops; lootRules says how many a death drops;
+// itemTier names the tier for a count, for an item whose count changed or
+// was saved under an older table. Item level gates which tiers and which
+// affixes can roll. Affixes are ordinary effect kinds, so describeEffect
+// words them and the pipeline runs them. Every number here is a starting
+// value for playtest.
 // ---------------------------------------------------------------------
-// A tier rolls between min and max affixes. Weights are per thousand,
-// from a reset and from a drop.
+// A tier rolls between min and max affixes; relic is open-ended above its
+// min, but a roll gives at most its max. from is the lowest item level the
+// tier rolls at. Weights are per thousand at item level 1 and at
+// LOOT.topLevel, linear between and held above, from a reset and from a
+// drop.
 var RARITY = [
-  { id: "common",    color: "",  min: 0,  max: 0,  reset: 700, drop: 400, quality: [0, 0] },
-  { id: "uncommon",  color: "G", min: 1,  max: 2,  reset: 200, drop: 350, quality: [0.5, 1.0] },
-  { id: "rare",      color: "B", min: 3,  max: 4,  reset: 70,  drop: 150, quality: [0.6, 1.1] },
-  { id: "epic",      color: "M", min: 5,  max: 6,  reset: 24,  drop: 70,  quality: [0.7, 1.2] },
-  { id: "legendary", color: "Y", min: 7,  max: 8,  reset: 5,   drop: 24,  quality: [0.8, 1.3] },
-  { id: "unique",    color: "R", min: 9,  max: 10, reset: 0.9, drop: 5,   quality: [0.9, 1.4] },
-  { id: "artifact",  color: "W", min: 11, max: 12, reset: 0.1, drop: 1,   quality: [1.0, 1.5] },
+  { id: "common",    color: "",  min: 0, max: 0,  from: 1,  reset: [750, 600], drop: [450, 250], quality: [0, 0] },
+  { id: "uncommon",  color: "G", min: 1, max: 2,  from: 1,  reset: [220, 250], drop: [400, 350], quality: [0.5, 1.0] },
+  { id: "rare",      color: "B", min: 3, max: 4,  from: 5,  reset: [30, 100],  drop: [150, 230], quality: [0.6, 1.1] },
+  { id: "epic",      color: "M", min: 5, max: 6,  from: 15, reset: [0, 40],    drop: [0, 120],   quality: [0.7, 1.2] },
+  { id: "legendary", color: "Y", min: 7, max: 8,  from: 30, reset: [0, 9],     drop: [0, 40],    quality: [0.8, 1.3] },
+  { id: "relic",     color: "R", min: 9, max: 10, from: 40, reset: [0, 1],     drop: [0, 10],    quality: [0.9, 1.4] },
 ];
 
-var LOOT = { dropChance: 0.2, bossDrops: 2, levelBand: 1 };
+// dropChance is the chance of an extra drop at level 1 and at topLevel,
+// linear between and held above.
+var LOOT = { dropChance: [0.15, 0.25], topLevel: 40, bossDrops: 2, levelBand: 1 };
 
-// An affix: which item types it goes on, the words it lends a name (any
+// An affix: the lowest item level it rolls at, the slots it goes on, how
+// often it is drawn against the others, the words it lends a name (any
 // affix may give either), and its effect at level L and quality q (1 is a
-// full-strength roll). Weight is how often it is drawn against the others.
+// full-strength roll). Slots are item slots, "wield" for weapons; "any"
+// is every slot, and "armor" every armor slot but hold and light.
+var ARMOR_ONLY = ["hold", "light"];
 var AFFIXES = [
-  { id: "str",       on: "any",    weight: 3, prefix: "mighty",     suffix: "of the bear",       effect: function (L, q) { return { kind: "stat", params: { stat: "strength", amount: statAmount(L, q) } }; } },
-  { id: "dex",       on: "any",    weight: 3, prefix: "nimble",     suffix: "of the cat",        effect: function (L, q) { return { kind: "stat", params: { stat: "dexterity", amount: statAmount(L, q) } }; } },
-  { id: "int",       on: "any",    weight: 2, prefix: "clever",     suffix: "of the owl",        effect: function (L, q) { return { kind: "stat", params: { stat: "intelligence", amount: statAmount(L, q) } }; } },
-  { id: "wis",       on: "any",    weight: 2, prefix: "wise",       suffix: "of the sage",       effect: function (L, q) { return { kind: "stat", params: { stat: "wisdom", amount: statAmount(L, q) } }; } },
-  { id: "cha",       on: "any",    weight: 1, prefix: "gracious",   suffix: "of grace",          effect: function (L, q) { return { kind: "stat", params: { stat: "charisma", amount: statAmount(L, q) } }; } },
-  { id: "steady",    on: "any",    weight: 1, prefix: "steadfast",  suffix: "of the mountain",   effect: function (L, q) { return { kind: "steady", params: { chance: round2(0.2 * q) } }; } },
-  { id: "focus",     on: "any",    weight: 0.5, prefix: "focused",  suffix: "of focus",          effect: function (L, q) { return { kind: "cooldownCut", params: { rounds: 1 } }; } },
-  { id: "crit",      on: "weapon", weight: 2, prefix: "keen",       suffix: "of precision",      effect: function (L, q) { return { kind: "crit", params: { chance: round2(0.04 * q), mult: 2 } }; } },
-  { id: "critMult",  on: "weapon", weight: 1, prefix: "ruinous",    suffix: "of ruin",           effect: function (L, q) { return { kind: "critMult", params: { amount: round2(0.25 * q) } }; } },
-  { id: "damage",    on: "weapon", weight: 3, prefix: "cruel",      suffix: "of slaying",        effect: function (L, q) { return { kind: "damage", params: { mult: round2(1 + 0.06 * q), weapon: true } }; } },
-  { id: "haste",     on: "weapon", weight: 1, prefix: "swift",      suffix: "of haste",          effect: function (L, q) { return { kind: "attacks", params: { amount: round2(0.15 * q) } }; } },
-  { id: "leech",     on: "weapon", weight: 1, prefix: "thirsting",  suffix: "of the leech",      effect: function (L, q) { return { kind: "leech", params: { fraction: round2(0.04 * q) } }; } },
-  { id: "ignite",    on: "weapon", weight: 1, prefix: "smoldering", suffix: "of embers",         effect: function (L, q) { return { kind: "ignite", params: { power: round2(0.1 * q), rounds: 3, maxStacks: 2 } }; } },
-  { id: "chill",     on: "weapon", weight: 1, prefix: "frozen",     suffix: "of frost",          effect: function (L, q) { return { kind: "chill", params: { chance: round2(0.1 * q), mult: 0.8, rounds: 2 } }; } },
-  { id: "thunder",   on: "weapon", weight: 1, prefix: "thundering", suffix: "of thunder",        effect: function (L, q) { return { kind: "proc", params: { chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
-  { id: "venom",     on: "weapon", weight: 1, prefix: "venomous",   suffix: "of venom",          effect: function (L, q) { return { kind: "envenom", params: { power: round2(0.05 * q), maxStacks: 2 } }; } },
-  { id: "execute",   on: "weapon", weight: 1, prefix: "merciless",  suffix: "of mercy",          effect: function (L, q) { return { kind: "execute", params: { threshold: 0.25, mult: round2(1 + 0.15 * q) } }; } },
-  { id: "jackal",    on: "weapon", weight: 1, prefix: "cunning",    suffix: "of the jackal",     effect: function (L, q) { return { kind: "opportunist", params: { mult: round2(1 + 0.1 * q) } }; } },
-  { id: "con",       on: "armor",  weight: 3, prefix: "stalwart",   suffix: "of the ox",         effect: function (L, q) { return { kind: "stat", params: { stat: "constitution", amount: statAmount(L, q) } }; } },
-  { id: "defense",   on: "armor",  weight: 2, prefix: "sturdy",     suffix: "of the turtle",     effect: function (L, q) { return { kind: "defense", params: { amount: round2(0.45 * growth(L) * q) } }; } },
-  { id: "dodge",     on: "armor",  weight: 2, prefix: "elusive",    suffix: "of evasion",        effect: function (L, q) { return { kind: "dodge", params: { amount: round2(0.02 * q) } }; } },
-  { id: "protect",   on: "armor",  weight: 2, prefix: "warded",     suffix: "of warding",        effect: function (L, q) { return { kind: "protect", params: { mult: round2(1 - 0.04 * q) } }; } },
-  { id: "bulwark",   on: "armor",  weight: 1, prefix: "guarding",   suffix: "of the bulwark",    effect: function (L, q) { return { kind: "shieldBlock", params: { chance: round2(0.03 * q) } }; } },
-  { id: "thorns",    on: "armor",  weight: 1, prefix: "thorned",    suffix: "of thorns",         effect: function (L, q) { return { kind: "thorns", params: { fraction: round2(0.08 * q), verb: "thorns" } }; } },
-  { id: "brambles",  on: "armor",  weight: 1, prefix: "briared",    suffix: "of brambles",       effect: function (L, q) { return { kind: "aura", params: { power: round2(0.05 * q), verb: "brambles" } }; } },
-  { id: "soak",      on: "armor",  weight: 1, prefix: "stony",      suffix: "of stone",          effect: function (L, q) { return { kind: "soak", params: { power: round2(0.05 * q) } }; } },
-  { id: "regen",     on: "armor",  weight: 1, prefix: "mending",    suffix: "of mending",        effect: function (L, q) { return { kind: "regen", params: { fraction: round2(0.005 * q) } }; } },
-  { id: "last",      on: "armor",  weight: 1, prefix: "defiant",    suffix: "of the last stand", effect: function (L, q) { return { kind: "lastStand", params: { threshold: 0.3, mult: round2(1 - 0.15 * q) } }; } },
-  { id: "sight",     on: "armor",  weight: 0.5, prefix: "clear-eyed", suffix: "of true sight",   effect: function (L, q) { return { kind: "detectInvisible", params: {} }; } },
-  { id: "hawk",      on: "armor",  weight: 0.5, prefix: "watchful", suffix: "of the hawk",       effect: function (L, q) { return { kind: "detectHidden", params: {} }; } },
+  // Item level 1.
+  { id: "str",       from: 1,  on: ["any"], weight: 3, prefix: "mighty",     suffix: "of the bear",       effect: function (L, q) { return { kind: "stat", params: { stat: "strength", amount: statAmount(L, q) } }; } },
+  { id: "dex",       from: 1,  on: ["any"], weight: 3, prefix: "nimble",     suffix: "of the cat",        effect: function (L, q) { return { kind: "stat", params: { stat: "dexterity", amount: statAmount(L, q) } }; } },
+  { id: "con",       from: 1,  on: ["any"], weight: 3, prefix: "stalwart",   suffix: "of the ox",         effect: function (L, q) { return { kind: "stat", params: { stat: "constitution", amount: statAmount(L, q) } }; } },
+  { id: "int",       from: 1,  on: ["any"], weight: 2, prefix: "clever",     suffix: "of the owl",        effect: function (L, q) { return { kind: "stat", params: { stat: "intelligence", amount: statAmount(L, q) } }; } },
+  { id: "wis",       from: 1,  on: ["any"], weight: 2, prefix: "wise",       suffix: "of the sage",       effect: function (L, q) { return { kind: "stat", params: { stat: "wisdom", amount: statAmount(L, q) } }; } },
+  { id: "cha",       from: 1,  on: ["any"], weight: 1, prefix: "gracious",   suffix: "of grace",          effect: function (L, q) { return { kind: "stat", params: { stat: "charisma", amount: statAmount(L, q) } }; } },
+  { id: "damage",    from: 1,  on: ["wield"], weight: 3, prefix: "cruel",    suffix: "of slaying",        effect: function (L, q) { return { kind: "damage", params: { mult: round2(1 + 0.06 * q), weapon: true } }; } },
+  { id: "defense",   from: 1,  on: ["armor"], weight: 2, prefix: "sturdy",   suffix: "of the turtle",     effect: function (L, q) { return { kind: "defense", params: { amount: round2(0.45 * growth(L) * q) } }; } },
+  // Item level 5.
+  { id: "crit",      from: 5,  on: ["wield", "hands", "finger"], weight: 2, prefix: "keen", suffix: "of precision", effect: function (L, q) { return { kind: "crit", params: { chance: round2(0.04 * q), mult: 2 } }; } },
+  { id: "dodge",     from: 5,  on: ["feet", "legs", "body"], weight: 2, prefix: "elusive", suffix: "of evasion",   effect: function (L, q) { return { kind: "dodge", params: { amount: round2(0.02 * q) } }; } },
+  { id: "protect",   from: 5,  on: ["body", "shield", "head", "shoulders", "arms"], weight: 2, prefix: "warded", suffix: "of warding", effect: function (L, q) { return { kind: "protect", params: { mult: round2(1 - 0.04 * q) } }; } },
+  { id: "steady",    from: 5,  on: ["any"], weight: 1, prefix: "steadfast",  suffix: "of the mountain",   effect: function (L, q) { return { kind: "steady", params: { chance: round2(0.2 * q) } }; } },
+  // Item level 10.
+  { id: "leech",     from: 10, on: ["wield", "neck", "finger"], weight: 1, prefix: "thirsting", suffix: "of the leech", effect: function (L, q) { return { kind: "leech", params: { fraction: round2(0.04 * q) } }; } },
+  { id: "ignite",    from: 10, on: ["wield"], weight: 1, prefix: "smoldering", suffix: "of embers",       effect: function (L, q) { return { kind: "ignite", params: { power: round2(0.1 * q), rounds: 3, maxStacks: 2 } }; } },
+  { id: "chill",     from: 10, on: ["wield"], weight: 1, prefix: "frozen",     suffix: "of frost",         effect: function (L, q) { return { kind: "chill", params: { chance: round2(0.1 * q), mult: 0.8, rounds: 2 } }; } },
+  { id: "venom",     from: 10, on: ["wield"], weight: 1, prefix: "venomous",   suffix: "of venom",         effect: function (L, q) { return { kind: "envenom", params: { power: round2(0.05 * q), maxStacks: 2 } }; } },
+  { id: "thorns",    from: 10, on: ["body", "shield"], weight: 1, prefix: "thorned", suffix: "of thorns",   effect: function (L, q) { return { kind: "thorns", params: { fraction: round2(0.08 * q), verb: "thorns" } }; } },
+  { id: "soak",      from: 10, on: ["body", "shield", "belt", "legs"], weight: 1, prefix: "stony", suffix: "of stone", effect: function (L, q) { return { kind: "soak", params: { power: round2(0.05 * q) } }; } },
+  // Item level 15.
+  { id: "critMult",  from: 15, on: ["wield", "neck", "finger"], weight: 1, prefix: "ruinous", suffix: "of ruin", effect: function (L, q) { return { kind: "critMult", params: { amount: round2(0.25 * q) } }; } },
+  { id: "jackal",    from: 15, on: ["wield"], weight: 1, prefix: "cunning",    suffix: "of the jackal",    effect: function (L, q) { return { kind: "opportunist", params: { mult: round2(1 + 0.1 * q) } }; } },
+  { id: "bulwark",   from: 15, on: ["shield"], weight: 1, prefix: "guarding",  suffix: "of the bulwark",   effect: function (L, q) { return { kind: "shieldBlock", params: { chance: round2(0.03 * q) } }; } },
+  { id: "regen",     from: 15, on: ["neck", "finger", "body", "belt"], weight: 1, prefix: "mending", suffix: "of mending", effect: function (L, q) { return { kind: "regen", params: { fraction: round2(0.005 * q) } }; } },
+  // Item level 20.
+  { id: "haste",     from: 20, on: ["wield", "hands"], weight: 1, prefix: "swift", suffix: "of haste",       effect: function (L, q) { return { kind: "attacks", params: { amount: round2(0.15 * q) } }; } },
+  { id: "thunder",   from: 20, on: ["wield"], weight: 1, prefix: "thundering", suffix: "of thunder",       effect: function (L, q) { return { kind: "proc", params: { chance: 0.1, power: round2(0.3 * q), verb: "thunderclap" } }; } },
+  { id: "execute",   from: 20, on: ["wield"], weight: 1, prefix: "merciless",  suffix: "of mercy",         effect: function (L, q) { return { kind: "execute", params: { threshold: 0.25, mult: round2(1 + 0.15 * q) } }; } },
+  { id: "brambles",  from: 20, on: ["body", "shield"], weight: 1, prefix: "briared", suffix: "of brambles", effect: function (L, q) { return { kind: "aura", params: { power: round2(0.05 * q), verb: "brambles" } }; } },
+  { id: "last",      from: 20, on: ["body", "neck"], weight: 1, prefix: "defiant", suffix: "of the last stand", effect: function (L, q) { return { kind: "lastStand", params: { threshold: 0.3, mult: round2(1 - 0.15 * q) } }; } },
+  // Item level 30.
+  { id: "focus",     from: 30, on: ["any"], weight: 0.5, prefix: "focused",    suffix: "of focus",         effect: function (L, q) { return { kind: "cooldownCut", params: { rounds: 1 } }; } },
+  { id: "sight",     from: 30, on: ["head", "face"], weight: 0.5, prefix: "clear-eyed", suffix: "of true sight", effect: function (L, q) { return { kind: "detectInvisible", params: {} }; } },
+  { id: "hawk",      from: 30, on: ["head", "face"], weight: 0.5, prefix: "watchful", suffix: "of the hawk",   effect: function (L, q) { return { kind: "detectHidden", params: {} }; } },
 ];
 
 function round2(x) { return Math.round(x * 100) / 100; }
@@ -1375,6 +1391,27 @@ function round2(x) { return Math.round(x * 100) / 100; }
 // statAmount: one point at low level, a point more every ten levels, more
 // on a good roll.
 function statAmount(L, q) { return Math.max(1, Math.round((1 + Math.floor((L || 1) / 10)) * q)); }
+
+// byLevel is a [at level 1, at topLevel] pair read at level L.
+function byLevel(pair, L) {
+  var t = Math.min(1, Math.max(0, ((L || 1) - 1) / (LOOT.topLevel - 1)));
+  return pair[0] + (pair[1] - pair[0]) * t;
+}
+
+// itemSlot is the slot an affix's "on" list names for an item.
+function itemSlot(it) { return it.type === "weapon" ? "wield" : (it.slot || ""); }
+
+// affixFits reports whether affix a may go on an item in slot at item
+// level L.
+function affixFits(a, slot, L) {
+  if (a.from > L) return false;
+  for (var i = 0; i < a.on.length; i++) {
+    var on = a.on[i];
+    if (on === "any" || on === slot) return true;
+    if (on === "armor" && slot !== "wield" && ARMOR_ONLY.indexOf(slot) < 0) return true;
+  }
+  return false;
+}
 
 function weightedPick(list, weightOf) {
   var total = 0;
@@ -1389,13 +1426,15 @@ function weightedPick(list, weightOf) {
 
 function rollItem(it, ctx) {
   var source = ctx.source === "drop" ? "drop" : "reset";
-  var tier = weightedPick(RARITY, function (t) { return t[source]; });
+  var L = Math.max(ctx.level || 1, it.level || 1);
+  // Tiers above the item level are removed before the draw.
+  var tiers = RARITY.filter(function (t) { return t.from <= L; });
+  var tier = weightedPick(tiers, function (t) { return byLevel(t[source], L); });
   var count = tier.min + random.int(tier.max - tier.min + 1);
   if (count === 0) return { rarity: "" };
-  var type = it.type === "weapon" ? "weapon" : "armor";
-  var all = AFFIXES.filter(function (a) { return a.on === "any" || a.on === type; });
+  var slot = itemSlot(it);
+  var all = AFFIXES.filter(function (a) { return affixFits(a, slot, L); });
   var pool = all.slice();
-  var L = Math.max(ctx.level || 1, it.level || 1);
   var rolls = [];
   for (var n = 0; n < count; n++) {
     if (pool.length === 0) pool = all.slice(); // past the pool's size, affixes repeat and stack
@@ -1413,10 +1452,20 @@ function rollItem(it, ctx) {
     effects: rolls.map(function (r) { return r.effect; }) };
 }
 
+// itemTier names the tier for the count of effects an item carries; the
+// last tier takes every count above its min.
+function itemTier(it) {
+  var count = (it.effects || []).length;
+  var tier = RARITY[0];
+  for (var i = 0; i < RARITY.length; i++) if (count >= RARITY[i].min) tier = RARITY[i];
+  if (tier.min === 0) return { rarity: "" };
+  return { rarity: tier.id, color: tier.color };
+}
+
 function lootRules(victim) {
   var flags = (victim.mob && victim.mob.flags) || [];
   if (flags.indexOf("boss") >= 0) return { drops: LOOT.bossDrops, levelBand: LOOT.levelBand };
-  return { drops: random.float() < LOOT.dropChance ? 1 : 0, levelBand: LOOT.levelBand };
+  return { drops: random.float() < byLevel(LOOT.dropChance, victim.level) ? 1 : 0, levelBand: LOOT.levelBand };
 }
 
 // ---------------------------------------------------------------------
