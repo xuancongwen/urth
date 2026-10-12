@@ -14,7 +14,7 @@ look: |
 level: 16
 health: 700
 stats: {intelligence: 16, wisdom: 13}
-silver: 220
+silver: 130
 attack:
   kind: fire
   verb: sear

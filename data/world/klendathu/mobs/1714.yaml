@@ -10,9 +10,12 @@ look: |
   ship out of orbit.
 level: 36
 health: 3500
-silver: 120
+silver: 70
 attack:
   kind: fire
   verb: plasma blast
   speed: 0.5
   damage: 170
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

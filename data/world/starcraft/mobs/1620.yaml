@@ -17,3 +17,5 @@ teaches: [feint, backstab]
 attack:
   kind: pierce
   verb: shoot
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

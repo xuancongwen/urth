@@ -8,7 +8,7 @@ look: |
 level: 9
 flags: [aggressive]
 health: 230
-silver: 30
+silver: 18
 stats: {strength: 14, intelligence: 6}
 attack:
   verb: club

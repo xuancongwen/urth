@@ -9,7 +9,7 @@ look: |
 level: 17
 flags: [aggressive]
 stats: {strength: 6, intelligence: 16}
-silver: 90
+silver: 55
 attack:
   verb: scorch
 effects: [{ kind: detectHidden, params: {} }]

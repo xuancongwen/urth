@@ -15,10 +15,11 @@ look: |
 level: 20
 health: 900
 stats: {intelligence: 17, wisdom: 15}
-silver: 250
+silver: 150
 attack:
   kind: fire
   verb: blast
 effects:
   - kind: aura
     params: { kind: fire, power: 0.15, verb: crackle of arcane fire }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }

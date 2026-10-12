@@ -13,7 +13,7 @@ look: |
   rises with her.
 level: 14
 health: 400
-silver: 60
+silver: 35
 stats: { wisdom: 18 }
 attack:
   verb: strike

@@ -12,7 +12,7 @@ level: 40
 flags: [assist]
 health: 3600
 stats: {dexterity: 16, wisdom: 13}
-silver: 900
+silver: 540
 attack:
   kind: fire
   verb: shoot

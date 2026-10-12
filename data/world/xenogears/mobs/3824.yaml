@@ -10,7 +10,7 @@ look: |
   ground. He thinks you smell.
 level: 44
 flags: [assist, aggressive]
-silver: 200
+silver: 120
 attack:
   kind: fire
   verb: beam

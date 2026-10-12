@@ -16,3 +16,8 @@ trades:
   - { item: 1110, silver: 20 }
   - { item: 1113, items: [1103, 1103, 1103, 1103] }
   - { item: 1114, silver: 180, items: [1102, 1102] }
+effects:
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

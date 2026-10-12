@@ -8,7 +8,9 @@ look: |
   turns slowly on its thread to show you its soft belly, then drops.
 level: 7
 flags: [assist]
-silver: 12
+silver: 7
 attack:
   kind: bite
   verb: bite
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

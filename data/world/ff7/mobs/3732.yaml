@@ -12,3 +12,5 @@ flags: [assist, aggressive]
 attack:
   kind: pierce
   verb: sting
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

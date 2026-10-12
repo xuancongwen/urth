@@ -9,7 +9,7 @@ look: |
   he has stopped looking at the door.
 level: 17
 flags: [assist, aggressive]
-silver: 65
+silver: 40
 armor:
   defense: 19
 attack:

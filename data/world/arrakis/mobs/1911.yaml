@@ -9,7 +9,7 @@ look: |
   and the worms, and he blames the troopers.
 level: 26
 flags: [assist]
-silver: 140
+silver: 85
 attack:
   kind: fire
   verb: burn

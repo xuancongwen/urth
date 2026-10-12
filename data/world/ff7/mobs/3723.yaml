@@ -13,9 +13,14 @@ level: 44
 flags: [assist, aggressive]
 health: 9500
 stats: {strength: 17, constitution: 17, wisdom: 16}
-silver: 1500
+silver: 900
 attack:
   kind: cold
   verb: impale
 effects:
   - { kind: aura, params: { kind: cold, power: 0.15, verb: "chill of the Gi" } }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

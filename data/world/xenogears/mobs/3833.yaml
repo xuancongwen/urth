@@ -13,7 +13,7 @@ level: 52
 flags: [assist, boss]
 health: 20000
 stats: {wisdom: 22, strength: 18, constitution: 20}
-silver: 2000
+silver: 1200
 xp: 28000
 attack:
   kind: slash

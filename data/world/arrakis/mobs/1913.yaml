@@ -10,7 +10,7 @@ look: |
   he means to take.
 level: 28
 flags: [assist, aggressive]
-silver: 100
+silver: 60
 attack:
   kind: pierce
   verb: stab

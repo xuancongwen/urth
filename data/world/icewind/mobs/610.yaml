@@ -9,6 +9,6 @@ look: |
   pass the time.
 level: 7
 flags: [aggressive]
-silver: 45
+silver: 25
 attack:
   verb: club

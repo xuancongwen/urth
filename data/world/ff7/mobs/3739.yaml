@@ -16,7 +16,7 @@ level: 59
 flags: [assist, boss]
 health: 32000
 stats: {strength: 15, dexterity: 16, constitution: 18, intelligence: 18}
-silver: 4000
+silver: 2400
 attack:
   kind: slash
   verb: slash
@@ -24,3 +24,5 @@ effects:
   - { kind: proc, params: { kind: slash, chance: 0.15, power: 1.0, verb: "Octaslash" } }
   - { kind: steady, params: { chance: 0.5 } }
   - { kind: soak, params: { power: 0.1 } }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }

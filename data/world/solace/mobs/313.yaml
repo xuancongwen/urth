@@ -12,7 +12,7 @@ look: |
   woman who carries it, and he has sent the hobgoblins ahead to ask.
 level: 9
 health: 360
-silver: 200
+silver: 120
 stats: { strength: 15, wisdom: 15, constitution: 14 }
 attack:
   verb: smite

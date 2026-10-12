@@ -11,7 +11,7 @@ look: |
 level: 32
 flags: [aggressive]
 health: 3600
-silver: 400
+silver: 240
 armor:
   defense: 75
 attack:

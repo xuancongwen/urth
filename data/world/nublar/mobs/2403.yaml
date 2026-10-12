@@ -11,6 +11,6 @@ look: |
   the magic word.
 level: 12
 health: 280
-silver: 140
+silver: 85
 attack:
   verb: slap

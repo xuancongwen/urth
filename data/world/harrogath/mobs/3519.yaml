@@ -11,7 +11,7 @@ level: 57
 flags: [assist]
 health: 20000
 stats: {strength: 17, constitution: 17}
-silver: 1000
+silver: 600
 attack:
   verb: strike
 effects:

@@ -11,9 +11,13 @@ look: |
 level: 51
 health: 10000
 stats: {strength: 15, dexterity: 13}
-silver: 600
+silver: 360
 attack:
   verb: rend
 effects:
   - kind: crit
     params: { chance: 0.1, mult: 2 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

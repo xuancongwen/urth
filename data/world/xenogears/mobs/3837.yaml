@@ -15,3 +15,5 @@ attack:
   verb: wing-blade
 effects:
   - { kind: proc, params: { kind: magic, chance: 0.2, power: 1.0, verb: "hymn of unmaking" } }
+  - { kind: resist, params: { kind: holy, amount: 0.75 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

@@ -13,7 +13,7 @@ look: |
 level: 30
 health: 2600
 stats: {dexterity: 19, wisdom: 16}
-silver: 300
+silver: 180
 attack:
   kind: pierce
   verb: needle

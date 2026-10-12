@@ -12,7 +12,7 @@ level: 32
 flags: [assist]
 health: 1800
 stats: {constitution: 15}
-silver: 150
+silver: 90
 xp: 4000
 attack:
   kind: pierce
@@ -20,3 +20,5 @@ attack:
 effects:
   - { kind: thorns, params: { kind: lightning, fraction: 0.2, verb: burst of charged bolts } }
   - { kind: proc, params: { kind: lightning, chance: 0.15, power: 1.0, verb: crack of lightning } }
+  - { kind: resist, params: { kind: lightning, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

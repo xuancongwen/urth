@@ -9,7 +9,9 @@ look: |
   conclusions about strangers.
 level: 14
 flags: [aggressive]
-silver: 10
+silver: 6
 attack:
   kind: pierce
   verb: sting
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

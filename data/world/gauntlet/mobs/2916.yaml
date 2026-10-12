@@ -9,7 +9,7 @@ look: |
   does. He does not vanish like his pupils; he likes to be seen.
 level: 34
 health: 2800
-silver: 260
+silver: 155
 attack:
   kind: magic
   verb: hex

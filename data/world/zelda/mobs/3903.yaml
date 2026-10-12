@@ -17,3 +17,8 @@ attack:
   kind: blunt
   verb: root
 teaches: [entangle, barkskin]
+effects:
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

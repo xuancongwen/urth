@@ -14,7 +14,7 @@ level: 50
 flags: [assist]
 health: 16000
 stats: {intelligence: 22, wisdom: 18}
-silver: 1500
+silver: 900
 xp: 22000
 attack:
   kind: psionic

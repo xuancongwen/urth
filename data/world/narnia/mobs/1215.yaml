@@ -7,7 +7,10 @@ look: |
   gaunt and grey. The chains were meant to hold it. They did not.
 level: 10
 flags: [aggressive]
-silver: 30
+silver: 18
 attack:
   verb: rend
   kind: slash
+effects:
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

@@ -14,7 +14,7 @@ look: |
 level: 36
 flags: [assist]
 health: 6500
-silver: 900
+silver: 540
 xp: 24000
 stats: {strength: 18, dexterity: 16, constitution: 18}
 armor:
@@ -28,3 +28,5 @@ effects:
     params: { power: 0.12 }
   - kind: regen
     params: { fraction: 0.005 }
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }

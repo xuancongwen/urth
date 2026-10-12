@@ -9,6 +9,8 @@ look: |
   reassuring. The flamethrowers on both forearms flicker blue.
 level: 17
 flags: [assist]
-silver: 85
+silver: 50
 attack:
   verb: gout
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }

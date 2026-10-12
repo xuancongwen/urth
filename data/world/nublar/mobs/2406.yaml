@@ -9,7 +9,7 @@ look: |
   flatten anything in the way. They're flocking this way.
 level: 8
 flags: [wander]
-silver: 10
+silver: 6
 attack:
   kind: blunt
   verb: kick

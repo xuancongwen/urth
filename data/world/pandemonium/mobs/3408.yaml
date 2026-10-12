@@ -13,7 +13,7 @@ look: |
 level: 47
 health: 18000
 stats: {strength: 17, constitution: 17, dexterity: 14, wisdom: 16}
-silver: 700
+silver: 420
 xp: 20000
 attack:
   kind: cold
@@ -25,3 +25,6 @@ effects:
     params: { kind: cold, power: 0.12, verb: frost of a fallen angel }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: 0.25 } }

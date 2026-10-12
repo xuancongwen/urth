@@ -9,7 +9,7 @@ look: |
   comes straight at your eyes.
 level: 18
 flags: [assist, aggressive]
-silver: 25
+silver: 15
 attack:
   kind: pierce
   verb: stab

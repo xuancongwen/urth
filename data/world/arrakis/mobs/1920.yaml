@@ -13,7 +13,7 @@ look: |
 level: 60
 flags: [wander]
 health: 90000
-silver: 2000
+silver: 1200
 armor:
   defense: 1000
 attack:
@@ -25,3 +25,5 @@ effects:
   - kind: aura
     params: { kind: slash, power: 0.25, verb: storm of hissing sand }
   - { kind: steady, params: { chance: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

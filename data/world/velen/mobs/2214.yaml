@@ -10,10 +10,12 @@ look: |
 level: 22
 flags: [aggressive]
 health: 950
-silver: 70
+silver: 40
 attack:
   kind: claw
   verb: maul
 effects:
   - kind: regen
     params: { fraction: 0.015 }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

@@ -9,7 +9,10 @@ look: |
   teeth. It hisses constantly, like a leaking valve.
 level: 20
 flags: [assist, aggressive]
-silver: 30
+silver: 18
 attack:
   kind: pierce
   verb: spine
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

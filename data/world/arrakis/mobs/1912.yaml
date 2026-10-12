@@ -10,7 +10,7 @@ look: |
   sends a worm.
 level: 26
 health: 900
-silver: 300
+silver: 180
 attack:
   kind: pierce
   verb: shoot

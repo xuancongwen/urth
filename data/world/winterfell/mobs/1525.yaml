@@ -13,7 +13,7 @@ look: |
   carried it off into the wood; she wants it back. "Stick them with the
   pointy end," she says, practising the thrust with a stick.
 level: 8
-silver: 15
+silver: 9
 attack:
   kind: pierce
   verb: jab

@@ -14,7 +14,7 @@ level: 21
 flags: [assist]
 health: 950
 stats: {strength: 16, dexterity: 16, constitution: 16}
-silver: 600
+silver: 360
 xp: 7000
 attack:
   kind: magic
@@ -22,3 +22,8 @@ attack:
 effects:
   - { kind: crit, params: { chance: 0.08, mult: 2 } }
   - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -15,7 +15,7 @@ look: |
 level: 36
 health: 2400
 stats: {dexterity: 16, wisdom: 18}
-silver: 300
+silver: 180
 attack:
   kind: fire
   verb: blast

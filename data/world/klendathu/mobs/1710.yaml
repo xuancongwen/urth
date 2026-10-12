@@ -8,7 +8,10 @@ look: |
   chews the rock that the colony is built from and spits it out wet,
   and it is perfectly willing to do the same with you.
 level: 22
-silver: 20
+silver: 12
 attack:
   kind: blunt
   verb: batter
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

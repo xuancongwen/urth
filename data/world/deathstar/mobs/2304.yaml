@@ -11,6 +11,11 @@ look: |
   to mind the control room, and he is not armed, and he has some
   silver in a compartment for oil baths.
 level: 20
-silver: 60
+silver: 35
 attack:
   verb: slap
+effects:
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

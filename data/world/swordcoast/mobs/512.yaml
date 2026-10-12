@@ -7,6 +7,6 @@ look: |
   knife it stole and a grudge it made itself.
 level: 6
 flags: [assist, aggressive]
-silver: 5
+silver: 3
 attack:
   verb: stab

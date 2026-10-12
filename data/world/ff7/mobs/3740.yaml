@@ -16,7 +16,7 @@ level: 60
 flags: [boss]
 health: 65000
 stats: {strength: 20, constitution: 20, dexterity: 14, wisdom: 18}
-silver: 5000
+silver: 3000
 xp: 100000
 attack:
   kind: magic
@@ -24,3 +24,4 @@ attack:
 effects:
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
   - { kind: steady, params: { chance: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }

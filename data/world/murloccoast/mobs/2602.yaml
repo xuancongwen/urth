@@ -10,7 +10,7 @@ look: |
   everything with fins for a hundred yards will come running.
 level: 8
 flags: [assist, wander]
-silver: 6
+silver: 4
 attack:
   kind: pierce
   verb: jab

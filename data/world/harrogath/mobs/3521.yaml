@@ -13,7 +13,7 @@ level: 59
 flags: [assist]
 health: 40000
 stats: {strength: 18, constitution: 17}
-silver: 1500
+silver: 900
 attack:
   verb: hack
 effects:
@@ -23,3 +23,7 @@ effects:
     params: { power: 0.08, rounds: 3, maxStacks: 2 }
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

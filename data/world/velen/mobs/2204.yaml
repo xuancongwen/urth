@@ -9,7 +9,7 @@ look: |
   comes alone, because the river never takes just one.
 level: 6
 flags: [assist]
-silver: 4
+silver: 2
 attack:
   kind: claw
   verb: claw

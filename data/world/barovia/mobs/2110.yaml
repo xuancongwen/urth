@@ -12,7 +12,7 @@ look: |
 level: 20
 flags: [assist]
 health: 600
-silver: 150
+silver: 90
 stats: {dexterity: 14}
 attack:
   kind: pierce

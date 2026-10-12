@@ -14,6 +14,6 @@ look: |
 level: 22
 health: 700
 stats: {intelligence: 18, dexterity: 14}
-silver: 150
+silver: 90
 attack:
   verb: kick

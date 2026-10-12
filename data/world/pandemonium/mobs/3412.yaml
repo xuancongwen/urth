@@ -12,7 +12,7 @@ look: |
 level: 49
 health: 14000
 stats: {strength: 19, constitution: 18}
-silver: 800
+silver: 480
 xp: 22000
 attack:
   kind: blunt
@@ -20,3 +20,7 @@ attack:
 effects:
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -13,7 +13,7 @@ look: |
 level: 46
 health: 4000
 stats: {dexterity: 17, constitution: 15, wisdom: 14}
-silver: 500
+silver: 300
 attack:
   kind: fire
   verb: shoot

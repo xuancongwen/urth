@@ -13,7 +13,7 @@ look: |
 level: 24
 health: 3200
 stats: {strength: 16, constitution: 16, intelligence: 16, dexterity: 12}
-silver: 400
+silver: 240
 xp: 15000
 attack:
   verb: rend
@@ -22,3 +22,7 @@ effects:
     params: { amount: 1 }
   - kind: dot
     params: { damage: 6 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

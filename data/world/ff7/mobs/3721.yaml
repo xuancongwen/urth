@@ -9,7 +9,7 @@ look: |
   helm and no intention of losing tonight.
 level: 41
 flags: [assist]
-silver: 200
+silver: 120
 attack:
   kind: pierce
   verb: thrust

@@ -14,7 +14,7 @@ level: 30
 flags: [assist]
 health: 1800
 stats: {strength: 16, constitution: 17}
-silver: 700
+silver: 420
 xp: 6500
 attack:
   kind: blunt

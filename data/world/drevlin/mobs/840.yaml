@@ -9,6 +9,6 @@ look: |
   pump.
 level: 8
 flags: [assist]
-silver: 40
+silver: 25
 attack:
   verb: slash

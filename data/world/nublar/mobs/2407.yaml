@@ -8,7 +8,7 @@ look: |
   frill of yellow and red skin snaps open around its neck, and it spits: a
   black venom that blinds, and then burns.
 level: 10
-silver: 15
+silver: 9
 attack:
   kind: bite
   verb: bite

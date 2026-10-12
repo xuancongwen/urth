@@ -9,7 +9,7 @@ look: |
   ups, and they throw needles.
 level: 17
 flags: [assist]
-silver: 30
+silver: 18
 attack:
   kind: pierce
   verb: needle

@@ -10,7 +10,7 @@ look: |
   the company, and the rocket's crew are not going to stop him.
 level: 47
 flags: [assist]
-silver: 250
+silver: 150
 attack:
   kind: slash
   verb: cleave

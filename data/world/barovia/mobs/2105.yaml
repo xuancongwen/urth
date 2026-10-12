@@ -10,7 +10,7 @@ look: |
   them to. Where there is one, the rest are close.
 level: 12
 flags: [assist, wander, aggressive]
-silver: 5
+silver: 3
 attack:
   kind: bite
   verb: bite

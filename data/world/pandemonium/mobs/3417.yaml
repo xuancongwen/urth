@@ -14,7 +14,7 @@ look: |
 level: 52
 health: 25000
 stats: {strength: 18, constitution: 20, dexterity: 20, intelligence: 16}
-silver: 1500
+silver: 900
 xp: 40000
 attack:
   kind: claw
@@ -26,3 +26,7 @@ effects:
     params: { amount: 0.05 }
   - kind: leech
     params: { fraction: 0.08 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: fire, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

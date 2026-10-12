@@ -290,3 +290,47 @@ function useSkill(user, target, skill, e) {
 		t.Fatalf("kick on the immune: %q", out)
 	}
 }
+
+// Immunity is rare (4.8, 8): only a boss or a named creature is immune to
+// anything, and nothing is immune to every weapon.
+func TestShippedImmunitiesAreRare(t *testing.T) {
+	w := shippedWorld(t)
+	immune := 0
+	for _, p := range w.content.Mobs {
+		total := map[string]float64{}
+		for _, e := range p.Effects {
+			if e.Kind == "resist" {
+				k, _ := e.Params["kind"].(string)
+				total[k] += toFloat(e.Params["amount"])
+			}
+		}
+		named := p.HasFlag("boss") || !hasArticle(p.Name)
+		for k, a := range total {
+			if a < 1 {
+				continue
+			}
+			immune++
+			if k == "physical" || k == "all" {
+				t.Errorf("mob %d (%s) is immune to %s", p.Vnum, p.Name, k)
+			}
+			if !named {
+				t.Errorf("mob %d (%s) is immune to %s but is neither a boss nor named", p.Vnum, p.Name, k)
+			}
+		}
+	}
+	if immune == 0 {
+		t.Error("no shipped creature is immune to anything")
+	}
+}
+
+// hasArticle reports whether a mob's name is a common noun ("a skeleton",
+// "the crypt ghoul") rather than a name ("Strahd", "the Butcher").
+func hasArticle(name string) bool {
+	for _, a := range []string{"a ", "an ", "some "} {
+		if strings.HasPrefix(name, a) {
+			return true
+		}
+	}
+	rest, ok := strings.CutPrefix(name, "the ")
+	return ok && rest != "" && strings.ToLower(rest[:1]) == rest[:1]
+}

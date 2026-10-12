@@ -16,3 +16,5 @@ teaches: [dodge, riposte]
 attack:
   kind: slash
   verb: slice
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

@@ -14,3 +14,7 @@ attack:
   verb: crush
 loot:
   - { item: 3800, chance: 0.5 }
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

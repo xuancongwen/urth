@@ -14,7 +14,7 @@ look: |
 level: 60
 health: 60000
 stats: {strength: 20, constitution: 18, dexterity: 15}
-silver: 1200
+silver: 720
 armor:
   defense: 1000
 attack:

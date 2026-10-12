@@ -12,7 +12,7 @@ look: |
 level: 22
 flags: [assist]
 health: 480
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: cleave

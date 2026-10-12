@@ -12,7 +12,7 @@ look: |
   obey.
 level: 42
 health: 4200
-silver: 400
+silver: 240
 attack:
   kind: psionic
   verb: Voice
@@ -20,3 +20,5 @@ effects:
   - kind: proc
     params: { kind: psionic, verb: command in the Voice, chance: 0.15, power: 1.0 }
   - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }

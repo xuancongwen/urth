@@ -9,7 +9,10 @@ look: |
   moves. It mumbles to itself in a voice that is almost words.
 level: 18
 flags: [aggressive]
-silver: 40
+silver: 25
 attack:
   kind: slash
   verb: claw
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

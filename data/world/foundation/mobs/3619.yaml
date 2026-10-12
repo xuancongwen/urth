@@ -9,7 +9,7 @@ look: |
   palace, and the guard are the only thing that keeps them polite.
 level: 34
 flags: [assist]
-silver: 150
+silver: 90
 attack:
   kind: slash
   verb: cleave

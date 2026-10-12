@@ -11,10 +11,11 @@ look: |
 level: 44
 health: 4000
 stats: {intelligence: 17, strength: 14}
-silver: 400
+silver: 240
 attack:
   kind: magic
   verb: curse
 effects:
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }

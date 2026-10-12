@@ -14,7 +14,7 @@ look: |
 level: 60
 health: 32000
 stats: {strength: 18, constitution: 18, intelligence: 20, dexterity: 14}
-silver: 2500
+silver: 1500
 attack:
   kind: cold
   verb: rend
@@ -27,3 +27,7 @@ effects:
     params: { kind: cold, chance: 0.15, power: 1.0, verb: crackling hoarfrost }
   - kind: soak
     params: { power: 0.15 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

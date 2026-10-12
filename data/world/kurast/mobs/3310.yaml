@@ -11,7 +11,7 @@ look: |
 level: 40
 health: 2600
 stats: {strength: 16, constitution: 16}
-silver: 220
+silver: 130
 attack:
   kind: blunt
   verb: pound
@@ -20,3 +20,4 @@ effects:
     params: { kind: lightning, chance: 0.15, power: 1.0, verb: charged bolt }
   - kind: thorns
     params: { kind: lightning, fraction: 0.15, verb: crackling thorns }
+  - { kind: resist, params: { kind: lightning, amount: 1 } }

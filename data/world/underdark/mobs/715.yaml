@@ -14,7 +14,7 @@ look: |
 level: 20
 health: 1250
 stats: { wisdom: 18, intelligence: 16, strength: 10 }
-silver: 400
+silver: 240
 attack:
   verb: lash
 effects:

@@ -11,7 +11,7 @@ look: |
   holding the cylinder that opens every door on this station.
 level: 35
 health: 1300
-silver: 500
+silver: 300
 armor:
   defense: 130
 attack:

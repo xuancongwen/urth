@@ -10,7 +10,7 @@ look: |
   ends.
 level: 11
 health: 320
-silver: 40
+silver: 25
 stats: {strength: 13, dexterity: 12}
 attack:
   verb: savage

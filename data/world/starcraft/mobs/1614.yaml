@@ -10,10 +10,13 @@ look: |
   knees buckle.
 level: 24
 health: 1600
-silver: 400
+silver: 240
 attack:
   kind: psionic
   verb: mind-lash
 effects:
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

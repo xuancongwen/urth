@@ -12,7 +12,7 @@ look: |
   which he stole from the king's armoury to do the thing it did.
 level: 11
 health: 330
-silver: 80
+silver: 50
 stats: { strength: 14, dexterity: 13 }
 attack:
   verb: slash

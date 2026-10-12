@@ -10,9 +10,13 @@ look: |
   house until it comes out.
 level: 25
 flags: [assist, aggressive]
-silver: 60
+silver: 35
 attack:
   kind: blunt
   verb: stomp
 loot:
   - { item: 3800, chance: 0.4 }
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

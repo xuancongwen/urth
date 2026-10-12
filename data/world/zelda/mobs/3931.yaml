@@ -13,10 +13,11 @@ level: 17
 flags: [assist]
 health: 900
 stats: {constitution: 16, wisdom: 15}
-silver: 500
+silver: 300
 xp: 5000
 attack:
   kind: magic
   verb: lightning
 effects:
   - { kind: proc, params: { kind: lightning, verb: lash of electric tentacles, chance: 0.12, power: 1.2 } }
+  - { kind: resist, params: { kind: lightning, amount: 1 } }

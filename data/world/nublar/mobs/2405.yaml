@@ -8,7 +8,7 @@ look: |
   darts away again, testing. When it bites, the others will.
 level: 6
 flags: [assist]
-silver: 6
+silver: 4
 attack:
   kind: bite
   verb: nip

@@ -10,7 +10,7 @@ look: |
   the polite interest of a hunter who has not yet decided.
 level: 11
 health: 320
-silver: 70
+silver: 40
 stats: {dexterity: 14}
 attack:
   verb: strike

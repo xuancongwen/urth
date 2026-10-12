@@ -13,3 +13,8 @@ stats: {strength: 14, dexterity: 8}
 attack:
   kind: blunt
   verb: smash
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

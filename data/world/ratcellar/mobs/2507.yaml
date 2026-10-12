@@ -10,7 +10,7 @@ look: |
   it can help it.
 level: 5
 flags: [assist]
-silver: 8
+silver: 5
 attack:
   kind: bite
   verb: savage

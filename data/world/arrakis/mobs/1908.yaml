@@ -9,7 +9,7 @@ look: |
   been on Arrakis long enough to have stopped believing it.
 level: 20
 flags: [assist, aggressive]
-silver: 90
+silver: 55
 attack:
   kind: pierce
   verb: stab

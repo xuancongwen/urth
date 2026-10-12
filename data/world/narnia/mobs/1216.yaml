@@ -10,3 +10,6 @@ look: |
 level: 9
 attack:
   verb: swipe
+effects:
+  - { kind: resist, params: { kind: holy, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

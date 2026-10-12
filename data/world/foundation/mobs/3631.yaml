@@ -9,7 +9,7 @@ look: |
   is not important enough. That frightens him more than anything.
 level: 38
 flags: [assist]
-silver: 180
+silver: 110
 attack:
   kind: slash
   verb: slash

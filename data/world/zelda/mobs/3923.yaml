@@ -9,7 +9,7 @@ look: |
   other one.
 level: 14
 flags: [assist]
-silver: 30
+silver: 18
 attack:
   kind: slash
   verb: slash

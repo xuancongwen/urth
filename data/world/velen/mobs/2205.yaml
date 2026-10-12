@@ -9,7 +9,7 @@ look: |
   drowners give her room, and bring her things.
 level: 9
 flags: [assist]
-silver: 10
+silver: 6
 attack:
   kind: claw
   verb: rake

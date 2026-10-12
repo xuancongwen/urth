@@ -7,6 +7,6 @@ look: |
   something bigger told it to be.
 level: 1
 flags: [assist]
-silver: 25
+silver: 15
 attack:
   verb: hack

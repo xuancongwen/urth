@@ -10,7 +10,7 @@ look: |
   cell.
 level: 27
 flags: [assist]
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: slash

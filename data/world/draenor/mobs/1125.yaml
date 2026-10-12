@@ -14,7 +14,7 @@ look: |
 level: 20
 health: 1200
 stats: {strength: 16, wisdom: 15, constitution: 15}
-silver: 200
+silver: 120
 attack:
   kind: blunt
   verb: smash

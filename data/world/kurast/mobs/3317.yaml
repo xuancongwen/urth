@@ -10,10 +10,11 @@ look: |
 level: 43
 health: 3200
 stats: {strength: 16, constitution: 15}
-silver: 300
+silver: 180
 attack:
   kind: cold
   verb: pummel
 effects:
   - kind: chill
     params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }

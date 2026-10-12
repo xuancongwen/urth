@@ -9,7 +9,10 @@ look: |
   half the chamber.
 level: 21
 flags: [assist, aggressive]
-silver: 50
+silver: 30
 attack:
   kind: pierce
   verb: glaive
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

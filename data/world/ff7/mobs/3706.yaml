@@ -14,7 +14,7 @@ level: 27
 flags: [assist]
 health: 1600
 stats: {dexterity: 12}
-silver: 1200
+silver: 720
 attack:
   kind: blunt
   verb: slap

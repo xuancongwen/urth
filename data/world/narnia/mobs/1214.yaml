@@ -11,8 +11,11 @@ look: |
 level: 12
 health: 505
 xp: 1200
-silver: 60
+silver: 35
 stats: {intelligence: 16, wisdom: 14, constitution: 13}
 attack:
   verb: strike
   kind: cold
+effects:
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }

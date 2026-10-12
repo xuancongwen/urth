@@ -9,7 +9,9 @@ look: |
   It cuts through the pillar behind you.
 level: 30
 flags: [assist]
-silver: 70
+silver: 40
 attack:
   kind: slash
   verb: cleave
+effects:
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }

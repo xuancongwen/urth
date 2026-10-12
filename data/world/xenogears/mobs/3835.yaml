@@ -11,7 +11,7 @@ level: 55
 flags: [assist, boss, aggressive]
 health: 26000
 stats: {strength: 22, constitution: 24}
-silver: 1500
+silver: 900
 xp: 34000
 attack:
   kind: fire

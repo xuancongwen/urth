@@ -8,7 +8,7 @@ look: |
   stop when she turns to look at it.
 level: 14
 health: 380
-silver: 70
+silver: 40
 stats: { strength: 15 }
 attack:
   verb: cleave

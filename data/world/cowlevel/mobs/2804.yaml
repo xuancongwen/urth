@@ -9,7 +9,7 @@ look: |
   which to the herd it may be.
 level: 24
 flags: [assist, aggressive]
-silver: 38
+silver: 25
 attack:
   kind: slash
   verb: hack

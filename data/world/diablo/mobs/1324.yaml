@@ -12,7 +12,7 @@ look: |
 level: 19
 health: 600
 stats: {dexterity: 14}
-silver: 120
+silver: 70
 xp: 3800
 flags: [assist]
 attack:

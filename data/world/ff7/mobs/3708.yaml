@@ -14,7 +14,7 @@ level: 30
 flags: [assist]
 health: 2600
 stats: {dexterity: 16, strength: 13}
-silver: 800
+silver: 480
 attack:
   kind: blunt
   verb: zap

@@ -9,7 +9,7 @@ look: |
   round behind you.
 level: 4
 flags: [assist]
-silver: 4
+silver: 2
 attack:
   kind: bite
   verb: nip

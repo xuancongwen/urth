@@ -11,7 +11,7 @@ look: |
   wears a ring he can no longer get on his finger.
 level: 5
 health: 140
-silver: 40
+silver: 25
 attack:
   kind: claw
   verb: claw
@@ -20,3 +20,5 @@ effects:
     params: { fraction: 0.01 }
   - kind: dodge
     params: { amount: 0.05 }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

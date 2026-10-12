@@ -9,7 +9,7 @@ look: |
   are afraid of him. That is the job.
 level: 22
 flags: [assist]
-silver: 35
+silver: 20
 attack:
   kind: slash
   verb: cleave

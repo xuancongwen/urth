@@ -9,7 +9,7 @@ look: |
   because the armour echoes.
 level: 34
 flags: [assist, aggressive]
-silver: 50
+silver: 30
 attack:
   kind: blunt
   verb: smash

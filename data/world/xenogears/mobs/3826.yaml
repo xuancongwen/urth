@@ -11,7 +11,9 @@ level: 46
 flags: [assist]
 health: 3600
 stats: {wisdom: 19, intelligence: 18}
-silver: 600
+silver: 360
 attack:
   kind: cold
   verb: water lance
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }

@@ -15,3 +15,5 @@ attack:
   verb: gore
 effects:
   - { kind: thorns, params: { kind: lightning, fraction: 0.1, verb: crackle of charged bolts } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

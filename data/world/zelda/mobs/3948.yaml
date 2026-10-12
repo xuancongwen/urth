@@ -13,7 +13,7 @@ look: |
 level: 29
 health: 2300
 stats: {dexterity: 17, strength: 15}
-silver: 500
+silver: 300
 attack:
   kind: slash
   verb: slash

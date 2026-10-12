@@ -11,7 +11,7 @@ look: |
   used a magic potion and ran. You do not have that kind of potion.
 level: 36
 health: 5600
-silver: 600
+silver: 360
 armor:
   defense: 30
 attack:
@@ -20,3 +20,7 @@ attack:
 effects:
   - kind: leech
     params: { fraction: 0.25 }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

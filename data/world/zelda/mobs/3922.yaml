@@ -9,7 +9,11 @@ look: |
   everywhere but its belly and its mouth.
 level: 13
 flags: [assist]
-silver: 20
+silver: 12
 attack:
   kind: fire
   verb: flame
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.75 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.5 } }

@@ -12,7 +12,7 @@ level: 28
 flags: [assist]
 health: 2650
 stats: {strength: 16, dexterity: 16, constitution: 17}
-silver: 700
+silver: 420
 xp: 10000
 attack:
   kind: blunt
@@ -21,3 +21,8 @@ attack:
 effects:
   - { kind: dodge, params: { amount: 0.06 } }
   - { kind: crit, params: { chance: 0.08, mult: 2 } }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

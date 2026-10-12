@@ -13,9 +13,11 @@ level: 34
 flags: [assist]
 health: 3600
 stats: {constitution: 16, intelligence: 16}
-silver: 300
+silver: 180
 attack:
   kind: psionic
   verb: lash
 effects:
   - { kind: proc, params: { kind: fire, chance: 0.15, power: 1.0, verb: "W-laser" } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

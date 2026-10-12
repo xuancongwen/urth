@@ -11,5 +11,5 @@ look: |
   for.
 level: 16
 health: 850
-silver: 250
+silver: 150
 stats: {strength: 15, constitution: 14}

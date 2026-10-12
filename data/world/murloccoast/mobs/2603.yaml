@@ -9,7 +9,7 @@ look: |
   watching you.
 level: 9
 flags: [assist]
-silver: 8
+silver: 5
 attack:
   kind: pierce
   verb: spear

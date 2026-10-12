@@ -11,7 +11,7 @@ look: |
 level: 15
 flags: [assist]
 health: 450
-silver: 80
+silver: 50
 attack:
   kind: slash
   verb: slash

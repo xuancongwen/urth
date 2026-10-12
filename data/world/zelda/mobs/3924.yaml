@@ -14,7 +14,7 @@ level: 15
 flags: [assist]
 health: 750
 stats: {strength: 15, constitution: 16}
-silver: 400
+silver: 240
 xp: 4500
 attack:
   kind: fire
@@ -23,3 +23,6 @@ attack:
 effects:
   - { kind: crit, params: { chance: 0.06, mult: 2 } }
   - { kind: soak, params: { power: 0.08 } }
+  - { kind: resist, params: { kind: fire, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.5 } }

@@ -8,7 +8,7 @@ look: |
   forward with great authority and then shoots at the wall behind you.
 level: 16
 flags: [assist]
-silver: 60
+silver: 35
 armor:
   defense: 17
 attack:

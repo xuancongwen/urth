@@ -12,7 +12,7 @@ level: 46
 flags: [assist]
 health: 3000
 stats: {constitution: 15}
-silver: 2000
+silver: 1200
 attack:
   kind: fire
   verb: squirt

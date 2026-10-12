@@ -8,10 +8,11 @@ look: |
   It came for the rats, and it has done very well out of them. Its
   fangs are small for its size. They do not need to be large.
 level: 4
-silver: 4
+silver: 2
 attack:
   kind: bite
   verb: bite
 effects:
   - kind: dot
     params: { damage: 1 }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

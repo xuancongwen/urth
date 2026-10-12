@@ -8,7 +8,7 @@ look: |
   whatever it sees and is too stupid to stop.
 level: 18
 flags: [assist]
-silver: 35
+silver: 20
 attack:
   kind: pierce
   verb: stab

@@ -19,3 +19,6 @@ flags: [peaceful]
 teaches: [shield_block, riposte]
 attack:
   verb: slash
+effects:
+  - { kind: resist, params: { kind: holy, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

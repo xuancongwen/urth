@@ -13,7 +13,7 @@ level: 24
 flags: [assist]
 health: 1200
 stats: {dexterity: 17, strength: 15}
-silver: 500
+silver: 300
 xp: 6000
 attack:
   kind: slash
@@ -21,3 +21,5 @@ attack:
 effects:
   - { kind: dodge, params: { amount: 0.08 } }
   - { kind: thorns, params: { kind: slash, fraction: 0.15, verb: mirrored stroke } }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }

@@ -15,7 +15,7 @@ level: 33
 flags: [assist]
 health: 2800
 stats: {dexterity: 18, strength: 15}
-silver: 600
+silver: 360
 attack:
   kind: slash
   verb: lash

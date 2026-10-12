@@ -8,7 +8,7 @@ look: |
   the Da-Chao with long blades and a great deal of pride.
 level: 48
 flags: [assist]
-silver: 150
+silver: 90
 attack:
   kind: slash
   verb: slash

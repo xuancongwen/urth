@@ -9,7 +9,7 @@ look: |
 level: 30
 flags: [assist, aggressive]
 health: 750
-silver: 15
+silver: 9
 attack:
   kind: blunt
   verb: club

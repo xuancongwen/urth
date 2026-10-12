@@ -12,7 +12,7 @@ look: |
 level: 32
 flags: [assist]
 health: 2200
-silver: 300
+silver: 180
 stats: {dexterity: 16, intelligence: 14}
 attack:
   kind: slash

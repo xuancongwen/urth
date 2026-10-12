@@ -13,7 +13,7 @@ level: 41
 flags: [assist, aggressive]
 health: 5600
 stats: {dexterity: 18, strength: 17}
-silver: 1000
+silver: 600
 xp: 13000
 attack:
   kind: slash

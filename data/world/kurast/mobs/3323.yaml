@@ -10,7 +10,7 @@ look: |
 level: 45
 health: 4000
 stats: {strength: 15, intelligence: 16}
-silver: 400
+silver: 240
 attack:
   kind: fire
   verb: claw

@@ -8,6 +8,6 @@ look: |
   found the shaft. He has not gone down it. He has heard what comes up.
 level: 10
 health: 260
-silver: 50
+silver: 30
 attack:
   verb: bash

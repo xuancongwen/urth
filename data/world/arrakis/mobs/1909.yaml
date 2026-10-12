@@ -9,7 +9,7 @@ look: |
   Fremen, and neither fits.
 level: 22
 flags: [assist]
-silver: 110
+silver: 65
 attack:
   kind: pierce
   verb: stab

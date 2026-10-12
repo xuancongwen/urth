@@ -13,9 +13,13 @@ level: 25
 flags: [assist, aggressive]
 health: 2200
 stats: {constitution: 16, strength: 14}
-silver: 300
+silver: 180
 attack:
   kind: fire
   verb: laser
 effects:
   - { kind: thorns, params: { kind: fire, fraction: 0.15, verb: "tail laser" } }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

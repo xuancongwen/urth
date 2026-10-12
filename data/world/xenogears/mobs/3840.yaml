@@ -16,10 +16,14 @@ level: 60
 flags: [boss]
 health: 52000
 stats: {strength: 22, constitution: 22, intelligence: 24, wisdom: 22}
-silver: 5000
+silver: 3000
 xp: 90000
 attack:
   kind: magic
   verb: beam of annihilation
 effects:
   - { kind: steady, params: { chance: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

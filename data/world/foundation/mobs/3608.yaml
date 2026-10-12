@@ -9,7 +9,7 @@ look: |
   the way a dog watches a stranger near its master's dinner.
 level: 24
 flags: [assist]
-silver: 110
+silver: 65
 attack:
   kind: pierce
   verb: thrust

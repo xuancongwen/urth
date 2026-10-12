@@ -9,7 +9,7 @@ look: |
   had a reason to be anything but loyal.
 level: 10
 flags: [aggressive]
-silver: 50
+silver: 30
 stats: {strength: 13, constitution: 12}
 attack:
   verb: slash

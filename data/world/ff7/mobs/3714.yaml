@@ -12,7 +12,7 @@ level: 35
 flags: [assist]
 health: 3200
 stats: {strength: 17, constitution: 16}
-silver: 1200
+silver: 720
 attack:
   kind: blunt
   verb: backhand

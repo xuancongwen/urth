@@ -14,7 +14,7 @@ level: 57
 flags: [assist, boss, aggressive]
 health: 30000
 stats: {strength: 22, dexterity: 22, constitution: 22}
-silver: 2500
+silver: 1500
 xp: 40000
 attack:
   kind: blunt

@@ -9,10 +9,12 @@ look: |
   it as you watch, and it laughs, in a voice that is almost human.
 level: 22
 flags: [wander, aggressive]
-silver: 20
+silver: 12
 attack:
   kind: claw
   verb: rake
 effects:
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

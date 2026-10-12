@@ -15,7 +15,7 @@ level: 35
 flags: [assist]
 health: 5600
 stats: {strength: 17, dexterity: 17, constitution: 17, wisdom: 16}
-silver: 900
+silver: 540
 xp: 12000
 attack:
   kind: slash

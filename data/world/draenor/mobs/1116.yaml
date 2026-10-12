@@ -15,3 +15,5 @@ attack:
   verb: drain
 effects:
   - { kind: hidden, params: {} }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }

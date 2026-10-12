@@ -14,7 +14,7 @@ level: 53
 flags: [assist, boss, aggressive]
 health: 22000
 stats: {strength: 22, constitution: 20, dexterity: 18}
-silver: 2000
+silver: 1200
 xp: 32000
 attack:
   kind: psionic
@@ -24,3 +24,5 @@ effects:
   - { kind: proc, params: { kind: unholy, chance: 0.25, power: 1.5, verb: "black flame" } }
   - { kind: leech, params: { fraction: 0.05 } }
   - { kind: steady, params: { chance: 0.4 } }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }

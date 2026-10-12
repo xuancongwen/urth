@@ -14,7 +14,7 @@ look: |
   it with the club.
 level: 12
 health: 225
-silver: 50
+silver: 30
 attack:
   kind: blunt
   verb: club

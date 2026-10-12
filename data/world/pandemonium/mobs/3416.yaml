@@ -12,7 +12,7 @@ look: |
 level: 51
 health: 14000
 stats: {strength: 19, constitution: 18, dexterity: 15}
-silver: 1000
+silver: 600
 xp: 27000
 attack:
   verb: slash
@@ -21,3 +21,8 @@ effects:
     params: { amount: 1 }
   - kind: thorns
     params: { kind: pierce, fraction: 0.1, verb: oath-bound spikes }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

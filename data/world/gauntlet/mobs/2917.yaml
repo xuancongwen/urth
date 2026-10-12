@@ -9,7 +9,7 @@ look: |
   to notice. This one has done well for itself.
 level: 31
 flags: [wander]
-silver: 180
+silver: 110
 attack:
   kind: pierce
   verb: stab

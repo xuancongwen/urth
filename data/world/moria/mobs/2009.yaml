@@ -8,7 +8,7 @@ look: |
   close, and it does not like daylight, and it does not like you.
 level: 18
 flags: [assist, aggressive]
-silver: 18
+silver: 11
 attack:
   kind: pierce
   verb: shoot

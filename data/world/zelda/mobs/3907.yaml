@@ -9,7 +9,14 @@ look: |
   you stay.
 level: 8
 flags: [assist]
-silver: 15
+silver: 9
 attack:
   kind: claw
   verb: claw
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.5 } }
+  - { kind: resist, params: { kind: slash, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -16,7 +16,7 @@ look: |
   will find out what the staff is for.
 level: 50
 health: 16000
-silver: 1000
+silver: 600
 stats: {wisdom: 18, intelligence: 18}
 armor:
   defense: 300

@@ -10,7 +10,9 @@ look: |
   and cold, and it does not need to win quickly.
 level: 32
 flags: [assist]
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: slash
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }

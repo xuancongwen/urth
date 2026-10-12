@@ -9,7 +9,13 @@ look: |
   deal, and it has grown fat and confident on it.
 level: 12
 flags: [assist, aggressive]
-silver: 8
+silver: 5
 attack:
   kind: bite
   verb: bite
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -9,7 +9,7 @@ look: |
   more men than he can remember. He would rather be left alone.
 level: 15
 health: 420
-silver: 90
+silver: 55
 stats: { strength: 14, dexterity: 14 }
 attack:
   verb: slash

@@ -8,6 +8,6 @@ look: |
   others and it is not going back alone.
 level: 8
 flags: [assist, aggressive]
-silver: 15
+silver: 9
 attack:
   verb: stab

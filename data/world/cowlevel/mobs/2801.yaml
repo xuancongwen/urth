@@ -9,7 +9,7 @@ look: |
   behind the halberds, chewing thoughtfully.
 level: 21
 flags: [assist]
-silver: 28
+silver: 17
 attack:
   kind: pierce
   verb: shoot

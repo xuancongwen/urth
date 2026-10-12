@@ -13,3 +13,8 @@ health: 420
 stats: {dexterity: 15, strength: 13}
 armor:
   defense: 6
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.75 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

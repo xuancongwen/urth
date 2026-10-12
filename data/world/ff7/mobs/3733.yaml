@@ -12,10 +12,13 @@ level: 52
 flags: [assist, aggressive]
 health: 22000
 stats: {strength: 20, constitution: 18}
-silver: 2000
+silver: 1200
 attack:
   kind: fire
   verb: breathe on
 effects:
   - { kind: proc, params: { kind: fire, chance: 0.2, power: 1.5, verb: "Red Dragon Breath" } }
   - { kind: soak, params: { power: 0.1 } }
+  - { kind: resist, params: { kind: fire, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.25 } }

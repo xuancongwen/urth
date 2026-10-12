@@ -9,7 +9,7 @@ look: |
   that he can complain about it later.
 level: 24
 flags: [assist, aggressive]
-silver: 120
+silver: 70
 attack:
   kind: blunt
   verb: club

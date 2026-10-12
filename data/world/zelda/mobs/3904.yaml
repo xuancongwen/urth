@@ -9,7 +9,12 @@ look: |
   dries into a passable Deku stick.
 level: 5
 flags: [assist]
-silver: 8
+silver: 5
 attack:
   kind: bite
   verb: snap
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

@@ -13,7 +13,7 @@ look: |
   after him, and the dwarves fled. You cannot pass.
 level: 50
 health: 25000
-silver: 2000
+silver: 1200
 armor:
   defense: 360
 attack:
@@ -30,3 +30,7 @@ effects:
     params: { amount: 1 }
   - kind: lastStand
     params: { threshold: 0.25, mult: 0.8 }
+  - { kind: resist, params: { kind: fire, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.25 } }

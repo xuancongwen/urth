@@ -15,7 +15,7 @@ look: |
 level: 26
 flags: [assist]
 health: 950
-silver: 200
+silver: 120
 xp: 9000
 stats: {intelligence: 16, wisdom: 15}
 attack:

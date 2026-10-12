@@ -12,7 +12,7 @@ look: |
   everyone, and he is not going to give it back.
 level: 6
 health: 140
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: slash

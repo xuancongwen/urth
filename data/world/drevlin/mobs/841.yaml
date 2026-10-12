@@ -9,7 +9,7 @@ look: |
   cask of water to a groundling.
 level: 10
 health: 240
-silver: 200
+silver: 120
 attack:
   verb: slash
 effects:

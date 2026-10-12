@@ -11,7 +11,9 @@ level: 46
 flags: [assist]
 health: 3800
 stats: {strength: 19, constitution: 19}
-silver: 600
+silver: 360
 attack:
   kind: blunt
   verb: earthshock
+effects:
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }

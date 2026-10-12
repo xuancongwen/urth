@@ -10,10 +10,11 @@ look: |
 level: 43
 health: 3200
 stats: {intelligence: 17}
-silver: 300
+silver: 180
 attack:
   kind: fire
   verb: burn
 effects:
   - kind: ignite
     params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }

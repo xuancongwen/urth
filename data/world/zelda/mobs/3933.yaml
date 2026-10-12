@@ -8,7 +8,7 @@ look: |
   itself with its arms crossed and lashes out when you open up.
 level: 18
 flags: [assist]
-silver: 30
+silver: 18
 attack:
   kind: claw
   verb: claw

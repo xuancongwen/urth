@@ -14,7 +14,7 @@ look: |
   the castle harm.
 level: 11
 health: 260
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: slash

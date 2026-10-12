@@ -13,7 +13,7 @@ look: |
 level: 25
 health: 1200
 stats: {dexterity: 16, intelligence: 13}
-silver: 250
+silver: 150
 xp: 5000
 attack:
   kind: pierce
@@ -21,3 +21,8 @@ attack:
 spawns: { mob: 3108, every: 5, max: 3 }
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

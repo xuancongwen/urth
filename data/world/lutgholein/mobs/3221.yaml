@@ -17,3 +17,4 @@ attack:
 effects:
   - kind: dot
     params: { damage: 5 }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

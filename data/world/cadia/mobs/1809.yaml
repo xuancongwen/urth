@@ -9,7 +9,7 @@ look: |
   dakka is the whole of its tactical doctrine.
 level: 32
 flags: [assist, aggressive]
-silver: 45
+silver: 25
 attack:
   kind: pierce
   verb: dakka

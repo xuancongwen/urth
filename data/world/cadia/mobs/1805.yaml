@@ -9,7 +9,7 @@ look: |
   makes him worse than the cultists. He does not meet your eyes.
 level: 23
 flags: [assist, aggressive]
-silver: 70
+silver: 40
 attack:
   kind: fire
   verb: las-shot

@@ -9,7 +9,7 @@ look: |
   about it.
 level: 16
 flags: [assist]
-silver: 20
+silver: 12
 attack:
   kind: blunt
   verb: tail-swipe

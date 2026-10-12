@@ -11,7 +11,7 @@ level: 29
 flags: [assist, aggressive]
 health: 2600
 stats: {constitution: 16, strength: 14}
-silver: 200
+silver: 120
 attack:
   kind: blunt
   verb: slam

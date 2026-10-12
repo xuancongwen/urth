@@ -12,7 +12,7 @@ look: |
 level: 36
 health: 6000
 stats: {strength: 17, constitution: 16}
-silver: 300
+silver: 180
 armor:
   defense: 100
 attack:

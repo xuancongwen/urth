@@ -9,7 +9,7 @@ look: |
   teeth. Where there is one there are a dozen more.
 level: 10
 flags: [assist]
-silver: 8
+silver: 5
 attack:
   kind: slash
   verb: slash

@@ -13,7 +13,7 @@ look: |
 level: 11
 health: 280
 stats: {strength: 14, constitution: 13}
-silver: 60
+silver: 35
 attack:
   kind: claw
   verb: maul

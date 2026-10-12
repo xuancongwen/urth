@@ -9,9 +9,9 @@ import (
 )
 
 // Merchants: a mob with a "trades" list hands over items for silver,
-// for other items, or for both, and buys what players bring it for half
-// the item's value (a weapon or armor without one
-// is valued by its level). list shows the wares, buy trades for one, sell
+// for other items, or for both, and buys what players bring it for a
+// tenth of the item's value (a weapon or armor without one is valued by
+// its level). list shows the wares, buy trades for one, sell
 // trades one away.
 
 func isMerchant(m *Mob) bool { return len(m.Proto.Trades) > 0 }
@@ -149,9 +149,10 @@ func cmdBuy(w *World, p *Player, args string) {
 	w.act("$N does not sell that.", p.Character, m.Character, "", toChar)
 }
 
-// sellPrice is what a merchant pays for an item: half its value. A weapon
-// or armor with no stated value is worth ten silver a level, about what
-// two mobs of its level carry.
+// sellPrice is what a merchant pays for an item: a tenth of its value, so
+// a looted piece of gear is worth a few purses rather than a fortune
+// (docs/RULES.md 7.5). A weapon or armor with no stated value is worth
+// ten silver a level.
 func sellPrice(it *item.Item) int {
 	if it.Proto.HasFlag(newbieFlag) {
 		return 0 // sub issue gear is handed out free
@@ -163,10 +164,10 @@ func sellPrice(it *item.Item) int {
 	if value <= 0 {
 		return 0
 	}
-	return max(value/2, 1)
+	return max(value/10, 1)
 }
 
-// cmdSell: sell <item>. The merchant pays half the item's value.
+// cmdSell: sell <item>. The merchant pays a tenth of the item's value.
 func cmdSell(w *World, p *Player, args string) {
 	m := w.merchantHere(p)
 	if m == nil {

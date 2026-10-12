@@ -10,7 +10,7 @@ look: |
   feel it rolling off him like heat off a forge.
 level: 42
 flags: [assist, aggressive]
-silver: 120
+silver: 70
 attack:
   kind: pierce
   verb: bolt

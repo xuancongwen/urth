@@ -10,7 +10,10 @@ look: |
 level: 21
 flags: [assist, aggressive]
 health: 600
-silver: 60
+silver: 35
 attack:
   kind: pierce
   verb: talon
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

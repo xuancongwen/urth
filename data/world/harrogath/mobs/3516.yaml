@@ -12,3 +12,6 @@ stats: {strength: 16, constitution: 15}
 attack:
   kind: cold
   verb: maul
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.75 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

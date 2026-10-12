@@ -12,7 +12,7 @@ level: 48
 flags: [assist]
 health: 9000
 stats: {strength: 20, constitution: 17}
-silver: 1200
+silver: 720
 attack:
   kind: blunt
   verb: punch

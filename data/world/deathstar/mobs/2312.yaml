@@ -10,7 +10,7 @@ look: |
   corridors and has started patrolling them.
 level: 22
 flags: [wander, aggressive]
-silver: 90
+silver: 55
 attack:
   kind: fire
   verb: shoot

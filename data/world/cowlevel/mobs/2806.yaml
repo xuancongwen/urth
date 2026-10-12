@@ -9,7 +9,7 @@ look: |
   of animals that have never once lost.
 level: 26
 flags: [assist, aggressive]
-silver: 50
+silver: 30
 attack:
   kind: blunt
   verb: pound

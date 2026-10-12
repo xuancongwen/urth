@@ -13,7 +13,7 @@ level: 57
 flags: [assist, aggressive]
 health: 40000
 stats: {constitution: 19, intelligence: 19}
-silver: 2000
+silver: 1200
 attack:
   kind: psionic
   verb: lash
@@ -22,3 +22,5 @@ effects:
   - { kind: aura, params: { kind: magic, power: 0.15, verb: "pulse of the Calamity" } }
   - { kind: proc, params: { kind: magic, chance: 0.12, power: 1.3, verb: "Ultima" } }
   - { kind: soak, params: { power: 0.1 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

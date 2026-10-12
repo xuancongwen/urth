@@ -23,3 +23,5 @@ attack:
 trades:
   - { item: 3634, items: [3603] }
   - { item: 3656, silver: 7500 }
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

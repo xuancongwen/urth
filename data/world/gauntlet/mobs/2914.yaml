@@ -10,7 +10,7 @@ look: |
   and then, as if hoping it will soften.
 level: 32
 health: 2700
-silver: 220
+silver: 130
 armor:
   defense: 20
 attack:
@@ -19,3 +19,7 @@ attack:
 effects:
   - kind: proc
     params: { kind: fire, chance: 0.15, power: 0.8, verb: "gout of pit fire" }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -7,7 +7,7 @@ look: |
   it knows how to use. Someone trained it and someone is paying it.
 level: 9
 flags: [assist, aggressive]
-silver: 15
+silver: 9
 attack:
   verb: thrust
 effects:

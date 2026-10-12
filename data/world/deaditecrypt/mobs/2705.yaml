@@ -9,7 +9,13 @@ look: |
   you it is going to swallow your soul, and it means it.
 level: 16
 flags: [assist, aggressive]
-silver: 30
+silver: 18
 attack:
   kind: slash
   verb: claw
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

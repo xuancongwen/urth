@@ -9,7 +9,7 @@ look: |
   from Hell that has started to take itself seriously.
 level: 25
 flags: [assist]
-silver: 45
+silver: 25
 attack:
   kind: slash
   verb: hack

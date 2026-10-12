@@ -10,5 +10,5 @@ look: |
   drain you too if you stand in the way.
 level: 16
 health: 700
-silver: 180
+silver: 110
 stats: {intelligence: 13, dexterity: 12}

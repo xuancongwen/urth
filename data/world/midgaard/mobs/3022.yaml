@@ -8,6 +8,6 @@ look: |
 level: 10
 flags: [aggressive]
 health: 225
-silver: 35
+silver: 20
 attack:
   verb: bite

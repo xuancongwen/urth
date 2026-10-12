@@ -9,7 +9,7 @@ look: |
   barbed spear and is very good with it.
 level: 11
 flags: [assist, aggressive]
-silver: 10
+silver: 6
 stats: {dexterity: 15}
 attack:
   kind: pierce

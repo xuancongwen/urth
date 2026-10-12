@@ -10,7 +10,7 @@ look: |
   quaint.
 level: 33
 flags: [assist]
-silver: 160
+silver: 95
 attack:
   kind: slash
   verb: slash

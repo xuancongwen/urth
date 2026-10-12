@@ -11,7 +11,7 @@ look: |
 level: 24
 flags: [assist]
 health: 1100
-silver: 150
+silver: 90
 attack:
   kind: pierce
   verb: bolt

@@ -10,7 +10,7 @@ look: |
   miss.
 level: 30
 flags: [assist, aggressive]
-silver: 180
+silver: 110
 attack:
   kind: fire
   verb: shoot

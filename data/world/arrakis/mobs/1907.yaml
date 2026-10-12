@@ -9,7 +9,7 @@ look: |
   finds and drinks it dry. You are mostly water.
 level: 18
 flags: [aggressive]
-silver: 15
+silver: 9
 attack:
   kind: blunt
   verb: smother

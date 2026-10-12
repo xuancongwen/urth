@@ -9,7 +9,10 @@ look: |
   stays anywhere long. Look up.
 level: 24
 flags: [wander, aggressive]
-silver: 30
+silver: 18
 attack:
   kind: pierce
   verb: skewer
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

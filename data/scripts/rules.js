@@ -1881,7 +1881,7 @@ function useSkill(user, target, skill, e) {
 // Money (RULES 7.5): what a mob carries, in silver. 100 silver is a gold.
 // A prototype's silver field overrides this.
 // ---------------------------------------------------------------------
-var MONEY = { perLevel: 5, spread: 0.5 };  // a level-4 mob carries about 20 silver, give or take half
+var MONEY = { perLevel: 3, spread: 0.5 };  // a level-4 mob carries about 12 silver, give or take half
 
 function moneyFor(victim) {
   var base = MONEY.perLevel * (victim.level || 1);

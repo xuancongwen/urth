@@ -15,6 +15,6 @@ look: |
 level: 34
 health: 1400
 stats: {intelligence: 20, wisdom: 18, constitution: 8}
-silver: 250
+silver: 150
 attack:
   verb: punch

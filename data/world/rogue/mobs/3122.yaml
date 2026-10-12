@@ -11,7 +11,7 @@ look: |
 level: 29
 health: 1600
 stats: {intelligence: 17}
-silver: 280
+silver: 170
 xp: 7000
 attack:
   kind: cold
@@ -21,3 +21,10 @@ effects:
     params: { kind: cold, verb: volley of frozen bone, chance: 0.2, power: 1.0 }
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: fire, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.5 } }
+  - { kind: resist, params: { kind: slash, amount: 0.25 } }
+  - { kind: resist, params: { kind: blunt, amount: -0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

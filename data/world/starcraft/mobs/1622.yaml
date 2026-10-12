@@ -13,7 +13,7 @@ look: |
 level: 21
 health: 650
 stats: {strength: 14, constitution: 14}
-silver: 180
+silver: 110
 flags: [assist]
 attack:
   kind: pierce

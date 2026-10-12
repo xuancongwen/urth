@@ -76,7 +76,7 @@ func TestMerchantSell(t *testing.T) {
 	}
 	makeMerchant(w)
 	sword := *w.content.Items[10]
-	sword.Value = 81
+	sword.Value = 405
 	p.Inventory = append(p.Inventory, item.New(&sword), item.New(w.content.Items[13]))
 	send(w, 1, "sell bread")
 	if o := bob.take(); !strings.Contains(o, "worth nothing") {
@@ -128,7 +128,7 @@ func TestSellByID(t *testing.T) {
 	login(t, w, 1, "Bob")
 	p := w.players[1]
 	sword := *w.content.Items[10]
-	sword.Value = 81
+	sword.Value = 405
 	a, b := item.New(&sword), item.New(&sword)
 	p.Inventory = append(p.Inventory, a, b)
 	send(w, 1, "sell #"+strconv.FormatUint(b.ID, 10))

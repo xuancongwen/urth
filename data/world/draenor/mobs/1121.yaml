@@ -13,7 +13,7 @@ look: |
 level: 19
 health: 1100
 stats: {wisdom: 16, intelligence: 15}
-silver: 300
+silver: 180
 attack:
   kind: cold
   verb: freeze

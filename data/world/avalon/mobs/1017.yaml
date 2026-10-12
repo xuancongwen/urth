@@ -8,6 +8,12 @@ look: |
   His eyes are two cold points of light, and his hand is colder.
 level: 12
 flags: [aggressive]
-silver: 35
+silver: 20
 attack:
   verb: claw
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

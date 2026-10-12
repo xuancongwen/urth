@@ -11,7 +11,7 @@ look: |
   trooper who tried.
 level: 32
 health: 4300
-silver: 300
+silver: 180
 armor:
   defense: 30
 attack:
@@ -22,3 +22,5 @@ effects:
     params: { power: 0.12, rounds: 3, maxStacks: 2 }
   - kind: soak
     params: { power: 0.15 }
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

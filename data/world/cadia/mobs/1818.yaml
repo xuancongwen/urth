@@ -9,7 +9,7 @@ look: |
   move until he has to, and then he does not stop.
 level: 60
 flags: [assist]
-silver: 200
+silver: 120
 attack:
   kind: pierce
   verb: reaper burst

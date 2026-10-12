@@ -11,6 +11,6 @@ look: |
 level: 9
 flags: [aggressive]
 health: 220
-silver: 90
+silver: 55
 attack:
   verb: smash

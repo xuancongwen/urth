@@ -11,7 +11,9 @@ level: 45
 flags: [assist]
 health: 3400
 stats: {dexterity: 19}
-silver: 600
+silver: 360
 attack:
   kind: slash
   verb: wind-cut
+effects:
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }

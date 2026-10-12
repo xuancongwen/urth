@@ -8,7 +8,7 @@ look: |
   is. It has noticed you are full of it.
 level: 16
 flags: [aggressive]
-silver: 5
+silver: 3
 attack:
   kind: claw
   verb: rake

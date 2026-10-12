@@ -8,7 +8,7 @@ look: |
   in the old caves, and they are not interested in carrying anything
   for you. They bite, and their screech makes your teeth ache.
 level: 15
-silver: 5
+silver: 3
 attack:
   kind: bite
   verb: bite

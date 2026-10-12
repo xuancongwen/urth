@@ -11,7 +11,7 @@ look: |
   is fat with milk money.
 level: 8
 health: 160
-silver: 150
+silver: 90
 attack:
   kind: pierce
   verb: jab

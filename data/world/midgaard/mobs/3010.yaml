@@ -8,6 +8,6 @@ look: |
   anyone can remember, and nobody can remember an election.
 level: 13
 flags: [wander]
-silver: 120
+silver: 70
 attack:
   verb: slap

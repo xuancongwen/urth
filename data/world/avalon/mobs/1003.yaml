@@ -8,3 +8,5 @@ look: |
 level: 5
 attack:
   verb: sting
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

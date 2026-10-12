@@ -8,7 +8,7 @@ look: |
   looking at. It is mostly legs and teeth.
 level: 12
 flags: [assist]
-silver: 20
+silver: 12
 attack:
   kind: bite
   verb: bite

@@ -8,7 +8,12 @@ look: |
   middle. It hovers, dips, and spins at whatever comes near, and it is
   hard to hurt from below.
 level: 10
-silver: 20
+silver: 12
 attack:
   kind: slash
   verb: whirl
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

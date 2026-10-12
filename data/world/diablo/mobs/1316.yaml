@@ -11,4 +11,9 @@ flags: [assist, aggressive]
 stats: {strength: 14, constitution: 14}
 attack:
   verb: slash
-effects: [{ kind: detectHidden, params: {} }]
+effects:
+  - { kind: detectHidden, params: {} }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -11,7 +11,7 @@ look: |
 level: 18
 flags: [wander, aggressive]
 health: 700
-silver: 40
+silver: 25
 armor:
   defense: 14
 attack:

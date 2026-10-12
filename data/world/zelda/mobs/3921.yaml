@@ -13,7 +13,7 @@ look: |
 level: 20
 health: 1500
 stats: {strength: 17, constitution: 17}
-silver: 400
+silver: 240
 xp: 4000
 attack:
   kind: blunt

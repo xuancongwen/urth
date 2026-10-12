@@ -12,3 +12,7 @@ flags: [assist, aggressive]
 attack:
   kind: fire
   verb: breathe on
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.75 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.25 } }

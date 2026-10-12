@@ -9,7 +9,7 @@ look: |
   would rather eat you than talk.
 level: 15
 flags: [assist, aggressive]
-silver: 5
+silver: 3
 attack:
   kind: bite
   verb: maul

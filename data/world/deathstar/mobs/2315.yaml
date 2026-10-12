@@ -9,9 +9,13 @@ look: |
   very good at what it was built for.
 level: 28
 health: 1300
-silver: 60
+silver: 35
 attack:
   kind: pierce
   verb: inject
 effects:
   - { kind: envenom, params: { power: 0.08, rounds: 3, maxStacks: 2 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

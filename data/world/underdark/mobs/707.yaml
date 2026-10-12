@@ -10,6 +10,6 @@ look: |
   red light.
 level: 20
 health: 1090
-silver: 300
+silver: 180
 attack:
   verb: lash

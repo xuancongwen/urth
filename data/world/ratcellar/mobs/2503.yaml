@@ -9,7 +9,7 @@ look: |
   long and very busy.
 level: 3
 flags: [assist]
-silver: 3
+silver: 2
 attack:
   kind: bite
   verb: bite

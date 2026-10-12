@@ -13,7 +13,7 @@ look: |
 level: 27
 health: 1400
 stats: {strength: 16, constitution: 16, dexterity: 12}
-silver: 400
+silver: 240
 armor:
   defense: 15
 attack:

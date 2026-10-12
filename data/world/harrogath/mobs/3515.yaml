@@ -12,7 +12,7 @@ look: |
 level: 56
 health: 40000
 stats: {intelligence: 18, wisdom: 15, constitution: 14}
-silver: 1500
+silver: 900
 attack:
   verb: curse
 effects:
@@ -22,3 +22,4 @@ effects:
     params: { fraction: 0.06 }
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }

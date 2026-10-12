@@ -10,7 +10,7 @@ look: |
   did it, and so he will certainly kill you.
 level: 40
 flags: [assist, aggressive]
-silver: 200
+silver: 120
 attack:
   kind: fire
   verb: shoot

@@ -18,7 +18,7 @@ level: 38
 flags: [assist]
 health: 2600
 stats: {intelligence: 20, wisdom: 18}
-silver: 400
+silver: 240
 attack:
   kind: blunt
   verb: strike

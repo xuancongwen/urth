@@ -9,6 +9,12 @@ look: |
 level: 9
 flags: [aggressive]
 health: 230
-silver: 45
+silver: 25
 attack:
   verb: rake
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

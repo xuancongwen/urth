@@ -11,7 +11,7 @@ look: |
 level: 26
 flags: [aggressive]
 health: 1500
-silver: 40
+silver: 25
 armor:
   defense: 40
 attack:
@@ -20,3 +20,4 @@ attack:
 effects:
   - { kind: regen, params: { fraction: 0.01 } }
   - { kind: hidden, params: {} }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

@@ -8,7 +8,7 @@ look: |
   care to hear arguments about it.
 level: 8
 flags: [aggressive]
-silver: 25
+silver: 15
 attack:
   verb: hack
   kind: slash

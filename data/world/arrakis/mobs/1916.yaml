@@ -10,7 +10,7 @@ look: |
 level: 38
 flags: [assist]
 health: 2500
-silver: 200
+silver: 120
 attack:
   kind: slash
   verb: cut

@@ -13,7 +13,7 @@ look: |
   she keeps looking toward the slope that goes down to the Stone Table.
   She has her bow with her, and anyone who troubles her will feel it.
 level: 8
-silver: 30
+silver: 18
 attack:
   kind: pierce
   verb: shoot

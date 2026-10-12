@@ -11,7 +11,7 @@ look: |
   and his sidearm is out of its holster.
 level: 26
 health: 900
-silver: 300
+silver: 180
 attack:
   kind: fire
   verb: shoot

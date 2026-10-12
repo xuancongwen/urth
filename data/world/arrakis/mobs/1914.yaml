@@ -11,7 +11,7 @@ look: |
 level: 28
 flags: [assist]
 health: 1300
-silver: 300
+silver: 180
 attack:
   kind: pierce
   verb: stab

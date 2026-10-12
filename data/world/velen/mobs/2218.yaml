@@ -11,7 +11,7 @@ look: |
 level: 34
 flags: [assist]
 health: 3500
-silver: 600
+silver: 360
 armor:
   defense: 85
 attack:
@@ -23,3 +23,4 @@ effects:
     params: { power: 0.15 }
   - kind: regen
     params: { fraction: 0.005 }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }

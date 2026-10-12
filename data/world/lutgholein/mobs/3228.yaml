@@ -12,7 +12,7 @@ look: |
 level: 37
 health: 3400
 stats: {strength: 15, intelligence: 16, constitution: 15}
-silver: 350
+silver: 210
 xp: 10000
 attack:
   kind: slash
@@ -24,3 +24,8 @@ effects:
     params: { kind: unholy, power: 0.15, verb: whirl of grave dust }
   - kind: lastStand
     params: { threshold: 0.3, mult: 0.8 }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

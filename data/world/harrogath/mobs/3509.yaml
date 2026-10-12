@@ -12,7 +12,7 @@ level: 53
 flags: [aggressive]
 health: 14000
 stats: {strength: 16, constitution: 14}
-silver: 700
+silver: 420
 attack:
   verb: flail
 effects:
@@ -20,3 +20,7 @@ effects:
     params: { chance: 0.3 }
   - kind: detectHidden
     params: {}
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

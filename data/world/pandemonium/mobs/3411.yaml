@@ -13,3 +13,8 @@ stats: {intelligence: 16, dexterity: 14}
 attack:
   kind: magic
   verb: lightning
+effects:
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

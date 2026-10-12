@@ -9,7 +9,7 @@ look: |
 level: 6
 flags: [aggressive]
 health: 65
-silver: 80
+silver: 50
 stats: { strength: 7, intelligence: 16 }
 attack:
   verb: strike

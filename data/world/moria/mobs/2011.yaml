@@ -9,7 +9,7 @@ look: |
   hears it and comes.
 level: 20
 flags: [assist]
-silver: 15
+silver: 9
 attack:
   kind: blunt
   verb: club

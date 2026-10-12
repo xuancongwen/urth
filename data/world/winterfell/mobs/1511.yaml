@@ -9,6 +9,6 @@ look: |
   longer safe, and he will kill you rather than go back.
 level: 9
 flags: [aggressive]
-silver: 45
+silver: 25
 attack:
   verb: hack

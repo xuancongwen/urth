@@ -9,3 +9,5 @@ level: 2
 flags: [assist, aggressive]
 attack:
   verb: bite
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

@@ -8,7 +8,7 @@ look: |
   spoils, and it wants you to know it is not afraid of you.
 level: 8
 flags: [wander, aggressive]
-silver: 20
+silver: 12
 attack:
   verb: claw
   kind: slash

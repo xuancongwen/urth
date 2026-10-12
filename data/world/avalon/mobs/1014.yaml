@@ -10,7 +10,7 @@ look: |
   without any wind to stir it.
 level: 12
 health: 420
-silver: 90
+silver: 55
 stats: {intelligence: 18, dexterity: 13, wisdom: 14}
 attack:
   verb: curse

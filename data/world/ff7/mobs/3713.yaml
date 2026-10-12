@@ -13,7 +13,7 @@ level: 35
 flags: [assist]
 health: 2600
 stats: {intelligence: 14}
-silver: 3000
+silver: 1800
 attack:
   kind: fire
   verb: shoot

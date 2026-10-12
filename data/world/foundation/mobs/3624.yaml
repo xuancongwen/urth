@@ -16,7 +16,7 @@ look: |
 level: 45
 health: 9000
 stats: {strength: 20, dexterity: 16, constitution: 18, intelligence: 18}
-silver: 900
+silver: 540
 xp: 18000
 attack:
   kind: blunt
@@ -24,3 +24,7 @@ attack:
 effects:
   - { kind: soak, params: { power: 0.1 } }
   - { kind: steady, params: { chance: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

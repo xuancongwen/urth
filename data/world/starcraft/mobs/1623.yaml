@@ -13,10 +13,11 @@ look: |
 level: 24
 health: 1500
 stats: {wisdom: 16, intelligence: 15}
-silver: 250
+silver: 150
 attack:
   kind: psionic
   verb: psionic strike
 effects:
   - kind: proc
     params: { kind: lightning, verb: arc of psionic lightning, chance: 0.2, power: 1.0 }
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

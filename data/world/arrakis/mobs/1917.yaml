@@ -11,7 +11,7 @@ look: |
 level: 38
 flags: [assist]
 health: 3800
-silver: 500
+silver: 300
 armor:
   defense: 120
 attack:

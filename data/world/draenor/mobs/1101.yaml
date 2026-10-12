@@ -12,3 +12,8 @@ flags: [wander, aggressive]
 attack:
   kind: bite
   verb: bite
+effects:
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

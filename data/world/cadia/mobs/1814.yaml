@@ -12,7 +12,7 @@ level: 55
 flags: [aggressive]
 health: 90000
 stats: {strength: 20, constitution: 18, dexterity: 13}
-silver: 800
+silver: 480
 armor:
   defense: 600
 attack:
@@ -23,3 +23,7 @@ effects:
     params: { fraction: 0.08 }
   - kind: crit
     params: { chance: 0.1, mult: 2 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -15,7 +15,7 @@ level: 45
 flags: [assist]
 health: 14000
 stats: {strength: 18, constitution: 18, dexterity: 16, intelligence: 20}
-silver: 1000
+silver: 600
 xp: 30000
 attack:
   kind: claw
@@ -27,3 +27,8 @@ effects:
     params: { fraction: 0.15 }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

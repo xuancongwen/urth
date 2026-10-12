@@ -9,7 +9,7 @@ look: |
 level: 11
 flags: [aggressive]
 health: 295
-silver: 40
+silver: 25
 stats: {strength: 14}
 attack:
   verb: gore

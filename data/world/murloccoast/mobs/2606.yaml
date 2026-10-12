@@ -10,7 +10,7 @@ look: |
   speaks. Then they all speak at once.
 level: 11
 flags: [assist]
-silver: 12
+silver: 7
 attack:
   kind: cold
   verb: frost bolt

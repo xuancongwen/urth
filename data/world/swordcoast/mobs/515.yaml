@@ -6,6 +6,6 @@ look: |
   Dog-faced, scaled, and cowardly by itself. It is not by itself.
 level: 8
 flags: [assist, aggressive]
-silver: 8
+silver: 5
 attack:
   verb: slash

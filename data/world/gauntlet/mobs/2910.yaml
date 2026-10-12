@@ -9,7 +9,7 @@ look: |
   head while you are looking for a way round.
 level: 32
 flags: [assist, aggressive]
-silver: 20
+silver: 12
 attack:
   kind: blunt
   verb: lobbed rock

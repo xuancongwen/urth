@@ -14,7 +14,7 @@ level: 58
 flags: [assist, boss]
 health: 34000
 stats: {intelligence: 24, wisdom: 22, constitution: 20}
-silver: 3000
+silver: 1800
 xp: 45000
 attack:
   kind: magic

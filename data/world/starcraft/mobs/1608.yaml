@@ -8,7 +8,10 @@ look: |
   jerky starts. It is not alone. Zerglings are never alone.
 level: 17
 flags: [assist, aggressive]
-silver: 20
+silver: 12
 attack:
   kind: slash
   verb: claw
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

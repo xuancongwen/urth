@@ -10,10 +10,13 @@ look: |
 level: 42
 health: 3000
 stats: {dexterity: 16}
-silver: 240
+silver: 145
 attack:
   kind: cold
   verb: rake
 effects:
   - kind: chill
     params: { chance: 0.2, mult: 0.7, rounds: 2 }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

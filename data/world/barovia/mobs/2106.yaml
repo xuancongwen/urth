@@ -8,7 +8,7 @@ look: |
   watches you and waits for the others to come up on your flanks.
 level: 14
 flags: [assist, wander, aggressive]
-silver: 8
+silver: 5
 attack:
   kind: bite
   verb: bite

@@ -14,7 +14,7 @@ level: 31
 flags: [assist]
 health: 2400
 stats: {dexterity: 16, strength: 13}
-silver: 220
+silver: 130
 xp: 6500
 attack:
   kind: claw

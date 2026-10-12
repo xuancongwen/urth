@@ -9,7 +9,7 @@ look: |
   found a place where he can be the one with the sword.
 level: 14
 flags: [assist]
-silver: 25
+silver: 15
 attack:
   kind: slash
   verb: slash

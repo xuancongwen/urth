@@ -9,7 +9,7 @@ look: |
   let a southron stop them now.
 level: 11
 health: 275
-silver: 70
+silver: 40
 stats: {strength: 14, constitution: 13}
 attack:
   verb: pummel

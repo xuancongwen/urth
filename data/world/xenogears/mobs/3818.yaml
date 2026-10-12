@@ -9,7 +9,7 @@ look: |
   rules.
 level: 36
 flags: [assist, aggressive]
-silver: 80
+silver: 50
 attack:
   kind: blunt
   verb: punch

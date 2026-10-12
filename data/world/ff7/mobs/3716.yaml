@@ -13,7 +13,7 @@ level: 37
 flags: [assist]
 health: 5500
 stats: {dexterity: 16, constitution: 15}
-silver: 2500
+silver: 1500
 attack:
   kind: fire
   verb: blast

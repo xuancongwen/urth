@@ -16,7 +16,7 @@ look: |
 level: 56
 health: 16000
 stats: {intelligence: 17, wisdom: 15}
-silver: 1200
+silver: 720
 attack:
   verb: curse
 effects:

@@ -10,10 +10,11 @@ look: |
 level: 45
 health: 4000
 stats: {intelligence: 17, constitution: 15}
-silver: 400
+silver: 240
 attack:
   kind: drain
   verb: drain
 effects:
   - kind: leech
     params: { fraction: 0.1 }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }

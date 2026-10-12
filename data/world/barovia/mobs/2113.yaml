@@ -10,7 +10,7 @@ look: |
   stronger.
 level: 28
 flags: [assist, aggressive]
-silver: 40
+silver: 25
 attack:
   kind: bite
   verb: bite
@@ -21,3 +21,8 @@ effects:
     params: { fraction: 0.01 }
   - kind: hidden
     params: {}
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

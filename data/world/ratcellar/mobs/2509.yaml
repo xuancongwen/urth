@@ -12,7 +12,7 @@ look: |
   the only thing down here they are afraid of.
 level: 6
 health: 220
-silver: 60
+silver: 35
 stats: { constitution: 14, strength: 12 }
 armor:
   defense: 6

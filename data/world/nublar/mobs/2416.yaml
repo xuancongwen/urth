@@ -12,7 +12,7 @@ look: |
 level: 40
 flags: [wander, aggressive]
 health: 9000
-silver: 900
+silver: 540
 armor:
   defense: 160
 attack:

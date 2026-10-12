@@ -13,7 +13,7 @@ level: 31
 flags: [assist]
 health: 3600
 stats: {intelligence: 18, wisdom: 17, constitution: 16}
-silver: 900
+silver: 540
 xp: 13000
 attack:
   kind: fire
@@ -22,3 +22,5 @@ attack:
 effects:
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
   - { kind: proc, params: { kind: magic, verb: twin blast of fire and ice, chance: 0.15, power: 1.3 } }
+  - { kind: resist, params: { kind: fire, amount: 0.75 } }
+  - { kind: resist, params: { kind: cold, amount: 0.75 } }

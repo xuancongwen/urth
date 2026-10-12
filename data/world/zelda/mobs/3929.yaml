@@ -8,7 +8,10 @@ look: |
   current. Barinade spawns them. Touching one is a mistake.
 level: 15
 flags: [assist]
-silver: 25
+silver: 15
 attack:
   kind: magic
   verb: shock
+effects:
+  - { kind: resist, params: { kind: lightning, amount: 0.75 } }
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }

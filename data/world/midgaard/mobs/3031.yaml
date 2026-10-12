@@ -13,6 +13,10 @@ look: |
   A loose scale glitters at her throat, and she defends it.
 level: 13
 health: 200
-silver: 80
+silver: 50
 attack:
   verb: claw
+effects:
+  - { kind: resist, params: { kind: fire, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.25 } }

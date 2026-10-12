@@ -9,7 +9,7 @@ look: |
   had to use the halberd. He has practised every day of his life.
 level: 47
 flags: [assist, aggressive]
-silver: 250
+silver: 150
 attack:
   kind: slash
   verb: cleave

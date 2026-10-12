@@ -12,7 +12,7 @@ look: |
 level: 49
 health: 5000
 stats: {dexterity: 18, constitution: 13}
-silver: 2000
+silver: 1200
 attack:
   kind: slash
   verb: throw

@@ -10,7 +10,7 @@ look: |
   out, and he is beginning to wonder what that means.
 level: 22
 flags: [assist]
-silver: 90
+silver: 55
 attack:
   kind: blunt
   verb: club

@@ -12,10 +12,12 @@ look: |
 level: 38
 health: 2200
 stats: {dexterity: 15, constitution: 14}
-silver: 200
+silver: 120
 attack:
   kind: fire
   verb: bite
 effects:
   - kind: ignite
     params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }

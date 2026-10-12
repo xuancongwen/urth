@@ -14,7 +14,7 @@ look: |
 level: 14
 health: 700
 stats: {strength: 15, dexterity: 15, constitution: 15}
-silver: 120
+silver: 70
 xp: 4000
 armor:
   defense: 8
@@ -26,3 +26,7 @@ effects:
     params: { kind: cold, power: 0.35, verb: killing cold }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

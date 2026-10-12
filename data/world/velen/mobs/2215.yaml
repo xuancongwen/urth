@@ -10,7 +10,7 @@ look: |
   it offerings. Some of the offerings walk in on their own.
 level: 26
 health: 1700
-silver: 120
+silver: 70
 armor:
   defense: 22
 attack:
@@ -21,3 +21,7 @@ effects:
     params: { fraction: 0.01 }
   - kind: soak
     params: { power: 0.1 }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.25 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

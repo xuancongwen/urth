@@ -14,6 +14,6 @@ look: |
 level: 18
 health: 850
 stats: {strength: 15, constitution: 15}
-silver: 150
+silver: 90
 attack:
   verb: cleave

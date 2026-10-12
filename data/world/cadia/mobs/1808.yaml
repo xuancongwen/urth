@@ -9,7 +9,7 @@ look: |
   It is having the time of its life, and it is loud about it.
 level: 30
 flags: [assist, aggressive]
-silver: 40
+silver: 25
 attack:
   kind: slash
   verb: chop

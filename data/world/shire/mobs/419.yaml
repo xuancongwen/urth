@@ -12,7 +12,7 @@ look: |
   himself between Mr. Frodo and the road.
   Lay a hand on his master and he will take the frying pan to you.
 level: 8
-silver: 15
+silver: 9
 attack:
   kind: blunt
   verb: clang

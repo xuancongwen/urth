@@ -13,7 +13,7 @@ level: 57
 flags: [assist]
 health: 20000
 stats: {strength: 18, constitution: 17}
-silver: 1000
+silver: 600
 attack:
   verb: smite
 effects:

@@ -10,7 +10,7 @@ look: |
   watching fireworks.
 level: 22
 flags: [assist, aggressive]
-silver: 60
+silver: 35
 attack:
   kind: pierce
   verb: shoot

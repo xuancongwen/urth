@@ -12,7 +12,7 @@ look: |
 level: 7
 health: 140
 stats: { strength: 14 }
-silver: 20
+silver: 12
 flags: [wander]
 attack:
   verb: bite

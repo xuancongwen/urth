@@ -9,9 +9,13 @@ look: |
   the sun a long time and has stopped asking questions.
 level: 30
 flags: [assist, aggressive]
-silver: 90
+silver: 55
 attack:
   kind: pierce
   verb: shot
 loot:
   - { item: 3800, chance: 0.4 }
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

@@ -12,10 +12,11 @@ level: 47
 flags: [assist]
 health: 4200
 stats: {strength: 18, dexterity: 18}
-silver: 800
+silver: 480
 xp: 15000
 attack:
   kind: fire
   verb: fire-slash
 effects:
   - { kind: steady, params: { chance: 0.3 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }

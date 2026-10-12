@@ -12,7 +12,7 @@ look: |
 level: 41
 health: 2800
 stats: {intelligence: 16, dexterity: 15}
-silver: 250
+silver: 150
 attack:
   kind: fire
   verb: conjure

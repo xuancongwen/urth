@@ -9,7 +9,10 @@ look: |
   rock. When it moves, they move.
 level: 20
 flags: [assist, aggressive]
-silver: 25
+silver: 15
 attack:
   kind: slash
   verb: slash
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

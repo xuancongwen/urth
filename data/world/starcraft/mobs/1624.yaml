@@ -15,3 +15,5 @@ teaches: [twin]
 attack:
   kind: slash
   verb: slash
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

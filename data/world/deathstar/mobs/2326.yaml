@@ -13,7 +13,7 @@ look: |
 level: 55
 health: 30000
 stats: {intelligence: 20, wisdom: 20}
-silver: 2500
+silver: 1500
 armor:
   defense: 600
 attack:
@@ -27,3 +27,5 @@ effects:
   - { kind: crit, params: { chance: 0.1, mult: 2 } }
   - { kind: regen, params: { fraction: 0.005 } }
   - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 1 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }

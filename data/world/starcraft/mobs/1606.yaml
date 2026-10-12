@@ -10,6 +10,6 @@ look: |
 level: 19
 flags: [assist]
 health: 520
-silver: 110
+silver: 65
 attack:
   verb: burst

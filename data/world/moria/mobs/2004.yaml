@@ -9,7 +9,7 @@ look: |
   squeal carries.
 level: 12
 flags: [assist, wander, aggressive]
-silver: 10
+silver: 6
 attack:
   kind: pierce
   verb: stab

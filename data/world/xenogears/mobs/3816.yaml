@@ -9,9 +9,13 @@ look: |
   glory, and in the alleys behind it for money alone.
 level: 35
 flags: [assist]
-silver: 150
+silver: 90
 attack:
   kind: blunt
   verb: punch
 loot:
   - { item: 3800, chance: 0.4 }
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

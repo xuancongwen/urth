@@ -12,7 +12,7 @@ look: |
 level: 30
 health: 2400
 stats: {intelligence: 15, constitution: 14}
-silver: 200
+silver: 120
 xp: 6000
 attack:
   kind: claw
@@ -22,3 +22,8 @@ effects:
     params: { damage: 6 }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

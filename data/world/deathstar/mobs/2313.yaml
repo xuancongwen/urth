@@ -9,7 +9,7 @@ look: |
   sidearm, and the troopers will come running if he raises his voice.
 level: 24
 flags: [assist]
-silver: 150
+silver: 90
 attack:
   kind: fire
   verb: shoot

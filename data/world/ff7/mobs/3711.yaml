@@ -14,7 +14,7 @@ level: 34
 flags: [assist]
 health: 3000
 stats: {intelligence: 18, constitution: 14}
-silver: 900
+silver: 540
 attack:
   kind: drain
   verb: inject

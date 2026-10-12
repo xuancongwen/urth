@@ -9,7 +9,7 @@ look: |
   been drilling these.
 level: 23
 flags: [assist]
-silver: 34
+silver: 20
 attack:
   kind: slash
   verb: cleave

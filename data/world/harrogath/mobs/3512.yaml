@@ -11,7 +11,7 @@ look: |
 level: 55
 health: 18000
 stats: {strength: 17, constitution: 16}
-silver: 800
+silver: 480
 attack:
   kind: cold
   verb: pound
@@ -20,3 +20,5 @@ effects:
     params: { chance: 0.25, mult: 0.6, rounds: 2 }
   - kind: aura
     params: { kind: cold, power: 0.15, verb: creeping grave-frost }
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

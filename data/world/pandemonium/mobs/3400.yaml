@@ -25,3 +25,6 @@ flags: [peaceful]
 teaches: [rescue, second_wind, smite, prayer_of_healing]
 attack:
   verb: smite
+effects:
+  - { kind: resist, params: { kind: holy, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

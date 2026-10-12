@@ -12,7 +12,7 @@ look: |
 level: 50
 health: 24000
 stats: {intelligence: 19, wisdom: 16, constitution: 15}
-silver: 900
+silver: 540
 xp: 24000
 attack:
   kind: magic
@@ -24,3 +24,7 @@ effects:
     params: { kind: fire, power: 0.15, verb: storm of burning pages }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

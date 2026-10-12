@@ -15,3 +15,9 @@ teaches: [dodge, trip]
 attack:
   kind: cold
   verb: chill
+effects:
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

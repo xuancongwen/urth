@@ -9,7 +9,7 @@ look: |
   been eating well.
 level: 4
 flags: [assist]
-silver: 5
+silver: 3
 attack:
   kind: bite
   verb: bite

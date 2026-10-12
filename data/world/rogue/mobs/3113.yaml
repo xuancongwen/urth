@@ -11,10 +11,14 @@ look: |
 level: 26
 health: 1200
 stats: {strength: 14, dexterity: 15}
-silver: 160
+silver: 95
 xp: 4500
 attack:
   verb: carve
 effects:
   - kind: proc
     params: { kind: lightning, verb: crackle of lightning, chance: 0.2, power: 1.0 }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

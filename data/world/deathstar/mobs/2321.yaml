@@ -11,7 +11,7 @@ look: |
   faith disturbing.
 level: 55
 health: 26000
-silver: 2000
+silver: 1200
 armor:
   defense: 670
 attack:
@@ -22,3 +22,5 @@ effects:
   - { kind: proc, params: { kind: psionic, chance: 0.2, power: 1.2, verb: Force choke } }
   - { kind: regen, params: { fraction: 0.005 } }
   - { kind: steady, params: { chance: 0.4 } }
+  - { kind: resist, params: { kind: psionic, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.25 } }

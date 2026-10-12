@@ -12,7 +12,7 @@ look: |
 level: 33
 health: 3000
 stats: {constitution: 16, strength: 14, dexterity: 7}
-silver: 250
+silver: 150
 xp: 7500
 attack:
   kind: bite
@@ -23,3 +23,4 @@ effects:
     params: { chance: 0.15, mult: 0.7, rounds: 2 }
   - kind: regen
     params: { fraction: 0.01 }
+  - { kind: resist, params: { kind: cold, amount: 1 } }

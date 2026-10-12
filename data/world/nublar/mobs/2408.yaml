@@ -8,7 +8,7 @@ look: |
   is pebbled grey and hot to the touch. It breathes like a bellows and is
   not in a good mood, having eaten the wrong berries.
 level: 14
-silver: 20
+silver: 12
 attack:
   kind: pierce
   verb: gore

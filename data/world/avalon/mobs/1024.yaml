@@ -12,10 +12,11 @@ look: |
   the same game. His wounds close almost as soon as they are made.
 level: 12
 health: 440
-silver: 90
+silver: 55
 stats: { strength: 16, constitution: 16 }
 attack:
   verb: cleave
 effects:
   - kind: regen
     params: { fraction: 0.02 }
+  - { kind: resist, params: { kind: slash, amount: 0.5 } }

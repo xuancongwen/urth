@@ -12,7 +12,7 @@ look: |
   can. He sits with his arms around the wolf's neck and dares you to
   come closer.
 level: 6
-silver: 8
+silver: 5
 attack:
   kind: bite
   verb: bite

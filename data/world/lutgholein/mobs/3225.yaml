@@ -13,7 +13,7 @@ look: |
 level: 36
 health: 3400
 stats: {intelligence: 18, wisdom: 15, constitution: 12}
-silver: 400
+silver: 240
 xp: 10000
 attack:
   kind: magic
@@ -25,3 +25,4 @@ effects:
     params: { chance: 0.2, mult: 0.7, rounds: 2 }
   - kind: lastStand
     params: { threshold: 0.3, mult: 0.75 }
+  - { kind: resist, params: { kind: magic, amount: 0.5 } }

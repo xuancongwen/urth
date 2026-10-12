@@ -11,3 +11,5 @@ flags: [assist]
 attack:
   kind: bite
   verb: bite
+effects:
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }

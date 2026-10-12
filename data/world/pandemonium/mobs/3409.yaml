@@ -14,3 +14,8 @@ stats: {strength: 17, constitution: 15}
 attack:
   kind: fire
   verb: cleave
+effects:
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

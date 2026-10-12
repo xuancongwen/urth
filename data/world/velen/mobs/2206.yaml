@@ -9,7 +9,7 @@ look: |
   can see.
 level: 10
 flags: [assist]
-silver: 6
+silver: 4
 attack:
   kind: claw
   verb: claw

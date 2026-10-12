@@ -13,7 +13,7 @@ look: |
 level: 65
 health: 160000
 stats: {strength: 22, constitution: 20, dexterity: 15, intelligence: 16, wisdom: 14}
-silver: 2000
+silver: 1200
 armor:
   defense: 1600
 attack:

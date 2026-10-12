@@ -9,7 +9,7 @@ look: |
   not moved since you came in. He does not need to.
 level: 38
 flags: [assist, aggressive]
-silver: 250
+silver: 150
 attack:
   kind: pierce
   verb: thrust

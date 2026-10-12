@@ -9,7 +9,13 @@ look: |
 level: 28
 flags: [assist]
 health: 600
-silver: 10
+silver: 6
 attack:
   kind: cold
   verb: chilling touch
+effects:
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

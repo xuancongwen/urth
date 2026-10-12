@@ -9,7 +9,7 @@ look: |
   the same place twice, and it is never the only one.
 level: 22
 flags: [assist, aggressive]
-silver: 40
+silver: 25
 attack:
   kind: slash
   verb: slash

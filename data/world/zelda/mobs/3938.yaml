@@ -8,7 +8,7 @@ look: |
   from the water at anything on the bank. Its people are ashamed of it.
 level: 21
 flags: [assist]
-silver: 40
+silver: 25
 attack:
   kind: fire
   verb: fireball

@@ -9,7 +9,7 @@ look: |
   and they will all come if it squeaks.
 level: 2
 flags: [assist]
-silver: 2
+silver: 1
 attack:
   kind: bite
   verb: bite

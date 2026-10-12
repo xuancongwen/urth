@@ -14,7 +14,7 @@ look: |
 level: 48
 health: 14000
 stats: {intelligence: 18, constitution: 18}
-silver: 1200
+silver: 720
 armor:
   defense: 220
 attack:

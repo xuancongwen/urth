@@ -5,6 +5,6 @@ description: A bandit leans on the arena wall, picking his teeth with a knife.
 look: |
   Patched leathers and a hard grin. He has done this before.
 level: 4
-silver: 60
+silver: 35
 attack:
   verb: punch

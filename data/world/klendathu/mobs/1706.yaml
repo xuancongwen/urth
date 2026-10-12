@@ -10,7 +10,10 @@ look: |
   one.
 level: 16
 flags: [assist, aggressive]
-silver: 15
+silver: 9
 attack:
   kind: pierce
   verb: stab
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

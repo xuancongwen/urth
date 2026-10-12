@@ -10,7 +10,7 @@ look: |
   of the Galaxy, and does not need one.
 level: 31
 flags: [assist, aggressive]
-silver: 130
+silver: 80
 attack:
   kind: fire
   verb: shoot

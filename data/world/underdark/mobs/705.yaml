@@ -9,6 +9,6 @@ look: |
   him.
 level: 16
 flags: [assist, aggressive]
-silver: 70
+silver: 40
 attack:
   verb: slash

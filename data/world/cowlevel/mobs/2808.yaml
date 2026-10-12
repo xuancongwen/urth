@@ -8,7 +8,7 @@ look: |
   it sees you, it stops chewing.
 level: 22
 flags: [assist, wander]
-silver: 30
+silver: 18
 attack:
   kind: slash
   verb: chop

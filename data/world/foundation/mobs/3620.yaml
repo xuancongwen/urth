@@ -11,7 +11,7 @@ look: |
   care for visitors.
 level: 36
 flags: [assist, aggressive]
-silver: 60
+silver: 35
 attack:
   kind: blunt
   verb: smash

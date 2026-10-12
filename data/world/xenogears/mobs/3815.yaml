@@ -13,7 +13,7 @@ level: 34
 flags: [assist, boss]
 health: 4800
 stats: {strength: 22, constitution: 20}
-silver: 1200
+silver: 720
 xp: 11000
 attack:
   kind: blunt

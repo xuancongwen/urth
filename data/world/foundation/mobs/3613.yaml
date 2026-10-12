@@ -9,7 +9,7 @@ look: |
   will soon teach the Foundation a lesson. They seem very sure of it.
 level: 28
 flags: [assist]
-silver: 120
+silver: 70
 attack:
   kind: slash
   verb: slash

@@ -8,7 +8,7 @@ look: |
   desert is full of them.
 level: 28
 flags: [assist]
-silver: 40
+silver: 25
 attack:
   kind: pierce
   verb: spin

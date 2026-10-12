@@ -10,7 +10,7 @@ look: |
 level: 24
 flags: [aggressive]
 health: 1800
-silver: 250
+silver: 150
 armor:
   defense: 14
 attack:
@@ -19,3 +19,5 @@ attack:
 effects:
   - kind: soak
     params: { power: 0.15 }
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

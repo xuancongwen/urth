@@ -19,3 +19,6 @@ attack:
   verb: stab
 trades:
   - { item: 1928, items: [1927] }
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

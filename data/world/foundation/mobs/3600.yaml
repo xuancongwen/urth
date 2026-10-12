@@ -27,3 +27,9 @@ sells:
   - { item: 3604, points: 30 }   # personal force shield
   - { item: 3605, points: 35 }   # nuclear blaster
   - { item: 3606, points: 80 }   # atomic transmuter
+effects:
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

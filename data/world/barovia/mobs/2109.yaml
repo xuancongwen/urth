@@ -9,7 +9,7 @@ look: |
   for gold, and you look like a lost traveller.
 level: 18
 flags: [assist, aggressive]
-silver: 30
+silver: 18
 attack:
   kind: pierce
   verb: stab

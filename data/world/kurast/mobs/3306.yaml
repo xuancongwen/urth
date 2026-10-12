@@ -13,3 +13,5 @@ stats: {dexterity: 14}
 attack:
   kind: bite
   verb: bite
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

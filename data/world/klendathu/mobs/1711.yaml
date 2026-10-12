@@ -11,7 +11,7 @@ look: |
   you." He means it. He keeps the pistol in his lap, all the same.
 level: 28
 health: 1400
-silver: 150
+silver: 90
 attack:
   kind: pierce
   verb: shoot

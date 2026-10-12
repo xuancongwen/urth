@@ -12,6 +12,6 @@ look: |
 level: 10
 health: 160
 stats: { intelligence: 17, strength: 8 }
-silver: 120
+silver: 70
 attack:
   verb: blast

@@ -14,3 +14,4 @@ attack:
   verb: bite
 effects:
   - { kind: soak, params: { power: 0.08 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

@@ -14,6 +14,6 @@ look: |
 level: 22
 health: 600
 stats: {intelligence: 15}
-silver: 400
+silver: 240
 attack:
   verb: punch

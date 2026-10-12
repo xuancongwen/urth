@@ -13,7 +13,7 @@ look: |
   before the drink, and if you lay a hand on him he will remember it.
 level: 29
 stats: {strength: 15, constitution: 15, dexterity: 8}
-silver: 120
+silver: 70
 attack:
   kind: pierce
   verb: thrust

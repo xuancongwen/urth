@@ -9,7 +9,7 @@ look: |
   way of a man who has never thought about what the light hits.
 level: 32
 flags: [assist]
-silver: 160
+silver: 95
 attack:
   kind: blunt
   verb: club

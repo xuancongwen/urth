@@ -9,7 +9,7 @@ look: |
   the officers are watching.
 level: 19
 flags: [assist]
-silver: 60
+silver: 35
 attack:
   kind: blunt
   verb: whack

@@ -14,3 +14,8 @@ stats: {strength: 14, dexterity: 7}
 attack:
   kind: blunt
   verb: pound
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.75 } }
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: -0.5 } }

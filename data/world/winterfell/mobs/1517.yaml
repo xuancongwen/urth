@@ -10,5 +10,10 @@ look: |
   waiting for the cold to come again, and it has.
 level: 14
 health: 395
-silver: 60
+silver: 35
 stats: {strength: 14}
+effects:
+  - { kind: resist, params: { kind: cold, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

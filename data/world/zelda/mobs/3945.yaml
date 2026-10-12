@@ -12,7 +12,7 @@ level: 26
 flags: [assist]
 health: 2000
 stats: {constitution: 16}
-silver: 500
+silver: 300
 xp: 6500
 attack:
   kind: blunt
@@ -20,3 +20,8 @@ attack:
   damage: 100
 effects:
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

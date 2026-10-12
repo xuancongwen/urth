@@ -9,7 +9,10 @@ look: |
   when it moves.
 level: 26
 flags: [assist, aggressive]
-silver: 25
+silver: 15
 attack:
   kind: blunt
   verb: ram
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

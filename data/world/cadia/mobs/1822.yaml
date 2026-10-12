@@ -18,3 +18,6 @@ attack:
   verb: smite
 trades:
   - { item: 1830, items: [1805, 1805, 1805, 1805] }
+effects:
+  - { kind: resist, params: { kind: holy, amount: 1 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

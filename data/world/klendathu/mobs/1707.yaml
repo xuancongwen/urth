@@ -9,7 +9,10 @@ look: |
   grey things with the loud sticks go down if you take their legs.
 level: 18
 flags: [assist, aggressive]
-silver: 20
+silver: 12
 attack:
   kind: pierce
   verb: impale
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

@@ -10,7 +10,13 @@ look: |
   time. He is not sure you are it.
 level: 14
 health: 530
-silver: 80
+silver: 50
 stats: {strength: 16, constitution: 15}
 attack:
   verb: slash
+effects:
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.25 } }
+  - { kind: resist, params: { kind: fire, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

@@ -8,6 +8,6 @@ look: |
   you. It will fight like it, too.
 level: 10
 flags: [assist]
-silver: 5
+silver: 3
 attack:
   verb: bite

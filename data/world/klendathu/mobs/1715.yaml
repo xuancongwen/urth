@@ -9,8 +9,11 @@ look: |
   to the north, and that is all it has ever done, and all it needs to.
 level: 40
 flags: [assist, aggressive]
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: shear
-effects: [{ kind: detectHidden, params: {} }]
+effects:
+  - { kind: detectHidden, params: {} }
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

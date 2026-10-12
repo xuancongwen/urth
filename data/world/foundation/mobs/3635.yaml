@@ -20,7 +20,7 @@ level: 45
 flags: [boss]
 health: 17000
 stats: {intelligence: 22, wisdom: 20, constitution: 16, dexterity: 14}
-silver: 3000
+silver: 1800
 xp: 60000
 attack:
   kind: psionic
@@ -28,3 +28,4 @@ attack:
 effects:
   - { kind: chill, params: { chance: 0.15, mult: 0.7, rounds: 2 } }
   - { kind: steady, params: { chance: 0.5 } }
+  - { kind: resist, params: { kind: psionic, amount: 1 } }

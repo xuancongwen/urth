@@ -12,7 +12,7 @@ look: |
   if you draw on her.
 level: 24
 stats: {dexterity: 15}
-silver: 90
+silver: 55
 attack:
   kind: pierce
   verb: shoot

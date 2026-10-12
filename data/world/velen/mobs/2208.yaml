@@ -10,7 +10,7 @@ look: |
   have.
 level: 14
 flags: [assist, aggressive]
-silver: 20
+silver: 12
 attack:
   kind: slash
   verb: slash

@@ -13,7 +13,7 @@ level: 25
 flags: [assist, aggressive]
 health: 1200
 stats: {strength: 15, constitution: 15}
-silver: 300
+silver: 180
 attack:
   kind: slash
   verb: slash

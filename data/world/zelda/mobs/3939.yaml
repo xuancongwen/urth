@@ -9,7 +9,12 @@ look: |
   It keeps the shield.
 level: 23
 flags: [assist]
-silver: 45
+silver: 25
 attack:
   kind: drain
   verb: gulp
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.75 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.5 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }

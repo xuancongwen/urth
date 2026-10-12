@@ -10,7 +10,7 @@ look: |
   are twenty.
 level: 20
 flags: [assist]
-silver: 25
+silver: 15
 attack:
   kind: slash
   verb: chop

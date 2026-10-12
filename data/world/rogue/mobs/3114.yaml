@@ -13,3 +13,6 @@ stats: {strength: 15, constitution: 14}
 attack:
   kind: blunt
   verb: pound
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.75 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

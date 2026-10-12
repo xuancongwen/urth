@@ -13,7 +13,7 @@ look: |
 level: 30
 health: 3000
 stats: {strength: 17, constitution: 17, dexterity: 14, intelligence: 15}
-silver: 700
+silver: 420
 xp: 18000
 attack:
   kind: pierce
@@ -21,3 +21,7 @@ attack:
 effects:
   - kind: envenom
     params: { power: 0.1, rounds: 3, maxStacks: 3 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: fire, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

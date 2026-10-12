@@ -2502,7 +2502,7 @@ in silver, shown as gold and silver). Coins in the world are piles that
 go into the wallet on `get`; `give` and `drop` take an amount and a
 unit. Death puts the wallet in the corpse with everything else (4.6).
 
-Sources: mobs carry coin, about five silver per level with a wide
+Sources: mobs carry coin, about three silver per level with a wide
 spread from the rules' `moneyFor` hook, or a stated amount on the
 prototype. Sinks: trainers (7.4) and merchants. Open: whether anything
 else costs coin.
@@ -2512,10 +2512,23 @@ listed item for a stated price in silver, in items taken from the
 buyer's inventory, or both, so a smith can ask coin and three pelts
 for a better shield. The prices are the builder's, stated on the
 prototype; nothing is haggled and stock never runs out. A merchant
-buys anything with a value for half of it, a weapon or armor without
-a stated value counting ten silver a level (about two of its level's
-purses), and nothing flagged `quest` or `newbie`. What it buys is
-destroyed, not resold.
+buys anything with a value for a tenth of it, a weapon or armor without
+a stated value counting ten silver a level, and nothing flagged `quest`
+or `newbie`. What it buys is destroyed, not resold.
+
+Coin made scarcer (2026-10-12). Played at the middle levels, gold came
+too easily, and mostly from selling loot rather than from purses.
+Builders value gear at about ninety silver a level, so at half value a
+single looted piece sold for nine purses of its level; with a piece on
+nearly every mob and the chance drops besides, a level-thirty character
+earned a forty-gold spell in a handful of kills. A merchant now pays a
+tenth (a looted piece is worth about three purses, and a named one
+still more), and purses are three fifths of what they were: the hook's
+rate fell from five silver a level to three, and every amount stated on
+a mob was cut by the same share. The early levels, where gear sells for
+little, feel the purse cut more than the sale cut, so trainers' first
+skills take somewhat longer to afford. Quest silver (7.6) is unchanged
+and is now a larger share of income. The numbers are for playtest.
 
 ### 7.6 Quests
 
@@ -2725,10 +2738,42 @@ can list feats (7.2) and unlocked schools (6.1), and the same
 AI question for the engine's behaviour scripts, not a rules question;
 the rules only need the mob to be able to.
 
-**Resistances (decided 2026-10-12).** A mob carries `resist` effects
-(4.8) like any other: a skeleton resists pierce, a fire elemental is
-immune to fire and weak to cold. Full immunity is a builder's choice
-for named creatures and bosses, and is visible before the fight (4.8).
+**Resistances (decided 2026-10-12, content built the same day).** A
+mob carries `resist` effects (4.8) like any other: a skeleton resists
+pierce, a fire elemental is immune to fire and weak to cold. Full
+immunity is a builder's choice for named creatures and bosses, and is
+visible before the fight (4.8).
+
+The shipped world gives 269 creatures a profile by what they are, each
+a few graded entries:
+
+| Archetype | Resists | Weak to |
+|---|---|---|
+| skeleton | poison 0.75, pierce 0.5, cold 0.5, slash 0.25 | blunt 0.25, holy 0.5 |
+| corporeal undead (zombie, ghoul, mummy) | poison 0.75, drain 0.5, cold 0.25 | fire 0.25, holy 0.5 |
+| ghost | poison 0.75, physical 0.5, drain 0.5, cold 0.5 | holy 0.5 |
+| wight, White Walker | cold 0.75, poison 0.75, drain 0.5 | fire 0.5 |
+| vampire | drain 0.5, cold 0.5, poison 0.5 | fire 0.25, holy 0.5 |
+| demon | unholy 0.5, fire 0.5, poison 0.25 | holy 0.5 |
+| celestial | holy 0.75 | unholy 0.5 |
+| construct, droid | poison 0.75, drain 0.75, psionic 0.75 | lightning 0.25 |
+| fire creature, red dragon | fire 0.75 (a dragon also physical 0.25) | cold 0.5 (a dragon 0.25) |
+| frost creature | cold 0.75 | fire 0.5 |
+| plant | poison 0.5, blunt 0.25, pierce 0.25 | fire 0.5 |
+| ooze | acid 0.75, blunt 0.5, psionic 0.5, pierce 0.25 | |
+| venomous beast | poison 0.5 | |
+| psionic being (Protoss, the Mule) | psionic 0.5 | |
+| bug (Klendathu, the Zerg) | acid 0.5, poison 0.25 | |
+
+Named creatures and bosses hold their archetype's first resistance at
+immunity: Strahd and his brides cannot be drained, the Butcher and Baal
+are immune to unholy, the Red Dragon and Durin's Bane to fire.
+Individuals whose source gives them a twist have their own lines
+(Diablo resists lightning, Mephisto and Duriel cold, the Kurast
+council each its element, the firebat fire, Twinrova fire and cold,
+Death is immune to drain). No creature is immune to the physical
+family or to `all`: a fighter can always hurt anything, if slowly. A
+test holds the content to both rules.
 
 Consequences: a `mobBaseline(prototype)` hook alongside
 `itemBaseline`, same contract. Mob prototypes gain `baseline`

@@ -13,7 +13,7 @@ level: 40
 flags: [assist]
 health: 2200
 stats: {dexterity: 18, constitution: 16}
-silver: 300
+silver: 180
 attack:
   kind: blunt
   verb: body slam

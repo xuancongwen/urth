@@ -9,7 +9,12 @@ look: |
   is wounded it bleeds smoke.
 level: 50
 flags: [assist, aggressive]
-silver: 60
+silver: 35
 attack:
   kind: slash
   verb: hack
+effects:
+  - { kind: resist, params: { kind: unholy, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

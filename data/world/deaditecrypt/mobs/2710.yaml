@@ -11,9 +11,16 @@ look: |
 level: 17
 flags: [assist]
 health: 550
-silver: 100
+silver: 60
 armor:
   defense: 9
 attack:
   kind: slash
   verb: slash
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.5 } }
+  - { kind: resist, params: { kind: slash, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

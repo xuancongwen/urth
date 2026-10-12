@@ -8,7 +8,7 @@ look: |
   people he works for.
 level: 5
 flags: [aggressive]
-silver: 30
+silver: 18
 attack:
   verb: slash
 effects:

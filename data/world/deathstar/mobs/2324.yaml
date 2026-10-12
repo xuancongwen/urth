@@ -14,7 +14,7 @@ look: |
 level: 45
 health: 6500
 stats: {dexterity: 18}
-silver: 900
+silver: 540
 armor:
   defense: 300
 attack:

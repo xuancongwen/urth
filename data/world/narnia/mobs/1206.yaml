@@ -8,6 +8,6 @@ look: |
   give, and he does not think too hard about what that means.
 level: 7
 flags: [wander]
-silver: 20
+silver: 12
 attack:
   verb: punch

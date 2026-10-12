@@ -56,7 +56,7 @@ type Proto struct {
 	Sells []Sale `yaml:"sells,omitempty"`
 	// Trades makes the mob a merchant: each entry is an item it hands
 	// over for silver, other items, or both. A merchant also buys what
-	// players sell it, for half the item's value.
+	// players sell it, for a tenth of the item's value.
 	Trades []Trade `yaml:"trades,omitempty"`
 	// Loot is the mob's loot table: items its corpse may hold besides
 	// what it wears, each drawn once on a death (docs/RULES.md 5.3).

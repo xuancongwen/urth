@@ -11,7 +11,7 @@ look: |
 level: 24
 health: 1000
 stats: {intelligence: 15}
-silver: 150
+silver: 90
 xp: 4000
 attack:
   verb: strike
@@ -19,3 +19,7 @@ spawns: { mob: 3106, every: 4, max: 3 }
 effects:
   - kind: proc
     params: { kind: fire, verb: fireball, chance: 0.2, power: 1.0 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

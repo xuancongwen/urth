@@ -11,7 +11,7 @@ look: |
   checks your kit without asking and tells you to keep your head down.
   "Bugs don't care how cute you are."
 level: 24
-silver: 60
+silver: 35
 attack:
   kind: pierce
   verb: burst

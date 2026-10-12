@@ -17,3 +17,5 @@ effects:
     params: { chance: 0.15, mult: 0.7, rounds: 2 }
   - kind: hidden
     params: {}
+  - { kind: resist, params: { kind: cold, amount: 0.75 } }
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

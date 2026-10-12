@@ -9,7 +9,7 @@ look: |
   carries a stick.
 level: 10
 flags: [assist, wander]
-silver: 8
+silver: 5
 stats: {dexterity: 14}
 attack:
   kind: pierce

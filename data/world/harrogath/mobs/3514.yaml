@@ -13,7 +13,7 @@ look: |
 level: 55
 health: 16000
 stats: {strength: 16, constitution: 16}
-silver: 1200
+silver: 720
 attack:
   verb: cleave
 effects:
@@ -23,3 +23,9 @@ effects:
     params: { power: 0.06, rounds: 3, maxStacks: 2 }
   - kind: regen
     params: { fraction: 0.005 }
+  - { kind: resist, params: { kind: poison, amount: 1 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.5 } }
+  - { kind: resist, params: { kind: slash, amount: 0.25 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: blunt, amount: -0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

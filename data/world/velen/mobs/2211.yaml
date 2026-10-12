@@ -10,10 +10,15 @@ look: |
   seems to, and when she strikes it is like a sudden stroke of heat.
 level: 16
 health: 520
-silver: 30
+silver: 18
 attack:
   kind: cold
   verb: rake
 effects:
   - kind: dodge
     params: { amount: 0.08 }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

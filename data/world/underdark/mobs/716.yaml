@@ -12,7 +12,7 @@ look: |
   and he is afraid of his mother.
 level: 17
 health: 600
-silver: 150
+silver: 90
 attack:
   verb: slash
 effects:

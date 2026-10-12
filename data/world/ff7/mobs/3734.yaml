@@ -12,7 +12,7 @@ level: 53
 flags: [assist, aggressive]
 health: 30000
 stats: {constitution: 18, intelligence: 18}
-silver: 1500
+silver: 900
 attack:
   kind: cold
   verb: lash
@@ -20,3 +20,5 @@ effects:
   - { kind: attacks, params: { amount: 1 } }
   - { kind: proc, params: { kind: magic, chance: 0.15, power: 1.2, verb: "Blue Light" } }
   - { kind: thorns, params: { kind: magic, fraction: 0.1, verb: "reflecting skin" } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

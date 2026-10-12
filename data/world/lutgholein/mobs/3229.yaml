@@ -13,7 +13,7 @@ look: |
 level: 38
 health: 5000
 stats: {strength: 18, constitution: 18, intelligence: 12, dexterity: 12}
-silver: 600
+silver: 360
 xp: 25000
 attack:
   kind: claw
@@ -25,3 +25,7 @@ effects:
     params: { chance: 0.25, mult: 0.7, rounds: 2 }
   - kind: aura
     params: { kind: cold, power: 0.12, verb: holy freeze }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

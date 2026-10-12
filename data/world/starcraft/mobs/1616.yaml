@@ -9,10 +9,11 @@ look: |
   perfectly. She is deciding whether you are worth the effort.
 level: 23
 health: 1100
-silver: 200
+silver: 120
 attack:
   kind: psionic
   verb: psionic storm
 effects:
   - kind: proc
     params: { kind: lightning, verb: arc of psionic lightning, chance: 0.2, power: 1.0 }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }

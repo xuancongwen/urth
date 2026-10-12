@@ -12,9 +12,14 @@ level: 58
 flags: [assist]
 health: 14000
 stats: {strength: 16, dexterity: 17}
-silver: 800
+silver: 480
 attack:
   verb: rake
 effects:
   - kind: leech
     params: { fraction: 0.08 }
+  - { kind: resist, params: { kind: drain, amount: 1 } }
+  - { kind: resist, params: { kind: physical, amount: 0.5 } }
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

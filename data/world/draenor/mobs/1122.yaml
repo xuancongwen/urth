@@ -12,7 +12,7 @@ look: |
 level: 15
 health: 600
 stats: {strength: 15, constitution: 14}
-silver: 180
+silver: 110
 attack:
   verb: hew
 effects:

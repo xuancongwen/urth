@@ -10,9 +10,13 @@ level: 58
 flags: [assist]
 health: 14000
 stats: {constitution: 17}
-silver: 600
+silver: 360
 attack:
   verb: claw
 effects:
   - kind: envenom
     params: { power: 0.08, rounds: 3, maxStacks: 2 }
+  - { kind: resist, params: { kind: unholy, amount: 1 } }
+  - { kind: resist, params: { kind: fire, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

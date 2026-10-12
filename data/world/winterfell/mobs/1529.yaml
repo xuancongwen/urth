@@ -12,7 +12,7 @@ look: |
   and looses, and a crow falls off the outer wall. He seems to want
   you to be impressed.
 level: 11
-silver: 70
+silver: 40
 attack:
   kind: pierce
   verb: shoot
