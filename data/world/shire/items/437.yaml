@@ -1,0 +1,18 @@
+vnum: 437
+name: a circlet of river-reeds
+keywords: [circlet, river-reeds, river, reeds, reed]
+description: A circlet of green river-reeds, plaited and still fresh, lies here.
+look: |
+  River-reeds from the Withywindle, plaited into a ring and threaded
+  with a few blue flowers that do not wilt. Goldberry plaits them, and
+  Tom gives them away for a song, or sells them if you cannot sing.
+  Worn, the head feels clear and full, like the river in spring.
+type: armor
+slot: head
+weight: 1
+level: 15
+baseline: cloth
+value: 600
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.08 } }

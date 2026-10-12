@@ -12,10 +12,16 @@ look: |
   off more than once. He found knives in the barrow-mounds long ago,
   forged by Men of Westernesse against the Dark Lord, and he will
   give you one for a splinter of that willow's heart, so he can sing
-  it back to sleep. Type 'list'.
+  it back to sleep. Type 'list'. He belongs to no side and serves no
+  lord, and to those who have given themselves to the balance he will
+  sing the songs that bind roots, harden bark, and call the thunder.
+  Type 'practice'.
 level: 20
 flags: [peaceful]
+teaches: [entangle, barkskin, call_lightning]
 attack:
   verb: stamp
 trades:
   - { item: 434, items: [412] }
+  - { item: 437, silver: 600 }
+  - { item: 438, silver: 1000 }

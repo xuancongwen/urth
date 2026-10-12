@@ -1,0 +1,21 @@
+vnum: 2340
+name: a Sith holocron
+keywords: [sith, holocron, pyramid, crimson]
+description: A small black pyramid of glass, lit from within by red light, lies here.
+look: |
+  A pyramid of black crystal the size of a fist, lit from inside by a
+  slow red pulse like a heartbeat. The Emperor keeps it by his throne;
+  the teachings of Sith dead for a thousand years are locked in it, and
+  some of them are awake. Power meant to hurt comes stronger through it,
+  and sometimes it comes as lightning.
+type: armor
+slot: hold
+weight: 1
+level: 55
+value: 11000
+effects:
+  - { kind: spellPower, params: { mult: 1.15, kind: damage } }
+  - { kind: spellCrit, params: { chance: 0.08, mult: 2, kind: damage } }
+  - { kind: penetration, params: { amount: 0.15 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

@@ -1,0 +1,19 @@
+vnum: 760
+name: a drow spellweaver's circlet
+keywords: [drow, spellweaver's, spellweaver, circlet, mithral]
+description: A circlet of black mithral worked into a web lies here.
+look: |
+  Black mithral drawn as fine as spider silk and worked into a web that
+  sits close on the brow, with a single chip of violet at the centre.
+  The wizards of Menzoberranzan wear them in the Sorcere. They make a
+  spell harder to throw off, and the mind behind it deeper.
+type: armor
+slot: head
+weight: 1
+level: 17
+baseline: cloth
+value: 700
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: penetration, params: { amount: 0.06, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.06 } }

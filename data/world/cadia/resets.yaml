@@ -77,7 +77,7 @@ resets:
   - { mob: 1812, room: 1822, max: 9 }   # at the foot of the pylon
   - { mob: 1812, room: 1822, max: 9 }   # and another
   - { mob: 1823, room: 1822 }   # Eldrad Ulthran in the pylon's shadow, who trades a spirit stone for the shard
-  - { mob: 1813, room: 1823, equip: [{ item: 1810 }, { item: 1805 }, { item: 1805 }] }   # Zaraphiston at the pylon, with the shard he cut from it
+  - { mob: 1813, room: 1823, equip: [{ item: 1810 }, { item: 1805 }, { item: 1805 }, { item: 1833 }, { item: 1835, slot: wield }] }   # Zaraphiston at the pylon, with the shard he cut from it and a scroll of the finger of death, the Staff of Changing in his hand
   # --- the Blood God ---
   - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # bloodletters on the field of skulls
   - { mob: 1816, room: 1824, max: 6, equip: [{ item: 1805 }] }   # and another

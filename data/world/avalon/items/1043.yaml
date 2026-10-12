@@ -1,0 +1,17 @@
+vnum: 1043
+name: a silver crescent pendant
+keywords: [silver, crescent, pendant, moon]
+description: A silver crescent on a fine chain lies here.
+look: |
+  A crescent moon of thin silver on a chain fine as hair, cold as lake
+  water and never warming. The priestesses of the Lady wear one each and
+  sell a few to pilgrims. Worn, it makes the god's spells come a little
+  stronger, as if the Lady were listening.
+type: armor
+slot: neck
+weight: 1
+level: 10
+value: 280
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: spellPower, params: { mult: 1.05, branch: divine } }

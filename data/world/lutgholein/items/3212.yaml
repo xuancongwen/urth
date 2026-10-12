@@ -26,3 +26,7 @@ effects:
     params: { power: 0.08 }
   - kind: steady
     params: { chance: 0.25 }
+  - kind: spellPower
+    params: { mult: 1.10, branch: arcane }
+  - kind: manaMax
+    params: { amount: 0.20 }

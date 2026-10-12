@@ -1,0 +1,18 @@
+vnum: 3339
+name: a jade amulet of Kurast
+keywords: [jade, amulet, kurast, pendant]
+description: A carved jade amulet on a gold chain lies here.
+look: |
+  A disc of green jade carved with a coiled serpent, on a chain of fine
+  Kurast gold. Ormus says it was a mage's, before the Zakarum, and that
+  the serpent is not a serpent. Worn, it fills the mind like a cistern,
+  and lets it fill again even in a fight.
+type: armor
+slot: neck
+weight: 1
+level: 40
+value: 3800
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.12 } }
+  - { kind: manaFight, params: { fraction: 0.01 } }

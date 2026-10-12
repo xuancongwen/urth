@@ -16,7 +16,7 @@ Levels in walking order: gulls 3, wolves 4, yetis and the scout 5,
 then at the cairn Heafstaag, one-eyed king of the Tribe of the Elk (8,
 200 health; his great axe), Biggrin 7, and up the slopes of Kelvin's
 Cairn, in the wreck of the crystal tower, the shade of Akar Kessell
-(10, 280 health; his Hosttower robe), still calling for the Shard;
+(10, 280 health; his Hosttower robe and a sliver of Crenshinibon), still calling for the Shard;
 below, the bear 8, goblins 8, and the chieftain 10.
 
 Kemp of Targos (10; his sealskin coat) quarrels with Cassius in the
@@ -64,7 +64,8 @@ one-horned helm), and Drizzt (20; Icingdeath in hand and Twinkle
 beside it, both numbered in the Underdark's item block).
 
 Notable items. Uniques: Heafstaag's great axe (8), Kessell's
-Hosttower robe (10), Kemp's sealskin coat (10), and on the goblin chieftain Aegis-fang and
+Hosttower robe (10), a sliver of Crenshinibon (644, 10, held, on
+Kessell's shade; arcane spells stronger, mana, Intelligence), Kemp's sealskin coat (10), and on the goblin chieftain Aegis-fang and
 Crenshinibon (10, unidentified: it whispers, and it takes). The chieftain's
 dwarven war-belt soaks blows. Ordinary gear is carried by the yetis,
 scout, bear, and goblins, or lies on the tundra and in the mine.

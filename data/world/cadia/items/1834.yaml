@@ -1,0 +1,24 @@
+vnum: 1834
+name: a wraithbone staff
+keywords: [wraithbone, staff, eldar, bone, ghost]
+description: A slender staff of pale, seamless wraithbone lies here.
+look: |
+  A staff grown, not carved, from wraithbone, the psychoplastic the
+  Eldar sing into shape: pale, smooth, warm, and seamless from end to
+  end, with a spirit stone set at the head. Eldrad parts with them
+  reluctantly, and only to those who will use them against the
+  Archenemy.
+type: weapon
+weight: 4
+level: 50
+baseline: staff
+value: 8000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: spellPower, params: { mult: 1.1, branch: arcane } }
+  - { kind: spellCrit, params: { chance: 0.05, mult: 1.5, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.12 } }

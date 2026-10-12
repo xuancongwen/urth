@@ -1,0 +1,18 @@
+vnum: 3435
+name: a storm caster's orb
+keywords: [storm, caster's, caster, orb, lightning]
+description: A sphere of black glass full of trapped lightning lies here.
+look: |
+  A ball of black glass, heavy as lead, with a storm going on inside it:
+  tiny forks of lightning that hit the glass and leave no mark. The
+  storm casters of the Plains of Despair throw them at the angels. Held,
+  it lends fire and lightning the force of the storm.
+type: armor
+slot: hold
+weight: 1
+level: 48
+value: 6000
+effects:
+  - { kind: spellPower, params: { mult: 1.12, school: evocation } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: spellCrit, params: { chance: 0.04, mult: 1.5, school: evocation } }

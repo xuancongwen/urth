@@ -5,7 +5,8 @@ resets:
   - { mob: 2101, room: 2104 }                                   # Ismark drinking in the corner
   - { mob: 2120, room: 2103 }                                   # van Richten, as Rictavio, on the dry fountain, who teaches the coup de grace
   - { mob: 2119, room: 2130, equip: [{ item: 2102, slot: wield }] }   # Ireena in the mansion, by her father's coffin, with a silvered longsword
-  - { mob: 2102, room: 2107 }                                   # Father Donavich at the altar, who teaches
+  - { mob: 2124, room: 2110 }                                   # Lady Fiona Wachter at the crypt stair, who teaches the Evil god's Dread, Malediction, and Harm
+  - { mob: 2102, room: 2107 }                                   # Father Donavich at the altar, who teaches; Smite and Prayer of Healing to the Good god's apostles
   - { item: 2100, room: 2107 }                                  # a flask of holy water left on a pew
   - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }  # zombies at the burgomaster's door
   - { mob: 2107, room: 2105, max: 6, equip: [{ item: 2105 }] }
@@ -52,4 +53,4 @@ resets:
   - { mob: 2115, room: 2128, equip: [{ item: 2123, slot: head }, { item: 2109 }] }   # Ludmilla, keeping the Holy Symbol of Ravenkind
   - { mob: 2116, room: 2129, equip: [{ item: 2123, slot: head }] }   # Anastrasya at her mirror
   - { mob: 2117, room: 2125, equip: [{ item: 2123, slot: head }] }   # Volenta on the tower landing
-  - { mob: 2118, room: 2126, equip: [{ item: 2111 }, { item: 2110 }] }   # Strahd atop the tower, with his cloak and his journal
+  - { mob: 2118, room: 2126, equip: [{ item: 2111 }, { item: 2110 }, { item: 2132 }] }   # Strahd atop the tower, with his cloak, his journal, and the scroll of unholy word

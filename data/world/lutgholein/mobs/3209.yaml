@@ -9,10 +9,18 @@ look: |
   became. "Horazon," he says, tapping a page. "The great summoner. He
   built a sanctuary out of the world, and some say his madness lives in
   it still. Look beneath the palace." He sells a staff or two to those
-  who would take up the art. Type 'list'.
+  who would take up the art. Type 'list'. He teaches, too, to those
+  who have found a school. Type 'practice'. "The Summoner keeps a leaf
+  of Horazon's own grimoire about him," he says, "the Weird, a spell
+  of fear. And when Tyrael was bound, they say his ward of seven
+  colours fell at his feet. It lies there still, under the Lord of
+  Pain."
 level: 30
 flags: [peaceful]
+teaches: [cone_of_cold, phantasmal_killer, iron_body, tensers_transformation, cloudkill, globe_of_invulnerability, true_seeing, hold_monster, chain_lightning, mislead, circle_of_death, disintegrate]
 attack:
   verb: rap
 trades:
   - { item: 3232, silver: 1000 }
+  - { item: 3235, silver: 2400 }
+  - { item: 3236, silver: 2000 }

@@ -26,3 +26,7 @@ effects:
     params: { stat: intelligence, amount: 3 }
   - kind: stat
     params: { stat: wisdom, amount: 2 }
+  - kind: spellPower
+    params: { mult: 1.12, school: necromancy }
+  - kind: manaMax
+    params: { amount: 0.15 }

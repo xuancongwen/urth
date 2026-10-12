@@ -30,6 +30,7 @@ resets:
   - { item: 1513, room: 1519 }  # a blue winter rose
   - { mob: 1526, room: 1520 }   # Bran on the godswood path, dreaming of the three-eyed crow
   - { mob: 1527, room: 1520, equip: [{ item: 1523, slot: wield }] }   # and Hodor, who carries him, with a sentinel-pine staff
+  - { mob: 1531, room: 1521 }   # Osha at the heart tree, who teaches the Neutral god's Entangle, Barkskin, and Call Lightning
   # --- the crypts ---
   - { mob: 1516, room: 1516, max: 2 }
   - { item: 1503, room: 1517 }  # dragonglass in a broken tomb
@@ -45,6 +46,7 @@ resets:
   - { mob: 1513, room: 1526, equip: [{ item: 1512, slot: body }, { item: 1524, slot: wrist1 }, { item: 1503 }, { item: 1530 }] }   # the warlord, his bands, and the Horn of Joramun
   - { mob: 1510, room: 1527 }
   - { item: 1520, room: 1527 }  # a stone maul in the frozen stream
+  - { item: 1538, room: 1527 }  # a weirwood seed under the young weirwood, the Neutral god's sacrifice
   # --- beyond the Wall, come south ---
   - { mob: 1514, room: 1528, max: 3 }
   - { item: 1525, room: 1528 }  # and his boots

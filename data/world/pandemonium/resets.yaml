@@ -1,7 +1,7 @@
 interval_seconds: 300
 resets:
   # the Pandemonium Fortress
-  - { mob: 3400, room: 3401 }                                   # Tyrael in his hall, beside the portal to Harrogath; teaches rescue and second wind
+  - { mob: 3400, room: 3401 }                                   # Tyrael in his hall, beside the portal to Harrogath; teaches rescue and second wind, and Smite and Prayer of Healing to the Good god's apostles
   - { mob: 3401, room: 3402 }                                   # Jamella among her wares
   - { mob: 3402, room: 3403 }                                   # Halbu at his anvil, who teaches sunder
   - { mob: 3403, room: 3404 }                                   # Hadriel watching the plain from the gate; teaches shield block and riposte
@@ -20,7 +20,7 @@ resets:
   - { mob: 3407, room: 3409, max: 4, equip: [{ item: 3421, slot: hands }] }
   - { mob: 3407, room: 3409, max: 4 }
   - { mob: 3407, room: 3422, max: 4, equip: [{ item: 3421, slot: hands }] }  # one keeping watch on the rim
-  - { mob: 3408, room: 3410, equip: [{ item: 3412, slot: hold }] }   # Izual in the fallen star, holding his broken feather
+  - { mob: 3408, room: 3410, equip: [{ item: 3412, slot: hold }, { item: 3434 }] }   # Izual in the fallen star, holding his broken feather, with the scroll of holy word
   # the City of the Damned
   - { mob: 3409, room: 3411, max: 3, equip: [{ item: 3422, slot: wield }, { item: 3405 }] }   # a pit lord at the gate, with a shed horn
   - { mob: 3409, room: 3413, max: 3, equip: [{ item: 3422, slot: wield }, { item: 3405 }] }   # pit lords in the burning temple
@@ -29,7 +29,7 @@ resets:
   - { mob: 3410, room: 3412, max: 4, equip: [{ item: 3423, slot: wield }, { item: 3405 }] }   # venom lords circling the avenue
   - { mob: 3410, room: 3412, max: 4, equip: [{ item: 3423, slot: wield }] }
   # the River of Flame
-  - { mob: 3411, room: 3414, max: 6, equip: [{ item: 3424, slot: wrist1 }] }  # storm casters across the river
+  - { mob: 3411, room: 3414, max: 6, equip: [{ item: 3424, slot: wrist1 }, { item: 3435, slot: hold }] }   # storm casters across the river, one with a storm in a glass orb
   - { mob: 3411, room: 3415, max: 6, equip: [{ item: 3424, slot: wrist1 }] }  # and on the burning shore
   - { mob: 3411, room: 3415, max: 6 }
   - { mob: 3412, room: 3416, equip: [{ item: 3407, slot: wield }] }   # Hephasto at the Hellforge, with its hammer
@@ -38,7 +38,7 @@ resets:
   - { mob: 3413, room: 3418, max: 5, equip: [{ item: 3425, slot: wield }] }  # and loping over the outer court
   - { mob: 3413, room: 3418, max: 5, equip: [{ item: 3425, slot: wield }] }
   - { mob: 3413, room: 3418, max: 5 }
-  - { mob: 3411, room: 3419, max: 6, equip: [{ item: 3424, slot: wrist1 }] }  # storm casters attending the Grand Vizier
+  - { mob: 3411, room: 3419, max: 6, equip: [{ item: 3424, slot: wrist1 }, { item: 3435, slot: hold }] }   # storm casters attending the Grand Vizier, one with a storm in a glass orb
   - { mob: 3411, room: 3419, max: 6, equip: [{ item: 3424, slot: wrist1 }] }
   - { mob: 3415, room: 3419, equip: [{ item: 3413, slot: hold }, { item: 3406 }] }   # the Grand Vizier, his tome, and a fragment of his seal
   - { mob: 3414, room: 3420, max: 3, equip: [{ item: 3426, slot: legs }] }   # oblivion knights in their rows

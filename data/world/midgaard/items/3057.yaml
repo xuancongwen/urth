@@ -1,0 +1,21 @@
+vnum: 3057
+name: an apprentice's wand
+keywords: [apprentice's, apprentice, wand, willow]
+description: A short willow wand with a brass ferrule lies here.
+look: |
+  A plain willow switch a forearm long, peeled and oiled, with a brass
+  cap at the business end that is already scorched. The wizard sells a
+  dozen a season to boys who want to be him. It does not do much, but it
+  does something: the mind it is pointed with seems to have a little
+  more in it.
+type: weapon
+weight: 1
+level: 1
+baseline: staff
+value: 30
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: manaMax, params: { amount: 0.05 } }

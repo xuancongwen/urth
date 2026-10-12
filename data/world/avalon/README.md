@@ -22,7 +22,10 @@ wisp-lights for coin, a boar-hide jerkin for coin and two boar hides
 pinches of fae dust (from the pixies). The priestess of the Lady (1015)
 sells cider for coin, the Lady's scabbard for coin and a wyvern scale
 (from the Tor wyvern), and the charm for coin and two raven feathers
-(from Morgan's ravens).
+(from Morgan's ravens). She also sells caster gear, a silver crescent pendant (1043; 10,
+Wisdom, divine spells stronger) for 280 and an applewood staff (1044;
+10, Wisdom, a faith shield after a helpful spell) for 300, and teaches
+the Good god's Bless and Smite to its apostles.
 
 The people of the legend: Sir Gawain (1003) on the Apple Strand, who
 teaches enhanced damage and gives the green girdle for the Green

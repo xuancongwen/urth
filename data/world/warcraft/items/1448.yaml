@@ -1,0 +1,25 @@
+vnum: 1448
+name: Atiesh, Greatstaff of the Guardian
+keywords: [atiesh, greatstaff, guardian, staff, raven]
+description: A tall black staff crowned with a silver raven's skull lies here.
+look: |
+  A staff as tall as a man, of black wood shod in silver, crowned with a
+  raven's skull in silver and a blue gem in its eye. It is the staff of
+  the Guardian of Tirisfal, and Medivh has carried it since his mother
+  gave it up, and something has been carrying him. It holds a deep well
+  of the Art, sharpens every working, and makes it very hard to resist.
+type: weapon
+weight: 4
+level: 20
+baseline: staff
+value: 3000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.12, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: penetration, params: { amount: 0.1, branch: arcane } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

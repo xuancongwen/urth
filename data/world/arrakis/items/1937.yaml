@@ -1,0 +1,17 @@
+vnum: 1937
+name: a scroll of storm of vengeance
+keywords: [scroll, storm, vengeance, fremen, prayer]
+description: A scroll of spice-paper, sand still in its folds, lies here.
+look: |
+  A long strip of spice-paper, written in the Chakobsa of the Fremen,
+  wound around a wand of desert wood. It is the storm prayer, the Storm
+  of Vengeance, that the sayyadina say calls the Coriolis down on the
+  enemies of the sietch: hail and sand and lightning, and those caught
+  in it bow and crawl. Feyd-Rautha took it from a sietch he burned and
+  keeps it as a trophy, not knowing what it is. An apostle of the
+  Neutral god, high enough and wise enough, can study it; the paper
+  turns to sand as the prayer goes in.
+type: other
+weight: 1
+value: 2500
+spell: storm_of_vengeance

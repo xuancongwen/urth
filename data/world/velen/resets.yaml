@@ -50,6 +50,7 @@ resets:
   # --- the woods ---
   - { mob: 2214, room: 2220, equip: [{ item: 2201 }] }          # the werewolf, and the silver sword of the witcher it ate
   - { mob: 2226, room: 2219 }                                   # Keira Metz at her hut by the woods, trading her lamp
+  - { mob: 2228, room: 2219 }                                   # Mousesack, listening to the woods, who teaches the Neutral god's Call Lightning and Restoration
   - { mob: 2215, room: 2222 }                                   # the leshen in its grove
   # --- Crookback Bog ---
   - { mob: 2213, room: 2223, max: 4 }                           # foglets at the bog's edge

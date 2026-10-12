@@ -1,0 +1,17 @@
+vnum: 3062
+name: a primer of the Art
+keywords: [primer, art, book, tome]
+description: A small, heavily thumbed book with a red cover lies here.
+look: |
+  'A Primer of the Art, for Students of the Second Year', in the
+  sorcerer's own crabbed hand, with his corrections in a second ink and
+  his corrections of his corrections in a third. Most of it is about why
+  spells fail. Held while casting, it reminds you.
+type: armor
+slot: hold
+weight: 1
+level: 10
+value: 260
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: penetration, params: { amount: 0.05, branch: arcane } }

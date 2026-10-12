@@ -70,7 +70,8 @@ something found in Midgaard as well as coin:
 | the shopkeeper | 3020 | torch, brass lantern, backpack, wooden shield |
 | the armourer | 3021 | jerkin, boots, iron helm; **bronze-bound shield: 150 silver + two sewer rat hides** (rats in the sewers) |
 | the weaponsmith | 3022 | dagger, short sword, war hammer; **fine steel broadsword: 180 silver + a lump of scrap iron** (the dump) |
-| the wizard | 3023 | ring of the owl; **amulet of warding: 120 silver + two pinches of grave dust** (graveyard zombies); fido-bone charm: two gnawed bones (beastly fidos) |
+| the wizard | 3023 | ring of the owl; **amulet of warding: 120 silver + two pinches of grave dust** (graveyard zombies); fido-bone charm: two gnawed bones (beastly fidos); caster gear: apprentice's wand (1, 30s), novice's robe (1, 25s), glass orb (5, 120s), circlet of copper wire (5, 100s) |
+| the sorcerer | 3008 | caster gear: yew staff of the Mages' Guild (10, 300s), primer of the Art (10, 260s) |
 | the bartender | 3007 | dark ale, firebreather |
 
 ## Mobs
@@ -85,6 +86,13 @@ reality), the mayor (13), the Peacekeeper (14), and Hassan (15) in the
 Grunting Boar. Peaceful: the shopkeepers, the banker, the high priest, the sorcerer, the master thief
 (teaches riposte and backstab), the warrior guildmaster (teaches bash
 and twin), the fencing master in the training hall (teaches feint).
+
+Arcane trainers, for a character who has found the school: the
+wizard in his magic shop (3001, room 3023) teaches magic missile,
+shield, mage armor, stone fist, acid arrow, and web; the sorcerer up
+the tower (3016, room 3008) teaches true strike, chill touch, color
+spray, mind spike, see invisible, invisibility, sleep, ray of
+enfeeblement, and mirror image.
 
 The Mayor's lost ledger (3035) is a quest item, planted only by a
 questmaster.
@@ -106,6 +114,14 @@ questmaster.
 | 3038 | the gravedigger's shovel: finishes the failing and the staggered | 5 | the gravedigger |
 | 3041 | a bag of holding (holds 150) | - | the pickpocket |
 | 3052 | the big bag (holds 100) | - | the City Dump |
+
+Caster gear, sold (RULES 6.6; Intelligence, mana, spell power): 3057
+an apprentice's wand (1; wand, more mana), 3058 a novice's robe (1;
+Intelligence), 3059 a glass orb (5; held, arcane spells 5 percent
+stronger), 3060 a circlet of copper wire (5; Intelligence, mana), all
+from the wizard; 3061 a yew staff of the Mages' Guild (10; staff,
+Intelligence, mana) and 3062 a primer of the Art (10; held,
+Intelligence, arcane spells harder to resist), from the sorcerer.
 
 Ordinary finds: broken bottle (drunk, 2), janitor's push-broom (2),
 studded dog collar (Fido, 3), frayed rope belt (beggar, 3), thief's

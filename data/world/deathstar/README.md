@@ -24,7 +24,7 @@ control room; his E-11), Admiral Motti (26, hoarse, in the conference
 room; his cap), Grand Moff Tarkin (35, weak but armoured, on the
 overbridge; his code cylinder), the Royal Guard captain (38; a force
 pike), Boba Fett (his helmet), Vader (his lightsaber and his helmet),
-and the Emperor (his robe). The dianoga (26) in the compactor and
+and the Emperor (his robe and a Sith holocron). The dianoga (26) in the compactor and
 the IT-O interrogation droid (28) are tough single mobs.
 
 Levels, roughly in walking order: stormtroopers 15, squad leaders 16,
@@ -45,7 +45,10 @@ lightsaber (55; red, crits at the cap and hard, Strength, a
 little block), Darth Vader's helmet (55; Constitution, Strength, less
 damage taken, steady), Boba Fett's helmet (45; sees the hidden, less
 damage taken, Dexterity, Constitution), the Emperor's robe (55;
-Intelligence, Wisdom, less damage taken, a dodge, sees the invisible). Common finds: stormtrooper helmets and
+Intelligence, Wisdom, less damage taken, a dodge, sees the invisible),
+a Sith holocron (2340, 55, held, the Emperor's; harmful spells 15
+percent stronger, surging for double, harder to resist, Intelligence
+and Wisdom). Common finds: stormtrooper helmets and
 chestplates, blaster carbines, DH-17 pistols, TIE flight helmets and
 suits, a scout's EC-17, officers' tunics, a durasteel pipe in the
 compactor, death trooper helmets and DLT-19D heavy blasters, gunners'
@@ -76,7 +79,10 @@ technicians, TIE pilots, officers, and gunners.
 Trainers: the ghost of Ben Kenobi (2302, freighter lounge 2302) teaches
 dodge and riposte; Luke Skywalker (2322, in borrowed stormtrooper armour
 in the bay control room 2303) teaches rescue. Chewbacca (2301) is aboard
-the freighter too, and teaches bash. R2-D2 and C-3PO are in the bay control room:
+the freighter too, and teaches bash. The Royal Guard captain (2320,
+room 2326) carries a scroll of power word stun (2339) in a black case
+at his belt, as his look says; it is a found spell, learned by
+`study`. R2-D2 and C-3PO are in the bay control room:
 R2-D2 sells Imperial access cards (50), and C-3PO, unarmed, can be
 fought for the silver he carries; mouse droids wander
 the bay and corridors.

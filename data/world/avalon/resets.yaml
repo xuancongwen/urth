@@ -21,7 +21,7 @@ resets:
   - { mob: 1008, room: 1012, equip: [{ item: 1004, slot: neck }, { item: 1005, slot: wield }, { item: 1032 }] }   # Gwyn, who keeps Carnwennan
   # --- the lake ---
   - { mob: 1002, room: 1013, max: 2, equip: [{ item: 1020, slot: wield }] }   # reed-lurkers in the marsh, with eel-spears
-  - { mob: 1010, room: 1015 }              # the priestess (merchant)
+  - { mob: 1010, room: 1015 }              # the priestess (merchant; teaches Bless and Smite)
   - { mob: 1027, room: 1014, equip: [{ item: 1042, slot: finger1 }] }   # Guinevere, veiled, on the causeway, who will not go to the well, and her wedding ring
   - { mob: 1022, room: 1014, equip: [{ item: 1041, slot: shoulders }] }   # the Lady of the Lake, standing on the water in white samite
   - { mob: 1020, room: 1016 }              # King Arthur healing at the Chalice Well, who trades his helm for Excalibur

@@ -1,0 +1,20 @@
+vnum: 762
+name: the holy symbol of House Do'Urden
+keywords: [holy, symbol, house, do'urden, malice, lolth]
+description: A pendant of black adamantine, a spider with a matron's face, lies here.
+look: |
+  A spider of black adamantine with eight ruby eyes, and on its back the
+  face of a drow woman: Matron Malice's own, the priests of Lolth say,
+  cut when she took the house. It is warm, and it is never still.
+  Lolth's gifts come stronger through it, and a prayer to her wraps the
+  one who says it in webs of shadow.
+type: armor
+slot: neck
+weight: 1
+level: 20
+value: 2200
+effects:
+  - { kind: spellPower, params: { mult: 1.12, deity: evil } }
+  - { kind: faithShield, params: { mult: 0.88, rounds: 3 } }
+  - { kind: manaMax, params: { amount: 0.1 } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

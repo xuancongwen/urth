@@ -21,7 +21,8 @@ Mohiam (42, the Voice), the Sardaukar Bashar (38), Captain Iakin Nefud
 when near death). Named carriers: Staban Tuek the smuggler (26, the thumper), the
 renegade naib (28, the crysknife), Captain Nefud (the Fremen
 stillsuit), the Bashar (the Sardaukar blade), Mohiam (the Gom Jabbar),
-Feyd-Rautha (his poisoned blade), Rabban (his spiked mace), Piter de
+Feyd-Rautha (his poisoned blade, and a scroll of storm of vengeance,
+1937, the Neutral god's found spell; Liet-Kynes's look points to it), Rabban (his spiked mace), Piter de
 Vries (his sapho flask), the Baron (his suspensors, and the signet ring
 of House Atreides, which Paul trades for).
 

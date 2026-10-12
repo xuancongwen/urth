@@ -1,0 +1,16 @@
+vnum: 3654
+name: a scroll of greater foresight
+keywords: [scroll, greater, foresight, notes]
+description: A roll of paper covered in equations lies here.
+look: |
+  A long roll of Seldon's working notes, column after column of
+  equations, and between them, in another hand entirely, the words of
+  a spell: Greater Foresight, the divination that unrolls a whole
+  fight before it happens and shares the sight with your companions.
+  Someone once tried to do with magic what Seldon is doing with
+  statistics. A diviner strong enough may study it; the spell's lines
+  fade after, and only the equations remain.
+type: other
+weight: 1
+value: 1500
+spell: greater_foresight

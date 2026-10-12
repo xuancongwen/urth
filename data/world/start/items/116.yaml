@@ -1,0 +1,20 @@
+vnum: 116
+name: an acolyte's cudgel
+keywords: [acolyte's, acolyte, cudgel, mace, club]
+description: A knobbed oak cudgel, banded in iron, lies here.
+look: |
+  A short oak club with an iron band round the head, the kind a village
+  priest keeps behind the door. The shrine-keeper sells them to pilgrims
+  for the road. A prayer said with one in hand seems to have more to
+  draw on.
+type: weapon
+weight: 4
+level: 1
+baseline: mace
+value: 30
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush
+effects:
+  - { kind: manaMax, params: { amount: 0.05 } }

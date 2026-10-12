@@ -4,6 +4,14 @@ keywords: [sorcerer, mage, guildmaster]
 description: The sorcerer stares out of the window, lost in thought.
 look: |
   The head of the Mages' Guild: gaunt, grey-bearded, with ink on his
-  cuffs and a faint smell of lightning about him.
+  cuffs and a faint smell of lightning about him. To anyone who has
+  found a school of the art he teaches its first lessons: the subtler
+  ones, of the mind, the eye, and the grave. Type 'practice'. He also
+  sells his students' staves and his own primer to anyone with the
+  silver. Type 'list'.
 level: 14
 flags: [peaceful]
+teaches: [true_strike, chill_touch, color_spray, mind_spike, see_invisible, invisibility, sleep, ray_of_enfeeblement, mirror_image]
+trades:
+  - { item: 3061, silver: 300 }
+  - { item: 3062, silver: 260 }

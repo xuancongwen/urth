@@ -1,0 +1,15 @@
+vnum: 3335
+name: a scroll of meteor swarm
+keywords: [scroll, meteor, swarm]
+description: A scroll scorched black at both ends lies here, still warm.
+look: |
+  A long scroll of red vellum, singed along every edge, written in the
+  fire-script of the Zakarum council mages. It is the spell Meteor
+  Swarm, the evocation that calls burning stones down out of a clear
+  sky, and Geleb Flamefinger kept it about him as a lesser man keeps a
+  knife. An evoker who has found that school, and is strong enough,
+  can study it; the vellum burns away as the words go in.
+type: other
+weight: 1
+value: 2000
+spell: meteor_swarm

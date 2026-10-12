@@ -1,0 +1,23 @@
+vnum: 1345
+name: Lazarus's black crozier
+keywords: [lazarus's, lazarus, black, crozier, staff]
+description: A bishop's crozier of blackened silver, its crook a coiled serpent, lies here.
+look: |
+  An archbishop's crozier, the silver of the Zakarum gone black, the
+  crook reworked as a serpent eating its own tail. Lazarus carried it
+  into Tristram's church at the head of the soldiers he led down to die.
+  It still answers prayer. It does not much care whose.
+type: weapon
+weight: 4
+level: 21
+baseline: staff
+value: 2400
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.12, branch: divine } }
+  - { kind: manaMax, params: { amount: 0.1 } }
+  - { kind: penetration, params: { amount: 0.08, branch: divine } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }

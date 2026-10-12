@@ -40,7 +40,7 @@ the seal of the Elder Council (56; on Nihlathak the elder;
 Intelligence, Wisdom, Charisma, sees the hidden), Pindleskin's skull
 (55; thorns, last stand, Constitution), Frozenstein's grip
 (55; chills, Intelligence and Strength), Nihlathak's staff (56; corpse
-explosion, leech, Intelligence and Wisdom), Immortal King's Stone
+explosion, leech, Intelligence and Wisdom, necromancy stronger, mana), Immortal King's Stone
 Crusher (57; crits, crushing damage, Strength), Immortal King's Soul
 Cage (57; less damage taken, last stand, Constitution), Immortal King's
 Will (57; steady, Strength and Wisdom), Bartuc's Cut-Throat (58; a

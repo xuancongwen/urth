@@ -1,0 +1,22 @@
+vnum: 438
+name: a willow-wood staff
+keywords: [willow-wood, willow, staff, wood]
+description: A long staff of grey-green willow lies here.
+look: |
+  A long willow staff cut from a tree that was not Old Man Willow, Tom
+  says, though it was not far off. It bends and does not break. The
+  things of the wood listen to whoever holds it, and the god of the
+  balance listens too.
+type: weapon
+weight: 4
+level: 20
+baseline: staff
+value: 1000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.08, deity: neutral } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: manaFight, params: { fraction: 0.01 } }

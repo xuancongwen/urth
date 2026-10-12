@@ -8,11 +8,16 @@ look: |
   talks to the crystals while she cuts them, and sometimes they seem
   to answer. Her bins are empty and her prices say so: bring her fel
   iron, fire, or scales and she will make you something worth having.
+  She teaches the crystal-lore of her people, too, to those who have
+  found its schools. Type 'practice'.
 level: 16
 flags: [peaceful]
+teaches: [arcane_heroism, stoneskin, slow, keen_insight, repulsion, confusion, phantasmal_killer, cone_of_cold, iron_body, tensers_transformation]
 trades:
   - { item: 1113, silver: 30 }
   - { item: 1118, silver: 70 }
   - { item: 1111, silver: 350, items: [1100, 1100] }
   - { item: 1112, silver: 300, items: [1101, 1101] }
   - { item: 1109, silver: 250, items: [1102, 1102, 1102] }
+  - { item: 1141, silver: 900 }
+  - { item: 1142, silver: 850 }

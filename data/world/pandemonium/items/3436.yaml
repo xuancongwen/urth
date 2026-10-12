@@ -1,0 +1,20 @@
+vnum: 3436
+name: a luminous vestment
+keywords: [luminous, vestment, robe, white, gold]
+description: A white vestment that seems to give off a faint light lies here.
+look: |
+  White silk shot through with gold, so fine it seems to glow, cut in
+  the style of the old Zakarum before the Church went bad. Jamella says
+  the angels left it. Healing given through it comes back to the giver,
+  and a prayer for another wraps the one who prays in light.
+type: armor
+slot: body
+weight: 1
+level: 40
+baseline: cloth
+value: 4200
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: martyr, params: { fraction: 0.12 } }
+  - { kind: faithShield, params: { mult: 0.9, rounds: 3 } }

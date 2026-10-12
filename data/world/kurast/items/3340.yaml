@@ -1,0 +1,21 @@
+vnum: 3340
+name: a shrunken-head wand
+keywords: [shrunken-head, shrunken, head, wand, flayer]
+description: A short wand topped with a shrunken head lies here.
+look: |
+  A stick of black jungle wood with a shrunken head lashed to the top,
+  its lips sewn shut and its eyes not. The flayer shamans dance with
+  them and the dead get up. Spells that harm come off it hard.
+type: weapon
+weight: 1
+level: 40
+baseline: staff
+value: 3000
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: spellPower, params: { mult: 1.08, kind: damage } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.08 } }

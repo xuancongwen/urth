@@ -1,0 +1,15 @@
+vnum: 2339
+name: a scroll of power word stun
+keywords: [scroll, power, word, stun, holocron]
+description: A thin black case, sealed with a crimson stripe, lies here.
+look: |
+  A black document case with the Emperor's crimson seal, and inside a
+  roll of old flimsiplast written in a script far older than the
+  Empire. It holds Power Word Stun, a single word that no mind can
+  refuse to hear. The Emperor trusted it to the captain of his guard,
+  who has never read it. An enchanter strong enough may study it; the
+  writing fades as it is learned.
+type: other
+weight: 1
+value: 1800
+spell: power_word_stun

@@ -24,7 +24,8 @@ is not hostile, but she fights back, and carries a silvered longsword
 and silver), Arrigal (20, the Sunsword), Baba Lysaga (26, 950 health,
 an aura of biting flies; her bone staff and a flyblown shawl), Rahadin
 (32, his scimitar), Ludmilla Vilisevic (34, the Holy Symbol of Ravenkind), Strahd (45, his
-cloak and the Tome of Strahd). Kiril Stoyanovich (24), Anastrasya
+cloak, the Tome of Strahd, and a scroll of unholy word, 2132, the Evil
+god's found spell; Lady Fiona Wachter's look points to it). Kiril Stoyanovich (24), Anastrasya
 Karelova and Volenta Popofsky (34) are named but carry nothing unique.
 
 Uniques: the Sunsword (20; flares with sunlight, sees the invisible,
@@ -59,11 +60,20 @@ Merchants (`list`, `buy`, `sell`):
   wolfskin cloak for 120 silver plus three wolf pelts; a blessed mail
   shirt for 300 silver plus three pouches of grave dirt and a flask of
   holy water; a lantern for two wolf pelts.
+- Father Donavich (2102, the church 2107): a prayer book of the
+  Morninglord (2133; 20, held, healing stronger and some of it back to
+  the healer, Wisdom) 950, a sunburst mace (2134; 20, the Good god's
+  spells stronger, a faith shield, Wisdom) 1000.
+- Lady Fiona Wachter (2124, the graveyard 2110): an iron censer of the
+  Dark Powers (2135; 30, held, the Evil god's spells stronger and harder
+  to resist, Wisdom) 2200.
 
 Trainers: Father Donavich (2102, the church 2107) teaches fast healing
-and rescue; Rudolph van Richten (2120, disguised as Rictavio on the dry
+and rescue, and to the Good god's apostles Smite and Prayer of Healing; Rudolph van Richten (2120, disguised as Rictavio on the dry
 fountain in the village square 2103) teaches coup de grace. Ismark
-Kolyanovich (2101) drinks in the tavern and teaches rescue. Madam Eva
+Kolyanovich (2101) drinks in the tavern and teaches rescue. Lady Fiona
+Wachter (2124, peaceful, at the crypt stair in the graveyard 2110)
+teaches the Evil god's Dread, Malediction, and Harm to its apostles. Madam Eva
 (2103) tells fortunes at Tser Pool and is a questmaster (`quest
 request`). The Vistani fiddler is peaceful.
 

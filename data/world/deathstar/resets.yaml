@@ -59,6 +59,6 @@ resets:
   # --- the guards and the Dark Lord ---
   - { mob: 2319, room: 2326, max: 2, equip: [{ item: 2315, slot: body }] }   # Royal Guards
   - { mob: 2319, room: 2326, max: 2, equip: [{ item: 2315, slot: body }] }
-  - { mob: 2320, room: 2326, equip: [{ item: 2330, slot: wield }, { item: 2315, slot: body }] }   # the captain and his force pike
+  - { mob: 2320, room: 2326, equip: [{ item: 2330, slot: wield }, { item: 2315, slot: body }, { item: 2339 }] }   # the captain and his force pike, and the Emperor's scroll of power word stun
   - { mob: 2321, room: 2327, equip: [{ item: 2331, slot: wield }, { item: 2332, slot: head }] }   # Darth Vader, his lightsaber and his helmet
-  - { mob: 2326, room: 2331, equip: [{ item: 2337, slot: body }] }   # the Emperor on his throne, in his robe
+  - { mob: 2326, room: 2331, equip: [{ item: 2337, slot: body }, { item: 2340, slot: hold }] }   # the Emperor on his throne, in his robe, a Sith holocron in his hand

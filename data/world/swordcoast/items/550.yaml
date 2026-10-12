@@ -1,0 +1,21 @@
+vnum: 550
+name: a bone wand
+keywords: [bone, wand, femur, necromancer]
+description: A wand of yellowed bone, bound with black thread, lies here.
+look: |
+  The thighbone of something small, a cat or a child, scraped and
+  polished and bound at the grip with black thread. Xzar made it
+  himself, and keeps making them, and cannot remember why. In the hand
+  of anyone who knows the grave's school, it hums.
+type: weapon
+weight: 1
+level: 10
+baseline: staff
+value: 280
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: spellPower, params: { mult: 1.1, school: necromancy } }
+  - { kind: manaMax, params: { amount: 0.05 } }

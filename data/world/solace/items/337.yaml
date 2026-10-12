@@ -1,0 +1,16 @@
+vnum: 337
+name: a prayer book of Mishakal
+keywords: [prayer, book, mishakal, blue]
+description: A small blue-bound prayer book lies here.
+look: |
+  A small book bound in blue leather, its pages copied out in Elistan's
+  careful hand from the Disks of Mishakal: the prayers for the sick, the
+  wounded, and the dying. Held open while praying, it makes the healing
+  come stronger.
+type: armor
+slot: hold
+weight: 1
+level: 5
+value: 120
+effects:
+  - { kind: spellPower, params: { mult: 1.05, kind: heal } }

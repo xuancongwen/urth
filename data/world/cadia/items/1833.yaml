@@ -1,0 +1,15 @@
+vnum: 1833
+name: a scroll of the finger of death
+keywords: [scroll, finger, death]
+description: A scroll of grey human skin, tied with a sinew, lies here.
+look: |
+  A scroll of something that was skin once, written in the runes of
+  the Black Legion's sorcerers, and it is cold to the touch however
+  long you hold it. It is the Finger of Death: point, and the target
+  begins to die. Zaraphiston carries it as a reminder of what he can
+  do without his staff. A necromancer strong enough may study it; the
+  skin crumbles to ash afterwards.
+type: other
+weight: 1
+value: 2200
+spell: finger_of_death

@@ -1,0 +1,18 @@
+vnum: 3341
+name: a Zakarum censer
+keywords: [zakarum, censer, gold, incense]
+description: A gold censer on a jewelled chain lies here, still smoking.
+look: |
+  A censer of red gold on a chain set with garnets, of the kind the High
+  Council's priests swing on the causeway at Travincal. The incense in
+  it is not quite incense. Whatever the Council prays to now, it answers
+  them, and it answers whoever holds this.
+type: armor
+slot: hold
+weight: 1
+level: 40
+value: 4000
+effects:
+  - { kind: spellPower, params: { mult: 1.1, branch: divine } }
+  - { kind: manaFight, params: { fraction: 0.015 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

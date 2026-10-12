@@ -1,0 +1,14 @@
+vnum: 1538
+name: a weirwood seed
+keywords: [weirwood, seed, pale, white]
+description: A pale weirwood seed lies among the stones of the stream bank.
+look: |
+  A seed the size of a thumbnail, bone-white, with a dark red stain at
+  one end like a drop of sap. It came from a weirwood that grew wild,
+  where no one planted it. The old gods of the forest, who take no side,
+  would know it for theirs; laid at the roots of a heart tree, it would
+  be a gift worth making.
+type: other
+weight: 0
+value: 5
+sacrifice: neutral

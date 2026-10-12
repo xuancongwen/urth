@@ -28,12 +28,13 @@ resets:
   # the drow road
   - { mob: 705, room: 719, max: 2, equip: [{ item: 700, slot: wield }, { item: 702, slot: shoulders }, { item: 703, slot: body }, { item: 745, slot: belt }, { item: 746, slot: feet }, { item: 714 }] }   # the patrol, sashed and soft-shod
   - { mob: 716, room: 719, equip: [{ item: 756, slot: wield }, { item: 702, slot: shoulders }, { item: 703, slot: body }] }   # Dinin, elderboy of House Do'Urden, leading the patrol
-  - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }, { item: 747, slot: body }] }   # the wizard in the watchpost, robed
+  - { mob: 706, room: 720, equip: [{ item: 701, slot: wield }, { item: 702, slot: shoulders }, { item: 747, slot: body }, { item: 760, slot: head }] }   # the wizard in the watchpost, robed, in a spellweaver's circlet
   - { mob: 712, room: 721, max: 2, equip: [{ item: 715 }] }   # shrine spiders carry venom
   - { item: 748, room: 721 }                                  # a spider-silk lash in the web
   - { mob: 717, room: 722, equip: [{ item: 757, slot: wield }] }   # the spirit-wraith of Zaknafein among the pillars, with his second sword
   # the shrine of Lolth
-  - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }, { item: 733, slot: neck }, { item: 732 }] }   # the priestess, whip, signet, and house insignia, and Zaknafein's sword
-  - { mob: 715, room: 723, equip: [{ item: 755, slot: wield }] }   # Matron Malice on her bone throne, with her tentacle rod
+  - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }, { item: 733, slot: neck }, { item: 732 }, { item: 761 }] }   # the priestess, whip, signet, house insignia, Zaknafein's sword, and a spare holy symbol of Lolth
+  - { mob: 715, room: 723, equip: [{ item: 755, slot: wield }, { item: 762, slot: neck }] }   # Matron Malice on her bone throne, with her tentacle rod, and the holy symbol of her house at her throat
   - { item: 709, room: 723 }                                  # the necromancy totem on the altar
   - { item: 710, room: 723 }                                  # the black-silk offering
+  - { mob: 720, room: 723 }                                   # the acolyte, who teaches the Evil god's Rotting Touch, Dread, and Malediction

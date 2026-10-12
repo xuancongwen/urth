@@ -40,7 +40,8 @@ Merchants:
 
 Trainers: the centaur hunter (1220) teaches hamstring, Peter (1220)
 rescue and shield block, Reepicheep (1227) riposte and feint, and Lucy
-(1201) fast healing.
+(1201) fast healing. The centaur sentries (1217, at the camp 1220) teach
+the Neutral god's Entangle and Barkskin to its apostles.
 
 Uniques: the White Witch wields her wand (now chilling and petrifying)
 and carries the stone knife of the Table (execute, leech); a lock of Aslan's mane (regeneration, a last

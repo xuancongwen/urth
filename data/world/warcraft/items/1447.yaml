@@ -1,0 +1,21 @@
+vnum: 1447
+name: a fel-scorched wand
+keywords: [fel-scorched, fel, scorched, wand, green]
+description: A blackened wand, its tip still smoking green, lies here.
+look: |
+  A warlock's wand of blackened bone, the grip wrapped in orc-hide and
+  the tip charred and leaking a thin green smoke. The Shadow Council
+  hands them out to warlocks who have killed enough. Spells that harm
+  come off it hotter.
+type: weapon
+weight: 1
+level: 14
+baseline: staff
+value: 500
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: spellPower, params: { mult: 1.08, kind: damage } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

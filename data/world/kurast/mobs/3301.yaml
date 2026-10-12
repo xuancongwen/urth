@@ -11,11 +11,19 @@ look: |
   he were someone else in the room, and perhaps he is. He sells a few
   things that will serve a mage, and if you bring him the lost tome of
   Lam Esen he will make you something worth wearing. Type 'list'.
+  Ormus teaches, also, to one who has found the schools. Type
+  'practice'. "Ormus has seen stones fall from the sky at the word of
+  Geleb Flamefinger," he says. "The words are on a scroll in his
+  robe."
 level: 38
 flags: [peaceful]
+teaches: [globe_of_invulnerability, cloudkill, chain_lightning, mislead, circle_of_death, disintegrate]
 attack:
   kind: magic
   verb: blast
 trades:
   - { item: 3322, silver: 900 }
   - { item: 3309, silver: 1500, items: [3308] }
+  - { item: 3337, silver: 4000 }
+  - { item: 3338, silver: 4200 }
+  - { item: 3339, silver: 3800 }

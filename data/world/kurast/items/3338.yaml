@@ -1,0 +1,18 @@
+vnum: 3338
+name: a clasped orb
+keywords: [clasped, orb, claw, bronze]
+description: A smoky orb held in a bronze claw lies here.
+look: |
+  A sphere of smoky quartz held in a three-fingered bronze clasp, with a
+  grip below wrapped in snakeskin. The sorceresses of the east carry
+  them in the off hand. It makes every working cheaper and harder to
+  resist.
+type: armor
+slot: hold
+weight: 1
+level: 40
+value: 4200
+effects:
+  - { kind: spellPower, params: { mult: 1.1, branch: arcane } }
+  - { kind: penetration, params: { amount: 0.1, branch: arcane } }
+  - { kind: castCost, params: { mana: 0.92, branch: arcane } }

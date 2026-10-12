@@ -1,0 +1,15 @@
+vnum: 3234
+name: a scroll of prismatic ward
+keywords: [scroll, prismatic, ward]
+description: A scroll that glows in seven colours lies beneath the chained archangel.
+look: |
+  A scroll that seems to be made of light more than vellum, fallen
+  from Tyrael's robes when the Prime Evils bound him, and lying in the
+  frost at the foot of his pillar ever since. It holds Prismatic Ward,
+  the abjuration of seven coloured walls, each of which turns a blow
+  and bites back at whoever struck it. An abjurer strong enough may
+  study it; the light goes out of the page as the words go in.
+type: other
+weight: 1
+value: 1600
+spell: prismatic_ward

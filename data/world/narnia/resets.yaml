@@ -32,7 +32,7 @@ resets:
   - { mob: 1214, room: 1218, equip: [{ item: 1206, slot: wield }, { item: 1207, slot: head }, { item: 1234 }] }   # the Witch, wand, crown, and the stone knife
   # --- Aslan's side ---
   - { mob: 1216, room: 1220, equip: [{ item: 1232 }] }               # Aslan; a lock of his mane comes away with his life
-  - { mob: 1217, room: 1220, max: 2 }
+  - { mob: 1217, room: 1220, max: 2 }   # centaur sentries, who teach the Neutral god's Entangle and Barkskin
   - { mob: 1220, room: 1220 }                                     # the centaur hunter, who teaches hamstring
   - { mob: 1223, room: 1220 }                                     # Peter, who teaches rescue and shield block
   - { mob: 1224, room: 1220, equip: [{ item: 1211, slot: wield }] }   # Susan outside the pavilion, with her bow

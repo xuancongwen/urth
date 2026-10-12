@@ -64,8 +64,11 @@ war swords, cathedral splint mail, Sisterhood war bows.
 Merchants (`list`, `buy`, `sell`) and trainers:
 
 - Akara (3100, her tent 3104): healing potion 30; an Ort rune and a
-  Sol rune plus 200 silver for Lore. She also teaches dodge and fast
-  healing.
+  Sol rune plus 200 silver for Lore; caster gear, a robe of the
+  Sightless Eye (3135; 30, Wisdom, mana, a faith shield) 2200 and a
+  rosary of the Sightless Eye (3136; 30, divine spells stronger, mana
+  in a fight, Wisdom) 2000. She also teaches dodge and fast
+  healing, and to the Good god's apostles Smite and Prayer of Healing.
 - Kashya (3101, the captain's watch 3107): teaches trip and hamstring.
 - Warriv (3104, the caravan 3101): healing potion 35, mail hauberk 400.
 - Charsi (3102, the forge 3105): Rogue long bow 400, broad axe 450,

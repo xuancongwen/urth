@@ -48,7 +48,7 @@ resets:
   - { mob: 3223, room: 3224, max: 4 }
   - { mob: 3224, room: 3225, equip: [{ item: 3211, slot: wield }] }   # Fire Eye before the portal, with Hellplague
   - { mob: 3223, room: 3226, max: 4 }                           # specters on the floating paths
-  - { mob: 3225, room: 3226, equip: [{ item: 3212, slot: wield }] }   # the Summoner at Horazon's journal, leaning on Ondal's Wisdom
+  - { mob: 3225, room: 3226, equip: [{ item: 3212, slot: wield }, { item: 3233 }] }   # the Summoner at Horazon's journal, leaning on Ondal's Wisdom, with a scroll of the weird
   # the Canyon of the Magi and Tal Rasha's Tomb
   - { mob: 3226, room: 3227, max: 3, equip: [{ item: 3225, slot: wield }] }   # unravelers among the false tombs
   - { mob: 3226, room: 3227, max: 3, equip: [{ item: 3225, slot: wield }] }
@@ -56,3 +56,4 @@ resets:
   - { mob: 3227, room: 3228, max: 3, equip: [{ item: 3226, slot: head }, { item: 3202 }] }
   - { mob: 3228, room: 3228, equip: [{ item: 3225, slot: wield }, { item: 3213, slot: body }] }   # Ancient Kaa before the Orifice, in his wrappings
   - { mob: 3229, room: 3229, equip: [{ item: 3214, slot: body }, { item: 3215, slot: hold }] }   # Duriel before the chained archangel, his shell and the Lidless Eye
+  - { item: 3234, room: 3229 }   # a scroll of prismatic ward, fallen from Tyrael's robes at the foot of his pillar

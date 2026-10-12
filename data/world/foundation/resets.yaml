@@ -42,7 +42,7 @@ resets:
   - { mob: 3616, room: 3635, max: 3, equip: [{ item: 3618, slot: hands }] }
   - { mob: 3617, room: 3635, equip: [{ item: 3619, slot: wield }, { item: 3617, slot: body }, { item: 3618, slot: hands }] }   # Bel Riose and his sword
   # --- Trantor ---
-  - { mob: 3621, room: 3621, equip: [{ item: 3651, slot: wield }] }   # Hari Seldon at Streeling, his cane against the desk
+  - { mob: 3621, room: 3621, equip: [{ item: 3651, slot: wield }, { item: 3654 }] }   # Hari Seldon at Streeling, his cane against the desk, a scroll of greater foresight in his notes
   - { mob: 3622, room: 3621 }                                   # Dors Venabili by the window, who teaches twin and riposte
   - { mob: 3623, room: 3621 }                                   # Raych in the doorway, who teaches backstab and dirt kicking
   - { mob: 3625, room: 3622, equip: [{ item: 3650, slot: face }] }   # Ebling Mis among his books, in his spectacles
@@ -51,7 +51,7 @@ resets:
   - { mob: 3619, room: 3623, max: 4, equip: [{ item: 3620, slot: wield }] }
   - { mob: 3619, room: 3623, max: 4, equip: [{ item: 3621, slot: head }, { item: 3600 }] }
   - { mob: 3619, room: 3620, max: 4, equip: [{ item: 3620, slot: wield }, { item: 3621, slot: head }] }   # one at the corridor checkpoint
-  - { mob: 3624, room: 3624, equip: [{ item: 3652, slot: body }] }   # Eto Demerzel at his bare desk, in the robe of the First Minister
+  - { mob: 3624, room: 3624, equip: [{ item: 3652, slot: body }, { item: 3655 }] }   # Eto Demerzel at his bare desk, in the robe of the First Minister, with a scroll of time stop
   - { item: 3601, room: 3620 }                                  # a glow-tube dropped at the checkpoint, for the dark beyond
   - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3622, slot: wield }, { item: 3623, slot: shoulders }] }   # scavengers of the Sack in the dark
   - { mob: 3620, room: 3625, max: 4, equip: [{ item: 3622, slot: wield }] }

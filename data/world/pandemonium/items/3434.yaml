@@ -1,0 +1,15 @@
+vnum: 3434
+name: a scroll of holy word
+keywords: [scroll, holy, word, vellum]
+description: A scroll of white vellum lies here, glowing faintly at the edges.
+look: |
+  A scroll of vellum too white for any animal's skin, written in letters
+  of light that hurt to look at for long. It is the Holy Word, a single
+  utterance of the High Heavens that burns and dazzles every enemy who
+  hears it. Izual carried it at the head of Heaven's host, and kept it
+  when he fell. An apostle of the Good god, high enough and wise
+  enough, can study it; the vellum fades to nothing as the word goes in.
+type: other
+weight: 1
+value: 2500
+spell: holy_word

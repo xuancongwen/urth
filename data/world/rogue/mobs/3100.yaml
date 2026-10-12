@@ -10,13 +10,16 @@ look: |
   see. "Greetings, stranger," she says. "I am not surprised to see
   you. Few travellers arrive here unless the Light leads them." She
   sells healing draughts, and for a fee she will teach you to step out
-  of a blow's way and to mend your wounds faster. Bring her an Ort and
+  of a blow's way and to mend your wounds faster, and to those the Light
+  has claimed, its smiting and its prayer for the wounded. Bring her an Ort and
   a Sol rune and she will bind them into a helm for you.
 level: 24
 flags: [peaceful]
-teaches: [dodge, fast_healing]
+teaches: [dodge, fast_healing, smite, prayer_of_healing]
 attack:
   verb: strike
 trades:
   - { item: 3100, silver: 30 }
   - { item: 3109, silver: 200, items: [3106, 3107] }
+  - { item: 3135, silver: 2200 }
+  - { item: 3136, silver: 2000 }

@@ -45,7 +45,7 @@ the Viper (35; sees the hidden and the invisible, Dexterity and
 Intelligence), Hellplague (35; a long sword that burns and festers),
 the restored Horadric Staff (36; both sights, Intelligence and Wisdom,
 wards; the Orifice key), Ondal's Wisdom (36; Intelligence and Wisdom,
-soaks, steadies), Ancient Kaa's wrappings (37; regeneration, soak,
+soaks, steadies, arcane spells 10 percent stronger, a fifth more mana), Ancient Kaa's wrappings (37; regeneration, soak,
 Constitution), Duriel's Shell (38; less damage taken, Constitution and
 Strength, frost that bites back), Tal Rasha's Lidless Eye (38, held;
 both sights, cooldowns a round shorter, Intelligence and Wisdom). Fara
@@ -67,7 +67,10 @@ Merchants (`list`, `buy`, `sell`):
   of Kings and the Amulet of the Viper plus 500 silver for the restored
   Horadric Staff.
 - Elzix (3207, the inn 3209): desert lamp 30, greater healing potion 45.
-- Drognan (3209, his house 3210): arcanist's staff 1000.
+- Drognan (3209, his house 3210): arcanist's staff 1000; caster gear, a
+  desert-ash staff (3235; 30, Intelligence, arcane spells stronger,
+  mana) 2400 and a ring of the Vizjerei (3236; 30, Intelligence, arcane
+  spells cheaper and harder to resist) 2000.
 
 - Warriv (3200, the caravan 3200): desert lamp 35, raider's head-wrap
   500.
@@ -76,7 +79,17 @@ Merchants (`list`, `buy`, `sell`):
 - Jerhyn (3205, before the palace gates 3206): palace guard's
   breastplate 1100.
 
-Trainer: Greiz (3208, the inn 3209) teaches bash and rescue.
+Trainers: Greiz (3208, the inn 3209) teaches bash and rescue. Drognan
+(3209, among his books 3210) teaches arcane spells to those who have
+the school: cone of cold, phantasmal killer, iron body, Tenser's
+transformation, cloudkill, globe of invulnerability, true seeing,
+hold monster, chain lightning, mislead, circle of death, and
+disintegrate.
+
+Scrolls (`study`, found spells no trainer sells): the Summoner (3225,
+room 3226) carries a scroll of the weird (3233); a scroll of
+prismatic ward (3234) lies on the floor of Tal Rasha's Chamber (3229)
+under Duriel. Drognan's look hints at both.
 
 Geglash the drunk (3203, 29) is not peaceful: thrown out of Atma's
 tavern, he drinks outside the gate in the Rocky Waste (3214), fights

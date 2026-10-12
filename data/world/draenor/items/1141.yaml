@@ -1,0 +1,17 @@
+vnum: 1141
+name: a draenei crystal orb
+keywords: [draenei, crystal, orb, violet]
+description: A violet crystal orb, faceted and faintly glowing, lies here.
+look: |
+  A crystal the size of a fist, cut by Velaani into forty facets that
+  each hold a little light. The draenei say the crystals remember the
+  Naaru. Held while casting, it lends the working a pure note, and now
+  and then the note rings.
+type: armor
+slot: hold
+weight: 1
+level: 20
+value: 900
+effects:
+  - { kind: spellPower, params: { mult: 1.08, branch: arcane } }
+  - { kind: spellCrit, params: { chance: 0.03, mult: 1.5, branch: arcane } }

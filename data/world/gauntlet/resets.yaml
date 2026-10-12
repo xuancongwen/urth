@@ -47,9 +47,9 @@ resets:
   - { mob: 2910, room: 2914, max: 5 }
   - { mob: 2910, room: 2914, max: 5 }
   - { mob: 2915, room: 2914, equip: [{ item: 2911 }] }          # the Lobber King, keeping Questor's bow
-  - { mob: 2911, room: 2915, max: 3 }                           # invisible sorcerers in their hall
-  - { mob: 2911, room: 2915, max: 3 }
-  - { mob: 2911, room: 2915, max: 3 }
+  - { mob: 2911, room: 2915, max: 3, equip: [{ item: 2953, slot: wield }] }   # invisible sorcerers in their hall, with crooked staves
+  - { mob: 2911, room: 2915, max: 3, equip: [{ item: 2953, slot: wield }] }
+  - { mob: 2911, room: 2915, max: 3, equip: [{ item: 2953, slot: wield }] }
   - { mob: 2916, room: 2915, equip: [{ item: 2912 }] }          # the Sorcerer Supreme, keeping Merlin's staff
   - { item: 2903, room: 2916 }                                  # the vault: a magic potion
   - { item: 2901, room: 2916 }                                  # and a roast chicken, which nobody had better shoot

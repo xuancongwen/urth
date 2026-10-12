@@ -1,0 +1,18 @@
+vnum: 1142
+name: a crystal-set circlet
+keywords: [crystal-set, crystal, circlet, silver]
+description: A circlet of silver set with a violet crystal lies here.
+look: |
+  A plain band of silver with a single cut crystal at the brow, in the
+  draenei style. Velaani sets them for the anchorites, who wear them to
+  pray, and for anyone else who pays, who mostly wear them to make their
+  spells harder to shrug off.
+type: armor
+slot: head
+weight: 1
+level: 20
+baseline: cloth
+value: 850
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: penetration, params: { amount: 0.08, branch: arcane } }

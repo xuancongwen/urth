@@ -1,0 +1,16 @@
+vnum: 115
+name: a wooden sun-disk
+keywords: [wooden, sun-disk, sun, disk, symbol, holy]
+description: A small disk of carved wood on a leather cord lies here.
+look: |
+  A disk of pale wood the size of a coin, carved with the rays of the
+  rising sun and rubbed with a little gold leaf that is mostly gone. The
+  shrine-keeper carves them in the evenings. Worn at the throat, it
+  keeps a prayer close.
+type: armor
+slot: neck
+weight: 1
+level: 1
+value: 25
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

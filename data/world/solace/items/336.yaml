@@ -1,0 +1,18 @@
+vnum: 336
+name: a Seeker's vestment
+keywords: [seeker's, seeker, vestment, robe, white]
+description: A white vestment trimmed in pale blue lies folded here.
+look: |
+  A plain white vestment with a pale blue hem, of the kind the Seekers
+  of Haven wore. Elistan has been taking them from the Seekers' stores
+  and sewing the blue of Mishakal on the hems. The true gods do not seem
+  to mind whose cloth it was.
+type: armor
+slot: body
+weight: 1
+level: 5
+baseline: cloth
+value: 110
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: manaMax, params: { amount: 0.05 } }

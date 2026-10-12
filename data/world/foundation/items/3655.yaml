@@ -1,0 +1,15 @@
+vnum: 3655
+name: a scroll of time stop
+keywords: [scroll, time, stop]
+description: A scroll sealed with a tiny hourglass lies here.
+look: |
+  A scroll of a material that is neither paper nor metal, sealed with
+  an hourglass no bigger than a fingernail whose sand does not fall. It
+  holds Time Stop, the transmutation that halts the world for everyone
+  but its caster. Demerzel has carried it for longer than the Empire
+  has had his name. A transmuter strong enough may study it; the sand
+  runs out as the words go in, and the scroll goes with it.
+type: other
+weight: 1
+value: 2500
+spell: time_stop

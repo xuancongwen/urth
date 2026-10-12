@@ -1,0 +1,18 @@
+vnum: 3136
+name: a rosary of the Sightless Eye
+keywords: [rosary, sightless, eye, beads]
+description: A string of blue glass beads with a silver eye lies here.
+look: |
+  Forty beads of blue glass and a silver eye, closed, at the knot. Akara
+  tells hers by the scrying bowl every night. The Light's gifts come a
+  little stronger to those who pray with it, and the strength to pray
+  comes back even in a fight.
+type: armor
+slot: neck
+weight: 1
+level: 30
+value: 2000
+effects:
+  - { kind: spellPower, params: { mult: 1.08, branch: divine } }
+  - { kind: manaFight, params: { fraction: 0.01 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

@@ -8,9 +8,9 @@ resets:
   - { mob: 1402, room: 1405 }                                      # Zazzik, goblin merchant
   - { mob: 1403, room: 1404, equip: [{ item: 1434, slot: body }] }   # the warchief, in his black plate
   - { mob: 1420, room: 1404 }                                      # the orc warrior by the firepit, who teaches sunder
-  - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }, { item: 1422 }] }   # warlock: robe, fel skull, and the Demon Soul
+  - { mob: 1404, room: 1408, equip: [{ item: 1411, slot: body }, { item: 1418 }, { item: 1422 }, { item: 1447, slot: wield }] }   # warlock: robe, fel skull, the Demon Soul, and a fel-scorched wand in his fist
   - { item: 1433, room: 1408 }                                     # a ritual knife on the altar
-  - { mob: 1426, room: 1401, equip: [{ item: 1444, slot: shoulders }] }   # Medivh at the waystone, in his raven mantle
+  - { mob: 1426, room: 1401, equip: [{ item: 1444, slot: shoulders }, { item: 1448, slot: wield }] }   # Medivh at the waystone, in his raven mantle, leaning on Atiesh
   - { mob: 1427, room: 1401 }                                      # Khadgar beside him: a Kirin Tor signet for a fel skull and two dragon scales
   # --- the forest and the keep ---
   - { mob: 1419, room: 1411, max: 2, equip: [{ item: 1426 }] }   # Defias bandits in the wheat

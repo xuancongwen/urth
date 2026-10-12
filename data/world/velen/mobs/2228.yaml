@@ -1,0 +1,22 @@
+vnum: 2228
+name: Mousesack
+keywords: [mousesack, ermion, druid, old, skellige]
+description: Mousesack, an old druid of Skellige, leans on his staff at the edge of the woods, listening to the trees.
+look: |
+  An old man with a white beard to his belt, wrapped in furs and a
+  bearskin, a staff of twisted oak in his hand: Ermion, whom the
+  witchers call Mousesack, druid of the Circle and keeper of the
+  Skellige isles' sacred grove. He has come over the sea because
+  something has gone wrong in Velen's woods, and he does not like what
+  the trees are telling him. He serves no king and no god of temples,
+  only the balance of things. To one who serves it too, he will teach
+  how to call down the lightning and how to set a broken body back in
+  balance. Type 'practice'. He has a spare druid's staff, and will sell
+  it. Type 'list'.
+level: 30
+flags: [peaceful]
+teaches: [call_lightning, restoration]
+attack:
+  verb: strike
+trades:
+  - { item: 2234, silver: 2400 }

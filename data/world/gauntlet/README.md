@@ -30,9 +30,11 @@ sorcerers' hall). The thief (31) wanders the levels.
 Uniques: Thor's axe (a hurled axe that comes back, Strength and
 Constitution), Thyra's sword (blocks and crits, Constitution and
 Dexterity), Questor's bow (a second arrow, dodge, Dexterity), Merlin's
-staff (wizard's lightning, Intelligence and Wisdom), the amulet of
+staff (wizard's lightning, Intelligence and Wisdom, arcane spells
+stronger and surging), the amulet of
 invulnerability (takes less damage, soaks hits, Constitution). Common
-finds: plain drop gear at every level 27 to 37 (swords, maces, axes, a
+finds: a sorcerer's crooked staff on each sorcerer (2953; 33,
+Intelligence, arcane spells stronger, mana), plain drop gear at every level 27 to 37 (swords, maces, axes, a
 flail, a spear, a maul, mail, plate, a tower shield), ectoplasm from
 ghosts, grunt tusks, demon horns, gold keys, roast chicken, cider, and
 magic potions in the treasure rooms.

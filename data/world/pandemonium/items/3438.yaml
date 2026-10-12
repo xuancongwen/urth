@@ -1,0 +1,23 @@
+vnum: 3438
+name: a Hellforged flanged mace
+keywords: [hellforged, flanged, mace, hellforge]
+description: A heavy flanged mace, its head still faintly red from the forge, lies here.
+look: |
+  A mace of dark steel with seven flanges, quenched in the Hellforge and
+  blessed by Halbu over the anvil in a language older than either. The
+  heat never quite leaves the head. It guards the one who blesses with
+  it, and the good god's works ring through it.
+type: weapon
+weight: 4
+level: 50
+baseline: mace
+value: 7800
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: spellPower, params: { mult: 1.1, deity: good } }
+  - { kind: faithShield, params: { mult: 0.88, rounds: 3 } }
+  - { kind: manaMax, params: { amount: 0.1 } }

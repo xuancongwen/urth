@@ -1,0 +1,18 @@
+vnum: 3060
+name: a circlet of copper wire
+keywords: [circlet, copper, wire]
+description: A thin circlet of twisted copper wire lies here.
+look: |
+  Three strands of copper wire twisted together and bent into a ring to
+  sit on the brow, green at the joins. Apprentices wear them to keep
+  their hair out of the candle and their thoughts in their heads; it
+  works better for the second.
+type: armor
+slot: head
+weight: 1
+level: 5
+baseline: cloth
+value: 100
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: manaMax, params: { amount: 0.05 } }

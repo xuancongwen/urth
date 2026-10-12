@@ -10,11 +10,16 @@ look: |
   equal parts. He would very much like to study the fel magic the orc
   warlocks use, and he will give a Kirin Tor signet to whoever brings
   him one of their scorched skulls and a pair of red dragon scales.
-  Type list.
+  Type list. He is also, he admits, a passable teacher of the
+  Kirin Tor's spells to anyone who has found the schools. Type
+  'practice'.
 level: 16
 flags: [peaceful]
+teaches: [acid_arrow, web, find_weakness, fire_shield, lightning_bolt, stoneskin, slow, keen_insight, ice_storm, cloudkill]
 attack:
   kind: fire
   verb: bolt
 trades:
   - { item: 1442, items: [1418, 1405, 1405] }
+  - { item: 1445, silver: 600 }
+  - { item: 1446, silver: 550 }

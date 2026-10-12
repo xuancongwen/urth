@@ -49,9 +49,12 @@ hits harder, Strength and Wisdom), Natalya's Totem, Shadow and Soul
 Constitution, dodge, wards, regeneration), Natalya's Mark (46; a claw,
 crits, hits harder, sees the invisible, Dexterity), the Oculus (46,
 held; sees the hidden and the invisible, Intelligence and Wisdom,
-soaks blows). Common finds: spider-silk wraps on the spiders, jungle
+soaks blows, arcane spells stronger and harder to resist). Common finds: spider-silk wraps on the spiders, jungle
 machetes (drop), hulk-hide jerkins, flayers' barbed spears, zealots'
-war scepters, lacquered Kurast helms (drop), council robes, blood
+war scepters, lacquered Kurast helms (drop), shrunken-head wands on the flayer
+shamans (3340; 40, harmful spells stronger, Intelligence, mana), council
+robes and Zakarum censers (3341; 40, held, divine spells stronger, mana
+in a fight, Wisdom), blood
 lords' war axes, Durance plate cuirasses (drop), greatswords of the
 Durance (drop).
 
@@ -65,7 +68,11 @@ Merchants (`list`, `buy`, `sell`):
   700; Khalim's Will for Khalim's Flail, Eye, Brain and Heart plus 500
   silver.
 - Ormus (3301, his shelter 3304): jade-headed staff 900; Ormus' Robes
-  for Lam Esen's Tome plus 1500 silver.
+  for Lam Esen's Tome plus 1500 silver; caster gear, a Taan mage's robe
+  (3337; 40, Intelligence, mana, arcane surges) 4000, a clasped orb
+  (3338; 40, held, arcane spells stronger, cheaper, harder to resist)
+  4200, and a jade amulet of Kurast (3339; 40, Intelligence, mana, mana
+  in a fight) 3800.
 - Alkor (3302, his hut 3306): potion of greater healing 40, thawing
   potion 35.
 - Asheara (3303, the Iron Wolves' barracks 3307): Iron Wolf blade 750,
@@ -75,8 +82,16 @@ Merchants (`list`, `buy`, `sell`):
 - Natalya (3305, the stockade gate 3305): Natalya's Mark for
   Mephisto's soulstone plus 1500 silver.
 
-Trainer: Natalya teaches feint and backstab. All six townsfolk trade
-or teach, and all are peaceful.
+Trainers: Natalya teaches feint and backstab. Ormus (3301, his
+shelter 3304) teaches arcane spells to those who have the school:
+globe of invulnerability, cloudkill, chain lightning, mislead, circle
+of death, and disintegrate. All six townsfolk trade or teach, and all
+are peaceful.
+
+Scrolls (`study`, found spells no trainer sells): Geleb Flamefinger
+(3318, room 3321) carries a scroll of meteor swarm (3335), which
+Ormus's look hints at; a scroll of incendiary cloud (3336) is caught
+in Sszark's web in her nest (3310), as Sszark's look says.
 
 Quest item: 3333, a jade figurine (planted by questmasters only).
 

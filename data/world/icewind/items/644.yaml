@@ -1,0 +1,20 @@
+vnum: 644
+name: a sliver of Crenshinibon
+keywords: [sliver, crenshinibon, crystal, shard]
+description: A sliver of clear crystal lies here, and seems to be watching you.
+look: |
+  A sliver of perfectly clear crystal no longer than a finger, broken
+  from the Crystal Shard when the mountain came down on Kessell's tower.
+  It is warm in the hand and it is never silent: it whispers about
+  power, and how much more you could have. Kessell's shade has been
+  holding it, and listening, for a long time. Held, it fills the mind
+  with a cold, deep strength, and the Art comes stronger.
+type: armor
+slot: hold
+weight: 1
+level: 10
+value: 900
+effects:
+  - { kind: spellPower, params: { mult: 1.08, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.12 } }
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }

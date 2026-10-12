@@ -1,0 +1,21 @@
+vnum: 1446
+name: a wand of sparks
+keywords: [wand, sparks, copper, spark]
+description: A copper-bound wand, crackling at the tip, lies here.
+look: |
+  A rod of dark wood wound with copper wire, capped with a chip of
+  lightning-glass that will not stop crackling. Dalaran's apprentices
+  make them for practice and the good ones sell. Fire and lightning come
+  off it harder, and sometimes very much harder.
+type: weapon
+weight: 1
+level: 15
+baseline: staff
+value: 550
+weapon:
+  hands: 1
+  kind: blunt
+  verb: zap
+effects:
+  - { kind: spellPower, params: { mult: 1.1, school: evocation } }
+  - { kind: spellCrit, params: { chance: 0.03, mult: 1.5, school: evocation } }

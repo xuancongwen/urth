@@ -29,7 +29,15 @@ on the road south of Beregost; and Minsc (12) with Boo stands at
 Nashkel's crossroads. Minsc teaches berserk, Montaron backstab, the
 acrobat at the Friendly Arm dodge, and the cutpurse in the Burning
 Wizard dirt kicking. Xzar trades a Zhentarim agent's ring (8) for
-three lumps of the mine's tainted iron.
+three lumps of the mine's tainted iron, and sells a bone wand (550;
+level 10, necromancy 10 percent stronger, more mana) for 280 silver.
+
+Arcane trainers, for a character who has found the school: Elminster
+(525, at the fountain 514) teaches magic missile, shield, true strike,
+color spray, mage armor, mind spike, sleep, invisibility, see
+invisible, mirror image, find weakness, and heroism; Xzar (521, on the
+road 517) teaches chill touch, ray of enfeeblement, false life, and
+vampiric touch.
 
 Map. North is up; the surface is z=1, the undercellar and the mine's
 upper levels z=0, Mulahey's chamber z=-1.

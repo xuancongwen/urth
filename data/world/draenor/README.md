@@ -37,8 +37,8 @@ Uniques: a Warglaive of Azzinoth (16; fel fire, evasion, sees the
 invisible), Frostmourne (18; chills, feeds on what it cuts, strength at
 the cost of Wisdom), the Helm of Domination (18; a grave-frost aura, a
 commanding mind, hard to stagger), Gorehowl (20; reckless fury and
-execution), the Book of Gul'dan (held; bolts of fel shadow,
-Intelligence, costs Wisdom), the Eye of Kilrogg (face; sees the hidden,
+execution), the Book of Gul'dan (held; bolts of fel shadow, harmful
+spells stronger, more mana, Intelligence, costs Wisdom), the Eye of Kilrogg (face; sees the hidden,
 crits), the staff of Ner'zhul (chills, Wisdom and Intelligence), the Doomhammer (20; thunderbolts, steady,
 Strength), and a fragment of K'ure (held; mends, steadies, Wisdom), which Velen trades.
 The executioner axe, trident, glaive, horned helm, and mantle
@@ -55,12 +55,18 @@ Merchants:
 - Artificer Velaani (1113, workshop 1119): healing crystals and a
   crystal lantern for silver; a crystal-forged blade for 350 silver and
   two fel iron; a pendant of the resting light for 300 silver and two
-  motes of fire; a naga-scale vest for 250 silver and three naga scales.
+  motes of fire; a naga-scale vest for 250 silver and three naga scales; caster gear, a
+  draenei crystal orb (1141; 20, held, arcane spells stronger and
+  surging) 900s and a crystal-set circlet (1142; 20, Intelligence, arcane
+  spells harder to resist) 850s.
 - Velen the Prophet (1123, shrine 1120): a fragment of K'ure for three
   shards of the Twisting Nether.
 
 Trainers: the Mag'har blademaster (1127) teaches triple and coup de
-grace; Grom Hellscream (1102) berserk.
+grace; Grom Hellscream (1102) berserk. Artificer Velaani (1113, room
+1119) teaches arcane spells to those who have the school: heroism,
+stoneskin, slow, insight, repulsion, confusion, phantasmal killer,
+cone of cold, iron body, and Tenser's transformation.
 
 Fel iron comes from the fel orcs and the crater rim, motes of fire from
 the infernal and the crater, naga scales from the naga, glowcaps from

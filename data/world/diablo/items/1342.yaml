@@ -17,3 +17,7 @@ effects:
     params: { stat: intelligence, amount: 3 }
   - kind: stat
     params: { stat: wisdom, amount: 1 }
+  - kind: spellPower
+    params: { mult: 1.08, branch: arcane }
+  - kind: penetration
+    params: { amount: 0.10, branch: arcane }

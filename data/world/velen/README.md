@@ -65,6 +65,9 @@ Merchants (`list`, `buy`, `sell`):
 - Yennefer of Vengerberg (2221, at the edge of Crookback Bog 2223):
   her obsidian star for 1200 silver and a wolf school medallion (the
   griffin's).
+- Mousesack (2228, the edge of the woods 2219): a Skellige druid's
+  staff (2234; 30, the Neutral god's spells stronger, Wisdom, mana)
+  2400.
 
 Drowner brains come from the drowners and water hags; nekker hearts
 from the nekkers; griffin feathers from the griffin.
@@ -72,7 +75,9 @@ from the nekkers; griffin feathers from the griffin.
 Trainers: Vesemir (2201, the inn yard 2202) teaches riposte and dodge;
 Geralt of Rivia (2220, beside him at the notice board) teaches
 whirlwind; the Bloody Baron (2202, at his high table 2205) teaches
-hand to hand.
+hand to hand; Mousesack (2228, a druid of Skellige, at the edge of the
+woods 2219, peaceful) teaches the Neutral god's Call Lightning and
+Restoration to its apostles.
 
 Quest item: 2205, a witcher's contract notice (planted by questmasters
 only).

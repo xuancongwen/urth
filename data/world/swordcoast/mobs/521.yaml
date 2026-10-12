@@ -10,10 +10,13 @@ look: |
   Nashkel iron rots, and he wants samples: bring him three lumps of the
   tainted iron from the mine and he will part with the ring the
   Black Network gave him. Type 'list'. "Are you a wizard? You look
-  like a wizard. No, wait, you don't."
+  like a wizard. No, wait, you don't." If you have the grave's school
+  he will teach you a little of it, giggling. Type 'practice'.
 level: 9
 flags: [peaceful]
+teaches: [chill_touch, ray_of_enfeeblement, false_life, vampiric_touch]
 trades:
   - { item: 546, items: [511, 511, 511] }
+  - { item: 550, silver: 280 }
 attack:
   verb: strike

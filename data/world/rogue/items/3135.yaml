@@ -1,0 +1,19 @@
+vnum: 3135
+name: a robe of the Sightless Eye
+keywords: [robe, sightless, eye, blue, sisterhood]
+description: A deep blue robe, embroidered with a closed eye, lies here.
+look: |
+  The deep blue of the Sisters of the Sightless Eye, with a closed eye
+  embroidered in silver at the breast. Akara sews them for the Sisters
+  who survived the monastery. A prayer for another wraps the one who
+  prays in a little of its protection.
+type: armor
+slot: body
+weight: 1
+level: 30
+baseline: cloth
+value: 2200
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.12 } }
+  - { kind: faithShield, params: { mult: 0.92, rounds: 3 } }

@@ -8,9 +8,16 @@ look: |
   floor quiets while he does. That is his son Doru down there, though he
   will not say so. For a donation to the church he will teach you to
   heal quickly and to throw yourself in front of a blow meant for a
-  friend, the only two things his faith still does reliably.
+  friend, the only two things his faith still does reliably. To one the
+  Morninglord has truly taken in, he will teach more, in a whisper, as
+  if afraid of being overheard: the light that smites, and the prayer
+  that heals a whole company. He will part with his prayer book and his
+  father's mace, for coin to keep the church standing. Type 'list'.
 level: 20
 flags: [peaceful]
-teaches: [fast_healing, rescue]
+teaches: [fast_healing, rescue, smite, prayer_of_healing]
 attack:
   verb: punch
+trades:
+  - { item: 2133, silver: 950 }
+  - { item: 2134, silver: 1000 }

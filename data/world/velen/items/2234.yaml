@@ -1,0 +1,22 @@
+vnum: 2234
+name: a Skellige druid's staff
+keywords: [skellige, druid's, druid, staff, oak]
+description: A gnarled oak staff wound with a living vine lies here.
+look: |
+  A staff of gnarled island oak, with a vine wound round it that is
+  still alive and still growing, a little, toward the light. The druids
+  of the Skellige circle cut them. Mousesack has a spare. The god of the
+  balance hears whoever holds it.
+type: weapon
+weight: 4
+level: 30
+baseline: staff
+value: 2400
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.1, deity: neutral } }
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.08 } }

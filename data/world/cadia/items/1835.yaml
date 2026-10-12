@@ -1,0 +1,24 @@
+vnum: 1835
+name: the Staff of Changing
+keywords: [staff, changing, tzeentch, zaraphiston]
+description: A staff whose head will not stay one shape lies here.
+look: |
+  A staff of blue-black metal crowned with a head that does not keep one
+  shape: an eye, a beak, a flame, a hand, a thing you have no word for.
+  It is Zaraphiston's, a gift of the Changer of Ways, and it is full of
+  the warp. Every working through it is stronger and harder to resist,
+  and now and then it surges into something far worse.
+type: weapon
+weight: 4
+level: 46
+baseline: staff
+value: 9000
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: spellPower, params: { mult: 1.12, branch: arcane } }
+  - { kind: spellCrit, params: { chance: 0.08, mult: 1.75, branch: arcane } }
+  - { kind: penetration, params: { amount: 0.12, branch: arcane } }
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }

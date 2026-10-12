@@ -5,7 +5,10 @@ description: |
   leaves dark red, like a thousand small hands. A face is carved into
   the trunk, long and sorrowful, and red sap has run from the eyes and
   dried there. It is very quiet. Whatever you came in carrying, anger or
-  fear, is harder to hold on to here. The path runs south.
+  fear, is harder to hold on to here. The old gods of the forest are
+  worshipped here, the gods of stone and tree who keep no side, and what
+  is given to them at the foot of the tree is taken. The path runs south.
 exits:
   south: 1520
 flags: [safe]
+temple: neutral

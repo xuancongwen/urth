@@ -7,12 +7,17 @@ look: |
   her brow and wet hems from wading among the candles. She keeps the
   shrine and speaks for the Lady, who does not speak for herself. She
   will trade the Lady's blessings for coin, and for things from the
-  isle that the Lady finds pleasing.
+  isle that the Lady finds pleasing, and to an apostle of the good she
+  will teach the Lady's blessing and her light, as the shrine's
+  priestesses always have.
 level: 12
 flags: [peaceful]
+teaches: [bless, smite]
 attack:
   verb: strike
 trades:
   - { item: 1001, silver: 20 }
   - { item: 1017, silver: 250, items: [1006] }
   - { item: 1019, silver: 60, items: [1008, 1008] }
+  - { item: 1043, silver: 280 }
+  - { item: 1044, silver: 300 }

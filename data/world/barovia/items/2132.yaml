@@ -1,0 +1,16 @@
+vnum: 2132
+name: a scroll of unholy word
+keywords: [scroll, unholy, word, black]
+description: A scroll bound in black leather lies here, cold to the touch.
+look: |
+  A scroll of something like vellum, bound in black leather and tied
+  with a woman's hair, written in a hand that slopes the wrong way. It
+  is the Unholy Word, the one word the dark gave Strahd von Zarovich
+  for the pact he sealed in his brother's blood: spoken, it tears every
+  enemy who hears it and leaves them small and slow. An apostle of the
+  Evil god, high enough and wise enough, can study it; the leather
+  crumbles as the word goes in.
+type: other
+weight: 1
+value: 2500
+spell: unholy_word

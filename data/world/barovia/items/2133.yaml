@@ -1,0 +1,19 @@
+vnum: 2133
+name: a prayer book of the Morninglord
+keywords: [prayer, book, morninglord, lathander]
+description: A worn prayer book with a sunrise stamped on its cover lies here.
+look: |
+  A prayer book of the Morninglord, its gilt sunrise rubbed almost away
+  by Father Donavich's thumb. Half the pages are prayers for the sick
+  and the other half for those who sit with them. Held while praying,
+  healing comes stronger, and some of it comes back to the one who gave
+  it.
+type: armor
+slot: hold
+weight: 1
+level: 20
+value: 950
+effects:
+  - { kind: spellPower, params: { mult: 1.08, kind: heal } }
+  - { kind: martyr, params: { fraction: 0.08 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

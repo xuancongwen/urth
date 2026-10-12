@@ -1,0 +1,21 @@
+vnum: 214
+name: a shrine-keeper
+keywords: [shrine-keeper, shrine, keeper, acolyte, woman]
+description: A shrine-keeper in a sun-yellow stole kneels by the altar, sweeping it clean of nothing.
+look: |
+  A plain woman in a plain robe, with a stole the colour of early
+  morning over her shoulders. She keeps the altar of the rising sun and
+  asks nothing of anyone who comes to it. To those who have given the
+  god something and been taken in, she will teach the first blessing,
+  for a coin for the lamp oil. "The rest is taught further on," she
+  says. "Elistan, in Solace, and the priestesses of the Lady on Avalon.
+  Higher than that, you will have to go looking." She sells wooden sun-
+  disks and oak cudgels to pilgrims for the road. Type 'list'.
+level: 12
+flags: [peaceful]
+teaches: [bless]
+attack:
+  verb: punch
+trades:
+  - { item: 115, silver: 25 }
+  - { item: 116, silver: 30 }

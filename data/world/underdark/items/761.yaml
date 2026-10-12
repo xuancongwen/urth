@@ -1,0 +1,18 @@
+vnum: 761
+name: a spider-carved holy symbol
+keywords: [spider-carved, spider, holy, symbol, lolth]
+description: A black stone pendant carved as a spider lies here.
+look: |
+  A pendant of black obsidian carved as an eight-legged spider with a
+  woman's face on its back, on a chain of drow mithral. Every priestess
+  of Lolth wears one, and the acolytes sell them to those who would
+  serve. The Spider Queen's gifts come stronger to those who wear her
+  mark.
+type: armor
+slot: neck
+weight: 1
+level: 15
+value: 600
+effects:
+  - { kind: spellPower, params: { mult: 1.08, deity: evil } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

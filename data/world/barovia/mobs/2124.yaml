@@ -1,0 +1,25 @@
+vnum: 2124
+name: Lady Fiona Wachter
+keywords: [lady, fiona, wachter, noblewoman, cultist]
+description: Lady Fiona Wachter, in mourning black, stands at the crypt stair and gazes down into the dark with something like longing.
+look: |
+  A handsome woman of middle years, a noblewoman of Vallaki in widow's
+  black with jet at her throat, and a calm about her that is worse than
+  any frenzy. She has given up praying to the Morninglord, who never
+  came, and pledged herself to the darkness that rules this valley, and
+  she comes to the graveyard to be near it. "The dark keeps its
+  promises," she says. "That is more than the light ever did for
+  Barovia." To those who have given themselves to the same dark, she
+  will teach, for coin, the dread, the malediction, and the wound that
+  feeds its maker. "The greatest word of all he keeps for himself," she
+  says, glancing up at the castle. "Strahd. It is written on a scroll he
+  carries, at the top of his tower. Take it from him if you can." She
+  will sell, to the right sort of guest, one of the iron censers from
+  her household's private chapel. Type 'list'.
+level: 28
+flags: [peaceful]
+teaches: [dread, malediction, harm]
+attack:
+  verb: slap
+trades:
+  - { item: 2135, silver: 2200 }

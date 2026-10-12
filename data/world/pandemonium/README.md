@@ -40,6 +40,9 @@ Bosses:
   venom lords crouch by him. Wields Doombringer, wears his flayed hide,
   and carries the last chaos seal fragment.
 
+Scroll: Izual also carries a scroll of holy word (3434), the Good god's
+found spell; Tyrael's look points to it.
+
 Uniques: Izual's broken feather (47, held; dodge, Dexterity and Wisdom,
 a frost aura), the Hellforge Hammer (49; a two-handed maul that ignites
 and crits, Strength), an amulet of the perfect skull (49; leech,
@@ -54,7 +57,8 @@ and Constitution, dodge, sees the invisible; from Jamella). Common
 finds: gore-crusted hide jerkins on the corpulents, doom knights'
 blackened greatswords and visored helms, soul killers' bone daggers,
 abyss knights' runed gauntlets, pit lords' cleaving axes, venom lords'
-glaives, storm casters' cuffs, tainted ones' bone flails, oblivion
+glaives, storm casters' cuffs and, on two of them, a storm caster's orb
+(3435; 48, held, evocation stronger and surging, Intelligence), tainted ones' bone flails, oblivion
 knights' greaves; and from kills only (flagged drop), ash-walker boots
 47, a charred war scepter 50, a hellforged war maul 51, a hell-plate
 cuirass 52, a fiend-bone helm and hell-iron vambraces 53.
@@ -64,13 +68,19 @@ Merchants (`list`, `buy`, `sell`):
 - Jamella (3401, her alcove 3402): a vial of angelic healing 60, a lamp
   of Pandemonium 60, a prismatic amulet 4500, a ring of the heavens
   4500; three chaos seal fragments plus 15000 silver for Tyrael's
-  Might.
+  Might; caster gear, a luminous vestment (3436; 40, Wisdom, mana,
+  healing given comes back, a faith shield) 4200 and a holy symbol of
+  the Arch-Angels (3437; 50, Wisdom, divine spells stronger, healing
+  given comes back, mana in a fight) 8000.
 - Halbu (3402, his forge 3403): a dwarven war axe 1400, a dwarven plate
   hauberk 1600; two burning demon horns plus 800 silver for a pavise of
   Pandemonium; the Hellforge Hammer plus 400 silver for an amulet of the
-  perfect skull. He also teaches sunder.
+  perfect skull; a Hellforged flanged mace (3438; 50, Wisdom, the Good
+  god's spells stronger, a faith shield, mana) 7800. He also teaches
+  sunder.
 
-Trainers: Tyrael (3400, his hall 3401) teaches rescue and second wind;
+Trainers: Tyrael (3400, his hall 3401) teaches rescue and second wind,
+and to the Good god's apostles Smite and Prayer of Healing;
 Hadriel (3403, the gate 3404) teaches shield block and riposte. Both
 are peaceful and tell the way.
 

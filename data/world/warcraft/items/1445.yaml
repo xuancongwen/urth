@@ -1,0 +1,19 @@
+vnum: 1445
+name: a violet robe of Dalaran
+keywords: [violet, robe, dalaran, kirin, tor]
+description: A robe of violet silk trimmed in gold lies here.
+look: |
+  The violet of the Kirin Tor, cut for a journeyman, with the city's
+  crest of an eye embroidered small at the breast. Khadgar brought three
+  spares from Dalaran and, he admits, will never need them all. The silk
+  is woven with a little thread of arcanite that holds a working the way
+  a cup holds water.
+type: armor
+slot: body
+weight: 1
+level: 15
+baseline: cloth
+value: 600
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.1 } }

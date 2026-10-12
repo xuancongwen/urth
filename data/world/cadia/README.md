@@ -12,7 +12,7 @@ lowest landing of the stair below the Deeper Hall (room 10 in `start`),
 which opens onto the trench mouth (1800).
 
 Bosses: Nob Gutrippa (36) in the big gun pit; Zaraphiston the sorcerer
-(46) on the pylon's ritual gallery; the Bloodthirster (55) at the brass
+(46) on the pylon's ritual gallery, with the Staff of Changing; the Bloodthirster (55) at the brass
 throne; Haarken Worldclaimer (60), the Herald of the Apocalypse, on the
 rubble of the fallen Gate among the Terminators; Abaddon the Despoiler
 (65) at the Eye-facing breach. Named
@@ -24,7 +24,9 @@ Uniques: the bolt pistol (bolt detonations, crits, Dexterity), the
 Cadian chainsword (chain-teeth procs, crits, Strength), the power fist
 (Gutrippa; worn on the hands, bare hands hit harder, power attacks,
 Strength), the shard of the Cadian pylon (Zaraphiston; held, steadies
-and protects, sees the invisible, Wisdom and Intelligence), the axe of
+and protects, sees the invisible, Wisdom and Intelligence), the Staff of Changing
+(1835, 46, Zaraphiston's; arcane spells stronger, harder to resist,
+and surging for 1.75x, Intelligence), the axe of
 the Bloodthirster (leech, crits, burns, Strength), the Helspear (Haarken; procs when hurled, crits, Strength and
 Dexterity), the Talon of Horus (Abaddon; crits, hard crits, combi-bolter procs, leech, Strength and
 Constitution). By trade: Duty, Lord Castellan Creed's laspistol (30;
@@ -52,7 +54,14 @@ Ulthran (1823), unseen by the traitors, at the foot of the pylon
 
 Trainers: Commissar Raskel (1801, Commissariat bunker 1803) teaches
 berserk and rescue; Colour Sergeant Kell (1821, fire trench 1801)
-teaches second wind and enhanced damage.
+teaches second wind and enhanced damage; Eldrad Ulthran (1823, room
+1822) teaches arcane spells to those who have the school: insight,
+confusion, repulsion, globe of invulnerability, true seeing, hold
+monster, and mislead.
+
+Scroll (`study`, a found spell no trainer sells): Zaraphiston (1813,
+at the pylon 1823) carries a scroll of the finger of death (1833);
+Eldrad's look hints at it.
 
 Merchants (`list`, `buy`, `sell`):
 
@@ -66,7 +75,9 @@ Merchants (`list`, `buy`, `sell`):
 - Saint Celestine (1822, breach of Kasr Myrak 1811): a feather of the
   Living Saint for four vials of daemon ichor.
 - Eldrad Ulthran (1823, foot of the pylon 1822): a spirit stone of
-  Ulthwé for the shard of the Cadian pylon (Zaraphiston's, just above).
+  Ulthwé for the shard of the Cadian pylon (Zaraphiston's, just above);
+  a wraithbone staff (1834; 50, Intelligence, arcane spells stronger
+  and surging, mana) for 8000 silver.
 - Confessor Hallam (1803, field chapel 1805): purity seal 400; blessed
   eviscerator for 1500 silver plus three vials of daemon ichor.
 

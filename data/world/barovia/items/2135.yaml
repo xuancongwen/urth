@@ -1,0 +1,18 @@
+vnum: 2135
+name: an iron censer of the Dark Powers
+keywords: [iron, censer, dark, powers]
+description: A black iron censer on a short chain lies here, smoking faintly.
+look: |
+  A censer of black iron on a short chain, worked with faces that are
+  not quite faces. Lady Wachter's household swings it at their private
+  services, and the smoke smells of grave-earth and myrrh. The evil
+  god's works come harder through it, and are harder to throw off.
+type: armor
+slot: hold
+weight: 1
+level: 30
+value: 2200
+effects:
+  - { kind: spellPower, params: { mult: 1.1, deity: evil } }
+  - { kind: penetration, params: { amount: 0.08, deity: evil } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

@@ -1,0 +1,23 @@
+vnum: 720
+name: a drow acolyte
+keywords: [drow, acolyte, novice, priestess]
+description: A drow acolyte kneels on the polished floor before the altar, whispering to the iron spider.
+look: |
+  A young drow woman in a plain black shift, her white hair cropped
+  short as a novice's must be, the marks of the whip still fresh on her
+  shoulders. She has not yet earned the right to wield the snake-headed
+  scourge, only to tend the candles and to pass the lesser prayers to
+  those the Spider Queen has noticed. To one who has laid an offering on
+  this altar and been taken, she will teach the touch that rots, the
+  dread that unmans, and the curse that withers, for coin, which she
+  will give to the Matron and be whipped for anyway. "The greater words
+  are not mine to give," she says. "Seek those who serve the dark on the
+  surface, in the valley of the mists." She sells the Spider Queen's
+  holy symbol to any who would wear it. Type 'list'.
+level: 14
+flags: [peaceful]
+teaches: [rotting_touch, dread, malediction]
+attack:
+  verb: punch
+trades:
+  - { item: 761, silver: 600 }

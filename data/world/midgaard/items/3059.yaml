@@ -1,0 +1,16 @@
+vnum: 3059
+name: a glass orb
+keywords: [glass, orb, ball, sphere]
+description: A glass orb the size of a plum lies here, catching the light.
+look: |
+  A ball of clear glass with a single bubble frozen in the middle. The
+  wizard grinds them himself and swears each one is flawless but for the
+  bubble, which is where the magic goes. Held while casting, it gathers
+  the working and sends it out a little harder.
+type: armor
+slot: hold
+weight: 1
+level: 5
+value: 120
+effects:
+  - { kind: spellPower, params: { mult: 1.05, branch: arcane } }

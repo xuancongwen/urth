@@ -23,3 +23,5 @@ trades:
   - { item: 3402, silver: 4500 }
   - { item: 3403, silver: 4500 }
   - { item: 3404, silver: 15000, items: [3406, 3406, 3406] }
+  - { item: 3436, silver: 4200 }
+  - { item: 3437, silver: 8000 }

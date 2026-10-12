@@ -25,8 +25,8 @@ Zhar the Mad 19 (miniboss, in his library off the hall of crypts; his
 grimoire), magma
 demons and horned demons 19 (demon brains, demon hearts), succubi and
 advocates 20, blood knights 21 (demon
-hearts), Archbishop Lazarus 21 (boss; the mitre and the Harlequin
-Crest), and Diablo 24 (the final boss, 3200 health, two swings a round
+hearts), Archbishop Lazarus 21 (boss; the mitre, his black crozier, and the
+Harlequin Crest), and Diablo 24 (the final boss, 3200 health, two swings a round
 and a burning touch; carries the red soulstone and the Stone of Jordan).
 
 Uniques: the Butcher's cleaver (16; executes the weak, festers), the
@@ -34,12 +34,14 @@ Optic Amulet (17; sees the hidden, soaks blows), Gonnagal's Dirk (18;
 hits harder, wards, costs Dexterity), Windforce (20; a bow that knocks
 foes back and punishes them for it), the Harlequin Crest (21; less damage
 taken, +1 to three stats), the Stone of Jordan (24; skill cooldowns a
-round shorter). The Butcher also carries Gonnagal's Dirk, and Diablo
+round shorter), Lazarus's black crozier (1345, 21; divine spells
+stronger and harder to resist, mana, Wisdom). The Butcher also carries Gonnagal's Dirk, and Diablo
 Windforce. Common finds: a fallen one's kris, a wedding ring on a
 zombie, rusted hauberks, fiend-hide gloves, goat-hide leggings, a
 magma-forged maul by the river of fire, hell-iron flails, blood-iron
 sabatons, succubus whips, scribe's bracers. Minor uniques: Gharbad's charm (19; dodge,
-Dexterity), Zhar's grimoire (19; held, Intelligence and Wisdom), and the
+Dexterity), Zhar's grimoire (19; held, Intelligence and Wisdom, arcane spells
+stronger and harder to resist), and the
 Veil of Steel (21; a great helm, less damage taken, Strength and
 Constitution).
 

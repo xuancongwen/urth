@@ -1,0 +1,17 @@
+vnum: 3058
+name: a novice's robe
+keywords: [novice's, novice, robe, grey]
+description: A grey wool robe with too-long sleeves lies folded here.
+look: |
+  Undyed grey wool, cut long and loose with sleeves that hide the hands,
+  in the style of the Mages' Guild's first-year students. There are
+  pockets everywhere, for chalk and string and dried things. Wearing it
+  you feel, absurdly, a little cleverer.
+type: armor
+slot: body
+weight: 1
+level: 1
+baseline: cloth
+value: 25
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

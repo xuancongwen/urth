@@ -23,3 +23,5 @@ effects:
     params: { chance: 0.25, power: 1.2, verb: "crackle of wizard's lightning" }
   - { kind: stat, params: { stat: intelligence, amount: 3 } }
   - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: spellPower, params: { mult: 1.10, branch: arcane } }
+  - { kind: spellCrit, params: { chance: 0.05, mult: 1.5, branch: arcane } }

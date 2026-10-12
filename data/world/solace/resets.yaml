@@ -37,7 +37,7 @@ resets:
   - { item: 121, room: 307 }   # salt at the lakeshore
   - { item: 121, room: 307 }
   - { mob: 327, room: 323 }   # the ranger at the shrine, who teaches fast healing
-  - { mob: 316, room: 323 }   # Elistan praying to Paladine, who teaches rescue
+  - { mob: 316, room: 323 }   # Elistan praying to Paladine, who teaches rescue, and Bless and Smite to the Good god's apostles
   # the north road and the bridge
   - { mob: 313, room: 309, equip: [{ item: 334, slot: wield }, { item: 328, slot: body }] }   # Verminaard on the north road, Nightbringer and dragonarmy scale
   - { mob: 314, room: 320, equip: [{ item: 335, slot: body }] }   # Kitiara on the bridge, who did not come to the inn

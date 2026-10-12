@@ -22,3 +22,5 @@ resets:
   # --- the hall ---
   - { mob: 209, room: 2 }    # the old soldier: bash and twin, for coin
   - { mob: 212, room: 2 }    # the herald: questmaster and quest-point vendor
+  # --- the wayside shrine ---
+  - { mob: 214, room: 4 }    # the shrine-keeper, who teaches the Good god's Bless

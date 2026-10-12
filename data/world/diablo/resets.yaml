@@ -32,5 +32,5 @@ resets:
   - { item: 1339, room: 1325 }                                  # the golden elixir Lachdanan wants, hidden in the blood pits
   - { mob: 1315, room: 1325, max: 2, equip: [{ item: 1310 }, { item: 1333 }] }   # succubi in the blood pits, hearts and whips
   - { mob: 1318, room: 1326, max: 2, equip: [{ item: 1334 }] }  # advocates at their lecterns, in scribe's cuffs
-  - { mob: 1317, room: 1327, equip: [{ item: 1317, slot: head }, { item: 1300 }, { item: 1322 }] }   # Lazarus, mitre, a stolen potion, and the Harlequin Crest
+  - { mob: 1317, room: 1327, equip: [{ item: 1317, slot: head }, { item: 1300 }, { item: 1322 }, { item: 1345, slot: wield }] }   # Lazarus, mitre, black crozier, a stolen potion, and the Harlequin Crest
   - { mob: 1319, room: 1328, equip: [{ item: 1318 }, { item: 1321 }, { item: 1320 }] }   # Diablo, the soulstone in his brow, and the Stone of Jordan, and Windforce

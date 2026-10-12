@@ -1,0 +1,22 @@
+vnum: 2953
+name: a sorcerer's crooked staff
+keywords: [sorcerer's, sorcerer, crooked, staff]
+description: A crooked black staff, topped with a cloudy gem, lies here.
+look: |
+  A staff that grew crooked and was cut that way on purpose, black and
+  knotted, with a cloudy gem the colour of the Gauntlet's lamps at the
+  head. The sorcerers of the maze vanish and reappear with them. It is
+  warm to hold, and the gem brightens when you think.
+type: weapon
+weight: 4
+level: 33
+baseline: staff
+value: 2800
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: spellPower, params: { mult: 1.06, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.1 } }

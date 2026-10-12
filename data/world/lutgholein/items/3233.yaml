@@ -1,0 +1,14 @@
+vnum: 3233
+name: a scroll of the weird
+keywords: [scroll, weird, horazon]
+description: A scroll in Horazon's hand lies here, its letters crawling.
+look: |
+  A leaf torn from Horazon's own grimoire, the ink still moving if you
+  look away and back. It is the Weird, the illusion that shows every
+  enemy at once the thing it fears most, and makes them believe it.
+  The Summoner has been reading it to himself for years. An illusionist
+  strong enough may study it; the page goes blank after.
+type: other
+weight: 1
+value: 1600
+spell: weird

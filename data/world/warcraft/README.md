@@ -14,14 +14,14 @@ Mid bosses, in walking order: Hogger, chieftain of the Riverpaw gnolls
 (11, by the burned watchtower 1419; his huge claw), Grimmaw the gnoll
 packleader (12, 1422; his festering bone flail), Edwin VanCleef of the
 Defias Brotherhood (14, in the dark of the copper delve 1418; the Cruel
-Barb), the orc warlock (14, 1408; the Demon Soul), the troll witch
+Barb), the orc warlock (14, 1408; the Demon Soul and a fel-scorched wand), the troll witch
 doctor (14, 1425; the loa mask and the Mask of Death), and Zul'jin,
 warlord of the Amani (15, troll camp 1424; his axe).
 
 Famous folk who keep to themselves but will fight back if attacked:
 King Llane Wrynn in the hall of the keep (17, 1416; a Stormwind sword
 and shield, and a purse) and Medivh, the Last Guardian, at the waystone
-(20, 1401; the raven mantle of Medivh). Khadgar beside Medivh, Marshal
+(20, 1401; the raven mantle of Medivh, and Atiesh). Khadgar beside Medivh, Marshal
 Dughan in the keep courtyard (1414), and Sir Anduin Lothar in the hall
 of the keep (1416) trade or teach and cannot be attacked.
 
@@ -32,11 +32,14 @@ drained), the Mask of Death (leech, a little more damage, costs
 Charisma), Hogger's huge claw (a festering rake, Strength), the Cruel
 Barb (crits, strikes the off-balance, Dexterity), Zul'jin's axe (crits,
 troll regeneration, Dexterity), the raven mantle of Medivh (shoulders; lashing beaks, Intelligence,
-Wisdom, dodge), and a signet of the Kirin Tor (finger;
+Wisdom, dodge), Atiesh, Greatstaff of the Guardian (1448, 20, Medivh's
+staff; arcane spells stronger and harder to resist, a deep well of
+mana, Intelligence and Wisdom), and a signet of the Kirin Tor (finger;
 Intelligence, Wisdom, sees the invisible), which Khadgar trades. Common finds: peons' wood-axes, kobold candles, red Defias
 bandanas on the bandits, a wolfpelt mantle in the deep wood, gnoll
 spears, troll bone bracelets, a whelp-scale buckler on the scree, ogre-
-hide arm wraps, footmen's hauberks, a fel-etched knife on the altar.
+hide arm wraps, footmen's hauberks, a fel-etched knife on the altar, and the warlock's fel-scorched wand
+(1447; 14, harmful spells stronger, Intelligence).
 
 Safe: the hollow (1400), the goblin's tent (1405), the farmhouse
 (1412), the keep courtyard and smithy (1414, 1415). The great hall
@@ -54,11 +57,16 @@ Merchants (`list`, `buy`, `sell`):
   600s + 3 red dragon scales.
 - Goodwife Fenn (1412): farmhouse bread 5s.
 - Khadgar (1401): a signet of the Kirin Tor for the warlock's fel-
-  scorched skull and two red dragon scales.
+  scorched skull and two red dragon scales; caster gear for silver: a
+  violet robe of Dalaran (1445; 15, Intelligence, mana) 600s and a wand
+  of sparks (1446; 15, evocation stronger and surging) 550s.
 
 Trainers: the orc warrior in the great hall (1404) teaches sunder;
 Marshal Dughan (1414) bash and shield block; Sir Anduin Lothar (1416)
-riposte and disarm.
+riposte and disarm. Khadgar (1427, at the waystone 1401) teaches
+arcane spells to those who have the school: acid arrow, web, find
+weakness, fire shield, lightning bolt, stoneskin, slow, insight, ice
+storm, and cloudkill.
 
 Trade goods: gnoll paws from gnoll raiders and Grimmaw; iron ore from the
 kobold tunnelers (and one in the smith's bin); red dragon scales from the

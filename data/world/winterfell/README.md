@@ -46,7 +46,14 @@ warlord carry one each, and one lies in the deep crypts). The alewife
 is a questmaster; the red weirwood leaf (1517) is a quest item.
 
 Trainers: Ser Rodrik Cassel (the yard, 1509) teaches enhanced damage;
-Jon Snow (the yard) teaches riposte.
+Jon Snow (the yard) teaches riposte; Osha (1531, at the heart tree)
+teaches the Neutral god's Entangle, Barkskin, and Call Lightning to its
+apostles.
+
+The heart tree (1521) is the Neutral god's temple, the only one in the
+connected world. Its sacrifice is a weirwood seed (1538), lying under a
+young wild weirwood at the frozen stream (1527), where the shadowcat
+hunts; Osha's look and the stream's description point to it.
 
 Uniques: the great direwolf carries Needle (1525); the wildling spearwife
 carries Longclaw (1524); the wildling warlord carries the

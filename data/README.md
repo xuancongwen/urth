@@ -20,7 +20,9 @@ Layout:
 
 Areas under `world/`: `start` (the tutorial corridor where new
 characters wake, rooms 40 to 46, opening north into the armory, the
-Long Hall with its trainer and herald, and a shrine), `balance` (the test
+Long Hall with its trainer and herald, and the Good god's wayside
+shrine, whose keeper teaches Bless and sells a sun-disk and a cudgel
+to a beginning priest), `balance` (the test
 lab, unreachable on foot: `goto 900`; one plain mob per level for the
 simulator, and every mechanic in reach, see its README), and `solace` (a town in the vallenwoods, reached by
 the stair under the armory). Below the stair, the Undercroft of Doors

@@ -66,7 +66,7 @@ resets:
   - { mob: 1916, room: 1922, max: 4, equip: [{ item: 1916 }] }  # one at the Bashar's door
   - { mob: 1917, room: 1922, equip: [{ item: 1922 }] }          # the Bashar and his Sardaukar blade
   - { mob: 1918, room: 1923, equip: [{ item: 1925 }] }          # Reverend Mother Mohiam, the Gom Jabbar at her wrist
-  - { mob: 1919, room: 1924, equip: [{ item: 1923 }, { item: 1917 }] }   # Feyd-Rautha, his poisoned blade, and his arena vambraces
+  - { mob: 1919, room: 1924, equip: [{ item: 1923 }, { item: 1917 }, { item: 1937 }] }   # Feyd-Rautha, his poisoned blade, his arena vambraces, and a Fremen storm prayer (scroll of storm of vengeance)
   - { mob: 1927, room: 1930, equip: [{ item: 1930 }, { item: 1934 }] }   # Piter de Vries at the Baron's side, his sapho flask and a needle-gun in his sleeve
   - { mob: 1928, room: 1930, equip: [{ item: 1936 }] }          # Thufir Hawat in chains by the Baron's chair, an Atreides dress uniform still on his back
   - { mob: 1925, room: 1930, equip: [{ item: 1931, slot: belt }, { item: 1927 }, { item: 1935, slot: body }] }   # the Baron on his suspensors, the Duke's signet ring on a chain

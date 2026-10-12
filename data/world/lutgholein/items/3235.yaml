@@ -1,0 +1,22 @@
+vnum: 3235
+name: a desert-ash staff
+keywords: [desert-ash, desert, ash, staff, sage]
+description: A pale, wind-polished staff of desert ash lies here.
+look: |
+  Ash that grew slow in the oases and was cut dry, pale as bone and
+  harder, with a cap of beaten brass worn smooth. Drognan says the sages
+  of Lut Gholein have walked with these since before the Vizjerei had a
+  name. It holds more than it looks as if it should.
+type: weapon
+weight: 4
+level: 30
+baseline: staff
+value: 2400
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: spellPower, params: { mult: 1.08, branch: arcane } }
+  - { kind: manaMax, params: { amount: 0.1 } }

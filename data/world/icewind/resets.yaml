@@ -30,7 +30,7 @@ resets:
   - { mob: 611, room: 616, equip: [{ item: 730, slot: wield }, { item: 731 }] }   # Drizzt, Icingdeath in hand and Twinkle beside it (both from the underdark's item block), and the figurine that stays
   - { item: 614, room: 616 }
   - { mob: 620, room: 616 }   # Guenhwyvar in the shadow at the back of the cave, who teaches circle
-  - { mob: 623, room: 617, equip: [{ item: 642, slot: body }] }   # the shade of Akar Kessell in the ruin of his tower, in his Hosttower robe
+  - { mob: 623, room: 617, equip: [{ item: 642, slot: body }, { item: 644, slot: hold }] }   # the shade of Akar Kessell in the ruin of his tower, in his Hosttower robe, clutching a sliver of the Crystal Shard
   # --- the mines ---
   - { item: 624, room: 620 }  # a lantern by the gate
   - { mob: 612, room: 621, equip: [{ item: 635, slot: wield }, { item: 636, slot: head }] }   # Bruenor, his axe, and the one-horned helm

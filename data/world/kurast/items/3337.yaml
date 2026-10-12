@@ -1,0 +1,19 @@
+vnum: 3337
+name: a Taan mage's robe
+keywords: [taan, mage's, mage, robe, jungle]
+description: A robe of green and gold Kurast silk lies here.
+look: |
+  Kurast silk, dyed the green of the jungle and edged in gold glyphs, in
+  the cut the Taan mage clan wore before the Zakarum drove them out.
+  Ormus keeps a chest of them and will not say where he got it. The
+  glyphs are a working, and the working makes room.
+type: armor
+slot: body
+weight: 1
+level: 40
+baseline: cloth
+value: 4000
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: spellCrit, params: { chance: 0.04, mult: 1.5, branch: arcane } }

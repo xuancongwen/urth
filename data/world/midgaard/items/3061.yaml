@@ -1,0 +1,21 @@
+vnum: 3061
+name: a yew staff of the Mages' Guild
+keywords: [yew, staff, guild, mages]
+description: A straight yew staff carved with the Mages' Guild's sigil leans here.
+look: |
+  A shoulder-high staff of yew, straight as a ruler, with the Guild's
+  sigil of an open eye cut into the head and filled with silver. The
+  sorcerer gives one to every student who passes the second examination
+  and sells one to anyone who does not want to sit it.
+type: weapon
+weight: 4
+level: 10
+baseline: staff
+value: 300
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: manaMax, params: { amount: 0.08 } }

@@ -30,6 +30,11 @@ Merchants and trainers:
   lies under the door of Bag End (405), Gandalf's letter he never got.
 - Tom Bombadil (424): a barrow-blade of Westernesse for a splinter of
   willow heartwood from the split trunk of Old Man Willow (422).
+- Tom Bombadil (424) also sells caster gear, a circlet of river-reeds
+  (437; 15, Wisdom, mana) 600s and a willow-wood staff (438; 20, the
+  Neutral god's spells stronger, mana in a fight, Wisdom) 1000s, and
+  teaches the Neutral god's Entangle, Barkskin, and Call Lightning to
+  its apostles.
 - Goldberry (424) teaches fast healing and second wind; the Bree ruffian
   in the Green Dragon teaches trip.
 

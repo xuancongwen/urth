@@ -1,0 +1,15 @@
+vnum: 3336
+name: a scroll of incendiary cloud
+keywords: [scroll, incendiary, cloud]
+description: A half-burned scroll is caught in a strand of smouldering web.
+look: |
+  A conjurer's scroll that some wanderer carried into the Spider
+  Forest and never carried out, its case eaten through, the vellum
+  brown and curling where Sszark's web has held it. The spell on it
+  is Incendiary Cloud, a rolling fog of smoke and live embers brought
+  from somewhere hotter than this. A conjurer strong enough may study
+  it, and the scroll will crumble when the words are learned.
+type: other
+weight: 1
+value: 1800
+spell: incendiary_cloud

@@ -5,10 +5,17 @@ description: The wizard peers at you over half-moon spectacles from behind the c
 look: |
   A stooped old man in a robe embroidered with stars, most of them
   coming unstitched. His fingers are stained a dozen colours, and one of
-  his eyebrows is missing.
+  his eyebrows is missing. For a fee he will teach a beginner who has
+  found a school the plain workings of force, ward, acid, and stone.
+  Type 'practice'.
 level: 12
 flags: [peaceful]
+teaches: [magic_missile, arcane_shield, mage_armor, stone_fist, acid_arrow, web]
 trades:
   - { item: 3023, silver: 180 }
   - { item: 3030, silver: 120, items: [3026, 3026] }
   - { item: 3033, items: [3029, 3029] }
+  - { item: 3057, silver: 30 }
+  - { item: 3058, silver: 25 }
+  - { item: 3059, silver: 120 }
+  - { item: 3060, silver: 100 }

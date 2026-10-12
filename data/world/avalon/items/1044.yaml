@@ -1,0 +1,21 @@
+vnum: 1044
+name: an applewood staff
+keywords: [applewood, apple, staff, avalon]
+description: A staff of applewood, still in leaf at the top, leans here.
+look: |
+  A staff of applewood from the isle's orchards, cut in winter and
+  still, somehow, in leaf at the top. The priestesses say the apples of
+  Avalon heal. A blessing said with it in hand wraps its bearer in a
+  little of the same grace.
+type: weapon
+weight: 4
+level: 10
+baseline: staff
+value: 300
+weapon:
+  hands: 2
+  kind: blunt
+  verb: strike
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: faithShield, params: { mult: 0.95, rounds: 3 } }

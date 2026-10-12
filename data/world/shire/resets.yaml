@@ -55,5 +55,5 @@ resets:
   - { item: 422, room: 421 }   # a quarterstaff under the eaves
   - { mob: 415, room: 422, equip: [{ item: 426 }, { item: 424 }] }   # Old Man Willow, who keeps what he swallows: the Ring and Sting
   - { item: 412, room: 422 }   # heartwood from the split trunk
-  - { mob: 423, room: 424 }    # Tom Bombadil, who trades a barrow-blade for the willow's heartwood
+  - { mob: 423, room: 424 }    # Tom Bombadil, who trades a barrow-blade for the willow's heartwood, and teaches the Neutral god's Entangle, Barkskin, and Call Lightning
   - { mob: 424, room: 424 }    # Goldberry, who teaches fast healing and second wind

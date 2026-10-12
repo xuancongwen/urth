@@ -1,0 +1,20 @@
+vnum: 3437
+name: a holy symbol of the Arch-Angels
+keywords: [holy, symbol, arch-angels, angel, wings]
+description: A pendant of white gold worked as a pair of wings lies here.
+look: |
+  A pair of wings in white gold, folded about a single clear stone, on a
+  chain that weighs nothing. Jamella keeps a handful from the Fortress's
+  stores, for those who fight for the High Heavens. The god's spells
+  come stronger, healing given comes back, and the power to pray returns
+  even in the thick of a fight.
+type: armor
+slot: neck
+weight: 1
+level: 50
+value: 8000
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 3 } }
+  - { kind: spellPower, params: { mult: 1.12, branch: divine } }
+  - { kind: martyr, params: { fraction: 0.15 } }
+  - { kind: manaFight, params: { fraction: 0.015 } }

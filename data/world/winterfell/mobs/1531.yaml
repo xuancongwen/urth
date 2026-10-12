@@ -1,0 +1,21 @@
+vnum: 1531
+name: Osha
+keywords: [osha, wildling, spearwife, woman]
+description: Osha, a wildling woman in a servant's roughspun, sits on a root of the heart tree, talking quietly to it.
+look: |
+  A tall, rawboned woman from beyond the Wall, taken prisoner in the
+  Wolfswood and kept on in the kitchens, with an iron ring on her ankle
+  and a spear she is not supposed to have hidden somewhere close. She
+  prays to the old gods the way the free folk do, out loud and without
+  much respect. "Your southron gods want gold and candles," she says.
+  "These want nothing but that you remember them. Bring them a seed of a
+  wild weirwood, one that grew where no man planted it, and lay it at
+  the roots, and they'll know you. There's a young one come up by the
+  frozen stream in the Wolfswood, where the shadowcat hunts. Mind the
+  cat." To those the old gods have taken, she will teach the binding of
+  roots, the bark that turns a blade, and how to call the storm.
+level: 12
+flags: [peaceful]
+teaches: [entangle, barkskin, call_lightning]
+attack:
+  verb: punch

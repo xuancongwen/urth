@@ -97,7 +97,9 @@ Merchants (`list`, `buy`, `sell`):
 - Toran Darell (3626, Haven): glow-tube 30, atomic knife 320, personal
   force shield 420; a glow-tube for a power cell.
 - The First Speaker (3634, Star's End): the Prime Radiant for the
-  coordinates of Star's End, which Han Pritcher carries.
+  coordinates of Star's End, which Han Pritcher carries; a mentalic's
+  circlet (3656; 50, Intelligence, enchantment stronger, arcane spells
+  harder to resist, mana) for 7500 silver.
 
 Spent atomic power cells (3600, a `material` item, pool `power cell`)
 are carried by Anacreonian soldiers and sailors, Lefkin, Korellians,
@@ -109,7 +111,14 @@ force shield 30, nuclear blaster 35, atomic transmuter 80.
 
 Trainers (`practice`): Salvor Hardin (3603) teaches feint and disarm;
 Ducem Barr (3618) fast healing and second wind; Dors Venabili (3621)
-twin and riposte; Raych (3621) backstab and dirt kicking.
+twin and riposte; Raych (3621) backstab and dirt kicking; the First
+Speaker (3626, Star's End 3634) teaches the arcane spells sleep,
+heroism, confusion, and hold monster to those who have enchantment.
+
+Scrolls (`study`, found spells no trainer sells): Hari Seldon (3621)
+carries a scroll of greater foresight (3654) among his notes, and Eto
+Demerzel (3624) a scroll of time stop (3655) in his sleeve; each
+one's look shows it.
 
 Quest item: 3602, Ebling Mis's notebook (planted by questmasters
 only).

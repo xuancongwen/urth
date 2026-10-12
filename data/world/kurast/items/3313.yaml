@@ -23,3 +23,7 @@ effects:
     params: { stat: wisdom, amount: 2 }
   - kind: soak
     params: { power: 0.1 }
+  - kind: spellPower
+    params: { mult: 1.10, branch: arcane }
+  - kind: penetration
+    params: { amount: 0.12, branch: arcane }

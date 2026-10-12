@@ -14,10 +14,14 @@ look: |
   depths beneath Tristram. North, the portal will take you to
   Harrogath, where Baal goes next. I will hold this place." Those who
   would stand between the weak and the dark, he will teach to do it,
-  and to rise again when they are struck down. Type 'practice' to see
+  and to rise again when they are struck down; and to an apostle of the
+  good, Heaven's own light and its prayer of healing. "The Holy Word
+  itself I cannot give you," he says. "Izual carried it at the head of
+  the host, and it fell with him. If you would have it, take it from
+  him, in the fallen star." Type 'practice' to see
   what he teaches.
 level: 60
 flags: [peaceful]
-teaches: [rescue, second_wind]
+teaches: [rescue, second_wind, smite, prayer_of_healing]
 attack:
   verb: smite
