@@ -8,7 +8,7 @@ look: |
   hen. His blade is already out; it has been out since before you saw
   him.
 level: 16
-flags: [assist]
+flags: [assist, aggressive]
 silver: 70
 attack:
   verb: slash

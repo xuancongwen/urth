@@ -8,6 +8,7 @@ look: |
   the Dark Wood and eats what wanders in. Its hide is thick enough to
   turn a sword.
 level: 26
+flags: [aggressive]
 stats: {strength: 15, constitution: 14}
 attack:
   kind: blunt

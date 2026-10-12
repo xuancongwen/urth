@@ -7,6 +7,6 @@ look: |
   long blade it uses for exactly what its name says. Carvers hunt in
   bands among the standing stones and cut trophies from what they kill.
 level: 25
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: carve

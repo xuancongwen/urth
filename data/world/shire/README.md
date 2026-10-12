@@ -13,6 +13,10 @@ Maggot (12; mushrooms) can be killed. The two Old Forest rooms
 are dark. Beyond the Withywindle, east along the bank, the House of Tom
 Bombadil (424) is safe.
 
+A few things attack on sight: the goose by the Water, Maggot's dogs
+Grip, Fang, and Wolf in his fields (only at level 5 and up: the three
+run together), and the Black Rider, who is hunting.
+
 Folk met on the walk: Gandalf the Grey (20) on his cart at the edge of
 the Party Field (406); Rosie Cotton (6) serving in the Green Dragon
 (409); Merry Brandybuck (7) waiting with a pony at the end of Bamfurlong

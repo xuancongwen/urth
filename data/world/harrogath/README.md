@@ -29,6 +29,11 @@ Named health: Dac Farren 10000, Shenk 16000, Eldritch 14000,
 Frozenstein 18000, Pindleskin 16000, Nihlathak 40000, each Ancient
 20000, each throne captain 14000, Lister 40000, Baal 32000.
 
+Attack on sight: the demon imps, Eldritch the Rectifier (who sees
+hiding and sneaking players at his waystones), frozen horrors (hidden,
+standing still as drifts until they lurch out), snow yetis, defiled
+warriors, and minions of destruction.
+
 Nihlathak the elder (56; 16000 health, leeches) sits among the empty
 chairs of the council in town (3505). He is not peaceful and his house
 is not safe: attacked, he fights, and he wears the seal of the Elder

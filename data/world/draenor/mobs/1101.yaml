@@ -8,7 +8,7 @@ look: |
   feelers. They are tasting for magic, and they have found some on
   you. It licks its lips with a tongue like a strip of leather.
 level: 12
-flags: [wander]
+flags: [wander, aggressive]
 attack:
   kind: bite
   verb: bite

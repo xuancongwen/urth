@@ -14,7 +14,7 @@ a mechanic can be tried without walking to where it lives.
 | 903 The Arena Gate | into the arena, and west to the colleges |
 | 910-925 the arena | fights by row, levels 1 to 3 at the gate up to the troll: dogs, crows, a beggar, assisting wolves carrying fangs, an armed bandit and guard, a bog wight, a blacksmith, a wolf pack, and dummies 905, 906, 910, 915, 920, 925; the hauberk, ring, boots, and Sundering Blade lie with their guards |
 | 926 A Dark Cell | darkness (bring a light), the salt totem, the chalice |
-| 930-936 the colleges | all eight totems (931), rare materials and the other gods' sacrifices (932), the Neutral (934) and Evil (935) temples, the beast-master (rend, hamstring, berserk, sunder, whirlwind) and fencing master (riposte, feint, disarm, backstab, circle, envenom, triple strike, coup de grace) in the yards (936); between the three lab trainers every skill that needs a trainer can be bought here |
+| 930-936 the colleges | all eight totems (931), rare materials and the other gods' sacrifices (932), the Neutral (934) and Evil (935) temples, the beast-master (rend, hamstring, berserk, sunder, whirlwind) and fencing master (riposte, feint, disarm, backstab, circle, envenom, triple strike, coup de grace, hide, sneak) in the yards (936); between the three lab trainers every skill that needs a trainer can be bought here |
 | 947, 948 | two unfinished rooms off the arena's southeast corner |
 
 Mobs 901 to 925 are one plain dummy per level for the simulator. Use

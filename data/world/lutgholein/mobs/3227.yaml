@@ -9,7 +9,7 @@ look: |
   including you, and they spit a poison that eats through linen and
   skin alike.
 level: 37
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 14, constitution: 14}
 attack:
   kind: blunt

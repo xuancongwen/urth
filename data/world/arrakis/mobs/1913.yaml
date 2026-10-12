@@ -9,8 +9,10 @@ look: |
   within blue, and he has nothing left to lose but your water, which
   he means to take.
 level: 28
-flags: [assist]
+flags: [assist, aggressive]
 silver: 100
 attack:
   kind: pierce
   verb: stab
+effects:
+  - { kind: hidden, params: {} }

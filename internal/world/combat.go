@@ -63,6 +63,8 @@ func cmdKill(w *World, p *Player, args string) {
 func (w *World) startFight(att, def *Character) {
 	w.wakeForFight(att)
 	w.wakeForFight(def)
+	w.reveal(att, true)
+	w.reveal(def, true)
 	att.Fighting = def
 	att.swing = 0
 	if def.Fighting == nil {

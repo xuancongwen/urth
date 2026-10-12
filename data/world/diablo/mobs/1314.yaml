@@ -7,6 +7,7 @@ look: |
   chest like a keg. It guards the bridge by the simple method of
   charging whatever stands on it.
 level: 19
+flags: [aggressive]
 stats: {strength: 15, constitution: 13}
 attack:
   verb: gore

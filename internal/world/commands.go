@@ -197,10 +197,11 @@ func cmdMove(dir string) func(w *World, p *Player, args string) {
 			return
 		}
 		w.interruptCast(p.Character, "You stop casting as you move.")
-		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
+		w.reveal(p.Character, false)
+		w.actMove("$n leaves $t.", p.Character, dir)
 		from := p.Room
 		p.Room = dest
-		w.act("$n arrives $t.", p.Character, nil, arrivesFrom(dir), toRoom)
+		w.actMove("$n arrives $t.", p.Character, arrivesFrom(dir))
 		w.look(p)
 		w.followLeader(p.Character, from, dest, dir)
 	}

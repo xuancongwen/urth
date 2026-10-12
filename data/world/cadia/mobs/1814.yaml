@@ -9,6 +9,7 @@ look: |
   roars a single word over and over: BLOOD. It does not care whose. It
   has been killing on Cadia for days and it is not tired.
 level: 55
+flags: [aggressive]
 health: 90000
 stats: {strength: 20, constitution: 18, dexterity: 13}
 silver: 800

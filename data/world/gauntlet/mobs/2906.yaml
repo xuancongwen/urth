@@ -7,7 +7,7 @@ look: |
   two yellow tusks in it, and a knobbed club in one fist. Grunts do not
   think. They walk at you and swing. Then the next one does.
 level: 30
-flags: [assist]
+flags: [assist, aggressive]
 health: 750
 silver: 15
 attack:

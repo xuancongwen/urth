@@ -8,6 +8,7 @@ look: |
   does not seem to know where it is or why, only that you are warm and
   it is not.
 level: 15
+flags: [aggressive]
 silver: 6
 attack:
   kind: blunt

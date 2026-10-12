@@ -8,7 +8,7 @@ look: |
   Emperor's own guard, trained in secret and never seen to speak. He has
   not moved since you came in. He does not need to.
 level: 38
-flags: [assist]
+flags: [assist, aggressive]
 silver: 250
 attack:
   kind: pierce

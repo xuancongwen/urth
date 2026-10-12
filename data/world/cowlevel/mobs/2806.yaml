@@ -8,7 +8,7 @@ look: |
   guard, and they stand about his throne field with the bored patience
   of animals that have never once lost.
 level: 26
-flags: [assist]
+flags: [assist, aggressive]
 silver: 50
 attack:
   kind: blunt

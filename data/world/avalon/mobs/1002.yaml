@@ -7,6 +7,8 @@ look: |
   weed growing in its hair. It waits by the causeway for travellers
   who step wrong, and it is very patient.
 level: 5
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: grab
+effects:
+  - { kind: hidden, params: {} }

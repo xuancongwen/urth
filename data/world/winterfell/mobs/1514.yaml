@@ -8,6 +8,7 @@ look: |
   bright, empty blue of a winter sky. It does not breathe. It does not
   stop.
 level: 11
+flags: [aggressive]
 attack:
   verb: claw
   kind: claw

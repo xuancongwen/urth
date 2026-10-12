@@ -7,7 +7,7 @@ look: |
   so. Now it is grey and swollen and very strong, and it wants what you
   have, which is warmth.
 level: 14
-flags: [wander]
+flags: [wander, aggressive]
 stats: {strength: 13, dexterity: 6}
 attack:
   verb: claw

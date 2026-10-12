@@ -8,7 +8,7 @@ look: |
   ground, tick, tick, while it thinks. And it does think. It never attacks
   the same place twice, and it is never the only one.
 level: 22
-flags: [assist]
+flags: [assist, aggressive]
 silver: 40
 attack:
   kind: slash

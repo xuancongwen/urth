@@ -8,7 +8,7 @@ look: |
   they attack, and do not stop screaming until something is dead. This
   one has a spear with barbs to keep what it catches.
 level: 39
-flags: [assist]
+flags: [assist, aggressive]
 stats: {dexterity: 15}
 attack:
   kind: pierce

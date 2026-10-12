@@ -30,7 +30,8 @@ Column x from -1 (815) to 4 (807/808/809); row y from -4 (825) to 4
 under 807 and 809 under 808.
 
 Mobs: pipe-rats 2, whistle-clap 3, dig-claws 5, storm-hawk 7, coralite
-crab 8, elven marines 8, the elven captain 10 (boss, cabin). Peaceful:
+crab 8, elven marines 8, the elven captain 10 (boss, cabin). The rogue
+dig-claws and the whistle-clap attack on sight. Peaceful:
 the Gegs, and a Geg brawler (6) in the eatery who teaches hand to hand;
 Haplo the Patryn (16) at the edge of the works (807), who teaches
 dodge and second wind; Jarre (7) in the WUPP cellar (818), who

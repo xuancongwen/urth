@@ -8,6 +8,7 @@ look: |
   waiting for someone new. He swings the cleaver with a butcher's
   economy, and he is very, very fast for his size.
 level: 16
+flags: [aggressive]
 health: 750
 stats: {strength: 15, constitution: 14}
 silver: 90

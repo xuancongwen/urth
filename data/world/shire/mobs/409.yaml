@@ -6,5 +6,6 @@ look: |
   Enormous, white, hissing. It has never lost a fight and does not
   intend to start.
 level: 2
+flags: [aggressive]
 attack:
   verb: batter

@@ -8,6 +8,7 @@ look: |
   great worm, and it lives for water: it seals itself around any it
   finds and drinks it dry. You are mostly water.
 level: 18
+flags: [aggressive]
 silver: 15
 attack:
   kind: blunt

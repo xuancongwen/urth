@@ -9,7 +9,7 @@ look: |
   pain any more. He was a good man once. The Lord of Hatred made him
   a better zealot.
 level: 41
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 14, constitution: 13}
 attack:
   kind: blunt

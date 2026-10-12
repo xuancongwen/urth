@@ -6,6 +6,8 @@ look: |
   It has a shape only when you do not look straight at it. It has been
   here longer than the trees.
 level: 5
+flags: [aggressive]
 health: 135
 attack:
   verb: touch
+effects: [{ kind: hidden, params: {} }]

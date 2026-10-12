@@ -9,6 +9,7 @@ look: |
   why the kobolds have gone quiet. He seals his orders in black wax
   with a skull. He thinks you are the reason Mulahey is late.
 level: 9
+flags: [aggressive]
 health: 220
 silver: 90
 attack:

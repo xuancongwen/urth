@@ -7,6 +7,9 @@ look: |
   so it melts into snow and shadow alike. Its tail twitches. It has been
   following you for some time.
 level: 9
+flags: [aggressive]
 attack:
   verb: claw
   kind: claw
+effects:
+  - { kind: hidden, params: {} }

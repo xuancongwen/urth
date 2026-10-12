@@ -8,6 +8,7 @@ look: |
   when he moves. He came south of the Wall because the north of it is no
   longer safe, and he will kill you rather than go back.
 level: 9
+flags: [aggressive]
 silver: 45
 attack:
   verb: hack

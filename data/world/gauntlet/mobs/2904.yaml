@@ -8,7 +8,7 @@ look: |
   long time. It drains warmth faster than the faint ones, and it does
   not let go.
 level: 30
-flags: [assist]
+flags: [assist, aggressive]
 health: 750
 silver: 14
 attack:

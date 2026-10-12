@@ -310,10 +310,11 @@ func (w *World) followLeader(leader *Character, from, dest *room.Room, dir strin
 			continue
 		}
 		p.Send("You follow " + output.Escape(leader.Name) + ".\n")
-		w.act("$n leaves $t.", p.Character, nil, dir, toRoom)
+		w.reveal(p.Character, false)
+		w.actMove("$n leaves $t.", p.Character, dir)
 		w.interruptCast(p.Character, "You stop casting as you move.")
 		p.Room = dest
-		w.act("$n arrives $t.", p.Character, nil, arrivesFrom(dir), toRoom)
+		w.actMove("$n arrives $t.", p.Character, arrivesFrom(dir))
 		w.look(p)
 	}
 }

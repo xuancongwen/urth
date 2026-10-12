@@ -9,6 +9,7 @@ look: |
   and does not tire. It guards the waystones on the highlands now, and
   it corrects, as it puts it, anyone who tries to reach them.
 level: 53
+flags: [aggressive]
 health: 14000
 stats: {strength: 16, constitution: 14}
 silver: 700
@@ -17,3 +18,5 @@ attack:
 effects:
   - kind: steady
     params: { chance: 0.3 }
+  - kind: detectHidden
+    params: {}

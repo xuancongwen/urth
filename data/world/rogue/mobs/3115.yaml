@@ -9,6 +9,7 @@ look: |
   knows, by smashing anything that comes near it flat. His fists are
   stained red to the wrist.
 level: 26
+flags: [aggressive]
 health: 1300
 stats: {strength: 16, constitution: 15}
 silver: 150

@@ -9,7 +9,7 @@ look: |
   faster than anything that size should, and its bite is the least of
   its worries.
 level: 34
-flags: [assist]
+flags: [assist, aggressive]
 stats: {dexterity: 14}
 attack:
   kind: claw

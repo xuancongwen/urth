@@ -33,6 +33,10 @@ trades. On the citadel road (1106) Durotan of the Frostwolves (18; a
 fel iron cleaver and ravager-hide) and his son Thrall (20; the
 Doomhammer) keep to themselves, but will fight back if attacked.
 
+Attack on sight: fel orc grunts, felhounds, the infernal, the rampart
+sentries (who see hiding and sneaking players), fen rays, the void
+terror (hidden in the dark of its hollow), and the fel reaver.
+
 Uniques: a Warglaive of Azzinoth (16; fel fire, evasion, sees the
 invisible), Frostmourne (18; chills, feeds on what it cuts, strength at
 the cost of Wisdom), the Helm of Domination (18; a grave-frost aura, a

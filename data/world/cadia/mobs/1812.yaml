@@ -9,8 +9,9 @@ look: |
   He has spent every one of those years in the Eye, hating, and you can
   feel it rolling off him like heat off a forge.
 level: 42
-flags: [assist]
+flags: [assist, aggressive]
 silver: 120
 attack:
   kind: pierce
   verb: bolt
+effects: [{ kind: detectHidden, params: {} }]

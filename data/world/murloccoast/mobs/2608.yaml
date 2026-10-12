@@ -8,6 +8,7 @@ look: |
   two great claws held up like a boxer's fists. It is not hungry. It is
   just angry, all the time, at everything.
 level: 9
+flags: [aggressive]
 silver: 4
 armor:
   defense: 5

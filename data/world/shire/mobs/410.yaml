@@ -6,6 +6,7 @@ look: |
   Grey-brown, rangy, and all teeth at one end. He was named for what he
   does. Where Grip is, Fang and Wolf are not far.
 level: 6
-flags: [assist]
+flags: [assist, aggressive]
+aggro: { min: 5 }   # three dogs at once: not for the newest hobbits
 attack:
   verb: bite

@@ -9,7 +9,7 @@ look: |
   no idea why the Empire wants a small planet of scholars at the edge
   of the Galaxy, and does not need one.
 level: 31
-flags: [assist]
+flags: [assist, aggressive]
 silver: 130
 attack:
   kind: fire

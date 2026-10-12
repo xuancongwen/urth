@@ -8,7 +8,7 @@ look: |
   adventurers' rings. It guards the meadow ring as if it were a temple,
   which to the herd it may be.
 level: 24
-flags: [assist]
+flags: [assist, aggressive]
 silver: 38
 attack:
   kind: slash

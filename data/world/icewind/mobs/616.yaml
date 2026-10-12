@@ -7,7 +7,7 @@ look: |
   from a dwarf's corpse. It came through the broken wall with the
   others and it is not going back alone.
 level: 8
-flags: [assist]
+flags: [assist, aggressive]
 silver: 15
 attack:
   verb: stab

@@ -27,6 +27,10 @@ bugs 30, the tanker bug 32 (fire spray that sets you burning, a shell
 that soaks blows), plasma bugs 36 (slow, half a swing a round, and
 every swing a heavy one), royal guard bugs 40, the Brain Bug 42.
 
+Warrior bugs of every kind, hoppers, burrowers, tunnel warriors, and
+royal guards attack on sight. Tunnel warrior bugs lie hidden in their
+wall niches, and the royal guards see anyone hiding or sneaking.
+
 Uniques: Lt. Rasczak's sidearm (28; crits, finishes the wounded, takes
 less damage near death, Constitution), the Mobile
 Infantry helmet (32; sees bugs dug into the walls, wards, Constitution

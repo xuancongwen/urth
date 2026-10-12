@@ -9,6 +9,6 @@ look: |
   He does not seem to feel the heat, or much of anything. He grins at
   you like a dog that has been told to.
 level: 12
-flags: [wander]
+flags: [wander, aggressive]
 attack:
   verb: slash

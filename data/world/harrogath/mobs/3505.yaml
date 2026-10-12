@@ -8,6 +8,6 @@ look: |
   place to place in a puff of brimstone when it gets bored. This one
   has taken a spear from a dead defender and is very pleased with it.
 level: 50
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: claw

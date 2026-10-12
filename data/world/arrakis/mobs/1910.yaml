@@ -8,8 +8,10 @@ look: |
   has nowhere to be. He would very much like something to happen, so
   that he can complain about it later.
 level: 24
-flags: [assist]
+flags: [assist, aggressive]
 silver: 120
 attack:
   kind: blunt
   verb: club
+effects:
+  - { kind: detectHidden, params: {} }

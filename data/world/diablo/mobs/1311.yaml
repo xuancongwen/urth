@@ -7,5 +7,7 @@ look: |
   hooks, that hangs in the dark above the shaft and falls on whatever
   comes out of it.
 level: 17
+flags: [aggressive]
 attack:
   verb: rake
+effects: [{ kind: hidden, params: {} }]

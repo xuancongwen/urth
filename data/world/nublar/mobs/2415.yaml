@@ -9,6 +9,7 @@ look: |
   along its back taller than a man. Nobody admits to having made it. It
   has clearly not read the park map, which says it does not exist.
 level: 32
+flags: [aggressive]
 health: 3600
 silver: 400
 armor:

@@ -7,7 +7,7 @@ look: |
   fangs are wet. It has been fed on what the priestess throws it, and
   it is used to being fed.
 level: 18
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: bite
 effects:

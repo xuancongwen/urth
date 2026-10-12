@@ -9,7 +9,7 @@ look: |
   taking it out on the countryside ever since: sheep, horses, a witcher
   or two. It does not stay in its nest for long.
 level: 18
-flags: [wander]
+flags: [wander, aggressive]
 health: 700
 silver: 40
 armor:

@@ -8,7 +8,7 @@ look: |
   hunts in packs, which spiders should not do, and it is not afraid of
   fire, which spiders should be.
 level: 36
-flags: [assist]
+flags: [assist, aggressive]
 stats: {dexterity: 14}
 attack:
   kind: bite

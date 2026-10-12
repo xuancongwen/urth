@@ -5,7 +5,7 @@ resets:
   - { mob: 3016, room: 3008 }   # the sorcerer, up the tower
   - { mob: 3026, room: 3028 }   # the warrior guildmaster
   - { mob: 3028, room: 3028 }   # the fencing master, who teaches feint
-  - { mob: 3017, room: 3051 }   # the master thief, in the den
+  - { mob: 3017, room: 3051 }   # the master thief, in the den, who teaches riposte, backstab, hide, and sneak
   # --- the shops of Main Street ---
   - { mob: 3002, room: 3009 }   # the baker
   - { mob: 3003, room: 3019 }   # the grocer

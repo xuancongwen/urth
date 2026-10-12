@@ -8,6 +8,7 @@ look: |
   life on a planet that wants it dead, and it has drawn certain
   conclusions about strangers.
 level: 14
+flags: [aggressive]
 silver: 10
 attack:
   kind: pierce

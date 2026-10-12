@@ -7,6 +7,7 @@ look: |
   grown over with bony thorns as long as knives. It fights with its
   fists, and whatever hits it back gets cut on the way in.
 level: 38
+flags: [aggressive]
 stats: {strength: 15, constitution: 14}
 attack:
   kind: blunt

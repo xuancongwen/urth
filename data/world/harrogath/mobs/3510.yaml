@@ -8,10 +8,12 @@ look: |
   mistaken for a drift. Its breath is a cloud of ice needles. It wears
   a hood of its own shed hide.
 level: 53
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   kind: cold
   verb: claw
 effects:
   - kind: chill
     params: { chance: 0.15, mult: 0.7, rounds: 2 }
+  - kind: hidden
+    params: {}

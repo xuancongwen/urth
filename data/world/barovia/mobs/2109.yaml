@@ -8,7 +8,7 @@ look: |
   the people of Barovia. This band sells lost travellers to the castle
   for gold, and you look like a lost traveller.
 level: 18
-flags: [assist]
+flags: [assist, aggressive]
 silver: 30
 attack:
   kind: pierce

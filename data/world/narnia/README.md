@@ -26,6 +26,11 @@ Edmund, Peter, and Reepicheep trade or teach and are peaceful; Susan
 (her bow), Rumblebuffin (his tree-trunk club), and Caspian (a coat of
 Narnian mail) fight back if attacked.
 
+The Witch's creatures attack on sight: the grey wolves of the secret
+police, the boggles and ogres of her war camp, the dwarves of her
+service in the fen, the werewolf in the dungeon, and the minotaur at
+the throne-room doors, who sees hiding and sneaking players.
+
 Merchants:
 
 - Mrs Beaver (1206): storm lantern 25s, marmalade roll 8s, winter cloak

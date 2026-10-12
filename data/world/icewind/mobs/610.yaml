@@ -8,6 +8,7 @@ look: |
   been told to wait here for something. He does not mind killing to
   pass the time.
 level: 7
+flags: [aggressive]
 silver: 45
 attack:
   verb: club

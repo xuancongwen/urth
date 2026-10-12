@@ -9,7 +9,7 @@ look: |
   would kill his own mother for the First Citizen, and smile while he
   did it, and so he will certainly kill you.
 level: 40
-flags: [assist]
+flags: [assist, aggressive]
 silver: 200
 attack:
   kind: fire

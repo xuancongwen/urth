@@ -197,6 +197,9 @@ func (w *World) statCharacter(c *Character) string {
 		if len(c.mob.Proto.Flags) > 0 {
 			b.WriteString("Flags: " + strings.Join(c.mob.Proto.Flags, " ") + "\n")
 		}
+		if c.mob.Proto.HasFlag("aggressive") {
+			b.WriteString("Aggressive to levels " + aggroWords(pr.Aggro) + "\n")
+		}
 		b.WriteString("Natural (" + pr.Source + "): attack " + weaponLine(pr.Attack) + "  armor defense " + ftoa(pr.Armor.Defense) + " spread " + ftoa(pr.Armor.Spread))
 		if pr.Health > 0 {
 			b.WriteString("  health override " + itoa(pr.Health))

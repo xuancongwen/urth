@@ -16,8 +16,17 @@
     "flags": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "type": "string", "examples": ["wander", "roam", "peaceful", "questmaster"] },
-      "description": "wander moves between rooms on its own (mobs stand still by default); roam lets a wanderer leave its area; peaceful cannot be attacked; questmaster hands out quests (docs/RULES.md 7.6). Others are free for rules."
+      "items": { "type": "string", "examples": ["wander", "roam", "peaceful", "questmaster", "aggressive"] },
+      "description": "wander moves between rooms on its own (mobs stand still by default); roam lets a wanderer leave its area; peaceful cannot be attacked; questmaster hands out quests (docs/RULES.md 7.6); aggressive attacks players in its aggro range on sight (docs/RULES.md 8.1). Others are free for rules."
+    },
+    "aggro": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": { "type": "integer", "minimum": 1, "description": "The lowest player level it attacks." },
+        "max": { "type": "integer", "minimum": 1, "description": "The highest player level it attacks." }
+      },
+      "description": "For an aggressive mob, the player levels it attacks on sight. Either end left out comes from the rules: 4 levels below the mob to 5 above (docs/RULES.md 8.1)."
     },
     "stats": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Stat overrides by name." },
     "health": { "type": "integer", "minimum": 0, "description": "Overrides the derived maximum when positive." },

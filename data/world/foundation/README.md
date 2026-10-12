@@ -36,6 +36,12 @@ her blaster), Hari Seldon (38, 2600; his cane), Ebling Mis (34, 1400,
 frail; his spectacles), Arkady Darell (22, 700, stowed away on Kalgan;
 her transcriber).
 
+Attack on sight: Imperial legionaries in ruined Siwenna and Riose's
+camp, the scavengers of the Sack on Trantor, Prince Lefkin on his
+cruiser's bridge, and on Kalgan the Mule's converted soldiers, his
+guardsmen (who see anyone hiding or sneaking), and Han Pritcher before
+the black door.
+
 Uniques: the Mule's regalia, all level 45 and all worn by him: the
 hood of the First Citizen (head; Intelligence, Wisdom, steady, less
 damage taken), the Mule's chain of office (neck; Constitution, less damage taken), the Mule's padded shoulders

@@ -10,7 +10,7 @@ look: |
   true. When it roars, the puddles shiver into rings. Objects in mirror
   are closer than they appear.
 level: 40
-flags: [wander]
+flags: [wander, aggressive]
 health: 9000
 silver: 900
 armor:

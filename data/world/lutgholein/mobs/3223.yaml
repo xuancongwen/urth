@@ -8,7 +8,7 @@ look: |
   warmth and the will together. It does not seem to know it is dead,
   only that it is angry.
 level: 34
-flags: [assist]
+flags: [assist, aggressive]
 stats: {intelligence: 14}
 attack:
   kind: cold

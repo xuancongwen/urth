@@ -11,6 +11,7 @@ look: |
   been very good at it. He would like to hit something, and you are
   something.
 level: 30
+flags: [aggressive]
 health: 1800
 silver: 400
 attack:

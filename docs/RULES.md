@@ -2345,6 +2345,58 @@ ahead (a dodged skill was still attempted); `useSkill` may return
 the prompt as `st`, on `score`, and in client state.
 ---
 
+### 7.8 Stealth
+
+**Status: decided 2026-10-11.** Asked for by the designer with
+aggression (8.1): sneak, hide, and the like, so that the gear and
+spells that grant sight are worth wearing.
+
+**Thesis.** ROM's thief skills: `hide` makes you unseen until you act,
+`sneak` keeps your movements out of the room's messages, and detect
+hidden sees through both. Familiar, and it gives sight a job.
+
+**Antithesis.** Stealth that hides nothing that matters is flavor; in
+ROM, sneak skipped a line of text and aggressive mobs bit you anyway.
+And stealth that cannot be answered makes every hider untouchable.
+
+**Synthesis.** The engine already knew invisible, hidden, and the two
+detects (they are on gear and in the spell lists). Stealth gives them
+something to do:
+
+- **Hidden** (the Hide skill, gear, or a mob's nature): unseen, so not
+  listed, not targetable, and not attacked by an aggressive mob, except
+  by eyes with Detect Hidden. Hiding of the character's own ends when
+  it moves or a fight starts; hiding from gear or a mob's prototype
+  lasts, which is how an ambusher lies in wait.
+- **Sneak**: seen if looked at, but not *noticed*: arrivals and
+  departures go unannounced, and an aggressive mob passes the sneaker
+  by, except a viewer with Detect Hidden. It lasts through movement,
+  which is the point.
+- **Invisible** (the spell, gear): as before, and invisibility of the
+  character's own ends when a fight starts.
+- Whoever is fighting you can always be seen, so an ambush is answered
+  once it is sprung.
+
+Mobs carry any of these as prototype effects: a sneaking wanderer comes
+and goes unannounced, a hidden aggressive mob is an ambush that only
+Detect Hidden spots before it strikes, and a mob with Detect Hidden
+guards against sneaks.
+
+| Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
+|---|---|---|---|---|---|---|---|---|
+| Hide | 2 | 12 Dex | action, self, not in a fight | | 4 | 30 | 2 gold | how long the hiding lasts, 10 to 60 rounds |
+| Sneak | 4 | 13 Dex | action, self, not in a fight | | 6 | 30 | 5 gold | how long the sneak lasts, 20 to 100 rounds |
+
+Taught by the master thief in Midgaard, the cutpurse at the Burning
+Wizard on the Sword Coast, Kashya of the Rogues, and the lab's fencing
+master.
+
+Consequences: the engine reads a `sneak` effect kind beside the four it
+knew; movement messages go only to those who notice the mover; `reveal`
+strips the character's own `hidden` on a move and its own `hidden` and
+`invisible` when a fight starts; aggression (8.1) asks whether the mob
+notices its prey, not only whether it can see it.
+
 ## 8. Mobs
 
 **Thesis.** Mobs are a simplified table: level implies everything. A
@@ -2403,3 +2455,38 @@ Consequences: a `mobBaseline(prototype)` hook alongside
 overrides for stats, health, natural attack, and natural armor, plus
 optional `feats`, `schools`, and `xp` (7.1). `look` at a mob renders
 its equipment.
+
+### 8.1 Aggression
+
+**Status: decided 2026-10-11.** Asked for by the designer: some mobs
+should attack on sight, as their descriptions already say they would.
+
+**Thesis.** ROM's aggressive flag: an aggressive mob attacks anyone it
+can see in its room. The wolves hunt, the tomb's guardians guard, and
+a dangerous place feels dangerous.
+
+**Antithesis.** Unbounded, it punishes the wrong people. A level-3
+character who takes a wrong turn into a level-15 area dies before it
+can read the room, which teaches nothing; and a level-40 character
+crossing a starter area is stopped every few steps by rats it kills in
+one swing, which is only a chore.
+
+**Synthesis.** An aggressive mob attacks only players whose level lies
+in its *aggro range*. By default the range runs from 4 levels below
+the mob to 5 above it, so a mob leaves alone a player it would simply
+kill and a player who has outgrown it; a builder may state either end
+(`aggro: {min, max}`) where the story wants otherwise, such as a
+dragon that attacks anyone, or a bandit who only robs the weak. The
+mob must see its prey (invisibility and hiding work, and sight that
+sees through them works for mobs too, and a sneaking player is passed by unless the mob sees the hidden, 7.8); it never attacks in a safe
+room, never attacks an admin or a link-dead character, and picks one
+player a round while it is not fighting. The fight starts with a
+warning and the mob's first swings come the next round, so a player
+has a moment to flee. A player above the range can still start the
+fight.
+
+Consequences: the `aggressive` flag and the optional `aggro` field on
+mob prototypes; `mobBaseline` returns `aggro`, defaulting either end
+the prototype leaves out (`AGGRO` in the rules); `stat` on a mob shows
+the range. Which mobs carry the flag is content, decided area by area
+from their descriptions.

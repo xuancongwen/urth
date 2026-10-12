@@ -8,7 +8,7 @@ look: |
   tail ends in a barb that drips. It has no eyes you can find, and it
   does not need them to find you.
 level: 13
-flags: [wander]
+flags: [wander, aggressive]
 attack:
   kind: pierce
   verb: sting

@@ -8,7 +8,7 @@ look: |
   finger on the trigger. It does not aim. It does not need to. More
   dakka is the whole of its tactical doctrine.
 level: 32
-flags: [assist]
+flags: [assist, aggressive]
 silver: 45
 attack:
   kind: pierce

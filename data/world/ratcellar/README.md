@@ -44,7 +44,7 @@ Trainer: Old Nettle the ratcatcher (2500) teaches dodge and trip.
 Rats: cellar rats (2) in the cellar rooms, sewer rats (3) from the
 collapsed wall to the junction, giant rats (4) in the culvert, cistern,
 warren, and nest, dire rats (5) in the cistern and past the warren.
-Swarms of rats (3) wander. Giant cellar spiders (4) hold the
+Swarms of rats (3) wander, and attack on sight. Giant cellar spiders (4) hold the
 web-choked drain. All the rats assist each other.
 
 Quest item: 2503, a dusty bottle of the Boar's best (planted by

@@ -7,5 +7,6 @@ look: |
   walking on its elbow. It strikes whatever is where the bell used to
   be. Right now that is you.
 level: 3
+flags: [aggressive]
 attack:
   verb: clang

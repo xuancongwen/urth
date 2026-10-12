@@ -28,7 +28,7 @@ Beregost's fountain hands out quests; Xzar (9) and Montaron (9) wait
 on the road south of Beregost; and Minsc (12) with Boo stands at
 Nashkel's crossroads. Minsc teaches berserk, Montaron backstab, the
 acrobat at the Friendly Arm dodge, and the cutpurse in the Burning
-Wizard dirt kicking. Xzar trades a Zhentarim agent's ring (8) for
+Wizard dirt kicking, hide, and sneak. Xzar trades a Zhentarim agent's ring (8) for
 three lumps of the mine's tainted iron, and sells a bone wand (550;
 level 10, necromancy 10 percent stronger, more mana) for 280 silver.
 
@@ -73,3 +73,8 @@ Mulahey's mace burns with Cyric's black flame, and Gorion's ring, on
 Gorion's hand, shields its wearer near death.
 Ordinary gear is carried by the bandit, hobgoblin, xvarts, ogre, kobolds,
 and commandos, or lies along the road and in the mine.
+
+Attack on sight, each within a few levels of its own: the gibberlings,
+the bandit (hidden in the rocks until he steps out), Tarnesh, the
+xvarts, the ogre, Tazok, the kobolds and kobold commandos (the
+commandos see hiding and sneaking players), and Mulahey.

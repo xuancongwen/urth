@@ -9,7 +9,7 @@ look: |
   dead around it with a voice like dry leaves. The canyon was full of
   them before Tal Rasha was sealed below it.
 level: 36
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 14, intelligence: 14}
 attack:
   kind: slash

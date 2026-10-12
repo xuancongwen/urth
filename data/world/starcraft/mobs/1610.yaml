@@ -8,6 +8,7 @@ look: |
   become a hooked claw, and its belly is swollen tight with something that
   moves. It mumbles to itself in a voice that is almost words.
 level: 18
+flags: [aggressive]
 silver: 40
 attack:
   kind: slash

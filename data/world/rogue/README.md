@@ -27,6 +27,10 @@ the outer cloister), the Smith 28 (the Barracks), dark spearwomen 28
 (the jail, the inner cloister, the cathedral), Bone Ash 29 (the
 cathedral), ghoul lords 29 (leech; the catacombs), and Andariel 30.
 
+The fallen, quill rats, zombies, carvers, brutes, Treehead Woodfist,
+ghosts, moon clan goatmen, dark spearwomen, and ghoul lords attack on
+sight; the ghosts lie hidden in the tower's walls until they strike.
+
 Boss: Andariel, the Maiden of Anguish (30) in her lair (3129): 3000
 health and a venom that stacks. She wears Andariel's Visage and wields the Spineripper.
 Named minibosses: Corpsefire (23, 900; a burning touch), Bishibosh
@@ -68,7 +72,7 @@ Merchants (`list`, `buy`, `sell`) and trainers:
   rosary of the Sightless Eye (3136; 30, divine spells stronger, mana
   in a fight, Wisdom) 2000. She also teaches dodge and fast
   healing, and to the Good god's apostles Smite and Prayer of Healing.
-- Kashya (3101, the captain's watch 3107): teaches trip and hamstring.
+- Kashya (3101, the captain's watch 3107): teaches trip, hamstring, hide, and sneak.
 - Warriv (3104, the caravan 3101): healing potion 35, mail hauberk 400.
 - Charsi (3102, the forge 3105): Rogue long bow 400, broad axe 450,
   mail hauberk 380, kite shield 360; a Tal rune and an Eth rune plus

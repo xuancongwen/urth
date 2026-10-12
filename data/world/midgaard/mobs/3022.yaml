@@ -6,6 +6,7 @@ look: |
   A dozen rats knotted together by their tails into one writhing, many-
   headed horror. It moves as one thing and bites as twelve.
 level: 10
+flags: [aggressive]
 health: 225
 silver: 35
 attack:

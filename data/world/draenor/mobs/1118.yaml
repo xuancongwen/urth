@@ -9,6 +9,7 @@ look: |
   only an order to destroy whatever moves, and it takes that order very
   seriously.
 level: 19
+flags: [aggressive]
 health: 1100
 stats: {strength: 16, dexterity: 7}
 attack:

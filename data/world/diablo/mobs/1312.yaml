@@ -7,6 +7,6 @@ look: |
   head and a man's hatred. It wears a necklace of finger bones and
   bells, and its halberd is black with old use.
 level: 18
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: hack

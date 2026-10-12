@@ -8,7 +8,10 @@ look: |
   serves the lady of the tower because she made him, and he has never
   had a reason to be anything but loyal.
 level: 10
+flags: [aggressive]
 silver: 50
 stats: {strength: 13, constitution: 12}
 attack:
   verb: slash
+effects:
+  - { kind: detectHidden, params: {} }

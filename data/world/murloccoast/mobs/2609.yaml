@@ -8,7 +8,7 @@ look: |
   and a look of great seriousness, and it plainly takes its job, which
   is to stop you going any further, very much to heart.
 level: 12
-flags: [assist]
+flags: [assist, aggressive]
 silver: 15
 health: 190
 armor:
@@ -16,3 +16,4 @@ armor:
 attack:
   kind: pierce
   verb: skewer
+effects: [{ kind: detectHidden, params: {} }]

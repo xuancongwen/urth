@@ -18,6 +18,11 @@ Matron Malice Do'Urden on her throne beside the altar (20, 1250
 health; her tentacle rod and her house's holy symbol), the hardest fight in the area. Neither
 joins the other's fight.
 
+The cave fisher, the quaggoth, the hook horror, the drow warriors, the
+drow wizard, and the shrine spiders attack on sight. The cave fisher
+lies hidden on its ceiling, and the wizard in the watchpost sees
+anyone hiding or sneaking.
+
 King Schnicktick (14; the chain of office of Blingdenstone) sits by
 the fountain in the square, and can be killed there like Belwar.
 Peaceful: Jarlaxle (20) of Bregan D'aerthe on the stair of the worked tunnel,

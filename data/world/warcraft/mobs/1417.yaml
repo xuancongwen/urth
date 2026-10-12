@@ -6,6 +6,7 @@ look: |
   Dog-sized, all neck and wings, with scales still soft at the edges
   and a temper already fully grown. It spits sparks when it hisses.
 level: 12
+flags: [aggressive]
 attack:
   kind: fire
   verb: scorch

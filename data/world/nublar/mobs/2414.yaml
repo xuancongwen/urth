@@ -9,6 +9,7 @@ look: |
   testing the fences for weaknesses, systematically, for a year. She has
   found them. Now she is testing you.
 level: 26
+flags: [aggressive]
 health: 2000
 silver: 260
 armor:

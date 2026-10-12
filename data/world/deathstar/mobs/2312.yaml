@@ -9,8 +9,10 @@ look: |
   them sharply apart from their colleagues. This one is bored of
   corridors and has started patrolling them.
 level: 22
-flags: [wander]
+flags: [wander, aggressive]
 silver: 90
 attack:
   kind: fire
   verb: shoot
+effects:
+  - { kind: detectHidden, params: {} }

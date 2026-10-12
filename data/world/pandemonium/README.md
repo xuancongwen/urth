@@ -22,6 +22,10 @@ storm casters 48, Hephasto the Armorer 49 (boss), tainted ones 49,
 oblivion knights 50, the Grand Vizier of Chaos 50, Lord De Seis 51, and
 the Infector of Souls 52 (the final boss).
 
+Doom knights, undead soul killers, venom lords, tainted ones, and
+oblivion knights attack on sight. The soul killers lie hidden in the
+ash, and the oblivion knights see anyone hiding or sneaking.
+
 Bosses:
 
 - Izual, the fallen angel (47) in the fallen star (3410): 18000 health;

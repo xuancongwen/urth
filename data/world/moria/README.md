@@ -22,6 +22,12 @@ about him, a swing and a half a round: a fight as hard as the Balrog
 beside him; his staff). Gollum (16, a miniboss: quick, hard to hit,
 and he strangles hard) pads after them along the Long Passage (2009).
 
+Attack on sight: goblin scouts (whose noses find hiding and sneaking
+players), grey wolves, wargs, orc archers, Moria orcs, orcs of the
+Black Pit, the Watcher and its tentacles, and Gollum, hidden in the
+dark of the Long Passage until he strikes. The cave goblins at the
+gate, the Uruks, and the other bosses wait to be started.
+
 Bosses: the Watcher in the Water (30), off the road in its pool south of
 the lake shore; the cave troll (26) in the Chamber of Mazarbul; the orc
 chieftain of Moria (28) in his hall; and Durin's Bane (50, the Balrog)

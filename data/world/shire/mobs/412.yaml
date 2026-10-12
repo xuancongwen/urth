@@ -6,6 +6,7 @@ look: |
   Almost a wolf in truth, shaggy and huge, with a chest like a keg and
   a growl you feel in the ground. He answers to Maggot and to nobody.
 level: 7
-flags: [assist]
+flags: [assist, aggressive]
+aggro: { min: 5 }   # three dogs at once: not for the newest hobbits
 attack:
   verb: savage

@@ -9,7 +9,7 @@ look: |
   hits like a soldier, and when you cut a piece off it, the piece keeps
   fighting on the floor.
 level: 17
-flags: [assist]
+flags: [assist, aggressive]
 silver: 10
 attack:
   kind: blunt
@@ -17,3 +17,5 @@ attack:
 effects:
   - kind: soak
     params: { power: 0.1 }
+  - kind: detectHidden
+    params: {}

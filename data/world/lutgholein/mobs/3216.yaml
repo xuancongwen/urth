@@ -8,7 +8,7 @@ look: |
   sparks when it moves. When struck it spits lightning back, and the
   desert men say a dung soldier's shell will turn a sword.
 level: 31
-flags: [assist]
+flags: [assist, aggressive]
 stats: {constitution: 14}
 attack:
   kind: pierce

@@ -16,6 +16,11 @@ the White Walker (14) in the Clearing of the Pale Light beyond the
 wights, and past it the Night King (14) at the Heart of the Cold
 (1530), the last fight in the area.
 
+The Wolfswood and the crypts are hostile: grey wolves, the great
+direwolf, wildling raiders, wights, the White Walker, and the crypt
+spiders attack on sight. The shadowcat by the frozen stream lies
+hidden, and is on you before you see it.
+
 The Starks and their household. Those with a trade stay peaceful: Ser
 Rodrik Cassel, the master-at-arms (13), and Jon Snow (12, with Ghost at
 his side) in the great yard, and Maester Luwin (10) in the solar. The

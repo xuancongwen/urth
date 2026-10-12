@@ -8,8 +8,9 @@ look: |
   in a wall niche until something walks past. It hunts by vibration.
   It already knows exactly where you are.
 level: 30
-flags: [assist]
+flags: [assist, aggressive]
 silver: 35
 attack:
   kind: pierce
   verb: stab
+effects: [{ kind: hidden, params: {} }]

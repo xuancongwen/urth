@@ -9,6 +9,7 @@ look: |
   Then the tentacles come, around the legs and the waist and the throat,
   and they pull you under.
 level: 26
+flags: [aggressive]
 health: 1500
 silver: 40
 armor:
@@ -18,3 +19,4 @@ attack:
   verb: crush
 effects:
   - { kind: regen, params: { fraction: 0.01 } }
+  - { kind: hidden, params: {} }

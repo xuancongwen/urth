@@ -8,6 +8,7 @@ look: |
   you blindly through the weeds, and when it finds you it squeezes.
   There is more of it under the water than you would like.
 level: 26
+flags: [aggressive]
 silver: 0
 attack:
   kind: blunt

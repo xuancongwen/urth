@@ -7,6 +7,7 @@ look: |
   Queen's mark painted on his hood. He has chosen his side and does not
   care to hear arguments about it.
 level: 8
+flags: [aggressive]
 silver: 25
 attack:
   verb: hack

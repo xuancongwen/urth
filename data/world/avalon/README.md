@@ -40,6 +40,11 @@ the Lady of the Lake (14), in a mantle of white samite, and Queen
 Guinevere (8), veiled, with her wedding ring; neither is peaceful, and
 either will fight back if attacked, the Lady hard.
 
+Attack on sight: the reed-lurkers (hidden in the shallows until they
+strike), the windfall boars, the orchard warden, the hounds of Annwn,
+the Tor wyvern, the changeling knight on Morgan's stair (who sees
+hiding and sneaking players), and the barrow-wights.
+
 Uniques: Morgan le Fay wields the stolen Excalibur; the changeling knight
 carries Arthur's shield Pridwen; Gwyn ap Nudd keeps Carnwennan, Arthur's
 dagger; the Barrow King holds Rhongomiant, Arthur's spear, in the chamber of

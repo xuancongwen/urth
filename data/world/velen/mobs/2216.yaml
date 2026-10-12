@@ -8,7 +8,7 @@ look: |
   from its paws where it stands. It has followed the Hunt across worlds,
   and it has your scent now.
 level: 30
-flags: [assist]
+flags: [assist, aggressive]
 silver: 40
 attack:
   kind: bite

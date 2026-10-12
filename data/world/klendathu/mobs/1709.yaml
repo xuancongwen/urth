@@ -8,7 +8,7 @@ look: |
   legs are thinner than a warrior's and end in barbed spikes. It never
   stays anywhere long. Look up.
 level: 24
-flags: [wander]
+flags: [wander, aggressive]
 silver: 30
 attack:
   kind: pierce

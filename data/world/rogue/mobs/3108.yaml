@@ -8,6 +8,7 @@ look: |
   still caked on its boots. It is slow, and it is very strong, and it
   does not stop.
 level: 23
+flags: [aggressive]
 stats: {strength: 14, dexterity: 6}
 attack:
   kind: claw

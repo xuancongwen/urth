@@ -7,6 +7,9 @@ look: |
   this a dozen times to people who paid. Under it he is scared of the
   people he works for.
 level: 5
+flags: [aggressive]
 silver: 30
 attack:
   verb: slash
+effects:
+  - { kind: hidden, params: {} }

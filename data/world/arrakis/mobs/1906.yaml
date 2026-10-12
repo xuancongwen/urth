@@ -7,6 +7,7 @@ look: |
   drinks blood instead of water, because on Arrakis that is what there
   is. It has noticed you are full of it.
 level: 16
+flags: [aggressive]
 silver: 5
 attack:
   kind: claw

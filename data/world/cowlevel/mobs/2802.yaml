@@ -8,7 +8,7 @@ look: |
   It has not bothered with a halberd. It does not feel it is missing
   anything.
 level: 22
-flags: [assist]
+flags: [assist, aggressive]
 silver: 30
 attack:
   kind: pierce

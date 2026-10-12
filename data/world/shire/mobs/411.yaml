@@ -6,6 +6,7 @@ look: |
   Black, with a white blaze and yellow eyes, and quieter than the other
   two, which is worse. He does not bark before he bites.
 level: 6
-flags: [assist]
+flags: [assist, aggressive]
+aggro: { min: 5 }   # three dogs at once: not for the newest hobbits
 attack:
   verb: bite

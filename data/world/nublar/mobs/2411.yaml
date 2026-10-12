@@ -8,7 +8,7 @@ look: |
   light as paper and quick as a hawk, and when it drops off the girder it
   comes straight at your eyes.
 level: 18
-flags: [assist]
+flags: [assist, aggressive]
 silver: 25
 attack:
   kind: pierce

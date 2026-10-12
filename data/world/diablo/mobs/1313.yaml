@@ -8,6 +8,7 @@ look: |
   man walks in and out of a warm bath. Its skull is split open along
   the top, and something grey and wet pulses inside.
 level: 19
+flags: [aggressive]
 stats: {strength: 14}
 attack:
   verb: burn

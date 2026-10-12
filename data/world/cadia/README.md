@@ -20,6 +20,13 @@ carriers: the cult demagogue (24, a bolt pistol) on the Valkyrie wreck,
 and Lieutenant Dravik (28, a Cadian chainsword, and the rank pins the
 Lord Castellan wants) in the ossuary under the kasr.
 
+Beyond the wire the enemy attacks on sight: Chaos cultists, traitor
+guardsmen, plague zombies, Ork boyz, shoota boyz and 'ard boyz, the
+Chaos Space Marines, the bloodletters, and the Bloodthirster itself.
+The Black Legion marines stand watch and see hiding and sneaking
+intruders. The demagogue, Dravik, the Terminators, and the other bosses
+wait to be challenged.
+
 Uniques: the bolt pistol (bolt detonations, crits, Dexterity), the
 Cadian chainsword (chain-teeth procs, crits, Strength), the power fist
 (Gutrippa; worn on the hands, bare hands hit harder, power attacks,

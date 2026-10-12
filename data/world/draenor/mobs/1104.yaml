@@ -8,4 +8,7 @@ look: |
   the plain with the patience of something that has stopped needing
   sleep.
 level: 14
+flags: [aggressive]
 stats: {strength: 13}
+effects:
+  - { kind: detectHidden, params: {} }

@@ -198,10 +198,10 @@ func (w *World) wander(m *Mob) {
 
 // moveMob relocates a mob with leave and arrive messages.
 func (w *World) moveMob(m *Mob, dest *room.Room, dir string) {
-	w.act("$n leaves $t.", m.Character, nil, dir, toRoom)
+	w.actMove("$n leaves $t.", m.Character, dir)
 	w.removeMobFromRoom(m)
 	w.placeMob(m, dest)
-	w.act("$n arrives $t.", m.Character, nil, arrivesFrom(dir), toRoom)
+	w.actMove("$n arrives $t.", m.Character, arrivesFrom(dir))
 }
 
 // newRNG seeds the world's random source. Tests replace it for determinism.

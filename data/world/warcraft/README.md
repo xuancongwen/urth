@@ -18,6 +18,10 @@ Barb), the orc warlock (14, 1408; the Demon Soul and a fel-scorched wand), the t
 doctor (14, 1425; the loa mask and the Mask of Death), and Zul'jin,
 warlord of the Amani (15, troll camp 1424; his axe).
 
+Attack on sight: the gnoll raiders in the red hills, the grey forest
+wolves, the masked bandits in the wheat, the red dragon whelps on the
+scree, and Vharaxis, who eats whoever comes up to her roost.
+
 Famous folk who keep to themselves but will fight back if attacked:
 King Llane Wrynn in the hall of the keep (17, 1416; a Stormwind sword
 and shield, and a purse) and Medivh, the Last Guardian, at the waystone

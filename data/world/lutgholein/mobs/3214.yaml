@@ -8,6 +8,7 @@ look: |
   to rest with honour three thousand years ago and has been woken
   without any. It moves slowly and hits like a falling wall.
 level: 30
+flags: [aggressive]
 stats: {strength: 14}
 attack:
   kind: blunt

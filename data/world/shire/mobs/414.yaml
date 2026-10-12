@@ -8,6 +8,7 @@ look: |
   as if the road itself might tell it where you went. The cold coming
   off it is not the cold of the wood.
 level: 9
+flags: [aggressive]
 health: 275
 attack:
   verb: strike

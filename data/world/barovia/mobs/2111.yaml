@@ -8,7 +8,7 @@ look: |
   claws. Rags of a woodsman's clothes still hang off it. Cuts close on
   it as you watch, and it laughs, in a voice that is almost human.
 level: 22
-flags: [wander]
+flags: [wander, aggressive]
 silver: 20
 attack:
   kind: claw

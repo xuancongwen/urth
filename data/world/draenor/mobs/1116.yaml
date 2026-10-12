@@ -8,7 +8,10 @@ look: |
   distant stars. It hums the same not-quite-words as the walls. It is
   very hungry, and it is made of hunger.
 level: 18
+flags: [aggressive]
 health: 650
 attack:
   kind: cold
   verb: drain
+effects:
+  - { kind: hidden, params: {} }

@@ -9,7 +9,7 @@ look: |
   causeway with a lantern's glow it makes out of nothing. You can see
   the fog through it.
 level: 20
-flags: [assist]
+flags: [assist, aggressive]
 silver: 25
 attack:
   kind: claw
@@ -17,3 +17,4 @@ attack:
 effects:
   - kind: dodge
     params: { amount: 0.05 }
+  - { kind: hidden, params: {} }

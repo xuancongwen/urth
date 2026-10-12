@@ -8,6 +8,7 @@ look: |
   It was a nobleman once, and somewhere under the fur it still is, and
   it hates you a little more for it. Its wounds close as you watch.
 level: 22
+flags: [aggressive]
 health: 950
 silver: 70
 attack:

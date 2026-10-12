@@ -7,6 +7,7 @@ look: |
   in the dark, and has not stopped. A bronze pin still holds his cloak.
   His eyes are two cold points of light, and his hand is colder.
 level: 12
+flags: [aggressive]
 silver: 35
 attack:
   verb: claw

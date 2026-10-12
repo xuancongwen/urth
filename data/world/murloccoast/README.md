@@ -18,7 +18,9 @@ the tide pools; murloc warriors (10) through the hut village;
 coastrunners (10) wandering the shore from the village to the
 headland; oracles (11) at the village heart and the spawning pools;
 tiderunners (11) in the shallows and on the reef; royal guards (12) in
-the grotto.
+the grotto. Murloc warriors, snapclaws, tiderunners, and royal guards
+attack on sight; the tiderunners lie hidden in the water, and the royal
+guards see anyone hiding or sneaking.
 
 Boss: King Mrgl-Mrgl (13, 2616, the crown of shells). Named carrier:
 Old Murk-Eye (12, the shipwreck 2611, the fish on a stick).

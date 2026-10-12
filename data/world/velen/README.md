@@ -28,6 +28,12 @@ Swallow; Ciri (30) in the courtyard of Crow's Perch, the Baron's guest,
 with Zireael; Dandelion (20) beside her, singing to the soldiers, in
 his feathered cap. Each carries silver.
 
+Attack on sight: the ghouls on the battlefield, the bandits in the
+burned village, the royal griffin, the foglets of the bog, the
+werewolf in its den, and the hounds of the Wild Hunt. The foglets lie
+hidden in their own mist until they strike. The drowners and nekkers
+nearer the road wait to be fought.
+
 Uniques: a witcher's steel sword (crits, dodge, Dexterity), a witcher's
 silver sword (hard crits that finish off the wounded, Dexterity), a wolf
 school medallion (neck; sees the invisible and the hidden, Wisdom),

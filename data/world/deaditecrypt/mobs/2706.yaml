@@ -7,7 +7,7 @@ look: |
   that sprouted from behind its ears. It swoops, bites, and cackles, and
   it never stays in one place long enough to be hit properly.
 level: 15
-flags: [wander]
+flags: [wander, aggressive]
 silver: 15
 attack:
   kind: pierce

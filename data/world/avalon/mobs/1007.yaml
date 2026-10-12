@@ -7,6 +7,6 @@ look: |
   the ears, which are the red of a fresh wound. Its eyes shine in the
   dark. It hunts for a master who does not need to call it twice.
 level: 8
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: bite

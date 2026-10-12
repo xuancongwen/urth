@@ -8,7 +8,7 @@ look: |
   standing straight up. Murlocs do not have generals. They have the
   biggest one, and this is one of the bigger ones. Mrglglgl.
 level: 10
-flags: [assist]
+flags: [assist, aggressive]
 silver: 10
 armor:
   defense: 4

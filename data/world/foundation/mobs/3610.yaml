@@ -10,7 +10,7 @@ look: |
   about the Spirit's anger. He badly needs to hit someone, and he has
   just decided it will be you.
 level: 25
-flags: [assist]
+flags: [assist, aggressive]
 health: 1200
 stats: {strength: 15, constitution: 15}
 silver: 300

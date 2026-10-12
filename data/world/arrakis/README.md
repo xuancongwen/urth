@@ -26,6 +26,12 @@ Feyd-Rautha (his poisoned blade, and a scroll of storm of vengeance,
 Vries (his sapho flask), the Baron (his suspensors, and the signet ring
 of House Atreides, which Paul trades for).
 
+Attack on sight: desert scorpions, desert hawks, sandtrout, the Fremen
+renegades in the old caves (who lie hidden in the dark), Harkonnen
+troopers on the Funeral Plain and at the gate, heavy troopers on the
+picket line (who spot anyone hiding or sneaking), and Rabban at the
+blast doors.
+
 Uniques: the crysknife of a maker's tooth (28; crits, finesse,
 Dexterity), a Fremen stillsuit (32; regeneration, Constitution), a
 thumper (26; a thumping proc, Strength), the Sardaukar blade (38; crits,

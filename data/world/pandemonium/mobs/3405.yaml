@@ -8,7 +8,7 @@ look: |
   Hell to fight the angels it once prayed to, and it fights still with
   all the skill it had in life and none of the mercy.
 level: 45
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 15, constitution: 14}
 attack:
   verb: slash

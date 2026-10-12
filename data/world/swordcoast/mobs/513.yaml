@@ -6,6 +6,7 @@ look: |
   Twice your height and most of it shoulder. It has decided the hill is
   its and the road is a table that brings food to the hill.
 level: 7
+flags: [aggressive]
 silver: 40
 attack:
   verb: pound

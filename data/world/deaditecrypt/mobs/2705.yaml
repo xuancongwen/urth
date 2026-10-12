@@ -8,7 +8,7 @@ look: |
   It giggles. It calls you by name, which it should not know. It tells
   you it is going to swallow your soul, and it means it.
 level: 16
-flags: [assist]
+flags: [assist, aggressive]
 silver: 30
 attack:
   kind: slash

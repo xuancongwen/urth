@@ -9,7 +9,7 @@ look: |
   the taking. He will not let you leave with anything he thinks he can
   have.
 level: 14
-flags: [assist]
+flags: [assist, aggressive]
 silver: 20
 attack:
   kind: slash

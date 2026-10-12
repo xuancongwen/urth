@@ -6,6 +6,7 @@ look: |
   Nine feet of slab-muscled, warty flesh in a jerkin of stitched hides.
   Its eyes are small and its patience is smaller.
 level: 9
+flags: [aggressive]
 health: 230
 silver: 30
 stats: {strength: 14, intelligence: 6}

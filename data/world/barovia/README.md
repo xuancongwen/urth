@@ -17,6 +17,11 @@ Kiril Stoyanovich 24 in the deep woods, Baba Lysaga 26 in her creeping
 hut east of them, vampire spawn 28 (leech) all through the castle, Rahadin 32, the three brides 34, and Strahd von
 Zarovich 45.
 
+The wolves, the zombies, the Strahd zombies, the Vistani bandits, the
+werewolves and Kiril, and the vampire spawn attack on sight. The
+vampire spawn lie hidden in the castle's shadows, and the Strahd
+zombies, still on duty, see anyone hiding or sneaking.
+
 Boss: Strahd von Zarovich (45) at the top of the high tower (2126):
 14000 health, two swings a round, and he leeches and regenerates.
 Named carriers: Ireena Kolyana (18, in the burgomaster's mansion; she

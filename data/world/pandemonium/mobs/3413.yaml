@@ -7,7 +7,7 @@ look: |
   covered in weeping sores, bred in the Chaos Sanctuary to guard its
   doors. It is not clever. It does not need to be.
 level: 49
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 16, constitution: 16}
 attack:
   kind: claw

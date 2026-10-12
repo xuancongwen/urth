@@ -84,8 +84,13 @@ Street, 3015), the crypt ghoul (9), the rat king (10), cityguards (10),
 Puff the Fractal Dragon (13, in Temple Square, contemplating a higher
 reality), the mayor (13), the Peacekeeper (14), and Hassan (15) in the
 Grunting Boar. Peaceful: the shopkeepers, the banker, the high priest, the sorcerer, the master thief
-(teaches riposte and backstab), the warrior guildmaster (teaches bash
+(teaches riposte, backstab, hide, and sneak), the warrior guildmaster (teaches bash
 and twin), the fencing master in the training hall (teaches feint).
+
+The city's streets are safe from attack on sight; below and beyond them
+are not. The sewer rats and the rat king in the sewers, and the
+restless zombies and the crypt ghoul in the graveyard and the crypt,
+attack anyone in their range who comes near.
 
 Arcane trainers, for a character who has found the school: the
 wizard in his magic shop (3001, room 3023) teaches magic missile,

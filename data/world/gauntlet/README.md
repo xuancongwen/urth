@@ -14,7 +14,8 @@ the room down on you, the reset interval is two minutes, and there is
 plain drop gear at every level from 27 to 37 so any kill can roll loot.
 Generators (bone piles, grunt huts, demon pits) do not fight back but
 keep adding their monster to the room (`spawns`) until destroyed, and
-the reset puts them back.
+the reset puts them back. Grim ghosts, grunts, demons, lobbers, and
+sorcerers attack on sight; the faint ghosts of level 1 wait to be hit.
 
 Generators: a small bone pile (28, faint ghosts, 2902), a great bone
 pile (30, grim ghosts, 2904), grunt huts (30, grunts, 2906 and 2908),

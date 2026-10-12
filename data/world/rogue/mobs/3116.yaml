@@ -8,9 +8,10 @@ look: |
   stone, and her touch is so cold it burns. Swords pass through her
   more often than not.
 level: 27
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   kind: cold
   verb: touch
 effects:
   - { kind: dodge, params: { amount: 0.05 } }
+  - { kind: hidden, params: {} }

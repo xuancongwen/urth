@@ -36,6 +36,12 @@ blind effect, so a share of their shots go wide (30 percent for the
 rank and file, 25 for squad leaders, 20 for the detention guards). They
 are armoured above their level and carry armour plates for Han.
 
+Attack on sight: the detention block guards, the scout trooper (who
+sees hiding and sneaking players), the dianoga (hidden under the
+compactor's water), death troopers, the Royal Guards, and their
+captain, who also sees the hidden. The rank-and-file troopers in the
+docking bay and the officers do not start fights.
+
 Uniques: TK-421's E-11 blaster rifle (18; crits, Dexterity), Admiral
 Motti's cap (26; Intelligence, less damage taken), Princess
 Leia's sporting blaster (28, by trade; crits, Dexterity), Tarkin's

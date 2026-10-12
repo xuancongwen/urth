@@ -32,6 +32,9 @@ ring), champions 25 (the trampled field and the war camp), war
 champions 26 (the champions' ground, the camp, the throne field).
 About 50 bovines stand in the fields after a full reset.
 
+Bruisers, reavers, and war champions attack on sight; the rest of the
+herd waits to be started, though the assist flag brings it in.
+
 Common finds (rolled loot only, flagged drop, two or three a level):
 19 notched bovine halberd, cowhide jerkin; 20 hell bovine halberd,
 cowhide boots, horn-capped club; 21 hayfork, cowhide leggings, bovine

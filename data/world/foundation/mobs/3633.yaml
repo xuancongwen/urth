@@ -9,8 +9,10 @@ look: |
   day he was chosen and has never been happier. He will not let you
   pass, and nothing you could say would make him want to.
 level: 42
-flags: [assist]
+flags: [assist, aggressive]
 silver: 220
 attack:
   kind: slash
   verb: cleave
+effects:
+  - { kind: detectHidden, params: {} }

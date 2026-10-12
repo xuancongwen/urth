@@ -7,9 +7,12 @@ look: |
   horns tipped with iron. It guards the doors to the throne room and
   does not look as though it has ever been tired.
 level: 11
+flags: [aggressive]
 health: 295
 silver: 40
 stats: {strength: 14}
 attack:
   verb: gore
   kind: pierce
+effects:
+  - { kind: detectHidden, params: {} }

@@ -8,7 +8,7 @@ look: |
   lobs rocks over it in high slow arcs that come down on top of your
   head while you are looking for a way round.
 level: 32
-flags: [assist]
+flags: [assist, aggressive]
 silver: 20
 attack:
   kind: blunt

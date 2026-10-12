@@ -8,6 +8,7 @@ look: |
   burning green. It does not think. It was thrown at this world to
   break things, and it is still doing that, slowly.
 level: 14
+flags: [aggressive]
 health: 500
 stats: {strength: 14, dexterity: 7}
 attack:

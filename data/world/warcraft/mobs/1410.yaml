@@ -7,7 +7,7 @@ look: |
   wolves should not be. The fighting in the hills has fed the packs
   well.
 level: 8
-flags: [wander]
+flags: [wander, aggressive]
 attack:
   kind: bite
   verb: bite

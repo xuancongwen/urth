@@ -6,5 +6,6 @@ look: |
   Grey flesh, clotted earth, and eyes like boiled eggs. It is still
   wearing its burial clothes, and the dust of the grave sifts from them.
 level: 7
+flags: [aggressive]
 attack:
   verb: claw

@@ -9,7 +9,7 @@ look: |
   only in a hiss of encrypted static. Unlike the white ones, they do not
   miss.
 level: 30
-flags: [assist]
+flags: [assist, aggressive]
 silver: 180
 attack:
   kind: fire

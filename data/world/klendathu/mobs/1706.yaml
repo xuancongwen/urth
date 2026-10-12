@@ -9,7 +9,7 @@ look: |
   brown and very hard. It shrieks when it charges. It is never the only
   one.
 level: 16
-flags: [assist]
+flags: [assist, aggressive]
 silver: 15
 attack:
   kind: pierce

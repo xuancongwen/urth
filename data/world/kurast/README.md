@@ -29,6 +29,10 @@ Bremm Sparkfist, Wyand Voidbringer and Maffer Dragonhand 45 (the third
 level of the Durance; Natalya's Shadow, Soul and Totem), and Mephisto
 46.
 
+The giant spiders, thorned hulks, flayers and their shamans, the
+Zakarum zealots, the council members, and the blood lords attack on
+sight; the named elders and the minibosses wait to be challenged.
+
 Boss: Mephisto, the Lord of Hatred (46) in his chamber (3301): 9000
 health, two swings a round, a cold blast that chills, an aura of
 lightning, and soaks blows. He carries his red soulstone and the

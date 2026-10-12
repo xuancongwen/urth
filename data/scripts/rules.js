@@ -245,8 +245,20 @@ function mobBaseline(p) {
       hands:  0, kind: atk.kind || "",
       verb:   atk.verb || "hit"
     },
-    armor: { defense: arm.defense || ab.defense, spread: arm.spread || ab.spread }
+    armor: { defense: arm.defense || ab.defense, spread: arm.spread || ab.spread },
+    aggro: aggroRange(L, p.aggro)
   };
+}
+
+// AGGRO: an aggressive mob attacks on sight only players from `below`
+// levels under it to `above` levels over it (RULES 8.1), so a weaker
+// player is not run down by what would kill them and a much stronger one
+// is not pestered. A prototype's stated aggro bounds win, end by end.
+var AGGRO = { below: 4, above: 5 };
+
+function aggroRange(L, stated) {
+  stated = stated || {};
+  return { min: stated.min || Math.max(1, L - AGGRO.below), max: stated.max || L + AGGRO.above };
 }
 
 // ---------------------------------------------------------------------
@@ -1209,6 +1221,7 @@ function describeEffect(e) {
     case "detectHidden": return "Reveals the hidden" + tail;
     case "invisible": return "Makes the wearer invisible" + tail;
     case "hidden": return "Hides the wearer" + tail;
+    case "sneak": return "Moves unnoticed by any who cannot see the hidden" + tail;
     case "skill": return "";
     case "spell": return "";
     case "spellPower": return "Spells" + spellFilterText(p) + " are " + Math.round((num(p.mult) - 1) * 100) + " percent stronger" + tail;
@@ -1368,6 +1381,24 @@ var SKILLS = [
   { id: "coup_de_grace", stats: { strength: 18 }, name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 0, stamina: 10, start: 20, innate: false, price: 3000,
     damage: function (u, t) { return t.healthMax > 0 && t.health / t.healthMax < 0.25 ? 5.0 : 0.6; }, strike: true, verb: "coup de grace",
     description: "Finish them: five rounds' worth against a foe below a quarter of their health, little otherwise." },
+  // Stealth (RULES 7.8): the engine reads hidden and sneak, and ends a
+  // hiding of the character's own when it moves or a fight starts.
+  { id: "hide", stats: { dexterity: 12 }, name: "Hide", level: 2, passive: false, target: "none", cooldown: 0, stamina: 4, start: 30, innate: false, price: 200,
+    check: function (u) { return u.fighting ? "Not in the middle of a fight." : ""; },
+    self: function (u, scale, out) {
+      out.message = "You slip into the shadows.";
+      out.effects = [{ on: "self", kind: "hidden", params: { source: "hide" }, rounds: 10 + Math.round(50 * scale) }];
+    },
+    verb: "hide",
+    description: "Melt into the shadows where you stand: unseen, except by eyes that find the hidden, until you move or fight, for up to three minutes." },
+  { id: "sneak", stats: { dexterity: 13 }, name: "Sneak", level: 4, passive: false, target: "none", cooldown: 0, stamina: 6, start: 30, innate: false, price: 500,
+    check: function (u) { return u.fighting ? "Not in the middle of a fight." : ""; },
+    self: function (u, scale, out) {
+      out.message = "You move quietly.";
+      out.effects = [{ on: "self", kind: "sneak", params: { source: "sneak" }, rounds: 20 + Math.round(80 * scale) }];
+    },
+    verb: "sneak",
+    description: "Move quietly for up to five minutes: nobody who cannot see the hidden notices you come or go, and aggressive creatures pass you by." },
   { id: "triple", stats: { dexterity: 16 }, name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
     description: "A third swing in the same round, as often as your skill allows, on top of Twin Strike." }
 ];

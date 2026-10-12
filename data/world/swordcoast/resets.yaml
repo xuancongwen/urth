@@ -29,7 +29,7 @@ resets:
   - { mob: 523, room: 513, equip: [{ item: 549, slot: neck }] }   # Edwin under the hills, hunting Dynaheir, with his amulet
   # Beregost
   - { mob: 511, room: 514, equip: [{ item: 533, slot: wield }] }   # Silke at the well, with the Sword of Chaos
-  - { mob: 519, room: 515 }   # a cutpurse at the Burning Wizard, who teaches dirt kicking
+  - { mob: 519, room: 515 }   # a cutpurse at the Burning Wizard, who teaches dirt kicking, hide, and sneak
   - { mob: 525, room: 514 }   # Elminster on the fountain rim with his pipe, who hands out quests
   # the road to Nashkel
   - { mob: 512, room: 517, max: 2, equip: [{ item: 520, slot: wield }] }   # xvarts with hand axes

@@ -8,7 +8,7 @@ look: |
   makes snowballs, and throws it the same way: hard, often, and
   laughing.
 level: 31
-flags: [assist]
+flags: [assist, aggressive]
 health: 800
 silver: 18
 attack:

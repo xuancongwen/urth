@@ -8,7 +8,7 @@ look: |
   carries a curved sword, and it has come up from below because the
   drums told it to.
 level: 24
-flags: [assist]
+flags: [assist, aggressive]
 silver: 30
 attack:
   kind: slash

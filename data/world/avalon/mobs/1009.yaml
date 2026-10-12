@@ -8,6 +8,7 @@ look: |
   behind it. It has made the old tower its nest and the island's sheep
   its larder.
 level: 11
+flags: [aggressive]
 health: 290
 silver: 40
 attack:

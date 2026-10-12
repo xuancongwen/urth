@@ -8,7 +8,7 @@ look: |
   first. They hunt the Lost City in swarms, and their screeching
   carries for miles on the hot wind.
 level: 33
-flags: [assist]
+flags: [assist, aggressive]
 stats: {dexterity: 15}
 attack:
   kind: pierce

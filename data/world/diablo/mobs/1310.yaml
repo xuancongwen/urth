@@ -8,6 +8,7 @@ look: |
   sword as long as he is tall. Red light burns where his eyes were. He
   is bitter, and he is proud, and he does not stay down.
 level: 17
+flags: [aggressive]
 health: 800
 stats: {strength: 14}
 silver: 100

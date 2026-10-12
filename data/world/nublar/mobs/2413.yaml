@@ -9,7 +9,7 @@ look: |
   looks at you the way you would look at a door you are working out how to
   open.
 level: 24
-flags: [assist]
+flags: [assist, aggressive]
 health: 900
 silver: 120
 attack:
@@ -20,3 +20,5 @@ effects:
     params: { amount: 0.05 }
   - kind: crit
     params: { chance: 0.08, mult: 2 }
+  - kind: hidden
+    params: {}

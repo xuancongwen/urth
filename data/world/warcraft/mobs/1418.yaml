@@ -9,6 +9,7 @@ look: |
   bleed each other for years from up here, and has eaten whoever came
   up the scree in the meantime.
 level: 16
+flags: [aggressive]
 health: 620
 stats: {strength: 16, constitution: 15}
 attack:

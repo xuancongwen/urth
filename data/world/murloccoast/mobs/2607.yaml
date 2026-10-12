@@ -8,7 +8,7 @@ look: |
   bursts, and between the bursts you lose track of it. It carries a
   barbed spear and is very good with it.
 level: 11
-flags: [assist]
+flags: [assist, aggressive]
 silver: 10
 stats: {dexterity: 15}
 attack:
@@ -17,3 +17,5 @@ attack:
 effects:
   - kind: dodge
     params: { amount: 0.05 }
+  - kind: hidden
+    params: {}

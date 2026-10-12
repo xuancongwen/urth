@@ -8,7 +8,7 @@ look: |
   sight when they please and reappear a step closer, and they do not
   bother to announce themselves before they strike.
 level: 33
-flags: [assist]
+flags: [assist, aggressive]
 silver: 25
 attack:
   kind: magic

@@ -8,8 +8,10 @@ look: |
   quite stands up straight. When it finds you it squeals, and the
   squeal carries.
 level: 12
-flags: [assist, wander]
+flags: [assist, wander, aggressive]
 silver: 10
 attack:
   kind: pierce
   verb: stab
+effects:
+  - { kind: detectHidden, params: {} }

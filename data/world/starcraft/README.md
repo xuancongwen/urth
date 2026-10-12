@@ -9,6 +9,10 @@ temple in a glassed canyon to the south. Levels 16 to 24. Reached
 through the west steel hatch of the Deeper Hall (room 8 in `start`),
 which opens onto the outpost's landing pad (1600).
 
+The zerg attack on sight: zerglings, hydralisks, infested colonists,
+mutalisks, the zerg queen, and the ultralisk. The cerebrate cannot
+move, and the Protoss in the temple wait to be challenged.
+
 Bosses: the ultralisk (24) in its cavern and the cerebrate (24, the
 Xel'Naga artifact) at the bottom of the hive shaft; the high templar (23)
 in the temple sanctum. Named carriers, in walking order: Drill

@@ -19,6 +19,9 @@ Cairn, in the wreck of the crystal tower, the shade of Akar Kessell
 (10, 280 health; his Hosttower robe and a sliver of Crenshinibon), still calling for the Shard;
 below, the bear 8, goblins 8, and the chieftain 10.
 
+The yetis, Biggrin, and the goblin raiders attack on sight; the yetis
+lie hidden in the snow, and leave anyone below level 3 alone.
+
 Kemp of Targos (10; his sealskin coat) quarrels with Cassius in the
 market and can be fought like him. Peaceful: Guenhwyvar (16) in the
 shadow at the back of Drizzt's cave, who teaches circle, and Wulfgar

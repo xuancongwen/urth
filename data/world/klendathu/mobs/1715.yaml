@@ -8,8 +8,9 @@ look: |
   charge and it does not shriek. It stands between you and the cavern
   to the north, and that is all it has ever done, and all it needs to.
 level: 40
-flags: [assist]
+flags: [assist, aggressive]
 silver: 60
 attack:
   kind: slash
   verb: shear
+effects: [{ kind: detectHidden, params: {} }]

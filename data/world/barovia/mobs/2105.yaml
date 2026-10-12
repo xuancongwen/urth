@@ -9,7 +9,7 @@ look: |
   Svalich Woods are the count's children, and they hunt where he tells
   them to. Where there is one, the rest are close.
 level: 12
-flags: [assist, wander]
+flags: [assist, wander, aggressive]
 silver: 5
 attack:
   kind: bite

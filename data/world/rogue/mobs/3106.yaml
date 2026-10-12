@@ -8,6 +8,6 @@ look: |
   it is a coward. In a pack it is very brave, and it screams the same
   word over and over in a language that might once have been yours.
 level: 22
-flags: [assist]
+flags: [assist, aggressive]
 attack:
   verb: hack

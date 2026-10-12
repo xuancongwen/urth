@@ -9,7 +9,7 @@ look: |
   he will stand before them after you are gone. A black document case
   with the Emperor's crimson seal hangs at his belt.
 level: 38
-flags: [assist]
+flags: [assist, aggressive]
 health: 2600
 silver: 400
 armor:
@@ -19,3 +19,4 @@ attack:
   verb: thrust
 effects:
   - { kind: steady, params: { chance: 0.3 } }
+  - { kind: detectHidden, params: {} }

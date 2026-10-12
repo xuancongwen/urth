@@ -8,6 +8,7 @@ look: |
   tends the wild rows, and it does not care for strangers among them.
   It carries a staff cut from its own kind.
 level: 7
+flags: [aggressive]
 stats: {strength: 13, dexterity: 8}
 attack:
   verb: lash

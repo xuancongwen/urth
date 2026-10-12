@@ -14,7 +14,7 @@ look: |
   the legs out from under something bigger than you.
 level: 28
 flags: [peaceful]
-teaches: [trip, hamstring]
+teaches: [trip, hamstring, hide, sneak]
 attack:
   kind: pierce
   verb: shoot

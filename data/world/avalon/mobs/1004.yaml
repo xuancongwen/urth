@@ -7,5 +7,6 @@ look: |
   windfalls, which does not make it slower. Its tusks curve up past its
   snout, and its little eyes have fixed on you.
 level: 6
+flags: [aggressive]
 attack:
   verb: gore

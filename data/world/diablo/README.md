@@ -29,6 +29,13 @@ hearts), Archbishop Lazarus 21 (boss; the mitre, his black crozier, and the
 Harlequin Crest), and Diablo 24 (the final boss, 3200 health, two swings a round
 and a burning touch; carries the red soulstone and the Stone of Jordan).
 
+Below the cathedral most things attack on sight: the fallen ones,
+zombies, and burning dead, the Butcher ("fresh meat!") and the Skeleton
+King, the goatmen, the magma and horned demons, and the blood knights.
+The winged fiends hang hidden in the dark over the shaft and drop on
+whoever comes out of it, and the blood knights, which have no eyes to
+fool, see hiding and sneaking intruders.
+
 Uniques: the Butcher's cleaver (16; executes the weak, festers), the
 Optic Amulet (17; sees the hidden, soaks blows), Gonnagal's Dirk (18;
 hits harder, wards, costs Dexterity), Windforce (20; a bow that knocks

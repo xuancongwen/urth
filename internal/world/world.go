@@ -295,6 +295,7 @@ func (w *World) round() {
 	w.expireLinkdead()
 	w.wanderMobs()
 	w.tickGenerators()
+	w.aggression()
 	w.tickAreas()
 	if w.scripts != nil {
 		if changed, err := w.scripts.Reload(); changed {

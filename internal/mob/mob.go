@@ -29,8 +29,12 @@ type Proto struct {
 	Level int    `yaml:"level"`
 	// Flags: "wander" lets the mob roam between rooms (default off, so
 	// mobs stand where they are placed); "roam" lets a wanderer leave its
-	// area. Others are free for rules.
+	// area; "aggressive" attacks players in its Aggro range on sight.
+	// Others are free for rules.
 	Flags []string `yaml:"flags,omitempty"`
+	// Aggro bounds the levels an aggressive mob attacks on sight; left
+	// out, the rules' mobBaseline sets it near the mob's level.
+	Aggro *Range `yaml:"aggro,omitempty"`
 	// Rule inputs the engine stores and never interprets. Everything a
 	// builder leaves out is filled from the level baseline by the rules'
 	// mobBaseline hook into Resolved (docs/RULES.md 8).
@@ -100,7 +104,22 @@ type Resolved struct {
 	Attack item.WeaponSpec
 	Armor  item.ArmorSpec
 	XP     int
+	// Aggro is the level range an aggressive mob attacks; zero bounds
+	// are open.
+	Aggro  Range
 	Source string
+}
+
+// Range is a span of character levels, both ends included. A zero bound
+// is open.
+type Range struct {
+	Min int `yaml:"min,omitempty" json:"min"`
+	Max int `yaml:"max,omitempty" json:"max"`
+}
+
+// Holds reports whether level lies in the range.
+func (r Range) Holds(level int) bool {
+	return (r.Min == 0 || level >= r.Min) && (r.Max == 0 || level <= r.Max)
 }
 
 // ResolveStated fills Resolved from the stated values alone.
@@ -117,6 +136,9 @@ func (p *Proto) ResolveStated() {
 	}
 	if p.Armor != nil {
 		r.Armor = *p.Armor
+	}
+	if p.Aggro != nil {
+		r.Aggro = *p.Aggro
 	}
 	p.Resolved = r
 }

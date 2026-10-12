@@ -9,6 +9,6 @@ look: |
   tricks, a heel of dirt in the eyes and gone, if you pay first.
 level: 8
 flags: [peaceful]
-teaches: [dirt_kicking]
+teaches: [dirt_kicking, hide, sneak]
 attack:
   verb: stab

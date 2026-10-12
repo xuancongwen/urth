@@ -69,6 +69,9 @@ func (w *World) validateLoot(where string, loot []item.LootEntry) error {
 
 func (w *World) validate() error {
 	for _, m := range w.Mobs {
+		if a := m.Aggro; a != nil && (a.Min < 0 || a.Max < 0 || (a.Max > 0 && a.Min > a.Max)) {
+			return fmt.Errorf("mob %d (%s): aggro range %d to %d is backwards or negative", m.Vnum, m.Name, a.Min, a.Max)
+		}
 		if m.Spawns != nil {
 			if _, ok := w.Mobs[m.Spawns.Mob]; !ok {
 				return fmt.Errorf("mob %d (%s): spawns mob %d, which does not exist", m.Vnum, m.Name, m.Spawns.Mob)

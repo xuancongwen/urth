@@ -9,7 +9,7 @@ look: |
   relic. When it looks up at the Eye its expression is that of a child
   watching fireworks.
 level: 22
-flags: [assist]
+flags: [assist, aggressive]
 silver: 60
 attack:
   kind: pierce

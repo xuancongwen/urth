@@ -150,6 +150,7 @@ type mobBaselineResult struct {
 	Attack item.WeaponSpec `json:"attack"`
 	Armor  item.ArmorSpec  `json:"armor"`
 	XP     int             `json:"xp"`
+	Aggro  mob.Range       `json:"aggro"`
 }
 
 func (w *World) hookErr(name string, err error) {
@@ -341,6 +342,9 @@ func mobProtoView(p *mob.Proto) map[string]any {
 	if p.Armor != nil {
 		v["armor"] = armorView(*p.Armor)
 	}
+	if p.Aggro != nil {
+		v["aggro"] = map[string]any{"min": p.Aggro.Min, "max": p.Aggro.Max}
+	}
 	return v
 }
 
@@ -356,7 +360,7 @@ func (w *World) resolveBaselines() {
 		p.ResolveStated()
 		var r mobBaselineResult
 		if w.callOptional("mobBaseline", &r, mobProtoView(p)) {
-			p.Resolved = mob.Resolved{Stats: r.Stats, Health: r.Health, Attack: r.Attack, Armor: r.Armor, XP: r.XP, Source: "baseline"}
+			p.Resolved = mob.Resolved{Stats: r.Stats, Health: r.Health, Attack: r.Attack, Armor: r.Armor, XP: r.XP, Aggro: r.Aggro, Source: "baseline"}
 			if p.Resolved.Stats == nil {
 				p.Resolved.Stats = map[string]int{}
 			}

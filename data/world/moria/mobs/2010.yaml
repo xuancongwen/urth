@@ -7,7 +7,7 @@ look: |
   helm with the red eye painted on it. The orcs of Moria have lived in
   the dwarves' halls for a thousand years and think of them as theirs.
 level: 20
-flags: [assist]
+flags: [assist, aggressive]
 silver: 20
 attack:
   kind: slash

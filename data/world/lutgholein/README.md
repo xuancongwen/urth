@@ -32,6 +32,13 @@ Minibosses' health: Radament 2400, Bloodwitch 2400, Beetleburst 1800,
 Coldworm 3000, Fangskin 3000, Fire Eye 2800, the Summoner 3400, Ancient
 Kaa 3400.
 
+Outside the city most things attack on sight: sand raiders, horrors,
+sabre cats, hollow ones, dung soldiers, invaders, claw vipers,
+specters, unravelers, tomb guardians, and Fire Eye before his portal.
+The sand raiders lie hidden behind the rocks, and Fire Eye sees
+anyone trying to slip past him in the dark. The other minibosses, and
+the rock worms Coldworm lays, wait to be challenged.
+
 Duriel's chamber (3229) is below a locked, pickproof seal in Tal
 Rasha's Tomb (3228), the Orifice, whose key is the restored Horadric
 Staff (3207). Lysander makes it from the Staff of Kings (Coldworm) and

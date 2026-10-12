@@ -12,6 +12,12 @@ the map lives. Levels 4 to 40, rising westward. Reached through the
 west gates of hub room 9 in `start`, which open onto the great gates
 (2400).
 
+The predators attack on sight: the pteranodons in the aviary, the
+velociraptors, the clever girl, the raptor matriarch, the spinosaurus,
+and the Tyrannosaurus rex. The clever girl lies hidden in the ferns of
+the raptor pen; you see her sister in front of you, not her. The
+compys, the herbivores, and the dilophosaurs wait to be provoked.
+
 Bosses: the raptor matriarch (26) on her nest, the spinosaurus (32) at
 the river landing, and the Tyrannosaurus rex (40), which wanders the
 paddock and the far road (2425 to 2429). The closed paddock gate (2419

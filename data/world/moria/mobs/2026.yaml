@@ -13,6 +13,7 @@ look: |
   their teeth on a string. He strangles first and talks after. "We
   hates it, we hates it, we hates it for ever!"
 level: 16
+flags: [aggressive]
 health: 400
 stats: {dexterity: 15}
 silver: 40
@@ -25,3 +26,5 @@ effects:
     params: { amount: 0.05 }
   - kind: crit
     params: { chance: 0.1, mult: 2 }
+  - kind: hidden
+    params: {}

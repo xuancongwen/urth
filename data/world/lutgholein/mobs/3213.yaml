@@ -8,7 +8,7 @@ look: |
   it hunts in a pack, too clever and too patient, and it walks upright
   for a step or two when it thinks nobody is watching.
 level: 29
-flags: [assist]
+flags: [assist, aggressive]
 stats: {dexterity: 14}
 attack:
   kind: bite

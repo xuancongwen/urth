@@ -8,7 +8,8 @@ look: |
   rest. It swore an oath to Lord De Seis a thousand years ago and has
   not moved from its place since, except to kill.
 level: 50
-flags: [assist]
+flags: [assist, aggressive]
 stats: {strength: 16, constitution: 16, intelligence: 14}
 attack:
   verb: slash
+effects: [{ kind: detectHidden, params: {} }]
