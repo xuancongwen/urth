@@ -437,7 +437,7 @@
       showQuick();
       $('logininput').type = 'text'; $('logininput').placeholder = 'not connected';
     };
-    ws.onmessage = function (e) { newBatch = true; JSON.parse(e.data).forEach(handle); };
+    ws.onmessage = function (e) { newBatch = true; batchLines = []; JSON.parse(e.data).forEach(handle); };
   }
 
   function handle(m) {
@@ -515,14 +515,14 @@
       if (currentTab !== 'log') { unreadChat += lines.length; showChatCount(); }
     }
     lines.forEach(function (l) { if (!logOnly) feed.push(l); logLines.push(l); });
+    if (!logOnly) batchLines = batchLines.concat(lines);
     if (wasFighting && !logOnly) {
       // A batch is one tick's output, so a blank line between batches sets
       // each round apart.
       if (newBatch && combatLines.length) combatLines.push('');
       newBatch = false;
       combatLines = combatLines.concat(lines).slice(-30);
-      var cl = $('combatlog'); cl.textContent = '';
-      combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l || '&nbsp;'; cl.appendChild(d); });
+      drawCombat();
     }
     feed = feed.slice(-2); logLines = logLines.slice(-300);
     var f = $('ticker'); f.textContent = '';
@@ -750,6 +750,11 @@
   }
 
   var wasFighting = false, combatLines = [], newBatch = false; // newBatch: no line of this batch has reached the combat feed yet
+  var batchLines = []; // this batch's feed lines so far, for the round that starts a fight
+  function drawCombat() {
+    var cl = $('combatlog'); cl.textContent = '';
+    combatLines.forEach(function (l) { var d = el('div'); d.innerHTML = l || '&nbsp;'; cl.appendChild(d); });
+  }
   // A fight takes over the map and the pad: the battle view where the map
   // was, the actions where the pad was. The ticker steps aside for the
   // feed. They come back when the fight ends.
@@ -761,7 +766,9 @@
       $('ticker').style.display = fighting ? 'none' : '';
       $('battle').style.display = fighting ? 'flex' : 'none';
       $('actions').style.display = fighting ? 'grid' : 'none';
-      if (fighting) { combatLines = []; $('combatlog').textContent = ''; }
+      // The server sends a tick's text before the state that shows the
+      // fight began, so the opening round is already in this batch.
+      if (fighting) { combatLines = batchLines.slice(-30); newBatch = false; drawCombat(); }
       else setTimeout(drawMap, 0); // the canvas was hidden; size it again
       if (shown) { rewardOpen = false; drawReward(); } // one line in a fight, open after
     }
