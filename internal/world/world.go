@@ -285,9 +285,11 @@ func (w *World) round() {
 	w.tickCooldowns()
 	w.violence()
 	w.tickCasting()
-	w.showConditions()
 	w.regen()
 	w.tickEffects()
+	// After auras and damage over time, so the condition line closes the
+	// round and shows what they did.
+	w.showConditions()
 	w.burnLights()
 	w.decayItems()
 	w.tickQuests()

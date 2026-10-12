@@ -102,9 +102,9 @@ func TestOnHitProcsHealThornsAndAura(t *testing.T) {
 		t.Fatalf("effect not attached: %v", guard.Effects)
 	}
 	// The guard's swing lands and Bob's spikes answer it; Bob's corona
-	// burns at the end of the round.
+	// burns at the end of the round, before the guard's condition.
 	out = tickUntil(t, w, bob, "corona")
-	if !strings.Contains(out, "A city guard's slash hits you. [4]\nYour spikes hit a city guard. [1]") || !strings.Contains(out, "Your corona hits a city guard. [4]") {
+	if !strings.Contains(out, "A city guard's slash hits you. [4]\nYour spikes hit a city guard. [1]") || !strings.Contains(out, "Your corona hits a city guard. [4]\nA city guard ") {
 		t.Fatalf("thorns and aura: %q", out)
 	}
 }
