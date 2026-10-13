@@ -1,0 +1,15 @@
+vnum: 6308
+name: "a dark elf seamstress"
+keywords: [dark, elf, seamstress, tailor]
+description: "A dark elf seamstress sews silver runes into a black collar."
+look: |
+  A dark elf exiled from Silvanesti for the colour of her robes, who
+  makes the Black Order's robes now and asks no questions. She sells
+  them to anyone who can stand to wear them. Type 'list'.
+level: 16
+flags: [peaceful]
+trades:
+  - { item: 6301, silver: 2200 }
+  - { item: 6302, silver: 2000 }
+attack:
+  verb: punch

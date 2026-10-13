@@ -1,0 +1,17 @@
+vnum: 6301
+name: "a wraith of the grove"
+keywords: [wraith, grove, shade, ghost]
+description: "A wraith drifts between the black trees, its eyes two points of cold light."
+look: |
+  A shape of shadow in the rags of a robe, one of the mages who tried
+  the grove without leave and stayed. It feeds on warmth, and it has
+  been hungry for a very long time.
+level: 19
+flags: [aggressive]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+attack:
+  verb: touch
+  kind: drain
+effects:
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }
+  - { kind: resist, params: { kind: physical, amount: 0.3 } }

@@ -1,0 +1,10 @@
+vnum: 6303
+name: "The Edge of the Shoikan Grove"
+description: |
+  The city stops. Ahead stands a grove of oaks so dark that the light
+  seems to fall into it and not come out. The cold that comes off it is
+  not the cold of weather; it is fear, and it gets into the bones. The
+  square is south. The grove is north, and nobody goes north.
+exits:
+  south: 6302
+  north: 6305

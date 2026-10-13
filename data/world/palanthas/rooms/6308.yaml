@@ -1,0 +1,12 @@
+vnum: 6308
+name: "The Foyer of the Tower"
+description: |
+  A round foyer lit by cold lamps that burn without oil. Doors lead east
+  to the library and west to the robing room. North, a stair climbs to
+  the laboratory and the Test. The gate is south.
+exits:
+  south: 6307
+  north: 6313
+  east: 6311
+  west: 6312
+flags: [safe]

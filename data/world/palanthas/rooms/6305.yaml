@@ -1,0 +1,10 @@
+vnum: 6305
+name: "Within the Shoikan Grove"
+description: |
+  Under the trees it is darker than night. The ground is soft, and now
+  and then something under it moves. Whispers come from no direction.
+  The way back south is the only thing that still seems real.
+exits:
+  south: 6303
+  north: 6306
+flags: [dark]

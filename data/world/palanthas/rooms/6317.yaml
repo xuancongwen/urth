@@ -1,0 +1,12 @@
+vnum: 6317
+name: "The Chamber of the Test"
+description: |
+  A chamber of black marble under a dome painted with the black moon,
+  Nuitari, which only the Black Robes can see. Here a mage who has
+  passed the Test swears to one school of the Black Order, necromancy or
+  enchantment, for life ('swear' tells what is asked). The door of black
+  glass is south.
+exits:
+  south: 6316
+order: black
+flags: [safe]

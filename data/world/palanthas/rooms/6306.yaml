@@ -1,0 +1,11 @@
+vnum: 6306
+name: "The Heart of the Grove"
+description: |
+  The oldest trees, black and leafless, and between their roots hands
+  rise out of the earth, grey and grasping, reaching for whatever
+  passes. Beyond them the Tower's wall is close. South is back through
+  the grove.
+exits:
+  south: 6305
+  north: 6307
+flags: [dark]

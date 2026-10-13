@@ -1,0 +1,14 @@
+vnum: 6303
+name: "your twin, who loves you"
+keywords: [twin, brother, sister, image]
+description: "Your twin stands by the fire, holding out a hand to take you home."
+look: |
+  Someone with your face who has always been stronger than you and
+  always looked after you. They do not want you to do this. They will
+  stop you, for your own good, if they have to.
+level: 17
+flags: [aggressive]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+attack:
+  verb: strike
+  kind: blunt

@@ -1,0 +1,17 @@
+# Palanthas and the Tower of High Sorcery of the Black Order. The Shoikan
+# Grove is the way in and the first test; everything in it and in the
+# Test attacks from level 1 (RULES 8.1).
+interval_seconds: 600
+resets:
+  - { mob: 6309, room: 6304 }           # an Aesthetic in the Great Library
+  - { mob: 6300, room: 6303, max: 2 }   # dead hands at the grove's edge
+  - { mob: 6300, room: 6305, max: 2 }
+  - { mob: 6301, room: 6305, equip: [{ item: 6300, slot: wield }] }   # a wraith with a grave-frost blade
+  - { mob: 6300, room: 6306, max: 2 }
+  - { mob: 6302, room: 6306, equip: [{ item: 6303, slot: legs }] }   # the warden of the grove, in black iron greaves
+  - { mob: 6307, room: 6311 }           # the keeper of the black books: the Black Order's school spells
+  - { mob: 6308, room: 6312 }           # the seamstress: the black robe and the black staff
+  - { mob: 6303, room: 6314 }           # the first trial: your twin
+  - { mob: 6304, room: 6315, max: 2 }   # the second trial: the dead
+  - { mob: 6305, room: 6316, equip: [{ item: 6304, slot: neck }] }   # the third trial: the Queen's shadow, and its pendant
+  - { mob: 6306, room: 6317 }           # Dalamar, who hears the oath

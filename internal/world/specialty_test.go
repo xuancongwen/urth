@@ -207,3 +207,31 @@ func TestNoTotemsInTheWorld(t *testing.T) {
 		}
 	}
 }
+
+// TestPalanthasTakesTheBlackOath: the Tower at Palanthas ends in a
+// Chamber of the Test for the Black Order, its keeper teaches only the
+// Black Order's school spells, and the Shoikan Grove guards it from
+// anyone (story 1037).
+func TestPalanthasTakesTheBlackOath(t *testing.T) {
+	w := shippedWorld(t)
+	if r := w.content.Rooms.Rooms[6317]; r == nil || r.Order != "black" {
+		t.Fatal("no Chamber of the Test for the Black Order")
+	}
+	s := w.magicSchools()
+	byID := map[string]Spell{}
+	for _, sp := range w.spellList() {
+		byID[sp.ID] = sp
+	}
+	for _, id := range w.content.Mobs[6307].Teaches {
+		sp := byID[id]
+		sc, _ := s.school(sp.School)
+		if sp.common() || sc.Order != "black" {
+			t.Errorf("the keeper of the black books teaches %s (%s, %s)", id, sp.School, sp.tierWord())
+		}
+	}
+	for _, vnum := range []int{6300, 6301, 6302} {
+		if p := w.content.Mobs[vnum]; p.Resolved.Aggro.Min > 1 {
+			t.Errorf("grove guard %d lets the weak through: %+v", vnum, p.Resolved.Aggro)
+		}
+	}
+}

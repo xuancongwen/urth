@@ -1,0 +1,20 @@
+vnum: 6302
+name: "a staff of black wood"
+keywords: [staff, black, wood, nuitari]
+description: "A staff of black wood leans here, a crystal clutched in a carved claw at its head."
+look: |
+  A staff of wood so black it might be stone, a claw at its head holding
+  a dark crystal. Necromancers and enchanters of the Black Order carry
+  them, and it answers their spells and nobody else's.
+type: weapon
+weight: 4
+level: 20
+baseline: staff
+value: 2000
+weapon:
+  hands: 2
+effects:
+  - { kind: spellPower, params: { mult: 1.12, school: necromancy } }
+  - { kind: spellPower, params: { mult: 1.12, school: enchantment } }
+  - { kind: penetration, params: { amount: 0.10, branch: arcane } }
+  - { kind: added, params: { kind: drain, power: 0.42 } }

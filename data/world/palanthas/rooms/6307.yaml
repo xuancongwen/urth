@@ -1,0 +1,13 @@
+vnum: 6307
+name: "Before the Tower of Palanthas"
+description: |
+  The Tower of High Sorcery at Palanthas rises black against the sky,
+  its minarets twisted, a gate of iron in its wall. A dead mage hangs
+  from the spikes over the gate, as he has for centuries, a warning that
+  nobody has needed lately. The gate stands shut but not locked. The
+  grove is south.
+exits:
+  south: 6306
+  north: 6308
+doors:
+  north: {name: the iron gate, closed: true}

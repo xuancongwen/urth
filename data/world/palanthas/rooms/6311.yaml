@@ -1,0 +1,9 @@
+vnum: 6311
+name: "The Library of the Black Order"
+description: |
+  Books bound in black leather, some of it not calf. The Black Order
+  keeps its necromancy here, and its enchantments of mind and body, for
+  those sworn to them. The foyer is west.
+exits:
+  west: 6308
+flags: [safe]

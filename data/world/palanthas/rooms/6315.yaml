@@ -1,0 +1,10 @@
+vnum: 6315
+name: "The Second Trial: The Living Dead"
+description: |
+  A pit of grey shapes that were people, climbing over one another
+  toward the light, and toward you. The first trial is south; the third
+  is north.
+exits:
+  south: 6314
+  north: 6316
+flags: [dark]

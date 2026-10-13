@@ -1,0 +1,10 @@
+vnum: 6304
+name: "The Great Library of Astinus"
+description: |
+  A hall of books under a dome, quiet as snow. Aesthetics in brown robes
+  move between the shelves without speaking. Somewhere in the building
+  Astinus is writing down everything that happens, this moment included.
+  The square is east.
+exits:
+  east: 6302
+flags: [safe]

@@ -1,0 +1,17 @@
+vnum: 6300
+name: "a grasping dead hand"
+keywords: [grasping, dead, hand, hands]
+description: "A grey hand claws up out of the earth, reaching for your ankle."
+look: |
+  A hand and an arm, grey and rotting, rising out of the soil of the
+  grove up to the shoulder. There is a body under it, and under that
+  more bodies. Whatever it catches, it pulls down.
+level: 18
+flags: [aggressive, assist]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+attack:
+  verb: claw
+  kind: claw
+effects:
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }
+  - { kind: resist, params: { kind: drain, amount: 0.5 } }

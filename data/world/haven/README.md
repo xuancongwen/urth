@@ -18,5 +18,5 @@ and tells the way into Wayreth: east past the ford, follow the trees that
 lean toward the dawn, and bring the Conclave's summons, which a renegade
 took in the forest.
 
-The crossroads is meant to grow: the roads to Palanthas and to the coast
-for Ergoth start here.
+The crossroads also opens west on the Vingaard Road to Palanthas
+(`palanthas`), whose harbour takes ship for Ergoth and Daltigoth.

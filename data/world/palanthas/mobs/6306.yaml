@@ -1,0 +1,14 @@
+vnum: 6306
+name: "Dalamar the Dark"
+keywords: [dalamar, dark, elf, master]
+description: "Dalamar the Dark waits in the chamber, a dark elf in black robes, his hands folded."
+look: |
+  A dark elf, beautiful and cold, Master of the Tower of Palanthas. Five
+  wounds on his chest have never healed, a lesson from his own teacher.
+  "So," he says. "You passed. Swear, then: to necromancy, or to
+  enchantment. It is for life. The necromancer can never again touch
+  evocation; the enchanter is closed to illusion." Type 'swear'.
+level: 24
+flags: [peaceful]
+attack:
+  verb: strike

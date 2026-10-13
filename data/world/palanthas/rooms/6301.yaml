@@ -1,0 +1,9 @@
+vnum: 6301
+name: "The Old City Gate"
+description: |
+  The old wall of Palanthas, white stone gone gold in the evening light,
+  and a gate that has not been shut in three hundred years. Beyond it
+  the city's streets run in a great wheel. The road runs back south.
+exits:
+  south: 6300
+  north: 6302

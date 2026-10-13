@@ -1,0 +1,13 @@
+vnum: 6307
+name: "the keeper of the black books"
+keywords: [keeper, black, books, librarian, mage]
+description: "The keeper of the black books turns a page with a gloved hand."
+look: |
+  A human mage in black, old, with a face like a closed door. He teaches
+  the Black Order's school spells to those sworn to necromancy or
+  enchantment, and to nobody else. Type 'practice'.
+level: 22
+flags: [peaceful]
+teaches: [false_life, vampiric_touch, circle_of_death, arcane_heroism, slow, confusion, iron_body, tensers_transformation, hold_monster, disintegrate]
+attack:
+  verb: punch

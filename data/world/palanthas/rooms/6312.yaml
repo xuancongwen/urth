@@ -1,0 +1,8 @@
+vnum: 6312
+name: "The Black Robing Room"
+description: |
+  Robes of black velvet hang in rows, each with a silver rune at the
+  collar. A dark elf sits among them, sewing. The foyer is east.
+exits:
+  east: 6308
+flags: [safe]

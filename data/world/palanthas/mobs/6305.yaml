@@ -1,0 +1,23 @@
+vnum: 6305
+name: "the shadow of the Dark Queen"
+keywords: [shadow, queen, takhisis, darkness]
+description: "A five-headed shadow fills the dark, every head turned toward you."
+look: |
+  Not the Queen of Darkness herself, only what the Test makes of her
+  offer: five heads of shadow, black, blue, green, red, white, each
+  speaking at once, each promising. It wants a servant, and if it cannot
+  have one, it wants a corpse.
+level: 20
+flags: [aggressive, boss]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+health: 850
+silver: 160
+stats: { intelligence: 20, wisdom: 18 }
+attack:
+  verb: bite
+  kind: unholy
+effects:
+  - kind: aura
+    params: { kind: unholy, power: 0.30, verb: "whisper of five voices" }
+  - { kind: resist, params: { kind: unholy, amount: 1.0 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

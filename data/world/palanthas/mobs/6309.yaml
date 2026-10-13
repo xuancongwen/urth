@@ -1,0 +1,12 @@
+vnum: 6309
+name: "an Aesthetic"
+keywords: [aesthetic, monk, librarian, scribe]
+description: "An Aesthetic in a brown robe carries an armful of books past you without looking up."
+look: |
+  A monk of the Great Library, sworn to record and never to act. He will
+  tell you, if pressed, that the Shoikan Grove kills those who walk in
+  uninvited, and that the Black Robes have no other door.
+level: 10
+flags: [peaceful]
+attack:
+  verb: punch

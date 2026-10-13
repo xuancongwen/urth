@@ -1,0 +1,13 @@
+vnum: 6302
+name: "The Great Square of Palanthas"
+description: |
+  The hub of the city's wheel, paved in white and gold, with streets
+  going out like spokes. West stands the Great Library, its door guarded
+  by monks in brown. North, the streets empty out toward a dark stand of
+  trees that nobody walks near, and above them a black tower. East, a
+  street runs down to the harbour. The old gate is south.
+exits:
+  south: 6301
+  west: 6304
+  north: 6303
+flags: [safe]

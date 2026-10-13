@@ -1,0 +1,10 @@
+vnum: 6316
+name: "The Third Trial: The Queen's Shadow"
+description: |
+  A darkness with five heads, each of them speaking to you at once,
+  offering. It wants a servant. The Test asks you to refuse, and to make
+  the refusal stick. South is the pit; north, a door of black glass.
+exits:
+  south: 6315
+  north: 6317
+flags: [dark]

@@ -5,8 +5,10 @@ description: |
   and new ones nailed over them in the Dragonarmy's square script. North
   the road climbs into the hills toward Haven; east a track runs out
   over the plains toward a forest that is never quite where the maps put
-  it. South is Solace.
+  it, and west the old Vingaard Road runs toward Palanthas. South is
+  Solace.
 exits:
   south: 6100
   north: 6102
+  west: 6300
   east: 6110

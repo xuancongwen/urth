@@ -1,0 +1,10 @@
+vnum: 6300
+name: "The Vingaard Road"
+description: |
+  A paved road runs west and then north from the crossroads at Gateway,
+  over the plains of Solamnia toward the mountains and the city in their
+  lee. Knights' waystones stand at every mile, most of them toppled.
+  Gateway is east; Palanthas is north.
+exits:
+  east: 6101
+  north: 6301

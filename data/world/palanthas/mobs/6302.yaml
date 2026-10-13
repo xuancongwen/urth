@@ -1,0 +1,23 @@
+vnum: 6302
+name: "the warden of the Shoikan Grove"
+keywords: [warden, grove, spectre, knight]
+description: "The warden of the grove stands among the roots, a spectre in the armour of a knight long dead."
+look: |
+  A knight who swore to guard the Tower and keeps the oath after death:
+  a spectre in black plate, its sword grey with grave-frost, the grove's
+  hands rising around it wherever it walks. It challenges no one. It
+  does not need to.
+level: 21
+flags: [aggressive, boss]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+health: 900
+silver: 180
+stats: { strength: 18, constitution: 16 }
+attack:
+  verb: cleave
+  kind: slash
+effects:
+  - kind: aura
+    params: { kind: cold, power: 0.25, verb: "grave-frost" }
+  - { kind: resist, params: { kind: drain, amount: 1.0 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

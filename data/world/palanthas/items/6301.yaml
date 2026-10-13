@@ -1,0 +1,18 @@
+vnum: 6301
+name: "the black robe of the Order"
+keywords: [robe, black, order, nuitari]
+description: "A robe of black velvet, a silver rune at its collar, lies folded here."
+look: |
+  The robe of a mage of the Black Order, black velvet that drinks the
+  light, with a rune of Nuitari stitched in silver at the collar. It is
+  never quite as warm as it should be.
+type: armor
+slot: body
+weight: 2
+level: 20
+baseline: cloth
+value: 2200
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: spellPower, params: { mult: 1.10, branch: arcane } }

@@ -1,0 +1,10 @@
+vnum: 6313
+name: "The Threshold of the Test"
+description: |
+  At the top of the stair the tower is gone, and there is only a grey
+  place and a voice: "The Black Order asks more than the others. Pass,
+  and swear. Fail, and stay." The stair down is south; the Test is
+  north.
+exits:
+  south: 6308
+  north: 6314

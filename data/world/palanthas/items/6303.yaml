@@ -1,0 +1,13 @@
+vnum: 6303
+name: "black iron greaves"
+keywords: [greaves, black, iron, leg]
+description: "A pair of black iron greaves lies here, dented and cold."
+look: |
+  Leg armour of black iron, the kind the Tower's old guards wore. Heavy,
+  plain, and very hard to cut through.
+type: armor
+slot: legs
+weight: 6
+level: 20
+baseline: heavy
+value: 240

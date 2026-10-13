@@ -1,0 +1,18 @@
+vnum: 6304
+name: "a pendant of the dark moon"
+keywords: [pendant, dark, moon, nuitari]
+description: "A pendant of black glass on a silver chain lies here, darker than its shadow."
+look: |
+  A disk of black glass that shows no reflection, on a chain of
+  tarnished silver. Hold it to your eye and you can see the black moon,
+  and sometimes, through it, the way a spell will fall before you cast
+  it.
+type: armor
+slot: neck
+weight: 0
+level: 20
+baseline: cloth
+value: 1500
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: spellCrit, params: { chance: 0.06, mult: 1.5, branch: arcane } }

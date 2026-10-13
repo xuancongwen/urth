@@ -1,0 +1,15 @@
+vnum: 6304
+name: "a climbing dead thing"
+keywords: [climbing, dead, thing, corpse]
+description: "Something that was a person climbs toward you out of the pit."
+look: |
+  Grey, slack-faced, and patient, one of hundreds in the pit, and it has
+  reached the top before the others.
+level: 18
+flags: [aggressive, assist]
+aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
+attack:
+  verb: claw
+  kind: claw
+effects:
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

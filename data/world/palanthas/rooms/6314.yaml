@@ -1,0 +1,10 @@
+vnum: 6314
+name: "The First Trial: Your Twin"
+description: |
+  A small room with a fire, and in it someone who loves you and has
+  always looked after you, telling you to come home and give this up.
+  The Test asks you to go on anyway. South is the threshold; north, the
+  next trial.
+exits:
+  south: 6313
+  north: 6315

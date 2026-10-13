@@ -1,0 +1,17 @@
+vnum: 6300
+name: "a grave-frost blade"
+keywords: [blade, grave-frost, sword, grey]
+description: "A grey sword lies here, rimed with frost that does not melt."
+look: |
+  A knight's sword from a grave in the Shoikan Grove, cold enough to
+  sting through a glove. Whoever carried it last carried it a long time
+  after they died.
+type: weapon
+weight: 5
+level: 18
+baseline: standard
+value: 220
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash
