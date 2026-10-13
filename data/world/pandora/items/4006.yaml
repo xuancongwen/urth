@@ -1,0 +1,18 @@
+vnum: 4006
+name: a bandit-made repeater
+keywords: [bandit-made, bandit, repeater, pistol, gun]
+description: A fat-drummed repeating pistol lies here.
+look: |
+  A pistol with a drum magazine bolted to its side, which makes it
+  heavy on the left and fires about as fast as you can pull. The
+  bandits who make these paint a skull on every one, partly for luck
+  and partly so they know which end is which.
+type: weapon
+weight: 2
+level: 3
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot

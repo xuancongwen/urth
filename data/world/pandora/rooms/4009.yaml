@@ -1,0 +1,10 @@
+vnum: 4009
+name: The Rakk Cliffs
+description: |
+  A sheer face of red stone pocked with nests, and a ledge along its
+  foot where the droppings lie inches deep. The rakks shriek and dive
+  in flocks, leathery wings snapping, and every so often one of them
+  drops a bone from a great height to see what happens. The headlands
+  are south.
+exits:
+  south: 4006

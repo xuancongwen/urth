@@ -1,0 +1,16 @@
+vnum: 4100
+name: The Steps of GCPD Headquarters
+description: |
+  Broad granite steps climb to the doors of Gotham's police
+  headquarters, a soot-black pile of columns and gargoyles. It is
+  night, as it is always night here, and raining, as it is always
+  raining. On the roof far above, a great searchlight throws a shape
+  onto the clouds: a bat with its wings spread. A tired man in a
+  trench coat stands under it, waiting for someone who has not come.
+  A fire door to the west leads back to the Hall of Flickering
+  Windows; the street runs east.
+exits:
+  west: 13
+  east: 4101
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

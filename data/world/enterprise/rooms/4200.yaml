@@ -1,0 +1,17 @@
+vnum: 4200
+name: The Transporter Room
+description: |
+  A small room of beige bulkheads and blinking panels, with a raised
+  platform of six round pads under a ceiling of six round lights. A
+  console stands before it with three sliding levers, and a stocky
+  engineer in a red shirt has his hands on them and a worried look on
+  his face. The deck hums underfoot: a starship, in orbit, and below
+  it a world. The humming panels to the south part onto the Hall of
+  Flickering Windows; the doors north open on the ship's corridors;
+  stepping onto the pads beams you down to the planet.
+exits:
+  south: 13
+  north: 4201
+  down: 4207
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

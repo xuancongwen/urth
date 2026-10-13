@@ -1,0 +1,19 @@
+vnum: 4101
+name: the Joker's lapel flower
+keywords: [joker, joker's, lapel, flower, boutonniere]
+description: A bright purple flower on a lapel pin, trailing a thin rubber tube, lies here.
+look: |
+  A purple carnation of silk and wire on a pin, with a rubber tube
+  running from its stem to a little bulb of something green that
+  hisses when you squeeze it. It is the oldest joke in the book. It
+  is funnier, the Joker always said, when the water is acid. Pinned
+  on, it makes you sharper, and quicker to see the joke, and every so
+  often, in the middle of a fight, it squirts.
+type: armor
+slot: neck
+weight: 0
+level: 9
+value: 450
+effects:
+  - { kind: proc, params: { kind: acid, chance: 0.1, power: 0.6, verb: squirt of acid from a lapel flower } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

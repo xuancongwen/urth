@@ -1,0 +1,13 @@
+vnum: 4007
+name: a pair of skag-hide boots
+keywords: [skag-hide, skag, hide, boots]
+description: A pair of knee-high boots of grey hide lies here.
+look: |
+  Tall boots of skag hide, rough and heavy, with soles cut from a tyre.
+  Nothing in the gully bites through them.
+type: armor
+slot: feet
+weight: 2
+level: 3
+baseline: light
+flags: [drop]

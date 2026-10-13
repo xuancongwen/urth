@@ -1,0 +1,15 @@
+vnum: 4103
+name: a Falcone enforcer
+keywords: [falcone, enforcer, mobster, gangster]
+description: A Falcone enforcer in a camel coat leans on a car, a pistol under his coat.
+look: |
+  One of Carmine Falcone's men, in a good coat and bad shoes, with a
+  pistol in a shoulder holster and a pinkie ring he is proud of. He
+  collects the bridge toll and breaks the legs of those who do not
+  pay it. It is nothing personal. It is just business.
+level: 5
+flags: [assist]
+silver: 8
+attack:
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,15 @@
+vnum: 4117
+name: an armoured riot suit
+keywords: [armoured, armored, riot, suit]
+description: A suit of black riot armour lies here in pieces.
+look: |
+  Chest plate, shoulder guards, and arm and thigh plates of black
+  polymer over padding, buckled together. Heavy, hot, and very hard
+  to get a knife into, which is what Arkham's guards were counting
+  on.
+type: armor
+slot: body
+weight: 7
+level: 9
+baseline: heavy
+flags: [drop]

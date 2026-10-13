@@ -1,0 +1,15 @@
+vnum: 4006
+name: a skag
+keywords: [skag, adult]
+description: A full-grown skag lowers its head and splits its jaw at you with a roar.
+look: |
+  A grown skag, the size of a pony and the shape of a bad dream, with
+  armoured plates on its back and a three-way jaw lined with teeth all
+  the way down its throat. It cannot see you very well. It can smell
+  you perfectly.
+level: 3
+flags: [assist, aggressive]
+silver: 2
+attack:
+  kind: bite
+  verb: maul

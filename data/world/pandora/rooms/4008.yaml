@@ -1,0 +1,12 @@
+vnum: 4008
+name: The Rusted Trailer Camp
+description: |
+  Four trailers jacked up on cinder blocks around a fire pit, with a
+  sofa dragged out of one of them to watch the fire from. Severed
+  skag heads hang on the trailer doors as a warning to skags, or as
+  decoration; it is hard to tell with bandits. A path behind the last
+  trailer goes west into a hideout cut in the rock. The shacks are
+  south.
+exits:
+  south: 4007
+  west: 4011

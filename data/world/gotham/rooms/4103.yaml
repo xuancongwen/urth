@@ -1,0 +1,11 @@
+vnum: 4103
+name: The Narrows Bridge
+description: |
+  An iron bridge over black water, its lamps mostly out, its rails
+  hung with chains and padlocks and one or two things that are not
+  padlocks. The Falcone family's men keep a car parked at the middle
+  of it and charge a toll that is not written down anywhere. Midtown
+  is west; the Narrows are east.
+exits:
+  west: 4101
+  east: 4104

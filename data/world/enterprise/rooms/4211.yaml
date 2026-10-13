@@ -1,0 +1,10 @@
+vnum: 4211
+name: The Vault of Tomorrow
+description: |
+  A vast chamber deep in the rock, lined from floor to ceiling with
+  thousands of round silicon nodules, each the size of a man's head,
+  set into niches like eggs in a carton. The miners thought they were
+  worthless and broke them up. They were not worthless. The Horta who
+  guard them have not forgiven it. The tunnels are south.
+exits:
+  south: 4210

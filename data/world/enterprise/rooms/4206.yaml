@@ -1,0 +1,11 @@
+vnum: 4206
+name: The Bridge
+description: |
+  A circular room with a great screen at the front showing a planet,
+  green and brown and turning slowly. The command chair stands empty at
+  the centre. Stations ring the walls: helm, navigation, science, the
+  communications post with its earpiece dangling. Klingons hold it,
+  rifling the consoles and arguing about which button is which. The
+  corridor is west, down the stair.
+exits:
+  west: 4204

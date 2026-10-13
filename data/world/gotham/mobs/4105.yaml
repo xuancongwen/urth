@@ -1,0 +1,15 @@
+vnum: 4105
+name: a Penguin henchman
+keywords: [penguin, henchman, bowler, umbrella]
+description: A henchman in a bowler hat levels his umbrella at you.
+look: |
+  A heavy man in a bowler hat and a striped scarf, with an umbrella
+  hooked over his arm whose tip, when he points it at you, turns out
+  to have a barrel in it. He works for the Penguin, who pays well and
+  on time and feeds those who do not to the birds.
+level: 6
+flags: [assist]
+silver: 8
+attack:
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,10 @@
+vnum: 4002
+name: The Scrap Yard
+description: |
+  Car bodies stacked three high, a crane that will never lift again, and
+  drifts of bolts, springs, and spent shell casings that crunch
+  underfoot. Rakks roost on the crane's arm and drop on anything that
+  stands still too long. Skag pups have made dens in the cars. Main
+  Street is south.
+exits:
+  south: 4001

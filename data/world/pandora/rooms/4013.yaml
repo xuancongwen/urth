@@ -1,0 +1,11 @@
+vnum: 4013
+name: The Skag Pit
+description: |
+  Inside the wall the bandits have dug a pit and filled it with skags,
+  and built a walkway of planks around the rim from which to throw them
+  meat and, by the stains, people. Alpha skags pace the bottom and spitters
+  hiss from the ledges. A wide ramp goes down to the south into an arena;
+  the gate is east.
+exits:
+  east: 4012
+  south: 4014

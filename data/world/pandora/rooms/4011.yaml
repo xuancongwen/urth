@@ -1,0 +1,10 @@
+vnum: 4011
+name: Bone Head's Hideout
+description: |
+  A cave mouth curtained with chain, and inside, an old Dahl strongroom
+  that a bandit chief has made his own: crates of stolen ammo, a
+  throne made of a car seat bolted to a pile of tyres, and on the wall
+  a dozen painted bone-white masks, each a little more grinning than the
+  last. The trailer camp is east.
+exits:
+  east: 4008

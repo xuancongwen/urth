@@ -1,0 +1,17 @@
+vnum: 4203
+name: a type-1 hand phaser
+keywords: [type-1, hand, phaser]
+description: A small grey phaser no bigger than a bar of soap lies here.
+look: |
+  The little phaser a landing party clips to its belt: a palm-sized
+  grey box with a grille at one end and a dial at the other, set,
+  for now, to stun. Turn the dial and it is set for something else.
+type: weapon
+weight: 1
+level: 7
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: fire
+  verb: zap

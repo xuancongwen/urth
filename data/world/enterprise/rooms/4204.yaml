@@ -1,0 +1,13 @@
+vnum: 4204
+name: The Turbolift Corridor, Deck Six
+description: |
+  A junction where the corridor meets the turbolift doors, which keep
+  opening and shutting on nobody. The red alert klaxon is whooping and
+  the lights are washed red. Men in metallic sashes and leather, with
+  dark beards and drawn weapons, have come aboard: Klingons. Engineering
+  is north; the bridge is east, up a short stair; the tribbles are
+  south.
+exits:
+  south: 4201
+  north: 4205
+  east: 4206

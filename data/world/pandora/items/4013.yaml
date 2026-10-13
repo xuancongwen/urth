@@ -1,0 +1,14 @@
+vnum: 4013
+name: a car-door shield
+keywords: [car-door, car, door, shield]
+description: A rusted car door with a handle bolted on the inside lies here.
+look: |
+  A car door, window and all, with a strap bolted to the inside for an
+  arm. The window has a bullet hole in it already. The door has
+  several. None of them went through.
+type: armor
+slot: shield
+weight: 5
+level: 5
+baseline: shield
+flags: [drop]

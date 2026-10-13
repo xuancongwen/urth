@@ -1,0 +1,26 @@
+vnum: 13
+name: The Hall of Flickering Windows
+description: |
+  North of the Long Hall the stone is papered over with posters gone
+  soft at the corners, and the light comes not from torches but from
+  three tall windows that flicker like a picture show. Each looks out
+  on somewhere that is not Urth. West, a door of corrugated iron
+  stencilled with a grinning cartoon bandit, and a hot wind full of
+  grit leaks under it. East, a fire door with a brass plate, GOTHAM
+  CITY, and beyond it rain and sirens. North, a pair of panels that
+  hum faintly and part for nobody, under a gold arrowhead badge; past
+  them something trills like a small, contented animal. Plain cards
+  pinned by each door say who should go through: the bandits for the
+  greenest, the city for those with a few fights behind them, the stars
+  for those who have nearly outgrown the first halls. The Long Hall is
+  south.
+exits:
+  south: 2
+  west: 4000
+  east: 4100
+  north: 4200
+doors:
+  west: {name: the corrugated iron door}
+  east: {name: the fire door}
+  north: {name: the humming panels}
+flags: [safe]

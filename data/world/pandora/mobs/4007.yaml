@@ -1,0 +1,14 @@
+vnum: 4007
+name: a spitter skag
+keywords: [spitter, skag]
+description: A spitter skag hisses, a green drool hanging from its open jaws.
+look: |
+  A lean, sickly-coloured skag whose throat swells with a sac of
+  something green that it can throw a good ten yards. Where the spit
+  lands, the rock smokes.
+level: 4
+flags: [assist, aggressive]
+silver: 2
+attack:
+  kind: acid
+  verb: spit

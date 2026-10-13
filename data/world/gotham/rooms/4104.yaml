@@ -1,0 +1,15 @@
+vnum: 4104
+name: The Narrows
+description: |
+  An island of tenements so close together that the fire escapes touch
+  across the streets, and laundry hangs over every gap. The monorail
+  rattles overhead on its pillars. Clowns lean on the corners here,
+  men in painted masks with baseball bats, and they laugh when they
+  see you. A burned-out tenement looms north, the gates of a chemical
+  plant stand south, a lounge glows blue to the east, and the bridge
+  is west.
+exits:
+  west: 4103
+  north: 4105
+  south: 4106
+  east: 4108

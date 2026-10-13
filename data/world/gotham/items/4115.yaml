@@ -1,0 +1,14 @@
+vnum: 4115
+name: a pair of combat boots
+keywords: [combat, boots]
+description: A pair of black lace-up boots lies here.
+look: |
+  Black boots laced to the shin, with steel toes and thick soles,
+  standard issue for the asylum guards, who will not be needing them
+  tonight.
+type: armor
+slot: feet
+weight: 2
+level: 8
+baseline: medium
+flags: [drop]

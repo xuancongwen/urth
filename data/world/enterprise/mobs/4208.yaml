@@ -1,0 +1,17 @@
+vnum: 4208
+name: a Gorn warrior
+keywords: [gorn, warrior, lizard, reptile]
+description: A Gorn warrior, green-scaled and heavy, hisses and raises a stone club.
+look: |
+  A reptile as tall as a man and twice as broad, with a green, scaled
+  hide, glittering faceted eyes, and a mouth that opens to show a great
+  many teeth. It moves slowly, and then all at once, and it carries a
+  club of stone bound to a haft of bone. It is very strong and not at
+  all quick, and it never stops coming.
+level: 10
+flags: [assist, aggressive]
+silver: 6
+stats: { strength: 14, dexterity: 8, constitution: 13 }
+attack:
+  kind: blunt
+  verb: club

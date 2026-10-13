@@ -1,0 +1,18 @@
+vnum: 4108
+name: a tommy gun
+keywords: [tommy, gun, submachine]
+description: A drum-fed submachine gun lies here.
+look: |
+  An old Thompson with a wooden grip and a round drum magazine, the
+  gangster's chopper of the old days, kept oiled by the Falcones out
+  of sentiment. It chatters, it climbs, and it empties the drum in a
+  breath.
+type: weapon
+weight: 5
+level: 6
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: spray

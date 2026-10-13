@@ -1,0 +1,13 @@
+vnum: 4007
+name: The Bandit Shacks
+description: |
+  A cluster of shacks bolted together from shipping containers and
+  painted with skulls, targets, and the words KEEP OUT in four colours.
+  A radio on a pole plays a song about shooting people. Bandits lounge
+  in the shade cleaning guns, and psychos in masks run in circles
+  shouting about meat bicycles. A rusted trailer camp is north, the
+  salt flats are south, and the headlands are east.
+exits:
+  east: 4006
+  north: 4008
+  south: 4010

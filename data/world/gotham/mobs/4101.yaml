@@ -1,0 +1,14 @@
+vnum: 4101
+name: a street thug
+keywords: [street, thug, hood]
+description: A street thug in a leather jacket cracks his knuckles at you.
+look: |
+  A hood from the Midtown corners, with a broken nose, a gold tooth,
+  and a jacket a size too small. He hits people for money, and when
+  nobody is paying, for practice. His friends are never far away.
+level: 4
+flags: [assist]
+silver: 4
+attack:
+  kind: blunt
+  verb: punch

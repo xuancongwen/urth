@@ -1,0 +1,20 @@
+vnum: 4109
+name: the Penguin
+keywords: [penguin, oswald, cobblepot, oswald cobblepot]
+description: The Penguin sits in his corner booth, a cigarette holder in his teeth, an umbrella at his side.
+look: |
+  A short, round man in a tuxedo and a top hat, with a monocle, a long
+  nose like a beak, and a cigarette in a long holder. Oswald Cobblepot
+  owns this club and most of the docks and a good share of the city
+  council. He waddles when he walks, which nobody mentions twice. His
+  umbrella fires, and so do the other three he keeps in the stand.
+level: 7
+health: 150
+flags: [assist]
+silver: 40
+stats: { intelligence: 14 }
+armor:
+  defense: 6
+attack:
+  kind: pierce
+  verb: shoot

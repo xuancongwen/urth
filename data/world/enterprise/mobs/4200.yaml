@@ -1,0 +1,15 @@
+vnum: 4200
+name: Montgomery Scott
+keywords: [montgomery, scott, scotty, engineer]
+description: Mr. Scott stands at the transporter console, hands on the levers.
+look: |
+  A thickset, moustached engineer in a red tunic, with a Scots burr and
+  the air of a man whose engines are being mistreated in another room.
+  "The Klingons have got into Engineering," he tells you, "and they've
+  got their great muckle hands on my dilithium. And the tribbles are
+  in everything. And the captain's down on that planet with a Gorn.
+  I cannae do everything at once, laddie. Pick one."
+level: 12
+flags: [peaceful]
+attack:
+  verb: punch

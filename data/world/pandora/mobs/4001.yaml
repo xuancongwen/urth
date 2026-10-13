@@ -1,0 +1,15 @@
+vnum: 4001
+name: Dr. Zed
+keywords: [dr, doctor, zed]
+description: Dr. Zed leans in the doorway of his clinic, snapping on a rubber glove.
+look: |
+  A tall man in a stained surgical gown and a mask that hides everything
+  but a pair of eyes that have seen too much and enjoyed some of it.
+  His licence, he will tell you, was revoked for reasons that are
+  frankly none of your business. His vending machine is out of order,
+  like most things in Fyrestone, but he is happy to look at whatever
+  the skags have done to you, and to keep any bits that come off.
+level: 6
+flags: [peaceful]
+attack:
+  verb: jab

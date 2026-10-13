@@ -1,0 +1,11 @@
+vnum: 4205
+name: Main Engineering
+description: |
+  A long, high room of pipes and catwalks, at whose end two glowing
+  columns rise and pulse: the warp engines' heart. Mesh grilles hide
+  the machinery, and somebody has pried one off to get at it. Klingons
+  hold the room, and the one in command stands at the master console
+  with a blade in his belt and a grin in his beard. The corridor is
+  south.
+exits:
+  south: 4204

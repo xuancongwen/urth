@@ -1,0 +1,10 @@
+vnum: 4107
+name: The Vat Floor
+description: |
+  Catwalks over open vats of chemicals that bubble green and purple and
+  a colour that does not have a name. Somebody has hung a banner from
+  the railings that says HA HA HA in letters six feet high. The air
+  stings the eyes. Clowns are filling bottles from the vats with a
+  funnel, giggling. The gate is north.
+exits:
+  north: 4106

@@ -1,0 +1,12 @@
+vnum: 4004
+name: Skag Gully
+description: |
+  A dry ravine whose walls are drilled with holes, every one of them
+  the mouth of a burrow, and every burrow breathing. Bones lie in the
+  sand, picked white and split for the marrow. The skags here are
+  grown, and they come out of the walls when they hear you. The
+  badlands are up the slope to the north; the gully narrows south to a
+  den.
+exits:
+  north: 4003
+  south: 4005

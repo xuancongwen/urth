@@ -1,0 +1,14 @@
+vnum: 4212
+name: a pair of Klingon gauntlets
+keywords: [klingon, gauntlets, gloves]
+description: A pair of studded black gauntlets lies here.
+look: |
+  Black leather gauntlets that come halfway to the elbow, studded across
+  the knuckles. A Klingon may hit you with these before he bothers to
+  draw.
+type: armor
+slot: hands
+weight: 1
+level: 11
+baseline: medium
+flags: [drop]

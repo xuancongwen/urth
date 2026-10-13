@@ -1,0 +1,17 @@
+vnum: 4110
+name: a steel crowbar
+keywords: [steel, crowbar, bar]
+description: A heavy steel crowbar lies here.
+look: |
+  Three feet of hooked steel, flattened at one end and bent at the
+  other. It opens crates, doors, and very nearly anything else. A
+  clown's favourite tool, for reasons he will be happy to show you.
+type: weapon
+weight: 4
+level: 7
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: bash

@@ -1,0 +1,11 @@
+vnum: 4010
+name: The Salt Flats
+description: |
+  A dead lake of white salt, cracked into tiles and so bright under the
+  sun that it hurts to look at. Wrecked runners lie where they rolled.
+  Spitter skags bask on the hot crust, and psychos race across it for
+  the joy of it. The bandit shacks are north; a gate of welded scrap
+  stands to the west.
+exits:
+  north: 4007
+  west: 4012

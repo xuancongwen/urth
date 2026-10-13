@@ -1,0 +1,16 @@
+vnum: 4100
+name: Commissioner Gordon
+keywords: [commissioner, jim, james, gordon]
+description: Commissioner Gordon stands under the signal with his collar up, polishing his glasses.
+look: |
+  A tired man in a rumpled trench coat, with a grey moustache, a pair
+  of wire glasses he is forever wiping, and the look of someone who
+  has been honest in Gotham for thirty years and has the scars to
+  show for it. He keeps glancing up at the signal on the clouds. "He's
+  late tonight," he says, mostly to himself. "Doesn't matter. The
+  Narrows are boiling over and Arkham's open. If you can hold a
+  weapon, son, I'll take the help."
+level: 9
+flags: [peaceful]
+attack:
+  verb: punch

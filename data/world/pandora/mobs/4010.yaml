@@ -1,0 +1,17 @@
+vnum: 4010
+name: an alpha skag
+keywords: [alpha, skag]
+description: An alpha skag, crested with bone, paws the ground and roars.
+look: |
+  The leader of a skag pack, bigger than the rest and crusted with bony
+  armour, its crest a ridge of yellowed horn and its four-way jaw wide
+  enough to take a man to the waist. The other skags give way to it.
+  So should you.
+level: 5
+health: 90
+flags: [assist, aggressive]
+silver: 4
+stats: { strength: 13 }
+attack:
+  kind: bite
+  verb: savage

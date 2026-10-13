@@ -1,0 +1,15 @@
+vnum: 4104
+name: a Joker goon
+keywords: [joker, goon, clown, henchman]
+description: A Joker goon in a clown mask swings a baseball bat and laughs.
+look: |
+  A henchman in a purple jacket and a rubber clown mask with a painted
+  grin, carrying a baseball bat with nails in it. He laughs at nothing
+  in particular, a high, cracked laugh that he has practised, because
+  the boss likes it. The other clowns laugh with him.
+level: 6
+flags: [assist, aggressive]
+silver: 6
+attack:
+  kind: blunt
+  verb: club

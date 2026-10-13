@@ -1,0 +1,12 @@
+vnum: 4108
+name: The Iceberg Lounge
+description: |
+  A nightclub of blue light and white leather, with an ice sculpture of
+  a bird on every table and real penguins waddling between the chairs.
+  A jazz band plays very carefully and does not look up. Henchmen in
+  bowler hats with umbrellas hooked over their arms stand at every
+  door, and a short man in a tuxedo holds court at the corner booth.
+  The Narrows are west; a back door goes east to the docks.
+exits:
+  west: 4104
+  east: 4109

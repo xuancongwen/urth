@@ -1,0 +1,13 @@
+vnum: 4010
+name: a pair of tyre-tread gloves
+keywords: [tyre-tread, tyre, tread, gloves]
+description: A pair of gloves with tyre rubber stitched over the knuckles lies here.
+look: |
+  Work gloves with strips of tyre tread stitched across the backs and
+  knuckles, good for gripping hot gun barrels and for punching.
+type: armor
+slot: hands
+weight: 1
+level: 4
+baseline: light
+flags: [drop]

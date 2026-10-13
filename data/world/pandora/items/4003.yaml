@@ -1,0 +1,14 @@
+vnum: 4003
+name: a dusty bandana
+keywords: [dusty, bandana, scarf]
+description: A red bandana, stiff with dust, lies here.
+look: |
+  A square of red cloth, faded pink by the sun, for tying over the
+  head or the face when the wind gets up. It smells of sweat and gun
+  oil.
+type: armor
+slot: head
+weight: 0
+level: 1
+baseline: cloth
+flags: [drop]

@@ -1,0 +1,16 @@
+vnum: 4203
+name: a Klingon boarder
+keywords: [klingon, boarder, warrior]
+description: A Klingon boarder levels a disruptor at you and snarls.
+look: |
+  A bearded warrior in a gold-mesh tunic and a leather jerkin, with a
+  disruptor in one hand and a drawn blade in his belt. He came aboard
+  through the cargo transporter with his comrades, and he does not
+  care for the ship, its crew, or above all its tribbles, which shriek
+  whenever he passes.
+level: 9
+flags: [assist, aggressive]
+silver: 8
+attack:
+  kind: fire
+  verb: shoot

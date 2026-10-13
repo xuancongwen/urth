@@ -1,0 +1,24 @@
+vnum: 4201
+name: Kor's d'k tahg
+keywords: [kor, kor's, d'k, tahg, dktahg, knife, dagger]
+description: A Klingon knife with two folded side blades lies here.
+look: |
+  A Klingon warrior's knife with a long central blade and two curved
+  side blades that spring out from the hilt at the press of a stud,
+  turning a stab into something far worse. Kor's has a grip of black
+  targ bone and an edge he has kept, he says, since the battle of
+  Klach D'Kel Brakt. It is a weapon for a warrior who wants to be
+  close enough to see your face.
+type: weapon
+weight: 1
+level: 11
+baseline: dagger
+value: 600
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab
+effects:
+  - { kind: added, params: { kind: slash, power: 0.25 } }
+  - { kind: crit, params: { chance: 0.06, mult: 2 } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

@@ -1,0 +1,17 @@
+vnum: 4102
+name: a tire iron
+keywords: [tire, iron]
+description: A cross-shaped tire iron lies here.
+look: |
+  A four-way tire iron, black with grease, taken from the boot of a car
+  somebody will not be driving again. In Gotham it is a tool for
+  changing tyres the way a brick is a tool for building walls.
+type: weapon
+weight: 3
+level: 3
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crack

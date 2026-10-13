@@ -1,0 +1,15 @@
+vnum: 4102
+name: a mugger
+keywords: [mugger, robber, knife]
+description: A mugger steps out of a doorway, a knife held low.
+look: |
+  A thin man in a knit cap with a flick knife and nervous eyes, who has
+  worked this alley for years and is good at it. He picks the ones who
+  look lost. You look lost.
+level: 4
+flags: [aggressive]
+silver: 6
+stats: { dexterity: 12 }
+attack:
+  kind: pierce
+  verb: stab

@@ -1,0 +1,22 @@
+vnum: 4011
+name: Bone Head
+keywords: [bone, head, bonehead, bandit, chief]
+description: Bone Head sprawls on his car-seat throne, his bone-white mask grinning at you.
+look: |
+  A bandit chief in a long coat of skag hide, with a white mask painted
+  like a skull and a grin carved into it that is wider than any mouth.
+  He stole the Dahl payroll and a good deal else, and he is hiding out
+  until the heat dies down, which on Pandora it never does. He has
+  more masks on the wall behind him, and he is wondering how yours
+  would look up there.
+level: 5
+health: 140
+silver: 25
+stats: { strength: 13, dexterity: 12 }
+armor:
+  defense: 5
+attack:
+  kind: slash
+  verb: slash
+loot:
+  - { item: 4001, chance: 0.25 }

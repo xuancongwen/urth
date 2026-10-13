@@ -1,0 +1,10 @@
+vnum: 4005
+name: The Skag Den
+description: |
+  The gully ends in a cave mouth slick with musk, and the cave stinks of
+  rotten meat and wet dog. The floor is a midden of bones, ammo boxes,
+  and one boot with the foot still in it. The skags who den here are
+  the biggest in the gully, and one of them has its jaws split four
+  ways and a crest of bone like a crown. The gully is north.
+exits:
+  north: 4004

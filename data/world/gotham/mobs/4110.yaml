@@ -1,0 +1,19 @@
+vnum: 4110
+name: the Scarecrow
+keywords: [scarecrow, crane, jonathan, jonathan crane]
+description: The Scarecrow watches from the stairs, his burlap face twitching.
+look: |
+  A thin man in a ragged suit and a burlap sack for a face, stitched
+  across the mouth, with a tube running into it from a canister on his
+  wrist. Doctor Jonathan Crane once ran Arkham's wards. Now he tests
+  his toxin on the Narrows and writes down, very carefully, what they
+  see. He would like to know what you are afraid of.
+level: 8
+health: 160
+silver: 30
+stats: { intelligence: 14, dexterity: 12 }
+armor:
+  defense: 6
+attack:
+  kind: poison
+  verb: gas

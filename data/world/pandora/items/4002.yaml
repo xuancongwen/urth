@@ -1,0 +1,17 @@
+vnum: 4002
+name: a scavenged bandit pistol
+keywords: [scavenged, bandit, pistol, gun]
+description: A battered pistol wrapped in electrical tape lies here.
+look: |
+  A pistol assembled from at least three other pistols, held together
+  with tape and stubbornness. The sight is a bent nail. It fires, which
+  on Pandora is all anyone asks.
+type: weapon
+weight: 2
+level: 1
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot

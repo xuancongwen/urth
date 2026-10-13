@@ -1,0 +1,18 @@
+vnum: 4014
+name: a Dahl combat rifle
+keywords: [dahl, combat, rifle, gun]
+description: A drab green military rifle with a burst selector lies here.
+look: |
+  A rifle of the Dahl corporation, which makes guns for soldiers and
+  does not care much what happens to them afterwards. It fires in
+  bursts, it is ugly, and it works, which puts it ahead of everything
+  else the bandits own.
+type: weapon
+weight: 4
+level: 6
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: shoot

@@ -1,0 +1,14 @@
+vnum: 4201
+name: Dr. McCoy
+keywords: [dr, doctor, mccoy, bones, leonard]
+description: Dr. McCoy scowls at a tray of hyposprays, a tribble on his shoulder.
+look: |
+  A lean, sharp-featured man in a blue medical tunic, with a southern
+  drawl and a temper. He is a doctor, as he will tell you, and not a
+  great many other things, and he would like to know who let all these
+  tribbles aboard. One of them has fallen asleep on his shoulder and
+  he has not noticed, or is pretending not to.
+level: 12
+flags: [peaceful]
+attack:
+  verb: slap

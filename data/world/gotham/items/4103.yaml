@@ -1,0 +1,14 @@
+vnum: 4103
+name: a cheap trench coat
+keywords: [cheap, trench, coat]
+description: A creased tan trench coat lies here.
+look: |
+  A belted raincoat of thin gabardine, the kind every detective in
+  Gotham buys and every one of them regrets. It keeps off some of the
+  rain.
+type: armor
+slot: body
+weight: 2
+level: 3
+baseline: cloth
+flags: [drop]

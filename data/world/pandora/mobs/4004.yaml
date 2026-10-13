@@ -1,0 +1,14 @@
+vnum: 4004
+name: a rakk
+keywords: [rakk, flyer]
+description: A rakk flaps overhead on leathery wings, shrieking.
+look: |
+  A flying thing like a skinned bat the size of a goose, all wing and
+  hook and a beak lined with little teeth. Rakks hunt in flocks, and
+  when one dives the rest follow it down.
+level: 2
+flags: [assist, aggressive]
+silver: 1
+attack:
+  kind: claw
+  verb: rake

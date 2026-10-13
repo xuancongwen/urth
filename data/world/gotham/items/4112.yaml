@@ -1,0 +1,14 @@
+vnum: 4112
+name: a GCPD riot shield
+keywords: [gcpd, riot, shield]
+description: A clear plastic riot shield stamped POLICE lies here.
+look: |
+  A long shield of scratched polycarbonate with POLICE across it in
+  white letters, a handle on the back, and a dent in the front shaped
+  very like a clown's bat.
+type: armor
+slot: shield
+weight: 4
+level: 7
+baseline: shield
+flags: [drop]

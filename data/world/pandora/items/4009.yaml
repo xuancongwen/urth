@@ -1,0 +1,14 @@
+vnum: 4009
+name: a padded bandit jacket
+keywords: [padded, bandit, jacket]
+description: A thick jacket stuffed with rags and plated with tin lies here.
+look: |
+  A canvas jacket quilted with rags, with squares of tin sewn over the
+  chest and back. It is hot, it is ugly, and it has stopped bullets,
+  some of them.
+type: armor
+slot: body
+weight: 4
+level: 4
+baseline: medium
+flags: [drop]

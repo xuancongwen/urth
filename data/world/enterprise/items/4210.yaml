@@ -1,0 +1,17 @@
+vnum: 4210
+name: a type-2 phaser pistol
+keywords: [type-2, phaser, pistol]
+description: A pistol-gripped phaser lies here.
+look: |
+  The landing party's heavier phaser: a type-1 slotted into a pistol
+  grip with a bigger power pack, good for stunning a crowd, or, on a
+  higher setting, a rock, a door, or a Gorn.
+type: weapon
+weight: 2
+level: 10
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: fire
+  verb: fire

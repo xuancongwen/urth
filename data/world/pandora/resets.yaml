@@ -1,0 +1,77 @@
+interval_seconds: 120
+resets:
+  # --- Fyrestone ---
+  - { mob: 4000, room: 4000 }               # Claptrap at the bus stop
+  - { mob: 4001, room: 4001 }               # Dr. Zed in his clinic door
+  - { mob: 4002, room: 4015 }               # T.K. Baha on his porch
+  # --- skag pups (1), eight in all ---
+  - { mob: 4003, room: 4001, max: 8 }       # skag pups in the gutters of Main Street
+  - { mob: 4003, room: 4001, max: 8 }
+  - { mob: 4003, room: 4001, max: 8 }
+  - { mob: 4003, room: 4002, max: 8 }       # skag pups denning in the wrecks
+  - { mob: 4003, room: 4002, max: 8 }
+  - { mob: 4003, room: 4002, max: 8 }
+  - { mob: 4003, room: 4003, max: 8 }       # skag pups trailing the pack
+  - { mob: 4003, room: 4003, max: 8 }
+  # --- rakks (2), nine in all ---
+  - { mob: 4004, room: 4002, max: 9 }       # rakks on the crane
+  - { mob: 4004, room: 4002, max: 9 }
+  - { mob: 4004, room: 4006, max: 9 }       # rakks wheeling over the headlands
+  - { mob: 4004, room: 4006, max: 9 }
+  - { mob: 4004, room: 4009, max: 9 }       # rakks thick on the cliffs
+  - { mob: 4004, room: 4009, max: 9 }
+  - { mob: 4004, room: 4009, max: 9 }
+  - { mob: 4004, room: 4009, max: 9 }
+  - { mob: 4004, room: 4009, max: 9 }
+  # --- bandits (2), seven in all ---
+  - { mob: 4005, room: 4006, max: 7 }       # bandits picking over the Dahl camp
+  - { mob: 4005, room: 4006, max: 7 }
+  - { mob: 4005, room: 4006, max: 7 }
+  - { mob: 4005, room: 4007, max: 7 }       # bandits in the shade of the shacks
+  - { mob: 4005, room: 4007, max: 7 }
+  - { mob: 4005, room: 4007, max: 7 }
+  - { mob: 4005, room: 4007, max: 7 }
+  # --- skags (3), nine in all ---
+  - { mob: 4006, room: 4003, max: 9 }       # skags crossing the road
+  - { mob: 4006, room: 4003, max: 9 }
+  - { mob: 4006, room: 4004, max: 9 }       # skags in the gully walls
+  - { mob: 4006, room: 4004, max: 9 }
+  - { mob: 4006, room: 4004, max: 9 }
+  - { mob: 4006, room: 4004, max: 9 }
+  - { mob: 4006, room: 4005, max: 9 }       # skags in the den
+  - { mob: 4006, room: 4005, max: 9 }
+  - { mob: 4006, room: 4005, max: 9 }
+  # --- spitter skags (4), eight in all ---
+  - { mob: 4007, room: 4005, max: 8 }       # spitters at the back of the den
+  - { mob: 4007, room: 4005, max: 8 }
+  - { mob: 4007, room: 4010, max: 8 }       # spitters basking on the salt
+  - { mob: 4007, room: 4010, max: 8 }
+  - { mob: 4007, room: 4010, max: 8 }
+  - { mob: 4007, room: 4010, max: 8 }
+  - { mob: 4007, room: 4013, max: 8 }       # spitters on the pit ledges
+  - { mob: 4007, room: 4013, max: 8 }
+  # --- psychos (4), seven in all ---
+  - { mob: 4008, room: 4007, max: 7 }       # psychos running rings round the shacks
+  - { mob: 4008, room: 4007, max: 7 }
+  - { mob: 4008, room: 4008, max: 7 }       # psychos round the fire pit
+  - { mob: 4008, room: 4008, max: 7 }
+  - { mob: 4008, room: 4008, max: 7 }
+  - { mob: 4008, room: 4010, max: 7 }       # psychos racing on the flats
+  - { mob: 4008, room: 4010, max: 7 }
+  # --- bruisers (5), five in all ---
+  - { mob: 4009, room: 4008, max: 5 }       # a bruiser on the sofa
+  - { mob: 4009, room: 4011, max: 5 }       # bruisers guarding Bone Head
+  - { mob: 4009, room: 4011, max: 5 }
+  - { mob: 4009, room: 4012, max: 5 }       # bruisers at Nine-Toes' gate
+  - { mob: 4009, room: 4012, max: 5 }
+  # --- alpha skags (5), five in all ---
+  - { mob: 4010, room: 4005, max: 5 }       # the crested alpha of the den
+  - { mob: 4010, room: 4012, max: 5 }       # the alpha that chewed through its chain
+  - { mob: 4010, room: 4013, max: 5 }       # alphas pacing the pit
+  - { mob: 4010, room: 4013, max: 5 }
+  - { mob: 4010, room: 4013, max: 5 }
+  # --- the named ---
+  - { mob: 4011, room: 4011 }               # Bone Head on his throne, who may have his mask on him
+  - { mob: 4012, room: 4014 }               # Pinky
+  - { mob: 4013, room: 4014 }               # Digit
+  - { mob: 4014, room: 4014 }               # Nine-Toes, who may have T.K.'s shotgun on him

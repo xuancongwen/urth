@@ -1,0 +1,17 @@
+vnum: 4207
+name: a mugato-horn spear
+keywords: [mugato-horn, mugato, horn, spear]
+description: A spear tipped with a long white horn lies here.
+look: |
+  A shaft of hard, pale wood with a mugato's horn lashed to the end of
+  it, the way the hill people of the planet make them. The horn is
+  hollow, and there is a little venom left in it.
+type: weapon
+weight: 3
+level: 9
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: stab

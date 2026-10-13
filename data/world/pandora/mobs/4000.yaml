@@ -1,0 +1,21 @@
+vnum: 4000
+name: Claptrap
+keywords: [claptrap, cl4p-tp, robot, steward, bot]
+description: Claptrap, a yellow one-wheeled robot, spins in place and waves both arms at you.
+look: |
+  A boxy yellow robot balanced on a single wheel, with one big blue eye,
+  two spindly arms, and an antenna that wobbles when he gets excited,
+  which is always. A stencil on his chassis reads CL4P-TP. "Minion! At
+  last!" he cries. "I have a VERY important quest for you, and by
+  quest I mean the bandits ate the last guy. Watch out for skags. And
+  bandits. And, actually, most things." He cannot climb stairs, which
+  he feels is a personal slight by the universe.
+level: 3
+flags: [peaceful]
+attack:
+  verb: slap
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

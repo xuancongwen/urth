@@ -1,0 +1,14 @@
+vnum: 4205
+name: a Klingon baldric
+keywords: [klingon, baldric, sash]
+description: A metallic mesh sash lies here, gleaming.
+look: |
+  A broad band of gold mesh worn across the chest from shoulder to
+  hip, the mark of a Klingon in the Emperor's service. It is heavier
+  than it looks and turns a blade aside more often than not.
+type: armor
+slot: belt
+weight: 2
+level: 8
+baseline: light
+flags: [drop]

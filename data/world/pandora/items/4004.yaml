@@ -1,0 +1,17 @@
+vnum: 4004
+name: a rusty machete
+keywords: [rusty, machete, blade]
+description: A long, rust-spotted machete lies here.
+look: |
+  A broad chopping blade with a handle of wrapped wire. It was made for
+  cutting brush, but there is no brush in the badlands, and it has
+  found other work.
+type: weapon
+weight: 2
+level: 2
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: hack

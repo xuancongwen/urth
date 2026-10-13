@@ -1,0 +1,10 @@
+vnum: 4202
+name: A Storage Compartment
+description: |
+  A cargo hold of stacked bins, every one of which should be full of
+  quadrotriticale grain, and every one of which is full instead of
+  tribbles, fat and sleepy and still eating. The overhead hatch is open,
+  and tribbles fall out of it at intervals with a soft thump, purring
+  louder as they land. The corridor is west.
+exits:
+  west: 4201

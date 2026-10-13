@@ -1,0 +1,11 @@
+vnum: 4212
+name: The Desert of the Arena
+description: |
+  A plain of pale sand and broken rock under a white sun, with nothing
+  growing on it. Far off, a pillar of stone stands alone. Gorn move
+  across the flats in hunting parties, green and scaled and heavy, and
+  the ground shakes a little when they run. The canyon is south; a
+  field of boulders lies north.
+exits:
+  south: 4208
+  north: 4213

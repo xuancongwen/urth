@@ -1,0 +1,14 @@
+vnum: 4105
+name: a battered fedora
+keywords: [battered, fedora, hat]
+description: A grey fedora with a dent in the crown lies here.
+look: |
+  A felt hat with a black band, rained on so often it has given up
+  holding its shape. It keeps the water off your face and makes you
+  look like you know something.
+type: armor
+slot: head
+weight: 1
+level: 4
+baseline: cloth
+flags: [drop]

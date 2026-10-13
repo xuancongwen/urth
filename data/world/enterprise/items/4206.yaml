@@ -1,0 +1,17 @@
+vnum: 4206
+name: a Klingon blade
+keywords: [klingon, blade, knife]
+description: A long, curved Klingon knife lies here.
+look: |
+  A long knife with a curved, swept-back blade and a grip wound with
+  dark leather, of the kind every Klingon carries and every Klingon
+  would rather use than a disruptor.
+type: weapon
+weight: 1
+level: 8
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

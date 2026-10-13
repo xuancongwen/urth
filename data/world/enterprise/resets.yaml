@@ -1,0 +1,70 @@
+interval_seconds: 120
+resets:
+  # --- the crew ---
+  - { mob: 4200, room: 4200 }               # Mr. Scott at the transporter console
+  - { mob: 4201, room: 4203 }               # Dr. McCoy in sickbay
+  - { mob: 4211, room: 4207 }               # a security officer in a red shirt, guarding the beam-down point
+  # --- tribbles (7), fifteen in all ---
+  - { mob: 4202, room: 4201, max: 15 }      # tribbles in the corridor
+  - { mob: 4202, room: 4201, max: 15 }
+  - { mob: 4202, room: 4201, max: 15 }
+  - { mob: 4202, room: 4201, max: 15 }
+  - { mob: 4202, room: 4202, max: 15 }      # tribbles in the grain bins
+  - { mob: 4202, room: 4202, max: 15 }
+  - { mob: 4202, room: 4202, max: 15 }
+  - { mob: 4202, room: 4202, max: 15 }
+  - { mob: 4202, room: 4202, max: 15 }
+  - { mob: 4202, room: 4202, max: 15 }
+  - { mob: 4202, room: 4203, max: 15 }      # tribbles on the biobeds
+  - { mob: 4202, room: 4203, max: 15 }
+  - { mob: 4202, room: 4203, max: 15 }
+  - { mob: 4202, room: 4204, max: 15 }      # tribbles underfoot at the turbolift
+  - { mob: 4202, room: 4204, max: 15 }
+  # --- Klingon boarders (9), nine ---
+  - { mob: 4203, room: 4204, max: 9 }       # boarders at the turbolift
+  - { mob: 4203, room: 4204, max: 9 }
+  - { mob: 4203, room: 4204, max: 9 }
+  - { mob: 4203, room: 4205, max: 9 }       # boarders in engineering
+  - { mob: 4203, room: 4205, max: 9 }
+  - { mob: 4203, room: 4206, max: 9 }       # boarders on the bridge
+  - { mob: 4203, room: 4206, max: 9 }
+  - { mob: 4203, room: 4206, max: 9 }
+  - { mob: 4203, room: 4206, max: 9 }
+  # --- Klingon warriors (10), five ---
+  - { mob: 4204, room: 4205, max: 5 }       # warriors holding engineering
+  - { mob: 4204, room: 4205, max: 5 }
+  - { mob: 4204, room: 4205, max: 5 }
+  - { mob: 4204, room: 4206, max: 5 }       # warriors at the bridge stations
+  - { mob: 4204, room: 4206, max: 5 }
+  # --- mugato (8), seven ---
+  - { mob: 4206, room: 4208, max: 7 }       # mugato down in the canyon
+  - { mob: 4206, room: 4208, max: 7 }
+  - { mob: 4206, room: 4209, max: 7 }       # mugato on the ridge
+  - { mob: 4206, room: 4209, max: 7 }
+  - { mob: 4206, room: 4209, max: 7 }
+  - { mob: 4206, room: 4209, max: 7 }
+  - { mob: 4206, room: 4209, max: 7 }
+  # --- Horta (10), seven ---
+  - { mob: 4207, room: 4210, max: 7 }       # Horta in the tunnels
+  - { mob: 4207, room: 4210, max: 7 }
+  - { mob: 4207, room: 4210, max: 7 }
+  - { mob: 4207, room: 4210, max: 7 }
+  - { mob: 4207, room: 4211, max: 7 }       # Horta guarding the eggs
+  - { mob: 4207, room: 4211, max: 7 }
+  - { mob: 4207, room: 4211, max: 7 }
+  # --- Gorn warriors (10), seven ---
+  - { mob: 4208, room: 4212, max: 7 }       # a hunting party on the desert
+  - { mob: 4208, room: 4212, max: 7 }
+  - { mob: 4208, room: 4212, max: 7 }
+  - { mob: 4208, room: 4212, max: 7 }
+  - { mob: 4208, room: 4213, max: 7 }       # warriors among the boulders
+  - { mob: 4208, room: 4213, max: 7 }
+  - { mob: 4208, room: 4213, max: 7 }
+  # --- Gorn hunters (11), four ---
+  - { mob: 4209, room: 4213, max: 4 }       # hunters on the boulders
+  - { mob: 4209, room: 4213, max: 4 }
+  - { mob: 4209, room: 4214, max: 4 }       # hunters at the camp
+  - { mob: 4209, room: 4214, max: 4 }
+  # --- the named ---
+  - { mob: 4205, room: 4205 }               # Kor at the master console, who may leave his d'k tahg
+  - { mob: 4210, room: 4214 }               # the Gorn captain, who may leave the bamboo cannon

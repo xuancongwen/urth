@@ -1,0 +1,21 @@
+vnum: 4207
+name: a Horta
+keywords: [horta, silicon, creature]
+description: A Horta, a lumpy orange mass like molten rock, slides toward you.
+look: |
+  A creature of living stone, shaped like a great lumpy rug of orange
+  and brown, that moves by flowing over the rock and eats its way
+  through it with an acid that would go through a man as easily. It is
+  made of silicon, not carbon, and it is not, whatever the miners say,
+  a monster. It is a mother, and you are standing in its nursery.
+level: 10
+flags: [assist]
+silver: 3
+stats: { constitution: 14 }
+attack:
+  kind: acid
+  verb: burn
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.75 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }

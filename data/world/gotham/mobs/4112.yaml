@@ -1,0 +1,24 @@
+vnum: 4112
+name: the Joker
+keywords: [joker, clown, prince]
+description: The Joker grins at you from his wheelchair, which he does not need.
+look: |
+  A tall, thin man in a purple suit and an orange shirt, with chalk-
+  white skin, green hair, red lips, and a grin that splits his face
+  wider than a face should go. Nobody knows his name. He doesn't
+  either, or he has several, depending on the day. He has a flower in
+  his lapel that you should not get close to, a revolver he does not
+  seem to need, and the patient, delighted look of a man watching a
+  joke he has told before arrive at the punchline.
+level: 9
+health: 300
+flags: [assist, boss]
+silver: 60
+stats: { intelligence: 15, dexterity: 13 }
+armor:
+  defense: 7
+attack:
+  kind: pierce
+  verb: shoot
+loot:
+  - { item: 4101, chance: 0.2 }

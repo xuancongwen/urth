@@ -1,0 +1,26 @@
+vnum: 4200
+name: Kirk's bamboo cannon
+keywords: [kirk, kirk's, bamboo, cannon, tube]
+description: A crude tube of bamboo bound with vine, its mouth blackened, lies here.
+look: |
+  A length of thick bamboo, bound along its length with vines and
+  packed at the breech with a powder of sulphur, saltpetre, and
+  charcoal ground on a rock, and loaded with raw diamonds. A Starfleet
+  captain made it on this planet with his bare hands to stop a Gorn,
+  and it did. It should not work as well as it does. It throws its
+  diamonds like a shotgun throws shot, and now and then it throws them
+  all at once.
+type: weapon
+weight: 5
+level: 12
+baseline: standard
+value: 750
+weapon:
+  hands: 2
+  kind: pierce
+  verb: fire
+effects:
+  - { kind: added, params: { kind: pierce, power: 0.16 } }
+  - { kind: added, params: { kind: fire, power: 0.11 } }
+  - { kind: proc, params: { kind: pierce, chance: 0.12, power: 1.2, verb: blast of raw diamonds } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }

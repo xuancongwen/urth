@@ -1,0 +1,13 @@
+vnum: 4208
+name: A Red-Rock Canyon
+description: |
+  A canyon of striped red stone whose walls are carved by wind into
+  arches and pillars. Strange cries echo down it. Huge white footprints
+  go west up a ridge. Tunnels bored perfectly round open in the
+  eastern wall. The canyon floor climbs north to a desert plain, and
+  the beam-down point is south.
+exits:
+  south: 4207
+  west: 4209
+  east: 4210
+  north: 4212

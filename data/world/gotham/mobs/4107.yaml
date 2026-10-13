@@ -1,0 +1,15 @@
+vnum: 4107
+name: a fear-gassed thug
+keywords: [fear-gassed, fear, gassed, thug]
+description: A thug with staring eyes swings a chain at shadows, and at you.
+look: |
+  A Narrows hood who breathed in the Scarecrow's toxin and has not
+  stopped seeing what it showed him. His pupils are pinpricks, his
+  face is wet with sweat, and he swings a length of chain at things
+  in the air. When he looks at you he sees the worst of them.
+level: 6
+flags: [aggressive]
+silver: 3
+attack:
+  kind: blunt
+  verb: lash

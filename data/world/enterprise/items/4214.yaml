@@ -1,0 +1,17 @@
+vnum: 4214
+name: a phaser rifle
+keywords: [phaser, rifle]
+description: A long phaser rifle with a stock and grip lies here.
+look: |
+  A long-barrelled phaser with a shoulder stock and a forward grip,
+  issued to security details expecting trouble. It reaches across the
+  desert and hits hard when it gets there.
+type: weapon
+weight: 4
+level: 12
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: fire
+  verb: fire

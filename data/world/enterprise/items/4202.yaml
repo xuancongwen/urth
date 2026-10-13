@@ -1,0 +1,15 @@
+vnum: 4202
+name: a velour uniform tunic
+keywords: [velour, uniform, tunic]
+description: A gold velour tunic with an arrowhead badge lies here.
+look: |
+  A Starfleet duty tunic of gold velour, with a black collar and an
+  arrowhead insignia over the heart. It is comfortable, it is
+  flame-retardant, and it is no protection at all against anything
+  that has made up its mind.
+type: armor
+slot: body
+weight: 1
+level: 6
+baseline: cloth
+flags: [drop]

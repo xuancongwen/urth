@@ -1,0 +1,18 @@
+vnum: 4206
+name: a mugato
+keywords: [mugato, mugatu, ape, gumato]
+description: A mugato, a white-furred ape with a horn on its head, roars and charges.
+look: |
+  A huge ape covered in shaggy white fur, with a single horn on the top
+  of its head, a ridge of red spines down its back, and long yellow
+  fangs whose bite carries a venom that kills in hours. It is
+  territorial, and it thinks all of this is its territory.
+level: 8
+flags: [assist, aggressive]
+silver: 2
+stats: { strength: 13 }
+attack:
+  kind: poison
+  verb: bite
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.5 } }

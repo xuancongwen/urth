@@ -1,0 +1,16 @@
+vnum: 4000
+name: The Fyrestone Bus Stop
+description: |
+  A rusted shelter of corrugated iron stands at the end of a road that
+  goes nowhere, with a bench, a timetable nobody has updated since the
+  buses stopped, and a hand-painted sign: WELCOME TO FYRESTONE. The sun
+  is enormous and the wind is full of grit. Something yellow and
+  one-wheeled is rolling in excited circles by the shelter, and it has
+  clearly been waiting for someone, anyone, to arrive. A corrugated
+  iron door in a frame of nothing stands to the east, back to the Hall
+  of Flickering Windows. Fyrestone's one street runs west.
+exits:
+  east: 13
+  west: 4001
+flags: [safe]
+position: {x: 0, y: 0, z: 0}

@@ -1,0 +1,12 @@
+vnum: 4210
+name: The Mining Tunnels
+description: |
+  A tunnel bored through the rock so smoothly that its walls shine, as
+  if the stone had been melted and set. Miners' tools lie abandoned
+  where they were dropped, half dissolved. Something moves in the side
+  passages: a lumpy, orange, rocky mass that slides across the floor
+  and leaves the stone steaming behind it. The canyon is west; a
+  chamber opens north.
+exits:
+  west: 4208
+  north: 4211

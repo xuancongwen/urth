@@ -1,0 +1,10 @@
+vnum: 4102
+name: Crime Alley
+description: |
+  Park Row, they called it once, when it was a good street with a
+  theatre on it. Now it is Crime Alley, and the theatre is boarded up,
+  and somebody leaves two roses on the same spot of pavement every
+  year. Muggers wait in the doorways with knives. The street is
+  south.
+exits:
+  south: 4101

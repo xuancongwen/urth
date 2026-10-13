@@ -1,0 +1,16 @@
+vnum: 4002
+name: T.K. Baha
+keywords: [tk, t.k., baha, old, man]
+description: T.K. Baha rocks on his porch, blind eyes turned toward the badlands.
+look: |
+  A wiry old man in a sweat-stained hat with one wooden leg stretched
+  out before him and his own leg, the one the skags took, mounted in a
+  frame over the door. He is blind, and he knows exactly where you are
+  standing. He has lived out here since before Fyrestone, and he will
+  tell you, at length, about the skags, and the bandits, and the
+  shotgun his late wife made him that Nine-Toes stole off this very
+  porch.
+level: 6
+flags: [peaceful]
+attack:
+  verb: cane

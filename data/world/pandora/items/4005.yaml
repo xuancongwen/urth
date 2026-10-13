@@ -1,0 +1,14 @@
+vnum: 4005
+name: a skag-hide vest
+keywords: [skag-hide, skag, hide, vest]
+description: A vest of stiff, plated skag hide lies here.
+look: |
+  A sleeveless vest cut from the armoured back of a skag, the plates
+  still on it, laced up the front with wire. It turns a pup's teeth and
+  most of a grown skag's.
+type: armor
+slot: body
+weight: 3
+level: 2
+baseline: light
+flags: [drop]

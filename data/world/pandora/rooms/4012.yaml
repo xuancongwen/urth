@@ -1,0 +1,12 @@
+vnum: 4012
+name: Nine-Toes' Gate
+description: |
+  A wall of welded car bodies and sheet steel runs across the flats,
+  with a gate in the middle made of a bus turned on its side. A banner
+  hangs over it, painted with a foot that has, if you count, nine toes.
+  Bruisers guard the gap, and an alpha skag is chained to a post by the
+  gate, or was until it chewed through the chain. The salt flats are
+  east; the skag pit lies west, beyond the gate.
+exits:
+  east: 4010
+  west: 4013

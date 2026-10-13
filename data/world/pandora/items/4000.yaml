@@ -1,0 +1,25 @@
+vnum: 4000
+name: T.K.'s Wave
+keywords: [tk, tk's, t.k.'s, wave, shotgun]
+description: A long-barrelled shotgun with a surfboard painted on the stock lies here.
+look: |
+  A double-barrelled shotgun hand-built from a pipe, a plank, and a lot
+  of love by T.K. Baha's late wife, with a little blue wave painted on
+  the stock and their initials carved under it. Its pellets come out
+  in a slow rolling arc and skip off whatever they hit like stones on
+  water, and sometimes hit it again on the way back. Nine-Toes stole
+  it. T.K. would like it back, but he would like it more if it were
+  being used on skags.
+type: weapon
+weight: 5
+level: 6
+baseline: standard
+value: 320
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast
+effects:
+  - { kind: added, params: { kind: pierce, power: 0.13 } }
+  - { kind: proc, params: { kind: pierce, chance: 0.15, power: 0.8, verb: wave of skipping pellets } }
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }

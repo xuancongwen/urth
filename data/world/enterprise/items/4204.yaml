@@ -1,0 +1,13 @@
+vnum: 4204
+name: a pair of Starfleet boots
+keywords: [starfleet, boots]
+description: A pair of shiny black ankle boots lies here.
+look: |
+  Black boots of a material that is not leather, with a zip up the side
+  and a sole that grips a deck, a hull, and most planets' rocks.
+type: armor
+slot: feet
+weight: 1
+level: 7
+baseline: light
+flags: [drop]

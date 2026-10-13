@@ -1,0 +1,14 @@
+vnum: 4211
+name: a Klingon battle tunic
+keywords: [klingon, battle, tunic, armor]
+description: A sleeveless tunic of leather and mesh lies here.
+look: |
+  A long tunic of black leather with plates of dark mesh sewn over the
+  chest and back, cut to leave the arms free for a blade. It smells of
+  a battle cruiser, which is to say, of Klingons.
+type: armor
+slot: body
+weight: 4
+level: 10
+baseline: medium
+flags: [drop]

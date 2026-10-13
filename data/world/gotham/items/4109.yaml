@@ -1,0 +1,14 @@
+vnum: 4109
+name: a pinstripe waistcoat
+keywords: [pinstripe, waistcoat, vest]
+description: A pinstripe waistcoat lies here, a steel plate sewn in the lining.
+look: |
+  A good grey waistcoat from a Falcone tailor, with a steel plate
+  sewn into the lining over the heart, because in the family business
+  a man is buried in his best suit and would prefer to wait.
+type: armor
+slot: body
+weight: 2
+level: 6
+baseline: light
+flags: [drop]

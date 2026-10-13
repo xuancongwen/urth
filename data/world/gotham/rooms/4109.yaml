@@ -1,0 +1,11 @@
+vnum: 4109
+name: The Gotham Docks
+description: |
+  Warehouses along a wharf, cranes against the clouds, and a fog off
+  the river so thick the lamps are only smudges. Crates are being
+  loaded by men who stop when they see you. Somewhere a foghorn
+  sounds, and somewhere much nearer a man in a stocking mask is cocking
+  a gun. The lounge is west; a ferry landing is east.
+exits:
+  west: 4108
+  east: 4110

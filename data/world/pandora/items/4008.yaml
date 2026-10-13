@@ -1,0 +1,16 @@
+vnum: 4008
+name: a scrap buzz axe
+keywords: [scrap, buzz, axe]
+description: An axe with a saw blade for a head lies here.
+look: |
+  A circular saw blade, its teeth filed sharp, welded onto a length of
+  pipe. A psycho's weapon, and a psycho's idea of a good time.
+type: weapon
+weight: 4
+level: 4
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

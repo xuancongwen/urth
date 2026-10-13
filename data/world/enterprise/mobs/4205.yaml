@@ -1,0 +1,22 @@
+vnum: 4205
+name: Kor
+keywords: [kor, klingon, commander]
+description: Kor, the Klingon commander, lounges at the master console, smiling.
+look: |
+  A Klingon commander, heavy-browed and goateed, with laughing eyes and
+  a voice made for speeches. He has taken the engine room with a dozen
+  men and he is enjoying himself enormously. He wears a d'k tahg in his
+  belt, the Klingon warrior's knife with its side blades folded, and he
+  would very much like you to make him draw it.
+level: 11
+health: 220
+flags: [assist]
+silver: 40
+stats: { strength: 13, dexterity: 12, constitution: 13 }
+armor:
+  defense: 8
+attack:
+  kind: slash
+  verb: slash
+loot:
+  - { item: 4201, chance: 0.25 }

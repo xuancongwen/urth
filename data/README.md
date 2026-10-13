@@ -57,7 +57,14 @@ Weapon as its raid boss), and west on `xenogears` (25 to 60, from Lahan
 to Deus); its south door is still sealed. West of the Long Hall (room
 2), a knocked-through arch opens on the Hall of Old Tales (room 12),
 whose north door leads to `zelda` (Hyrule, 5 to 35, ending at
-Ganondorf); its other doors are kept for fantasy areas to come. Five farming areas
+Ganondorf); its other doors are kept for fantasy areas to come. North
+of the Long Hall, the Hall of Flickering Windows (room 13) opens on
+three early levelling areas, crowded, on a two-minute reset, with
+little carried and two unique pieces each from loot tables: `pandora`
+(west, Borderlands' Arid Badlands, 1 to 6, ending at Nine-Toes),
+`gotham` (east, Batman's Gotham City, 4 to 9, ending at the Joker in
+Arkham), and `enterprise` (north, the original Star Trek's Enterprise
+and an away-team planet, 7 to 12, ending at the Gorn captain). Five farming areas
 keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
 at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`

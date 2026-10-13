@@ -1,0 +1,13 @@
+vnum: 4213
+name: The Field of Boulders
+description: |
+  Boulders the size of houses lie tumbled here as if a giant had
+  dropped them, and among them grows a stand of tall, hollow bamboo.
+  Somebody has dug in the sand: a deposit of something yellow and
+  powdery, a vein of saltpetre, a scatter of raw diamonds on the
+  surface. A man with nothing else to work with could make something
+  of it. Gorn hunters prowl the stones. The desert is south; a camp
+  lies north.
+exits:
+  south: 4212
+  north: 4214

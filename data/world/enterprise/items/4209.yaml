@@ -1,0 +1,14 @@
+vnum: 4209
+name: an environment suit helmet
+keywords: [environment, suit, helmet]
+description: A clear-domed environment helmet lies here.
+look: |
+  A helmet with a clear bubble faceplate and a ring of air vents at the
+  neck, from the suits stowed by the transporter room. It is stuffy,
+  it fogs, and it has kept a good many landing parties breathing.
+type: armor
+slot: head
+weight: 2
+level: 9
+baseline: medium
+flags: [drop]

@@ -1,0 +1,12 @@
+vnum: 4003
+name: The Arid Badlands
+description: |
+  Beyond the last shack the land opens out into red rock and dust under
+  a sky the colour of a bleached bone. The road is two ruts in the
+  hardpan, and skags lope across it in packs, sniffing for anything soft.
+  A gully cuts down to the south, the Dahl Headlands rise to the west,
+  and Fyrestone is east.
+exits:
+  east: 4001
+  south: 4004
+  west: 4006

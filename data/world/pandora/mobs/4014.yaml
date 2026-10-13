@@ -1,0 +1,23 @@
+vnum: 4014
+name: Nine-Toes
+keywords: [nine-toes, nine, toes, ninetoes, bandit, boss]
+description: Nine-Toes stands on his platform of tyres, shotgun on his shoulder, bellowing.
+look: |
+  The boss of the Arid Badlands bandits: a big man in a sleeveless vest
+  and a horned helmet, one boot cut open to show the stump of a toe.
+  He wears a cartridge belt like a sash, carries a shotgun he stole off
+  a blind man's porch, and has, he will shout at you, three balls. He
+  has had that painted on a good many rocks. He thinks you came for
+  his gun. You did.
+level: 6
+health: 240
+flags: [assist, boss]
+silver: 40
+stats: { strength: 13, constitution: 14 }
+armor:
+  defense: 6
+attack:
+  kind: pierce
+  verb: blast
+loot:
+  - { item: 4000, chance: 0.2 }

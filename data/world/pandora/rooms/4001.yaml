@@ -1,0 +1,15 @@
+vnum: 4001
+name: Fyrestone's Main Street
+description: |
+  A street of packed red dust between shacks built out of shipping
+  containers, car doors, and optimism. A vending machine with a grinning
+  doctor's face painted on it hums outside the only building with a
+  roof that does not leak. Skag pups nose through the rubbish in the
+  gutter, and nobody shoos them, because the last person who did lost
+  a finger. A scrap yard opens north, an old man's shack sits south,
+  the badlands begin west, and the bus stop is east.
+exits:
+  east: 4000
+  north: 4002
+  south: 4015
+  west: 4003

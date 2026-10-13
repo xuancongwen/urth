@@ -1,0 +1,14 @@
+vnum: 4215
+name: a Gorn-hide cuirass
+keywords: [gorn-hide, gorn, hide, cuirass, armor]
+description: A heavy breastplate of green scaled hide lies here.
+look: |
+  A cuirass made from the hide of a Gorn that fell in a hunt, its
+  scales as hard as horn and overlapping like roof tiles. It has turned
+  phaser fire, and it is very heavy.
+type: armor
+slot: body
+weight: 8
+level: 12
+baseline: heavy
+flags: [drop]

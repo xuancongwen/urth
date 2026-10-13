@@ -1,0 +1,17 @@
+vnum: 4113
+name: a pump shotgun
+keywords: [pump, shotgun, gun]
+description: A police-issue pump shotgun lies here.
+look: |
+  A black pump-action shotgun from a squad car's rack, with a short
+  stock and a flashlight taped under the barrel. It makes a sound
+  when it is racked that ends most arguments before they start.
+type: weapon
+weight: 4
+level: 8
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast

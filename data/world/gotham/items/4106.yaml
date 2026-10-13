@@ -1,0 +1,17 @@
+vnum: 4106
+name: a snub-nosed revolver
+keywords: [snub-nosed, snub, revolver, pistol, gun]
+description: A short-barrelled revolver lies here.
+look: |
+  A five-shot revolver with a barrel no longer than a thumb, made to fit
+  in a coat pocket. It is not accurate past the width of a room, but
+  most of Gotham's arguments happen in rooms.
+type: weapon
+weight: 2
+level: 5
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: shoot

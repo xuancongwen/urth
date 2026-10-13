@@ -1,0 +1,17 @@
+vnum: 4116
+name: an orderly's nightstick
+keywords: [orderly's, orderly, nightstick, baton]
+description: A heavy rubber-coated nightstick lies here.
+look: |
+  A long baton of rubber-coated steel with a side handle, of the kind
+  Arkham's orderlies carry and have, the inmates say, used a good deal
+  more than the rules allow.
+type: weapon
+weight: 3
+level: 9
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

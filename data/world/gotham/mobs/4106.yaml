@@ -1,0 +1,15 @@
+vnum: 4106
+name: an escaped Arkham inmate
+keywords: [escaped, arkham, inmate, prisoner, lunatic]
+description: An escaped inmate in an orange jumpsuit grins at you, a shiv in his fist.
+look: |
+  A man in an orange jumpsuit with a number stencilled on the back, his
+  hair shaved, his wrists still red from the restraints, and a shiv
+  he made from a spoon. He is very glad to be out, and very glad to
+  see you, in a way you do not like at all.
+level: 7
+flags: [assist, aggressive]
+silver: 4
+attack:
+  kind: slash
+  verb: slash

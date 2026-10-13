@@ -1,0 +1,9 @@
+vnum: 4203
+name: Sickbay
+description: |
+  A ward of three biobeds under readout panels that pulse with the
+  heartbeat of whoever lies on them, which at the moment is a tribble.
+  Instruments that look like salt shakers stand in neat rows. The ship's
+  doctor is muttering at a tray of hyposprays. The corridor is east.
+exits:
+  east: 4201

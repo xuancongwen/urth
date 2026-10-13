@@ -1,0 +1,14 @@
+vnum: 4015
+name: a scrap-plate chestpiece
+keywords: [scrap-plate, scrap, plate, chestpiece, armor]
+description: A breastplate made of welded car panels lies here.
+look: |
+  The bonnet of a runner and two of its doors, cut and welded into a
+  breastplate that buckles at the sides. It weighs as much as a small
+  bandit and is worth every pound of it.
+type: armor
+slot: body
+weight: 7
+level: 6
+baseline: heavy
+flags: [drop]

@@ -1,0 +1,11 @@
+vnum: 4106
+name: The Gates of Ace Chemicals
+description: |
+  A chain-link fence topped with wire, and a sign with a playing card
+  on it: ACE CHEMICALS. The gate has been torn off and propped back
+  up wrong. Inside, clowns in masks are carrying drums of something
+  green toward a truck painted purple. The Narrows are north; the vat
+  floor is south.
+exits:
+  north: 4104
+  south: 4107

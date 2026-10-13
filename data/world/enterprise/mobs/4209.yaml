@@ -1,0 +1,16 @@
+vnum: 4209
+name: a Gorn hunter
+keywords: [gorn, hunter, lizard, reptile]
+description: A Gorn hunter crouches on a boulder, a bone-tipped spear ready to throw.
+look: |
+  A leaner Gorn than the warriors, its scales darker and its eyes
+  sharper, with a bundle of bone-tipped spears on its back. It hunts
+  from the rocks, throws once, and closes while its prey is still
+  pulling the spear out.
+level: 11
+flags: [assist, aggressive]
+silver: 8
+stats: { strength: 13, dexterity: 11 }
+attack:
+  kind: pierce
+  verb: spear

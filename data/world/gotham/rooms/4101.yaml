@@ -1,0 +1,13 @@
+vnum: 4101
+name: A Rain-Slick Street in Midtown
+description: |
+  Neon signs buzz over the doors of pawnshops and all-night diners,
+  and their colours run in the puddles. Steam rises from a manhole.
+  Cars go by slowly with their windows up. Thugs in leather jackets
+  lounge in doorways and watch the street for somebody worth robbing.
+  An alley opens north, the bridge to the Narrows is east, and police
+  headquarters is west.
+exits:
+  west: 4100
+  north: 4102
+  east: 4103

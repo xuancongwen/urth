@@ -1,0 +1,69 @@
+interval_seconds: 120
+resets:
+  # --- the signal ---
+  - { mob: 4100, room: 4100 }               # Commissioner Gordon under the signal
+  # --- street thugs (4), seven in all ---
+  - { mob: 4101, room: 4101, max: 7 }       # thugs in the Midtown doorways
+  - { mob: 4101, room: 4101, max: 7 }
+  - { mob: 4101, room: 4101, max: 7 }
+  - { mob: 4101, room: 4101, max: 7 }
+  - { mob: 4101, room: 4102, max: 7 }       # a thug keeping lookout in the alley
+  - { mob: 4101, room: 4103, max: 7 }       # thugs paying the bridge toll in kind
+  - { mob: 4101, room: 4103, max: 7 }
+  # --- muggers (4), four ---
+  - { mob: 4102, room: 4102, max: 4 }       # muggers in Crime Alley
+  - { mob: 4102, room: 4102, max: 4 }
+  - { mob: 4102, room: 4102, max: 4 }
+  - { mob: 4102, room: 4102, max: 4 }
+  # --- Falcone enforcers (5), six ---
+  - { mob: 4103, room: 4103, max: 6 }       # enforcers at the toll car
+  - { mob: 4103, room: 4103, max: 6 }
+  - { mob: 4103, room: 4103, max: 6 }
+  - { mob: 4103, room: 4103, max: 6 }
+  - { mob: 4103, room: 4109, max: 6 }       # enforcers watching the crates
+  - { mob: 4103, room: 4109, max: 6 }
+  # --- Joker goons (6), ten ---
+  - { mob: 4104, room: 4104, max: 10 }      # clowns on the Narrows corners
+  - { mob: 4104, room: 4104, max: 10 }
+  - { mob: 4104, room: 4104, max: 10 }
+  - { mob: 4104, room: 4106, max: 10 }      # clowns loading the purple truck
+  - { mob: 4104, room: 4106, max: 10 }
+  - { mob: 4104, room: 4106, max: 10 }
+  - { mob: 4104, room: 4107, max: 10 }      # clowns bottling on the vat floor
+  - { mob: 4104, room: 4107, max: 10 }
+  - { mob: 4104, room: 4107, max: 10 }
+  - { mob: 4104, room: 4107, max: 10 }
+  # --- fear-gassed thugs (6), five ---
+  - { mob: 4107, room: 4105, max: 5 }       # thugs lost in the toxin
+  - { mob: 4107, room: 4105, max: 5 }
+  - { mob: 4107, room: 4105, max: 5 }
+  - { mob: 4107, room: 4105, max: 5 }
+  - { mob: 4107, room: 4104, max: 5 }       # one wandered down to the street
+  # --- Penguin henchmen (6), seven ---
+  - { mob: 4105, room: 4108, max: 7 }       # henchmen at the lounge doors
+  - { mob: 4105, room: 4108, max: 7 }
+  - { mob: 4105, room: 4108, max: 7 }
+  - { mob: 4105, room: 4108, max: 7 }
+  - { mob: 4105, room: 4109, max: 7 }       # henchmen loading the boats
+  - { mob: 4105, room: 4109, max: 7 }
+  - { mob: 4105, room: 4109, max: 7 }
+  # --- escaped inmates (7), ten ---
+  - { mob: 4106, room: 4110, max: 10 }      # inmates on the ferry landing
+  - { mob: 4106, room: 4110, max: 10 }
+  - { mob: 4106, room: 4111, max: 10 }      # inmates loose in the courtyard
+  - { mob: 4106, room: 4111, max: 10 }
+  - { mob: 4106, room: 4111, max: 10 }
+  - { mob: 4106, room: 4111, max: 10 }
+  - { mob: 4106, room: 4111, max: 10 }
+  - { mob: 4106, room: 4112, max: 10 }      # inmates on the tiers
+  - { mob: 4106, room: 4112, max: 10 }
+  - { mob: 4106, room: 4112, max: 10 }
+  # --- Titan brutes (8), three ---
+  - { mob: 4108, room: 4112, max: 3 }       # brutes in the bottom tier
+  - { mob: 4108, room: 4112, max: 3 }
+  - { mob: 4108, room: 4113, max: 3 }       # a brute minding the ward
+  # --- the named ---
+  - { mob: 4110, room: 4105 }               # the Scarecrow at the top of the stairs
+  - { mob: 4109, room: 4108 }               # the Penguin in his booth
+  - { mob: 4111, room: 4113 }               # Harley Quinn, who may leave her mallet
+  - { mob: 4112, room: 4113 }               # the Joker, who may leave his flower

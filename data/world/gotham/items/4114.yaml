@@ -1,0 +1,13 @@
+vnum: 4114
+name: a kevlar vest
+keywords: [kevlar, vest, bulletproof]
+description: A black kevlar vest lies here.
+look: |
+  A police vest of woven kevlar under black nylon, with the velcro worn
+  furry and a flattened slug still caught in the weave over the ribs.
+type: armor
+slot: body
+weight: 4
+level: 8
+baseline: medium
+flags: [drop]

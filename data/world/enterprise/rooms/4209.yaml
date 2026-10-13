@@ -1,0 +1,10 @@
+vnum: 4209
+name: The Mugato Ridge
+description: |
+  A wooded ridge above the canyon, where the trees grow with their
+  roots in the air. White fur hangs on the branches in tufts. Mugato
+  move in the undergrowth, great white apes with a horn on their
+  heads and a ridge of spines down their backs, and they do not take
+  kindly to visitors. The canyon is east.
+exits:
+  east: 4208

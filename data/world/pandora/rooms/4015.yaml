@@ -1,0 +1,12 @@
+vnum: 4015
+name: T.K. Baha's Shack
+description: |
+  A lean-to of scrap and skag hide at the edge of town, with a rocking
+  chair on the porch, a bottle on a string to scare the rakks, and a
+  wooden leg propped by the door in case of emergencies. Somebody has
+  carved TK into every board. It is the only place in Fyrestone where
+  the skags do not come, out of what looks like respect. Main Street is
+  north.
+exits:
+  north: 4001
+flags: [safe]

@@ -1,0 +1,11 @@
+vnum: 4214
+name: The Gorn Captain's Camp
+description: |
+  A ring of standing stones around a cold fire, hung with the trophies
+  of hunts: helmets, bones, a Starfleet tunic with a hole in it. A rough
+  tube of bamboo bound with vine leans against the largest stone, its
+  mouth blackened. The Gorn captain who commands this world stands in
+  the ring, hissing to himself in a translator's flat voice. The
+  boulder field is south.
+exits:
+  south: 4213

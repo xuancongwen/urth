@@ -1,0 +1,19 @@
+vnum: 4001
+name: Bone Head's mask
+keywords: [bone, head, bonehead, bone-white, mask]
+description: A bone-white bandit mask with a carved grin lies here.
+look: |
+  A mask of skag skull, scraped and bleached and carved with a grin
+  that runs from ear to ear, with a strap of hide to hold it on. It is
+  heavier than it looks and it smells of the inside of a cave. Behind
+  it you feel a great deal braver and a little less kind, and the
+  bandits of the badlands look at you the way they looked at him.
+type: armor
+slot: face
+weight: 1
+level: 5
+baseline: light
+value: 260
+effects:
+  - { kind: stat, params: { stat: strength, amount: 1 } }
+  - { kind: crit, params: { chance: 0.04, mult: 2 } }

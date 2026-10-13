@@ -1,0 +1,13 @@
+vnum: 4006
+name: The Dahl Headlands
+description: |
+  A high, windy shelf of rock above the badlands, littered with the
+  rusting gear of the Dahl corporation's miners, who left in a hurry and
+  were replaced by bandits who did not. Graffiti on a boulder reads
+  NINE-TOES IS BOSS, and under it, smaller, HE HAS THREE BALLS. Rakks
+  wheel over cliffs to the north. A bandit camp sprawls west, and the
+  badlands are east.
+exits:
+  east: 4003
+  north: 4009
+  west: 4007

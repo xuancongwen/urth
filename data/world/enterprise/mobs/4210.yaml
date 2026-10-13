@@ -1,0 +1,25 @@
+vnum: 4210
+name: the Gorn captain
+keywords: [gorn, captain, lizard, reptile]
+description: The Gorn captain stands in the ring of stones, hissing, a bamboo cannon at his side.
+look: |
+  The captain of the Gorn ship, bigger than any of his warriors, in a
+  silver tunic belted over a hide that has turned blades and phaser
+  fire alike. He fought a Starfleet captain here once, hand to hand,
+  and lost to a tube of bamboo and a handful of diamonds, and was
+  spared. He has kept the tube. He has been practising with it. He
+  would like a rematch with anyone at all.
+level: 12
+health: 380
+flags: [assist, boss]
+silver: 70
+stats: { strength: 15, constitution: 15, dexterity: 9 }
+armor:
+  defense: 9
+attack:
+  kind: blunt
+  verb: smash
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.25 } }
+loot:
+  - { item: 4200, chance: 0.2 }

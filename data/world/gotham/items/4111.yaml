@@ -1,0 +1,14 @@
+vnum: 4111
+name: a SWAT helmet
+keywords: [swat, helmet, police]
+description: A black police riot helmet with a visor lies here.
+look: |
+  A GCPD riot helmet with a smoked visor and a number stencilled on the
+  back. Its owner left it in the Narrows, and you hope that was all he
+  left there.
+type: armor
+slot: head
+weight: 2
+level: 7
+baseline: medium
+flags: [drop]

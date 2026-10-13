@@ -1,0 +1,19 @@
+vnum: 4108
+name: a Titan brute
+keywords: [titan, brute, inmate, giant]
+description: A Titan brute, swollen with chemical muscle, roars and pounds the floor.
+look: |
+  An inmate pumped so full of the Titan formula that his jumpsuit has
+  split at every seam and his veins stand out green under the skin. A
+  tube runs from a pump strapped to his back into his neck. He is
+  three times the size he was this morning and he will be dead by
+  next week, and in between he is going to break everything he can
+  reach.
+level: 8
+health: 160
+flags: [assist]
+silver: 6
+stats: { strength: 15, constitution: 14, dexterity: 8 }
+attack:
+  kind: blunt
+  verb: pound

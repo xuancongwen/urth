@@ -1,0 +1,15 @@
+vnum: 4012
+name: Pinky
+keywords: [pinky, skag, pet]
+description: Pinky, a pale skag with a spiked collar, slavers at its master's feet.
+look: |
+  One of Nine-Toes' pet skags, a big albino brute with a studded collar
+  and PINKY painted on its side in careful pink letters. It has been
+  fed on bandits who disappointed its master, and it is not picky.
+level: 5
+health: 100
+flags: [assist]
+silver: 3
+attack:
+  kind: bite
+  verb: maul

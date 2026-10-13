@@ -1,0 +1,15 @@
+vnum: 4003
+name: a skag pup
+keywords: [skag, pup]
+description: A skag pup snuffles through the rubbish, its jaw splitting open to yap at you.
+look: |
+  A skag no bigger than a dog: four legs, no eyes worth the name, and a
+  head that is mostly a mouth, which opens in three directions at once
+  when it is pleased to see you. It is always pleased to see you.
+  Where one pup is, the rest of the litter is close behind.
+level: 1
+flags: [assist]
+silver: 1
+attack:
+  kind: bite
+  verb: bite

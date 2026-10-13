@@ -1,0 +1,16 @@
+vnum: 4008
+name: a psycho
+keywords: [psycho, bandit, masked]
+description: A psycho in a grinning mask capers here, swinging a buzz axe.
+look: |
+  A bandit who has gone all the way: a bare chest painted with skulls,
+  a white mask with a stitched grin, and a buzz axe he swings at the
+  air, at the walls, and at you. He is screaming something about
+  meat. He is always screaming something about meat.
+level: 4
+flags: [assist, aggressive]
+silver: 4
+stats: { strength: 12, constitution: 9 }
+attack:
+  kind: slash
+  verb: hack

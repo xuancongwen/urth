@@ -1,0 +1,15 @@
+vnum: 4005
+name: a bandit
+keywords: [bandit, raider]
+description: A bandit in a gas mask and a vest of spikes waves a pistol at you.
+look: |
+  A Pandoran bandit, which is to say a man with a gun, a mask, and no
+  plans past this afternoon. His jacket is held together with safety
+  pins and spent cartridges. He does not want your money. He wants
+  your money, your boots, and to see what noise you make.
+level: 2
+flags: [assist]
+silver: 3
+attack:
+  kind: pierce
+  verb: shoot

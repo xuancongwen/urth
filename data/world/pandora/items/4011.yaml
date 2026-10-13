@@ -1,0 +1,17 @@
+vnum: 4011
+name: a bandit scattergun
+keywords: [bandit, scattergun, shotgun, gun]
+description: A sawn-off scattergun with a barrel like a drainpipe lies here.
+look: |
+  A shotgun with a barrel wide enough to post a letter in, loaded with
+  nails, bolts, and whatever else was lying around. It kicks like a
+  skag and is not much safer for the person holding it.
+type: weapon
+weight: 4
+level: 5
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 2
+  kind: pierce
+  verb: blast

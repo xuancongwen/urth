@@ -1,0 +1,16 @@
+vnum: 4204
+name: a Klingon warrior
+keywords: [klingon, warrior]
+description: A Klingon warrior draws a curved blade and bares his teeth.
+look: |
+  A Klingon in the black and gold of an imperial battle cruiser, broad
+  and bearded and grinning, with a curved blade in his fist and no
+  interest at all in taking prisoners. He has been told that the
+  Federation is soft, and he is eager to find out.
+level: 10
+flags: [assist, aggressive]
+silver: 10
+stats: { strength: 13 }
+attack:
+  kind: slash
+  verb: slash

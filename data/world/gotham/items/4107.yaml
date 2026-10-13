@@ -1,0 +1,14 @@
+vnum: 4107
+name: a pair of black leather gloves
+keywords: [black, leather, gloves]
+description: A pair of black leather gloves lies here.
+look: |
+  Thin black driving gloves, soft as a second skin. In this city they
+  are worn by two kinds of people, and the other kind wears them so as
+  not to leave prints.
+type: armor
+slot: hands
+weight: 0
+level: 5
+baseline: light
+flags: [drop]

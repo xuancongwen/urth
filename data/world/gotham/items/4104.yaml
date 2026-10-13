@@ -1,0 +1,17 @@
+vnum: 4104
+name: a flick knife
+keywords: [flick, knife, switchblade]
+description: A flick knife with a pearl handle lies here, folded.
+look: |
+  A cheap switchblade with a chipped pearl handle, the kind sold under
+  the counter at every pawnshop on Park Row. It opens with a snick
+  that people in the alley have learned to listen for.
+type: weapon
+weight: 1
+level: 4
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: stab

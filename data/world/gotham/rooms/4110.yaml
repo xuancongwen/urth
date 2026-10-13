@@ -1,0 +1,11 @@
+vnum: 4110
+name: The Arkham Ferry Landing
+description: |
+  A pier at the end of the docks where the ferry to the asylum ties up,
+  and it is tied up now, with its gangway down and nobody on it. Across
+  the narrow water the island is lit by searchlights that are pointing
+  the wrong way. A siren winds up and down, and up and down. The docks
+  are west; the gangway leads east to Arkham.
+exits:
+  west: 4109
+  east: 4111

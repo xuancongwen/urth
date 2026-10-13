@@ -1,0 +1,11 @@
+vnum: 4105
+name: A Burned-Out Tenement
+description: |
+  The stairs are charred and the walls are black, and a sweet chemical
+  smell hangs in the air that makes the shadows move when you are not
+  looking at them. Men stagger through the rooms with their eyes wide,
+  swinging at things that are not there, and some of the things they
+  are swinging at are you. A figure with a burlap sack for a face
+  watches from the top of the stairs. The street is south.
+exits:
+  south: 4104

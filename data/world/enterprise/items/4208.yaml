@@ -1,0 +1,17 @@
+vnum: 4208
+name: a Klingon disruptor pistol
+keywords: [klingon, disruptor, pistol, gun]
+description: A bulbous, dark Klingon disruptor lies here.
+look: |
+  A heavy pistol with a swollen barrel and a grip made for a bigger
+  hand than yours. It fires a lancing bolt of green that does not
+  stun, because the Klingons saw no point in making one that did.
+type: weapon
+weight: 2
+level: 9
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: fire
+  verb: shoot

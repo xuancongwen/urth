@@ -1,0 +1,11 @@
+vnum: 4207
+name: The Beam-Down Point
+description: |
+  You shimmer into being on a stony slope under a sky the colour of a
+  bruise. The rocks are strangely painted, purple and orange, and the
+  scrub grows in clumps of bright plastic green. A security officer in
+  a red shirt stands here with his phaser drawn, looking about him
+  with growing unease. The canyon is north. To beam back up, go up.
+exits:
+  up: 4200
+  north: 4208

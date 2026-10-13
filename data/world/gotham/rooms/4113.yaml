@@ -1,0 +1,11 @@
+vnum: 4113
+name: Intensive Treatment
+description: |
+  A white-tiled ward where the restraints hang empty from the beds and
+  the lights flicker. A record player in the corner plays a jaunty tune
+  with a skip in it. A woman in red and black is doing cartwheels down
+  the aisle with a mallet, and at the far end, in a wheelchair he
+  plainly does not need, sits a man with a white face and green hair
+  and a smile that is too wide. The courtyard is west.
+exits:
+  west: 4111

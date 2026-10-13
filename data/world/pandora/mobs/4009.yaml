@@ -1,0 +1,17 @@
+vnum: 4009
+name: a bruiser
+keywords: [bruiser, bandit, big]
+description: A bruiser, a slab of a bandit, stands here with a heavy gun under one arm.
+look: |
+  A bandit the size of a door, with arms like thighs and a gut like a
+  barrel, carrying a gun that was meant to be mounted on a vehicle.
+  He walks slowly. He does not need to walk quickly. He shoots from
+  the hip and talks with his mouth full.
+level: 5
+health: 90
+flags: [assist]
+silver: 6
+stats: { strength: 13, constitution: 13 }
+attack:
+  kind: pierce
+  verb: blast

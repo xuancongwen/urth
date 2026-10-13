@@ -1,0 +1,16 @@
+vnum: 4202
+name: a tribble
+keywords: [tribble, fuzzball, furball]
+description: A tribble, a round ball of fur, purrs here.
+look: |
+  A ball of soft fur the size of a grapefruit, with no eyes, no legs,
+  and no visible mouth, though it is plainly eating. It purrs when
+  touched. It is born pregnant, and it eats everything, and there are
+  already a great many more of them than when you came in. It does not
+  fight so much as get in the way, very warmly.
+level: 7
+silver: 1
+stats: { strength: 6, dexterity: 6 }
+attack:
+  kind: blunt
+  verb: bump

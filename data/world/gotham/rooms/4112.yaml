@@ -1,0 +1,11 @@
+vnum: 4112
+name: The Cell Block
+description: |
+  Three tiers of cells around a central well, every door standing open
+  and every bed empty. Somebody has written on the walls in a great
+  many different hands, and in green paint over all of it, the same
+  laugh. Something very large is in one of the cells on the bottom
+  tier, breathing like a bellows, a tube running from a pump on its
+  back into its neck. The courtyard is south.
+exits:
+  south: 4111

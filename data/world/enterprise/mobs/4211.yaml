@@ -1,0 +1,14 @@
+vnum: 4211
+name: a security officer in a red shirt
+keywords: [security, officer, red, shirt, redshirt, ensign]
+description: A security officer in a red shirt stands here, phaser drawn, looking nervous.
+look: |
+  A young ensign in a red tunic, with a phaser in his hand and a
+  tricorder on his hip. He was beamed down with the captain's party and
+  has been standing here ever since, guarding the beam-down point. He
+  has a very bad feeling about this planet. He has not been able to
+  say why. He would rather not be the one to find out.
+level: 7
+flags: [peaceful]
+attack:
+  verb: stun

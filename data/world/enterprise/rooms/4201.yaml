@@ -1,0 +1,14 @@
+vnum: 4201
+name: A Corridor on Deck Five
+description: |
+  A curving corridor of grey walls and red-railed doors, lit a calm,
+  even white, and ankle-deep in tribbles. They are everywhere: on the
+  deck, on the ledges, in the light fittings, purring. Crewmen step
+  between them with a fixed expression. Sickbay is west, a storage
+  compartment east, the turbolift corridor north, and the transporter
+  room south.
+exits:
+  south: 4200
+  west: 4203
+  east: 4202
+  north: 4204

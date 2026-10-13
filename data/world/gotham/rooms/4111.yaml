@@ -1,0 +1,13 @@
+vnum: 4111
+name: The Courtyard of Arkham Asylum
+description: |
+  Iron gates, a gravel drive, a lawn gone to weeds, and a great Gothic
+  house of a hospital whose windows are all lit and all barred. Every
+  cell door must be open, because the courtyard is full of men in
+  orange jumpsuits and some of them are carrying the guards' batons.
+  A cell block opens north; the intensive treatment wing is east; the
+  ferry is west.
+exits:
+  west: 4110
+  north: 4112
+  east: 4113

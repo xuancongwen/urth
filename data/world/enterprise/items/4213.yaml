@@ -1,0 +1,17 @@
+vnum: 4213
+name: a Gorn stone club
+keywords: [gorn, stone, club]
+description: A club of rough stone bound to a bone haft lies here.
+look: |
+  A lump of the planet's red rock, roughly shaped and bound to a thigh
+  bone with sinew. A Gorn swings it one-handed. You may need two, at
+  first.
+type: weapon
+weight: 6
+level: 11
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: club

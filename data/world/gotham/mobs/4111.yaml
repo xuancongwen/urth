@@ -1,0 +1,23 @@
+vnum: 4111
+name: Harley Quinn
+keywords: [harley, quinn, harleen, quinzel]
+description: Harley Quinn cartwheels down the ward, a giant mallet over her shoulder.
+look: |
+  A young woman in a red and black jester's suit, her face painted
+  white, her hair in two pigtails, one red and one black. She was
+  Doctor Harleen Quinzel once, the Joker's psychiatrist, and the
+  treatment went the other way. She carries a wooden mallet as big as
+  she is, and she swings it as though it weighs nothing, giggling.
+  "Puddin' says you're no fun," she tells you. "Let's find out!"
+level: 8
+health: 170
+flags: [assist]
+silver: 30
+stats: { dexterity: 14, strength: 12 }
+armor:
+  defense: 6
+attack:
+  kind: blunt
+  verb: bonk
+loot:
+  - { item: 4100, chance: 0.25 }

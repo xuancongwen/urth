@@ -1,0 +1,10 @@
+vnum: 4014
+name: Nine-Toes' Arena
+description: |
+  A ring of sand inside a fence of bones, with bleachers made of crates
+  where the bandits come to watch their boss feed his pets. On a
+  platform of tyres at the far end stands Nine-Toes himself, shotgun on
+  his shoulder, with his two prize skags at his feet. The ramp goes up
+  to the pit to the north.
+exits:
+  north: 4013

@@ -1,0 +1,14 @@
+vnum: 4012
+name: a scrap-plate helmet
+keywords: [scrap-plate, scrap, plate, helmet]
+description: A helmet beaten out of a hubcap lies here.
+look: |
+  A hubcap beaten round, lined with skag fur, and fitted with a visor
+  cut from a road sign that still says STO. It rings when it is hit,
+  which is often.
+type: armor
+slot: head
+weight: 2
+level: 5
+baseline: medium
+flags: [drop]

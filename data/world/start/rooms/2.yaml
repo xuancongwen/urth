@@ -7,9 +7,11 @@ description: |
   wall, watching everyone who passes with the same faint amusement.
   Across from him a hooded herald leans on a staff with a ledger under
   one arm, waiting for volunteers. A small door in the east wall leads
-  to a shrine.
+  to a shrine, and from the north end of the hall comes a flickering
+  light, like a picture show.
 exits:
   south: 1
   east: 4
   west: 12
+  north: 13
 flags: [safe]
