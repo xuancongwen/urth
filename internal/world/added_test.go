@@ -188,7 +188,7 @@ func TestAddedAffixRolls(t *testing.T) {
 		}
 	}
 	var words string
-	if err := w.scripts.Call("describeEffect", &words, map[string]any{"kind": "added", "params": map[string]any{"kind": "fire", "power": 0.5, "level": 10}, "rounds": 0}); err != nil || words != "Every hit adds about 7 fire damage, past armor" {
+	if err := w.scripts.Call("describeEffect", &words, map[string]any{"kind": "added", "params": map[string]any{"kind": "fire", "power": 0.5, "level": 10}, "rounds": 0}); err != nil || words != "Every hit adds about 7 fire damage" {
 		t.Errorf("describe: %q (%v)", words, err)
 	}
 }

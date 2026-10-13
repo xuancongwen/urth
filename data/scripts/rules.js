@@ -1561,7 +1561,7 @@ function describeEffect(e) {
     case "lastStand": return "Below " + pct(p.threshold) + " health, take " + Math.round((1 - num(p.mult)) * 100) + " percent less damage" + tail;
     case "execute": return "Deal " + Math.round((num(p.mult) - 1) * 100) + " percent more damage to foes below " + pct(p.threshold) + " health" + tail;
     case "regen": return "Heals " + pct(p.fraction) + " of your health every round, even in a fight" + tail;
-    case "added": return "Every hit adds " + (num(p.level) > 0 ? "about " + Math.round(unitAt(num(p.level)) * num(p.power)) : units(p.power)) + " " + (p.kind || "magic") + " damage, past armor" + tail;
+    case "added": return "Every hit adds " + (num(p.level) > 0 ? "about " + Math.round(unitAt(num(p.level)) * num(p.power)) : units(p.power)) + " " + (p.kind || "magic") + " damage" + tail;
     case "aura": return "Aura (" + (p.verb || "aura") + ", " + (p.kind || "magic") + "): " + units(p.power) + " to every foe fighting you, each round" + tail;
     case "blind": return "Blinded: " + pct(p.miss) + " of swings go wide" + tail;
     case "disarmed": return "Disarmed: fights bare-handed" + tail;

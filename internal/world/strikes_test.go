@@ -3,6 +3,7 @@ package world
 import (
 	"maps"
 	"math/rand/v2"
+	"slices"
 	"strings"
 	"testing"
 
@@ -58,10 +59,12 @@ func meanRound(w *World, att, def *Character, n int) float64 {
 	return total / float64(n)
 }
 
+// shippedMob is a fresh instance of the lowest-numbered shipped mob that
+// matches, so a test meets the same mob on every run.
 func shippedMob(t *testing.T, w *World, match func(p *mob.Proto) bool) *Character {
 	t.Helper()
-	for _, p := range w.content.Mobs {
-		if match(p) {
+	for _, v := range slices.Sorted(maps.Keys(w.content.Mobs)) {
+		if p := w.content.Mobs[v]; match(p) {
 			c := w.newMob(p).Character
 			c.Health = c.HealthMax
 			return c
@@ -78,7 +81,9 @@ func shippedMob(t *testing.T, w *World, match func(p *mob.Proto) bool) *Characte
 func TestStrikesScaleUtilityDoesNot(t *testing.T) {
 	w := shippedWorld(t)
 	user := w.simFighter(10)
-	target := shippedMob(t, w, func(p *mob.Proto) bool { return p.Level == 10 && !p.HasFlag("peaceful") })
+	// The balance lab's level-10 dummy: a plain mob of the level, where
+	// a shipped one may resist the kick's kind or the sword's.
+	target := shippedMob(t, w, func(p *mob.Proto) bool { return p.Vnum == 910 })
 
 	round := meanRound(w, user, target, 2000)
 	kick := meanSkill(t, w, user, target, "kick", 100, 2000)
