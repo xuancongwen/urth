@@ -164,8 +164,11 @@
   #pad button { padding: .38em 0; font-size: .88em; border-radius: 9px; }
   #pad button.door { border-color: var(--accent); }
 
-  #ticker { margin: 8px 12px 0; font: 12px/1.45 var(--mono); color: var(--dim); height: 2.9em; overflow: hidden; flex: none; cursor: pointer; }
-  #ticker div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Lines wrap and the box keeps its bottom, so a long line loses its
+     start rather than its end, where a sale's price or a hit's damage is. */
+  #ticker { margin: 8px 12px 0; font: 12px/1.45 var(--mono); color: var(--dim); height: 2.9em; overflow: hidden; flex: none; cursor: pointer;
+    display: flex; flex-direction: column; justify-content: flex-end; }
+  #ticker div { flex: none; overflow-wrap: anywhere; }
   #ticker div:last-child { color: var(--fg); }
 
   #panel { flex: 1; min-height: 0; overflow-y: auto; margin-top: 8px; padding: 2px 12px 12px; border-top: 1px solid var(--line); overscroll-behavior: contain; }
@@ -667,24 +670,34 @@
   // compass with up and down in a column on its right. A direction is live when
   // the room has that exit; a closed door is opened on the way, a locked
   // one leaves its button disabled (the door's row in Here unlocks it).
+  // The buttons are made once and updated in place: a button replaced
+  // between a finger's down and up never gets the click, so a state
+  // arriving mid-tap would swallow the step.
   var PAD = ['', 'north', '', 'up',
              'west', 'look', 'east', '',
              '', 'south', '', 'down'];
   var LABEL = { up: '▲ Up', down: '▼ Down', north: 'North', south: 'South', east: 'East', west: 'West', look: 'Look' };
+  var padButtons = {};
+  PAD.forEach(function (d) {
+    if (!d) { $('pad').appendChild(el('span')); return; }
+    var b = d === 'look'
+      ? btn(LABEL[d], function () { openSheet(state.room.name, 'look', []); })
+      : btn(LABEL[d], function () {
+          var cur = here();
+          if (cur && cur.doors && cur.doors[d] === 'closed') send('open ' + d);
+          send(d);
+        }, d === 'up' || d === 'down' ? 'updown' : '');
+    padButtons[d] = b;
+    $('pad').appendChild(b);
+  });
   function renderPad(s) {
-    var pad = $('pad'), cur = here(), doors = (cur && cur.doors) || {};
-    pad.textContent = '';
-    PAD.forEach(function (d) {
-      if (!d) { pad.appendChild(el('span')); return; }
-      if (d === 'look') { pad.appendChild(btn(LABEL[d], function () { openSheet(s.room.name, 'look', []); })); return; }
-      var exists = s.room.exits.indexOf(d) >= 0 || !!(cur && cur.exits[d]);
-      var b = btn(LABEL[d], function () {
-        if (doors[d] === 'closed') send('open ' + d);
-        send(d);
-      }, (doors[d] === 'closed' ? 'door' : '') + (d === 'up' || d === 'down' ? ' updown' : ''));
+    var cur = here(), doors = (cur && cur.doors) || {};
+    Object.keys(padButtons).forEach(function (d) {
+      if (d === 'look') return;
+      var b = padButtons[d], exists = s.room.exits.indexOf(d) >= 0 || !!(cur && cur.exits[d]);
+      b.classList.toggle('door', doors[d] === 'closed');
       b.disabled = !exists || doors[d] === 'locked';
-      if (doors[d]) b.title = 'door ' + doors[d];
-      pad.appendChild(b);
+      b.title = doors[d] ? 'door ' + doors[d] : '';
     });
   }
 
