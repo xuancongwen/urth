@@ -345,6 +345,16 @@ function hasEffect(v, kind) {
   return false;
 }
 
+// sneaking reports whether a character's own Sneak is on (not gear's).
+function sneaking(c) {
+  if (!c.effects) return false;
+  for (var i = 0; i < c.effects.length; i++) {
+    var e = c.effects[i];
+    if (e.kind === "sneak" && e.params && e.params.source === "sneak") return true;
+  }
+  return false;
+}
+
 // ---------------------------------------------------------------------
 // Power kinds (the outfit set, cmdOutfit). Their sizes are in units: one
 // unit is a standard weapon's swing at the owner's level, so a kind means
@@ -1715,13 +1725,21 @@ var SKILLS = [
     verb: "hide",
     description: "Melt into the shadows where you stand: unseen, except by eyes that find the hidden, until you move or fight, for up to three minutes." },
   { id: "sneak", stats: { dexterity: 13 }, name: "Sneak", level: 4, passive: false, target: "none", cooldown: 0, stamina: 30, start: 30, innate: false, price: 500,
-    check: function (u) { return u.fighting ? "Not in the middle of a fight." : ""; },
+    // A toggle (7.8): on until used again, and turning it off is free.
+    check: function (u) { return u.fighting && !sneaking(u) ? "Not in the middle of a fight." : ""; },
     self: function (u, scale, out) {
+      if (sneaking(u)) {
+        out.message = "You stop moving quietly.";
+        out.end = [{ kind: "sneak", source: "sneak" }];
+        out.stamina = 0;
+        out.skills = {};
+        return;
+      }
       out.message = "You move quietly.";
-      out.effects = [{ on: "self", kind: "sneak", params: { source: "sneak" }, rounds: 20 + Math.round(80 * scale) }];
+      out.effects = [{ on: "self", kind: "sneak", params: { source: "sneak" }, rounds: 0 }];
     },
     verb: "sneak",
-    description: "Move quietly for up to five minutes: nobody who cannot see the hidden notices you come or go, and aggressive creatures pass you by." },
+    description: "Move quietly until you sneak again: nobody who cannot see the hidden notices you come or go, and aggressive creatures pass you by." },
   { id: "triple", stats: { dexterity: 16 }, name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
     description: "A third attack in the same round, as often as your skill allows, on top of Twin Strike." }
 ];

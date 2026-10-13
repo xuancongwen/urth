@@ -1,6 +1,7 @@
 package world
 
 import (
+	"os"
 	"strings"
 	"testing"
 
@@ -89,5 +90,47 @@ func TestSneakPastAggressionAndAmbushers(t *testing.T) {
 	alice.take()
 	if w.canSeeChar(w.players[2].Character, g.Character) {
 		t.Fatal("a bystander sees a hidden mob")
+	}
+}
+
+// Sneak is a toggle: on until used again, which is free even winded or
+// in a fight.
+func TestSneakToggles(t *testing.T) {
+	w := testWorld(t)
+	src, err := os.ReadFile("../../data/scripts/rules.js")
+	if err != nil {
+		t.Fatal(err)
+	}
+	setRules(t, w, string(src))
+	bob := login(t, w, 1, "Bob")
+	p := w.players[1]
+	p.Level = 4
+	p.Stats["dexterity"] = 13
+	for _, sk := range w.skillList() {
+		if sk.ID == "sneak" {
+			ensureSkill(p.Character, sk)
+		}
+	}
+	p.Stamina = p.StaminaMax
+	bob.take()
+
+	send(w, 1, "sneak")
+	if o := bob.take(); !strings.Contains(o, "You move quietly.") || !hasEffect(p.Character, effectSneak) {
+		t.Fatalf("sneak on: %q", o)
+	}
+	for i := 0; i < 2000; i++ { // two hundred rounds
+		w.Tick()
+	}
+	if !hasEffect(p.Character, effectSneak) {
+		t.Fatal("sneak wore off")
+	}
+
+	p.Stamina = 0
+	g := w.contents(p.Room).mobs[0]
+	p.Fighting = g.Character
+	bob.take()
+	send(w, 1, "sneak")
+	if o := bob.take(); !strings.Contains(o, "You stop moving quietly.") || hasEffect(p.Character, effectSneak) {
+		t.Fatalf("sneak off: %q", o)
 	}
 }

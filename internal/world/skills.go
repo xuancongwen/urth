@@ -56,6 +56,14 @@ type SkillResult struct {
 	Cooldown *int `json:"cooldown"`
 	// Stamina, when set, replaces the skill's cost for this use.
 	Stamina *int `json:"stamina"`
+	// End lists effects of the user's own to remove, by kind and
+	// params.source, before Effects are applied (a toggle turned off).
+	End []skillEndSpec `json:"end"`
+}
+
+type skillEndSpec struct {
+	Kind   string `json:"kind"`
+	Source string `json:"source"`
 }
 
 type skillEffectSpec struct {
@@ -234,11 +242,6 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 		p.Send(output.Escape(sk.Name) + " is not ready for another " + plural(cd, "round") + ".\n")
 		return
 	}
-	if c.Stamina < sk.Stamina {
-		p.Send("You are too winded for " + output.Escape(sk.Name) + ": it takes " + itoa(sk.Stamina) +
-			" stamina and you have " + itoa(c.Stamina) + ".\n")
-		return
-	}
 	targets, ok := w.skillTargets(p, sk, args)
 	if !ok {
 		return
@@ -267,7 +270,17 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 		}
 		if !used {
 			// The first result sets the pace: one use, one improvement roll,
-			// one cooldown, however many foes an area skill reaches.
+			// one cooldown, however many foes an area skill reaches. Its cost
+			// is the rules' for this use (a feat's cut, a toggle turned off).
+			cost := sk.Stamina
+			if r.Stamina != nil {
+				cost = max(*r.Stamina, 0)
+			}
+			if c.Stamina < cost {
+				p.Send("You are too winded for " + output.Escape(sk.Name) + ": it takes " + itoa(cost) +
+					" stamina and you have " + itoa(c.Stamina) + ".\n")
+				return
+			}
 			used = true
 			c.lastSkillRound = w.roundCount + 1
 			if c.cooldowns == nil {
@@ -279,10 +292,6 @@ func (w *World) useSkill(p *Player, sk Skill, args string) {
 			}
 			if cd > 0 {
 				c.cooldowns[key] = cd
-			}
-			cost := sk.Stamina
-			if r.Stamina != nil {
-				cost = max(*r.Stamina, 0)
 			}
 			c.Stamina = max(c.Stamina-cost, 0)
 			applySkillRatings(c, r.Skills)
@@ -456,6 +465,16 @@ func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillR
 		w.act("Your "+verb+" heals you. {G}["+itoa(healed)+"]{x}", c, nil, "", toChar)
 		w.act("$n looks steadier.", c, nil, "", toRoom)
 	}
+	if len(r.End) > 0 {
+		kept := c.Effects[:0]
+		for _, e := range c.Effects {
+			if !endsEffect(r.End, e) {
+				kept = append(kept, e)
+			}
+		}
+		c.Effects = kept
+		w.recalc(c)
+	}
 	for _, se := range r.Effects {
 		on := c
 		if se.On == "target" && target != nil {
@@ -473,6 +492,16 @@ func (w *World) skillOutcome(c *Character, sk Skill, target *Character, r SkillR
 	if target != nil && target.Health <= 0 {
 		w.die(target, c)
 	}
+}
+
+// endsEffect reports whether e is one of the effects ends names.
+func endsEffect(ends []skillEndSpec, e effect.Active) bool {
+	for _, x := range ends {
+		if e.Kind == x.Kind && e.Params["source"] == x.Source {
+			return true
+		}
+	}
+	return false
 }
 
 // startFightIfIdle makes a hostile act start a fight without resetting one

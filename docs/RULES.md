@@ -2672,7 +2672,9 @@ something to do:
 - **Sneak**: seen if looked at, but not *noticed*: arrivals and
   departures go unannounced, and an aggressive mob passes the sneaker
   by, except a viewer with Detect Hidden. It lasts through movement,
-  which is the point.
+  which is the point. The Sneak skill is a toggle (2026-10-12): on
+  until used again, since renewing it was a chore and not a choice;
+  turning it off is free, even winded or in a fight.
 - **Invisible** (the spell, gear): as before, and invisibility of the
   character's own ends when a fight starts.
 - Whoever is fighting you can always be seen, so an ambush is answered
@@ -2686,7 +2688,7 @@ guards against sneaks.
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
 | Hide | 2 | 12 Dex | action, self, not in a fight | | 20 | 30 | 2 gold | how long the hiding lasts, 10 to 60 rounds |
-| Sneak | 4 | 13 Dex | action, self, not in a fight | | 30 | 30 | 5 gold | how long the sneak lasts, 20 to 100 rounds |
+| Sneak | 4 | 13 Dex | toggle, self, on only out of a fight | | 30 to turn on | 30 | 5 gold | nothing yet |
 
 Taught by the master thief in Midgaard, the cutpurse at the Burning
 Wizard on the Sword Coast, Kashya of the Rogues, and the lab's fencing
