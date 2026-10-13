@@ -1,7 +1,7 @@
 # Palanthas and the Tower of High Sorcery of the Black Order. The Shoikan
 # Grove is the way in and the first test; everything in it and in the
 # Test attacks from level 1 (RULES 8.1).
-interval_seconds: 600
+interval_seconds: 2400
 resets:
   - { mob: 6309, room: 6304 }           # an Aesthetic in the Great Library
   - { mob: 6300, room: 6303, max: 2 }   # dead hands at the grove's edge

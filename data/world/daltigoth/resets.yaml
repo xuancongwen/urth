@@ -1,7 +1,7 @@
 # Southern Ergoth and the ruins of Daltigoth, under which the White Order
 # kept its Test. The ogre chieftain wears the seal of the hidden stair.
 # Everything on the way and in the Test attacks from level 1 (RULES 8.1).
-interval_seconds: 600
+interval_seconds: 2400
 resets:
   - { mob: 6410, room: 6401 }           # Maquesta at the Perechon's wheel
   - { mob: 6400, room: 6402, max: 3, equip: [{ item: 6403, slot: wield }] }   # thanoi on the shore, with ivory harpoons

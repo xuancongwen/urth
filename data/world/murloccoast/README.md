@@ -7,7 +7,7 @@ shell beach, tide pools full of makrura, two clusters of murloc mud
 huts round a spawning lagoon, a wrecked cog, a reef in the shallows,
 and a sea grotto under the headland where the Murloc King keeps his
 court. Levels 8 to 13. This is a farming area: tight levels, crowded
-rooms, murlocs that all come when one is hit (`assist`), a two-minute
+rooms, murlocs that all come when one is hit (`assist`), an eight-minute
 reset, and plain drop gear at every level from 7 to 14. Reached west
 from Azeroth's wheat fields (1411 in `warcraft`) onto the dune path
 (2600).

@@ -3,7 +3,7 @@
 # east to the gate. The summons that opens it is on the renegade in the
 # thorn thicket (6205). Everything that guards the way attacks from
 # level 1 (RULES 8.1).
-interval_seconds: 600
+interval_seconds: 2400
 resets:
   - { mob: 6200, room: 6201, max: 2 }   # wolves of the moving wood
   - { mob: 6200, room: 6204, max: 2 }
