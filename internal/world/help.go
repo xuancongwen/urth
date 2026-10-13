@@ -95,7 +95,7 @@ var helpText = map[string]string{
 	"stats":    "stats: your character sheet; the same as score.",
 	"train":    "train | train <stat>: see your stats, or spend a stat point on one.",
 	"feat":     "feat | feat all | feat <name>: see the feats you have and can take now, or with 'all' every feat and what each needs (a level, trained stats, another feat, and for caster feats a school or a god), or spend a pick on one.",
-	"who":      "who: who is playing. Invisible and hidden players are listed only if you can see them.",
+	"who":      "who: who is playing. Admins are marked [Admin]. Invisible and hidden players are listed only if you can see them.",
 	"color":    "color: toggle color.",
 	"settings": "settings | settings <name>: see your toggles (autoloot, autogold, autosac, color) and whether each is on; with a name, flip that one.",
 	"save":     "save: write your character to disk (it also saves on its own).",

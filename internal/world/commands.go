@@ -342,6 +342,9 @@ func cmdWho(w *World, p *Player, _ string) {
 			continue
 		}
 		r := row{name: other.Name, level: other.Level}
+		if other.Admin {
+			r.mark += " {Y}[Admin]{x}"
+		}
 		if other.Invisible() {
 			r.mark += " (Invis)"
 		}

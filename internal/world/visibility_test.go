@@ -61,7 +61,7 @@ func TestWhoObeysInvisibleAndHidden(t *testing.T) {
 	w.players[2].Level = 12
 	send(w, 3, "who")
 	out = carol.take()
-	if !strings.Contains(out, "[ 12] Alice (Invis)\n") || !strings.Contains(out, "[  1] Bob\n") || !strings.Contains(out, "[  1] Carol (Hidden)\n") {
+	if !strings.Contains(out, "[ 12] Alice (Invis)\n") || !strings.Contains(out, "[  1] Bob\n") || !strings.Contains(out, "[  1] Carol [Admin] (Hidden)\n") {
 		t.Fatalf("admin who wrong: %q", out)
 	}
 }
