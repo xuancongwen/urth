@@ -11,8 +11,8 @@ look: |
   inclined to argue. It goes where it pleases, and it pleases to go
   wherever something is beating a rhythm on the sand.
 level: 60
-flags: [wander]
-health: 90000
+flags: [wander, boss]
+health: 240000
 silver: 1200
 armor:
   defense: 1000
@@ -23,7 +23,8 @@ effects:
   - kind: soak
     params: { power: 0.2 }
   - kind: aura
-    params: { kind: slash, power: 0.25, verb: storm of hissing sand }
+    params: { kind: slash, power: 0.6, verb: storm of hissing sand }
+  - { kind: damage, params: { mult: 4.0 } }
   - { kind: steady, params: { chance: 0.5 } }
   - { kind: resist, params: { kind: physical, amount: 0.25 } }
   - { kind: resist, params: { kind: poison, amount: 0.5 } }

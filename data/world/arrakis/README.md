@@ -11,7 +11,10 @@ Shai-Hulud swims. Levels 14 to 60. Reached east from hub room 10, a
 crack in the rock that opens onto the Shield Wall (1900).
 
 Bosses: Shai-Hulud (60, the roaming world boss of the deep desert,
-90000 health, soaks blows, a storm of sand around it, flagged wander),
+a raid boss for a full group, 240000 health, soaks blows, a storm of
+sand around it, flagged wander; in a group simulation of level-60
+fighters in standard kit, seven won about half the time and eight
+always, and a lone fighter lasts about six rounds),
 Baron Vladimir Harkonnen (48, 14000 health, the forward base's last
 fight: two swings a round, poisoned needles and darts, soaks blows),
 Feyd-Rautha (44, two swings a round, poisoned cuts), Piter de Vries

@@ -21,7 +21,7 @@ east from the Hall of Far Futures (room 11 in `start`) through the
 door stamped SHINRA, which opens onto the Sector 7 train station
 (3700).
 
-Raid boss: Ultima Weapon (60, 65000 health), on its roost across the
+Raid boss: Ultima Weapon (60, 51000 health), on its roost across the
 crater rim (3742), is meant for a full group of about seven, not for
 one hero. It carries the Knights of the Round materia, whose falling
 blades strike everyone fighting it each round and whose Ultimate End
@@ -31,9 +31,9 @@ grew it, which turn most blows. Its own innate effects are modest (a
 slowing chill and a steady footing); its gear carries most of its
 power, and the Ultima Weapon sword rides in its body unwielded, so its
 blows are its own natural Ultima Beam. A lone level-60 fighter lasts
-about six rounds and takes less than a tenth of its health; numbers for
-a group are still to be tuned. In a group simulation of level-60 fighters in
-standard kit, seven won about half the time and eight always.
+about six rounds and barely marks it. In a group simulation of
+level-60 fighters in standard kit (retuned 2026-10-12), seven won
+about half the time and eight nearly always.
 
 Final boss: Sephiroth (59, 32000 health, boss), with the Masamune and
 his black coat, at the Center of the Planet: a fight for a party. A

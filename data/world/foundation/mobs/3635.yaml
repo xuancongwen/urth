@@ -18,7 +18,7 @@ look: |
   one person stands against him, and not many companies.
 level: 45
 flags: [boss]
-health: 17000
+health: 11500
 stats: {intelligence: 22, wisdom: 20, constitution: 16, dexterity: 14}
 silver: 1800
 xp: 60000

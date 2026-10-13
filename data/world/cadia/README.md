@@ -15,7 +15,11 @@ Bosses: Nob Gutrippa (36) in the big gun pit; Zaraphiston the sorcerer
 (46) on the pylon's ritual gallery, with the Staff of Changing; the Bloodthirster (55) at the brass
 throne; Haarken Worldclaimer (60), the Herald of the Apocalypse, on the
 rubble of the fallen Gate among the Terminators; Abaddon the Despoiler
-(65) at the Eye-facing breach. Named
+(65) at the Eye-facing breach. The last three are raid bosses for a
+full group, one after another: the Bloodthirster 165000 health,
+Haarken 290000, Abaddon 390000. In a group simulation of fighters of
+each one's level in standard kit (2026-10-12), seven won about half
+the time and eight always; a lone fighter lasts five or six rounds. Named
 carriers: the cult demagogue (24, a bolt pistol) on the Valkyrie wreck,
 and Lieutenant Dravik (28, a Cadian chainsword, and the rank pins the
 Lord Castellan wants) in the ossuary under the kasr.

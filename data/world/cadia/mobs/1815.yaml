@@ -11,7 +11,8 @@ look: |
   crackling. He turns to look at you with something like interest. It
   is the worst thing that has ever happened to you.
 level: 65
-health: 160000
+flags: [boss]
+health: 390000
 stats: {strength: 22, constitution: 20, dexterity: 15, intelligence: 16, wisdom: 14}
 silver: 1200
 armor:
@@ -28,4 +29,5 @@ effects:
     params: { kind: lightning, power: 0.1, verb: black lightning of Drach'nyen }
   - kind: soak
     params: { power: 0.15 }
+  - { kind: damage, params: { mult: 2.4 } }
   - { kind: lastStand, params: { threshold: 0.3, mult: 0.75 } }

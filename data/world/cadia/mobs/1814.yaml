@@ -9,20 +9,21 @@ look: |
   roars a single word over and over: BLOOD. It does not care whose. It
   has been killing on Cadia for days and it is not tired.
 level: 55
-flags: [aggressive]
-health: 90000
+flags: [aggressive, boss]
+health: 165000
 stats: {strength: 20, constitution: 18, dexterity: 13}
 silver: 480
 armor:
-  defense: 600
+  defense: 250
 attack:
   kind: slash
   verb: cleave
 effects:
   - kind: leech
-    params: { fraction: 0.08 }
+    params: { fraction: 0.02 }
   - kind: crit
     params: { chance: 0.1, mult: 2 }
+  - { kind: damage, params: { mult: 2.6 } }
   - { kind: resist, params: { kind: unholy, amount: 1 } }
   - { kind: resist, params: { kind: fire, amount: 0.5 } }
   - { kind: resist, params: { kind: poison, amount: 0.25 } }

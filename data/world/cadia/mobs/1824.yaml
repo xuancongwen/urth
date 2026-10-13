@@ -12,7 +12,8 @@ look: |
   which he throws, and which always comes back. He has claimed Cadia
   for the Despoiler, and you are standing on it.
 level: 60
-health: 60000
+flags: [boss]
+health: 290000
 stats: {strength: 20, constitution: 18, dexterity: 15}
 silver: 720
 armor:
@@ -27,3 +28,4 @@ effects:
     params: { kind: pierce, chance: 0.3, power: 1.5, verb: hurled Helspear }
   - kind: soak
     params: { power: 0.1 }
+  - { kind: damage, params: { mult: 2.4 } }

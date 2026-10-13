@@ -14,7 +14,7 @@ look: |
   raid boss: no hero stands against it alone, and few companies.
 level: 60
 flags: [boss]
-health: 52000
+health: 45000
 stats: {strength: 22, constitution: 22, intelligence: 24, wisdom: 22}
 silver: 3000
 xp: 90000

@@ -17,15 +17,16 @@ from the Hall of Far Futures (room 11 in `start`), through a door scored
 by enormous claws that opens in the trunk of a pine beside a crashed
 gear outside Lahan (3800).
 
-Raid boss: Deus (60, 52000 health) is meant for a full group of
+Raid boss: Deus (60, 45000 health) is meant for a full group of
 seven or eight, not for one hero. Its own effects are only steadiness; its
 power is in its regalia: a wave of light from the Zohar washes over
 everyone fighting it, a surge of the Zohar strikes hard, leech heals
 it, the bracer of the Animus slows those it grips, thorns lash whoever
 strikes its arms, and fourteen pieces turn most blows. In a group
 simulation of level-60 fighters in standard kit (its two guarding
-coils left out), seven won about half the time and eight always; a
-lone fighter lasts about seven rounds and barely marks it.
+coils left out; retuned 2026-10-12), seven won about half the time
+and eight always; a lone fighter lasts about six rounds and barely
+marks it.
 
 Bosses and named carriers (lone fighter of the boss's level, 100
 simulated fights): Krelian (58, 34000 health, ether storm aura; lasts

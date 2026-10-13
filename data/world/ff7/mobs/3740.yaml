@@ -14,7 +14,7 @@ look: |
   boss: no one hero stands against it, and not many companies.
 level: 60
 flags: [boss]
-health: 65000
+health: 51000
 stats: {strength: 20, constitution: 20, dexterity: 14, wisdom: 18}
 silver: 3000
 xp: 100000

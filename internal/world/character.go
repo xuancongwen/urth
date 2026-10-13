@@ -129,9 +129,10 @@ func (w *World) newMob(p *mob.Proto) *Mob {
 	m := &Mob{Character: newCharacter(p.Name, p.Keywords), Proto: p, id: w.lastMobID}
 	m.Level = p.Level
 	m.Stats = copyStats(p.Resolved.Stats)
-	for _, e := range p.Effects {
-		m.Effects = append(m.Effects, effect.Active{Spec: e})
-	}
+	// The prototype's effects are not copied onto the mob: the rules see
+	// them through the mob view and Go through hasEffect, so they count
+	// once and follow a reload. The mob's own list is for what happens to
+	// it.
 	m.mob = m
 	return m
 }

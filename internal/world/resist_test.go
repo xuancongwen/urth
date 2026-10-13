@@ -334,3 +334,21 @@ func hasArticle(name string) bool {
 	rest, ok := strings.CutPrefix(name, "the ")
 	return ok && rest != "" && strings.ToLower(rest[:1]) == rest[:1]
 }
+
+// A mob's prototype effects count once (Trackstar 1040): the Bloodthirster
+// is written with half resistance to fire and full to unholy, and that is
+// what the rules see.
+func TestMobPrototypeEffectsCountOnce(t *testing.T) {
+	w := shippedWorld(t)
+	m := w.newMob(w.content.Mobs[1814])
+	w.recalc(m.Character)
+	for kind, want := range map[string]float64{"fire": 0.5, "unholy": 1, "holy": -0.5} {
+		var got float64
+		if err := w.scripts.Call("resistance", &got, w.view(m.Character), kind); err != nil {
+			t.Fatal(err)
+		}
+		if got != want {
+			t.Errorf("resistance to %s: %v, want %v", kind, got, want)
+		}
+	}
+}

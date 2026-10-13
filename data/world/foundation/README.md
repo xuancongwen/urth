@@ -13,13 +13,14 @@ Haven and the Darells; and Kalgan, where the Mule sits on his throne.
 Levels 20 to 45. Reached north from the Hall of Far Futures (room 11 in
 `start`), which opens onto the Terminus spaceport (3600).
 
-Raid boss: the Mule (45, 17000 health) is meant for a full group of
+Raid boss: the Mule (45, 11500 health) is meant for a full group of
 seven, not for one hero. The Visi-Sonor's tide of despair washes over
 everyone fighting him, the leech in his regalia heals him as he
 strikes, a chill slows those he grips, and fourteen pieces of regalia
 turn most blows. In a group simulation against level-45 fighters in
-standard gear, six won one fight in ten and seven nearly always; a
-lone fighter lasts about eight rounds and barely marks him. Players
+standard kit (retuned 2026-10-12), six won about one fight in seven,
+seven four in five, and eight nearly always; a lone fighter lasts
+about five rounds and barely marks him. Players
 in better gear will need fewer. He was Magnifico Giganticus, the
 clown of Haven, all along; the clown's corner in the Darells' rooms is
 empty.
