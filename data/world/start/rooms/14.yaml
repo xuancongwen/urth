@@ -1,0 +1,12 @@
+vnum: 14
+name: The Hedge-Wizard's Loft
+description: |
+  A loft under the rafters of the Long Hall, reached by a ladder-steep
+  stair and smelling of candle smoke and scorched paper. Shelves sag
+  with jars, a cracked mirror leans in one corner, and the boards are
+  marked with chalk circles half rubbed out by boots. Someone has
+  pinned a card to a beam: SIMPLE SPELLS, FOR ANYONE WITH THE WIT, FOR
+  COIN. THE GREAT ONES ARE KEPT IN THE TOWERS. The stair goes down.
+exits:
+  down: 2
+flags: [safe]

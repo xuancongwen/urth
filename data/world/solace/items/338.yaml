@@ -1,0 +1,14 @@
+vnum: 338
+name: a sun medallion
+keywords: [sun, medallion, disk, gold]
+description: A small gold medallion stamped with a rising sun lies here.
+look: |
+  A palm-sized disk of thin gold on a broken chain, a rising sun
+  stamped on one face and a few worn words of prayer on the other. It
+  belonged to the shrine by the lake at Solace until the hobgoblins
+  came through, and it has the look of something that wants to go back
+  to an altar of the rising sun. Laid on such an altar, given up, it
+  would buy a new apostle the god's favour.
+weight: 1
+value: 40
+sacrifice: good

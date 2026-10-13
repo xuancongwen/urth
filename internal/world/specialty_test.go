@@ -102,3 +102,42 @@ func TestSpecialtyBarsTheOppositeAndStrengthensItsOwn(t *testing.T) {
 		t.Fatalf("the Red Robes keep %q", got)
 	}
 }
+
+// TestNewPlayersFindMagicNearTheStart: the hedge-wizard above the Long
+// Hall teaches only simple common spells, and the Good god's beginner
+// offering is on a level-3 hobgoblin in Solace (story 1029).
+func TestNewPlayersFindMagicNearTheStart(t *testing.T) {
+	w := shippedWorld(t)
+	byID := map[string]Spell{}
+	for _, sp := range w.spellList() {
+		byID[sp.ID] = sp
+	}
+	wizard := w.content.Mobs[215]
+	if wizard == nil || len(wizard.Teaches) == 0 {
+		t.Fatal("no hedge-wizard")
+	}
+	for _, id := range wizard.Teaches {
+		sp, ok := byID[id]
+		if !ok || !sp.common() || sp.Level > 3 || sp.Price <= 0 {
+			t.Errorf("the hedge-wizard teaches %q, which is not a simple common spell for sale", id)
+		}
+	}
+	medallion := w.content.Items[338]
+	if medallion == nil || medallion.Sacrifice != "good" {
+		t.Fatal("no sun medallion for the Good god")
+	}
+	carried := false
+	for _, a := range w.content.Resets {
+		for _, r := range a.Resets {
+			if r.Mob != 307 {
+				continue
+			}
+			for _, eq := range r.Equip {
+				carried = carried || eq.Item == 338
+			}
+		}
+	}
+	if !carried || w.content.Mobs[307].Level > 4 {
+		t.Fatal("Fewmaster Toede should carry the medallion, and be an early fight")
+	}
+}

@@ -1,0 +1,17 @@
+vnum: 215
+name: a hedge-wizard
+keywords: [hedge-wizard, hedge, wizard, mage, woman]
+description: A hedge-wizard with singed sleeves sits cross-legged among her chalk circles.
+look: |
+  A wiry woman with ink to the elbows and no eyebrows to speak of, which
+  she says is the cost of the trade. She teaches the simple spells,
+  the ones anyone with the wit can learn: a bolt of fire, darts of
+  force, a ward, a chill, a daze. "No oaths for these," she says. "The
+  Orders keep the great schools in their Towers, past Solace and
+  further, and they make you swear for life before they teach you
+  anything worth fearing. Start here." Type 'practice'.
+level: 12
+flags: [peaceful]
+teaches: [firebolt, magic_missile, arcane_shield, ward, chill_touch, true_strike, color_spray, stone_fist, acid, daze]
+attack:
+  verb: punch

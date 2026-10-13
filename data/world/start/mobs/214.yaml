@@ -5,12 +5,16 @@ description: A shrine-keeper in a sun-yellow stole kneels by the altar, sweeping
 look: |
   A plain woman in a plain robe, with a stole the colour of early
   morning over her shoulders. She keeps the altar of the rising sun and
-  asks nothing of anyone who comes to it. To those who have given the
-  god something and been taken in, she will teach the first blessing,
-  for a coin for the lamp oil. "The rest is taught further on," she
-  says. "Elistan, in Solace, and the priestesses of the Lady on Avalon.
-  Higher than that, you will have to go looking." She sells wooden sun-
-  disks and oak cudgels to pilgrims for the road. Type 'list'.
+  asks nothing of anyone who comes to it. "The god takes in whoever
+  brings back what was stolen from its shrines," she says. "The
+  hobgoblins who came through Solace took a sun medallion from the
+  shrine by the lake; their fewmaster wears it like a prize. Bring it
+  here, or to the lake, and give it up on the altar." To any apostle
+  she will teach a blessing, for a coin for the lamp oil. "The rest is
+  taught further on: Elistan, in Solace, and the priestesses of the
+  Lady on Avalon. The other gods keep stranger altars, far from here."
+  She sells wooden sun-disks and oak cudgels to pilgrims for the road.
+  Type 'list'.
 level: 12
 flags: [peaceful]
 teaches: [bless]
