@@ -52,13 +52,15 @@ var P = {
   // fight it comes back at manaFightRegen of that rate.
   manaBase: 30, manaPerLevel: 3, manaRegenSeconds: 90, manaFightRegen: 0,
   // Stamina (RULES 7.7): what skills spend, refilled within a fight. The
-  // pool is staminaBase plus staminaPerLevel a level, times the better of
-  // the Strength and Constitution multipliers; it refills from empty in
+  // pool is staminaPool for everyone at every level, so costs keep their
+  // weight as a character grows; it refills from empty in
   // staminaRegenRounds in a fight and staminaRestMult times faster out
-  // of one (resting and sleeping faster still). Heavy and plate armor,
-  // by the share of the body they cover, and a heavy weapon slow it.
-  // Empty, a character dodges exhaustedDodge less.
-  staminaBase: 20, staminaPerLevel: 1, staminaRegenRounds: 10, staminaRestMult: 2,
+  // of one (resting and sleeping faster still). The better of Strength
+  // and Constitution speeds that by staminaStatK a point over the
+  // baseline, half what a stat's multiplier gives. Heavy and plate
+  // armor, by the share of the body they cover, and a heavy weapon slow
+  // it. Empty, a character dodges exhaustedDodge less.
+  staminaPool: 100, staminaRegenRounds: 10, staminaRestMult: 2, staminaStatK: 0.025,
   staminaHeavyArmor: 0.25, staminaPlateArmor: 0.4, staminaHeavyWeapon: 0.1,
   exhaustedDodge: 0.05,
   // A disarmed mob whose natural attack is a weapon (armedNatural) hits
@@ -846,9 +848,13 @@ function manaRegen(c, posMult) {
   return Math.max(1, Math.round(c.manaMax / P.manaRegenRounds * posMult));
 }
 
-function staminaMax(c) {
-  var m = Math.max(mult(c, "strength"), mult(c, "constitution"));
-  return Math.max(0, Math.round((P.staminaBase + P.staminaPerLevel * ((c.level || 1) - 1)) * m));
+function staminaMax(c) { return P.staminaPool; }
+
+// staminaStat is the factor the better of Strength and Constitution puts
+// on stamina regeneration, at half a stat multiplier's slope.
+function staminaStat(c) {
+  var best = Math.max(stat(c, "strength"), stat(c, "constitution"));
+  return Math.max(0.05, 1 + P.staminaStatK * (best - P.statBaseline));
 }
 
 // staminaGear is the factor gear puts on stamina regeneration: heavy and
@@ -869,7 +875,7 @@ function staminaGear(c) {
 // staminaRegen is stamina back per round at a multiplier.
 function staminaRegen(c, m) {
   if (!c.staminaMax || c.stamina >= c.staminaMax) return 0;
-  return Math.max(1, Math.round(c.staminaMax / P.staminaRegenRounds * m * staminaGear(c)));
+  return Math.max(1, Math.round(c.staminaMax / P.staminaRegenRounds * m * staminaStat(c) * staminaGear(c)));
 }
 
 function exhausted(c) { return c.staminaMax > 0 && c.stamina <= 0; }
@@ -1578,15 +1584,15 @@ function describeEffect(e) {
 // ally (a use on a friend), rest (a passive that improves resting, not
 // fighting).
 var SKILLS = [
-  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 0, stamina: 4, start: 30, innate: true,
+  { id: "kick", name: "Kick", level: 1, passive: false, target: "single", cooldown: 0, stamina: 20, start: 30, innate: true,
     damage: 1.8, strike: true, verb: "kick", unarmed: true,
     description: "A kick worth nearly two rounds of your weapon at full skill, and it needs no weapon in hand." },
-  { id: "bash", stats: { strength: 12 }, name: "Bash", level: 3, passive: false, target: "single", cooldown: 3, stamina: 8, start: 25, innate: false, price: 300,
+  { id: "bash", stats: { strength: 12 }, name: "Bash", level: 3, passive: false, target: "single", cooldown: 3, stamina: 40, start: 25, innate: false, price: 300,
     damage: 0.5, verb: "bash", stunChance: 1.0,
     description: "Slam into them: some damage, and at full skill they lose their next round of swings." },
   { id: "twin", stats: { dexterity: 13 }, name: "Twin Strike", level: 5, passive: true, start: 20, innate: false, price: 1500,
     description: "A second attack in the same round, as often as your skill allows. Triple Strike follows." },
-  { id: "rend", stats: { strength: 12 }, name: "Rend", level: 3, passive: false, target: "single", cooldown: 0, stamina: 6, start: 30, innate: false, price: 100,
+  { id: "rend", stats: { strength: 12 }, name: "Rend", level: 3, passive: false, target: "single", cooldown: 0, stamina: 30, start: 30, innate: false, price: 100,
     requires: [{ material: "wolf fang", count: 2 }], damage: 1.2, strike: true, verb: "rend", bleed: 0.4,
     description: "Tear at them like a beast: a round's worth and more now, and a wound that bleeds for three rounds. The trainer wants wolf fangs for it." },
   { id: "riposte", stats: { dexterity: 12 }, name: "Riposte", level: 4, passive: true, start: 20, innate: false, price: 500,
@@ -1595,13 +1601,13 @@ var SKILLS = [
   // --- ROM 2.4 and friends (approved 2026-09-28) ---
   { id: "dodge", stats: { dexterity: 11 }, name: "Dodge", level: 1, passive: true, start: 20, innate: false, price: 200,
     description: "Slip aside: up to one more swing in ten dodged." },
-  { id: "trip", stats: { dexterity: 11 }, name: "Trip", level: 2, passive: false, target: "single", cooldown: 3, stamina: 6, start: 25, innate: false, price: 200,
+  { id: "trip", stats: { dexterity: 11 }, name: "Trip", level: 2, passive: false, target: "single", cooldown: 3, stamina: 30, start: 25, innate: false, price: 200,
     damage: 0.3, verb: "trip", stunChance: 1.0, stunMessage: "They go down.",
     effects: function (u, t, scale) { return [{ on: "target", kind: "dodge", params: { amount: -0.05 }, rounds: 2 }]; },
     description: "Sweep their legs: a little damage, they are slow to dodge for two rounds, and at full skill they lose their next round." },
   { id: "hand_to_hand", stats: { strength: 11 }, name: "Hand to Hand", level: 2, passive: true, start: 20, innate: false, price: 300,
     description: "Fight with your fists: at full skill, bare hands hit twice as hard." },
-  { id: "dirt_kicking", stats: { dexterity: 12 }, name: "Dirt Kicking", level: 3, passive: false, target: "single", cooldown: 4, stamina: 8, start: 25, innate: false, price: 300,
+  { id: "dirt_kicking", stats: { dexterity: 12 }, name: "Dirt Kicking", level: 3, passive: false, target: "single", cooldown: 4, stamina: 40, start: 25, innate: false, price: 300,
     verb: "dirt kick",
     effects: function (u, t, scale, out) {
       out.message = "They are blinded!";
@@ -1610,7 +1616,7 @@ var SKILLS = [
     description: "Dirt in the eyes: for two rounds, up to four of their swings in ten go wide." },
   { id: "shield_block", stats: { constitution: 12 }, name: "Shield Block", level: 3, passive: true, start: 20, innate: false, price: 400,
     description: "Take blows on your shield: up to 15 percent more blocked, shield worn." },
-  { id: "backstab", stats: { dexterity: 13 }, name: "Backstab", level: 4, passive: false, target: "single", cooldown: 0, stamina: 10, start: 25, innate: false, price: 500,
+  { id: "backstab", stats: { dexterity: 13 }, name: "Backstab", level: 4, passive: false, target: "single", cooldown: 0, stamina: 50, start: 25, innate: false, price: 500,
     damage: 4.0, strike: true, verb: "backstab",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to backstab.";
@@ -1623,11 +1629,11 @@ var SKILLS = [
     description: "Mend quickly: resting brings health back up to half again as fast. Improves while you rest." },
   { id: "enhanced_damage", stats: { strength: 13 }, name: "Enhanced Damage", level: 5, passive: true, start: 15, innate: false, price: 1000,
     description: "Put your weight behind it: up to 15 percent more damage on every swing." },
-  { id: "hamstring", stats: { dexterity: 13 }, name: "Hamstring", level: 6, passive: false, target: "single", cooldown: 4, stamina: 8, start: 25, innate: false, price: 600,
+  { id: "hamstring", stats: { dexterity: 13 }, name: "Hamstring", level: 6, passive: false, target: "single", cooldown: 4, stamina: 40, start: 25, innate: false, price: 600,
     damage: 0.4, verb: "hamstring",
     effects: function (u, t, scale) { return [{ on: "target", kind: "speedMult", params: { mult: 1 - 0.3 * scale, source: "hamstring" }, rounds: 4 }]; },
     description: "Cut the tendon: some damage, and their swings slow to 70 percent for four rounds at full skill." },
-  { id: "disarm", stats: { dexterity: 14 }, name: "Disarm", level: 6, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 700,
+  { id: "disarm", stats: { dexterity: 14 }, name: "Disarm", level: 6, passive: false, target: "single", cooldown: 6, stamina: 50, start: 20, innate: false, price: 700,
     verb: "disarm",
     check: function (u, t) {
       if (!wielded(u)) return "You need a weapon of your own to disarm with.";
@@ -1639,7 +1645,7 @@ var SKILLS = [
       return [{ on: "target", kind: "disarmed", params: {}, rounds: 1 + Math.round(2 * scale) }];
     },
     description: "Knock their weapon aside: for up to three rounds they fight bare-handed, or at half strength if all they have is what they were born with." },
-  { id: "feint", stats: { dexterity: 14 }, name: "Feint", level: 7, passive: false, target: "single", cooldown: 3, stamina: 6, start: 25, innate: false, price: 700,
+  { id: "feint", stats: { dexterity: 14 }, name: "Feint", level: 7, passive: false, target: "single", cooldown: 3, stamina: 30, start: 25, innate: false, price: 700,
     verb: "feint", unavoidable: true,
     effects: function (u, t, scale, out) {
       out.message = "They bite on the feint.";
@@ -1647,7 +1653,7 @@ var SKILLS = [
               { on: "target", kind: "block", params: { chance: -0.10 * scale }, rounds: 3 }];
     },
     description: "Draw their guard: for three rounds they dodge and block up to one swing in ten less." },
-  { id: "berserk", stats: { strength: 15 }, name: "Berserk", level: 8, passive: false, target: "none", cooldown: 20, stamina: 12, start: 25, innate: false, price: 900,
+  { id: "berserk", stats: { strength: 15 }, name: "Berserk", level: 8, passive: false, target: "none", cooldown: 20, stamina: 60, start: 25, innate: false, price: 900,
     check: function (u) { return hasSource(u, "berserk") ? "You are already raging." : ""; },
     self: function (u, scale, out) {
       out.message = "You fly into a rage!";
@@ -1657,21 +1663,21 @@ var SKILLS = [
         { on: "self", kind: "dodge", params: { amount: -0.05, source: "berserk" }, rounds: 6 }];
     },
     description: "Rage for six rounds: up to +3 Strength and half a swing more each round, but you dodge less." },
-  { id: "envenom", stats: { dexterity: 15 }, name: "Envenom", level: 9, passive: false, target: "none", cooldown: 10, stamina: 8, start: 25, innate: false, price: 900,
+  { id: "envenom", stats: { dexterity: 15 }, name: "Envenom", level: 9, passive: false, target: "none", cooldown: 10, stamina: 40, start: 25, innate: false, price: 900,
     check: function (u) { return wielded(u) ? "" : "You need a blade to coat."; },
     self: function (u, scale, out) {
       out.message = "You coat your weapon in venom.";
       out.effects = [{ on: "self", kind: "envenom", params: { power: 0.15 * scale, rounds: 3, maxStacks: 2 }, rounds: 10 }];
     },
     description: "Poison your weapon for ten rounds: each hit leaves venom in the wound, two doses deep." },
-  { id: "rescue", stats: { constitution: 14 }, name: "Rescue", level: 10, passive: false, target: "ally", cooldown: 2, stamina: 6, start: 30, innate: false, price: 1000,
+  { id: "rescue", stats: { constitution: 14 }, name: "Rescue", level: 10, passive: false, target: "ally", cooldown: 2, stamina: 30, start: 30, innate: false, price: 1000,
     verb: "rescue",
     ally: function (u, t, scale, out) {
       out.taunt = true;
       out.effects = [{ on: "target", kind: "protect", params: { mult: 1 - 0.3 * scale }, rounds: 2 }];
     },
     description: "Step in front of a friend: everyone fighting them turns on you, and they take less damage for two rounds." },
-  { id: "circle", stats: { dexterity: 16 }, name: "Circle", level: 10, passive: false, target: "single", cooldown: 2, stamina: 8, start: 20, innate: false, price: 1200,
+  { id: "circle", stats: { dexterity: 16 }, name: "Circle", level: 10, passive: false, target: "single", cooldown: 2, stamina: 40, start: 20, innate: false, price: 1200,
     damage: 2.4, strike: true, verb: "circle",
     check: function (u, t) {
       if (!isDagger(wielded(u))) return "You need a dagger in hand to circle.";
@@ -1679,7 +1685,7 @@ var SKILLS = [
       return "";
     },
     description: "Slip around them mid-fight and stab: nearly two and a half rounds' worth at full skill. Dagger only." },
-  { id: "sunder", stats: { strength: 16 }, name: "Sunder", level: 12, passive: false, target: "single", cooldown: 6, stamina: 10, start: 20, innate: false, price: 1500,
+  { id: "sunder", stats: { strength: 16 }, name: "Sunder", level: 12, passive: false, target: "single", cooldown: 6, stamina: 50, start: 20, innate: false, price: 1500,
     damage: 0.6, verb: "sunder",
     check: function (u) { return isHeavy(wielded(u)) ? "" : "You need a heavy weapon to sunder armor."; },
     effects: function (u, t, scale, out) {
@@ -1692,15 +1698,15 @@ var SKILLS = [
     self: function (u, scale, out) { out.heal = Math.max(1, Math.round(u.healthMax * (0.10 + 0.15 * scale))); },
     verb: "second wind",
     description: "Catch your breath, even mid-fight: up to a quarter of your health back at once." },
-  { id: "whirlwind", stats: { strength: 17 }, name: "Whirlwind", level: 15, passive: false, target: "area", cooldown: 3, stamina: 12, start: 20, innate: false, price: 2500,
+  { id: "whirlwind", stats: { strength: 17 }, name: "Whirlwind", level: 15, passive: false, target: "area", cooldown: 3, stamina: 60, start: 20, innate: false, price: 2500,
     damage: 1.2, strike: true, verb: "whirlwind",
     description: "Spin through them: more than a round's worth to every foe fighting you." },
-  { id: "coup_de_grace", stats: { strength: 18 }, name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 0, stamina: 10, start: 20, innate: false, price: 3000,
+  { id: "coup_de_grace", stats: { strength: 18 }, name: "Coup de Grace", level: 18, passive: false, target: "single", cooldown: 0, stamina: 50, start: 20, innate: false, price: 3000,
     damage: function (u, t) { return t.healthMax > 0 && t.health / t.healthMax < 0.25 ? 5.0 : 0.6; }, strike: true, verb: "coup de grace",
     description: "Finish them: five rounds' worth against a foe below a quarter of their health, little otherwise." },
   // Stealth (RULES 7.8): the engine reads hidden and sneak, and ends a
   // hiding of the character's own when it moves or a fight starts.
-  { id: "hide", stats: { dexterity: 12 }, name: "Hide", level: 2, passive: false, target: "none", cooldown: 0, stamina: 4, start: 30, innate: false, price: 200,
+  { id: "hide", stats: { dexterity: 12 }, name: "Hide", level: 2, passive: false, target: "none", cooldown: 0, stamina: 20, start: 30, innate: false, price: 200,
     check: function (u) { return u.fighting ? "Not in the middle of a fight." : ""; },
     self: function (u, scale, out) {
       out.message = "You slip into the shadows.";
@@ -1708,7 +1714,7 @@ var SKILLS = [
     },
     verb: "hide",
     description: "Melt into the shadows where you stand: unseen, except by eyes that find the hidden, until you move or fight, for up to three minutes." },
-  { id: "sneak", stats: { dexterity: 13 }, name: "Sneak", level: 4, passive: false, target: "none", cooldown: 0, stamina: 6, start: 30, innate: false, price: 500,
+  { id: "sneak", stats: { dexterity: 13 }, name: "Sneak", level: 4, passive: false, target: "none", cooldown: 0, stamina: 30, start: 30, innate: false, price: 500,
     check: function (u) { return u.fighting ? "Not in the middle of a fight." : ""; },
     self: function (u, scale, out) {
       out.message = "You move quietly.";

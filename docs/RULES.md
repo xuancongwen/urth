@@ -2411,10 +2411,10 @@ and nothing competes with feats for the level-up choice.
 
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
-| Kick | 1 | none (innate) | action, single target |  | 4 | 30 | innate | strike: 1.8 rounds of the user's weapon at full skill, no weapon needed |
-| Bash | 3 | 12 Str | action, single target | 3 | 8 | 25 | 3 gold | the chance the target loses its next round of swings; 0.5x a standard swing aside |
+| Kick | 1 | none (innate) | action, single target |  | 20 | 30 | innate | strike: 1.8 rounds of the user's weapon at full skill, no weapon needed |
+| Bash | 3 | 12 Str | action, single target | 3 | 40 | 25 | 3 gold | the chance the target loses its next round of swings; 0.5x a standard swing aside |
 | Twin Strike | 5 | 13 Dex | passive | | | 20 | 15 gold | the fraction of an extra swing per round; 100 is a full second swing |
-| Rend | 3 | 12 Str | action, single target |  | 6 | 30 | 1 gold and two wolf fangs | strike: 1.2 rounds, and a bleed of 40 percent of it for three rounds |
+| Rend | 3 | 12 Str | action, single target |  | 30 | 30 | 1 gold and two wolf fangs | strike: 1.2 rounds, and a bleed of 40 percent of it for three rounds |
 | Riposte | 4 | 12 Dex | passive | | | 20 | 5 gold | block chance with a weapon in hand, up to 20 percent at full skill |
 
 **Combat skills** (approved 2026-09-28), after ROM 2.4 and its
@@ -2424,25 +2424,25 @@ and all of them are sold in the balance lab.
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
 | Dodge | 1 | 11 Dex | passive | | | 20 | 2 gold | up to +10 percent dodge |
-| Trip | 2 | 11 Dex | action, single | 3 | 6 | 25 | 2 gold | -5 percent dodge for two rounds, the chance of a lost round; 0.3x damage aside |
+| Trip | 2 | 11 Dex | action, single | 3 | 30 | 25 | 2 gold | -5 percent dodge for two rounds, the chance of a lost round; 0.3x damage aside |
 | Hand to Hand | 2 | 11 Str | passive | | | 20 | 3 gold | unarmed damage, up to double |
-| Dirt Kicking | 3 | 12 Dex | action, single | 4 | 8 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
+| Dirt Kicking | 3 | 12 Dex | action, single | 4 | 40 | 25 | 3 gold | blindness: up to 40 percent of swings miss for two rounds |
 | Shield Block | 3 | 12 Con | passive | | | 20 | 4 gold | up to +15 percent block, shield worn |
-| Backstab | 4 | 13 Dex | action, single |  | 10 | 25 | 5 gold | strike: 4 rounds; dagger, and only to open a fight |
+| Backstab | 4 | 13 Dex | action, single |  | 50 | 25 | 5 gold | strike: 4 rounds; dagger, and only to open a fight |
 | Fast Healing | 4 | 12 Con | passive | | | 20 | 4 gold | resting regeneration, up to +50 percent; improves while resting |
 | Enhanced Damage | 5 | 13 Str | passive | | | 15 | 10 gold | up to +15 percent damage on swings |
-| Hamstring | 6 | 13 Dex | action, single | 4 | 8 | 25 | 6 gold | a slow to 70 percent for four rounds; 0.4x damage aside |
-| Disarm | 6 | 14 Dex | action, single | 6 | 10 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side, in hand or in a mob's natural attack |
-| Feint | 7 | 14 Dex | action, single, cannot be dodged | 3 | 6 | 25 | 7 gold | -10 percent dodge and block for three rounds |
-| Berserk | 8 | 15 Str | action, self | 20 | 12 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
-| Envenom | 9 | 15 Dex | action, self | 10 | 8 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
-| Rescue | 10 | 14 Con | action, ally | 2 | 6 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
-| Circle | 10 | 16 Dex | action, single | 2 | 8 | 20 | 12 gold | strike: 2.4 rounds; dagger, mid-fight only |
-| Sunder | 12 | 16 Str | action, single | 6 | 10 | 20 | 15 gold | up to half a set of armor stripped for five rounds; heavy weapon; 0.6x damage aside |
+| Hamstring | 6 | 13 Dex | action, single | 4 | 40 | 25 | 6 gold | a slow to 70 percent for four rounds; 0.4x damage aside |
+| Disarm | 6 | 14 Dex | action, single | 6 | 50 | 20 | 7 gold | one to three rounds fighting bare-handed; needs a weapon each side, in hand or in a mob's natural attack |
+| Feint | 7 | 14 Dex | action, single, cannot be dodged | 3 | 30 | 25 | 7 gold | -10 percent dodge and block for three rounds |
+| Berserk | 8 | 15 Str | action, self | 20 | 60 | 25 | 9 gold | six rounds of up to +3 Strength and +0.5 swings, at -5 percent dodge |
+| Envenom | 9 | 15 Dex | action, self | 10 | 40 | 25 | 9 gold | ten rounds of poison on every hit, two doses deep |
+| Rescue | 10 | 14 Con | action, ally | 2 | 30 | 30 | 10 gold | always turns the ally's attackers on you; the rating shields the ally (up to 30 percent less damage for two rounds) |
+| Circle | 10 | 16 Dex | action, single | 2 | 40 | 20 | 12 gold | strike: 2.4 rounds; dagger, mid-fight only |
+| Sunder | 12 | 16 Str | action, single | 6 | 50 | 20 | 15 gold | up to half a set of armor stripped for five rounds; heavy weapon; 0.6x damage aside |
 | Second Wind | 12 | 16 Con | action, self | 30 | 0 | 25 | 15 gold | an instant heal of 10 to 25 percent of maximum health |
 | Triple Strike | 12 | 16 Dex | passive | | | 15 | 40 gold | a further fraction of a swing, only on top of Twin Strike |
-| Whirlwind | 15 | 17 Str | action, area | 3 | 12 | 20 | 25 gold | strike: 1.2 rounds to every foe fighting you |
-| Coup de Grace | 18 | 18 Str | action, single |  | 10 | 20 | 30 gold | strike: 5 rounds against a foe below a quarter of its health, 0.6 rounds otherwise |
+| Whirlwind | 15 | 17 Str | action, area | 3 | 60 | 20 | 25 gold | strike: 1.2 rounds to every foe fighting you |
+| Coup de Grace | 18 | 18 Str | action, single |  | 50 | 20 | 30 gold | strike: 5 rounds against a foe below a quarter of its health, 0.6 rounds otherwise |
 
 Consequences (built 2026-09-28): skill targets are `single`, `area`
 (every foe fighting the user; one use, one improvement roll, one
@@ -2587,13 +2587,15 @@ quickly, in a fight too, and skills (7.4) spend it. The question it
 poses is when to burst within this fight, where mana's question is
 which fight to spend on. Walking never costs stamina.
 
-- **Pool.** A base plus a little a level, times the better of the
-  Strength and Constitution multipliers, as mana takes the better of
-  Intelligence and Wisdom. A classless character feels its build in
-  both pools.
+- **Pool.** The same for everyone at every level (revised
+  2026-10-12, below). Costs are a share of it, so a skill weighs the
+  same at level 40 as at level 4.
 - **Regeneration.** From empty to full in about ten rounds in a fight,
   twice as fast out of one, and faster again resting or asleep at the
   multipliers health uses. One even fight (4.5) is about one refill.
+  The better of Strength and Constitution speeds it, at half the slope
+  of a stat multiplier (3.3), so a classless character still feels its
+  build here as it does in mana.
 - **Gear.** Heavy and plate armor slow it by the share of the body
   they cover, and a heavy weapon slows it a little. This is the cost
   of heavy gear that 4.3's dodge penalty alone did not carry, and the
@@ -2609,13 +2611,27 @@ which fight to spend on. Walking never costs stamina.
   before (2.1). Relentless, which cut cooldowns, also cuts stamina
   costs by a fifth.
 
-Starting values, arbitrary in the sense of 3.3: a pool of 20 plus 1 a
-level; full in 10 rounds in a fight; heavy armor slows regeneration by
-a quarter and plate by two fifths at full cover, a heavy weapon by a
-tenth; exhausted, 5 percent less dodge. Costs run from 4 (Kick) to 12
-(Berserk, Whirlwind), so a fresh character kicks about five times from
-full and then every other round, which is the pace Kick's old
-cooldown set. Second Wind is free and keeps its long cooldown: it is
+Starting values, arbitrary in the sense of 3.3: a pool of 100; 10 a
+round back in a fight at a 10 stat, 2.5 percent more for each point of
+the better of Strength and Constitution above 10; heavy armor slows
+regeneration by a quarter and plate by two fifths at full cover, a
+heavy weapon by a tenth; exhausted, 5 percent less dodge. Costs run
+from 20 (Kick) to 60 (Berserk, Whirlwind), so a character kicks five
+times from full and then every other round, which is the pace Kick's
+old cooldown set, and it takes a stat of 50 to kick every round.
+
+**Revised 2026-10-12: a fixed pool.** The designer found stamina
+throwaway at higher levels. The pool had been 20 plus 1 a level, times
+the better Strength or Constitution multiplier, with regeneration a
+tenth of the pool a round; costs were flat. So regeneration grew with
+level and stats while costs did not: by level 20 at base stats it paid
+for a kick every round, and by level 40 with a strong build it paid
+for nearly any skill every round, with the pool left over. With no
+level cap and no stat ceiling (2.2, 3.1), raising costs or slowing
+regeneration once would only have put the drift off. Fixing the pool
+and pricing skills against it holds the ratio at every level; stats
+keep a softened hand on recovery alone. Costs went up fivefold with
+the pool, so a level-1 character paces as before. Second Wind is free and keeps its long cooldown: it is
 how a character recovers, not a burst.
 
 Open: whether `flee` should cost stamina, so an exhausted character
@@ -2669,8 +2685,8 @@ guards against sneaks.
 
 | Skill | Level | Needs | Kind | Cooldown | Stamina | Start | Taught | What the rating scales |
 |---|---|---|---|---|---|---|---|---|
-| Hide | 2 | 12 Dex | action, self, not in a fight | | 4 | 30 | 2 gold | how long the hiding lasts, 10 to 60 rounds |
-| Sneak | 4 | 13 Dex | action, self, not in a fight | | 6 | 30 | 5 gold | how long the sneak lasts, 20 to 100 rounds |
+| Hide | 2 | 12 Dex | action, self, not in a fight | | 20 | 30 | 2 gold | how long the hiding lasts, 10 to 60 rounds |
+| Sneak | 4 | 13 Dex | action, self, not in a fight | | 30 | 30 | 5 gold | how long the sneak lasts, 20 to 100 rounds |
 
 Taught by the master thief in Midgaard, the cutpurse at the Burning
 Wizard on the Sword Coast, Kashya of the Rogues, and the lab's fencing
