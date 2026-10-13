@@ -11,7 +11,7 @@
 // statPoints, health, healthMax, speed, offSpeed, equipment{slot: item}, effects[],
 // isPlayer, fighting, and for mobs mob{vnum, flags, health, xp, attack,
 // armor, effects}. Items carry vnum, name, type, slot, level, baseline,
-// weapon{damage, spread, speed, hands, kind, verb}, armor{defense, spread},
+// weapon{damage, spread, speed, hands, kind, verb}, armor{defense},
 // effects[]. Effects are {kind, params, state, rounds}.
 
 // ---------------------------------------------------------------------
@@ -117,13 +117,13 @@ var WEAPON_BASELINES = {
 // (SLOT_WEIGHT). Shields carry no slot weight, so the shield baselines
 // state a piece's own number.
 var ARMOR_BASELINES = {
-  medium: function (L) { return { defense: 3 * growth(L), spread: 0.2 }; },
-  light:  function (L) { return { defense: 0.7 * 3 * growth(L), spread: 0.1 }; },
-  heavy:  function (L) { return { defense: 1.3 * 3 * growth(L), spread: 0.3 }; },
-  cloth:  function (L) { return { defense: 0.4 * 3 * growth(L), spread: 0.05 }; },
-  plate:  function (L) { return { defense: 1.6 * 3 * growth(L), spread: 0.35 }; },
-  shield: function (L) { return { defense: 0.08 * 3 * growth(L), spread: 0.2, piece: true }; },
-  tower:  function (L) { return { defense: 0.15 * 3 * growth(L), spread: 0.2, piece: true }; }
+  medium: function (L) { return { defense: 3 * growth(L) }; },
+  light:  function (L) { return { defense: 0.7 * 3 * growth(L) }; },
+  heavy:  function (L) { return { defense: 1.3 * 3 * growth(L) }; },
+  cloth:  function (L) { return { defense: 0.4 * 3 * growth(L) }; },
+  plate:  function (L) { return { defense: 1.6 * 3 * growth(L) }; },
+  shield: function (L) { return { defense: 0.08 * 3 * growth(L), piece: true }; },
+  tower:  function (L) { return { defense: 0.15 * 3 * growth(L), piece: true }; }
 };
 
 // BASELINE_TRAITS is what a family does beyond its numbers, read from the
@@ -278,7 +278,7 @@ function mobBaseline(p) {
       hands:  0, kind: atk.kind || "blunt",
       verb:   atk.verb || "hit"
     },
-    armor: { defense: arm.defense || ab.defense, spread: arm.spread || ab.spread },
+    armor: { defense: arm.defense || ab.defense },
     aggro: aggroRange(L, p.aggro)
   };
 }
@@ -693,16 +693,17 @@ function eachAdded(c, weapon, fn) {
   });
 }
 
-// defense is the defender's D for this hit: the sum of worn armor's draws,
-// or the mob's natural armor if nothing is worn, plus flat "defense"
+// defense is the defender's D: the sum of worn armor, or the mob's natural
+// armor if nothing is worn, with no roll (chance in defending is parry,
+// dodge and block), plus flat "defense"
 // effects (wards), times Constitution and level.
 function defense(c) {
   var D = 0, worn = false, s;
   if (c.equipment) for (s in c.equipment) {
     var it = c.equipment[s];
-    if (it && it.armor && it.armor.defense) { D += spreadRoll(it.armor.defense * attunedScale(it, c), it.armor.spread); worn = true; }
+    if (it && it.armor && it.armor.defense) { D += it.armor.defense * attunedScale(it, c); worn = true; }
   }
-  if (!worn && c.mob && c.mob.armor) D = spreadRoll(c.mob.armor.defense, c.mob.armor.spread);
+  if (!worn && c.mob && c.mob.armor) D = c.mob.armor.defense;
   D += sumEffects(c, "defense", "amount");
   return Math.max(0, D * mult(c, "constitution", true) * levelMult(c));
 }

@@ -49,8 +49,7 @@ func (w *World) itemCard(it *item.Item) string {
 	case item.Armor:
 		ar := p.Resolved.Armor
 		if ar.Defense > 0 {
-			line := "Defense " + spreadRange(ar.Defense, ar.Spread)
-			lines = append(lines, line)
+			lines = append(lines, "Defense "+spreadRange(ar.Defense, 0))
 		}
 	case item.Material:
 		lines = append(lines, "A "+output.Escape(p.Rarity)+" material: "+output.Escape(p.Material)+", used in casting.")

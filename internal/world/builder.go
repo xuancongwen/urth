@@ -200,7 +200,7 @@ func (w *World) statCharacter(c *Character) string {
 		if c.mob.Proto.HasFlag("aggressive") {
 			b.WriteString("Aggressive to levels " + aggroWords(pr.Aggro) + "\n")
 		}
-		b.WriteString("Natural (" + pr.Source + "): attack " + weaponLine(pr.Attack) + "  armor defense " + ftoa(pr.Armor.Defense) + " spread " + ftoa(pr.Armor.Spread))
+		b.WriteString("Natural (" + pr.Source + "): attack " + weaponLine(pr.Attack) + "  armor defense " + ftoa(pr.Armor.Defense))
 		if pr.Health > 0 {
 			b.WriteString("  health override " + itoa(pr.Health))
 		}
@@ -240,9 +240,9 @@ func statItem(it *item.Item) string {
 		b.WriteString("\n")
 	}
 	if p.Type == item.Armor {
-		b.WriteString("Armor: defense " + ftoa(p.Resolved.Armor.Defense) + " spread " + ftoa(p.Resolved.Armor.Spread))
+		b.WriteString("Armor: defense " + ftoa(p.Resolved.Armor.Defense))
 		if p.Armor != nil {
-			b.WriteString("  (stated: defense " + ftoa(p.Armor.Defense) + " spread " + ftoa(p.Armor.Spread) + ")")
+			b.WriteString("  (stated: defense " + ftoa(p.Armor.Defense) + ")")
 		}
 		b.WriteString("\n")
 	}

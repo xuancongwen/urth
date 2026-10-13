@@ -49,7 +49,7 @@ left out; the engine then uses a quiet default.
 | `onCreate` (optional) | a character's first login, or one with no stats | character | `{stats:{}, statPoints, featPicks, message}` |
 | `deathRules` (optional) | every death | | `{xpFraction, xpLevelCap, corpseRounds, respawnHealth}` |
 | `pickChance` (optional) | each `pick` at a locked door | character, `{name, key}` | a number from 0 to 1, the chance one try opens the lock; 0.5 without the hook. A pickproof door never opens |
-| `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense, spread}, color}`; `color` is the color a named item's or a material's name is shown in |
+| `itemBaseline` (optional) | content load, script reload | item prototype as stated | `{weapon:{damage, spread, speed, hands, kind, verb}, armor:{defense}, color}`; `color` is the color a named item's or a material's name is shown in |
 | `mobBaseline` (optional) | content load, script reload | mob prototype as stated | `{stats:{}, health, xp, attack:{...}, armor:{...}}` |
 | `featList` (optional) | the `feat` command, level-up, `score` | | `[{id, name, level, description, requires:[ids], effect:{kind, params}}]` |
 | `standardKit` (optional) | `simulate fighter:N` | level | `[{name, type, slot, baseline, weapon, armor}]`, built into resolved prototypes at that level |
@@ -79,7 +79,7 @@ left out; the engine then uses a quiet default.
   there; the engine does not define the stat set.
 - Item: `{id, vnum, name, type, slot, level, baseline, weight, value,
   flags, weapon:{damage, spread, speed, hands, kind, verb},
-  armor:{defense, spread}, effects:[], mods:{}}`, plus `material` and
+  armor:{defense}, effects:[], mods:{}}`, plus `material` and
   `rarity` on materials, `school` on totems, and `sacrifice` on an item
   a god accepts. `id` is the instance id that `consume` names. The weapon and armor numbers are the
   *resolved* ones: what the builder stated, with the baseline filling
@@ -471,7 +471,7 @@ Starting values, to be adjusted in playtesting:
 | Dodge base | 3 percent | a few percent, per 4.3's sizing |
 | Block base | 0 | per 4.3 |
 | `K` for reduction (4.3) | 20 at level 1, times level growth to the power `kGrowth` (1.0) of the attacker's level | starter armor totals about 3 defense, 13 percent reduction; with `kGrowth` 1.0 a tier of armor reduces the same share against an attacker of any level, so fight length does not drift with level |
-| Default weapon and armor spread | 0.2 | the value the variance tables were computed at |
+| Default weapon spread | 0.2 | the value the variance tables were computed at |
 
 The first playtest question these values pose is whether five percent
 per point is too little to feel at creation with six points (a 30
@@ -495,8 +495,13 @@ legibility. Keeping the mean as the headline number preserves that; a
 spread field beside it costs nothing in legibility and buys a design
 axis. A dagger that always does close to its number and a maul that
 swings wide around the same number are different weapons in a way that
-two flat numbers cannot express. Armor gets the same treatment: a
-defense number and a spread.
+two flat numbers cannot express.
+
+Armor has no spread (revised 2026-10-12): its defense is a fixed
+number. A defense that rolled each hit read as noise, since the player
+cannot see it and nothing they choose moves it. The chance in defending
+comes from parries, dodges, and shield blocks (4.3), which are events
+the fight reports.
 
 Item form: `damage: 10` with `spread: 0.2` means each swing is drawn
 uniformly from 8 to 12 before multipliers. A missing spread is zero.
@@ -564,11 +569,9 @@ Randomness is symmetric between mobs and players: a mob's natural
 attack is a weapon with a damage number and a spread, and its stats
 have the same band.
 
-Consequences: `resolveAttack` gains nothing; `weapon.spread` and
-`armor.spread` are added to the item view. Damage stays
-positive after a low draw; the floor is zero, not negative. 4.3 should
-choose percentage reduction so that spread on armor is expressed in the
-same units as spread on weapons. The simulator should report the
+Consequences: `resolveAttack` gains nothing; `weapon.spread` is added
+to the item view. Damage stays
+positive after a low draw; the floor is zero, not negative. The simulator should report the
 standard deviation of health remaining, not only the mean.
 
 ### 4.3 Defense is a three-stage pipeline
@@ -614,8 +617,8 @@ scaling it. A plain percentage scales cleanly but must be capped below
     damage taken  = roll * K / (D + K)
     effective health = health * (1 + D / K)
 
-`D` is the sum over worn armor of each piece's draw from its spread
-(4.1), multiplied by the defending stat's multiplier. `K` is a unit,
+`D` is the sum over worn armor of each piece's defense (fixed; 4.1),
+multiplied by the defending stat's multiplier. `K` is a unit,
 not a cap: it is how much defense doubles effective health. Since the
 baselines grow geometrically with level (5.2), `K` grows with the
 *attacker's* level at the same rate (revised 2026-09-24), so a piece of
@@ -1040,7 +1043,7 @@ effect (5.4).
   unarmed swing uses "punch". A mob's natural attack carries its own
   verb ("bite", "claw"). `resolveAttack` returns the verb; the
   transport renders the perspective forms (D10).
-- Armor: `defense` and `spread`, plus `slot`.
+- Armor: `defense`, plus `slot`.
 - Material (6.2): the schools it feeds, and a quantity if it stacks.
 - Totem (6.1): the school it unlocks. Consumed on use.
 - All: `weight`, `value`, `flags`, and an `effects` list.
@@ -1065,7 +1068,7 @@ change the curve without a builder re-editing every file.
 *baseline*, and there are many baselines, one per family of item. A
 baseline is a formula in the rules scripts from level to the item's
 primary numbers: for weapons `damage`, `spread`, and `speed`; for armor
-`defense` and `spread`. An item prototype names its level and its
+`defense`. An item prototype names its level and its
 baseline and gets those numbers computed; any number it states
 explicitly overrides the baseline. Builders write `level: 10, baseline:
 dagger` and nothing else for an ordinary item, and `damage: 40` beside

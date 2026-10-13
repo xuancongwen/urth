@@ -46,8 +46,7 @@
       "description": "Rule inputs for armor or a natural defense.",
       "additionalProperties": false,
       "properties": {
-        "defense": { "type": "number", "minimum": 0 },
-        "spread": { "type": "number", "minimum": 0 }
+        "defense": { "type": "number", "minimum": 0 }
       }
     },
     "effect": {

@@ -282,7 +282,7 @@ func weaponView(s item.WeaponSpec) map[string]any {
 }
 
 func armorView(s item.ArmorSpec) map[string]any {
-	return map[string]any{"defense": s.Defense, "spread": s.Spread}
+	return map[string]any{"defense": s.Defense}
 }
 
 func itemView(it *item.Item) map[string]any {

@@ -17,7 +17,6 @@ baseline: light
 value: 5000
 armor:
   defense: 28
-  spread: 0.1
 effects:
   - kind: soak
     params: { power: 0.12 }

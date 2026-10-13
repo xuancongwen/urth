@@ -378,7 +378,7 @@ function itemBaseline(p) {
   var w = p.weapon || {}, a = p.armor || {};
   return {
     weapon: { damage: w.damage || 4 + 2 * p.level, spread: w.spread || 0.2, speed: w.speed || 1, hands: w.hands, verb: w.verb || "hit" },
-    armor: { defense: a.defense || p.level + 2, spread: a.spread || 0.2 }
+    armor: { defense: a.defense || p.level + 2 }
   };
 }
 function mobBaseline(p) {
@@ -404,7 +404,7 @@ func TestBaselinesResolveAndReload(t *testing.T) {
 	if sword.Resolved.Weapon.Damage != 4 || sword.Resolved.Weapon.Verb != "slash" {
 		t.Fatalf("stated values did not win: %+v", sword.Resolved)
 	}
-	if cap := w.content.Items[11]; cap.Resolved.Armor.Defense != 1 || cap.Resolved.Armor.Spread != 0.2 {
+	if cap := w.content.Items[11]; cap.Resolved.Armor.Defense != 1 {
 		t.Fatalf("armor mix of stated and baseline wrong: %+v", cap.Resolved)
 	}
 	dog := w.content.Mobs[21]

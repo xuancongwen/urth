@@ -164,7 +164,6 @@ type WeaponSpec struct {
 // ArmorSpec is rule input for armor.
 type ArmorSpec struct {
 	Defense float64 `yaml:"defense" json:"defense"`
-	Spread  float64 `yaml:"spread" json:"spread"`
 }
 
 // Resolved holds the numbers in play after the baseline has been applied.
