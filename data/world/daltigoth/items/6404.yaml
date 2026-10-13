@@ -1,0 +1,13 @@
+vnum: 6404
+name: "an ogre-hide jerkin"
+keywords: [jerkin, ogre-hide, hide, leather]
+description: "A jerkin of thick grey hide lies here, crudely laced."
+look: |
+  A jerkin of ogre-hide, or of something an ogre killed. Thick, stiff,
+  and smelling of smoke.
+type: armor
+slot: body
+weight: 8
+level: 22
+baseline: light
+value: 260

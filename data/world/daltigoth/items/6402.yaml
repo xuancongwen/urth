@@ -1,0 +1,20 @@
+vnum: 6402
+name: "a staff of white wood"
+keywords: [staff, white, wood, solinari]
+description: "A staff of pale wood stands here, a moonstone set in its head."
+look: |
+  A staff of wood white as bone, a moonstone at its head that holds a
+  little of Solinari's light even underground. Abjurers and evokers of
+  the White Order carry them.
+type: weapon
+weight: 4
+level: 24
+baseline: staff
+value: 2600
+weapon:
+  hands: 2
+effects:
+  - { kind: spellPower, params: { mult: 1.12, school: abjuration } }
+  - { kind: spellPower, params: { mult: 1.12, school: evocation } }
+  - { kind: penetration, params: { amount: 0.10, branch: arcane } }
+  - { kind: added, params: { kind: magic, power: 0.48 } }

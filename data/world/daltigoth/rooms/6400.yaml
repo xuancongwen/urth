@@ -1,0 +1,11 @@
+vnum: 6400
+name: "The Harbour of Palanthas"
+description: |
+  The street from the Great Square runs down to a harbour of grey stone
+  quays. Most ships are laid up for the war. One is not: a low, fast
+  ship with a scarlet sail, loading for the south and the ice. The
+  square is west; the gangplank is east.
+exits:
+  west: 6302
+  east: 6401
+flags: [safe]

@@ -1,0 +1,8 @@
+vnum: 6409
+name: "The Library of the White Order"
+description: |
+  White shelves, white vellum, and the White Order's wards and
+  evocations, taught to those sworn to them. The undercroft is west.
+exits:
+  west: 6408
+flags: [safe]

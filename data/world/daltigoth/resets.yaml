@@ -1,0 +1,16 @@
+# Southern Ergoth and the ruins of Daltigoth, under which the White Order
+# kept its Test. The ogre chieftain wears the seal of the hidden stair.
+# Everything on the way and in the Test attacks from level 1 (RULES 8.1).
+interval_seconds: 600
+resets:
+  - { mob: 6410, room: 6401 }           # Maquesta at the Perechon's wheel
+  - { mob: 6400, room: 6402, max: 3, equip: [{ item: 6403, slot: wield }] }   # thanoi on the shore, with ivory harpoons
+  - { mob: 6401, room: 6403 }           # an ice bear on the glacier road
+  - { mob: 6402, room: 6404, max: 3, equip: [{ item: 6404, slot: body }] }   # ogres in the ruins, in hide jerkins
+  - { mob: 6403, room: 6405, equip: [{ item: 6400 }] }   # the chieftain, with the white seal
+  - { mob: 6408, room: 6409 }           # the keeper of the white shelves: the White Order's school spells
+  - { mob: 6409, room: 6410 }           # the white robe-keeper: the white robe and the white staff
+  - { mob: 6404, room: 6412, max: 3 }   # the first trial: the shadow hounds
+  - { mob: 6405, room: 6413 }           # the second trial: the ogre magus
+  - { mob: 6406, room: 6414, equip: [{ item: 6405, slot: body }, { item: 6406, slot: head }] }   # the third trial: the templar, his mail and his circlet
+  - { mob: 6407, room: 6415 }           # Par-Salian, who hears the oath

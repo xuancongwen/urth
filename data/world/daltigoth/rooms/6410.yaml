@@ -1,0 +1,8 @@
+vnum: 6410
+name: "The White Robing Room"
+description: |
+  White robes on silver hooks, each with a moon of thread at the breast.
+  The undercroft is east.
+exits:
+  east: 6408
+flags: [safe]

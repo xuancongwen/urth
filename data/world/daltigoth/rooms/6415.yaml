@@ -1,0 +1,11 @@
+vnum: 6415
+name: "The Chamber of the Test"
+description: |
+  A chamber of white stone under a dome painted with the white moon,
+  Solinari, at the full. Here a mage who has passed the Test swears to
+  one school of the White Order, abjuration or evocation, for life
+  ('swear' tells what is asked). The door of moonlight is south.
+exits:
+  south: 6414
+order: white
+flags: [safe]

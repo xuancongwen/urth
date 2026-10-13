@@ -1,0 +1,15 @@
+vnum: 6401
+name: "an ice bear"
+keywords: [ice, bear, white]
+description: "An ice bear rises on its hind legs in the glacier road, white on white."
+look: |
+  A bear as big as a cart, white as the ice it walks on, with a patience
+  for hunting that the walrus-men fear.
+level: 20
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: maul
+  kind: claw
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }

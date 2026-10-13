@@ -1,0 +1,14 @@
+vnum: 6408
+name: "the keeper of the white shelves"
+keywords: [keeper, white, shelves, librarian, mage]
+description: "The keeper of the white shelves dusts a book that has no dust on it."
+look: |
+  A gentle, stooped mage in white, who has kept the White Order's books
+  in the dark under Daltigoth for longer than she will say. She teaches
+  its school spells to those sworn to abjuration or evocation, and to
+  nobody else. Type 'practice'.
+level: 22
+flags: [peaceful]
+teaches: [fire_shield, lightning_bolt, find_weakness, cone_of_cold, chain_lightning, keen_insight, repulsion, globe_of_invulnerability]
+attack:
+  verb: punch

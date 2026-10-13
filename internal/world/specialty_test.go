@@ -235,3 +235,39 @@ func TestPalanthasTakesTheBlackOath(t *testing.T) {
 		}
 	}
 }
+
+// TestDaltigothTakesTheWhiteOath, and between the three Towers every
+// school has a Chamber of the Test (story 1038).
+func TestDaltigothTakesTheWhiteOath(t *testing.T) {
+	w := shippedWorld(t)
+	if r := w.content.Rooms.Rooms[6415]; r == nil || r.Order != "white" {
+		t.Fatal("no Chamber of the Test for the White Order")
+	}
+	slab := w.content.Rooms.Rooms[6406].Door("down")
+	if slab == nil || !slab.Locked || slab.Key != 6400 {
+		t.Fatalf("the white slab: %+v", slab)
+	}
+	orders := map[string]bool{}
+	for _, r := range w.content.Rooms.Rooms {
+		if r.Order != "" {
+			orders[r.Order] = true
+		}
+	}
+	for _, sc := range w.magicSchools().Schools {
+		if !orders[sc.Order] {
+			t.Errorf("no Tower takes an oath to %s (%s)", sc.ID, sc.Order)
+		}
+	}
+	s := w.magicSchools()
+	byID := map[string]Spell{}
+	for _, sp := range w.spellList() {
+		byID[sp.ID] = sp
+	}
+	for _, id := range w.content.Mobs[6408].Teaches {
+		sp := byID[id]
+		sc, _ := s.school(sp.School)
+		if sp.common() || sc.Order != "white" {
+			t.Errorf("the keeper of the white shelves teaches %s (%s, %s)", id, sp.School, sp.tierWord())
+		}
+	}
+}

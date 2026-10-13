@@ -1,0 +1,10 @@
+vnum: 6414
+name: "The Third Trial: The Kingpriest's Hunter"
+description: |
+  A white hall full of white light, too bright to look at, and a templar
+  of the Kingpriest of Istar who hunts mages for the light's sake and is
+  sure he is right. South is the burning city; north, a door of
+  moonlight.
+exits:
+  south: 6413
+  north: 6415

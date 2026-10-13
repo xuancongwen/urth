@@ -1,0 +1,18 @@
+vnum: 6403
+name: "the ogre chieftain of Daltigoth"
+keywords: [ogre, chieftain, king, daltigoth]
+description: "The ogre chieftain of Daltigoth lounges on the emperors' throne, a white seal on a thong around his neck."
+look: |
+  Huge even for an ogre, crowned with a circlet bent to fit his skull,
+  lord of the ruins and of everything in them. Around his neck, on a
+  thong, hangs a slab-seal of white stone with the white moon carved on
+  it, which he found in the crater and keeps because it is warm.
+level: 23
+flags: [aggressive, boss]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+health: 1200
+silver: 260
+stats: { strength: 20, constitution: 18 }
+attack:
+  verb: smash
+  kind: blunt

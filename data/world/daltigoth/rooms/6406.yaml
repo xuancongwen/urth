@@ -1,0 +1,13 @@
+vnum: 6406
+name: "The Crater Where the Tower Stood"
+description: |
+  A bowl of black glass in the snow, perfectly round. The Tower of High
+  Sorcery at Daltigoth stood here until its own mages unmade it rather
+  than give it to the Kingpriest's mob. Nothing grows. In the bottom of
+  the crater a stair goes down under a slab of white stone. The ruins
+  are west.
+exits:
+  west: 6404
+  down: 6407
+doors:
+  down: {name: the white slab, closed: true, locked: true, pickproof: true, key: 6400}

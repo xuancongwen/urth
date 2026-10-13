@@ -1,0 +1,11 @@
+vnum: 6401
+name: "Aboard the Perechon"
+description: |
+  The deck of a ship running south through grey water. Spray freezes on
+  the rails. The crew are tough and quiet, and the captain does not ask
+  what a passenger wants in Ergoth, where nobody wants anything anymore.
+  The quay is west; the ice shore, when the ship touches it, is east.
+exits:
+  west: 6400
+  east: 6402
+flags: [safe]

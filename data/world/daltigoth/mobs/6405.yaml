@@ -1,0 +1,18 @@
+vnum: 6405
+name: "an ogre magus of the Lost Battles"
+keywords: [ogre, magus, mage, lost]
+description: "An ogre magus of the old empire raises a hand wreathed in fire."
+look: |
+  An ogre in a robe of imperial purple, a mage of Ergoth's old court,
+  who came on the night the towers fell to take what the mages would not
+  give. The Test brings him back so you can stop him.
+level: 22
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+stats: { intelligence: 18 }
+attack:
+  verb: blast
+  kind: fire
+effects:
+  - kind: aura
+    params: { kind: fire, power: 0.25, verb: "spray of embers" }

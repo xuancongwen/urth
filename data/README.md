@@ -25,7 +25,14 @@ shrine, whose keeper teaches Bless and sells a sun-disk and a cudgel
 to a beginning priest), `balance` (the test
 lab, unreachable on foot: `goto 900`; one plain mob per level for the
 simulator, and every mechanic in reach, see its README), and `solace` (a town in the vallenwoods, reached by
-the stair under the armory). Below the stair, the Undercroft of Doors
+the stair under the armory; its North Road runs on to `haven`, the
+Haven Road of the war of the Lance, levels 10 to 16, whose east road
+reaches `wayreth`, Wayreth Forest and the Red Order's Tower of High
+Sorcery, 12 to 18, where a mage takes the Test and swears a specialty;
+and west from its crossroads to `palanthas`, the city and the Black
+Order's Tower behind the Shoikan Grove, 15 to 22, whose harbour
+takes ship to `daltigoth`, Southern Ergoth and the ruins over the White
+Order's hidden Test, 18 to 26). Below the stair, the Undercroft of Doors
 (room 6) opens on four more: `shire` (west; Hobbiton, Bywater, Maggot's
 farm, the Woody End and the Old Forest, levels 1 to 10), `swordcoast`
 (east; Candlekeep, the Friendly Arm, Beregost, Nashkel and its mines,

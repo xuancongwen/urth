@@ -1,0 +1,18 @@
+vnum: 6406
+name: "the templar's circlet"
+keywords: [circlet, templar, gold, crown]
+description: "A thin gold circlet set with a white stone lies here."
+look: |
+  A circlet of gold set with a white stone, worn by the Kingpriest's
+  templars as a sign of his favour. It clears the head wonderfully, and
+  makes everything look a little too simple.
+type: armor
+slot: head
+weight: 0
+level: 24
+baseline: cloth
+value: 1800
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: manaMax, params: { amount: 0.10 } }

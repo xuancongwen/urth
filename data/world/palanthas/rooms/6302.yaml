@@ -9,5 +9,6 @@ description: |
 exits:
   south: 6301
   west: 6304
+  east: 6400
   north: 6303
 flags: [safe]

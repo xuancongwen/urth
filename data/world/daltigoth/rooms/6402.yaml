@@ -1,0 +1,9 @@
+vnum: 6402
+name: "The Ice Shore of Southern Ergoth"
+description: |
+  A beach of black shingle under a glacier's face. The wind off the ice
+  cuts like a knife. Walrus-men have hauled out here, and they do not
+  like to share. The ship is west; a road of packed snow climbs south.
+exits:
+  west: 6401
+  south: 6403

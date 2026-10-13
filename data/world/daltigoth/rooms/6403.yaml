@@ -1,0 +1,9 @@
+vnum: 6403
+name: "The Glacier Road"
+description: |
+  A road cut into the glacier, walled with blue ice taller than a man.
+  Old tracks in it are bigger than any man's. The shore is north; the
+  road goes on south, toward the ruins of a city.
+exits:
+  north: 6402
+  south: 6404

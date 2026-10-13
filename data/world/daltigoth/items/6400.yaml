@@ -1,0 +1,10 @@
+vnum: 6400
+name: "the white seal of Daltigoth"
+keywords: [seal, white, slab-seal, daltigoth]
+description: "A seal of white stone carved with the white moon lies here, warm to the touch."
+look: |
+  A hand-sized slab of white stone, carved with Solinari at the full,
+  always faintly warm. It is the seal of the stair under the crater
+  where the Tower of Daltigoth stood, and the stair knows it.
+weight: 1
+value: 0

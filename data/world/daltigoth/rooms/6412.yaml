@@ -1,0 +1,9 @@
+vnum: 6412
+name: "The First Trial: The Hunted Child"
+description: |
+  A snowfield at dusk, and a child running across it, and behind the
+  child a pack of shadows on four legs. The Test asks what you will do.
+  The threshold is south; north, the snow gives way to fire.
+exits:
+  south: 6411
+  north: 6413

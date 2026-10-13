@@ -1,0 +1,23 @@
+vnum: 6406
+name: "the Kingpriest's templar"
+keywords: [templar, kingpriest, hunter, istar]
+description: "The Kingpriest's templar raises a blade of white light against you."
+look: |
+  A templar of Istar in white and gold, a hunter of mages, burning with
+  the certainty of a man who has never doubted anything. The light
+  around him hurts to look at. He thinks your magic is a sin, and that
+  killing you is a mercy.
+level: 24
+flags: [aggressive, boss]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+health: 1100
+silver: 200
+stats: { strength: 18, wisdom: 20 }
+attack:
+  verb: smite
+  kind: holy
+effects:
+  - kind: aura
+    params: { kind: holy, power: 0.30, verb: "blaze of righteous light" }
+  - { kind: resist, params: { kind: holy, amount: 1.0 } }
+  - { kind: resist, params: { kind: unholy, amount: -0.5 } }

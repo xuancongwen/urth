@@ -1,0 +1,16 @@
+vnum: 6403
+name: "an ivory harpoon"
+keywords: [harpoon, ivory, spear, thanoi]
+description: "An ivory harpoon lies on the shingle, barbed and heavy."
+look: |
+  A thanoi harpoon, a shaft of driftwood tipped with a barbed head of
+  walrus ivory. Made for seals, and good for anything else.
+type: weapon
+weight: 5
+level: 20
+baseline: spear
+value: 240
+weapon:
+  hands: 2
+  kind: pierce
+  verb: thrust

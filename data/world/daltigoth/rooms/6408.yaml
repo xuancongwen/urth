@@ -1,0 +1,14 @@
+vnum: 6408
+name: "The Undercroft of the Lost Tower"
+description: |
+  All that is left of the Tower of Daltigoth is what was under it: a
+  vaulted undercroft of white stone, kept clean by the White Order,
+  which never told anyone it had kept anything. A library opens east and
+  a robing room west. Down, a stair goes on to the Test. Up is the way
+  out.
+exits:
+  up: 6407
+  east: 6409
+  west: 6410
+  down: 6411
+flags: [safe]

@@ -22,5 +22,5 @@ a pendant of the dark moon). Past them, the Chamber of the Test (6317,
 `order: black`), where Dalamar the Dark (24, peaceful) hears the oath:
 `swear necromancy` or `swear enchantment`.
 
-East of the square, the street down to the harbour is kept for the ship
-to Ergoth and Daltigoth.
+East of the square, the street runs down to the harbour and the ship to
+Southern Ergoth and the ruins of Daltigoth (`daltigoth`).

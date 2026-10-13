@@ -1,0 +1,9 @@
+vnum: 6413
+name: "The Second Trial: The Lost Battles"
+description: |
+  A burning city, the night the mages unmade their towers, and an ogre
+  magus of the old empire who means to take what the mages are
+  destroying. South is the snowfield; north, a cold white hall.
+exits:
+  south: 6412
+  north: 6414

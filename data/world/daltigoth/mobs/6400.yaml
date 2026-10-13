@@ -1,0 +1,17 @@
+vnum: 6400
+name: "a thanoi walrus-man"
+keywords: [thanoi, walrus-man, walrus, man]
+description: "A thanoi walrus-man heaves itself up on the shingle, tusks lowered."
+look: |
+  A hulking walrus-man of the southern ice, blubber over muscle, with
+  tusks as long as daggers and a harpoon of ivory. The thanoi hold this
+  shore and eat whatever the sea and the ships bring.
+level: 19
+flags: [aggressive, assist]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: gore
+  kind: pierce
+effects:
+  - { kind: resist, params: { kind: cold, amount: 0.5 } }
+  - { kind: resist, params: { kind: fire, amount: -0.3 } }

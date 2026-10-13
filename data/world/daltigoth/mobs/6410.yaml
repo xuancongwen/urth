@@ -1,0 +1,14 @@
+vnum: 6410
+name: "Maquesta Kar-Thon"
+keywords: [maquesta, kar-thon, maq, captain]
+description: "Maquesta Kar-Thon, captain of the Perechon, stands at the wheel."
+look: |
+  A dark, sharp-eyed woman in a captain's coat, who has carried stranger
+  cargo than you to stranger places, for money. "Ergoth," she says.
+  "Ice, walrus-men, and ogres in the ruins. Whatever you want there, I
+  hope it is worth it." She keeps the deck safe, and her crew keeps it
+  safe from her passengers.
+level: 18
+flags: [peaceful]
+attack:
+  verb: slash

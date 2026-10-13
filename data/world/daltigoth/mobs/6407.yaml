@@ -1,0 +1,14 @@
+vnum: 6407
+name: "Par-Salian"
+keywords: [par-salian, par, salian, master, white]
+description: "Par-Salian, Head of the Conclave, waits in the chamber, an old man in white."
+look: |
+  The Head of the Conclave and Master of the White Robes, very old, his
+  eyes kind and very tired. "You have come a long way to be asked a hard
+  question," he says. "Swear, then: to abjuration, or to evocation. It
+  is for life. The abjurer is closed to conjuration; the evoker to
+  necromancy." Type 'swear'.
+level: 26
+flags: [peaceful]
+attack:
+  verb: strike

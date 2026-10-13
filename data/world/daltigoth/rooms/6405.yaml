@@ -1,0 +1,8 @@
+vnum: 6405
+name: "The Broken Palace"
+description: |
+  The emperors' throne room, open to the sky, where an ogre chieftain
+  has made a throne of the old throne and a hoard of everything else.
+  The ruins are north.
+exits:
+  north: 6404

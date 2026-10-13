@@ -1,0 +1,9 @@
+vnum: 6407
+name: "The Hidden Stair"
+description: |
+  A stair of white stone spiralling down through the rock, lit by a
+  light that comes from the steps themselves. It is warm here, after the
+  ice. The crater is up; the stair goes on down.
+exits:
+  up: 6406
+  down: 6408

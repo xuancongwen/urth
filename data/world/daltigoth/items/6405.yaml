@@ -1,0 +1,14 @@
+vnum: 6405
+name: "a templar's white mail"
+keywords: [mail, white, templar, hauberk]
+description: "A hauberk of white-enamelled mail lies here, gleaming."
+look: |
+  The mail of a templar of Istar, white-enamelled and gilt at the edges,
+  heavier than it looks and polished by someone who believed in
+  polishing.
+type: armor
+slot: body
+weight: 14
+level: 24
+baseline: heavy
+value: 300

@@ -1,0 +1,10 @@
+vnum: 6411
+name: "The Threshold of the Test"
+description: |
+  The stair ends in a white place without walls. A voice says: "The
+  White Order asks whether you will protect what cannot protect itself,
+  at any cost. Pass, and swear. Fail, and stay." Up is the undercroft;
+  the Test is north.
+exits:
+  up: 6408
+  north: 6412

@@ -1,0 +1,18 @@
+vnum: 6401
+name: "the white robe of the Order"
+keywords: [robe, white, order, solinari]
+description: "A robe of white wool, a silver moon at its breast, lies folded here."
+look: |
+  The robe of a mage of the White Order, white wool that never stains, a
+  silver moon stitched at the breast. Those who wear it have promised to
+  use the art to guard, and the robe seems to hold them to it.
+type: armor
+slot: body
+weight: 2
+level: 24
+baseline: cloth
+value: 2800
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: spellPower, params: { mult: 1.10, branch: arcane } }

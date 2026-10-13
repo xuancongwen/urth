@@ -1,0 +1,14 @@
+vnum: 6402
+name: "an ogre of the ruins"
+keywords: [ogre, ruins, brute]
+description: "An ogre of the ruins warms its hands at a fire built from a palace door."
+look: |
+  The ogres of Ergoth were an empire's servants once, and then its
+  heirs. These live in its ruins, and they are bigger than the hill
+  ogres of the north, and better armed.
+level: 21
+flags: [aggressive, assist]
+aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: smash
+  kind: blunt

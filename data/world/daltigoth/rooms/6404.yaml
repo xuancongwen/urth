@@ -1,0 +1,11 @@
+vnum: 6404
+name: "The Ruins of Daltigoth"
+description: |
+  Once the capital of an empire; now broken walls under snow, roofless
+  halls, and the smoke of ogre fires. Northward the glacier road; south
+  the palace's shell; east, a hollow where something greater than a
+  palace once stood.
+exits:
+  north: 6403
+  south: 6405
+  east: 6406

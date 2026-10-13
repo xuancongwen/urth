@@ -1,0 +1,15 @@
+vnum: 6409
+name: "the white robe-keeper"
+keywords: [robe-keeper, white, robe, keeper]
+description: "The white robe-keeper folds a robe with care."
+look: |
+  A young mage in white who has not yet sat the Test and keeps the robes
+  while she studies for it. She sells the White Order's robe and staff.
+  Type 'list'.
+level: 16
+flags: [peaceful]
+trades:
+  - { item: 6401, silver: 2800 }
+  - { item: 6402, silver: 2600 }
+attack:
+  verb: punch
