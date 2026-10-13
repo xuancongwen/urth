@@ -35,6 +35,5 @@ resets:
   # the shrine of Lolth
   - { mob: 707, room: 723, equip: [{ item: 704, slot: wield }, { item: 711, slot: finger1 }, { item: 733, slot: neck }, { item: 732 }, { item: 761 }] }   # the priestess, whip, signet, house insignia, Zaknafein's sword, and a spare holy symbol of Lolth
   - { mob: 715, room: 723, equip: [{ item: 755, slot: wield }, { item: 762, slot: neck }] }   # Matron Malice on her bone throne, with her tentacle rod, and the holy symbol of her house at her throat
-  - { item: 709, room: 723 }                                  # the necromancy totem on the altar
   - { item: 710, room: 723 }                                  # the black-silk offering
   - { mob: 720, room: 723 }                                   # the acolyte, who teaches the Evil god's Rotting Touch, Dread, and Malediction

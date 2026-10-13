@@ -196,3 +196,14 @@ func TestWayrethTakesTheRedOath(t *testing.T) {
 		}
 	}
 }
+
+// TestNoTotemsInTheWorld: since 2026-10-12 a specialty is earned at a
+// Tower; totems are only the balance lab's (story 1026).
+func TestNoTotemsInTheWorld(t *testing.T) {
+	w := shippedWorld(t)
+	for vnum, p := range w.content.Items {
+		if p.Type == "totem" && p.Area != "balance" {
+			t.Errorf("item %d (%s, %s) is a totem outside the lab", vnum, p.Name, p.Area)
+		}
+	}
+}

@@ -42,4 +42,3 @@ resets:
   - { item: 864, room: 823 }                                   # crystal shed by the engine
   - { item: 888, room: 824 }                                   # a boarding-pike in the rack below decks
   - { mob: 841, room: 825, equip: [{ item: 852, slot: wield }, { item: 853, slot: body }, { item: 873, slot: shoulders }, { item: 858 }, { item: 874 }] }   # the captain, coat, sail-silk cloak, the flask, and a Sartan rune-staff
-  - { item: 861, room: 825 }                                   # the totem on his shrine

@@ -9,8 +9,8 @@ look: |
   more about you than you do, and he is not going to tell you. "Thy
   path will be thine own to walk. I merely wished to see where it
   begins." He has errands, if you would like to be useful while you
-  find out. He will also, if thou hast found a school of the art,
-  teach thee a beginner's spell or two, for a price. Type 'practice'.
+  find out. He will also teach thee a beginner's spell or two, for a
+  price, and more to one sworn to a school of the art. Type 'practice'.
 level: 40
 flags: [peaceful, questmaster]
 teaches: [magic_missile, arcane_shield, true_strike, color_spray, mage_armor, mind_spike, see_invisible, mirror_image, find_weakness, arcane_heroism]

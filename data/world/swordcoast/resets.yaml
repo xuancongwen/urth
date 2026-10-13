@@ -48,5 +48,4 @@ resets:
   - { item: 526, room: 522 }   # a dead miner's gloves
   - { mob: 516, room: 523, max: 2, equip: [{ item: 501, slot: wield }, { item: 527, slot: feet }, { item: 512 }] }   # commandos at the shaft, iron-shod
   - { mob: 517, room: 524, equip: [{ item: 502, slot: wield }, { item: 503, slot: body }, { item: 528, slot: legs }, { item: 534, slot: finger1 }, { item: 515 }] }   # Mulahey, armed, ringed, with Tazok's letter
-  - { item: 510, room: 524 }   # the stolen totem on the altar
   - { item: 511, room: 524 }

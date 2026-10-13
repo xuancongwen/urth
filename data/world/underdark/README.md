@@ -13,7 +13,7 @@ and Dinin Do'Urden leading them (17, 600 health; his adamantite sword),
 drow wizard 17 (a spellweaver's circlet), shrine spiders 18, the spirit-wraith of Zaknafein in
 the antechamber (19, 850 health; his second sword), and in the shrine
 the drow priestess 20 (the whip, the signet, the insignia of House
-Do'Urden, the necromancy totem, and the offering are with her) and
+Do'Urden; the black-silk offering lies on the altar) and
 Matron Malice Do'Urden on her throne beside the altar (20, 1250
 health; her tentacle rod and her house's holy symbol), the hardest fight in the area. Neither
 joins the other's fight.

@@ -3,7 +3,7 @@
 The Sword Coast of the first Baldur's Gate, levels 1 to 10: Candlekeep,
 the Lion's Way, the Coast Way and the Friendly Arm, Beregost, Nashkel,
 and the Nashkel mines, where Mulahey (level 10) keeps the kobolds and the
-tainted iron and a totem stolen from Candlekeep's vaults. The east door
+tainted iron and a Ring of Wizardry stolen from Candlekeep's vaults. The east door
 of the Undercroft (start room 6) opens into Candlekeep's undercellars,
 room 500. Candlekeep's cellars, courtyard, and gate, the Beregost inns, and
 Nashkel's crossroads are safe. Winthrop's inn, the library steps,

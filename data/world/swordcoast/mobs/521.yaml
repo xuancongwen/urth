@@ -10,8 +10,8 @@ look: |
   Nashkel iron rots, and he wants samples: bring him three lumps of the
   tainted iron from the mine and he will part with the ring the
   Black Network gave him. Type 'list'. "Are you a wizard? You look
-  like a wizard. No, wait, you don't." If you have the grave's school
-  he will teach you a little of it, giggling. Type 'practice'.
+  like a wizard. No, wait, you don't." He will teach anyone the chill
+  of the grave, giggling, and more of it to one sworn to necromancy. Type 'practice'.
 level: 9
 flags: [peaceful]
 teaches: [chill_touch, false_life, vampiric_touch]

@@ -8,8 +8,8 @@ look: |
   talks to the crystals while she cuts them, and sometimes they seem
   to answer. Her bins are empty and her prices say so: bring her fel
   iron, fire, or scales and she will make you something worth having.
-  She teaches the crystal-lore of her people, too, to those who have
-  found its schools. Type 'practice'.
+  She teaches the crystal-lore of her people, too, to those sworn to
+  its schools. Type 'practice'.
 level: 16
 flags: [peaceful]
 teaches: [arcane_heroism, slow, keen_insight, repulsion, confusion, phantasmal_killer, cone_of_cold, iron_body, tensers_transformation]
