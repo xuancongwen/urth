@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the lighthouse ---
   - { mob: 2600, room: 2602 }                                   # Fisherman Haldren, who buys fins and sells lanterns

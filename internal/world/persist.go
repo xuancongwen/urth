@@ -102,7 +102,13 @@ func (w *World) loadSheet(p *Player) {
 	p.FeatPoints = p.rec.FeatPoints
 	p.Silver = p.rec.Silver
 	p.Effects = append([]effect.Active(nil), p.rec.Effects...)
-	p.Schools = append([]string(nil), p.rec.Schools...)
+	p.Specialty = p.rec.Specialty
+	if len(p.rec.Schools) > 0 {
+		// Schools from totems were reset when specialties came in
+		// (docs/RULES.md 6.1, 2026-10-12).
+		p.rec.Schools = nil
+		p.Send("{Y}The Orders of High Sorcery have reclaimed the schools you once held. Seek a Tower and its Test to take a specialty.{x}\n")
+	}
 	p.Deity = p.rec.Deity
 	p.questPoints = p.rec.QuestPoints
 	p.questWait = p.rec.QuestWait
@@ -126,6 +132,9 @@ func (w *World) loadSheet(p *Player) {
 			p.Send(output.Escape(r.Message) + "\n")
 		}
 	}
+	if n := w.syncFeats(p.Character); n > 0 {
+		p.Send("Feats have changed since you last played: " + plural(n, "feat pick") + " given back. Type 'feat' to choose again.\n")
+	}
 	w.ensurePassives(p.Character)
 	w.recalc(p.Character)
 	if p.rec.Health <= 0 {
@@ -144,7 +153,8 @@ func (w *World) saveSheet(p *Player) {
 	p.rec.StatPoints = p.StatPoints
 	p.rec.FeatPoints = p.FeatPoints
 	p.rec.Silver = p.Silver
-	p.rec.Schools = append([]string(nil), p.Schools...)
+	p.rec.Specialty = p.Specialty
+	p.rec.Schools = nil
 	p.rec.Deity = p.Deity
 	p.rec.QuestPoints = p.questPoints
 	p.rec.QuestWait = p.questWait

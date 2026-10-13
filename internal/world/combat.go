@@ -690,7 +690,7 @@ func cmdFeat(w *World, p *Player, args string) {
 		if taken[f.ID] {
 			return false, "learned"
 		}
-		if why := featBlocker(p.Character, f); why != "" {
+		if why := w.featBlocker(p.Character, f); why != "" {
 			return false, why
 		}
 		for _, req := range f.Requires {
@@ -803,6 +803,54 @@ func (w *World) grantFeat(c *Character, f Feat) {
 	}
 	c.Effects = append(c.Effects, effect.Active{Spec: effect.Spec{Kind: f.Effect.Kind, Params: params}})
 	w.recalc(c)
+}
+
+// syncFeats brings a character's feats in step with the rules' current
+// list, so a feat retuned in rules.js reaches everyone who holds it: each
+// held feat's effect is rebuilt from its definition; one the list no
+// longer has is swapped for the feat that names it in replaces, once,
+// and otherwise dropped. It returns the picks given back for what was
+// dropped. With no feat list (rules that define none) nothing changes.
+func (w *World) syncFeats(c *Character) (refunded int) {
+	feats := w.featList()
+	if len(feats) == 0 {
+		return 0
+	}
+	byID := map[string]Feat{}
+	replacedBy := map[string]string{}
+	for _, f := range feats {
+		byID[f.ID] = f
+		for _, old := range f.Replaces {
+			replacedBy[old] = f.ID
+		}
+	}
+	held := map[string]bool{}
+	var kept []effect.Active
+	for _, e := range c.Effects {
+		id, ok := e.Params["feat"].(string)
+		if !ok {
+			kept = append(kept, e)
+			continue
+		}
+		if _, ok := byID[id]; !ok {
+			id = replacedBy[id]
+		}
+		if id == "" || held[id] {
+			refunded++
+			continue
+		}
+		held[id] = true
+		f := byID[id]
+		params := map[string]any{"feat": f.ID}
+		for k, v := range f.Effect.Params {
+			params[k] = v
+		}
+		e.Spec = effect.Spec{Kind: f.Effect.Kind, Params: params}
+		kept = append(kept, e)
+	}
+	c.Effects = kept
+	c.FeatPoints += refunded
+	return refunded
 }
 
 func featName(feats []Feat, id string) string {

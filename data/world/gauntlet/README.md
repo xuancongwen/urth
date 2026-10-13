@@ -10,7 +10,7 @@ out at the coin slot (2900).
 
 This is a farming area. The rooms are crowded, every common monster is
 flagged `assist` so attacking one brings its kind in
-the room down on you, the reset interval is two minutes, and there is
+the room down on you, the reset interval is eight minutes, and there is
 plain drop gear at every level from 27 to 37 so any kill can roll loot.
 Generators (bone piles, grunt huts, demon pits) do not fight back but
 keep adding their monster to the room (`spawns`) until destroyed, and

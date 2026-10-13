@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Bryn Shander ---
   - { mob: 600, room: 601, equip: [{ item: 634, slot: finger1 }] }   # Cassius, under the awning, with the town's seal on his hand

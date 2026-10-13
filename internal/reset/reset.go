@@ -14,7 +14,7 @@ import (
 )
 
 // DefaultIntervalSeconds is used when an area does not say.
-const DefaultIntervalSeconds = 600
+const DefaultIntervalSeconds = 2400
 
 // Area is one area's reset schedule.
 type Area struct {

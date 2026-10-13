@@ -43,6 +43,7 @@
       "description": "safe forbids fighting; dark needs a light. Other flags are free for rules."
     },
     "temple": { "$ref": "common.schema.json#/$defs/deity", "description": "This room is the named deity's temple; sacrifice works here." },
+    "order": { "enum": ["white", "red", "black"], "description": "The Order of High Sorcery whose Test ends here; 'swear' takes a specialty in one of its schools." },
     "position": {
       "type": "object",
       "description": "Anchor this room on the area map; rooms without one are placed by walking exits from an anchor. North decreases y, up increases z.",

@@ -7,7 +7,7 @@ halls, deadites crawl off their shelves, flying heads cackle in the
 dark, a witch keeps house at the bottom of a pit, and Evil Ash holds
 the book at the altar. A farming area: levels 14 to 18, with Evil Ash
 at 19, crowded rooms of skeletons that `assist` one another, a
-two-minute reset, and plain gear at every level from 13 to 20 so every
+eight-minute reset, and plain gear at every level from 13 to 20 so every
 kill can roll loot. Reached down a ladder from the graveyard above
 (room 2110 in `barovia`); 2700 is the crypt mouth. Deadites and flying
 heads attack on sight; the skeletons wait to be hit.

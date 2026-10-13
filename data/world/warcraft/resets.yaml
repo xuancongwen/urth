@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the war camp ---
   - { mob: 1400, room: 1406, max: 3, equip: [{ item: 1400 }, { item: 1424 }] }   # peons, each hauling lumber and a wood-axe

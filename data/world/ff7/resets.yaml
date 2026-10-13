@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Sector 7 and the night train (the station and Seventh Heaven are safe) ---
   - { mob: 3741, room: 3705 }   # Tifa behind the bar, who teaches hand to hand, dodge and trip and sells lamps and knuckles

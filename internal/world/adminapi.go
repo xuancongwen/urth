@@ -131,7 +131,7 @@ func (a adminAPI) Character(name string) (*admin.CharacterView, error) {
 		}
 		v := &admin.CharacterView{CharacterRow: w.adminRow(rec), Experience: rec.Experience, Stats: copyStats(rec.Stats),
 			StatPoints: rec.StatPoints, FeatPoints: rec.FeatPoints, Silver: rec.Silver, Health: rec.Health, Mana: rec.Mana, Stamina: rec.Stamina,
-			Schools: rec.Schools, Deity: rec.Deity, QuestPoints: rec.QuestPoints, QuestWait: rec.QuestWait,
+			Specialty: rec.Specialty, Deity: rec.Deity, QuestPoints: rec.QuestPoints, QuestWait: rec.QuestWait,
 			Visited: len(rec.Visited), Effects: rec.Effects, Color: rec.Color,
 			Inventory: w.adminItems(rec.Inventory), Equipment: []admin.ItemView{}}
 		if o != nil {

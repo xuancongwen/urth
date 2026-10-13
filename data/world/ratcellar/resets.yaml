@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the foot of the stair ---
   - { mob: 2500, room: 2500 }                                   # Pip on his crate, selling candles

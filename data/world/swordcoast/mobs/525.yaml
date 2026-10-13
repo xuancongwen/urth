@@ -13,6 +13,6 @@ look: |
   teach thee a beginner's spell or two, for a price. Type 'practice'.
 level: 40
 flags: [peaceful, questmaster]
-teaches: [magic_missile, arcane_shield, true_strike, color_spray, mage_armor, mind_spike, sleep, invisibility, see_invisible, mirror_image, find_weakness, arcane_heroism]
+teaches: [magic_missile, arcane_shield, true_strike, color_spray, mage_armor, mind_spike, see_invisible, mirror_image, find_weakness, arcane_heroism]
 attack:
   verb: strike

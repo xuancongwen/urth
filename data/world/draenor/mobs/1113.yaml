@@ -12,7 +12,7 @@ look: |
   found its schools. Type 'practice'.
 level: 16
 flags: [peaceful]
-teaches: [arcane_heroism, stoneskin, slow, keen_insight, repulsion, confusion, phantasmal_killer, cone_of_cold, iron_body, tensers_transformation]
+teaches: [arcane_heroism, slow, keen_insight, repulsion, confusion, phantasmal_killer, cone_of_cold, iron_body, tensers_transformation]
 trades:
   - { item: 1113, silver: 30 }
   - { item: 1118, silver: 70 }

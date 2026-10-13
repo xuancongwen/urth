@@ -8,7 +8,7 @@ the computer lab with Oregon Trail and a Logo turtle, rectangle-pizza
 Friday in the cafeteria, the kitchen and the boiler room, the gym and
 its PACER test, the field, and the Sligo Creek trail in a Brood X
 summer. Levels 1 to 5, with the Goose of Sligo Creek at 6: an early
-levelling area, crowded rooms, a two-minute reset, and loot that is
+levelling area, crowded rooms, an eight-minute reset, and loot that is
 mostly what the drop rolls give. Reached down the bus steps in the
 floor of the Hall of Flickering Windows (room 13) to the bus loop
 (4800); the magnet bus runs on east from there to `blair`.

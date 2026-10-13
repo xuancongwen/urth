@@ -219,7 +219,7 @@ function resolveCast(caster, targets, spell) {
 }
 `)
 	p := w.players[1]
-	p.Schools = []string{"necromancy"}
+	p.Specialty = "necromancy"
 	p.Health = p.HealthMax - 3
 	send(w, 1, "cast drain guard")
 	if o := bob.take(); !strings.Contains(o, "Your drain heals you. [3]") || p.Health != p.HealthMax {
@@ -348,7 +348,7 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 		t.Fatalf("not taught with the stat: %q", bob.take())
 	}
 
-	p.Schools = []string{"evocation"}
+	p.Specialty = "evocation"
 	send(w, 1, "cast nova")
 	if o := bob.take(); !strings.Contains(o, "You cannot cast Nova yet: it takes level 4 and 2 might, and you lack level 4.") {
 		t.Fatalf("cast below level: %q", o)
@@ -379,7 +379,7 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 `)
 	w.content.Mobs[20].Teaches = []string{"nova", "star"}
 	send(w, 1, "practice")
-	if o := bob.take(); !strings.Contains(o, "Nova") || !strings.Contains(o, "(needs the evocation school)") || strings.Contains(o, "Starfall") {
+	if o := bob.take(); !strings.Contains(o, "Nova") || !strings.Contains(o, "(needs a specialty in evocation)") || strings.Contains(o, "Starfall") {
 		t.Fatalf("listing without the school: %q", o)
 	}
 	send(w, 1, "practice nova")
@@ -387,16 +387,16 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 		t.Fatalf("taught without the school: %q", o)
 	}
 	send(w, 1, "spells all")
-	if o := bob.take(); !strings.Contains(o, "Spark         with the evocation school\n") || !strings.Contains(o, "Nova          from a trainer  (the evocation school, level 4 and 2 might)") {
+	if o := bob.take(); !strings.Contains(o, "Spark         evocation, school     with a specialty in evocation\n") || !strings.Contains(o, "Nova          evocation, school     from a trainer  (a specialty in evocation, level 4 and 2 might)") {
 		t.Fatalf("spells all without the school: %q", o)
 	}
-	p.Schools = []string{"evocation"}
+	p.Specialty = "evocation"
 	send(w, 1, "spells")
-	if o := bob.take(); !strings.Contains(o, "Spark") || !strings.Contains(o, "Still to learn:") || strings.Contains(o, "Nova") || !strings.Contains(o, "Starfall      from a scroll") || !strings.Contains(o, "'spells all' lists 1 more") {
+	if o := bob.take(); !strings.Contains(o, "Spark") || !strings.Contains(o, "Still to learn:") || strings.Contains(o, "Nova") || !strings.Contains(o, "Starfall      evocation, rare       from a scroll") || !strings.Contains(o, "'spells all' lists 1 more") {
 		t.Fatalf("spells with the school: %q", o)
 	}
 	send(w, 1, "spells all")
-	if o := bob.take(); !strings.Contains(o, "Nova          from a trainer  (level 4 and 2 might)") {
+	if o := bob.take(); !strings.Contains(o, "Nova          evocation, school     from a trainer  (level 4 and 2 might)") {
 		t.Fatalf("spells all: %q", o)
 	}
 	send(w, 1, "cast nova")
@@ -486,10 +486,10 @@ function resolveCast(c, ts, sp) { return { ok: true, message: "", consume: [], t
 		t.Fatalf("blank: %q", o)
 	}
 	send(w, 1, "study starfall")
-	if o := bob.take(); !strings.Contains(o, "It takes the evocation school.") {
+	if o := bob.take(); !strings.Contains(o, "It takes a specialty in evocation.") {
 		t.Fatalf("no school: %q", o)
 	}
-	p.Schools = []string{"evocation"}
+	p.Specialty = "evocation"
 	send(w, 1, "study starfall")
 	if o := bob.take(); !strings.Contains(o, "it takes level 3 and 2 might, and you lack level 3") || len(p.Inventory) != 2 {
 		t.Fatalf("level: %q", o)

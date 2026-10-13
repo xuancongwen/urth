@@ -14,7 +14,7 @@ look: |
   he will teach you a little of it, giggling. Type 'practice'.
 level: 9
 flags: [peaceful]
-teaches: [chill_touch, ray_of_enfeeblement, false_life, vampiric_touch]
+teaches: [chill_touch, false_life, vampiric_touch]
 trades:
   - { item: 546, items: [511, 511, 511] }
   - { item: 550, silver: 280 }

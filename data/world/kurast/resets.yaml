@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Kurast Docks ---
   - { mob: 3300, room: 3300 }                                   # Meshif at his ship's rail

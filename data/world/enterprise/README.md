@@ -6,7 +6,7 @@ bridge, and below it an away-team world with mugato on the ridges,
 Horta guarding their eggs in the mining tunnels, and the Gorn on the
 desert where a starship captain once built a cannon out of bamboo.
 Levels 7 to 11, with the Gorn captain at 12: an early levelling area,
-crowded rooms, a two-minute reset, and loot that is mostly what the
+crowded rooms, an eight-minute reset, and loot that is mostly what the
 drop rolls give. Reached north from the Hall of Flickering Windows
 (room 13, north of the Long Hall) through the humming panels into the
 transporter room (4200); `down` from there beams to the planet (4207),

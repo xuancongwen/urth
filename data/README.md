@@ -59,7 +59,7 @@ to Deus); its south door is still sealed. West of the Long Hall (room
 whose north door leads to `zelda` (Hyrule, 5 to 35, ending at
 Ganondorf); its other doors are kept for fantasy areas to come. North
 of the Long Hall, the Hall of Flickering Windows (room 13) opens on
-three early levelling areas, crowded, on a two-minute reset, with
+three early levelling areas, crowded, on an eight-minute reset, with
 little carried and two unique pieces each from loot tables: `pandora`
 (west, Borderlands' Arid Badlands, 1 to 6, ending at Nine-Toes),
 `gotham` (east, Batman's Gotham City, 4 to 9, ending at the Joker in
@@ -71,7 +71,7 @@ the fights are with vermin and machines: `tpms` (Takoma Park Middle
 School, 1 to 6, ending at the Goose of Sligo Creek) and, east from its
 bus loop, `blair` (Montgomery Blair High School, 5 to 10, ending at the
 Roach King in the steam tunnels). Five farming areas
-keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
+keep a tight band, crowded rooms, an eight-minute reset, and plain drop gear
 at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`
 (14 to 18, below Barovia's graveyard), `cowlevel` (20 to 26, through a

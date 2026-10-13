@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the temple and the guilds ---
   - { mob: 3015, room: 3003 }   # the high priest, in the clerics' sanctum

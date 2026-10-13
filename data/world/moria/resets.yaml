@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- outside the West-gate: the camp of the Erebor dwarves ---
   - { mob: 2000, room: 2003 }                                   # Draupnir at his awning

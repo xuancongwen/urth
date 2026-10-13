@@ -1,5 +1,5 @@
 # The Sword Coast repopulates on the interval.
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # Candlekeep
   - { mob: 500, room: 503, equip: [{ item: 508 }] }   # Winthrop behind his bar, with a mug of his own

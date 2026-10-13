@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # the road and the Hill
   - { item: 403, room: 400 }   # a felt hat blown into the bend

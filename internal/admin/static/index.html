@@ -252,7 +252,7 @@
         '<span class="k">silver</span><span>' + c.silver + '</span>' +
         (stats ? '<span class="k">stats</span><span>' + esc(stats) + '</span>' : '') +
         (c.statPoints || c.featPoints ? '<span class="k">unspent</span><span>' + (c.statPoints || 0) + ' stat, ' + (c.featPoints || 0) + ' feat</span>' : '') +
-        (c.schools && c.schools.length ? '<span class="k">schools</span><span>' + esc(c.schools.join(', ')) + '</span>' : '') +
+        (c.specialty ? '<span class="k">specialty</span><span>' + esc(c.specialty) + '</span>' : '') +
         (c.deity ? '<span class="k">deity</span><span>' + esc(c.deity) + '</span>' : '') +
         '<span class="k">quest points</span><span>' + (c.questPoints || 0) + (c.questWait ? ' <span class="dim">(' + c.questWait + ' rounds to wait)</span>' : '') + '</span>' +
         (q ? '<span class="k">quest</span><span>' + esc(q) + '</span>' : '') +

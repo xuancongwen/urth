@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Terminus (safe) ---
   - { mob: 3600, room: 3605 }                                   # Hari Seldon's recorded image in the Time Vault, handing out crises as quests

@@ -20,7 +20,7 @@ func enchanter(t *testing.T, w *World, rating float64) *Character {
 	t.Helper()
 	c := w.simFighter(25)
 	c.Stats["intelligence"] = 22
-	c.Schools = []string{"enchantment"}
+	c.Specialty = "enchantment"
 	w.recalc(c)
 	c.Mana = c.ManaMax
 	sk, ok := w.skillByID("enchanting")
@@ -209,7 +209,7 @@ func TestCastEnchantOnAnItem(t *testing.T) {
 	c := w.players[1].Character
 	c.Level = 25
 	c.Stats["intelligence"] = 22
-	c.Schools = []string{"enchantment"}
+	c.Specialty = "enchantment"
 	w.recalc(c)
 	c.Mana = c.ManaMax
 	blade := giveItem(w, c, 10) // the rusty sword

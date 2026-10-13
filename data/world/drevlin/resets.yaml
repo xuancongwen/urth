@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # the outer works
   - { mob: 834, room: 800, equip: [{ item: 850, slot: wield }, { item: 854, slot: body }] }   # a Geg tightener on his rounds

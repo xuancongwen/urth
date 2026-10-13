@@ -675,7 +675,7 @@ func TestTotemSacrificeAndSpellAccess(t *testing.T) {
 		t.Fatalf("consume totem: %q", o)
 	}
 	send(w, 1, "brandish totem")
-	if o := bob.take(); !strings.Contains(o, "crumbles to dust") || !strings.Contains(o, "The ways of evocation open to you.") {
+	if o := bob.take(); !strings.Contains(o, "crumbles to dust") || !strings.Contains(o, "You are sworn to evocation.") {
 		t.Fatalf("brandish totem: %q", o)
 	}
 	if len(w.players[1].Inventory) != 0 {
@@ -710,8 +710,8 @@ func TestTotemSacrificeAndSpellAccess(t *testing.T) {
 	// Access persists.
 	p := w.players[1]
 	w.save(p)
-	if len(p.rec.Schools) != 1 || p.rec.Schools[0] != "evocation" || p.rec.Deity != "good" {
-		t.Fatalf("access not saved: %+v %q", p.rec.Schools, p.rec.Deity)
+	if p.rec.Specialty != "evocation" || p.rec.Deity != "good" {
+		t.Fatalf("access not saved: %q %q", p.rec.Specialty, p.rec.Deity)
 	}
 }
 
@@ -720,7 +720,7 @@ func TestCastTimingMaterialsAndInterruption(t *testing.T) {
 	bob := login(t, w, 1, "Bob")
 	setRules(t, w, magicRules)
 	p := w.players[1]
-	p.Schools = []string{"evocation", "abjuration"}
+	p.Specialty = "evocation"
 	p.HealthMax, p.Health = 100, 100
 	send(w, 1, "cast bolt guard")
 	if o := bob.take(); !strings.Contains(o, "You need 1 ash to cast Bolt.") {
@@ -754,6 +754,7 @@ func TestCastTimingMaterialsAndInterruption(t *testing.T) {
 		t.Fatalf("cooldown: %q", o)
 	}
 	// A free cast resolves at once and attaches a timed effect.
+	p.Specialty = "abjuration" // for the test only: an oath is for life
 	send(w, 1, "cast ward")
 	if o := bob.take(); !strings.Contains(o, "You cast Ward.") || !strings.Contains(o, "Your ward takes hold.") {
 		t.Fatalf("instant cast: %q", o)
@@ -761,6 +762,7 @@ func TestCastTimingMaterialsAndInterruption(t *testing.T) {
 	if len(p.Effects) != 1 || p.Effects[0].Kind != "tough" || p.Effects[0].Rounds < 3 || p.Effects[0].Rounds > 4 {
 		t.Fatalf("effect not attached: %+v", p.Effects)
 	}
+	p.Specialty = "evocation"
 	// Damage interrupts an interruptible cast; materials are gone.
 	send(w, 1, "flee")
 	bob.take()
@@ -801,7 +803,7 @@ func TestAreaSpellSafeRoomAndGroupXP(t *testing.T) {
 	bob := login(t, w, 1, "Bob")
 	alice := login(t, w, 2, "Alice")
 	setRules(t, w, magicRules)
-	w.players[1].Schools = []string{"evocation"}
+	w.players[1].Specialty = "evocation"
 	// Alice follows Bob and joins his group.
 	send(w, 2, "follow bob")
 	if o := alice.take(); !strings.Contains(o, "You now follow Bob.") {
@@ -1443,7 +1445,7 @@ func TestCastSpendsMana(t *testing.T) {
 	// testRules gives a pool of 5; Nova costs 4 and needs no materials.
 	setRules(t, w, strings.Replace(magicRules, `{ id: "nova",`, `{ id: "nova", mana: 4,`, 1))
 	p := w.players[1]
-	p.Schools = []string{"evocation"}
+	p.Specialty = "evocation"
 	p.Mana = p.ManaMax
 	send(w, 1, "spells")
 	if o := bob.take(); !strings.Contains(o, "4 mana") {
@@ -1482,12 +1484,12 @@ function featList() {
 		t.Fatalf("feat with none open: %q", o)
 	}
 	send(w, 1, "feat all")
-	if o := bob.take(); !strings.Contains(o, "(needs 3 might)") || !strings.Contains(o, "(needs an arcane school)") || !strings.Contains(o, "(needs the evocation school)") || !strings.Contains(o, "(needs a god's favour)") {
+	if o := bob.take(); !strings.Contains(o, "(needs 3 might)") || !strings.Contains(o, "(needs an arcane spell)") || !strings.Contains(o, "(needs the evocation school)") || !strings.Contains(o, "(needs a god's favour)") {
 		t.Fatalf("feat list: %q", o)
 	}
 	for _, c := range []struct{ cmd, want string }{
 		{"feat brawn", "Brawn needs 3 might."},
-		{"feat focus", "Focus needs an arcane school."},
+		{"feat focus", "Focus needs an arcane spell."},
 		{"feat evoker", "Evoker needs the evocation school."},
 		{"feat grace", "Grace needs a god's favour."},
 	} {
@@ -1497,7 +1499,7 @@ function featList() {
 		}
 	}
 	p.Stats["might"] = 3
-	p.Schools = []string{"illusion"}
+	p.Specialty = "illusion"
 	p.Deity = "good"
 	send(w, 1, "feat brawn")
 	send(w, 1, "feat focus")

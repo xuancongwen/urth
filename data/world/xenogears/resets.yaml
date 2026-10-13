@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Lahan (the village and the chief's house are safe) ---
   - { mob: 3800, room: 3802 }                                   # Fei at his easel, who teaches hand to hand, dodge, and trip

@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # Tristram
   - { mob: 1300, room: 1301, equip: [{ item: 1335, slot: wield }] }   # Deckard Cain by the fountain, leaning on the Horadric Staff

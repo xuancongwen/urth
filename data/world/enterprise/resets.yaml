@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the crew ---
   - { mob: 4200, room: 4200 }               # Mr. Scott at the transporter console

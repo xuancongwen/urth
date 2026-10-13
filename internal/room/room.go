@@ -3,8 +3,10 @@
 package room
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
+	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -44,6 +46,10 @@ type Room struct {
 	Temple string `yaml:"temple,omitempty"`
 	// Position anchors the room on the area map (layout.go). Most rooms
 	// leave it unset and are placed by walking exits from an anchor.
+	// Order names the Order of High Sorcery ("white", "red", "black")
+	// whose Test ends here: `swear` takes a specialty in one of its
+	// schools (docs/RULES.md 6.1).
+	Order    string `yaml:"order,omitempty"`
 	Position *Coord `yaml:"position,omitempty"`
 
 	// Area is the directory name the room was loaded from.
@@ -148,7 +154,11 @@ func (w *World) loadArea(dir, name string) error {
 	areaDir := filepath.Join(dir, name)
 	var area Area
 	if raw, err := os.ReadFile(filepath.Join(areaDir, "area.yaml")); err == nil {
-		if err := yaml.Unmarshal(raw, &area); err != nil {
+		// Unknown keys are errors: a field set in the wrong file (an
+		// interval belongs in resets.yaml) would otherwise do nothing.
+		dec := yaml.NewDecoder(bytes.NewReader(raw))
+		dec.KnownFields(true)
+		if err := dec.Decode(&area); err != nil && !errors.Is(err, io.EOF) {
 			return fmt.Errorf("area %s: %w", name, err)
 		}
 	} else if !errors.Is(err, fs.ErrNotExist) {

@@ -2,7 +2,7 @@
 # 'goto 900'. Detached, so nothing here counts toward the content check's
 # reachability, and quests never send anyone here. Dummies 901 to 925
 # are the simulator's; the arena places a few of them to fight by hand.
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the test armory (940): one of nearly everything ---
   - { item: 100, room: 940 }   # rusty sword
@@ -71,14 +71,12 @@ resets:
   - { item: 931, room: 926 }
   - { item: 940, room: 926 }
   # --- the colleges, west of the gate ---
-  - { item: 930, room: 931 }   # all eight totems
+  - { item: 930, room: 931 }   # the six totems, one per school (brandish swears to it)
   - { item: 931, room: 931 }
   - { item: 932, room: 931 }
-  - { item: 933, room: 931 }
   - { item: 934, room: 931 }
   - { item: 935, room: 931 }
   - { item: 936, room: 931 }
-  - { item: 937, room: 931 }
   - { item: 926, room: 932 }   # rare materials in the stillroom
   - { item: 926, room: 932 }
   - { item: 927, room: 932 }

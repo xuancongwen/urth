@@ -35,8 +35,17 @@ type Spell struct {
 	// Innate spells are known as soon as the school or god is unlocked;
 	// the rest are learned, from a trainer for Price silver, or, when
 	// Found, only from a scroll (docs/RULES.md 6.1).
-	Innate            bool            `json:"innate"`
-	Price             int             `json:"price"`
+	Innate bool `json:"innate"`
+	Price  int  `json:"price"`
+	// Tier is common, school, or rare (6.1, 2026-10-12). A common spell
+	// needs no school: an arcane one is open to anyone with the level
+	// and stat, a divine one to any god's apostle. A school spell needs
+	// its school (its god, for divine), and a rare one is a school spell
+	// found on a scroll. Empty reads as school.
+	Tier string `json:"tier"`
+	// Opposite is the school opposed to this spell's: a specialist in
+	// it cannot learn or cast this spell, common or not (6.1).
+	Opposite          string          `json:"opposite"`
 	Found             bool            `json:"found"`
 	InterruptOnDamage bool            `json:"interruptOnDamage"`
 	Cooldown          int             `json:"cooldown"`
@@ -51,6 +60,20 @@ type Spell struct {
 type SpellMaterial struct {
 	Material string `json:"material"`
 	Count    int    `json:"count"`
+}
+
+// common reports whether sp is of the common tier.
+func (s Spell) common() bool { return s.Tier == "common" }
+
+// tierWord names sp's tier for listings.
+func (s Spell) tierWord() string {
+	switch {
+	case s.common():
+		return "common"
+	case s.Found || s.Tier == "rare":
+		return "rare"
+	}
+	return "school"
 }
 
 // hostile reports whether the spell is aimed at enemies.
@@ -147,20 +170,43 @@ func spellNeeds(sp Spell) string {
 	return strings.Join(parts, " and ")
 }
 
-// hasAccess reports whether c has unlocked sp's school or god.
+// hasAccess reports whether c may learn and cast sp at all: a common
+// arcane spell is open to anyone, a common divine one to any god's
+// apostle, and anything else needs its school or god (6.1).
 func hasAccess(c *Character, sp Spell) bool {
 	if sp.Branch == "divine" {
-		return sp.Deity != "" && c.Deity == sp.Deity
+		return c.Deity != "" && (sp.common() || sp.Deity == c.Deity)
 	}
-	return c.HasSchool(sp.School)
+	if barred(c, sp) {
+		return false
+	}
+	return sp.common() || c.HasSchool(sp.School)
 }
 
 // accessNeeds names what unlocks sp, for a character without it.
 func accessNeeds(sp Spell) string {
-	if sp.Branch == "divine" {
+	switch {
+	case sp.Branch == "divine" && sp.common():
+		return "a god's favour"
+	case sp.Branch == "divine":
 		return "the " + sp.Deity + " god's favour"
 	}
-	return "the " + sp.School + " school"
+	return "a specialty in " + sp.School
+}
+
+// knowsArcane reports whether c can cast an arcane spell now, which is
+// what an arcane feat wants (6.6). A common spell known to all at a high
+// level (the enchantments) does not count until c can cast it.
+func (w *World) knowsArcane(c *Character) bool {
+	if c.Specialty != "" {
+		return true
+	}
+	for _, sp := range w.spellList() {
+		if sp.Branch != "divine" && knowsSpell(c, sp) && spellUnready(c, sp) == "" {
+			return true
+		}
+	}
+	return false
 }
 
 // knowsSpell reports whether c can call on sp: its school or god is
@@ -192,6 +238,8 @@ func learnSpell(c *Character, sp Spell) {
 // access, already known, level, or stats.
 func spellBlocker(c *Character, sp Spell) string {
 	switch {
+	case barred(c, sp):
+		return "closed to you"
 	case !hasAccess(c, sp):
 		return "needs " + accessNeeds(sp)
 	case knowsSpell(c, sp):
@@ -223,6 +271,18 @@ func (w *World) findSpell(c *Character, name string) (Spell, bool) {
 	}
 	if match != nil {
 		return *match, true
+	}
+	return Spell{}, false
+}
+
+// findBarred matches a typed name against the spells c's specialty
+// closes to it, so cast can say why rather than that it is unknown.
+func (w *World) findBarred(c *Character, name string) (Spell, bool) {
+	name = strings.ToLower(strings.TrimSpace(name))
+	for _, sp := range w.spellList() {
+		if barred(c, sp) && (learnedSpell(c, sp.ID) || sp.common()) && strings.HasPrefix(strings.ToLower(sp.Name), name) {
+			return sp, true
+		}
 	}
 	return Spell{}, false
 }
@@ -270,6 +330,10 @@ func cmdSpells(w *World, p *Player, args string) {
 	for _, sp := range w.spellList() {
 		ready := spellUnready(p.Character, sp) == ""
 		if !knowsSpell(p.Character, sp) {
+			if barred(p.Character, sp) && !all {
+				hidden++
+				continue
+			}
 			if hasAccess(p.Character, sp) && ready || all {
 				learnable = append(learnable, sp)
 			} else {
@@ -283,12 +347,8 @@ func cmdSpells(w *World, p *Player, args string) {
 		}
 		n++
 		sp = w.castCost(p.Character, sp)
-		line := padRight(output.Escape(sp.Name), 14)
-		if sp.Branch == "divine" {
-			line += padRight(output.Escape(sp.Deity), 14)
-		} else {
-			line += padRight(output.Escape(sp.School), 14)
-		}
+		line := column(output.Escape(sp.Name), 14)
+		line += column(output.Escape(spellOrigin(sp)), 22)
 		line += "cast " + itoa(sp.CastRounds) + "  " + padRight(sp.Target, 7)
 		if sp.Mana > 0 {
 			line += "  " + itoa(sp.Mana) + " mana"
@@ -321,9 +381,11 @@ func cmdSpells(w *World, p *Player, args string) {
 			case sp.Found:
 				how = "from a scroll, found in the world"
 			}
-			line := "  " + padRight(output.Escape(sp.Name), 14) + how
+			line := "  " + column(output.Escape(sp.Name), 14) + column(output.Escape(spellOrigin(sp)), 22) + how
 			var needs []string
-			if !hasAccess(p.Character, sp) && !sp.Innate {
+			if barred(p.Character, sp) {
+				needs = append(needs, "closed to you")
+			} else if !hasAccess(p.Character, sp) && !sp.Innate {
 				needs = append(needs, output.Escape(accessNeeds(sp)))
 			}
 			if t := spellNeeds(sp); t != "" {
@@ -335,8 +397,8 @@ func cmdSpells(w *World, p *Player, args string) {
 			b.WriteString(line + "\n")
 		}
 	}
-	if len(p.Schools) > 0 {
-		b.WriteString("Schools: " + output.Escape(strings.Join(p.Schools, ", ")) + "\n")
+	if p.Specialty != "" {
+		b.WriteString("Sworn to " + output.Escape(w.specialtyWords(p.Specialty)) + ".\n")
 	}
 	if p.Deity != "" {
 		b.WriteString("Apostle of the " + output.Escape(p.Deity) + " god.\n")
@@ -364,6 +426,10 @@ func cmdCast(w *World, p *Player, args string) {
 	}
 	sp, ok := w.findSpell(p.Character, name)
 	if !ok {
+		if sp, ok := w.findBarred(p.Character, name); ok {
+			p.Send(output.Escape(barredWords(p.Character, sp)) + "\n")
+			return
+		}
 		p.Send("You don't know that spell.\n")
 		return
 	}
@@ -663,6 +729,19 @@ func (w *World) applyCastTarget(c, t *Character, sp Spell, name string, tr CastT
 	}
 }
 
+// spellOrigin is where sp comes from and its tier, for listings:
+// "evocation, common", "evil god, school".
+func spellOrigin(sp Spell) string {
+	from := sp.School
+	if sp.Branch == "divine" {
+		from = "divine"
+		if sp.Deity != "" {
+			from = sp.Deity + " god"
+		}
+	}
+	return from + ", " + sp.tierWord()
+}
+
 func spellView(sp Spell) map[string]any {
 	mats := []any{}
 	for _, m := range sp.Materials {
@@ -672,12 +751,14 @@ func spellView(sp Spell) map[string]any {
 		"id": sp.ID, "name": sp.Name, "branch": sp.Branch, "school": sp.School, "deity": sp.Deity,
 		"castRounds": sp.CastRounds, "interruptOnDamage": sp.InterruptOnDamage, "cooldown": sp.Cooldown, "mana": sp.Mana, "level": sp.Level, "stats": sp.Stats,
 		"materials": mats, "target": sp.Target, "save": sp.Save, "saveEffect": sp.SaveEffect,
-		"innate": sp.Innate, "price": sp.Price, "found": sp.Found,
+		"innate": sp.Innate, "price": sp.Price, "found": sp.Found, "tier": sp.Tier, "opposite": sp.Opposite,
 	}
 }
 
 // cmdBrandish: brandish <totem>. Raising a totem spends it: it crumbles,
-// and its school opens to the one who held it (docs/RULES.md 6.1).
+// and swears the one who held it to its school, as a Tower's Test does.
+// Since 2026-10-12 totems are the balance lab's, for testing; players
+// take a specialty with swear (docs/RULES.md 6.1).
 func cmdBrandish(w *World, p *Player, args string) {
 	if args == "" {
 		p.Send("Brandish what?\n")
@@ -694,15 +775,15 @@ func cmdBrandish(w *World, p *Player, args string) {
 		return
 	}
 	school := it.Proto.School
+	if p.Specialty != "" {
+		p.Send("You are sworn to " + output.Escape(p.Specialty) + " already; the totem does nothing for you.\n")
+		return
+	}
 	p.Inventory = item.Remove(p.Inventory, it)
 	w.actItem("You brandish $p, and it crumbles to dust in your hand.", p.Character, nil, output.Escape(it.Name()), "", toChar)
 	w.actItem("$n brandishes $p, and it crumbles to dust.", p.Character, nil, output.Escape(it.Name()), "", toRoom)
-	if p.HasSchool(school) {
-		p.Send("You already knew the ways of " + output.Escape(school) + ".\n")
-		return
-	}
-	p.Schools = append(p.Schools, school)
-	p.Send("{Y}The ways of " + output.Escape(school) + " open to you.{x}\n")
+	p.Specialty = school
+	p.Send("{Y}You are sworn to " + output.Escape(w.specialtyWords(school)) + ".{x}\n")
 	w.save(p)
 }
 

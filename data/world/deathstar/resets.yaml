@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the docking bay and the freighter ---
   - { mob: 2300, room: 2301 }                                   # Han Solo in the hold, selling what he can spare

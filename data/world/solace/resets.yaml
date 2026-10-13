@@ -1,5 +1,5 @@
 # Solace repopulates on the interval.
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # the road
   - { mob: 306, room: 302, max: 2, equip: [{ item: 304, slot: wield }, { item: 306, slot: head }, { item: 318, slot: legs }] }   # hobgoblin soldiers

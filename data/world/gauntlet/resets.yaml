@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the coin slot ---
   - { mob: 2900, room: 2900 }                                   # the Voice, who teaches fast healing and second wind

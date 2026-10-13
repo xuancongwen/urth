@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the signal ---
   - { mob: 4100, room: 4100 }               # Commissioner Gordon under the signal

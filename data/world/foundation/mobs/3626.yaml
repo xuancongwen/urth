@@ -16,7 +16,7 @@ look: |
   Speakers do. Type 'practice'.
 level: 45
 flags: [peaceful]
-teaches: [sleep, arcane_heroism, confusion, hold_monster]
+teaches: [arcane_heroism, confusion, hold_monster]
 attack:
   kind: psionic
   verb: gentle push

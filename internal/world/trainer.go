@@ -89,8 +89,8 @@ func cmdPractice(w *World, p *Player, args string) {
 				}
 				n++
 				cost := escapeMoney(sp.Price)
-				line := "  " + padRight(output.Escape(sp.Name), 14) + padRight(cost, 34)
-				o := output.Offer{Name: sp.Name, Price: output.Strip(cost), Command: "practice " + sp.ID}
+				line := "  " + column(output.Escape(sp.Name), 14) + column(output.Escape(spellOrigin(sp)), 22) + padRight(cost, 34)
+				o := output.Offer{Name: sp.Name + " (" + sp.tierWord() + ")", Price: output.Strip(cost), Command: "practice " + sp.ID}
 				if why := spellBlocker(p.Character, sp); why != "" {
 					line += "(" + why + ")"
 					o.Note, o.Disabled = why, true

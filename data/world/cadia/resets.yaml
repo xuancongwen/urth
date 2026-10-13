@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the Cadian line ---
   - { mob: 1800, room: 1802 }   # the quartermaster in his dugout

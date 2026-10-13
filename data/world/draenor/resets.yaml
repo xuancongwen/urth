@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the portal and the Hellfire wastes ---
   - { mob: 1101, room: 1101, max: 2 }                                                  # felhounds on the stair

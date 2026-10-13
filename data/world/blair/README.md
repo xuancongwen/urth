@@ -8,7 +8,7 @@ teachers' workroom and its copier, the cafeteria, the loading dock,
 the stadium, the magnet wing with its physics, chemistry, and computer
 labs, the Silver Chips newsroom, and the steam tunnels down to the
 Roach King. Levels 5 to 9, with the Roach King at 10: an early
-levelling area, crowded rooms, a two-minute reset, and loot that is
+levelling area, crowded rooms, an eight-minute reset, and loot that is
 mostly what the drop rolls give. Reached by the magnet bus, east from
 the `tpms` bus loop (4800) to Blair's (4900).
 

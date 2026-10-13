@@ -49,9 +49,10 @@ type Character struct {
 	// Effects on the character: feats are permanent, buffs and poisons are
 	// timed. The engine stores and counts them; the rules interpret them.
 	Effects []effect.Active
-	// Magic access (docs/RULES.md 6.1).
-	Schools []string
-	Deity   string
+	// Magic access (docs/RULES.md 6.1): the one arcane school the
+	// character is sworn to, if any, and the god it serves.
+	Specialty string
+	Deity     string
 	// casting is the spell in progress, if any; cooldowns are rounds left
 	// per spell id.
 	casting   *casting
@@ -80,14 +81,9 @@ func newCharacter(name string, keywords []string) *Character {
 	return &Character{Name: name, Keywords: keywords, Level: 1, Stats: map[string]int{}, HealthMax: 1, Health: 1, Speed: 1, Equipment: map[item.Slot]*item.Item{}}
 }
 
-// HasSchool reports whether the character has unlocked the school.
+// HasSchool reports whether the character is sworn to the school.
 func (c *Character) HasSchool(school string) bool {
-	for _, s := range c.Schools {
-		if s == school {
-			return true
-		}
-	}
-	return false
+	return school != "" && c.Specialty == school
 }
 
 // IsPlayer reports whether this character is a connected player.

@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # the Rogue Encampment
   - { mob: 3105, room: 3100, equip: [{ item: 3128, slot: wield }] }   # Flavie on the road outside the gate, with a Rogue long bow

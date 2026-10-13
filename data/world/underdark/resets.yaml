@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # the wild tunnels
   - { mob: 700, room: 703 }                                   # the cave fisher on its ledge

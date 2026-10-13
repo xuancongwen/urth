@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # Harrogath
   - { mob: 3500, room: 3504 }                                   # Qual-Kehk on the wall above the gate, who teaches the barbarian's arts

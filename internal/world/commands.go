@@ -85,6 +85,7 @@ func init() {
 		{"stand", 2, cmdStand, false},
 		{"affects", 2, cmdAffects, false},
 		{"brandish", 2, cmdBrandish, false},
+		{"swear", 3, cmdSwear, false},
 		{"study", 3, cmdStudy, false},
 		{"consume", 4, cmdConsume, false},
 		{"sacrifice", 3, cmdSacrifice, false},
@@ -430,6 +431,15 @@ func padRight(s string, n int) string {
 		s += " "
 	}
 	return s
+}
+
+// column is padRight for a table cell: a value as wide as the column or
+// wider still gets one space, so it never runs into the next.
+func column(s string, n int) string {
+	if len(s) >= n {
+		return s + " "
+	}
+	return padRight(s, n)
 }
 
 func plural(n int, noun string) string {

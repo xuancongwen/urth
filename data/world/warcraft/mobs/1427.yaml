@@ -15,7 +15,7 @@ look: |
   'practice'.
 level: 16
 flags: [peaceful]
-teaches: [acid_arrow, web, find_weakness, fire_shield, lightning_bolt, stoneskin, slow, keen_insight, ice_storm, cloudkill]
+teaches: [acid_arrow, find_weakness, fire_shield, lightning_bolt, slow, keen_insight, ice_storm, cloudkill]
 attack:
   kind: fire
   verb: bolt

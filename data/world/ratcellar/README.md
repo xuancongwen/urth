@@ -7,7 +7,7 @@ ale cellar, the wine racks, and the root cellar give way, through a
 collapsed wall, to the city's old sewers, a flooded cistern, a warren
 the rats gnawed for themselves, and the throne of bones where the Rat
 King holds court. A farming area: levels 2 to 5, with the Rat King at
-6, rooms crowded with rats, and a reset every two minutes. Reached by
+6, rooms crowded with rats, and a reset every eight minutes. Reached by
 the cellar trapdoor in the floor of the Grunting Boar (3006, `down`),
 which opens onto the foot of the cellar stair (2500).
 

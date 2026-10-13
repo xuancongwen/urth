@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- Fyrestone ---
   - { mob: 4000, room: 4000 }               # Claptrap at the bus stop

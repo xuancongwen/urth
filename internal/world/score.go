@@ -145,8 +145,8 @@ func cmdScore(w *World, p *Player, _ string) {
 	if names := w.featNames(p.Character); len(names) > 0 {
 		extras = append(extras, func() { s.labelled("Feats", strings.Join(names, ", ")) })
 	}
-	if len(p.Schools) > 0 {
-		extras = append(extras, func() { s.labelled("Schools", output.Escape(strings.Join(p.Schools, ", "))) })
+	if p.Specialty != "" {
+		extras = append(extras, func() { s.labelled("Specialty", output.Escape(w.specialtyWords(p.Specialty))) })
 	}
 	if p.Deity != "" {
 		extras = append(extras, func() { s.labelled("Deity", "apostle of the "+output.Escape(p.Deity)+" god") })

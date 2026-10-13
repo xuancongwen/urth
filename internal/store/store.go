@@ -51,13 +51,15 @@ type Record struct {
 	StatPoints int            `yaml:"stat_points,omitempty"`
 	FeatPoints int            `yaml:"feat_points,omitempty"`
 	Silver     int            `yaml:"silver,omitempty"`
-	// Magic access (docs/RULES.md 6.1): unlocked arcane schools and the
-	// deity served, if any.
-	Schools []string `yaml:"schools,omitempty"`
-	Deity   string   `yaml:"deity,omitempty"`
-	Health  int      `yaml:"health"`
-	Mana    int      `yaml:"mana"`
-	Stamina int      `yaml:"stamina,omitempty"`
+	// Magic access (docs/RULES.md 6.1): the arcane specialty and the
+	// deity served, if any. Schools is the list kept before specialties
+	// (2026-10-12); it is read so the world can reset it, never written.
+	Specialty string   `yaml:"specialty,omitempty"`
+	Schools   []string `yaml:"schools,omitempty"`
+	Deity     string   `yaml:"deity,omitempty"`
+	Health    int      `yaml:"health"`
+	Mana      int      `yaml:"mana"`
+	Stamina   int      `yaml:"stamina,omitempty"`
 	// Quests (docs/RULES.md 7.6): points banked, the quest under way, and
 	// rounds to wait before the next request.
 	QuestPoints int         `yaml:"quest_points,omitempty"`

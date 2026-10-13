@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Kokiri Forest (the village and its shop are safe) ---
   - { mob: 3900, room: 3900 }                                         # Link by his treehouse, who teaches riposte, shield block, and the spin of the blade

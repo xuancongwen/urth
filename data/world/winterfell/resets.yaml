@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the winter town ---
   - { mob: 1501, room: 1503 }   # the alewife, and what she pours

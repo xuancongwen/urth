@@ -5,7 +5,7 @@ a rain-slick Midtown street and Crime Alley, the bridge to the Narrows,
 a tenement full of the Scarecrow's fear gas, Ace Chemicals, the Iceberg
 Lounge, the docks, and Arkham Asylum with every cell door open. Levels
 4 to 8, with the Joker at 9: an early levelling area, crowded rooms, a
-two-minute reset, and loot that is mostly what the drop rolls give.
+eight-minute reset, and loot that is mostly what the drop rolls give.
 Reached east from the Hall of Flickering Windows (room 13, north of
 the Long Hall) through the fire door onto the steps of GCPD
 headquarters (4100).

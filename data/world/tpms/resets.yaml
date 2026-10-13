@@ -1,3 +1,4 @@
+interval_seconds: 480
 resets:
   # --- the staff ---
   - { mob: 4800, room: 4800 }               # the crossing guard at the bus loop

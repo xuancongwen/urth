@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- Sietch Tabr ---
   - { mob: 1902, room: 1902 }                                   # Stilgar on the speaking-rock

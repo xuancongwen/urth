@@ -5,7 +5,7 @@ of the bus line, a scrap yard, the skag gully and its den, the Dahl
 Headlands and the rakk cliffs, a bandit camp, Bone Head's hideout, the
 salt flats, and Nine-Toes' walled skag pit and arena. Levels 1 to 5,
 with Nine-Toes at 6: an early levelling area, crowded rooms, a
-two-minute reset, and loot that is mostly what the drop rolls give.
+eight-minute reset, and loot that is mostly what the drop rolls give.
 Reached west from the Hall of Flickering Windows (room 13, north of
 the Long Hall) through the corrugated iron door onto the Fyrestone bus
 stop (4000).

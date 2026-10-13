@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the Lantern Waste ---
   - { mob: 1208, room: 1202, max: 3, equip: [{ item: 1218 }] }   # snow hares carry their pelts

@@ -80,8 +80,8 @@ type CreateResult struct {
 
 // Feat is one entry of featList (docs/RULES.md 7.2): a permanent effect
 // with a minimum level, trained stats, and optional prerequisites. A
-// caster feat names its Branch (arcane needs a school unlocked, divine an
-// apostleship), or a particular School or Deity (6.6).
+// caster feat names its Branch (arcane needs an arcane spell known, divine
+// an apostleship, any either), or a particular School or Deity (6.6).
 type Feat struct {
 	ID          string         `json:"id"`
 	Name        string         `json:"name"`
@@ -92,12 +92,16 @@ type Feat struct {
 	Deity       string         `json:"deity"`
 	Description string         `json:"description"`
 	Requires    []string       `json:"requires"`
-	Effect      effect.Spec    `json:"effect"`
+	// Replaces names feats that no longer exist and that this one takes
+	// the place of: a character holding any of them is given this feat
+	// once when it loads (syncFeats).
+	Replaces []string    `json:"replaces"`
+	Effect   effect.Spec `json:"effect"`
 }
 
 // featBlocker says what c lacks for f beyond picks and prerequisites: a
 // level, trained stats, or the magic it serves; "" when nothing.
-func featBlocker(c *Character, f Feat) string {
+func (w *World) featBlocker(c *Character, f Feat) string {
 	switch {
 	case c.Level < f.Level:
 		return "level " + itoa(f.Level)
@@ -107,10 +111,12 @@ func featBlocker(c *Character, f Feat) string {
 		return "needs the " + f.School + " school"
 	case f.Deity != "" && c.Deity != f.Deity:
 		return "needs the " + f.Deity + " god's favour"
-	case f.Branch == "arcane" && len(c.Schools) == 0:
-		return "needs an arcane school"
+	case f.Branch == "arcane" && !w.knowsArcane(c):
+		return "needs an arcane spell"
 	case f.Branch == "divine" && c.Deity == "":
 		return "needs a god's favour"
+	case f.Branch == "any" && c.Deity == "" && !w.knowsArcane(c):
+		return "needs a school or a god's favour"
 	}
 	return ""
 }
@@ -232,7 +238,7 @@ func (w *World) view(c *Character) map[string]any {
 		"offSpeed":   c.OffSpeed,
 		"equipment":  eq,
 		"effects":    effect.Views(nil, c.Effects),
-		"schools":    append([]string{}, c.Schools...),
+		"specialty":  c.Specialty,
 		"deity":      c.Deity,
 		"isPlayer":   c.player != nil,
 		"fighting":   c.Fighting != nil,

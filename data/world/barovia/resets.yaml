@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the village of Barovia ---
   - { mob: 2100, room: 2104 }                                   # Bildrath with his crate of overpriced goods

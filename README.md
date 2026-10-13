@@ -42,7 +42,7 @@ Prefixes work (`n`, `inv`, `wie`). Targets take ROM forms: `sword`,
 | Movement | north east south west up down look exits scan open close |
 | Objects | get drop put give wear wield hold remove inventory equipment |
 | Combat | kill flee consider assist skills |
-| Magic | cast spells consume sacrifice |
+| Magic | cast spells swear study consume sacrifice |
 | Groups | follow group gtell |
 | Talking | say (or `'`) chat yell |
 | Character | score (stats) settings scroll train feat practice quest expedition who color save password quit |

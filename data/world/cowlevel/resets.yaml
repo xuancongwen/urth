@@ -1,4 +1,4 @@
-interval_seconds: 120
+interval_seconds: 480
 resets:
   # --- the fields ---
   - { mob: 2800, room: 2801, max: 7 }         # hell bovines at the edge of the fields

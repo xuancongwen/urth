@@ -70,7 +70,16 @@ var P = {
   // the main hand hits for dualMain of itself and every swing of the off
   // hand for dualOff, so the pair deals about what one weapon does and the
   // shield is gone. The feat lifts both to 1.
-  dualMain: 0.6, dualOff: 0.4
+  dualMain: 0.6, dualOff: 0.4,
+  // Early spells (RULES 6.4, decided 2026-10-12): a spell of this level or
+  // below is not broken by blows, and its power unit grows on the weapon
+  // curve (weaponGrowth) instead of the full one, so it carries a beginner
+  // and then gives way.
+  earlySpellLevel: 5,
+  // Specialties (RULES 6.1, decided 2026-10-12): the level and trained
+  // Intelligence a Tower's Test asks before an oath, and the bonus a
+  // specialist's spells of its own school take.
+  specialtyLevel: 10, specialtyIntelligence: 15, specialtyBonus: 1.30
 };
 // The engine warns at start when this disagrees with timing.round_ms.
 function roundSeconds() { return P.roundSeconds; }
@@ -1066,22 +1075,12 @@ var FEATS = [
 
   // --- caster feats (RULES 6.6), 2026-10-11 ---
   // Arcane: specialisation and force.
-  { id: "focus_abjuration", name: "Spell Focus (Abjuration)", level: 3, stats: { intelligence: 12 }, school: "abjuration", description: "Abjuration spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "abjuration" } } },
-  { id: "focus_conjuration", name: "Spell Focus (Conjuration)", level: 3, stats: { intelligence: 12 }, school: "conjuration", description: "Conjuration spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "conjuration" } } },
-  { id: "focus_divination", name: "Spell Focus (Divination)", level: 3, stats: { intelligence: 12 }, school: "divination", description: "Divination spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "divination" } } },
-  { id: "focus_enchantment", name: "Spell Focus (Enchantment)", level: 3, stats: { intelligence: 12 }, school: "enchantment", description: "Enchantment spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "enchantment" } } },
-  { id: "focus_evocation", name: "Spell Focus (Evocation)", level: 3, stats: { intelligence: 12 }, school: "evocation", description: "Evocation spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "evocation" } } },
-  { id: "focus_illusion", name: "Spell Focus (Illusion)", level: 3, stats: { intelligence: 12 }, school: "illusion", description: "Illusion spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "illusion" } } },
-  { id: "focus_necromancy", name: "Spell Focus (Necromancy)", level: 3, stats: { intelligence: 12 }, school: "necromancy", description: "Necromancy spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "necromancy" } } },
-  { id: "focus_transmutation", name: "Spell Focus (Transmutation)", level: 3, stats: { intelligence: 12 }, school: "transmutation", description: "Transmutation spells are 20 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.20, school: "transmutation" } } },
+  // Spell Focus (RULES 6.6, revised 2026-10-12): one feat for every
+  // caster, in place of one per school; it names the old ones so a
+  // character who held any is given it once and refunded the rest.
+  { id: "spell_focus", name: "Spell Focus", level: 3, branch: "any", description: "Every spell you cast is 20 percent stronger.",
+    replaces: ["focus_abjuration", "focus_conjuration", "focus_divination", "focus_enchantment", "focus_evocation", "focus_illusion", "focus_necromancy", "focus_transmutation"],
+    effect: { kind: "spellPower", params: { mult: 1.20 } } },
   { id: "arcane_reservoir", name: "Arcane Reservoir", level: 4, stats: { intelligence: 12 }, branch: "arcane", description: "A quarter more mana.",
     effect: { kind: "manaMax", params: { amount: 0.25 } } },
   { id: "empower", name: "Empower Spell", level: 6, stats: { intelligence: 13 }, branch: "arcane", description: "Arcane spells that harm are 15 percent stronger.",
@@ -1098,8 +1097,8 @@ var FEATS = [
     effect: { kind: "castCost", params: { mana: 0.8, branch: "arcane" } } },
   { id: "greater_penetration", name: "Greater Penetration", level: 16, stats: { intelligence: 17 }, branch: "arcane", requires: ["penetration"], description: "Arcane spells are a quarter harder again to resist.",
     effect: { kind: "penetration", params: { amount: 0.25, branch: "arcane" } } },
-  { id: "archmage", name: "Archmage", level: 20, stats: { intelligence: 18 }, branch: "arcane", requires: ["empower"], description: "Every arcane spell is 15 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.15, branch: "arcane" } } },
+  { id: "archmage", name: "Archmage", level: 20, stats: { intelligence: 18 }, branch: "arcane", requires: ["empower"], description: "Every arcane spell is 60 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.60, branch: "arcane" } } },
   // Divine: devotion and the group.
   { id: "devotion", name: "Devotion", level: 3, stats: { wisdom: 12 }, branch: "divine", description: "Your god's spells are 15 percent stronger.",
     effect: { kind: "spellPower", params: { mult: 1.15, branch: "divine" } } },
@@ -1121,8 +1120,8 @@ var FEATS = [
     effect: { kind: "spellPower", params: { mult: 1.20, branch: "divine", kind: "damage" } } },
   { id: "miracle", name: "Miracle", level: 16, stats: { wisdom: 17 }, branch: "divine", requires: ["healers_grace"], description: "A 10 percent chance for a divine spell to surge for double.",
     effect: { kind: "spellCrit", params: { chance: 0.10, mult: 2, branch: "divine" } } },
-  { id: "saint", name: "Saint", level: 20, stats: { wisdom: 18 }, branch: "divine", requires: ["devotion"], description: "Every divine spell is 15 percent stronger.",
-    effect: { kind: "spellPower", params: { mult: 1.15, branch: "divine" } } }
+  { id: "saint", name: "Saint", level: 20, stats: { wisdom: 18 }, branch: "divine", requires: ["devotion"], description: "Every divine spell is 60 percent stronger.",
+    effect: { kind: "spellPower", params: { mult: 1.60, branch: "divine" } } }
 ];
 
 function featList() { return FEATS; }
@@ -1173,69 +1172,76 @@ function deathRules() {
 // and materials an extra cost only some spells name. The engine owns cast
 // time, targets, materials, and cooldowns; resolveCast decides what each
 // target suffers or gains. Damage is a multiple of the power unit at the
-// caster's level (6.5, 5.2), times the branch stat and level (6.4).
+// caster's level (6.5, 5.2), times the branch stat and level (6.4). A
+// spell's tier says who may learn it (6.1): common, school, or rare.
 // ---------------------------------------------------------------------
 var SPELLS = [
-  { id: "firebolt", kind: "fire", innate: true, level: 1, stats: { intelligence: 11 }, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "firebolt", tier: "common", kind: "fire", level: 1, stats: { intelligence: 11 }, price: 60, mana: 6, name: "Firebolt", branch: "arcane", school: "evocation", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "reflex", saveEffect: "half", damage: 2.0,
     description: "A bolt of fire at one target." },
-  { id: "fireball", kind: "fire", innate: true, level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
+  { id: "fireball", tier: "school", kind: "fire", innate: true, level: 10, stats: { intelligence: 16 }, mana: 15, name: "Fireball", branch: "arcane", school: "evocation", castRounds: 2, interruptOnDamage: true, cooldown: 8,
     target: "area", save: "reflex", saveEffect: "half", damage: 1.5,
     description: "Fire fills the room." },
-  { id: "ward", innate: true, level: 2, stats: { intelligence: 11 }, mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
+  { id: "ward", tier: "common", level: 2, stats: { intelligence: 11 }, price: 100, mana: 8, name: "Ward", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 10,
     target: "ally", save: "none",
     effect: function (caster, target) { return { kind: "defense", params: { amount: target.level + 2 }, rounds: 10 }; },
     description: "A ward as strong as armor, for ten rounds." },
-  { id: "acid", kind: "acid", innate: true, level: 3, stats: { intelligence: 12 }, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "acid", tier: "common", kind: "acid", level: 3, stats: { intelligence: 12 }, price: 100, mana: 7, name: "Acid Splash", branch: "arcane", school: "conjuration", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.3 * power) }, rounds: 3 }; },
     description: "Acid that keeps burning." },
-  { id: "foresight", innate: true, level: 4, stats: { intelligence: 12 }, mana: 8, name: "Foresight", branch: "arcane", school: "divination", castRounds: 0, interruptOnDamage: false, cooldown: 20,
+  { id: "foresight", tier: "common", level: 4, stats: { intelligence: 12 }, price: 120, mana: 8, name: "Foresight", branch: "arcane", school: "abjuration", castRounds: 0, interruptOnDamage: false, cooldown: 20,
     target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.10 }, rounds: 10 }; },
     description: "See the blow before it lands." },
-  { id: "daze", innate: true, level: 3, stats: { intelligence: 12 }, mana: 6, name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
+  { id: "daze", tier: "common", level: 3, stats: { intelligence: 12 }, price: 80, mana: 6, name: "Daze", branch: "arcane", school: "enchantment", castRounds: 1, interruptOnDamage: true, cooldown: 5,
     target: "single", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 3 }; },
     description: "The target's swings come slow." },
-  { id: "blur", innate: true, level: 5, stats: { intelligence: 13 }, mana: 8, name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
+  { id: "blur", tier: "common", level: 5, stats: { intelligence: 13 }, price: 200, mana: 8, name: "Blur", branch: "arcane", school: "illusion", castRounds: 1, interruptOnDamage: false, cooldown: 15,
     target: "self", save: "none",
     effect: function () { return { kind: "dodge", params: { amount: 0.15 }, rounds: 5 }; },
     description: "Your outline swims." },
-  { id: "drain", kind: "drain", innate: true, level: 5, stats: { intelligence: 13 }, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
+  { id: "drain", tier: "common", kind: "drain", level: 5, stats: { intelligence: 13 }, price: 200, mana: 7, name: "Drain", branch: "arcane", school: "necromancy", castRounds: 1, interruptOnDamage: true, cooldown: 3,
     target: "single", save: "fortitude", saveEffect: "half", damage: 1.5, drain: 0.5,
     description: "Take their life for your own." },
-  { id: "haste", innate: true, level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "transmutation", castRounds: 2, interruptOnDamage: true, cooldown: 20,
+  { id: "haste", tier: "school", innate: true, level: 8, stats: { intelligence: 15 }, mana: 15, name: "Haste", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 20,
     target: "self", save: "none",
     effect: function () { return { kind: "attacks", params: { amount: 1 }, rounds: 5 }; },
     description: "One more attack every round." },
-  { id: "mend", innate: true, level: 1, stats: { wisdom: 11 }, mana: 8, name: "Mend", branch: "divine", deity: "good", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+  { id: "mend", tier: "common", innate: true, level: 1, stats: { wisdom: 11 }, mana: 8, name: "Mend", branch: "divine", deity: "", castRounds: 1, interruptOnDamage: true, cooldown: 0,
     target: "ally", save: "none", heal: 0.30,
     description: "Close wounds." },
-  { id: "sanctuary", innate: true, level: 8, stats: { wisdom: 15 }, mana: 20, name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
+  // Every apostle's own strike (6.1, 2026-10-12): a common divine spell,
+  // whose damage takes the kind of the caster's god.
+  { id: "wrath", tier: "common", innate: true, level: 1, stats: { wisdom: 11 }, mana: 6, name: "Wrath", branch: "divine", deity: "", castRounds: 1, interruptOnDamage: true, cooldown: 0,
+    kindByDeity: { good: "holy", neutral: "lightning", evil: "unholy" },
+    target: "single", save: "will", saveEffect: "half", damage: 1.8,
+    description: "Your god strikes through you." },
+  { id: "sanctuary", tier: "school", innate: true, level: 8, stats: { wisdom: 15 }, mana: 20, name: "Sanctuary", branch: "divine", deity: "good", castRounds: 2, interruptOnDamage: true, cooldown: 30,
     target: "group", save: "none",
     effect: function () { return { kind: "protect", params: { mult: 0.5 }, rounds: 5 }; },
     description: "The group takes half damage." },
-  { id: "stillness", innate: true, level: 4, stats: { wisdom: 12 }, mana: 12, name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
+  { id: "stillness", tier: "school", innate: true, level: 4, stats: { wisdom: 12 }, mana: 12, name: "Stillness", branch: "divine", deity: "neutral", castRounds: 1, interruptOnDamage: true, cooldown: 10,
     target: "area", save: "will", saveEffect: "negate",
     effect: function () { return { kind: "speedMult", params: { mult: 0.5 }, rounds: 2 }; },
     description: "Every enemy slows." },
-  { id: "blight", kind: "unholy", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
+  { id: "blight", tier: "school", kind: "unholy", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
     target: "area", save: "fortitude", saveEffect: "half", dot: true,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
     description: "Rot spreads through every enemy." },
   // Enchantments (RULES 5.6): cast on an item in the caster's inventory,
   // resolved by resolveEnchant, not resolveCast. Every one can fail.
-  { id: "enchant_weapon", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Weapon", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+  { id: "enchant_weapon", tier: "common", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Weapon", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
     target: "item", enchant: "weapon", difficulty: 20,
     description: "Raise a weapon's own damage by 5 to 10 percent (at least 1). Each success is another effect on it; a failure may strip it or destroy it." },
-  { id: "enchant_armor", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Armor", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+  { id: "enchant_armor", tier: "common", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Armor", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
     target: "item", enchant: "armor", difficulty: 20,
     description: "Raise a piece of armor's own defense by 5 to 10 percent (at least 1). Each success is another effect on it; a failure may strip it or destroy it." },
-  { id: "restore_item", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Restore Item", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+  { id: "restore_item", tier: "common", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Restore Item", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
     target: "item", enchant: "restore", difficulty: 15,
     description: "Return an item to what it was made as: every affix, rolled or enchanted, comes off. Not on a permanent item." },
-  { id: "permanency", innate: true, level: 30, stats: { intelligence: 22 }, mana: 150, name: "Permanency", branch: "arcane", school: "enchantment", castRounds: 3, interruptOnDamage: true, cooldown: 0,
+  { id: "permanency", tier: "common", innate: true, level: 30, stats: { intelligence: 22 }, mana: 150, name: "Permanency", branch: "arcane", school: "enchantment", castRounds: 3, interruptOnDamage: true, cooldown: 0,
     target: "item", enchant: "permanency", difficulty: 40,
     description: "Fix an item as it is: nothing can enchant or restore it again. Not an effect of its own for the item's tier." }
 ];
@@ -1244,22 +1250,54 @@ function spellList() {
   // The engine only needs the definition fields; functions stay here.
   return SPELLS.map(function (sp) {
     return { id: sp.id, name: sp.name, branch: sp.branch, school: sp.school || "", deity: sp.deity || "",
-      castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage, cooldown: sp.cooldown || 0, mana: sp.mana || 0, level: sp.level || 1, stats: sp.stats || {},
+      castRounds: sp.castRounds, interruptOnDamage: !!sp.interruptOnDamage && !earlySpell(sp), cooldown: sp.cooldown || 0, mana: sp.mana || 0, level: sp.level || 1, stats: sp.stats || {},
       materials: sp.materials || [], target: sp.target, save: sp.save || "none", saveEffect: sp.saveEffect || "",
-      innate: !!sp.innate, price: sp.price || 0, found: !!sp.found,
+      innate: !!sp.innate, price: sp.price || 0, found: !!sp.found, tier: sp.tier || "school",
+      opposite: sp.branch === "arcane" ? oppositeOf(sp.school) : "",
       description: sp.description || "" };
   });
 }
+
+// The six arcane schools in the three Orders of High Sorcery (RULES 6.1),
+// each with the school its specialist gives up. Like against like:
+// burst against drain, holding the field against filling it, commanding
+// the mind against deceiving it.
+var SCHOOLS = [
+  { id: "abjuration",  order: "white", opposite: "conjuration" },
+  { id: "evocation",   order: "white", opposite: "necromancy" },
+  { id: "conjuration", order: "red",   opposite: "abjuration" },
+  { id: "illusion",    order: "red",   opposite: "enchantment" },
+  { id: "necromancy",  order: "black", opposite: "evocation" },
+  { id: "enchantment", order: "black", opposite: "illusion" }
+];
+var ORDERS = { white: "the White Robes", red: "the Red Robes", black: "the Black Robes" };
+
+function magicSchools() {
+  return { schools: SCHOOLS, orders: ORDERS, level: P.specialtyLevel,
+           stats: { intelligence: P.specialtyIntelligence } };
+}
+
+function oppositeOf(school) {
+  for (var i = 0; i < SCHOOLS.length; i++) if (SCHOOLS[i].id === school) return SCHOOLS[i].opposite;
+  return "";
+}
+
+// earlySpell reports whether sp is an early spell (P.earlySpellLevel).
+function earlySpell(sp) { return (sp.level || 1) <= P.earlySpellLevel; }
 
 function spellById(id) { for (var i = 0; i < SPELLS.length; i++) if (SPELLS[i].id === id) return SPELLS[i]; return null; }
 
 var SAVE_STAT = { reflex: "dexterity", fortitude: "constitution", will: "wisdom" };
 
 // spellPower is the caster's number for one "unit" of spell: the power
-// unit at the caster's level, times the branch stat and level.
+// unit at the caster's level, times the branch stat and level. An early
+// spell takes its unit from the weapon curve instead (6.4), and a
+// specialist's spell of its own school the specialty bonus (6.1).
 function spellPower(caster, sp) {
   var statName = sp.branch === "divine" ? "wisdom" : "intelligence";
-  return unit(caster) * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell")) * spellPowerMult(caster, sp);
+  var u = earlySpell(sp) ? 6 * weaponGrowth(caster.level) : unit(caster);
+  if (sp.branch === "arcane" && caster.specialty && caster.specialty === sp.school) u *= P.specialtyBonus;
+  return u * mult(caster, statName, true) * levelMult(caster) * (1 + weaponTrait(caster, "spell")) * spellPowerMult(caster, sp);
 }
 
 // Caster effects (RULES 6.6) name which spells they help: a school, a
@@ -1317,8 +1355,12 @@ function saves(caster, target, sp) {
   return random.float() < S / (S + 2 * C);
 }
 
-// spellKind is the kind of a spell's damage (4.8): its own, or magic.
-function spellKind(sp) { return sp.kind || "magic"; }
+// spellKind is the kind of a spell's damage (4.8): its own, the kind its
+// caster's god gives it (kindByDeity, for common divine spells), or magic.
+function spellKind(sp, caster) {
+  if (sp.kindByDeity && caster && sp.kindByDeity[caster.deity]) return sp.kindByDeity[caster.deity];
+  return sp.kind || "magic";
+}
 
 function resolveCast(caster, targets, spell) {
   var sp = spellById(spell.id);
@@ -1333,7 +1375,7 @@ function resolveCast(caster, targets, spell) {
     if (saved && sp.saveEffect === "negate") { tr.saved = true; tr.negated = true; out.targets.push(tr); continue; }
     var scale = saved ? 0.5 : 1;
     tr.saved = saved;
-    var kind = spellKind(sp);
+    var kind = spellKind(sp, caster);
     if (sp.damage) {
       // A spell wholly resisted does nothing more when that is all it does;
       // one that also curses or burns still lands its effects (4.8).

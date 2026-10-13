@@ -1,6 +1,6 @@
 # The tutorial corridor, the armory, and the hall. The test arena, the
 # colleges, and a room of one of everything are in the balance area.
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the tutorial corridor (40-46), where new characters wake ---
   - { item: 114, room: 40 }   # the plaque

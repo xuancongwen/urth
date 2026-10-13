@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # Lut Gholein
   - { mob: 3200, room: 3200 }                                   # Warriv with his caravan at the west gate

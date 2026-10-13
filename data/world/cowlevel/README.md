@@ -5,7 +5,7 @@ bruise-coloured sky, a cow pen, a farmstead that burns and never burns
 down, a ring of standing stones, the herd's war camp, and the Cow
 King's throne field, all of it full of Hell Bovines. Levels 20 to 26,
 and the Cow King at 27. A farming area: a tight level band, crowded
-rooms, a two-minute reset (`interval_seconds: 120`), and plain drop
+rooms, an eight-minute reset (`interval_seconds: 480`), and plain drop
 gear at every level from 19 to 28, so every kill can roll loot.
 
 Reached from Tristram: west of the graveyard wall (diablo room 1308)

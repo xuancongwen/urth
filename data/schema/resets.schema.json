@@ -6,7 +6,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "interval_seconds": { "type": "integer", "minimum": 1, "default": 600 },
+    "interval_seconds": { "type": "integer", "minimum": 1, "default": 2400 },
     "resets": {
       "type": "array",
       "items": {

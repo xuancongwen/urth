@@ -286,6 +286,29 @@ with immunity kept for mobs (RULES 4.8). Both are rules-script work;
 the engine's share is carrying a kind on spells and procs and showing
 resistances on `consider`.
 
+## D27. Common spells for everyone; one arcane specialty, earned at a Tower of High Sorcery
+
+D25 put all magic behind discovery, and measuring it in play (story
+1022) showed the cost: half the schools could not be reached, the one
+first-level attack spell sat behind a level-14 kill, and a caster at
+levels 1 to 5 was weaker than a fighter because blows broke nearly
+every cast. The designer decided on 2026-10-12 to open the bottom and
+keep discovery for the top. Spells come in three tiers: common, which
+anyone with the level and stat learns from a trainer; school, which
+needs the specialty; rare, found on scrolls, with requirements that may
+stack. There are six schools in the three Orders of High Sorcery
+(White: abjuration, evocation; Red: conjuration, illusion; Black:
+necromancy, enchantment), divination and transmutation being cut. An
+arcane caster specialises in one school, for good, at its Order's
+tower (Daltigoth, Wayreth, Palanthas), gaining a bonus there and losing
+the opposite school (evocation and necromancy, abjuration and
+conjuration, enchantment and illusion), so totems leave the world and
+existing characters' schools are reset. Divine magic still needs a
+god; an apostle gets a shared set of common divine spells plus the
+god's own. Early spells ignore blows and grow on the flatter weapon
+curve. Spell Focus becomes +20 percent to all magic, and Archmage and
+Saint +60 percent (RULES 6.1, 6.4, 6.6, 7.3).
+
 ## D28. Mobs that onTick leaves unchanged are not asked again until they change
 
 An idle server spent about 5 percent of a core with nobody online

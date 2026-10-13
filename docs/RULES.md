@@ -145,9 +145,13 @@ left out; the engine then uses a quiet default.
   built by the engine from the spell's `target`: single (named or the
   current target), ally (named or self), self, group (members here),
   area (everyone here not in the caster's group). A hostile cast starts
-  the fight. Access: `brandish <totem>` adds its school; `sacrifice
-  <item>` in a room whose `temple` matches the item's `sacrifice` makes
-  the character that god's apostle (one god at a time).
+  the fight. Access (since 2026-10-12): a spell's `tier` and its
+  `opposite` school come from `spellList`; `swear <school>` in a room
+  whose `order` holds the school (the `magicSchools` hook) sets the
+  character's one specialty, and `brandish <totem>` does the same in the
+  balance lab; `sacrifice <item>` in a room whose `temple` matches the
+  item's `sacrifice` makes the character that god's apostle (one god at
+  a time).
 - Groups (4.7): `follow`, `group`, `gtell`, `assist`; followers move with
   the leader; grouped players here auto-assist when a member's fight
   starts; a mob flagged `assist` joins a mob of its kind; `kill` on a new
@@ -1801,6 +1805,79 @@ three ways:
 A learned spell is a permanent effect on the character, as a learned
 skill is (7.4), so it needs no new storage and survives death.
 
+**Revised 2026-10-12: common spells, one specialty, and the Towers of
+High Sorcery.** Measured in play (story 1022), the door above was
+closed too tight. Four of the eight schools had no totem a player could
+reach, the only school with a first-level attack sat behind a level-14
+kill, and a caster at levels 1 to 5 was weaker than a fighter, because
+its points went into a stat its locked magic could not use. Read
+against the antithesis, the fault was putting *all* magic behind
+discovery. A character can differ by what it has earned without being
+unable to cast anything until it has. The designer's answer keeps
+discovery for the top of the scale and opens the bottom:
+
+- **Three tiers.** A *common* spell is simple enough that anyone with
+  the level and the stat can learn it from a trainer, for coin. A
+  *school* spell needs the caster to be that school's specialist. A
+  *rare* spell is found on a scroll, as in the "found" way above. Every
+  arcane spell still belongs to a school, common ones included, because
+  the opposition rule below reads it. Requirements stack (scroll,
+  level, stat, specialty, material), each set by how strong the spell
+  is; a rare spell may want all of them.
+- **Six schools in three Orders.** Divination and transmutation are
+  cut. Divination was mostly self-buffs that read as common spells, and
+  transmutation folds into enchantment, which now holds both mind and
+  body. Each Order of High Sorcery holds two schools, and each school
+  has an opposite in another Order:
+
+  | Order | Tower | Schools |
+  |---|---|---|
+  | White | Daltigoth | abjuration, evocation |
+  | Red | Wayreth | conjuration, illusion |
+  | Black | Palanthas | necromancy, enchantment |
+
+  Opposites: evocation and necromancy (damage: burst against drain);
+  abjuration and conjuration (holding the field against filling it);
+  enchantment and illusion (commanding the mind against deceiving it).
+  The pairs are like against like on purpose, so that every ban costs a
+  specialist about the same thing and no specialty is the free one.
+- **One specialty, for good.** An arcane caster may specialise in
+  exactly one school, and never changes it. The specialist gains a
+  bonus to that school's spells and can no longer cast the opposite
+  school's spells, common ones included. Everything else stays open:
+  common spells of the four other schools, and any spell with no
+  school. This answers 7.3's open question on a limit to schools: one.
+- **Totems leave the world.** A specialty is earned at the tower of the
+  school's Order, by passing that tower's Test of High Sorcery. The
+  Test is content: a way into the tower that is hard to find and hard
+  to survive, ending in a room where a character that meets the level
+  and Intelligence swears to one of the Order's two schools. The towers
+  lie past Solace and are not meant to be easy to reach, so the
+  specialty is the discovery that 6.1 was always about, and common
+  spells carry a caster until then. Totems survive only in the balance
+  lab, or are replaced there by a builder's way to grant a specialty.
+- **Divine stays simple.** There is no divine magic without a god.
+  Becoming a god's apostle (the sacrifice above, unchanged) grants a set
+  of common divine spells that every god's apostle shares, among them
+  Mend, plus the god's own spells, taught, innate, or found. Being one
+  god's apostle already excludes the other gods' spells, so divine needs
+  no opposition rule; Devotion (6.6) is its specialist's bonus. A hidden
+  Fallen God, whose disciples give up some divine spells for others, is
+  an idea for later.
+- **Existing characters are reset.** A character that brandished
+  totems before this change loses its schools and specialises like
+  everyone else.
+
+Leaning, to be set when it is built: the specialist's bonus is +30
+percent to its own school's spells (spellPower), above Spell Focus's
++20 percent to everything; a school spell, and the Test, want level 10
+and 15 Intelligence. The tables in 6.5 still list the eight schools
+until the spells are retagged. Consequences: each spell gains a `tier`
+(common, school, rare) beside its `school`; the character's `Schools`
+list becomes one `specialty`; `cast`, `practice`, and `spells` refuse
+an opposite-school spell with the reason; a Test room carries its
+Order, and a command there sets the specialty once.
+
 ### 6.2 Casting costs mana; some spells also want items
 
 **Thesis.** Casting draws from a mana pool that regenerates. Cheap to
@@ -1946,7 +2023,47 @@ interrupted cast loses them. That is the consequence 6.3 asks magic to carry, an
 why a long cast is a real decision in a fight. Open: whether an
 interrupted cast also triggers the cooldown.
 
-**Requirements (leaning, 2026-10-11).** Unlocking a school or a god
+**Early spells hold, and grow slowly (decided 2026-10-12).** Measured
+in story 1022: the round resolves swings before casts, and a mob of the
+caster's level lands nearly every round, so a solo caster at levels 1
+to 5 lost about five casts in six to blows, and the mana with them, until
+Combat Casting (level 6) or Steadfast Prayer (level 7) arrived. Below
+those feats, magic in a solo fight was a tax rather than a tool. The
+designer's answer: early spells are not easily broken, and in exchange
+they do not scale as well as later ones, so they carry a beginner and
+then give way. Built 2026-10-12 (`earlySpellLevel` in the rules): a
+spell of level 5 or below ignores blows (movement still cancels it),
+and its power unit grows on the weapon curve (1.07 a level, 5.2) rather
+than the power unit's 1.10, so at level 20 it hits about 60 percent as
+hard as it would on the full curve.
+
+Measured as in story 1022 (kills per hour in even fights, resting to
+full between them, against the balance dummies; the fighter takes no
+feats, the casters their caster feats):
+
+| Build | L1 | L3 | L5 | L7 | L10 |
+|---|---|---|---|---|---|
+| fighter, Strength, Constitution, Dexterity | 90 | 92 | 109 | 127 | 140 |
+| arcane, all Intelligence: Firebolt | 116 | 147 | 206 | 251 | 282 |
+| arcane: Magic Missile, then Firebolt | 117 | 144 | 198 | 200 | 232 |
+| arcane, 2 Intelligence to 1 Constitution | 82 | 104 | 154 | 198 | 240 |
+| arcane: Chill Touch, Drain | 99 | 138 | 164 | 197 | 241 |
+| divine, Good: Wrath, Mend under half | 108 | 149 | 217 | 240 | 270 |
+| divine, Evil: Rotting Touch, Dread, Blight, Wrath | 96 | 125 | 126 | 131 | 180 |
+| divine, Neutral: Entangle, Stillness, Wrath | 109 | 124 | 116 | 129 | 170 |
+
+Before the change the arcane rows began at 60 to 62 and stayed there
+until level 6. Now no caster starts below a fighter, and the gap that
+6.3 wants opens by level 5. Nobody died in the arcane or Good rows; the
+Neutral row lost one run in thirty at level 7. The Evil and Neutral
+rows lean on control spells, which the simple casting policy used here
+spends mana on rather than on Wrath.
+
+**Requirements (leaning, 2026-10-11; access revised 2026-10-12, 6.1).**
+Since 2026-10-12 access is by tier: a common spell needs no specialty
+(but is barred to the opposite school's specialist), a school spell its
+specialty, a divine spell a god. The rest of this paragraph holds as
+written. Unlocking a school or a god
 (6.1) gives access to its spells, and learning one (innate, taught, or
 found, 6.1) makes it the caster's; each spell also names a level and a
 trained stat (Intelligence for arcane, Wisdom for divine) the caster
@@ -2070,6 +2187,14 @@ exist.
 ---
 
 **The expanded list (2026-10-11).** The first list above became the
+*Retagged 2026-10-12 (6.1): the tables below give each spell's tier and
+its school after the cut. Divination's spells became common or moved to
+abjuration, illusion, enchantment, and evocation; transmutation's moved
+to enchantment. Each school's first school spell is known at once by
+its specialist; common arcane spells are bought, since there is no
+school to unlock them. Every god's apostle knows Mend and Wrath at once
+and may buy Bless. The enchantments of 5.6 are common, at level 25.*
+
 innate spells of each school and god (6.1). Around them each school
 grew to six or seven spells and each god to six: simple damage early,
 then defence, buffs and debuffs, stronger spells taught at higher
@@ -2087,89 +2212,90 @@ The neutral god, which had no reachable temple, now has one: the
 heart tree in Winterfell's godswood, with a weirwood seed as its
 sacrifice.
 
-**Arcane** (56 spells)
+**Arcane** (56 spells, six schools)
 
-| Spell | School | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
-|---|---|---|---|---|---|---|---|---|---|
-| Shield | abjuration | 1, 11 Int | 6 | 0 | 10 | self | none | block 5r | 100 silver |
-| Ward | abjuration | 2, 11 Int | 8 | 0 | 10 | ally | none | defense 10r | innate |
-| Stoneskin | abjuration | 12, 16 Int | 14 | 1 | 20 | ally | none | soak 10r | 1200 silver |
-| Repulsion | abjuration | 18, 18 Int | 16 | 1 | 12 | area | will, negate | speedMult 3r | 1800 silver |
-| Globe of Invulnerability | abjuration | 26, 19 Int | 26 | 2 | 30 | group | none | protect 5r | 3000 silver |
-| Prismatic Ward | abjuration | 38, 21 Int | 35 | 2 | 40 | group | none | protect 6r; thorns 6r | scroll |
-| Acid Splash | conjuration | 3, 12 Int | 7 | 1 | 0 | single | fortitude, half | 1.5x damage; dot 3r | innate |
-| Mage Armor | conjuration | 5, 13 Int | 8 | 1 | 0 | ally | none | defense 40r | 500 silver |
-| Acid Arrow | conjuration | 7, 14 Int | 10 | 1 | 4 | single | reflex, half | 1x damage; dot 4r | 700 silver |
-| Web | conjuration | 9, 15 Int | 10 | 1 | 10 | area | reflex, negate | speedMult 3r | 900 silver |
-| Ice Storm | conjuration | 16, 17 Int | 18 | 2 | 8 | area | reflex, half | 1.7x damage | 1600 silver |
-| Cloudkill | conjuration | 24, 19 Int | 22 | 2 | 12 | area | fortitude, half | dot 6r | 2400 silver |
-| Incendiary Cloud | conjuration | 40, 22 Int | 38 | 3 | 25 | area | reflex, half | 1.5x damage; dot 6r | scroll |
-| True Strike | divination | 1, 11 Int | 6 | 0 | 10 | self | none | crit 3r | 100 silver |
-| Foresight | divination | 4, 12 Int | 8 | 0 | 20 | self | none | dodge 10r | innate |
-| See Invisible | divination | 6, 13 Int | 8 | 1 | 0 | self | none | detectInvisible 60r | 500 silver |
-| Find Weakness | divination | 10, 16 Int | 10 | 1 | 10 | single | will, negate | protect 4r | 1000 silver |
-| Insight | divination | 16, 17 Int | 16 | 1 | 20 | group | none | dodge 8r | 1600 silver |
-| True Seeing | divination | 28, 20 Int | 20 | 1 | 30 | self | none | detectInvisible 10r; detectHidden 10r; crit 10r; dodge 10r | 3000 silver |
-| Greater Foresight | divination | 36, 21 Int | 30 | 1 | 40 | group | none | dodge 6r; crit 6r | scroll |
-| Daze | enchantment | 3, 12 Int | 6 | 1 | 5 | single | will, negate | speedMult 3r | innate |
-| Mind Spike | enchantment | 5, 13 Int | 8 | 1 | 0 | single | will, half | 1.8x damage | 500 silver |
-| Sleep | enchantment | 7, 14 Int | 10 | 1 | 8 | single | will, negate | speedMult 3r | 700 silver |
-| Heroism | enchantment | 10, 16 Int | 12 | 1 | 20 | ally | none | damage 10r; steady 10r | 1000 silver |
-| Confusion | enchantment | 18, 18 Int | 18 | 1 | 12 | area | will, negate | blind 3r; speedMult 3r | 1800 silver |
-| Hold Monster | enchantment | 28, 20 Int | 22 | 1 | 15 | single | will, negate | speedMult 4r | 3000 silver |
-| Power Word Stun | enchantment | 38, 21 Int | 30 | 0 | 30 | single | none | speedMult 3r; protect 3r | scroll |
-| Firebolt | evocation | 1, 11 Int | 6 | 1 | 0 | single | reflex, half | 2x damage | innate |
-| Magic Missile | evocation | 2, 11 Int | 6 | 1 | 0 | single | none | 1.4x damage | 150 silver |
-| Fireball | evocation | 10, 16 Int | 15 | 2 | 8 | area | reflex, half | 1.5x damage | innate |
-| Fire Shield | evocation | 12, 16 Int | 12 | 1 | 20 | self | none | thorns 10r | 1200 silver |
-| Lightning Bolt | evocation | 14, 17 Int | 14 | 1 | 4 | single | reflex, half | 2.5x damage | 1400 silver |
-| Cone of Cold | evocation | 20, 18 Int | 20 | 2 | 10 | area | reflex, half | 1.8x damage; speedMult 2r | 2000 silver |
-| Chain Lightning | evocation | 30, 20 Int | 28 | 2 | 12 | area | reflex, half | 2.2x damage | 3600 silver |
-| Meteor Swarm | evocation | 42, 22 Int | 40 | 3 | 20 | area | reflex, half | 3.5x damage; dot 3r | scroll |
-| Color Spray | illusion | 2, 11 Int | 7 | 1 | 6 | area | will, negate | blind 2r | 150 silver |
-| Blur | illusion | 5, 13 Int | 8 | 1 | 15 | self | none | dodge 5r | innate |
-| Invisibility | illusion | 6, 13 Int | 10 | 1 | 10 | ally | none | invisible 30r | 600 silver |
-| Mirror Image | illusion | 9, 15 Int | 12 | 1 | 20 | self | none | dodge 4r | 900 silver |
-| Phantasmal Killer | illusion | 20, 18 Int | 18 | 2 | 8 | single | will, half | 2.6x damage | 2000 silver |
-| Mislead | illusion | 30, 20 Int | 22 | 1 | 30 | self | none | dodge 6r; crit 6r | 3600 silver |
-| Weird | illusion | 38, 21 Int | 36 | 2 | 25 | area | will, half | 2.5x damage; speedMult 2r | scroll |
-| Chill Touch | necromancy | 1, 11 Int | 6 | 1 | 0 | single | fortitude, half | 1.6x damage; stat 3r | 100 silver |
-| Drain | necromancy | 5, 13 Int | 7 | 1 | 3 | single | fortitude, half | 1.5x damage; drains 50% | innate |
-| Ray of Enfeeblement | necromancy | 8, 15 Int | 10 | 1 | 8 | single | fortitude, negate | stat 8r | 800 silver |
-| False Life | necromancy | 12, 16 Int | 12 | 1 | 20 | self | none | regen 10r | 1200 silver |
-| Vampiric Touch | necromancy | 16, 17 Int | 14 | 1 | 6 | single | fortitude, half | 2.2x damage; drains 75% | 1600 silver |
-| Circle of Death | necromancy | 32, 20 Int | 30 | 2 | 15 | area | fortitude, half | 2x damage | 3800 silver |
-| Finger of Death | necromancy | 44, 22 Int | 38 | 1 | 30 | single | fortitude, half | 4.5x damage; drains 25% | scroll |
-| Stone Fist | transmutation | 2, 11 Int | 6 | 1 | 10 | self | none | damage 6r; unarmedMult 6r | 150 silver |
-| Haste | transmutation | 8, 15 Int | 15 | 2 | 20 | self | none | attacks 5r | innate |
-| Slow | transmutation | 12, 16 Int | 14 | 1 | 10 | area | will, negate | speedMult 3r | 1200 silver |
-| Iron Body | transmutation | 22, 18 Int | 20 | 1 | 30 | self | none | soak 8r; defense 8r; speedMult 8r | 2400 silver |
-| Tenser's Transformation | transmutation | 24, 19 Int | 22 | 2 | 30 | self | none | attacks 8r; damage 8r; defense 8r | 2600 silver |
-| Disintegrate | transmutation | 34, 21 Int | 28 | 2 | 15 | single | fortitude, half | 3.5x damage | 4000 silver |
-| Time Stop | transmutation | 45, 22 Int | 40 | 1 | 50 | area | none | speedMult 5r | scroll |
+| Spell | School | Tier | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Shield | abjuration | common | 1, 11 Int | 6 | 0 | 10 | self | none | block 5r | 100 silver |
+| Ward | abjuration | common | 2, 11 Int | 8 | 0 | 10 | ally | none | defense 10r | 100 silver |
+| Foresight | abjuration | common | 4, 12 Int | 8 | 0 | 20 | self | none | dodge 10r | 120 silver |
+| Stoneskin | abjuration | school | 12, 16 Int | 14 | 1 | 20 | ally | none | soak 10r | known at once |
+| Insight | abjuration | school | 16, 17 Int | 16 | 1 | 20 | group | none | dodge 8r | 1600 silver |
+| Repulsion | abjuration | school | 18, 18 Int | 16 | 1 | 12 | area | will, negate | speedMult 3r | 1800 silver |
+| Globe of Invulnerability | abjuration | school | 26, 19 Int | 26 | 2 | 30 | group | none | protect 5r | 3000 silver |
+| Greater Foresight | abjuration | rare | 36, 21 Int | 30 | 1 | 40 | group | none | dodge 6r; crit 6r | scroll |
+| Prismatic Ward | abjuration | rare | 38, 21 Int | 35 | 2 | 40 | group | none | protect 6r; thorns 6r | scroll |
+| Acid Splash | conjuration | common | 3, 12 Int | 7 | 1 | 0 | single | fortitude, half | 1.5x damage; dot 3r | 100 silver |
+| Mage Armor | conjuration | common | 5, 13 Int | 8 | 1 | 0 | ally | none | defense 40r | 500 silver |
+| Acid Arrow | conjuration | common | 7, 14 Int | 10 | 1 | 4 | single | reflex, half | 1x damage; dot 4r | 700 silver |
+| Web | conjuration | school | 9, 15 Int | 10 | 1 | 10 | area | reflex, negate | speedMult 3r | known at once |
+| Ice Storm | conjuration | school | 16, 17 Int | 18 | 2 | 8 | area | reflex, half | 1.7x damage | 1600 silver |
+| Cloudkill | conjuration | school | 24, 19 Int | 22 | 2 | 12 | area | fortitude, half | dot 6r | 2400 silver |
+| Incendiary Cloud | conjuration | rare | 40, 22 Int | 38 | 3 | 25 | area | reflex, half | 1.5x damage; dot 6r | scroll |
+| True Strike | enchantment | common | 1, 11 Int | 6 | 0 | 10 | self | none | crit 3r | 100 silver |
+| Stone Fist | enchantment | common | 2, 11 Int | 6 | 1 | 10 | self | none | damage 6r; unarmedMult 6r | 150 silver |
+| Daze | enchantment | common | 3, 12 Int | 6 | 1 | 5 | single | will, negate | speedMult 3r | 80 silver |
+| Mind Spike | enchantment | common | 5, 13 Int | 8 | 1 | 0 | single | will, half | 1.8x damage | 500 silver |
+| Sleep | enchantment | school | 7, 14 Int | 10 | 1 | 8 | single | will, negate | speedMult 3r | known at once |
+| Haste | enchantment | school | 8, 15 Int | 15 | 2 | 20 | self | none | attacks 5r | known at once |
+| Heroism | enchantment | school | 10, 16 Int | 12 | 1 | 20 | ally | none | damage 10r; steady 10r | 1000 silver |
+| Slow | enchantment | school | 12, 16 Int | 14 | 1 | 10 | area | will, negate | speedMult 3r | 1200 silver |
+| Confusion | enchantment | school | 18, 18 Int | 18 | 1 | 12 | area | will, negate | blind 3r; speedMult 3r | 1800 silver |
+| Iron Body | enchantment | school | 22, 18 Int | 20 | 1 | 30 | self | none | soak 8r; defense 8r; speedMult 8r | 2400 silver |
+| Tenser's Transformation | enchantment | school | 24, 19 Int | 22 | 2 | 30 | self | none | attacks 8r; damage 8r; defense 8r | 2600 silver |
+| Hold Monster | enchantment | school | 28, 20 Int | 22 | 1 | 15 | single | will, negate | speedMult 4r | 3000 silver |
+| Disintegrate | enchantment | school | 34, 21 Int | 28 | 2 | 15 | single | fortitude, half | 3.5x damage | 4000 silver |
+| Power Word Stun | enchantment | rare | 38, 21 Int | 30 | 0 | 30 | single | none | speedMult 3r; protect 3r | scroll |
+| Time Stop | enchantment | rare | 45, 22 Int | 40 | 1 | 50 | area | none | speedMult 5r | scroll |
+| Firebolt | evocation | common | 1, 11 Int | 6 | 1 | 0 | single | reflex, half | 2x damage | 60 silver |
+| Magic Missile | evocation | common | 2, 11 Int | 6 | 1 | 0 | single | none | 1.4x damage | 150 silver |
+| Find Weakness | evocation | school | 10, 16 Int | 10 | 1 | 10 | single | will, negate | protect 4r | 1000 silver |
+| Fireball | evocation | school | 10, 16 Int | 15 | 2 | 8 | area | reflex, half | 1.5x damage | known at once |
+| Fire Shield | evocation | school | 12, 16 Int | 12 | 1 | 20 | self | none | thorns 10r | 1200 silver |
+| Lightning Bolt | evocation | school | 14, 17 Int | 14 | 1 | 4 | single | reflex, half | 2.5x damage | 1400 silver |
+| Cone of Cold | evocation | school | 20, 18 Int | 20 | 2 | 10 | area | reflex, half | 1.8x damage; speedMult 2r | 2000 silver |
+| Chain Lightning | evocation | school | 30, 20 Int | 28 | 2 | 12 | area | reflex, half | 2.2x damage | 3600 silver |
+| Meteor Swarm | evocation | rare | 42, 22 Int | 40 | 3 | 20 | area | reflex, half | 3.5x damage; dot 3r | scroll |
+| Color Spray | illusion | common | 2, 11 Int | 7 | 1 | 6 | area | will, negate | blind 2r | 150 silver |
+| Blur | illusion | common | 5, 13 Int | 8 | 1 | 15 | self | none | dodge 5r | 200 silver |
+| See Invisible | illusion | common | 6, 13 Int | 8 | 1 | 0 | self | none | detectInvisible 60r | 500 silver |
+| Invisibility | illusion | school | 6, 13 Int | 10 | 1 | 10 | ally | none | invisible 30r | known at once |
+| Mirror Image | illusion | school | 9, 15 Int | 12 | 1 | 20 | self | none | dodge 4r | 900 silver |
+| Phantasmal Killer | illusion | school | 20, 18 Int | 18 | 2 | 8 | single | will, half | 2.6x damage | 2000 silver |
+| True Seeing | illusion | school | 28, 20 Int | 20 | 1 | 30 | self | none | detectInvisible 10r; detectHidden 10r; crit 10r; dodge 10r | 3000 silver |
+| Mislead | illusion | school | 30, 20 Int | 22 | 1 | 30 | self | none | dodge 6r; crit 6r | 3600 silver |
+| Weird | illusion | rare | 38, 21 Int | 36 | 2 | 25 | area | will, half | 2.5x damage; speedMult 2r | scroll |
+| Chill Touch | necromancy | common | 1, 11 Int | 6 | 1 | 0 | single | fortitude, half | 1.6x damage; stat 3r | 100 silver |
+| Drain | necromancy | common | 5, 13 Int | 7 | 1 | 3 | single | fortitude, half | 1.5x damage; drains 50% | 200 silver |
+| Ray of Enfeeblement | necromancy | school | 8, 15 Int | 10 | 1 | 8 | single | fortitude, negate | stat 8r | known at once |
+| False Life | necromancy | school | 12, 16 Int | 12 | 1 | 20 | self | none | regen 10r | 1200 silver |
+| Vampiric Touch | necromancy | school | 16, 17 Int | 14 | 1 | 6 | single | fortitude, half | 2.2x damage; drains 75% | 1600 silver |
+| Circle of Death | necromancy | school | 32, 20 Int | 30 | 2 | 15 | area | fortitude, half | 2x damage | 3800 silver |
+| Finger of Death | necromancy | rare | 44, 22 Int | 38 | 1 | 30 | single | fortitude, half | 4.5x damage; drains 25% | scroll |
 
-**Divine** (18 spells)
+**Divine** (19 spells; "any" is the common set every apostle shares)
 
-| Spell | God | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
-|---|---|---|---|---|---|---|---|---|---|
-| Rotting Touch | evil | 1, 11 Wis | 6 | 1 | 0 | single | fortitude, half | dot 4r | 60 silver |
-| Dread | evil | 4, 12 Wis | 8 | 1 | 6 | single | will, negate | speedMult 4r; damage 4r | 320 silver |
-| Blight | evil | 6, 14 Wis | 12 | 1 | 6 | area | fortitude, half | dot 5r | innate |
-| Malediction | evil | 12, 16 Wis | 12 | 1 | 8 | single | will, negate | stat 8r; stat 8r; stat 8r | 1080 silver |
-| Harm | evil | 28, 19 Wis | 26 | 2 | 8 | single | fortitude, half | 2.8x damage; drains 33% | 2800 silver |
-| Unholy Word | evil | 44, 22 Wis | 40 | 2 | 25 | area | will, half | 2.2x damage; speedMult 3r; damage 3r | scroll |
-| Mend | good | 1, 11 Wis | 8 | 1 | 0 | ally | none | heals 30% | innate |
-| Bless | good | 3, 12 Wis | 8 | 1 | 10 | ally | none | defense 15r; protect 15r | 240 silver |
-| Sanctuary | good | 8, 15 Wis | 20 | 2 | 30 | group | none | protect 5r | innate |
-| Smite | good | 12, 16 Wis | 12 | 1 | 2 | single | will, half | 2.2x damage | 1080 silver |
-| Prayer of Healing | good | 28, 19 Wis | 28 | 2 | 12 | group | none | heals 25%; regen 6r | 2800 silver |
-| Holy Word | good | 42, 22 Wis | 38 | 2 | 25 | area | will, half | 2.5x damage; blind 2r | scroll |
-| Entangle | neutral | 2, 11 Wis | 7 | 1 | 4 | single | reflex, negate | speedMult 3r; dodge 3r | 160 silver |
-| Stillness | neutral | 4, 12 Wis | 12 | 1 | 10 | area | will, negate | speedMult 2r | innate |
-| Barkskin | neutral | 7, 14 Wis | 10 | 1 | 15 | ally | none | soak 12r; defense 12r | 560 silver |
-| Call Lightning | neutral | 14, 17 Wis | 16 | 2 | 6 | single | reflex, half | 2.8x damage | 1260 silver |
-| Restoration | neutral | 26, 19 Wis | 22 | 2 | 10 | ally | none | heals 35%; regen 5r | 2600 silver |
-| Storm of Vengeance | neutral | 44, 22 Wis | 40 | 3 | 25 | area | reflex, half | 2.2x damage; speedMult 3r | scroll |
+| Spell | God | Tier | Level, needs | Mana | Cast | Cooldown | Target | Save | Effect | Learned |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Mend | any | common | 1, 11 Wis | 8 | 1 | 0 | ally | none | heals 30% | known at once |
+| Wrath | any | common | 1, 11 Wis | 6 | 1 | 0 | single | will, half | 1.8x damage, of its god's kind | known at once |
+| Bless | any | common | 3, 12 Wis | 8 | 1 | 10 | ally | none | defense 15r; protect 15r | 240 silver |
+| Rotting Touch | evil | school | 1, 11 Wis | 6 | 1 | 0 | single | fortitude, half | dot 4r | 60 silver |
+| Dread | evil | school | 4, 12 Wis | 8 | 1 | 6 | single | will, negate | speedMult 4r; damage 4r | 320 silver |
+| Blight | evil | school | 6, 14 Wis | 12 | 1 | 6 | area | fortitude, half | dot 5r | known at once |
+| Malediction | evil | school | 12, 16 Wis | 12 | 1 | 8 | single | will, negate | stat 8r; stat 8r; stat 8r | 1080 silver |
+| Harm | evil | school | 28, 19 Wis | 26 | 2 | 8 | single | fortitude, half | 2.8x damage; drains 33% | 2800 silver |
+| Unholy Word | evil | rare | 44, 22 Wis | 40 | 2 | 25 | area | will, half | 2.2x damage; speedMult 3r; damage 3r | scroll |
+| Sanctuary | good | school | 8, 15 Wis | 20 | 2 | 30 | group | none | protect 5r | known at once |
+| Smite | good | school | 12, 16 Wis | 12 | 1 | 2 | single | will, half | 2.2x damage | 1080 silver |
+| Prayer of Healing | good | school | 28, 19 Wis | 28 | 2 | 12 | group | none | heals 25%; regen 6r | 2800 silver |
+| Holy Word | good | rare | 42, 22 Wis | 38 | 2 | 25 | area | will, half | 2.5x damage; blind 2r | scroll |
+| Entangle | neutral | school | 2, 11 Wis | 7 | 1 | 4 | single | reflex, negate | speedMult 3r; dodge 3r | 160 silver |
+| Stillness | neutral | school | 4, 12 Wis | 12 | 1 | 10 | area | will, negate | speedMult 2r | known at once |
+| Barkskin | neutral | school | 7, 14 Wis | 10 | 1 | 15 | ally | none | soak 12r; defense 12r | 560 silver |
+| Call Lightning | neutral | school | 14, 17 Wis | 16 | 2 | 6 | single | reflex, half | 2.8x damage | 1260 silver |
+| Restoration | neutral | school | 26, 19 Wis | 22 | 2 | 10 | ally | none | heals 35%; regen 5r | 2600 silver |
+| Storm of Vengeance | neutral | rare | 44, 22 Wis | 40 | 3 | 25 | area | reflex, half | 2.2x damage; speedMult 3r | scroll |
 
 ### 6.6 Strengthening magic: caster feats and caster gear (decided 2026-10-11)
 
@@ -2200,7 +2326,16 @@ build and not only in the spell list:
   fight), Shield of Faith (casting a helpful spell guards you).
 
 A caster feat needs its branch (7.2): an arcane feat wants an arcane
-school unlocked, a divine one an apostleship. The new effect kinds,
+school unlocked, a divine one an apostleship.
+
+**Revised 2026-10-12.** Spell Focus is one feat, not eight: +20 percent
+to every spell the character casts, for any caster. Archmage (arcane)
+and Saint (divine) rise from +15 to +60 percent and become the late
+reward of a caster's build, so that a level-20 caster has a pick
+worth waiting for. With common spells (6.1), a school is no longer
+what lets a character cast, so an arcane feat wants a learned arcane
+spell, and Archmage wants a specialty; a divine feat still wants an
+apostleship. The new effect kinds,
 which items may also carry (5.4):
 
 | Kind | Params | Read where |
@@ -2398,7 +2533,8 @@ itself is a command, since a hook cannot ask a question. Feats have a
 skills, and spells to be gated by level and stats. A feat names, beside
 its `level` and the feats it `requires`, the trained `stats` it wants
 and, for a caster feat, its `branch` (6.6): an arcane feat needs an
-arcane school unlocked, a divine feat an apostleship. Combat feats
+arcane school unlocked, a divine feat an apostleship (since 2026-10-12,
+a learned arcane spell, and a specialty for Archmage; 6.6). Combat feats
 want the stat that powers them (Strength for Brawn's heirs and the
 extra attacks, Dexterity for evasion and finesse, Constitution for
 toughness and soaking), rising with the feat's level as skills' do
@@ -2451,6 +2587,14 @@ Leaning: no limit for now, per 2.2. This is the decision most likely to
 be revisited once there are enough schools to matter.
 
 ### 7.4 Effectiveness: skills and some feats improve with use
+**Decided 2026-10-12: one.** A character specialises in one school, for
+good, and loses the opposite school (6.1). Breadth comes from common
+spells, which every caster can learn; depth from the specialty. Veteran
+builds cannot converge, because no character can hold opposite schools,
+and the three Orders (White, Red, Black) give two arcane characters of
+the same level a visible difference, which is what this section wanted
+from the start.
+
 
 **Thesis.** ROM's skill percentage: a skill starts low, rises with
 practice and use, and the number is the chance the attempt works. A

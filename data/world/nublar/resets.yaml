@@ -1,4 +1,4 @@
-interval_seconds: 300
+interval_seconds: 1200
 resets:
   # --- the visitor center ---
   - { mob: 2400, room: 2401, equip: [{ item: 2401, slot: hold }] }    # Hammond in the rotunda, leaning on his amber cane
