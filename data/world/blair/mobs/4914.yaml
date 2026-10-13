@@ -1,0 +1,18 @@
+vnum: 4914
+name: a Van de Graaff generator
+keywords: [van, de, graaff, generator, dome]
+description: "A Van de Graaff generator crackles, its silver dome throwing sparks."
+look: |
+  A belt-driven static generator on a tall stand, with a polished
+  silver dome on top that has made every physics student's hair stand
+  on end at least once. Nobody switched it on. Its belt is turning
+  anyway, and the sparks off its dome are getting longer.
+level: 7
+attack:
+  kind: lightning
+  verb: zap
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: 0.5 } }

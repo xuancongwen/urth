@@ -1,0 +1,18 @@
+vnum: 4814
+name: a flying boiler-room roach
+keywords: [flying, boiler, room, roach, cockroach, palmetto]
+description: "A huge brown roach rears up on the pipe, wings ticking, and launches itself at you."
+look: |
+  An American cockroach as long as your finger, reddish brown and
+  glossy, with wings. Most roaches run. This one flies, and it flies
+  at your face, and every kid who has seen it do so remembers exactly
+  where they were.
+level: 4
+flags: [assist, aggressive]
+silver: 1
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

@@ -1,0 +1,12 @@
+vnum: 4810
+name: The Boiler Room
+description: |
+  Down a steel stair, under the kitchen: pipes wrapped in silver
+  insulation, gauges with needles that twitch, and a furnace the size
+  of a minivan breathing out heat. Water drips somewhere. The
+  cockroaches down here are the big brown ones that fly, and the rats
+  are fat on cafeteria leftovers. A mop bucket on wheels stands by the
+  stair, and a custodian's radio plays oldies. The kitchen is up.
+exits:
+  up: 4808
+position: { x: 2, y: -3, z: -1 }

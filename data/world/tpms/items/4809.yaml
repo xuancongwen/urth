@@ -1,0 +1,14 @@
+vnum: 4809
+name: a pair of safety goggles
+keywords: [safety, goggles, goggle]
+description: A pair of scratched plastic safety goggles lies here.
+look: |
+  Cloudy plastic lab goggles with an elastic strap and little vents on
+  the sides, the kind that leave a red ring round your face for a
+  whole period. Required for all labs, no exceptions.
+type: armor
+slot: face
+weight: 1
+level: 4
+baseline: light
+flags: [drop]

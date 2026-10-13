@@ -1,0 +1,13 @@
+vnum: 4911
+name: The Silver Chips Newsroom
+description: |
+  The newspaper's room: desks pushed together under page proofs taped
+  to the walls, a wall of past front pages, a couch with a hole in it,
+  and a coffee maker that has been on since September. Reporters type
+  against a deadline and argue about a headline. A sign over the door
+  says SILVER CHIPS: ALL THE NEWS THAT FITS. It is the safest room in
+  the building, as long as you do not touch the layout. The computer
+  lab is east.
+exits:
+  east: 4910
+flags: [safe]

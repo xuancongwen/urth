@@ -1,0 +1,12 @@
+vnum: 4913
+name: "The Roach King's Court"
+description: |
+  Where the tunnel opens under the cafeteria into a chamber that
+  should not be there, warm and close and seething. The walls move. In
+  the middle of the floor is a heap of everything that ever went
+  missing at Blair: TI-83s with names on them, Game Boys, Nokia
+  phones, retainers, a hall pass from 1998, a varsity letter, a lost
+  library book. On top of it sits a cockroach the size of a golden
+  retriever, wearing a bottle cap for a crown. The tunnel is west.
+exits:
+  west: 4912

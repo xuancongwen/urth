@@ -1,0 +1,14 @@
+vnum: 4913
+name: a set of football shoulder pads
+keywords: [football, shoulder, pads]
+description: A set of football shoulder pads lies here.
+look: |
+  Hard plastic shoulder pads with foam underneath and laces down the
+  sides, that make anybody wearing them look like a refrigerator. A
+  tackle bounces off. So does a roach.
+type: armor
+slot: shoulders
+weight: 4
+level: 10
+baseline: heavy
+flags: [drop]

@@ -1,0 +1,13 @@
+vnum: 4812
+name: The Sligo Creek Trail
+description: |
+  A paved trail under tall oaks and tulip poplars, along a creek that
+  runs brown over the rocks after rain. Joggers and dog walkers pass
+  on better days. Today the tree trunks are crusted with the split
+  brown husks of cicadas, and the cicadas themselves, red-eyed and
+  loud as a power line, fly into everything, you included. The geese
+  here are bigger and less patient. The field is west; the trail goes
+  on east to the footbridge.
+exits:
+  west: 4811
+  east: 4813

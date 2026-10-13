@@ -1,0 +1,14 @@
+vnum: 4802
+name: the magnet math teacher
+keywords: [magnet, math, teacher]
+description: The magnet math teacher is writing a problem of the week on the board.
+look: |
+  A teacher with chalk dust on both sleeves and a coffee mug that says
+  I'D RATHER BE FACTORING. She never gives you the answer; she asks
+  you what you tried. The problem of the week is a word problem about
+  two trains, and she promises it is not as easy as it looks. "Show
+  your work," she says, without turning around.
+level: 6
+flags: [peaceful]
+attack:
+  verb: erase

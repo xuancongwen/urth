@@ -1,0 +1,15 @@
+vnum: 4902
+name: the magnet physics teacher
+keywords: [magnet, physics, teacher]
+description: "The magnet physics teacher is dropping two balls from a ladder, again."
+look: |
+  A teacher who believes there is no problem that cannot be solved
+  with a free body diagram, and he is usually right. He runs the egg
+  drop and the trebuchet competition and he once swung the bowling
+  ball pendulum at his own nose to prove a point, and it worked. He is
+  trying to turn the Van de Graaff off. "Don't touch it," he says. "Or
+  do. Then tell me what happened, in words."
+level: 10
+flags: [peaceful]
+attack:
+  verb: lecture

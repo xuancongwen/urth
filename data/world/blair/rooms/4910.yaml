@@ -1,0 +1,14 @@
+vnum: 4910
+name: The Magnet Computer Lab
+description: |
+  Rows of workstations running Linux, a few beige towers older than
+  the freshmen, and a server in the corner with a handwritten sign
+  that says DO NOT TURN OFF. Somebody has a USACO problem up, somebody
+  has a Java applet that does not compile, and somebody has an AIM
+  away message that is just a song lyric and a sad face. The laser
+  printer by the door has been out of its mind since the start of the
+  semester. The Silver Chips newsroom is west; the magnet wing is
+  south.
+exits:
+  south: 4905
+  west: 4911

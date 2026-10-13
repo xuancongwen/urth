@@ -1,0 +1,19 @@
+vnum: 4913
+name: a tray of mystery meat
+keywords: [tray, mystery, meat, entree]
+description: A grey slab of mystery meat slides off its tray and comes for you.
+look: |
+  A grey rectangle of meat, or something like meat, under a skin of
+  brown gravy, that was on the menu as Salisbury steak and has since
+  become something else. It quivers. It has eyes now. It leaves a
+  trail of gravy and it is faster than you think.
+level: 7
+flags: [aggressive]
+attack:
+  kind: acid
+  verb: engulf
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.75 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.5 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }

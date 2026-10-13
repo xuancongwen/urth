@@ -1,0 +1,17 @@
+vnum: 4809
+name: a cloud of fruit flies
+keywords: [cloud, fruit, flies, fly, drosophila]
+description: "A cloud of fruit flies hangs in the air, red eyes and white eyes swirling."
+look: |
+  A whirling haze of Drosophila melanogaster from the genetics unit,
+  some red-eyed and some white-eyed and one or two with vestigial
+  wings, escaped from their vials and furious about it. They get in
+  your eyes, your nose, and your Punnett square.
+level: 2
+flags: [aggressive]
+attack:
+  kind: bite
+  verb: swarm
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

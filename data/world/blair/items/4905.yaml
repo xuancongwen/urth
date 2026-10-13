@@ -1,0 +1,14 @@
+vnum: 4905
+name: a pair of Converse high-tops
+keywords: [converse, high-tops, high, tops, chucks, sneakers]
+description: "A pair of black Converse high-tops lies here, laces knotted together."
+look: |
+  Black canvas high-tops with white toe caps, drawn on in ballpoint
+  pen with band names and phone numbers and one long equation. They
+  have walked the main hallway end to end a thousand times.
+type: armor
+slot: feet
+weight: 1
+level: 6
+baseline: light
+flags: [drop]

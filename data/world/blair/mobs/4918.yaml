@@ -1,0 +1,15 @@
+vnum: 4918
+name: a steam-tunnel rat
+keywords: [steam-tunnel, steam, tunnel, rat]
+description: A rat the size of a beagle runs along a pipe toward you.
+look: |
+  A rat as big as a small dog, grey and scarred, with yellow teeth as
+  long as your thumb and the confidence of something that has never
+  once been caught. The custodians have names for some of them. This
+  is one of those.
+level: 8
+flags: [assist, aggressive]
+silver: 2
+attack:
+  kind: bite
+  verb: bite

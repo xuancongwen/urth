@@ -1,0 +1,20 @@
+vnum: 4901
+name: a TI-89 Titanium
+keywords: [ti-89, ti89, titanium, calculator, graphing]
+description: "A silver graphing calculator lies here, its screen still on."
+look: |
+  A silver TI-89 Titanium with a slide cover and four AAA batteries
+  that never run down, the calculator that could do your calculus for
+  you and so was banned from half the tests you took. There is a game
+  of Tetris saved on it with a very high score, and somebody's name
+  scratched into the back that has worn away. Held, numbers make
+  sense, and so do weak points.
+type: armor
+slot: hold
+weight: 0
+level: 10
+value: 900
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: stat, params: { stat: wisdom, amount: 1 } }
+  - { kind: crit, params: { chance: 0.04, mult: 2 } }

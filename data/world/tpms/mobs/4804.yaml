@@ -1,0 +1,14 @@
+vnum: 4804
+name: the computer teacher
+keywords: [computer, teacher]
+description: The computer teacher is unjamming the printer for the third time today.
+look: |
+  A patient teacher with a lanyard of keys and a floppy disk in his
+  shirt pocket. He taught half the magnet program to type and the
+  other half to write a loop. He would like you to save your work, on
+  a disk, with your name on the label, now. "The turtle," he says,
+  "has gotten out of the program again. I don't know how."
+level: 6
+flags: [peaceful]
+attack:
+  verb: type

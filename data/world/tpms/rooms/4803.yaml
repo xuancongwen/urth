@@ -1,0 +1,12 @@
+vnum: 4803
+name: The Magnet Math Classroom
+description: |
+  Desks pushed into groups of four, an overhead projector with a sheet
+  of acetate still on it, and a whiteboard covered in a proof someone
+  was not finished with. A crate of TI-83 calculators sits on the
+  shelf, each one labelled in marker with its number, two of them
+  missing. A poster explains, with cartoons, why you cannot divide by
+  zero. Stink bugs crawl slowly along the window sill, where the sun
+  is. The hallway is east.
+exits:
+  east: 4802

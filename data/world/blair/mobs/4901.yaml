@@ -1,0 +1,15 @@
+vnum: 4901
+name: the magnet coordinator
+keywords: [magnet, coordinator]
+description: The magnet coordinator is signing a stack of research mentorship forms.
+look: |
+  The person who keeps the whole magnet program running: schedules,
+  mentorships, the senior research project, the parents' night, and a
+  drawer of granola bars for kids who skipped breakfast. She knows
+  every student's name and what each of them is going to be. "You,"
+  she says, "should be in class. But since you're here, there's a
+  roach problem."
+level: 10
+flags: [peaceful]
+attack:
+  verb: file

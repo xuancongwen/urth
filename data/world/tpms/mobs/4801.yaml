@@ -1,0 +1,15 @@
+vnum: 4801
+name: the front office secretary
+keywords: [secretary, office, front]
+description: The front office secretary looks at you over her glasses and holds out a tardy pass.
+look: |
+  She runs the school, whatever the sign on the principal's door says.
+  She knows which bus you take, what your mother's phone number is,
+  and that you were late on Tuesday. She keeps a drawer of confiscated
+  things behind her: Tamagotchis, a Game Boy Color, a yo-yo, a stack
+  of Pokemon cards with a holographic Charizard on top. "You can have
+  those back in June," she says.
+level: 6
+flags: [peaceful]
+attack:
+  verb: stamp

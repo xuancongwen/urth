@@ -1,0 +1,19 @@
+vnum: 4921
+name: a royal roach
+keywords: [royal, roach, cockroach, guard]
+description: "A royal roach, black and shining, stands guard on the treasure heap."
+look: |
+  A cockroach the size of a cat with a glossy black shell, one of the
+  king's guard, who stands on its back legs at the foot of the heap
+  and clicks its jaws at you. It has a paper clip bent into a tiny
+  spear. It is not clear whether it knows how to use it.
+level: 9
+flags: [assist, aggressive]
+armor:
+  defense: 8
+attack:
+  kind: pierce
+  verb: jab
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

@@ -1,0 +1,27 @@
+vnum: 4816
+name: the PACER test boom box
+keywords: [pacer, test, boom, box, boombox, fitnessgram]
+description: "A silver boom box on the bleachers beeps, and a calm voice says: begin."
+look: |
+  A silver boom box with a cassette deck and two big speakers, the
+  tape inside it worn thin from years of the same recording: a calm
+  voice announcing a multistage aerobic capacity test, then a beep,
+  then another, closer together each time. Every kid in the county
+  knows how it ends. It is faster every time it beeps.
+level: 5
+health: 150
+flags: [assist]
+silver: 10
+stats: { constitution: 14 }
+armor:
+  defense: 5
+attack:
+  kind: psionic
+  verb: beep
+effects:
+  - { kind: resist, params: { kind: psionic, amount: 1.0 } }
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }
+loot:
+  - { item: 4800, chance: 0.25 }

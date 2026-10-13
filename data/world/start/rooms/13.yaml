@@ -12,13 +12,17 @@ description: |
   them something trills like a small, contented animal. Plain cards
   pinned by each door say who should go through: the bandits for the
   greenest, the city for those with a few fights behind them, the stars
-  for those who have nearly outgrown the first halls. The Long Hall is
-  south.
+  for those who have nearly outgrown the first halls. In the floor, a
+  flight of rubber-treaded steps goes down to the folding door of a
+  yellow school bus, idling, with MAGNET lettered on a card in its
+  window; the card under it says the middle school for the greenest,
+  the high school after. The Long Hall is south.
 exits:
   south: 2
   west: 4000
   east: 4100
   north: 4200
+  down: 4800
 doors:
   west: {name: the corrugated iron door}
   east: {name: the fire door}

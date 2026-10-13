@@ -1,0 +1,28 @@
+vnum: 4920
+name: the Workroom Copier
+keywords: [workroom, copier, xerox, machine]
+description: The Workroom Copier blinks PAPER JAM IN TRAY 3 and opens every drawer at once.
+look: |
+  A grey copier the size of a small car, with a glass bed, a sorter
+  with twelve trays, a stapler built in, and a long memory for every
+  teacher who ever kicked it. Its display blinks PAPER JAM IN TRAY 3,
+  but there is no jam. There never was. It hums, and the trays slide
+  open like jaws. Rumor says a stapler fell into its finisher in 1999
+  and came out changed.
+level: 8
+health: 240
+flags: [assist]
+silver: 25
+stats: { constitution: 15 }
+armor:
+  defense: 8
+attack:
+  kind: fire
+  verb: fuse
+effects:
+  - { kind: resist, params: { kind: poison, amount: 1.0 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }
+loot:
+  - { item: 4900, chance: 0.25 }

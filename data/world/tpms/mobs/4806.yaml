@@ -1,0 +1,14 @@
+vnum: 4806
+name: the custodian
+keywords: [custodian, janitor]
+description: "The custodian leans on his mop by the furnace, listening to oldies on the radio."
+look: |
+  A tall man in a grey work shirt with his name stitched over the
+  pocket and a ring of keys that could open every door in the county.
+  He has buffed these floors every summer for twenty years and he does
+  not appreciate what is living under the ovens. "Go ahead," he says.
+  "Get 'em. I'll mop up after."
+level: 6
+flags: [peaceful]
+attack:
+  verb: mop

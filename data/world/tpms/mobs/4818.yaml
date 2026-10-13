@@ -1,0 +1,15 @@
+vnum: 4818
+name: a snapping turtle
+keywords: [snapping, turtle, snapper]
+description: A snapping turtle lies in the shallows like a mossy rock with a beak.
+look: |
+  A common snapping turtle with a shell like a muddy hubcap, algae
+  growing on it, and a hooked beak that could take a pencil in half.
+  It does not move much. It does not have to.
+level: 5
+flags: [aggressive]
+armor:
+  defense: 6
+attack:
+  kind: bite
+  verb: snap

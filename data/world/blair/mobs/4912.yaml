@@ -1,0 +1,21 @@
+vnum: 4912
+name: a feral vending machine
+keywords: [feral, vending, machine]
+description: "A vending machine rocks forward on its feet, a dollar bill sticking out of its mouth."
+look: |
+  A tall vending machine full of chips, candy bars, and one bag of
+  pretzels stuck on its spiral forever. It has taken thousands of
+  dollars and given back a fraction of that in snacks. Every kid who
+  ever shook it learned it can shake back.
+level: 7
+silver: 12
+armor:
+  defense: 7
+attack:
+  kind: blunt
+  verb: topple
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

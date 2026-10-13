@@ -1,0 +1,10 @@
+vnum: 4907
+name: The Stadium
+description: |
+  The football field and the track around it, the bleachers on one
+  side, the scoreboard on the other, and the lights that you can see
+  from the Beltway on a Friday night. Today the turf belongs to the
+  geese, who have taken the fifty-yard line and dare anybody to move
+  them. The loading dock is west.
+exits:
+  west: 4906

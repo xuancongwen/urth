@@ -1,0 +1,17 @@
+vnum: 4808
+name: a field hockey stick
+keywords: [field, hockey, stick]
+description: A field hockey stick with a hooked end lies here.
+look: |
+  A wooden field hockey stick with a flat face and a curl at the end,
+  its grip wrapped in tape gone grey. Gym class taught you to keep it
+  below the waist. Gym class is over.
+type: weapon
+weight: 2
+level: 4
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

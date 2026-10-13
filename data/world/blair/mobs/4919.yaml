@@ -1,0 +1,16 @@
+vnum: 4919
+name: an American cockroach
+keywords: [american, cockroach, roach, bug, palmetto]
+description: An American cockroach as long as your hand flares its wings and flies at you.
+look: |
+  A glossy red-brown cockroach as long as your hand, with spiny legs
+  and wings it uses to fly straight at your face. In the warm dark of
+  the tunnels they grow big, and they serve the king.
+level: 8
+flags: [assist, aggressive]
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

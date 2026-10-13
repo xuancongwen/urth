@@ -1,0 +1,17 @@
+vnum: 4904
+name: a tennis racket
+keywords: [tennis, racket, racquet]
+description: A tennis racket with a frayed grip lies here.
+look: |
+  An aluminum tennis racket from the gym closet, its strings a little
+  loose and its grip wrapped in tape. Swung backhand it makes a sound
+  you can feel.
+type: weapon
+weight: 1
+level: 6
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: smash

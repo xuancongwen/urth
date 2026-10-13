@@ -1,0 +1,17 @@
+vnum: 4902
+name: a drafting compass
+keywords: [drafting, compass]
+description: "A steel drafting compass lies here, its point out."
+look: |
+  A steel compass from a geometry set, with a pencil clamped in one
+  leg and a needle point on the other that has drawn ten thousand
+  circles and stuck a few people who deserved it.
+type: weapon
+weight: 0
+level: 5
+baseline: dagger
+flags: [drop]
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab

@@ -1,0 +1,15 @@
+vnum: 4805
+name: The Magnet Hallway
+description: |
+  The magnet end of the school, where the hallway is papered with
+  MathCounts certificates, Science Olympiad ribbons, and a long banner
+  of the digits of pi that runs the length of the wall and turns the
+  corner. A drinking fountain gurgles to itself. Somebody has written
+  BLAIR OR BUST on a sticky note on the trophy case. The computer lab
+  is west, the cafeteria east, the gym north, and the main hallway
+  south.
+exits:
+  south: 4802
+  west: 4806
+  east: 4807
+  north: 4809

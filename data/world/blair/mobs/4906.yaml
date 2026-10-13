@@ -1,0 +1,13 @@
+vnum: 4906
+name: a cafeteria worker
+keywords: [cafeteria, worker, lunch, lady]
+description: A cafeteria worker in a hairnet slides a tray of curly fries under the lamp.
+look: |
+  She has fed three thousand teenagers a day for longer than any of
+  them have been alive, and she remembers who likes extra fries. She
+  keeps an eye on the grey entree. "Don't eat that," she says quietly.
+  "Fight it, maybe. Don't eat it."
+level: 10
+flags: [peaceful]
+attack:
+  verb: ladle

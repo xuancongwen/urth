@@ -1,0 +1,14 @@
+vnum: 4811
+name: a kitchen rat
+keywords: [kitchen, rat]
+description: "A kitchen rat sits up on its haunches by the bread rack, chewing."
+look: |
+  A grey rat with a long pink tail and a belly full of tater tots,
+  that lives under the ovens and comes out when the lights go off. It
+  has a lot of cousins and they all come when it squeaks.
+level: 3
+flags: [assist]
+silver: 1
+attack:
+  kind: bite
+  verb: bite

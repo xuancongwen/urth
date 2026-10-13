@@ -1,0 +1,15 @@
+vnum: 4805
+name: a JanSport backpack
+keywords: [jansport, backpack, bag]
+description: A JanSport backpack with one strap lies here.
+look: |
+  A navy JanSport with a leather bottom, covered in pins and marker,
+  worn on one shoulder because two shoulders is not cool. It holds
+  four textbooks and a lot of crushed granola bars, and it takes a hit
+  like a turtle shell.
+type: armor
+slot: shoulders
+weight: 2
+level: 2
+baseline: cloth
+flags: [drop]

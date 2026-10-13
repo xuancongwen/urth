@@ -1,0 +1,21 @@
+vnum: 4800
+name: The Bus Loop on Piney Branch Road
+description: |
+  A long curb of yellow buses idling in a cloud of diesel, their
+  windows fogged and scrawled with initials. Kids spill off them in
+  puffy jackets and JanSport backpacks worn on one shoulder, trading
+  Pokemon cards and arguing about last night's Simpsons. A green sign
+  at the edge of the lot reads TAKOMA PARK: NUCLEAR FREE ZONE, and
+  someone has stuck a sticker of a rooster on it. A crossing guard in
+  an orange vest holds up a hand-held STOP sign at nobody in
+  particular. The doors of Takoma Park Middle School are north. One
+  bus at the end of the line has a hand-lettered card in its window,
+  MAGNET, and runs east, on to Blair. Its folding door also opens on a
+  short flight of steps that climb up to the Hall of Flickering
+  Windows.
+exits:
+  up: 13
+  north: 4801
+  east: 4900
+flags: [safe]
+position: { x: 0, y: 0, z: 0 }

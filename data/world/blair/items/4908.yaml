@@ -1,0 +1,17 @@
+vnum: 4908
+name: an aluminum baseball bat
+keywords: [aluminum, baseball, bat]
+description: An aluminum baseball bat lies here.
+look: |
+  A thirty-three inch aluminum bat from the baseball team's bag, its
+  grip tape black with use. It pings when it hits a ball. It does not
+  ping when it hits a rat.
+type: weapon
+weight: 3
+level: 8
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: swing

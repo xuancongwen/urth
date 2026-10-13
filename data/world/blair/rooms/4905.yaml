@@ -1,0 +1,16 @@
+vnum: 4905
+name: The Magnet Wing
+description: |
+  The Science, Mathematics, and Computer Science Magnet: a hallway of
+  labs and offices where the bulletin boards show research project
+  posters about protein folding and pulsar timing and mentorships at
+  NIH and NIST. Someone's trebuchet leans against the wall, waiting
+  for physics class. A whiteboard by the magnet office lists this
+  year's competitions and somebody has added a row for Super Smash
+  Bros. The physics lab is west, the chemistry lab east, the computer
+  lab north, and the main hallway south.
+exits:
+  south: 4902
+  west: 4908
+  east: 4909
+  north: 4910

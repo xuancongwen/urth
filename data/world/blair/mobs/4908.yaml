@@ -1,0 +1,17 @@
+vnum: 4908
+name: a German cockroach
+keywords: [german, cockroach, roach, bug]
+description: A German cockroach runs along the edge of the locker bank.
+look: |
+  A small brown cockroach with two dark stripes behind its head, one
+  of a million in this building. They hide in the lockers and come out
+  for crumbs. Individually they are nothing. There is no such thing as
+  one of them.
+level: 5
+flags: [assist]
+attack:
+  kind: bite
+  verb: nibble
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

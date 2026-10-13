@@ -1,0 +1,14 @@
+vnum: 4800
+name: a crossing guard
+keywords: [crossing, guard, vest]
+description: A crossing guard in an orange vest waves you along with her STOP sign.
+look: |
+  A woman in a fluorescent orange vest and a knit hat, with a STOP
+  sign on a pole and a whistle she uses like punctuation. She has
+  crossed every kid in this school since before they could tie their
+  shoes, and she remembers all their names. "Walk, don't run," she
+  says. "And stay away from the geese out back. I mean it."
+level: 6
+flags: [peaceful]
+attack:
+  verb: wave

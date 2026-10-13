@@ -1,0 +1,13 @@
+vnum: 4904
+name: the magnet computer science teacher
+keywords: [magnet, computer, science, teacher]
+description: "The magnet computer science teacher is debugging someone's Java over their shoulder."
+look: |
+  A teacher who can find the missing semicolon in a page of code from
+  across the room. He has a mug of cold coffee, a stack of printouts
+  with red ink on them, and a grudge against the laser printer. "It
+  compiles," he says. "That doesn't mean it works."
+level: 10
+flags: [peaceful]
+attack:
+  verb: debug

@@ -1,0 +1,17 @@
+vnum: 4810
+name: a lacrosse stick
+keywords: [lacrosse, stick]
+description: A lacrosse stick with a white mesh head lies here.
+look: |
+  An aluminum lacrosse stick with a white plastic head and a pocket of
+  mesh, borrowed from the gym closet and never returned. The butt end
+  is good for a check.
+type: weapon
+weight: 2
+level: 5
+baseline: spear
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: check

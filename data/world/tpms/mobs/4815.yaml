@@ -1,0 +1,14 @@
+vnum: 4815
+name: a Canada goose
+keywords: [canada, goose, bird]
+description: A Canada goose lowers its head and hisses at you.
+look: |
+  A big grey-brown goose with a black neck and a white chinstrap, and
+  the disposition of a bouncer. It has decided the field is its field
+  and you are on it. Its wings can break an arm, it will tell you, and
+  its tongue has teeth on it.
+level: 4
+flags: [assist, aggressive]
+attack:
+  kind: blunt
+  verb: wing-slap

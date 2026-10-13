@@ -1,0 +1,17 @@
+vnum: 4909
+name: a swarm of stink bugs
+keywords: [swarm, stink, bugs, bug]
+description: "A swarm of stink bugs crowds the window frame, buzzing clumsily."
+look: |
+  Dozens of brown marmorated stink bugs that have come in for the
+  winter and found the magnet wing warm. They fly like they have never
+  done it before, they bump into everything, and if you swat them the
+  whole hall smells of it.
+level: 5
+flags: [assist]
+attack:
+  kind: poison
+  verb: stink
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

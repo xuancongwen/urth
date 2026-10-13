@@ -1,0 +1,13 @@
+vnum: 4905
+name: the Silver Chips editor-in-chief
+keywords: [silver, chips, editor, editor-in-chief, student]
+description: The Silver Chips editor-in-chief is red-penning a headline and not looking up.
+look: |
+  A senior with a pencil behind each ear, ink on her fingers, and the
+  haunted look of someone with three pages left to lay out before the
+  printer's deadline. "If you've got a story," she says, "pitch it. If
+  you're here about the roaches, we're running it on page one."
+level: 10
+flags: [peaceful]
+attack:
+  verb: edit

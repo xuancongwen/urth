@@ -1,0 +1,12 @@
+vnum: 4804
+name: The Science Lab
+description: |
+  Black-topped lab benches with gas taps that you are not supposed to
+  touch, a safety shower nobody has ever pulled, and a skeleton on a
+  stand wearing somebody's baseball cap. Racks of little vials line
+  the back counter, each one stoppered with foam: the fruit flies for
+  the genetics unit, red-eyed and white-eyed, counted by hand. Several
+  of the stoppers are out. The air in here is busy. The hallway is
+  west.
+exits:
+  west: 4802

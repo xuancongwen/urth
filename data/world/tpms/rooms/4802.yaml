@@ -1,0 +1,16 @@
+vnum: 4802
+name: The Main Hallway
+description: |
+  Two rows of blue lockers with vents in their doors, a floor of
+  speckled tile buffed to a shine, and a smell of floor wax and
+  somebody's microwave popcorn. A bulletin board shouts about the
+  science fair in construction-paper letters. Between bells the hall
+  is empty, and in the empty hall things scuttle along the baseboards
+  and freeze when you look at them. The magnet math room is west, the
+  science lab east, the front office south, and the magnet hallway
+  north.
+exits:
+  south: 4801
+  west: 4803
+  east: 4804
+  north: 4805

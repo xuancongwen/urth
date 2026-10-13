@@ -1,0 +1,18 @@
+vnum: 4800
+name: a pair of light-up sneakers
+keywords: [light-up, light, up, sneakers, shoes]
+description: A pair of sneakers with little red lights in the heels lies here.
+look: |
+  White sneakers with velcro straps and red lights in the heels that
+  blink every time you take a step, which was the coolest thing in the
+  world in 1997 and is still, secretly, pretty cool. Wearing them you
+  could run the PACER test to level eleven, maybe twelve.
+type: armor
+slot: feet
+weight: 1
+level: 5
+baseline: light
+value: 260
+effects:
+  - { kind: stat, params: { stat: dexterity, amount: 1 } }
+  - { kind: dodge, params: { amount: 0.03 } }

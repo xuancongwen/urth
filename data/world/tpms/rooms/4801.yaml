@@ -1,0 +1,15 @@
+vnum: 4801
+name: The Front Office
+description: |
+  A counter of fake wood grain, a bell nobody is allowed to ring, and
+  a wall of cubbyholes stuffed with pink While You Were Out slips. A
+  stack of tardy passes sits by the sign-in sheet. The morning
+  announcements crackle from a speaker in the ceiling: the lunch menu,
+  a MathCounts practice after school, a reminder that Student Service
+  Learning forms are due Friday. A poster of a kitten clinging to a
+  branch says HANG IN THERE. The bus loop is south; the main hallway
+  is north.
+exits:
+  south: 4800
+  north: 4802
+flags: [safe]

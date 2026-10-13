@@ -1,0 +1,14 @@
+vnum: 4901
+name: The Front Lobby
+description: |
+  A tall atrium of glass and brick, with trophy cases full of Science
+  Bowl plaques, Westinghouse and Intel science talent search
+  certificates, and one dusty football. A security guard with a
+  walkie-talkie checks hall passes at a folding table. A rack by the
+  door holds this week's Silver Chips, still smelling of ink. Somebody
+  is selling bake-sale brownies for the class fund. The bus loop is
+  south; the main hallway is north.
+exits:
+  south: 4900
+  north: 4902
+flags: [safe]

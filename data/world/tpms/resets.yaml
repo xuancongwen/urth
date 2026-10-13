@@ -1,0 +1,77 @@
+resets:
+  # --- the staff ---
+  - { mob: 4800, room: 4800 }               # the crossing guard at the bus loop
+  - { mob: 4801, room: 4801 }               # the secretary behind the counter
+  - { mob: 4802, room: 4803 }               # the magnet math teacher
+  - { mob: 4803, room: 4804 }               # the science teacher counting flies
+  - { mob: 4804, room: 4806 }               # the computer teacher at the printer
+  - { mob: 4805, room: 4807 }               # the lunch lady on the line
+  - { mob: 4806, room: 4810 }               # the custodian by the furnace
+  # --- cockroaches (1), eight ---
+  - { mob: 4807, room: 4802, max: 8 }       
+  - { mob: 4807, room: 4802, max: 8 }       
+  - { mob: 4807, room: 4802, max: 8 }       
+  - { mob: 4807, room: 4807, max: 8 }       
+  - { mob: 4807, room: 4807, max: 8 }       
+  - { mob: 4807, room: 4807, max: 8 }       
+  - { mob: 4807, room: 4807, max: 8 }       
+  - { mob: 4807, room: 4808, max: 8 }       
+  # --- stink bugs (1), five ---
+  - { mob: 4808, room: 4803, max: 5 }       
+  - { mob: 4808, room: 4803, max: 5 }       
+  - { mob: 4808, room: 4803, max: 5 }       
+  - { mob: 4808, room: 4805, max: 5 }       
+  - { mob: 4808, room: 4805, max: 5 }       
+  # --- fruit flies (2), four ---
+  - { mob: 4809, room: 4804, max: 4 }       
+  - { mob: 4809, room: 4804, max: 4 }       
+  - { mob: 4809, room: 4804, max: 4 }       
+  - { mob: 4809, room: 4804, max: 4 }       
+  # --- Logo turtles (2), three ---
+  - { mob: 4810, room: 4806, max: 3 }       
+  - { mob: 4810, room: 4806, max: 3 }       
+  - { mob: 4810, room: 4806, max: 3 }       
+  # --- kitchen rats (3), seven ---
+  - { mob: 4811, room: 4808, max: 7 }       
+  - { mob: 4811, room: 4808, max: 7 }       
+  - { mob: 4811, room: 4808, max: 7 }       
+  - { mob: 4811, room: 4808, max: 7 }       
+  - { mob: 4811, room: 4810, max: 7 }       
+  - { mob: 4811, room: 4810, max: 7 }       
+  - { mob: 4811, room: 4810, max: 7 }       
+  # --- feral dodgeballs (3), five ---
+  - { mob: 4812, room: 4809, max: 5 }       
+  - { mob: 4812, room: 4809, max: 5 }       
+  - { mob: 4812, room: 4809, max: 5 }       
+  - { mob: 4812, room: 4809, max: 5 }       
+  - { mob: 4812, room: 4809, max: 5 }       
+  # --- Brood X cicadas (3), eight ---
+  - { mob: 4813, room: 4811, max: 8 }       
+  - { mob: 4813, room: 4811, max: 8 }       
+  - { mob: 4813, room: 4811, max: 8 }       
+  - { mob: 4813, room: 4812, max: 8 }       
+  - { mob: 4813, room: 4812, max: 8 }       
+  - { mob: 4813, room: 4812, max: 8 }       
+  - { mob: 4813, room: 4812, max: 8 }       
+  - { mob: 4813, room: 4812, max: 8 }       
+  # --- flying roaches (4), four ---
+  - { mob: 4814, room: 4810, max: 4 }       
+  - { mob: 4814, room: 4810, max: 4 }       
+  - { mob: 4814, room: 4810, max: 4 }       
+  - { mob: 4814, room: 4810, max: 4 }       
+  # --- Canada geese (4), eight ---
+  - { mob: 4815, room: 4811, max: 8 }       
+  - { mob: 4815, room: 4811, max: 8 }       
+  - { mob: 4815, room: 4811, max: 8 }       
+  - { mob: 4815, room: 4811, max: 8 }       
+  - { mob: 4815, room: 4812, max: 8 }       
+  - { mob: 4815, room: 4812, max: 8 }       
+  - { mob: 4815, room: 4812, max: 8 }       
+  - { mob: 4815, room: 4813, max: 8 }       
+  # --- snapping turtles (5), three ---
+  - { mob: 4818, room: 4812, max: 3 }       
+  - { mob: 4818, room: 4813, max: 3 }       
+  - { mob: 4818, room: 4813, max: 3 }       
+  # --- the named ---
+  - { mob: 4816, room: 4809 }               # the PACER test boom box, which may leave its sneakers
+  - { mob: 4817, room: 4813 }               # the Goose of Sligo Creek, which may leave the pencil

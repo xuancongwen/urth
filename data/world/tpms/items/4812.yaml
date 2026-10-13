@@ -1,0 +1,17 @@
+vnum: 4812
+name: a drafting T-square
+keywords: [drafting, t-square, square, tsquare]
+description: A long wooden T-square lies here.
+look: |
+  A wooden T-square from the technology education room, two feet long
+  with a plastic edge, for drawing perfect right angles. It also makes
+  a fine hatchet if you hold it by the short end.
+type: weapon
+weight: 2
+level: 6
+baseline: axe
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: chop

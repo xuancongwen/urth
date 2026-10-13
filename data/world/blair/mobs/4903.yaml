@@ -1,0 +1,13 @@
+vnum: 4903
+name: the magnet chemistry teacher
+keywords: [magnet, chemistry, teacher]
+description: The magnet chemistry teacher watches the spill in the fume hood with professional interest.
+look: |
+  A teacher in a stained lab coat who does the thermite demo every
+  spring and has the scorched ceiling tile to prove it. She is not
+  worried about the thing in the fume hood. She is mostly interested
+  in what it is. "Goggles on," she says. "Always goggles on."
+level: 10
+flags: [peaceful]
+attack:
+  verb: titrate

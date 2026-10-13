@@ -1,0 +1,11 @@
+vnum: 4903
+name: "The Teachers' Workroom"
+description: |
+  Students are not supposed to be in here, which is why it is
+  interesting: a fridge with a passive-aggressive note on it, a coffee
+  maker with a burnt pot, mailboxes with every teacher's name, and in
+  the corner a copier the size of a car, its display blinking PAPER
+  JAM IN TRAY 3 in a way that seems personal. Reams of paper lie about
+  like fallen soldiers. The hallway is east.
+exits:
+  east: 4902

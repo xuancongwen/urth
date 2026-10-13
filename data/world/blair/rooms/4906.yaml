@@ -1,0 +1,12 @@
+vnum: 4906
+name: The Loading Dock
+description: |
+  Behind the kitchen, where the delivery trucks back up to a concrete
+  apron and three green dumpsters stand open to the sky. The smell in
+  summer is unforgettable. Raccoons have moved in and run the place
+  like a union. A steel door leads down into the steam tunnels; the
+  stadium is east, past the fence; the cafeteria is west.
+exits:
+  west: 4904
+  east: 4907
+  down: 4912

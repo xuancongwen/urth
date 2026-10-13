@@ -1,0 +1,19 @@
+vnum: 4915
+name: a fume-hood spill
+keywords: [fume-hood, fume, hood, spill, puddle]
+description: "A puddle of something green spreads across the bench, fizzing."
+look: |
+  A pool of fizzing green liquid that was three separate chemicals
+  before someone mixed them in the wrong order. It is eating through a
+  lab report about the very reaction that made it. It has opinions
+  about goggles.
+level: 7
+flags: [aggressive]
+attack:
+  kind: acid
+  verb: splash
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.75 } }
+  - { kind: resist, params: { kind: blunt, amount: 0.5 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.5 } }
+  - { kind: resist, params: { kind: pierce, amount: 0.25 } }

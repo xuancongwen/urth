@@ -1,0 +1,14 @@
+vnum: 4912
+name: The Steam Tunnels
+description: |
+  Down the stair from the loading dock: low concrete tunnels lined
+  with pipes, steam leaking at the joints, and caged bulbs that throw
+  more shadow than light. Every school has a story about its tunnels.
+  This one's is true. Rats the size of beagles go by on the pipes, and
+  the roaches are thicker here, all moving the same way, east. The
+  custodian's workshop is a cage of tools by the stair. The loading
+  dock is up; the tunnel goes on east.
+exits:
+  up: 4906
+  east: 4913
+position: { x: 2, y: -2, z: -1 }

@@ -1,0 +1,17 @@
+vnum: 4906
+name: a pipe wrench
+keywords: [pipe, wrench]
+description: A heavy red pipe wrench lies here.
+look: |
+  A heavy red pipe wrench from the custodian's cage, its jaws rusted
+  at the teeth. It was made for the pipes in the steam tunnels. It
+  works on rats too.
+type: weapon
+weight: 3
+level: 7
+baseline: mace
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crack

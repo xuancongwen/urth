@@ -1,0 +1,14 @@
+vnum: 4917
+name: a stadium goose
+keywords: [stadium, goose, canada, bird]
+description: "A Canada goose stands on the fifty-yard line, wings spread, hissing."
+look: |
+  A big Canada goose who has taken the football field for his own and
+  fights the marching band for it every afternoon. He is the goose
+  from Sligo Creek's bigger, meaner cousin, and he has heard about
+  you.
+level: 8
+flags: [assist, aggressive]
+attack:
+  kind: blunt
+  verb: wing-slap

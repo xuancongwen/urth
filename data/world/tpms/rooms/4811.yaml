@@ -1,0 +1,12 @@
+vnum: 4811
+name: The Athletic Field
+description: |
+  A long field of patchy grass and goose droppings, a track of red
+  cinders worn to dirt on the inside lane, and a backstop with a hole
+  in it the size of a kickball. Canada geese stand about in groups,
+  eating the field, and watch you with their heads low. In the trees
+  along the edge something rattles and buzzes like a hundred tiny
+  sewing machines. The gym is south; the path to Sligo Creek is east.
+exits:
+  south: 4809
+  east: 4812

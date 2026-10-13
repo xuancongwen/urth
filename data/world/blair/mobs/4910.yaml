@@ -1,0 +1,13 @@
+vnum: 4910
+name: an escaped lab rat
+keywords: [escaped, lab, rat, white]
+description: A white lab rat with pink eyes sits up and sniffs at you.
+look: |
+  A white rat with pink eyes and an ear tag, escaped from somebody's
+  behavior experiment and well fed on the vending machine's leavings.
+  It is smarter than it looks. It has already solved the maze.
+level: 6
+flags: [assist]
+attack:
+  kind: bite
+  verb: bite

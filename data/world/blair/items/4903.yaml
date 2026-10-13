@@ -1,0 +1,14 @@
+vnum: 4903
+name: a Blazers hoodie
+keywords: [blazers, blair, hoodie, sweatshirt]
+description: A hooded sweatshirt with BLAIR BLAZERS across the front lies here.
+look: |
+  A heavy hooded sweatshirt with BLAIR across the chest and BLAZERS
+  down one sleeve, bought at the school store your freshman year and
+  worn every cold day since. It still smells of the bleachers.
+type: armor
+slot: body
+weight: 1
+level: 5
+baseline: cloth
+flags: [drop]

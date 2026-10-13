@@ -1,0 +1,26 @@
+vnum: 4922
+name: the Roach King
+keywords: [roach, king, cockroach, boss]
+description: "The Roach King rises on its heap of lost things, a bottle cap crown on its head."
+look: |
+  A cockroach the size of a golden retriever, black and bronze and
+  gleaming, with feelers as long as fishing rods and a bottle cap
+  crown balanced between them. It has lived under the cafeteria since
+  the building opened, grown fat on thirty thousand rectangle pizzas,
+  and gathered to itself everything Blair has ever lost. It has heard
+  that you want your calculator back. It would like to see you try.
+level: 10
+health: 380
+flags: [assist, boss]
+silver: 80
+stats: { strength: 15, constitution: 16 }
+armor:
+  defense: 9
+attack:
+  kind: bite
+  verb: bite
+effects:
+  - { kind: resist, params: { kind: acid, amount: 1.0 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }
+loot:
+  - { item: 4901, chance: 0.2 }

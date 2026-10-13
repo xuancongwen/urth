@@ -1,0 +1,14 @@
+vnum: 4809
+name: The Gym
+description: |
+  A wooden floor painted with the lines of four different games, a
+  wall of folded bleachers, climbing ropes nobody has made it to the
+  top of, and a scoreboard stuck at HOME 0 GUEST 0. A rack of rubber
+  dodgeballs stands half empty; the rest are loose, and some of them
+  are rolling on their own. From a boom box on the bleachers a calm
+  voice is explaining, again, that the test will begin in thirty
+  seconds. The magnet hallway is south; the doors to the field are
+  north.
+exits:
+  south: 4805
+  north: 4811

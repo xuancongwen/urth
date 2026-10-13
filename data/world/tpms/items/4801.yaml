@@ -1,0 +1,23 @@
+vnum: 4801
+name: the Sacred Ticonderoga
+keywords: [sacred, ticonderoga, pencil, no.2]
+description: "A yellow No. 2 pencil, sharpened to a terrible point, lies here."
+look: |
+  A Dixon Ticonderoga No. 2, yellow with a green and gold band, its
+  eraser unused, its point sharpened in the electric sharpener in the
+  front office until it could go through a Scantron. It has filled in
+  a thousand bubbles and never smudged one. The goose swallowed it
+  during a fire drill in 1998 and it came out, somehow, sharper.
+type: weapon
+weight: 0
+level: 6
+baseline: dagger
+value: 320
+weapon:
+  hands: 1
+  kind: pierce
+  verb: jab
+effects:
+  - { kind: added, params: { kind: pierce, power: 0.13 } }
+  - { kind: proc, params: { kind: magic, chance: 0.12, power: 0.8, verb: merciless erasure } }
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }

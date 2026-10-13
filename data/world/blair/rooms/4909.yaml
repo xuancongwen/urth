@@ -1,0 +1,10 @@
+vnum: 4909
+name: The Magnet Chemistry Lab
+description: |
+  Lab benches with sinks and gas taps, a periodic table taller than
+  the door, a fume hood with its sash pulled up, and an eyewash
+  station with a laminated sign that says USE ME. Something in the
+  fume hood has got loose and is spreading slowly across the bench,
+  eating through a stack of lab reports. The magnet wing is west.
+exits:
+  west: 4905

@@ -1,0 +1,15 @@
+vnum: 4807
+name: a cafeteria lunch tray
+keywords: [cafeteria, lunch, tray]
+description: A brown plastic lunch tray with five compartments lies here.
+look: |
+  A hard brown plastic tray with a compartment for the rectangle
+  pizza, one for the corn, one for the fruit cup, one for the milk,
+  and a mystery one. It has been dropped on this floor ten thousand
+  times and never broken.
+type: armor
+slot: shield
+weight: 2
+level: 3
+baseline: shield
+flags: [drop]

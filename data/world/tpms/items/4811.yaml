@@ -1,0 +1,14 @@
+vnum: 4811
+name: a pair of gym shorts
+keywords: [gym, shorts]
+description: A pair of school gym shorts lies here.
+look: |
+  Grey gym shorts with the school's name across one leg and a name
+  written in marker on the tag, which is not yours. They have done the
+  mile run more times than you have.
+type: armor
+slot: legs
+weight: 1
+level: 5
+baseline: light
+flags: [drop]

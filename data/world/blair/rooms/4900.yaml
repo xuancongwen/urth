@@ -1,0 +1,16 @@
+vnum: 4900
+name: The Bus Loop on University Boulevard
+description: |
+  A long brick building, new and still a little too clean, stretches
+  along University Boulevard with the traffic of Four Corners grinding
+  past and the Beltway humming somewhere behind the trees. Big letters
+  over the doors read MONTGOMERY BLAIR HIGH SCHOOL, HOME OF THE
+  BLAZERS. Buses unload in a long line and three thousand students
+  pour out of them, half asleep, headphones on, a Discman skipping in
+  every other backpack. The magnet bus waits at the end of the loop to
+  run back west to Takoma Park. The front doors are north.
+exits:
+  west: 4800
+  north: 4901
+flags: [safe]
+position: { x: 0, y: 0, z: 0 }

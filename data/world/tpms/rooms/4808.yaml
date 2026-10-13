@@ -1,0 +1,12 @@
+vnum: 4808
+name: The Kitchen
+description: |
+  Steel counters, a dishwasher that sounds like a train, and great
+  pots of something that is either chili or Sloppy Joe filling. The
+  walk-in freezer hums. Behind the bread racks, in the warm dark under
+  the ovens, rats have made a home and do not intend to leave it. A
+  steel door with a stencilled sign, BOILER ROOM, STAFF ONLY, leads
+  down. The cafeteria is west.
+exits:
+  west: 4807
+  down: 4810

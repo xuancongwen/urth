@@ -1,0 +1,23 @@
+vnum: 4900
+name: a red stapler
+keywords: [red, stapler]
+description: A heavy red stapler lies here.
+look: |
+  A heavy red desk stapler, all steel under the paint, that fell into
+  the Workroom Copier's finisher one afternoon and came out with a
+  will of its own. It staples anything, at any distance, through
+  anything. Someone has written MINE on the bottom in marker, and
+  whoever it was meant it.
+type: weapon
+weight: 3
+level: 8
+baseline: mace
+value: 450
+weapon:
+  hands: 1
+  kind: blunt
+  verb: slam
+effects:
+  - { kind: added, params: { kind: blunt, power: 0.18 } }
+  - { kind: proc, params: { kind: pierce, chance: 0.14, power: 0.9, verb: volley of staples } }
+  - { kind: stat, params: { stat: strength, amount: 1 } }

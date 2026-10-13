@@ -1,0 +1,13 @@
+vnum: 4806
+name: The Computer Lab
+description: |
+  Rows of beige computers with fat monitors, the hum of thirty fans,
+  and a laser printer in the corner that nobody trusts. On one screen
+  a covered wagon has just lost a family member to dysentery. On
+  another a little triangular turtle draws a spiral in Logo, and on a
+  third someone has been typing a QBasic program that only prints
+  HELLO over and over. A sign over the door says NO GAMES. The turtle
+  on the screen is not the only turtle in the room. The magnet hallway
+  is east.
+exits:
+  east: 4805

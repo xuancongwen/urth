@@ -1,0 +1,14 @@
+vnum: 4909
+name: a football helmet
+keywords: [football, helmet]
+description: A scuffed football helmet with a face mask lies here.
+look: |
+  A white football helmet with a grey face mask and scuffs of other
+  teams' paint along the sides. It smells of a locker room, which is
+  to say of a lot of hard work and very little laundry.
+type: armor
+slot: head
+weight: 2
+level: 8
+baseline: medium
+flags: [drop]

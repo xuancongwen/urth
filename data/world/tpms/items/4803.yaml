@@ -1,0 +1,13 @@
+vnum: 4803
+name: a hooded sweatshirt
+keywords: [hooded, sweatshirt, hoodie]
+description: A grey hooded sweatshirt lies here in a heap.
+look: |
+  A grey hoodie two sizes too big, with the strings chewed and a
+  pocket full of gum wrappers and a bus pass. It smells of the bus.
+type: armor
+slot: body
+weight: 1
+level: 1
+baseline: cloth
+flags: [drop]

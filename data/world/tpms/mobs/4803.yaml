@@ -1,0 +1,14 @@
+vnum: 4803
+name: the magnet science teacher
+keywords: [magnet, science, teacher]
+description: The magnet science teacher is counting fruit flies through a magnifier and losing count.
+look: |
+  A teacher in a lab coat with pens in every pocket and safety goggles
+  pushed up into his hair. He is trying to finish a Punnett square for
+  the genetics unit and the flies keep getting away. "If you're going
+  to swat them," he says, "write down their eye color first. That's
+  data."
+level: 6
+flags: [peaceful]
+attack:
+  verb: poke

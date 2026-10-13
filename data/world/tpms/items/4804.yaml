@@ -1,0 +1,17 @@
+vnum: 4804
+name: a meter stick
+keywords: [meter, stick, metre, yardstick]
+description: A wooden meter stick lies here.
+look: |
+  A meter stick from the science lab, marked in centimetres and
+  millimetres and, faintly, with the bite marks of a bored student. It
+  has a good reach and a better whack.
+type: weapon
+weight: 1
+level: 2
+baseline: standard
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: whack

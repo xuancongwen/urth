@@ -1,0 +1,19 @@
+vnum: 4810
+name: a runaway Logo turtle
+keywords: [runaway, logo, turtle, robot]
+description: "A little plastic turtle robot drives in circles, a pen scraping under it."
+look: |
+  A floor turtle the size of a dinner plate, with a clear dome over
+  its wheels and a felt pen poking out of its belly, that was meant to
+  draw squares on butcher paper. Somebody typed REPEAT 1000 and left.
+  It is drawing on the floor, the walls, and now you. FORWARD 100.
+  RIGHT 90. FORWARD 100.
+level: 2
+attack:
+  kind: blunt
+  verb: bump
+effects:
+  - { kind: resist, params: { kind: poison, amount: 0.75 } }
+  - { kind: resist, params: { kind: drain, amount: 0.75 } }
+  - { kind: resist, params: { kind: psionic, amount: 0.75 } }
+  - { kind: resist, params: { kind: lightning, amount: -0.25 } }

@@ -1,0 +1,15 @@
+vnum: 4902
+name: The Main Hallway
+description: |
+  The spine of the building, long enough that you can see it curve,
+  and during passing period so packed that you move with the crowd or
+  not at all. Now the bell has rung and it is empty except for the
+  things that come out when it is empty. Posters for the Blair Bash,
+  the spring musical, and SSL hours opportunities are taped up and
+  torn down. The teachers' workroom is west, the cafeteria east, the
+  magnet wing north, and the lobby south.
+exits:
+  south: 4901
+  west: 4903
+  east: 4904
+  north: 4905

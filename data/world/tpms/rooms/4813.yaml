@@ -1,0 +1,11 @@
+vnum: 4813
+name: Under the Footbridge
+description: |
+  Where the trail crosses the creek on a low wooden bridge, the bank
+  underneath is a goose's kingdom: a nest of sticks, fast-food
+  wrappers, and a lost gym sock, and a ring of feathers, and the bones
+  of what might have been someone's science fair project. In the
+  middle of it stands the biggest Canada goose anyone has ever seen,
+  wings half open, hissing. The trail is west.
+exits:
+  west: 4812

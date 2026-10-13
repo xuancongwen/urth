@@ -1,0 +1,13 @@
+vnum: 4807
+name: The Cafeteria
+description: |
+  Long folding tables with attached stools, a stage at one end with
+  its curtain half open, and a lunch line under a menu board that
+  reads, as it does every Friday, RECTANGLE PIZZA. Cartons of
+  chocolate milk and the little bags of pretzels stand ready. Under
+  the tables, where nobody has swept, something with a lot of legs is
+  having its own lunch. The kitchen is east; the magnet hallway is
+  west.
+exits:
+  west: 4805
+  east: 4808

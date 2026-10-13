@@ -1,0 +1,14 @@
+vnum: 4907
+name: a chemistry lab apron
+keywords: [chemistry, lab, apron, rubber]
+description: A heavy rubber lab apron lies here.
+look: |
+  A thick black rubber apron from the chemistry lab, scarred with old
+  burns and pale splashes, that goes from neck to knee. Whatever was
+  spilled on it did not get through.
+type: armor
+slot: body
+weight: 2
+level: 7
+baseline: light
+flags: [drop]

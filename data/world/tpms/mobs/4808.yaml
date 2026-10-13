@@ -1,0 +1,16 @@
+vnum: 4808
+name: a stink bug
+keywords: [stink, bug, shield]
+description: "A stink bug plods across the window sill, shield-shaped and smug."
+look: |
+  A brown marmorated stink bug, shaped like a little heraldic shield,
+  that came in through a crack in the window frame to be warm. Squash
+  it and the room will smell of cilantro and regret for the rest of
+  the period.
+level: 1
+attack:
+  kind: poison
+  verb: stink
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

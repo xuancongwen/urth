@@ -1,0 +1,15 @@
+vnum: 4813
+name: a puffy winter parka
+keywords: [puffy, winter, parka, coat]
+description: A puffy winter parka with a fur-lined hood lies here.
+look: |
+  A huge quilted parka of the kind your mother made you wear on the
+  snow days that were not quite snow days, with a broken zipper and a
+  lift ticket from Ski Liberty still on the zip. You can barely put
+  your arms down in it. Nothing gets through.
+type: armor
+slot: body
+weight: 3
+level: 6
+baseline: medium
+flags: [drop]

@@ -1,0 +1,18 @@
+vnum: 4813
+name: a Brood X cicada
+keywords: [brood, x, cicada, bug]
+description: "A Brood X cicada clings to the bark, red eyes bulging, buzzing like a power line."
+look: |
+  A fat black periodical cicada with orange-veined wings and red eyes
+  like two drops of ketchup. It spent seventeen years under the roots
+  of these trees and came up this May with a few billion of its
+  friends to be very, very loud. It does not bite. It flies straight
+  into your face, which is worse.
+level: 3
+flags: [assist]
+attack:
+  kind: blunt
+  verb: buzz
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

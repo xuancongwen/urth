@@ -1,0 +1,17 @@
+vnum: 4912
+name: "a custodian's sledgehammer"
+keywords: ["custodian's", sledgehammer, sledge, hammer]
+description: A long-handled sledgehammer lies here.
+look: |
+  A ten-pound sledgehammer from the custodian's cage, with a hickory
+  handle and a head pitted from years of persuading stuck valves. The
+  head custodian said you could borrow it. He said bring it back.
+type: weapon
+weight: 5
+level: 10
+baseline: heavy
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: smash

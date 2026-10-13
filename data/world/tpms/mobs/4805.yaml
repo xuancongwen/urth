@@ -1,0 +1,14 @@
+vnum: 4805
+name: a lunch lady
+keywords: [lunch, lady, cafeteria, worker]
+description: A lunch lady in a hairnet slides a rectangle of pizza onto a tray.
+look: |
+  A woman in a hairnet and a white apron with a ladle in one hand and
+  a pair of tongs in the other. She calls everybody honey and she
+  knows which kid gets free lunch without being told, and she never
+  says so. "Chocolate or white, honey?" she asks. "And watch under the
+  tables. Those roaches have no shame."
+level: 6
+flags: [peaceful]
+attack:
+  verb: ladle

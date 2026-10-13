@@ -1,0 +1,14 @@
+vnum: 4911
+name: "a catcher's chest protector"
+keywords: ["catcher's", catcher, chest, protector]
+description: "A padded catcher's chest protector lies here."
+look: |
+  A thick padded chest protector from the softball team, with straps
+  that cross at the back and a hard shell over the ribs. It has
+  stopped a lot of fastballs.
+type: armor
+slot: body
+weight: 3
+level: 9
+baseline: medium
+flags: [drop]

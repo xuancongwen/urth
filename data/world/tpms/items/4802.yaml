@@ -1,0 +1,17 @@
+vnum: 4802
+name: a twelve-inch ruler
+keywords: [twelve-inch, ruler, wooden]
+description: A wooden ruler with a metal edge lies here.
+look: |
+  A wooden school ruler, inches on one side and centimetres on the
+  other, with a thin metal strip along the edge and someone's initials
+  carved into the end. It makes a very satisfying thwack.
+type: weapon
+weight: 1
+level: 1
+baseline: whip
+flags: [drop]
+weapon:
+  hands: 1
+  kind: slash
+  verb: thwack

@@ -1,0 +1,14 @@
+vnum: 4900
+name: a school security guard
+keywords: [security, guard, walkie-talkie]
+description: A security guard with a walkie-talkie asks to see your hall pass.
+look: |
+  A big, easygoing man in a polo shirt with SECURITY on the back, who
+  knows every kid who skips third period and where they go. He has a
+  walkie-talkie on his belt that squawks about a car in the fire lane.
+  "Pass?" he says. "No? Fine. Go on. Watch the tunnels, though.
+  Something down there ate a mop."
+level: 10
+flags: [peaceful]
+attack:
+  verb: radio

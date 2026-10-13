@@ -1,0 +1,84 @@
+resets:
+  # --- the staff ---
+  - { mob: 4900, room: 4901 }               # the security guard at the folding table
+  - { mob: 4901, room: 4905 }               # the magnet coordinator by her office
+  - { mob: 4902, room: 4908 }               # the physics teacher and the Van de Graaff
+  - { mob: 4903, room: 4909 }               # the chemistry teacher by the fume hood
+  - { mob: 4904, room: 4910 }               # the computer science teacher, debugging
+  - { mob: 4905, room: 4911 }               # the Silver Chips editor on deadline
+  - { mob: 4906, room: 4904 }               # the cafeteria worker on the line
+  - { mob: 4907, room: 4912 }               # the head custodian in his tool cage
+  # --- German cockroaches (5), nine ---
+  - { mob: 4908, room: 4902, max: 9 }       
+  - { mob: 4908, room: 4902, max: 9 }       
+  - { mob: 4908, room: 4902, max: 9 }       
+  - { mob: 4908, room: 4902, max: 9 }       
+  - { mob: 4908, room: 4904, max: 9 }       
+  - { mob: 4908, room: 4904, max: 9 }       
+  - { mob: 4908, room: 4904, max: 9 }       
+  - { mob: 4908, room: 4904, max: 9 }       
+  - { mob: 4908, room: 4904, max: 9 }       
+  # --- stink bug swarms (5), four ---
+  - { mob: 4909, room: 4902, max: 4 }       
+  - { mob: 4909, room: 4905, max: 4 }       
+  - { mob: 4909, room: 4905, max: 4 }       
+  - { mob: 4909, room: 4905, max: 4 }       
+  # --- escaped lab rats (6), five ---
+  - { mob: 4910, room: 4905, max: 5 }       
+  - { mob: 4910, room: 4905, max: 5 }       
+  - { mob: 4910, room: 4905, max: 5 }       
+  - { mob: 4910, room: 4909, max: 5 }       
+  - { mob: 4910, room: 4909, max: 5 }       
+  # --- jammed laser printers (6), three ---
+  - { mob: 4911, room: 4910, max: 3 }       
+  - { mob: 4911, room: 4910, max: 3 }       
+  - { mob: 4911, room: 4910, max: 3 }       
+  # --- feral vending machines (7), two ---
+  - { mob: 4912, room: 4904, max: 2 }       
+  - { mob: 4912, room: 4904, max: 2 }       
+  # --- mystery meat (7), four ---
+  - { mob: 4913, room: 4904, max: 4 }       
+  - { mob: 4913, room: 4904, max: 4 }       
+  - { mob: 4913, room: 4906, max: 4 }       
+  - { mob: 4913, room: 4906, max: 4 }       
+  # --- Van de Graaff generators (7), two ---
+  - { mob: 4914, room: 4908, max: 2 }       
+  - { mob: 4914, room: 4908, max: 2 }       
+  # --- fume-hood spills (7), three ---
+  - { mob: 4915, room: 4909, max: 3 }       
+  - { mob: 4915, room: 4909, max: 3 }       
+  - { mob: 4915, room: 4909, max: 3 }       
+  # --- dumpster raccoons (7), five ---
+  - { mob: 4916, room: 4906, max: 5 }       
+  - { mob: 4916, room: 4906, max: 5 }       
+  - { mob: 4916, room: 4906, max: 5 }       
+  - { mob: 4916, room: 4906, max: 5 }       
+  - { mob: 4916, room: 4906, max: 5 }       
+  # --- stadium geese (8), six ---
+  - { mob: 4917, room: 4907, max: 6 }       
+  - { mob: 4917, room: 4907, max: 6 }       
+  - { mob: 4917, room: 4907, max: 6 }       
+  - { mob: 4917, room: 4907, max: 6 }       
+  - { mob: 4917, room: 4907, max: 6 }       
+  - { mob: 4917, room: 4907, max: 6 }       
+  # --- steam-tunnel rats (8), five ---
+  - { mob: 4918, room: 4912, max: 5 }       
+  - { mob: 4918, room: 4912, max: 5 }       
+  - { mob: 4918, room: 4912, max: 5 }       
+  - { mob: 4918, room: 4912, max: 5 }       
+  - { mob: 4918, room: 4912, max: 5 }       
+  # --- American cockroaches (8), seven ---
+  - { mob: 4919, room: 4912, max: 7 }       
+  - { mob: 4919, room: 4912, max: 7 }       
+  - { mob: 4919, room: 4912, max: 7 }       
+  - { mob: 4919, room: 4912, max: 7 }       
+  - { mob: 4919, room: 4913, max: 7 }       
+  - { mob: 4919, room: 4913, max: 7 }       
+  - { mob: 4919, room: 4913, max: 7 }       
+  # --- royal roaches (9), three ---
+  - { mob: 4921, room: 4913, max: 3 }       
+  - { mob: 4921, room: 4913, max: 3 }       
+  - { mob: 4921, room: 4913, max: 3 }       
+  # --- the named ---
+  - { mob: 4920, room: 4903 }               # the Workroom Copier, which may give up the stapler
+  - { mob: 4922, room: 4913 }               # the Roach King on his heap, who may leave the TI-89

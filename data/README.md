@@ -64,7 +64,13 @@ little carried and two unique pieces each from loot tables: `pandora`
 (west, Borderlands' Arid Badlands, 1 to 6, ending at Nine-Toes),
 `gotham` (east, Batman's Gotham City, 4 to 9, ending at the Joker in
 Arkham), and `enterprise` (north, the original Star Trek's Enterprise
-and an away-team planet, 7 to 12, ending at the Gorn captain). Five farming areas
+and an away-team planet, 7 to 12, ending at the Gorn captain). Down
+the bus steps in its floor, the magnet bus goes to two Montgomery
+County, Maryland schools, where no teacher or student can be hurt and
+the fights are with vermin and machines: `tpms` (Takoma Park Middle
+School, 1 to 6, ending at the Goose of Sligo Creek) and, east from its
+bus loop, `blair` (Montgomery Blair High School, 5 to 10, ending at the
+Roach King in the steam tunnels). Five farming areas
 keep a tight band, crowded rooms, a two-minute reset, and plain drop gear
 at every level: `ratcellar` (2 to 5, below Midgaard's Grunting Boar Inn),
 `murloccoast` (8 to 12, west of Azeroth's wheat fields), `deaditecrypt`

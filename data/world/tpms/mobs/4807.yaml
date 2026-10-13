@@ -1,0 +1,17 @@
+vnum: 4807
+name: a cockroach
+keywords: [cockroach, roach, bug]
+description: A cockroach scuttles along the baseboard and freezes.
+look: |
+  A brown German cockroach the length of your thumb, with long
+  twitching feelers and a shell that shines like it was waxed along
+  with the floor. It is not afraid of you. It has survived three
+  exterminators and a fire drill.
+level: 1
+flags: [assist]
+attack:
+  kind: bite
+  verb: nibble
+effects:
+  - { kind: resist, params: { kind: acid, amount: 0.5 } }
+  - { kind: resist, params: { kind: poison, amount: 0.25 } }

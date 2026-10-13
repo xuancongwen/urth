@@ -1,0 +1,14 @@
+vnum: 4907
+name: the head custodian
+keywords: [head, custodian, janitor]
+description: The head custodian is sharpening a scraper in his tool cage.
+look: |
+  A wiry man with grey hair and a ring of keys that opens every door
+  in the building, including some doors that are not on the plans. He
+  has been fighting the roaches in these tunnels since the building
+  opened, and he is losing. "The big one's under the cafeteria," he
+  says. "Bring a light."
+level: 10
+flags: [peaceful]
+attack:
+  verb: mop

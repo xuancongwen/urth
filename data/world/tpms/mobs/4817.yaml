@@ -1,0 +1,24 @@
+vnum: 4817
+name: the Goose of Sligo Creek
+keywords: [goose, sligo, creek, boss, honker]
+description: The Goose of Sligo Creek rises up to its full height and honks.
+look: |
+  A Canada goose the size of a seventh grader, with a neck like a fire
+  hose, eyes like black marbles, and a honk you can hear from the bus
+  loop. It has ruled this creek since before anybody's older brother
+  went here. Generations of science teachers have asked the class to
+  observe it from a safe distance, and nobody knows what a safe
+  distance is. Somewhere in that nest is something it swallowed during
+  a fire drill, and it wants you to try to get it back.
+level: 6
+health: 260
+flags: [assist, boss]
+silver: 40
+stats: { strength: 14, constitution: 14 }
+armor:
+  defense: 6
+attack:
+  kind: blunt
+  verb: wing-batter
+loot:
+  - { item: 4801, chance: 0.2 }

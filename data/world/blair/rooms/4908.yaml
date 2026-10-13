@@ -1,0 +1,11 @@
+vnum: 4908
+name: The Magnet Physics Lab
+description: |
+  Air tracks with little gliders, a box of springs, a bowling ball
+  hung from the ceiling as a pendulum, and a whiteboard full of free
+  body diagrams. A shelf holds the casualties of the egg-drop project.
+  In the corner a Van de Graaff generator, its silver dome taller than
+  you are, has started itself up with nobody at the switch, and the
+  hair on your arms stands up. The magnet wing is east.
+exits:
+  east: 4905

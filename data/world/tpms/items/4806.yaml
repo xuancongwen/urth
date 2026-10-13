@@ -1,0 +1,16 @@
+vnum: 4806
+name: "a custodian's push broom"
+keywords: ["custodian's", push, broom]
+description: A wide push broom with a long wooden handle lies here.
+look: |
+  A push broom as wide as a hallway, bristles grey with floor wax and
+  pencil shavings. Swung, it clears a hallway of more than dust.
+type: weapon
+weight: 3
+level: 3
+baseline: staff
+flags: [drop]
+weapon:
+  hands: 2
+  kind: blunt
+  verb: sweep

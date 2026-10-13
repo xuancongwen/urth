@@ -1,0 +1,18 @@
+vnum: 4910
+name: a fire extinguisher
+keywords: [fire, extinguisher, red]
+description: "A red fire extinguisher lies here, its pin still in."
+look: |
+  A red steel fire extinguisher pulled from its case in the hallway,
+  heavy enough to dent a locker and, if the pin comes out, cold enough
+  to frost it. The sign over the case said in case of fire. This is
+  close enough.
+type: weapon
+weight: 4
+level: 9
+baseline: flail
+flags: [drop]
+weapon:
+  hands: 1
+  kind: blunt
+  verb: bash

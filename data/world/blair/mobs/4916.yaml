@@ -1,0 +1,15 @@
+vnum: 4916
+name: a dumpster raccoon
+keywords: [dumpster, raccoon, trash, panda]
+description: A raccoon looks up from the dumpster with a curly fry in its hands.
+look: |
+  A fat raccoon with a bandit's mask and clever little hands, who has
+  eaten better on the Blair loading dock than most students eat at
+  home. It does not run away. It looks at you the way you look at a
+  vending machine.
+level: 7
+flags: [assist, aggressive]
+silver: 3
+attack:
+  kind: claw
+  verb: claw

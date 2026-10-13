@@ -1,0 +1,14 @@
+vnum: 4904
+name: The Cafeteria
+description: |
+  A vast room of round tables where the whole school seems to eat at
+  once, the magnet kids at their tables, the CAP kids at theirs,
+  somebody always playing cards. The lunch line offers rectangle
+  pizza, curly fries, and a grey entree of no fixed identity. A
+  vending machine hums against the wall with a dollar bill sticking
+  out of it, rejected. Under the tables roaches go about their
+  business. The kitchen and loading dock are east; the main hallway is
+  west.
+exits:
+  west: 4902
+  east: 4906

@@ -1,0 +1,14 @@
+vnum: 4812
+name: a feral dodgeball
+keywords: [feral, dodgeball, ball]
+description: "A red rubber dodgeball bounces on its own, waiting for you to look away."
+look: |
+  A red rubber playground ball with a pebbled skin, the kind that
+  leaves a perfect pattern on your face. Nobody has thrown it. It is
+  throwing itself. It has been picked last too many times and it is
+  taking it out on everybody.
+level: 3
+flags: [aggressive]
+attack:
+  kind: blunt
+  verb: smack
