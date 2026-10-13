@@ -8,6 +8,7 @@ look: |
   following you for some time.
 level: 9
 flags: [aggressive]
+aggro: { min: 1 }   # guards the weirwood seed, the Neutral god's offering, from anyone (story 1027)
 attack:
   verb: claw
   kind: claw

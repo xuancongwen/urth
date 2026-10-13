@@ -8,6 +8,7 @@ look: |
   are already half-said and the air around his hands is getting hot.
 level: 17
 flags: [aggressive]
+aggro: { min: 1 }   # guards the way to the Evil altar: a visitor far under them is no less a trespasser (story 1027)
 stats: {strength: 6, intelligence: 16}
 silver: 55
 attack:

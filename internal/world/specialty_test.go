@@ -141,3 +141,17 @@ func TestNewPlayersFindMagicNearTheStart(t *testing.T) {
 		t.Fatal("Fewmaster Toede should carry the medallion, and be an early fight")
 	}
 }
+
+// TestMagicPrizesAreGuardedFromTheWeak: the aggressive guards on the way
+// to the Evil altar and at the weirwood seed attack from level 1, so a
+// character far under them cannot walk past for a god's favour (story
+// 1027).
+func TestMagicPrizesAreGuardedFromTheWeak(t *testing.T) {
+	w := shippedWorld(t)
+	for _, vnum := range []int{705, 706, 712, 1510} {
+		p := w.content.Mobs[vnum]
+		if p == nil || !p.HasFlag("aggressive") || p.Resolved.Aggro.Min > 1 {
+			t.Errorf("mob %d should attack anyone from level 1: %+v", vnum, p.Resolved.Aggro)
+		}
+	}
+}

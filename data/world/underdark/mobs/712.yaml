@@ -8,6 +8,7 @@ look: |
   it is used to being fed.
 level: 18
 flags: [assist, aggressive]
+aggro: { min: 1 }   # guards the way to the Evil altar: a visitor far under them is no less a trespasser (story 1027)
 attack:
   verb: bite
 effects:

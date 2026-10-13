@@ -3077,3 +3077,11 @@ mob prototypes; `mobBaseline` returns `aggro`, defaulting either end
 the prototype leaves out (`AGGRO` in the rules); `stat` on a mob shows
 the range. Which mobs carry the flag is content, decided area by area
 from their descriptions.
+
+One consequence the default range had (story 1022, 2026-10-12): it made
+the hardest prizes easiest at the lowest levels. A level-1 character
+could walk past level-16 to 18 guards to the Evil god's altar, because
+it was too weak for them to notice, and take the god's favour there.
+So a mob that guards something meant to be earned, a god's offering or
+the way to a Tower's Test, states `aggro: {min: 1}`: being far under it
+is no pass. The rest of the world keeps the default.
