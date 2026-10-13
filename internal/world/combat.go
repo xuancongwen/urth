@@ -577,19 +577,40 @@ func cmdFlee(w *World, p *Player, _ string) {
 
 // regen applies onTick to everyone once per round, auras included.
 func (w *World) regen() {
-	for _, c := range w.allCharacters() {
+	all := w.allCharacters()
+	targeted := map[*Character]bool{}
+	for _, c := range all {
+		if c.Fighting != nil {
+			targeted[c.Fighting] = true
+		}
+	}
+	for _, c := range all {
 		if c.Room == nil || c.Health <= 0 {
 			// Killed earlier this round, by an aura.
 			continue
+		}
+		var key settleKey
+		canSettle := false
+		if c.mob != nil {
+			key, canSettle = w.settleKeyOf(c.mob, targeted)
+			if canSettle && c.mob.settled && c.mob.settleKey == key {
+				continue
+			}
+			c.mob.settled = false
 		}
 		r := w.onTick(c)
 		if len(r.Skills) > 0 {
 			applySkillRatings(c, r.Skills)
 			w.recalc(c)
 		}
+		health, mana, stamina := c.Health, c.Mana, c.Stamina
 		c.Health = clamp(c.Health+r.HealthDelta, 0, c.HealthMax)
 		c.Mana = clamp(c.Mana+r.ManaDelta, 0, c.ManaMax)
 		c.Stamina = clamp(c.Stamina+r.StaminaDelta, 0, c.StaminaMax)
+		if canSettle && len(r.Skills) == 0 && len(r.Aura) == 0 &&
+			c.Health == health && c.Mana == mana && c.Stamina == stamina {
+			c.mob.settleKey, c.mob.settled = key, true
+		}
 		if c.Health <= 0 && r.HealthDelta < 0 {
 			w.die(c, nil)
 			continue

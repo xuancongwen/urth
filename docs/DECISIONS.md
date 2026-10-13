@@ -285,3 +285,23 @@ effect grades it, from vulnerability through resistance to immunity,
 with immunity kept for mobs (RULES 4.8). Both are rules-script work;
 the engine's share is carrying a kind on spells and procs and showing
 resistances on `consider`.
+
+## D28. Mobs that onTick leaves unchanged are not asked again until they change
+
+An idle server spent about 5 percent of a core with nobody online
+(story 1044): every round asked `onTick` about each of some 2,200 mobs,
+and nearly all of them were at full health with nothing to do. The cost
+grew with the world, not with play. Two fixes were weighed: letting
+areas without players sleep, which needs a catch-up rule for what
+happened while they slept and stops time for mob-on-mob fights and
+damage over time; and remembering that a call did nothing. The engine
+takes the second. When `onTick` changes nothing for a mob that is not
+fighting, attacked, casting, cooling down, grouped, or carrying effects
+of its own, the engine keeps a key of what the call could see (health,
+mana, stamina and their maxima, level, position, room, prototype,
+equipment, and the rules generation, which every script reload and
+prototype resolution bumps) and skips the mob while the key holds. The
+engine still decides nothing about the rules; it relies on one contract
+written into the hook table: given the same view, an `onTick` that
+changed nothing changes nothing again. An idle round fell from about
+56 ms to about 1.3 ms.

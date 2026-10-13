@@ -371,6 +371,8 @@ func mobProtoView(p *mob.Proto) map[string]any {
 // used as they are. Runs after content load and after every script reload
 // so a curve edit re-derives every prototype without a restart.
 func (w *World) resolveBaselines() {
+	// New rules or prototypes: every settled mob ticks again (settle.go).
+	w.rulesGen++
 	for _, p := range w.content.Items {
 		w.resolveItem(p)
 	}

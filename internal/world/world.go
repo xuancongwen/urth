@@ -92,6 +92,9 @@ type World struct {
 	tickCount      uint64
 	roundCount     uint64
 	started        time.Time
+	// rulesGen counts rules and prototype resolutions; settled mobs
+	// (settle.go) keyed to an older one tick again.
+	rulesGen uint64
 }
 
 type pendingToken struct {

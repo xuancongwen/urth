@@ -122,6 +122,10 @@ type Mob struct {
 	id    uint64
 	// spawnIn counts the rounds to a generator's next spawn.
 	spawnIn int
+	// settleKey is the key of the last onTick that changed nothing, valid
+	// when settled (settle.go).
+	settleKey settleKey
+	settled   bool
 }
 
 func (w *World) newMob(p *mob.Proto) *Mob {
