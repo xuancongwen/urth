@@ -17,6 +17,9 @@ set -euo pipefail
 
 APP_DIR=/opt/urth
 CONF_DIR=/etc/urth
+# The round length the rules are written for (roundSeconds in
+# data/scripts/rules.js); the server warns at startup when they differ.
+ROUND_MS=3000
 TUNNEL_TOKEN=""
 
 while [ $# -gt 0 ]; do
@@ -48,6 +51,11 @@ chmod 700 "$APP_DIR/data/players"
 echo "==> config"
 if [ -f "$CONF_DIR/config.yaml" ]; then
   echo "    $CONF_DIR/config.yaml exists, keeping it"
+  live=$(sed -n 's/^ *round_ms: *\([0-9]*\).*/\1/p' "$CONF_DIR/config.yaml")
+  if [ -n "$live" ] && [ "$live" != "$ROUND_MS" ]; then
+    echo "    WARNING: it has round_ms: $live, but the rules expect $ROUND_MS;"
+    echo "    edit it and run systemctl restart urth"
+  fi
 else
   cat > "$CONF_DIR/config.yaml" <<'YAML'
 # Urth production configuration. Written once by deploy/setup.sh; edit in
@@ -79,7 +87,8 @@ server:
 
 timing:
   tick_ms: 100
-  round_ms: 2000
+  # Must match roundSeconds in data/scripts/rules.js (ROUND_MS above).
+  round_ms: 3000
   autosave_seconds: 300
 
 paths:
