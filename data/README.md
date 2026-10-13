@@ -20,9 +20,10 @@ Layout:
 
 Areas under `world/`: `start` (the tutorial corridor where new
 characters wake, rooms 40 to 46, opening north into the armory, the
-Long Hall with its trainer and herald, and the Good god's wayside
-shrine, whose keeper teaches Bless and sells a sun-disk and a cudgel
-to a beginning priest), `balance` (the test
+Long Hall with its trainer and herald, the hedge-wizard's loft above
+it (simple common spells for anyone), and the Good god's wayside
+shrine, whose keeper sells Bless to apostles and a sun-disk and a
+cudgel to a beginning priest; see its README), `balance` (the test
 lab, unreachable on foot: `goto 900`; one plain mob per level for the
 simulator, and every mechanic in reach, see its README), and `solace` (a town in the vallenwoods, reached by
 the stair under the armory; its North Road runs on to `haven`, the
@@ -36,15 +37,15 @@ Order's hidden Test, 18 to 26). Below the stair, the Undercroft of Doors
 (room 6) opens on four more: `shire` (west; Hobbiton, Bywater, Maggot's
 farm, the Woody End and the Old Forest, levels 1 to 10), `swordcoast`
 (east; Candlekeep, the Friendly Arm, Beregost, Nashkel and its mines,
-levels 2 to 9), `icewind` (north; Bryn Shander, Lonelywood, the tundra,
+levels 1 to 10), `icewind` (north; Bryn Shander, Lonelywood, the tundra,
 and the dwarven mines under Kelvin's Cairn, levels 3 to 10), and
 `drevlin` (south; the Gegs, the Kicksey-winsey, and an elven watership,
-levels 3 to 9). `underdark` (levels 8 to 18, the drow and Blingdenstone)
+levels 2 to 10). `underdark` (levels 8 to 18, the drow and Blingdenstone)
 has no door of its own: it is reached down the shaft at the bottom of the
 Icewind Dale mines. A spiral stair goes down from the Undercroft to the Hall of Far
 Doors (room 7), which opens on `winterfell` (north, levels 6 to 14),
-`avalon` (east, 4 to 12), `narnia` (south, through the wardrobe, 2 to
-9), and `midgaard` (west, classic ROM Midgaard, 1 to 15), and on down
+`avalon` (east, 4 to 12), `narnia` (south, through the wardrobe, 3 to
+12), and `midgaard` (west, classic ROM Midgaard, 2 to 15), and on down
 to the Deeper Hall (room 8), which opens on `warcraft` (north, 8 to
 16), `draenor` (east, 12 to 20), `diablo` (south, Tristram and the
 cathedral, 14 to 24), and `starcraft` (west, 16 to 24). Below that the halls change their

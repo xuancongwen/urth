@@ -4,7 +4,7 @@ Narnia under the White Witch's hundred-year winter: the lamp-post in the
 Lantern Waste, Mr Tumnus's cave, the Beavers' dam and lodge, Father
 Christmas's sledge, the Witch's castle with its courtyard of statues and
 Maugrim's kennels, the thawing wood and Aslan's camp, the Stone Table
-and the Witch's war camp, and Cair Paravel on the eastern sea. Levels 5
+and the Witch's war camp, and Cair Paravel on the eastern sea. Levels 3
 to 12: Maugrim (11, tough) in the kennels, and the White Witch (12, very
 tough) on her throne of ice. Reached through the hub's south door, the
 wardrobe (room 7 in `start`), which opens into the fir wood at 1200.

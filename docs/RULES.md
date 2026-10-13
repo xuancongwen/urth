@@ -1941,7 +1941,8 @@ an even fight spends what the next fight might need.
   an interrupted cast loses it, as it lost materials (6.4). The pool is
   a base plus a little per level, times the better of the Intelligence
   and Wisdom multipliers, so either branch's stat makes a deeper pool.
-  It refills from empty in about 45 rounds standing out of a fight,
+  It refills from empty in 90 seconds standing out of a fight (30
+  rounds of 3 seconds, `manaRegenSeconds`),
   faster resting and asleep at the same multipliers as health, and not
   at all in a fight (a parameter, `manaFightRegen`, if a trickle is
   wanted).
@@ -2186,7 +2187,6 @@ exist.
 
 ---
 
-**The expanded list (2026-10-11).** The first list above became the
 *Retagged 2026-10-12 (6.1): the tables below give each spell's tier and
 its school after the cut. Divination's spells became common or moved to
 abjuration, illusion, enchantment, and evocation; transmutation's moved
@@ -2195,6 +2195,7 @@ its specialist; common arcane spells are bought, since there is no
 school to unlock them. Every god's apostle knows Mend and Wrath at once
 and may buy Bless. The enchantments of 5.6 are common, at level 25.*
 
+**The expanded list (2026-10-11).** The first list above became the
 innate spells of each school and god (6.1). Around them each school
 grew to six or seven spells and each god to six: simple damage early,
 then defence, buffs and debuffs, stronger spells taught at higher
@@ -2586,7 +2587,6 @@ converge and discovery stops meaning anything. Three options:
 Leaning: no limit for now, per 2.2. This is the decision most likely to
 be revisited once there are enough schools to matter.
 
-### 7.4 Effectiveness: skills and some feats improve with use
 **Decided 2026-10-12: one.** A character specialises in one school, for
 good, and loses the opposite school (6.1). Breadth comes from common
 spells, which every caster can learn; depth from the specialty. Veteran
@@ -2595,6 +2595,7 @@ and the three Orders (White, Red, Black) give two arcane characters of
 the same level a visible difference, which is what this section wanted
 from the start.
 
+### 7.4 Effectiveness: skills and some feats improve with use
 
 **Thesis.** ROM's skill percentage: a skill starts low, rises with
 practice and use, and the number is the chance the attempt works. A
