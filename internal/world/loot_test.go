@@ -278,13 +278,13 @@ func TestShippedLootGates(t *testing.T) {
 		}
 	}
 	for kind := range kinds {
-		if kind != "stat" && kind != "defense" {
+		if kind != "stat" && kind != "defense" && kind != "baseDefense" {
 			t.Errorf("a level-2 helmet rolled a %s affix", kind)
 		}
 	}
 
 	_, kinds = roll(protoIn("head", item.Armor), 40, 2000)
-	for _, kind := range []string{"shieldBlock", "attacks", "crit", "damage", "thorns"} {
+	for _, kind := range []string{"shieldBlock", "attacks", "crit", "damage", "baseDamage", "thorns"} {
 		if kinds[kind] {
 			t.Errorf("a helmet rolled %s, which is not open to the head", kind)
 		}

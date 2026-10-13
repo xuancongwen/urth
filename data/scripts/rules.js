@@ -298,7 +298,7 @@ function aggroRange(L, stated) {
 // Effects (RULES 5.4). A kind is a function of the pipeline context; the
 // engine stores {kind, params, state, rounds} and never looks inside.
 // Kinds in play so far: stat, crit, dodge, block, attacks, defense,
-// protect, speedMult, dot, the power kinds below, and the combat kinds of
+// baseDamage, baseDefense, protect, speedMult, dot, the power kinds below, and the combat kinds of
 // the skills and feats: blind, disarmed, damage, powerAttack, critMult,
 // shieldBlock, finesse, blindFighting, steady, opportunist, cooldownCut,
 // unarmedMult, envenom, and the fighting styles' dualWield,
@@ -444,6 +444,25 @@ function effectUnit(c, e, it) {
 // weaponShare is the part of the power unit a weapon's own damage
 // carries at level L (5.2): all of it at level 1, a fifth at 60.
 function weaponShare(L) { return weaponGrowth(L) / growth(L); }
+
+// enhanced is an item's own number (a weapon's damage, a piece's
+// defense) raised by the item's effects of kind: each adds its fraction
+// of the number, at least 1 (5.3). Nothing is added to a zero.
+function enhanced(it, base, kind) {
+  base = num(base);
+  if (base <= 0 || !it || !it.effects) return base;
+  var add = 0;
+  for (var i = 0; i < it.effects.length; i++) {
+    var e = it.effects[i];
+    if (e.kind === kind) add += Math.max(1, base * num(e.params.fraction));
+  }
+  return base + add;
+}
+
+// weaponDamage and armorDefense are an item's own damage and defense
+// with its honed and reinforced affixes.
+function weaponDamage(it) { return enhanced(it, it.weapon.damage, "baseDamage"); }
+function armorDefense(it) { return enhanced(it, it.armor.defense, "baseDefense"); }
 
 // attunedScale is how much an attuned item's numbers grow on c: the
 // baseline ratio between c's level and the item's own, on the weapon
@@ -637,7 +656,7 @@ function resolveAttack(att, def, weapon, round, hand) {
   // wielder's level. An armed mob keeps power-unit damage (8): its weapon
   // counts against a plain one of its level, so one at its level hits as
   // its natural attack's standard would, unscaled by mobDamage.
-  var base = w.damage * (weapon ? attunedScale(weapon, att) : 1);
+  var base = weapon && weapon.weapon ? weaponDamage(weapon) * attunedScale(weapon, att) : w.damage;
   if (weapon && att.mob) base /= weaponShare(att.level);
   var hitMult = strikeMult(att, weapon) * levelMult(att) * swingMult(att, def, weapon) * dualMult(att, hand);
 
@@ -701,7 +720,7 @@ function defense(c) {
   var D = 0, worn = false, s;
   if (c.equipment) for (s in c.equipment) {
     var it = c.equipment[s];
-    if (it && it.armor && it.armor.defense) { D += it.armor.defense * attunedScale(it, c); worn = true; }
+    if (it && it.armor && it.armor.defense) { D += armorDefense(it) * attunedScale(it, c); worn = true; }
   }
   if (!worn && c.mob && c.mob.armor) D = c.mob.armor.defense;
   D += sumEffects(c, "defense", "amount");
@@ -1204,7 +1223,21 @@ var SPELLS = [
   { id: "blight", kind: "unholy", innate: true, level: 6, stats: { wisdom: 14 }, mana: 12, name: "Blight", branch: "divine", deity: "evil", castRounds: 1, interruptOnDamage: true, cooldown: 6,
     target: "area", save: "fortitude", saveEffect: "half", dot: true,
     effect: function (caster, target, power) { return { kind: "dot", params: { damage: Math.round(0.4 * power) }, rounds: 5 }; },
-    description: "Rot spreads through every enemy." }
+    description: "Rot spreads through every enemy." },
+  // Enchantments (RULES 5.6): cast on an item in the caster's inventory,
+  // resolved by resolveEnchant, not resolveCast. Every one can fail.
+  { id: "enchant_weapon", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Weapon", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+    target: "item", enchant: "weapon", difficulty: 20,
+    description: "Raise a weapon's own damage by 5 to 10 percent (at least 1). Each success is another effect on it; a failure may strip it or destroy it." },
+  { id: "enchant_armor", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Enchant Armor", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+    target: "item", enchant: "armor", difficulty: 20,
+    description: "Raise a piece of armor's own defense by 5 to 10 percent (at least 1). Each success is another effect on it; a failure may strip it or destroy it." },
+  { id: "restore_item", innate: true, level: 25, stats: { intelligence: 20 }, mana: 150, name: "Restore Item", branch: "arcane", school: "enchantment", castRounds: 2, interruptOnDamage: true, cooldown: 0,
+    target: "item", enchant: "restore", difficulty: 15,
+    description: "Return an item to what it was made as: every affix, rolled or enchanted, comes off. Not on a permanent item." },
+  { id: "permanency", innate: true, level: 30, stats: { intelligence: 22 }, mana: 150, name: "Permanency", branch: "arcane", school: "enchantment", castRounds: 3, interruptOnDamage: true, cooldown: 0,
+    target: "item", enchant: "permanency", difficulty: 40,
+    description: "Fix an item as it is: nothing can enchant or restore it again. Not an effect of its own for the item's tier." }
 ];
 
 function spellList() {
@@ -1428,7 +1461,7 @@ function combatSheet(c) {
   var D = 0, worn = false, s;
   if (c.equipment) for (s in c.equipment) {
     var it = c.equipment[s];
-    if (it && it.armor && it.armor.defense) { D += it.armor.defense * attunedScale(it, c); worn = true; }
+    if (it && it.armor && it.armor.defense) { D += armorDefense(it) * attunedScale(it, c); worn = true; }
   }
   if (!worn && c.mob && c.mob.armor) D = num(c.mob.armor.defense);
   D = Math.max(0, (D + sumEffects(c, "defense", "amount")) * mult(c, "constitution", false) * levelMult(c));
@@ -1533,6 +1566,9 @@ function describeEffect(e) {
     case "blind": return "Blinded: " + pct(p.miss) + " of swings go wide" + tail;
     case "disarmed": return "Disarmed: fights bare-handed" + tail;
     case "damage": return Math.round((num(p.mult) - 1) * 100) + " percent more damage" + (p.weapon ? " with a weapon" : "") + tail;
+    case "permanent": return "Permanent: no enchantment can change it again" + tail;
+    case "baseDamage": return "The weapon's own damage is " + pct(p.fraction) + " higher (at least 1)" + tail;
+    case "baseDefense": return "The armor's own defense is " + pct(p.fraction) + " higher (at least 1)" + tail;
     case "powerAttack": return Math.round((num(p.mult) - 1) * 100) + " percent more damage, " + pct(-num(p.dodge)) + " less dodge" + tail;
     case "critMult": return "Critical hits deal +" + num(p.amount) + "x damage" + tail;
     case "shieldBlock": return "Blocks " + pct(p.chance) + " more with a shield" + tail;
@@ -1742,7 +1778,12 @@ var SKILLS = [
     verb: "sneak",
     description: "Move quietly until you sneak again: nobody who cannot see the hidden notices you come or go, and aggressive creatures pass you by." },
   { id: "triple", stats: { dexterity: 16 }, name: "Triple Strike", level: 12, passive: true, start: 15, innate: false, price: 4000,
-    description: "A third attack in the same round, as often as your skill allows, on top of Twin Strike." }
+    description: "A third attack in the same round, as often as your skill allows, on top of Twin Strike." },
+  // Enchanting (RULES 5.6) is the rating behind every enchantment spell.
+  // No trainer teaches it: the first enchantment cast gives it, and it
+  // improves with each one, never in a fight.
+  { id: "enchanting", stats: { intelligence: 20 }, name: "Enchanting", level: 25, passive: true, craft: true, start: 20, innate: false, price: 0,
+    description: "Skill at making an enchantment take. Improves with every enchantment you cast." }
 ];
 
 // hasSource reports whether c carries an effect tagged with source.
@@ -1766,7 +1807,7 @@ var STRIKE = { floor: 0.5 };
 function strikeUnit(c, weapon) {
   var u = unit(c);
   if (!weapon || !weapon.weapon) return u;
-  var w = weapon.weapon, swing = num(w.damage) * attunedScale(weapon, c);
+  var w = weapon.weapon, swing = weaponDamage(weapon) * attunedScale(weapon, c);
   eachAdded(c, weapon, function (e, eu) { swing += eu * num(e.params.power); });
   return Math.max(u, swing * (num(w.speed) || 1));
 }
@@ -1823,7 +1864,7 @@ function improvePassives(c) {
     var e = c.effects[i];
     if (e.kind !== "skill") continue;
     var sk = skillById(e.params.skill);
-    if (!sk || !sk.passive || sk.rest) continue;
+    if (!sk || !sk.passive || sk.rest || sk.craft) continue;
     var next = improve(num(e.state.effectiveness));
     if (next !== num(e.state.effectiveness)) out[sk.id] = next;
   }
@@ -1968,6 +2009,10 @@ var AFFIXES = [
   { id: "wis",       from: 1,  on: ["any"], weight: 2, prefix: "wise",       suffix: "of the sage",       effect: function (L, q) { return { kind: "stat", params: { stat: "wisdom", amount: statAmount(L, q) } }; } },
   { id: "damage",    from: 1,  on: ["wield"], weight: 3, prefix: "cruel",    suffix: "of slaying",        effect: function (L, q) { return { kind: "damage", params: { mult: round2(1 + 0.06 * q), weapon: true } }; } },
   { id: "defense",   from: 1,  on: ["armor"], weight: 2, prefix: "sturdy",   suffix: "of the turtle",     effect: function (L, q) { return { kind: "defense", params: { amount: round2(0.45 * growth(L) * q) } }; } },
+  // A tenth more of the item's own number, at least 1, whatever the
+  // roll's quality; only on slots that carry baseline defense.
+  { id: "honed",     from: 1,  on: ["wield"], weight: 2, prefix: "honed",    suffix: "of the whetstone",  effect: function (L, q) { return { kind: "baseDamage", params: { fraction: 0.1 } }; } },
+  { id: "reinforced", from: 1, on: Object.keys(SLOT_WEIGHT), weight: 2, prefix: "reinforced", suffix: "of the anvil", effect: function (L, q) { return { kind: "baseDefense", params: { fraction: 0.1 } }; } },
   // Item level 5.
   { id: "crit",      from: 5,  on: ["wield", "hands", "finger"], weight: 2, prefix: "keen", suffix: "of precision", effect: function (L, q) { return { kind: "crit", params: { chance: round2(0.04 * q), mult: 2 } }; } },
   { id: "dodge",     from: 5,  on: ["feet", "legs", "body"], weight: 2, prefix: "elusive", suffix: "of evasion",   effect: function (L, q) { return { kind: "dodge", params: { amount: round2(0.02 * q) } }; } },
@@ -2078,7 +2123,7 @@ function rollItem(it, ctx) {
 // itemTier names the tier for the count of effects an item carries; the
 // last tier takes every count above its min.
 function itemTier(it) {
-  var count = (it.effects || []).length;
+  var count = effectCount(it.effects);
   var tier = RARITY[0];
   for (var i = 0; i < RARITY.length; i++) if (count >= RARITY[i].min) tier = RARITY[i];
   if (tier.min === 0) return { rarity: "" };
@@ -2166,4 +2211,132 @@ function damageWords() {
 // ---------------------------------------------------------------------
 function pickChance(c, door) {
   return Math.min(0.9, Math.max(0.1, 0.5 * mult(c, "dexterity")));
+}
+
+// ---------------------------------------------------------------------
+// Enchanting (RULES 5.6). An enchantment is a spell cast on an item in
+// the caster's inventory. enchantBlocker says, before any mana is spent,
+// why it cannot go on that item; resolveEnchant decides the attempt. The
+// Enchanting rating sets the chance, and each effect already on the item
+// makes it harder, gently up to ENCHANT.easy effects and steeply past
+// them. A failure does nothing, strips every affix, or, past easy,
+// destroys the item. Starting values for playtest.
+// ---------------------------------------------------------------------
+var ENCHANT = { easy: 12, perEffect: 3, pastEasy: 8, destroyR: 25, stripEasy: 0.05, stripHard: 0.10, min: 0.05, max: 0.10 };
+
+// effectCount is the effects that count toward an item's tier and its
+// enchanting difficulty: all of them but Permanency's mark.
+function effectCount(effects) {
+  var n = 0;
+  for (var i = 0; i < (effects || []).length; i++) if (effects[i].kind !== "permanent") n++;
+  return n;
+}
+
+// itemLevel is an instance's item level: its prototype's, or the level
+// a deeper roll recorded on an affix (5.3).
+function itemLevel(it) {
+  var L = it.level || 1;
+  var ap = it.applied || [];
+  for (var i = 0; i < ap.length; i++) L = Math.max(L, num(ap[i].params && ap[i].params.level));
+  return L;
+}
+
+// maxEffects is the most effects enchanting may bring an item of level
+// L to: the top of the highest tier L could roll, open from relic's.
+function maxEffects(L) {
+  var top = 0;
+  for (var i = 0; i < RARITY.length; i++) {
+    if (RARITY[i].from > L) continue;
+    if (i === RARITY.length - 1) return Infinity;
+    top = RARITY[i].max;
+  }
+  return top;
+}
+
+function enchantBlocker(c, it, sp) {
+  var e = spellById(sp.id);
+  if (!e || !e.enchant) return "That is not an enchantment.";
+  if (hasEffect(it, "permanent")) return "It is permanent; no enchantment will change it.";
+  var n = effectCount(it.effects);
+  switch (e.enchant) {
+    case "weapon":
+      if (it.type !== "weapon" || !it.weapon || num(it.weapon.damage) <= 0) return "That is not a weapon.";
+      break;
+    case "armor":
+      if (it.type !== "armor" || !it.armor || num(it.armor.defense) <= 0) return "That has no defense to strengthen.";
+      break;
+    case "restore":
+      if ((it.applied || []).length === 0) return "It is already as it was made.";
+      return "";
+    case "permanency":
+      return "";
+  }
+  if (n + 1 > maxEffects(itemLevel(it))) return "It cannot hold another effect at its level.";
+  return "";
+}
+
+function capitalize(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+
+// enchantChance is the chance an enchantment of difficulty d takes, at
+// rating r, on an item already carrying n effects.
+function enchantChance(r, d, n) {
+  var e = Math.max(0, n - ENCHANT.easy);
+  return r / (r + d + ENCHANT.perEffect * n + ENCHANT.pastEasy * e * e);
+}
+
+// tierFor is the tier fields for an item whose effects are now list: a
+// named item (intrinsic effects) stays without a tier.
+function tierFor(it, list) {
+  var intrinsic = (it.effects || []).length - (it.applied || []).length;
+  if (intrinsic > 0) return { rarity: "", color: "" };
+  var t = itemTier({ effects: list });
+  return { rarity: t.rarity || "", color: t.color || "" };
+}
+
+function resolveEnchant(c, it, sp) {
+  var e = spellById(sp.id);
+  var why = enchantBlocker(c, it, sp);
+  if (why) return { ok: false, message: why };
+  var rating = skillRating(c, "enchanting");
+  var skills = {};
+  skills.enchanting = improve(rating);
+  var n = effectCount(it.effects);
+  var applied = (it.applied || []).map(function (x) { return { kind: x.kind, params: x.params }; });
+  var name = it.name;
+  if (random.float() < enchantChance(rating, e.difficulty, n)) {
+    var out = { ok: true, outcome: "success", skills: skills, prefix: it.prefix || "", suffix: it.suffix || "" };
+    switch (e.enchant) {
+      case "weapon":
+      case "armor":
+        var frac = round2(ENCHANT.min + random.float() * (ENCHANT.max - ENCHANT.min));
+        applied.push({ kind: e.enchant === "weapon" ? "baseDamage" : "baseDefense", params: { fraction: frac, enchanted: true } });
+        out.message = capitalize(name) + " glows blue: its " + (e.enchant === "weapon" ? "damage" : "defense") + " rises by " + Math.round(frac * 100) + " percent.";
+        break;
+      case "restore":
+        applied = [];
+        out.prefix = ""; out.suffix = "";
+        out.message = capitalize(name) + " shimmers and is plain again, as it was made.";
+        break;
+      case "permanency":
+        applied.push({ kind: "permanent", params: {} });
+        out.message = capitalize(name) + " hums, and settles: it will not change again.";
+        break;
+    }
+    var t = tierFor(it, applied);
+    out.effects = applied; out.rarity = t.rarity; out.color = t.color;
+    return out;
+  }
+  // Failure: destroyed only past easy, then stripped, else nothing.
+  var ex = Math.max(0, n - ENCHANT.easy);
+  var destroy = ex / (ex + ENCHANT.destroyR);
+  var strip = n > ENCHANT.easy ? ENCHANT.stripHard : ENCHANT.stripEasy;
+  var roll = random.float();
+  if (roll < destroy) {
+    return { ok: true, outcome: "destroy", skills: skills, message: capitalize(name) + " shudders, cracks, and falls to dust." };
+  }
+  if (roll < destroy + strip && applied.length > 0) {
+    return { ok: true, outcome: "strip", skills: skills, effects: [], rarity: "", color: "", prefix: "", suffix: "",
+      message: capitalize(name) + " flares and goes dull: every enchantment on it is gone." };
+  }
+  return { ok: true, outcome: "nothing", skills: skills, message: "The magic slides off " + name + "; nothing changes." };
 }

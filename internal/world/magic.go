@@ -1,6 +1,7 @@
 package world
 
 import (
+	"slices"
 	"strings"
 
 	"urth/internal/effect"
@@ -40,7 +41,7 @@ type Spell struct {
 	InterruptOnDamage bool            `json:"interruptOnDamage"`
 	Cooldown          int             `json:"cooldown"`
 	Materials         []SpellMaterial `json:"materials"`
-	Target            string          `json:"target"` // single, area, self, ally, group
+	Target            string          `json:"target"` // single, area, self, ally, group, item
 	Save              string          `json:"save"`
 	SaveEffect        string          `json:"saveEffect"`
 	Description       string          `json:"description"`
@@ -59,6 +60,7 @@ func (s Spell) hostile() bool { return s.Target == "single" || s.Target == "area
 type casting struct {
 	spell   Spell
 	targets []*Character
+	item    *item.Item // an enchantment's item, in the caster's inventory
 	rounds  int
 }
 
@@ -385,10 +387,20 @@ func cmdCast(w *World, p *Player, args string) {
 		p.Send("You need " + plural(max(m.Count, 1), output.Escape(m.Material)) + " to cast " + output.Escape(sp.Name) + ".\n")
 		return
 	}
-	targets, err := w.castTargets(p.Character, sp, rest)
-	if err != "" {
-		p.Send(err + "\n")
-		return
+	var target *item.Item
+	var targets []*Character
+	if sp.Target == "item" {
+		var err string
+		if target, err = w.enchantTarget(p.Character, sp, rest); err != "" {
+			p.Send(err + "\n")
+			return
+		}
+	} else {
+		var err string
+		if targets, err = w.castTargets(p.Character, sp, rest); err != "" {
+			p.Send(err + "\n")
+			return
+		}
 	}
 	if sp.hostile() && p.Room.Safe() {
 		p.Send("You cannot fight here.\n")
@@ -397,10 +409,14 @@ func cmdCast(w *World, p *Player, args string) {
 	commitMaterials(p.Character, sp)
 	p.Mana -= max(sp.Mana, 0)
 	if sp.CastRounds <= 0 {
-		w.resolveCastNow(p.Character, sp, targets)
+		if target != nil {
+			w.resolveEnchantNow(p.Character, sp, target)
+		} else {
+			w.resolveCastNow(p.Character, sp, targets)
+		}
 		return
 	}
-	p.casting = &casting{spell: sp, targets: targets, rounds: sp.CastRounds}
+	p.casting = &casting{spell: sp, targets: targets, item: target, rounds: sp.CastRounds}
 	w.act("You begin casting $t.", p.Character, nil, output.Escape(sp.Name), toChar)
 	w.act("$n begins casting.", p.Character, nil, "", toRoom)
 }
@@ -460,6 +476,14 @@ func (w *World) tickCasting() {
 			continue
 		}
 		c.casting = nil
+		if cs.item != nil {
+			if !slices.Contains(c.Inventory, cs.item) {
+				c.Send("Your " + output.Escape(cs.spell.Name) + " finds nothing to hold.\n")
+				continue
+			}
+			w.resolveEnchantNow(c, cs.spell, cs.item)
+			continue
+		}
 		var live []*Character
 		for _, t := range cs.targets {
 			if t.Room == c.Room && t.Health > 0 {

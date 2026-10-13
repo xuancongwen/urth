@@ -1259,7 +1259,7 @@ cannot drop the best sword in the game.
 
   | From item level | Affix (slots) |
   |---|---|
-  | 1 | the five stats (any); damage (weapon); defense (any armor) |
+  | 1 | the five stats (any); damage, honed (weapon); defense (any armor); reinforced (armor slots with baseline defense) |
   | 5 | crit (weapon, hands, finger); dodge (feet, legs, body); protect (body, shield, head, shoulders, arms); steady (any) |
   | 10 | leech (weapon, neck, finger); ignite, chill, venom (weapon); thorns (body, shield); soak (body, shield, belt, legs) |
   | 15 | crit damage (weapon, neck, finger); opportunist (weapon); shield block (shield); regen (neck, finger, body, belt) |
@@ -1276,6 +1276,20 @@ cannot drop the best sword in the game.
   since a share that grew with level would pass any cap in time.
   Affixes are existing effect kinds, so every one already works in the
   pipeline and `describeEffect` already words it.
+- **Honed and reinforced (2026-10-12).** Two affixes raise the item's
+  own number rather than the wearer's: honed (of the whetstone) adds a
+  tenth of a weapon's own damage, reinforced (of the anvil) a tenth of
+  a piece's own defense, each at least 1, and each roll adds its own
+  tenth of the unraised number, so two make a fifth. The tenth is fixed,
+  not scaled by quality: what makes one honed sword better than another
+  is the sword. Reinforced goes only on the slots that carry baseline
+  defense (5.2), since a tenth of nothing would be the floor alone. The
+  floor is what makes them matter early, where a tenth is under a
+  point; late, where a weapon's own damage is a small share of the
+  power unit, honed is the weakest weapon affix, and is meant to be:
+  it is the plain craftsman's improvement, beside cruel, which raises
+  the whole hit with its added damage. An attuned item's raised number
+  grows with its wielder as the rest of it does.
 - **Added damage (decided 2026-10-12, built the same day).** Since a
   weapon's own damage falls behind the power unit with level (5.2),
   most of a late weapon's damage is affixes. The `added {kind, power}`
@@ -1564,25 +1578,73 @@ storage the engine already persists. The effect counts toward the
 item's tier (5.3), so enchanting is how a rare becomes an epic and how
 a relic goes past the ten a roll can give; the effect must be open at
 the item's level and slot under 5.3's gates. Failure consumes
-the materials, and has a small chance of destroying the item, a chance
-that grows with every enchantment already on it. So the first
-enchantment on a plain sword is cheap and safe, and the twelfth on a
-sword with eleven is a gamble with something irreplaceable.
+the materials and does nothing, strips every affix from the item, or,
+past twelve effects, destroys it. So enchanting a sword up to twelve
+effects costs mana, materials, and patience, and the thirteenth onward
+is a gamble with something irreplaceable, paid for in materials that
+double with every step.
 
-- **Enchantments** are content: each names its materials, the effect it
-  attaches, and its difficulty. Basic ones come with the enchanting
-  skill; better ones are found (6.1's discovery rule).
-- **Difficulty rises with the count.** With `n` effects already on the
-  item, the attempt is harder than at zero, and on failure the chance
-  the item is destroyed is small at zero and rises with `n`. Both are
-  asymptotic, never certain, the shape the document uses everywhere.
+- **Enchantments are spells (decided 2026-10-12, built the same
+  day).** An enchantment is an arcane spell of the enchantment school
+  cast on an item in the caster's inventory (`cast 'enchant weapon'
+  sword`), with the mana, cast time, and interruption of any spell
+  (6.4). Each names exactly one thing it does, and the enchanter
+  chooses which to cast. The Enchanting skill (7.4) is the rating
+  behind all of them: the first enchantment cast gives it, at 20, and
+  every cast improves it, never a fight. The first four, each 150 mana,
+  which is a dedicated caster's whole pool around level 25:
+
+  | Spell | From | Does |
+  |---|---|---|
+  | Enchant Weapon | 25, Int 20 | the weapon's own damage up 5 to 10 percent, at least 1 (the `baseDamage` kind honed rolls, 5.3) |
+  | Enchant Armor | 25, Int 20 | a piece's own defense up 5 to 10 percent, at least 1 (`baseDefense`) |
+  | Restore Item | 25, Int 20 | the item back to its prototype: every affix, rolled or enchanted, comes off, and its tier and name with them |
+  | Permanency | 30, Int 22 | nothing can enchant or restore the item again |
+
+  Each Enchant is another effect on the item, so it counts toward the
+  tier and the next attempt's difficulty, and can be cast again and
+  again. Permanency's mark is not an effect for either. A named item's
+  intrinsic effects are the item itself: Restore leaves them, a strip
+  leaves them, and a named item stays without a tier however it is
+  enchanted. Difficulty (the `difficulty` below): 20 for the two
+  Enchants, 15 for Restore, 40 for Permanency. Basic enchantments are
+  innate to the school; better ones are found (6.1's discovery rule).
+- **Every enchantment can fail, three ways (decided 2026-10-12).** A
+  failure spends the mana and does one of: nothing; strips every
+  affix, rolled and enchanted, leaving the item as its prototype; or
+  destroys the item. Up to twelve effects, a failure strips one time
+  in twenty and otherwise does nothing; past twelve, it destroys as
+  the formula below says, strips one time in ten, and otherwise does
+  nothing. Restore can fail too, so the cure for a strip is not free.
+- **Difficulty rises with the count (decided 2026-10-12).** `n` is
+  every effect already on the item, however it got there: rolled
+  affixes, a named item's intrinsic effects, and earlier enchantments
+  alike. It is the same count as the tier (5.3), so a dropped rare and
+  an enchanted rare are equally hard to take further, and a relic is
+  hard to enchant whether it dropped or was made. Counting only
+  enchantments would make a dropped relic a safe blank.
+- **Easy to twelve, hard past it (decided 2026-10-12).** Up to twelve
+  effects, enchanting is a matter of materials and the rating: each
+  effect on the item makes an attempt a little harder, a failure loses
+  only the materials, and the cost does not grow. From the
+  thirteenth, three things climb at once: success falls with the
+  square of the effects past twelve, a failure may destroy the item,
+  and the materials double with each step. Eighteen to twenty is
+  possible and very expensive; past twenty nothing forbids it, and the
+  curves make it a legend.
+- **Tiers are gated by item level, for enchanting too (decided
+  2026-10-12).** An enchantment cannot raise an item's count into a
+  tier its item level could not roll (5.3): a level-2 dagger stops at
+  two effects, a level-10 sword at four, a level-15 piece at six, a
+  level-30 at eight, and only from item level 40 is the count open.
+  Without this, ten stat affixes on a level-2 dagger, each a point of
+  Strength, would be the best item a new character could carry, and
+  the gate that keeps a rat from dropping it would be undone by an
+  enchanter. The open-ended top stays where 5.3 puts it.
 - **Powerful items are rare by construction.** An item has no
-  ceiling but the risk, and the risk is steepest on exactly the items
-  worth enchanting: a relic already carries nine or ten effects, so
-  every further attempt starts near the top of the destruction curve.
-  The unbounded top end exists, and almost nobody reaches it.
-- **Enchanting is a skill** (7.4) with a rating that lowers the failure
-  chance; open, leaning one enchanting skill shared across crafts.
+  ceiling but the risk and the cost, and both are steep exactly where
+  items are worth most. Twelve chosen effects are a well-made item;
+  twenty is a project, with spare items and a hoard of materials.
 - **Materials** are the one pool. The effect decides the cost: a stat
   effect wants common things, a crit or attack effect wants rare ones,
   and the deterministic drops (5.3's loot tables) are what the last
@@ -1590,20 +1652,55 @@ sword with eleven is a gamble with something irreplaceable.
 - **Crafted items** (5.5) enchant like any other; a crafted relic is
   a starting point no drop is likelier to give.
 
-Starting formulas, arbitrary in the sense of 3.3:
+Starting formulas, arbitrary in the sense of 3.3, with `n` the effects
+already on the item and `e` those past twelve (`max(0, n - 12)`):
 
-    success  = rating / (rating + difficulty + n * step)
-    destroyed on failure = n / (n + R)
+    success              = rating / (rating + difficulty + 3n + 8e²)
+    destroyed on failure = e / (e + 25)
+    stripped on failure  = 1/20 up to twelve effects, 1/10 past
+    materials            = the enchantment's own, times 2^e
 
-with `step` and `R` parameters. At `R` 10, the first failure never
-destroys, the fifth destroys one time in three, the twentieth two times
-in three.
+(decided 2026-10-12, for playtest). For an enchantment of difficulty
+20, the chance one attempt succeeds, and the chance a failure destroys
+the item:
 
-Consequences for the engine (both sections): a `recipeList`
-and `enchantList` from the rules with materials, difficulty, station,
-and result; `craft` and `enchant` commands that take an attempt through
-`resolveCraft` and `resolveEnchant` hooks and apply the result, which
-for an enchant may be "destroyed"; a `crafted` mark on instances, persisted; station flags on rooms;
+| Effects on the item | Novice (25) | Journeyman (50) | Master (100) | Destroyed on failure | Materials |
+|---|---|---|---|---|---|
+| 0 | 56% | 71% | 83% | none | 1x |
+| 6 | 40% | 57% | 72% | none | 1x |
+| 12 | 31% | 47% | 64% | none | 1x |
+| 14 | 21% | 35% | 52% | 7% | 4x |
+| 16 | 11% | 20% | 34% | 14% | 16x |
+| 18 | 6% | 12% | 22% | 19% | 64x |
+| 19 | 5% | 10% | 18% | 22% | 128x |
+
+Compounded over the attempts it takes, from twelve effects:
+
+| Goal | Journeyman (50) | Master (100) |
+|---|---|---|
+| 16 | 2 items in 3 reach it; about 55 enchantments' materials | 4 in 5; about 35 |
+| 18 | 1 in 5; about 500 | 2 in 5; about 250 |
+| 20 | 1 in 33; about 6,700 | 1 in 8; about 2,200 |
+
+The materials are counted as the enchantment's base cost, spent per
+success and including the attempts on items that were lost. So a
+master reaches twenty with eight items of twelve effects and some two
+thousand enchantments' worth of materials; a journeyman needs three
+times that and thirty items, which is what "requires a master" means.
+The levers, if playtest finds the top too easy or too hard: the
+threshold (12), the square's weight (8), `R` (25), and the doubling.
+
+Consequences for the engine: for enchanting (built 2026-10-12), an
+`item` spell target, resolved by a `resolveEnchant(caster, item,
+spell)` hook that returns the item's applied effects and naming after
+the attempt, or that it was destroyed, with an `enchantBlocker` hook
+asked before mana is spent; the item view carries `applied`, its own
+effects apart from the prototype's. The first four spells cost mana
+only; the materials and their doubling past twelve wait on a spell
+whose materials the rules can size per cast. For crafting, a
+`recipeList` with materials, difficulty, station, and result; a
+`craft` command through a `resolveCraft` hook; a `crafted` mark on
+instances, persisted; station flags on rooms;
 `look` shows the effects and the tier; `describeEffect` already covers what
 an enchantment does.
 
