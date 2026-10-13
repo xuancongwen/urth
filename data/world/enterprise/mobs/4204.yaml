@@ -8,7 +8,7 @@ look: |
   interest at all in taking prisoners. He has been told that the
   Federation is soft, and he is eager to find out.
 level: 10
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 10
 stats: { strength: 13 }
 attack:

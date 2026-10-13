@@ -9,7 +9,7 @@ look: |
   not want to send people. Shards of crystallised mako rattle loose
   inside its casing.
 level: 22
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: fire
   verb: spit

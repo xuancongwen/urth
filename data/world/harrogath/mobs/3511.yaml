@@ -8,7 +8,7 @@ look: |
   caves and hunt whatever comes in, and they are very protective of
   their caves.
 level: 54
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {strength: 15}
 attack:
   verb: pound

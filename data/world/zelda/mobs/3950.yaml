@@ -8,7 +8,6 @@ look: |
   you are, slowly, so slowly that you think you can get out of the way.
   It cuts through the pillar behind you.
 level: 30
-flags: [assist]
 silver: 40
 attack:
   kind: slash

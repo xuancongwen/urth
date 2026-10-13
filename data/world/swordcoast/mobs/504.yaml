@@ -6,6 +6,6 @@ look: |
   A knee-high thing of teeth and matted hair that thinks in numbers and
   only in numbers. One is nothing. There is never one.
 level: 1
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: bite

@@ -8,7 +8,7 @@ look: |
   armour is green with age and its eyes are dull red, and it moves with
   the jerky patience of something running on very old orders.
 level: 39
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: blunt
   verb: crush

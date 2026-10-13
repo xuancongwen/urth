@@ -7,7 +7,7 @@ look: |
   eyes in a cluster like beads of frost. It has grown fat on rats and on
   the occasional boy who went down for a dare.
 level: 12
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: bite
   kind: bite

@@ -9,7 +9,6 @@ look: |
   north, toward the crater, drawn by something calling them. "Re...
   union..." He will kill you if you stand between him and it.
 level: 44
-flags: [assist]
 attack:
   kind: slash
   verb: claw

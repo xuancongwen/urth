@@ -8,7 +8,6 @@ look: |
   thrower's arm and then comes in to finish what the mud began. The
   drowners give her room, and bring her things.
 level: 9
-flags: [assist]
 silver: 6
 attack:
   kind: claw

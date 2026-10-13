@@ -7,7 +7,7 @@ look: |
   ore from the islands below. It has shaken its pin loose and now goes
   where it likes, which is toward anything that moves.
 level: 5
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: crush
 effects:

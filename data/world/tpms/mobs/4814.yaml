@@ -8,7 +8,7 @@ look: |
   at your face, and every kid who has seen it do so remembers exactly
   where they were.
 level: 4
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 1
 attack:
   kind: bite

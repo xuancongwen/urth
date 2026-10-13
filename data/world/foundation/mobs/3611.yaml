@@ -12,7 +12,6 @@ look: |
   He has made the mistake of assuming nobody else does either. He
   draws his blaster as you come near, smiling.
 level: 28
-flags: [assist]
 health: 3000
 stats: {strength: 16, dexterity: 15, constitution: 16}
 silver: 300

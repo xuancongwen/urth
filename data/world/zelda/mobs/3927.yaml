@@ -7,7 +7,6 @@ look: |
   trumpet, which lives in pools and spits rocks at whatever stands on
   the bank, then ducks. Hit it while it is up.
 level: 14
-flags: [assist]
 silver: 15
 attack:
   kind: blunt

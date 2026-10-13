@@ -8,7 +8,7 @@ look: |
   follows the armies and eats what they leave. Here, they left a great
   deal, and it has grown fat and confident on it.
 level: 12
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 5
 attack:
   kind: bite

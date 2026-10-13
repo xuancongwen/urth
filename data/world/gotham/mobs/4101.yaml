@@ -7,7 +7,6 @@ look: |
   and a jacket a size too small. He hits people for money, and when
   nobody is paying, for practice. His friends are never far away.
 level: 4
-flags: [assist]
 silver: 4
 attack:
   kind: blunt

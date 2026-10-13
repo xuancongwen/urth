@@ -7,7 +7,6 @@ look: |
   behavior experiment and well fed on the vending machine's leavings.
   It is smarter than it looks. It has already solved the maze.
 level: 6
-flags: [assist]
 attack:
   kind: bite
   verb: bite

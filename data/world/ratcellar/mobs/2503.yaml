@@ -8,7 +8,6 @@ look: |
   does not look as if it lost that fight. Its teeth are yellow and
   long and very busy.
 level: 3
-flags: [assist]
 silver: 2
 attack:
   kind: bite

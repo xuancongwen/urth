@@ -12,7 +12,6 @@ look: |
   up behind him in the dark. He will not start a fight, but he finishes
   them.
 level: 33
-flags: [assist]
 health: 2800
 stats: {dexterity: 18, strength: 15}
 silver: 360

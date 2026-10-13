@@ -10,7 +10,7 @@ look: |
   in front of it now. Somebody once shouted a warning about it: attack
   while its tail is up and it will counter-attack. Its tail is up.
 level: 25
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 2200
 stats: {constitution: 16, strength: 14}
 silver: 180

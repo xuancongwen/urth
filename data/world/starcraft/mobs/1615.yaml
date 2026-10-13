@@ -8,7 +8,6 @@ look: |
   shimmering plasma shield around the whole of him. He does not speak
   aloud, but you hear him anyway: En Taro Adun.
 level: 21
-flags: [assist]
 silver: 50
 attack:
   kind: slash

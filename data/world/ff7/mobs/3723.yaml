@@ -10,7 +10,7 @@ look: |
   it. Nattak has never forgiven the canyon. "Let us see your
   strength." His spear is hungry.
 level: 44
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 9500
 stats: {strength: 17, constitution: 17, wisdom: 16}
 silver: 900

@@ -7,7 +7,7 @@ look: |
   air. Kapaks poison their blades with their own spit, and when one dies
   it melts into a pool of acid. It is watching your throat.
 level: 13
-flags: [aggressive, assist]
+flags: [aggressive]
 silver: 30
 attack:
   verb: stab

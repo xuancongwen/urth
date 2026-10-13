@@ -8,7 +8,6 @@ look: |
   and eyes like boiled eggs. It moves in short wet lunges, and it never
   comes alone, because the river never takes just one.
 level: 6
-flags: [assist]
 silver: 2
 attack:
   kind: claw

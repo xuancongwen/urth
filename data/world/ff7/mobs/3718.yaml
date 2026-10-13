@@ -8,7 +8,7 @@ look: |
   hot gout of flame. It swallows ore for its gizzard, and shards of
   crystal rattle inside it.
 level: 38
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: fire
   verb: breathe on

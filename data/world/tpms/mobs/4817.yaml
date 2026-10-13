@@ -12,7 +12,7 @@ look: |
   a fire drill, and it wants you to try to get it back.
 level: 6
 health: 260
-flags: [assist, boss]
+flags: [boss]
 silver: 40
 stats: { strength: 14, constitution: 14 }
 armor:

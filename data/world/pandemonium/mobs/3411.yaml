@@ -8,7 +8,6 @@ look: |
   lives between its hands, and when it opens them the lightning leaves.
   It wears ash-stained cuffs to keep its sleeves from catching fire.
 level: 48
-flags: [assist]
 stats: {intelligence: 16, dexterity: 14}
 attack:
   kind: magic

@@ -8,7 +8,6 @@ look: |
   lost in the woods and never came out. They are not happy with grown-
   ups, and they throw needles.
 level: 17
-flags: [assist]
 silver: 18
 attack:
   kind: pierce

@@ -8,7 +8,6 @@ look: |
   freezes you where you stand, and then shuffles up and wraps itself
   round you and gnaws.
 level: 24
-flags: [assist]
 silver: 25
 attack:
   kind: drain

@@ -11,7 +11,6 @@ look: |
   already started." He flicks out an electro-mag rod and waits for you
   to come to him.
 level: 30
-flags: [assist]
 health: 2600
 stats: {dexterity: 16, strength: 13}
 silver: 480

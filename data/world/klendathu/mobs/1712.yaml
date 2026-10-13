@@ -8,7 +8,7 @@ look: |
   in a wall niche until something walks past. It hunts by vibration.
   It already knows exactly where you are.
 level: 30
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 20
 attack:
   kind: pierce

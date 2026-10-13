@@ -9,7 +9,7 @@ look: |
   blade low. They hunt in bands along the caravan trails and leave
   nothing but the camels' bones.
 level: 28
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: slash
   verb: slash

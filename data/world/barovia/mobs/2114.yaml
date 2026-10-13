@@ -10,7 +10,6 @@ look: |
   murdered follow him everywhere, and standing near him you start to
   hear them too. A slender scimitar lies on the desk by his hand.
 level: 32
-flags: [assist]
 health: 2200
 silver: 180
 stats: {dexterity: 16, intelligence: 14}

@@ -8,7 +8,7 @@ look: |
   tails and teeth. It has no mind, only appetite, and it goes where
   the smell of food goes. At the moment that is you.
 level: 3
-flags: [assist, wander, aggressive]
+flags: [wander, aggressive]
 health: 70
 attack:
   kind: bite

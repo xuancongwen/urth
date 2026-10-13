@@ -7,7 +7,7 @@ look: |
   than the rest, with a staff hung with shrunken heads. It throws fire
   from its hands, and, worse, it brings the dead flayers back up.
 level: 40
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {intelligence: 15}
 attack:
   kind: fire

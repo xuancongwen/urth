@@ -8,7 +8,6 @@ look: |
   them down to the shoulders, and chews. It spits them out, eventually.
   It keeps the shield.
 level: 23
-flags: [assist]
 silver: 25
 attack:
   kind: drain

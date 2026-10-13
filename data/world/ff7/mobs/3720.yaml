@@ -9,7 +9,6 @@ look: |
   "Tseng gave me this job and I'm going to... oh, I shouldn't have
   said that." She draws her pistol.
 level: 40
-flags: [assist]
 health: 3600
 stats: {dexterity: 16, wisdom: 13}
 silver: 540

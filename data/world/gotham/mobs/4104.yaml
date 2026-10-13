@@ -8,7 +8,7 @@ look: |
   in particular, a high, cracked laugh that he has practised, because
   the boss likes it. The other clowns laugh with him.
 level: 6
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 6
 attack:
   kind: blunt

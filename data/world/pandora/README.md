@@ -17,8 +17,7 @@ gully, and in the den; spitter skags (4, acid) in the den, on the
 salt flats, and in the pit; psychos (4) round the shacks, the trailers,
 and the flats; bruisers (5) with Bone Head and at the gate; alpha skags
 (5) in the den, at the gate, and in the pit. Skags, spitters, rakks,
-psychos, and alphas attack on sight; everything but the townsfolk
-assists.
+psychos, and alphas attack on sight; bruisers assist one another.
 
 Boss: Nine-Toes (6, `boss`, 4014), with his pet skags Pinky and Digit
 (5). Named: Bone Head (5, his hideout 4011).

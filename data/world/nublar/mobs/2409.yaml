@@ -8,7 +8,6 @@ look: |
   in a herd, and when one of them is threatened, all of them come to see
   about it.
 level: 16
-flags: [assist]
 silver: 12
 attack:
   kind: blunt

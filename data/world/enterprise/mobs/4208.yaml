@@ -9,7 +9,7 @@ look: |
   club of stone bound to a haft of bone. It is very strong and not at
   all quick, and it never stops coming.
 level: 10
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 6
 stats: { strength: 14, dexterity: 8, constitution: 13 }
 attack:

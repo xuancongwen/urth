@@ -7,7 +7,6 @@ look: |
   back hard as a beetle's and marked with the pattern of a skull. It
   turns slowly on its thread to show you its soft belly, then drops.
 level: 7
-flags: [assist]
 silver: 7
 attack:
   kind: bite

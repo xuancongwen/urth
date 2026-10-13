@@ -8,7 +8,7 @@ look: |
   for the rebel sand ship and anyone who helps it. Its pilot has been in
   the sun a long time and has stopped asking questions.
 level: 30
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 55
 attack:
   kind: pierce

@@ -10,7 +10,7 @@ look: |
   not want to fight you. He was once the greatest warrior of his age,
   and if he must, he will.
 level: 52
-flags: [assist, boss]
+flags: [boss]
 health: 20000
 stats: {wisdom: 22, strength: 18, constitution: 20}
 silver: 1200

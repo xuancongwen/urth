@@ -10,7 +10,6 @@ look: |
   pressed, grow to the size of a gear and sit on things. She would very
   much rather you did not press her.
 level: 40
-flags: [assist]
 health: 2200
 stats: {dexterity: 18, constitution: 16}
 silver: 180

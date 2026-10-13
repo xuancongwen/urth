@@ -9,10 +9,10 @@ drawbridge to the catacombs to the top of the high tower. Levels 12 to
 45. Reached south from hub 9 in `start`, through the mists on the Old
 Svalich Road (2100).
 
-Levels, roughly in walking order: dire wolves 12 and great dire wolves
-14 (assist, wander), zombies 15 at the mansion and in the graveyard,
-Strahd zombies 17 in the castle courtyard, Vistani bandits 18 and
-Arrigal 20 above Tser Falls, werewolves 22 (wander, regenerate) and
+Levels, roughly in walking order: dire wolves 12 (assist, wander) and
+great dire wolves 14 (wander), zombies 15 at the mansion and in the
+graveyard, Strahd zombies 17 in the castle courtyard, Vistani bandits 18
+and Arrigal 20 above Tser Falls, werewolves 22 (wander, regenerate) and
 Kiril Stoyanovich 24 in the deep woods, Baba Lysaga 26 in her creeping
 hut east of them, vampire spawn 28 (leech) all through the castle, Rahadin 32, the three brides 34, and Strahd von
 Zarovich 45.

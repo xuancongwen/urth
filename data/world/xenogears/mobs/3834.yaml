@@ -11,7 +11,7 @@ look: |
   you are in his way. He fights with his bare hands, and the dark comes
   off him like smoke.
 level: 53
-flags: [assist, boss, aggressive]
+flags: [boss, aggressive]
 health: 22000
 stats: {strength: 22, constitution: 20, dexterity: 18}
 silver: 1200

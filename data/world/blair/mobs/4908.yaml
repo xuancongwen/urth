@@ -8,7 +8,6 @@ look: |
   for crumbs. Individually they are nothing. There is no such thing as
   one of them.
 level: 5
-flags: [assist]
 attack:
   kind: bite
   verb: nibble

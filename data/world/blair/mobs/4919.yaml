@@ -7,7 +7,7 @@ look: |
   and wings it uses to fly straight at your face. In the warm dark of
   the tunnels they grow big, and they serve the king.
 level: 8
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: bite
   verb: bite

@@ -7,7 +7,6 @@ look: |
   eyes, which never went to live behind the waterfall and spits fire
   from the water at anything on the bank. Its people are ashamed of it.
 level: 21
-flags: [assist]
 silver: 25
 attack:
   kind: fire

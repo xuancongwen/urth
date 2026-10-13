@@ -8,7 +8,7 @@ look: |
   coal. It moves in sudden lunges. It smells of hot iron, and when it
   is wounded it bleeds smoke.
 level: 50
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 35
 attack:
   kind: slash

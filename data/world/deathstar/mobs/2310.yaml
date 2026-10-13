@@ -8,7 +8,6 @@ look: |
   station was finished. He would very much prefer not to fight you, but
   the officers are watching.
 level: 19
-flags: [assist]
 silver: 35
 attack:
   kind: blunt

@@ -9,7 +9,6 @@ look: |
   it is hit the lightning goes back out of it in all directions, and
   it is hit often enough to have learned to enjoy that.
 level: 32
-flags: [assist]
 health: 1800
 stats: {constitution: 15}
 silver: 90

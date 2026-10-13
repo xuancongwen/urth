@@ -8,7 +8,6 @@ look: |
   intake of breath that you can hear coming. Its hide is tough
   everywhere but its belly and its mouth.
 level: 13
-flags: [assist]
 silver: 12
 attack:
   kind: fire

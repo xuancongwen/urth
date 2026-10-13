@@ -9,7 +9,7 @@ look: |
   of the sense. Nihlathak raised him. Somewhere under the frost his
   family is still waiting for him to come home.
 level: 54
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {strength: 14}
 attack:
   verb: hack

@@ -11,7 +11,6 @@ look: |
   it was only a phantom, and that you will not be so lucky with the real
   thing.
 level: 21
-flags: [assist]
 health: 950
 stats: {strength: 16, dexterity: 16, constitution: 16}
 silver: 360

@@ -10,7 +10,6 @@ look: |
   When they are hurt, they merge, cackling, into one young witch with
   fire in one hand and ice in the other.
 level: 31
-flags: [assist]
 health: 3600
 stats: {intelligence: 18, wisdom: 17, constitution: 16}
 silver: 540

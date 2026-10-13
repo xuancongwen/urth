@@ -12,7 +12,7 @@ look: |
   joke he has told before arrive at the punchline.
 level: 9
 health: 300
-flags: [assist, boss]
+flags: [boss]
 silver: 60
 stats: { intelligence: 15, dexterity: 13 }
 armor:

@@ -8,7 +8,7 @@ look: |
   a gardener tends a bed, reaching into the slime to turn the growing
   things. She is in no hurry to kill you. She is certain she will.
 level: 21
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 600
 silver: 35
 attack:

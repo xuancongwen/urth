@@ -8,7 +8,6 @@ look: |
   up from its work. The drumming is the point: every orc in the deep
   hears it and comes.
 level: 20
-flags: [assist]
 silver: 9
 attack:
   kind: blunt

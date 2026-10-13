@@ -7,7 +7,7 @@ look: |
   on its hip and a horn bow in its fist. It does not like to fight
   close, and it does not like daylight, and it does not like you.
 level: 18
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 11
 attack:
   kind: pierce

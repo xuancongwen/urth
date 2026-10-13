@@ -8,7 +8,7 @@ look: |
   the Don drops through the trapdoor. It spits filthy water, sends
   waves down the tunnel, and has not been hungry in years.
 level: 29
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 2600
 stats: {constitution: 16, strength: 14}
 silver: 120

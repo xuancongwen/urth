@@ -9,7 +9,6 @@ look: |
   The truth involves a crossbow, a latrine, and nine men. He will kill
   you to keep the story going.
 level: 15
-flags: [assist]
 health: 450
 silver: 50
 attack:

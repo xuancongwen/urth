@@ -6,7 +6,7 @@ look: |
   Knee-high, blue as a bruise, and furious about everything. It has a
   knife it stole and a grudge it made itself.
 level: 6
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 3
 attack:
   verb: stab

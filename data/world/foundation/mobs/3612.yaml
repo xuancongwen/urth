@@ -8,7 +8,6 @@ look: |
   missionaries and anyone who has been seen talking to one. He owns a
   Foundation razor. He would deny it.
 level: 27
-flags: [assist]
 silver: 70
 attack:
   kind: fire

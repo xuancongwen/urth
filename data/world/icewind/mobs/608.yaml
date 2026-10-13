@@ -7,7 +7,7 @@ look: |
   small black eyes deep in it. Its hands are white and end in claws.
   It is hungry, because it is always hungry.
 level: 5
-flags: [assist, aggressive]
+flags: [aggressive]
 aggro: { min: 3 }   # it ambushes from hiding: not the first steps out of the hub
 attack:
   verb: claw

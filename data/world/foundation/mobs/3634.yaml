@@ -12,7 +12,7 @@ look: |
   orders, and he carries what he has found so far in his breast
   pocket. He will not let you near that door.
 level: 43
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 9000
 stats: {strength: 17, dexterity: 18, constitution: 18, wisdom: 16}
 silver: 600

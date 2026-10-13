@@ -8,7 +8,6 @@ look: |
   master, which he holds against it not at all.
 level: 5
 health: 100
-flags: [assist]
 silver: 3
 attack:
   kind: bite

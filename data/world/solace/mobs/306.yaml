@@ -6,7 +6,6 @@ look: |
   Taller than a man, hairier, and armored in scraps. It is here because
   something bigger told it to be.
 level: 1
-flags: [assist]
 silver: 15
 attack:
   verb: hack

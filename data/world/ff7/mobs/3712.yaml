@@ -10,7 +10,6 @@ look: |
   it is waking. Its cells are in Sephiroth, and in Cloud, and in every
   SOLDIER. It speaks to them. It is speaking to you now.
 level: 34
-flags: [assist]
 health: 3600
 stats: {constitution: 16, intelligence: 16}
 silver: 180

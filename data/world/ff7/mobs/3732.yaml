@@ -8,7 +8,7 @@ look: |
   Capital and the halls of the temple. They eat mako. Their bodies are
   full of little shards of it.
 level: 51
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: pierce
   verb: sting

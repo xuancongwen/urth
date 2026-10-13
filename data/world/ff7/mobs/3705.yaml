@@ -8,7 +8,6 @@ look: |
   trapdoor into the sewers. He has brass knuckles on one hand and a
   smirk on his face.
 level: 26
-flags: [assist]
 silver: 70
 attack:
   kind: blunt

@@ -8,7 +8,6 @@ look: |
   troops, and the troops obey. It fights well, and it fights better with
   friends around.
 level: 17
-flags: [assist]
 silver: 25
 attack:
   kind: slash

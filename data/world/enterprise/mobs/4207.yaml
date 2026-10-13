@@ -9,7 +9,6 @@ look: |
   made of silicon, not carbon, and it is not, whatever the miners say,
   a monster. It is a mother, and you are standing in its nursery.
 level: 10
-flags: [assist]
 silver: 3
 stats: { constitution: 14 }
 attack:

@@ -10,7 +10,6 @@ look: |
   boomerang, among other things, and it shoots lightning out of its
   body.
 level: 17
-flags: [assist]
 health: 900
 stats: {constitution: 16, wisdom: 15}
 silver: 300

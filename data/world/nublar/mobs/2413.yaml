@@ -9,7 +9,7 @@ look: |
   looks at you the way you would look at a door you are working out how to
   open.
 level: 24
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 900
 silver: 70
 attack:

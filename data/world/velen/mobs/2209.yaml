@@ -8,7 +8,6 @@ look: |
   and he has run from all three. He has stopped running now. He has
   found a place where he can be the one with the sword.
 level: 14
-flags: [assist]
 silver: 15
 attack:
   kind: slash

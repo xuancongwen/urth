@@ -8,7 +8,7 @@ look: |
   It shoots poisoned darts from a bone pipe and slashes with a bone
   knife, and it laughs, a dry clicking laugh, the whole time.
 level: 45
-flags: [assist, wander, aggressive]
+flags: [wander, aggressive]
 stats: {dexterity: 16}
 attack:
   kind: pierce

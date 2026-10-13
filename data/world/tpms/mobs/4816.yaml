@@ -10,7 +10,6 @@ look: |
   knows how it ends. It is faster every time it beeps.
 level: 5
 health: 150
-flags: [assist]
 silver: 10
 stats: { constitution: 14 }
 armor:

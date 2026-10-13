@@ -11,7 +11,7 @@ look: |
   his gun. You did.
 level: 6
 health: 240
-flags: [assist, boss]
+flags: [boss]
 silver: 40
 stats: { strength: 13, constitution: 14 }
 armor:

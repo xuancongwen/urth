@@ -10,7 +10,6 @@ look: |
   Barovia. He has been offered a great deal of money for whatever is in
   it. He has not decided who to sell it to yet.
 level: 20
-flags: [assist]
 health: 600
 silver: 90
 stats: {dexterity: 14}

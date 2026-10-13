@@ -9,7 +9,7 @@ look: |
   It moves very fast when it moves at all, and every bite makes it
   stronger.
 level: 28
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 25
 attack:
   kind: bite

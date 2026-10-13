@@ -12,7 +12,6 @@ look: |
   house." Every wound you give him closes. Every wound he gives you
   feeds him.
 level: 45
-flags: [assist]
 health: 14000
 stats: {strength: 18, constitution: 18, dexterity: 16, intelligence: 20}
 silver: 600

@@ -8,7 +8,6 @@ look: |
   done it before, they bump into everything, and if you swat them the
   whole hall smells of it.
 level: 5
-flags: [assist]
 attack:
   kind: poison
   verb: stink

@@ -10,7 +10,6 @@ look: |
   would very much like you to make him draw it.
 level: 11
 health: 220
-flags: [assist]
 silver: 40
 stats: { strength: 13, dexterity: 12, constitution: 13 }
 armor:

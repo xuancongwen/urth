@@ -13,7 +13,7 @@ look: |
   you look: he is not done changing, and the next shape he takes will
   be worse. "I am the chosen one." He is a fight for a whole party.
 level: 59
-flags: [assist, boss]
+flags: [boss]
 health: 32000
 stats: {strength: 15, dexterity: 16, constitution: 18, intelligence: 18}
 silver: 2400

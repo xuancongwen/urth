@@ -9,7 +9,7 @@ look: |
   and very sorry. They grow huge in the mako-soaked depths of the
   crater.
 level: 57
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: drain
   verb: Bad Breath

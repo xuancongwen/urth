@@ -6,7 +6,7 @@ look: |
   Grey, slack-faced, and patient, one of hundreds in the pit, and it has
   reached the top before the others.
 level: 18
-flags: [aggressive, assist]
+flags: [aggressive]
 aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
 attack:
   verb: claw

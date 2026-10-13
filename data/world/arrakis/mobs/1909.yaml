@@ -8,7 +8,6 @@ look: |
   a filter mask against the melange dust and a cuirass against the
   Fremen, and neither fits.
 level: 22
-flags: [assist]
 silver: 65
 attack:
   kind: pierce

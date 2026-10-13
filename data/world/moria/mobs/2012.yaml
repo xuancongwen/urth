@@ -8,7 +8,6 @@ look: |
   sharp, and does not fear the light as the lesser orcs do. The others
   are afraid of him. That is the job.
 level: 22
-flags: [assist]
 silver: 20
 attack:
   kind: slash

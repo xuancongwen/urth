@@ -9,7 +9,7 @@ look: |
   carries a long blade of red steel that it stole from some hero's
   corpse, though it fights as often with its burning stare.
 level: 35
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 2800
 stats: {dexterity: 16, strength: 13}
 silver: 170

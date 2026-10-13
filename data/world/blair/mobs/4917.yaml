@@ -8,7 +8,7 @@ look: |
   from Sligo Creek's bigger, meaner cousin, and he has heard about
   you.
 level: 8
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: blunt
   verb: wing-slap

@@ -8,7 +8,6 @@ look: |
   laughs, or the jaw does something like laughing. When one moves, the
   rest of them hear it.
 level: 14
-flags: [assist]
 silver: 12
 attack:
   kind: slash

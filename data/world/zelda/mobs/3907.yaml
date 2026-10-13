@@ -8,7 +8,6 @@ look: |
   clawing at travellers. They come in packs, and more come up the longer
   you stay.
 level: 8
-flags: [assist]
 silver: 9
 attack:
   kind: claw

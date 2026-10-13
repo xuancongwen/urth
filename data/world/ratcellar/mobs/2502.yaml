@@ -8,7 +8,6 @@ look: |
   has never needed any. Where there is one, there are its cousins,
   and they will all come if it squeaks.
 level: 2
-flags: [assist]
 silver: 1
 attack:
   kind: bite

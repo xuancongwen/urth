@@ -8,7 +8,7 @@ look: |
   walks into las-fire as if it were rain. It is louder than the others,
   because the armour echoes.
 level: 34
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 30
 attack:
   kind: blunt

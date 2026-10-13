@@ -11,7 +11,6 @@ look: |
   pet in the sewer. He has pulled on a pair of red fighting gloves, a
   trophy he bought for its looks, and is flexing his fingers in them.
 level: 27
-flags: [assist]
 health: 1600
 stats: {dexterity: 12}
 silver: 720

@@ -9,7 +9,6 @@ look: |
   friends to be very, very loud. It does not bite. It flies straight
   into your face, which is worse.
 level: 3
-flags: [assist]
 attack:
   kind: blunt
   verb: buzz

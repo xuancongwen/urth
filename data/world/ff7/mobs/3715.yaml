@@ -9,7 +9,6 @@ look: |
   and slaps those she does not laugh at. "Kyahahaha! What have we
   here?" She is far more dangerous than she bothers to look.
 level: 35
-flags: [assist]
 health: 2800
 stats: {dexterity: 15}
 silver: 900

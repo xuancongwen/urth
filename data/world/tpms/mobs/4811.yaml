@@ -7,7 +7,6 @@ look: |
   that lives under the ovens and comes out when the lights go off. It
   has a lot of cousins and they all come when it squeaks.
 level: 3
-flags: [assist]
 silver: 1
 attack:
   kind: bite

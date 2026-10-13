@@ -9,7 +9,6 @@ look: |
   points, and frost forms on the wet sand. Murlocs fall silent when it
   speaks. Then they all speak at once.
 level: 11
-flags: [assist]
 silver: 7
 attack:
   kind: cold

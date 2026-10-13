@@ -9,7 +9,6 @@ look: |
   with herself about it. She smiles at you the way a cat smiles at a
   cupboard.
 level: 34
-flags: [assist]
 health: 2000
 silver: 150
 stats: {dexterity: 14}

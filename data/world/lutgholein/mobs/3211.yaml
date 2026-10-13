@@ -8,7 +8,7 @@ look: |
   a very long time and has been awake again for a month, and it does
   not like the second part any better than the first.
 level: 28
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: slash
   verb: slash

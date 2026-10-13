@@ -9,7 +9,7 @@ look: |
   within blue, and he has nothing left to lose but your water, which
   he means to take.
 level: 28
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 60
 attack:
   kind: pierce

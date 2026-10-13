@@ -8,7 +8,6 @@ look: |
   is a joke. Nekkers are a pack, and the pack is never just the ones you
   can see.
 level: 10
-flags: [assist]
 silver: 4
 attack:
   kind: claw

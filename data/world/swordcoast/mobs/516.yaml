@@ -6,7 +6,7 @@ look: |
   Bigger than the others, better fed, with a leather harness and a spear
   it knows how to use. Someone trained it and someone is paying it.
 level: 9
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 9
 attack:
   verb: thrust

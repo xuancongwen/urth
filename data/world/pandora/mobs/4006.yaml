@@ -8,7 +8,7 @@ look: |
   the way down its throat. It cannot see you very well. It can smell
   you perfectly.
 level: 3
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 2
 attack:
   kind: bite

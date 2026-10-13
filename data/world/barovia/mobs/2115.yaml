@@ -10,7 +10,6 @@ look: |
   through the cloth, and she cannot bear to touch it, and she will not
   let it go.
 level: 34
-flags: [assist]
 health: 2000
 silver: 150
 stats: {dexterity: 14}

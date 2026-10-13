@@ -7,7 +7,7 @@ look: |
   claws, its purple carapace glistening with slime. It moves in quick,
   jerky starts. It is not alone. Zerglings are never alone.
 level: 17
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 12
 attack:
   kind: slash

@@ -7,7 +7,6 @@ look: |
   at you, spines first, then sinks back in before you can hit it. The
   desert is full of them.
 level: 28
-flags: [assist]
 silver: 25
 attack:
   kind: pierce

@@ -8,7 +8,7 @@ look: |
   bones, wings torn, eyes gone, and a green glow where its heart was.
   Its breath is the breath of the grave.
 level: 56
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: drain
   verb: bite

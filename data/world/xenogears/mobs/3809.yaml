@@ -9,7 +9,7 @@ look: |
   is hiding a stolen Kislev gear, and is setting fire to it house by
   house until it comes out.
 level: 25
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 35
 attack:
   kind: blunt

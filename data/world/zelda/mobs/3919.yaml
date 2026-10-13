@@ -7,7 +7,6 @@ look: |
   jumps from rock to rock on Death Mountain and lands on whatever it was
   looking at. It is mostly legs and teeth.
 level: 12
-flags: [assist]
 silver: 12
 attack:
   kind: bite

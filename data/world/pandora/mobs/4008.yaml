@@ -8,7 +8,7 @@ look: |
   air, at the walls, and at you. He is screaming something about
   meat. He is always screaming something about meat.
 level: 4
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 4
 stats: { strength: 12, constitution: 9 }
 attack:

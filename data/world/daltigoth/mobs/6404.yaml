@@ -5,7 +5,7 @@ description: "A shadow hound runs low over the snow, after the child, and then a
 look: |
   A hound made of dusk, one of a pack. It has no face, only a mouth.
 level: 20
-flags: [aggressive, assist]
+flags: [aggressive]
 aggro: { min: 1 }   # guards the way to the White Order's Test: no pass for the weak (RULES 8.1)
 attack:
   verb: bite

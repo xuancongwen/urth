@@ -8,7 +8,7 @@ look: |
   of breath and never quiet, and it carries a spear the way a postman
   carries a stick.
 level: 10
-flags: [assist, wander]
+flags: [wander]
 silver: 5
 stats: {dexterity: 14}
 attack:

@@ -7,7 +7,6 @@ look: |
   it draws to the ear with a creak of dry tendon. It has no eyes, and
   its aim is excellent anyway.
 level: 16
-flags: [assist]
 silver: 18
 attack:
   kind: pierce

@@ -8,7 +8,7 @@ look: |
   carries a war axe and swings it like a woodsman, and it drinks what
   it spills.
 level: 44
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {strength: 16, constitution: 15}
 attack:
   kind: slash

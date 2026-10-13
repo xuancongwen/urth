@@ -7,7 +7,7 @@ look: |
   something green that it can throw a good ten yards. Where the spit
   lands, the rock smokes.
 level: 4
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 2
 attack:
   kind: acid

@@ -10,7 +10,6 @@ look: |
   pack is the worst thing in the keep. Everyone who has come this far
   has met Lister. Not everyone remembers him fondly.
 level: 59
-flags: [assist]
 health: 40000
 stats: {strength: 18, constitution: 17}
 silver: 900

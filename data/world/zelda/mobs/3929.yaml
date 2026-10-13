@@ -7,7 +7,6 @@ look: |
   water, glassy blue and pulsing, its tentacles crackling with stolen
   current. Barinade spawns them. Touching one is a mistake.
 level: 15
-flags: [assist]
 silver: 15
 attack:
   kind: magic

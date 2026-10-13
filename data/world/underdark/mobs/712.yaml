@@ -7,7 +7,7 @@ look: |
   fangs are wet. It has been fed on what the priestess throws it, and
   it is used to being fed.
 level: 18
-flags: [assist, aggressive]
+flags: [aggressive]
 aggro: { min: 1 }   # guards the way to the Evil altar: a visitor far under them is no less a trespasser (story 1027)
 attack:
   verb: bite

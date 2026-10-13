@@ -13,18 +13,18 @@ The docks (3300, 3302 to 3307) are safe. The spider caves, the Flayer
 Dungeon, the Ruined Temple, the sewers, and everything in the Durance
 of Hate are dark; Meshif sells ship's lanterns at the pier.
 
-Levels, roughly in walking order: giant spiders 36 (assist; the Spider
+Levels, roughly in walking order: giant spiders 36 (the Spider
 Forest and the Arachnid Lair), Sszark the Burning 38 (the Spider
 Cavern; Khalim's Eye), thorned hulks 38 (the Great Marsh; thorns),
 flayers 39 (assist; the Flayer Jungle and Dungeon), Stormtree 40 (the
-Flayer Jungle; Stormshield), flayer shamans 40 (assist; fire), Witch
+Flayer Jungle; Stormshield), flayer shamans 40 (fire), Witch
 Doctor Endugu 41 (the Flayer Dungeon; the Gidbinn and Khalim's Brain),
 Zakarum zealots 41 (assist; Lower Kurast, the bazaar, Upper Kurast,
 the causeway), Battlemaid Sarina 42 (the Ruined Temple; Lam Esen's
 Tome), Icehawk Riftwing 42 (the sewers; Khalim's Heart and Frostburn),
 council members 43 (assist; the causeway and Travincal), Toorc Icefist
 and Geleb Flamefinger 43 (Travincal), Ismail Vilehand 44 (the council
-hall; Khalim's Flail), blood lords 44 (assist, leech; the Durance),
+hall; Khalim's Flail), blood lords 44 (leech; the Durance),
 Bremm Sparkfist, Wyand Voidbringer and Maffer Dragonhand 45 (the third
 level of the Durance; Natalya's Shadow, Soul and Totem), and Mephisto
 46.

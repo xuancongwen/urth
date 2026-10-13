@@ -9,7 +9,6 @@ look: |
   blessed by the Galactic Spirit. He has noticed the lights are going
   out, and he is beginning to wonder what that means.
 level: 22
-flags: [assist]
 silver: 55
 attack:
   kind: blunt

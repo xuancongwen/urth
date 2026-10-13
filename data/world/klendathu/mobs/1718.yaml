@@ -8,7 +8,7 @@ look: |
   you, and it does. Its shell is plated like a pangolin's and grinds
   when it moves.
 level: 26
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 15
 attack:
   kind: blunt

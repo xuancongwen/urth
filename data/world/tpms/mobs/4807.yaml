@@ -8,7 +8,6 @@ look: |
   with the floor. It is not afraid of you. It has survived three
   exterminators and a fire drill.
 level: 1
-flags: [assist]
 attack:
   kind: bite
   verb: nibble

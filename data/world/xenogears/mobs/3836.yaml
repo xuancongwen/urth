@@ -11,7 +11,7 @@ look: |
   none of Fei's restraint, and he is the most dangerous single person
   you will meet in this world.
 level: 57
-flags: [assist, boss, aggressive]
+flags: [boss, aggressive]
 health: 30000
 stats: {strength: 22, dexterity: 22, constitution: 22}
 silver: 1500

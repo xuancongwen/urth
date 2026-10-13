@@ -8,7 +8,7 @@ look: |
   burns like fire and festers like a wound, and its glaive is never
   wiped. The pit lords keep out of its way.
 level: 48
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {strength: 16, constitution: 15, dexterity: 13}
 attack:
   kind: fire

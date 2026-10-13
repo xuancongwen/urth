@@ -8,7 +8,7 @@ look: |
   Fei's other self, which has burned a city of Kislev to the ground and
   will do it again. It is empty. It moves anyway.
 level: 55
-flags: [assist, boss, aggressive]
+flags: [boss, aggressive]
 health: 26000
 stats: {strength: 22, constitution: 24}
 silver: 900

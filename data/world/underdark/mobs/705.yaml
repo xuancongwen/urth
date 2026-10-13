@@ -8,7 +8,7 @@ look: |
   hen. His blade is already out; it has been out since before you saw
   him.
 level: 16
-flags: [assist, aggressive]
+flags: [aggressive]
 aggro: { min: 1 }   # guards the way to the Evil altar: a visitor far under them is no less a trespasser (story 1027)
 silver: 40
 attack:

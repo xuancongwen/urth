@@ -9,7 +9,6 @@ look: |
   down, which burns. A hide of crusted gore hangs half-flayed from its
   back.
 level: 44
-flags: [assist]
 stats: {constitution: 15, dexterity: 7}
 attack:
   kind: bite

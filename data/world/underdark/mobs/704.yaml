@@ -7,7 +7,6 @@ look: |
   hands first, then to the way out. It ran from something worse than
   you. It will fight like it, too.
 level: 10
-flags: [assist]
 silver: 3
 attack:
   verb: bite

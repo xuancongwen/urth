@@ -10,7 +10,6 @@ look: |
   from inside, and laying her eggs among its roots. She swallowed the
   Kokiri Emerald too. When her eye is open, it is a target.
 level: 9
-flags: [assist]
 health: 360
 stats: {strength: 14, constitution: 14}
 silver: 120

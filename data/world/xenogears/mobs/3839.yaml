@@ -11,7 +11,7 @@ look: |
   for himself. That is the frightening part. His Ether is the greatest
   in the world.
 level: 58
-flags: [assist, boss]
+flags: [boss]
 health: 34000
 stats: {intelligence: 24, wisdom: 22, constitution: 20}
 silver: 1800

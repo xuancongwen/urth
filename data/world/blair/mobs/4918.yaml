@@ -8,7 +8,7 @@ look: |
   once been caught. The custodians have names for some of them. This
   is one of those.
 level: 8
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 2
 attack:
   kind: bite

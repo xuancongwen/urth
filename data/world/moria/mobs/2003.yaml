@@ -8,7 +8,6 @@ look: |
   angry. It wears scraps of stolen mail and grins with a great many
   teeth. Where there is one there are a dozen more.
 level: 10
-flags: [assist]
 silver: 5
 attack:
   kind: slash

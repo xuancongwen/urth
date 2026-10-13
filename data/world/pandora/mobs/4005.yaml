@@ -8,7 +8,6 @@ look: |
   pins and spent cartridges. He does not want your money. He wants
   your money, your boots, and to see what noise you make.
 level: 2
-flags: [assist]
 silver: 3
 attack:
   kind: pierce

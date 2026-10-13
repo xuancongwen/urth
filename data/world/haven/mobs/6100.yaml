@@ -8,7 +8,7 @@ look: |
   grins like a reptile. When a baaz dies it turns to stone, and anything
   stuck in it stays stuck.
 level: 11
-flags: [aggressive, assist, wander]
+flags: [aggressive, wander]
 silver: 20
 attack:
   verb: slash

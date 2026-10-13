@@ -6,7 +6,7 @@ look: |
   Grey-brown, hairy, and patient. Its fangs are as long as your fingers
   and wet at the tips.
 level: 2
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: bite
 effects:

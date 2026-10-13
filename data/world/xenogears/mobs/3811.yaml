@@ -8,7 +8,7 @@ look: |
   comes up under anything that walks over it. The sand pirates eat them,
   boiled, and swear they taste like lobster.
 level: 29
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: slash
   verb: pincer

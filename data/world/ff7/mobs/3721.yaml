@@ -8,7 +8,6 @@ look: |
   in a month. The crowd chants his name. He has a trident, a crested
   helm and no intention of losing tonight.
 level: 41
-flags: [assist]
 silver: 120
 attack:
   kind: pierce

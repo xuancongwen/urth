@@ -8,7 +8,7 @@ look: |
   breaks out of AA-23. He believes it. He has been told it so often that
   he has stopped looking at the door.
 level: 17
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 40
 armor:
   defense: 19

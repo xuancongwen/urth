@@ -10,7 +10,7 @@ look: |
   whole business very funny. He fights like a landslide, laughing all
   the way down.
 level: 34
-flags: [assist, boss]
+flags: [boss]
 health: 4800
 stats: {strength: 22, constitution: 20}
 silver: 720

@@ -11,7 +11,6 @@ look: |
   way. Its weakness is its mouth: it eats bomb flowers, and it does not
   learn.
 level: 15
-flags: [assist]
 health: 750
 stats: {strength: 15, constitution: 16}
 silver: 240

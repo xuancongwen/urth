@@ -8,7 +8,7 @@ look: |
   spines it can hurl like javelins. Its mouth is a vertical slit full of
   teeth. It hisses constantly, like a leaking valve.
 level: 20
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 18
 attack:
   kind: pierce

@@ -10,7 +10,7 @@ look: |
   when he raises it the claws drip. He serves the Gazel Ministry, not
   the Ethos, and you have seen too much.
 level: 41
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 5600
 stats: {dexterity: 18, strength: 17}
 silver: 600

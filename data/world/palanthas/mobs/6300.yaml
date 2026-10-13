@@ -7,7 +7,7 @@ look: |
   grove up to the shoulder. There is a body under it, and under that
   more bodies. Whatever it catches, it pulls down.
 level: 18
-flags: [aggressive, assist]
+flags: [aggressive]
 aggro: { min: 1 }   # the Shoikan Grove lets no one through, however weak (RULES 8.1)
 attack:
   verb: claw

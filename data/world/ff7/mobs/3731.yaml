@@ -10,7 +10,6 @@ look: |
   quite dead. "Sephiroth... he's... the Black Materia..." Hurt or not,
   he still has his pistol, and he is still the best of the Turks.
 level: 50
-flags: [assist]
 health: 7500
 stats: {dexterity: 17, intelligence: 15}
 silver: 900

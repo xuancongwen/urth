@@ -8,7 +8,7 @@ look: |
   fangs whose bite carries a venom that kills in hours. It is
   territorial, and it thinks all of this is its territory.
 level: 8
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 2
 stats: { strength: 13 }
 attack:

@@ -8,7 +8,7 @@ look: |
   from the rocks, throws once, and closes while its prey is still
   pulling the spear out.
 level: 11
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 8
 stats: { strength: 13, dexterity: 11 }
 attack:

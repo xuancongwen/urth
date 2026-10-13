@@ -8,7 +8,6 @@ look: |
   you when you near the empty throne. He calls the fallen back to their
   feet as fast as you can put them down.
 level: 58
-flags: [assist]
 health: 14000
 stats: {intelligence: 17}
 silver: 360

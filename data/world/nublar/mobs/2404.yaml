@@ -8,7 +8,6 @@ look: |
   chirps. It is cute. It is not alone, and the others are already working
   round behind you.
 level: 4
-flags: [assist]
 silver: 2
 attack:
   kind: bite

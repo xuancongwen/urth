@@ -9,7 +9,7 @@ look: |
   Project Noah gathered them up and gave them to the god. They sing
   softly as they kill.
 level: 56
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: slash
   verb: wing-blade

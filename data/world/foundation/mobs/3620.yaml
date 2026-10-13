@@ -10,7 +10,7 @@ look: |
   stripping the metal out of the walls to sell off-world. He does not
   care for visitors.
 level: 36
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 35
 attack:
   kind: blunt

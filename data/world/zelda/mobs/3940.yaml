@@ -10,7 +10,6 @@ look: |
   the hero cannot beat by being better, because it is always exactly as
   good.
 level: 24
-flags: [assist]
 health: 1200
 stats: {dexterity: 17, strength: 15}
 silver: 300

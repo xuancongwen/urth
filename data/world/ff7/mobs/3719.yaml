@@ -9,7 +9,7 @@ look: |
   a chocobo and runs. Someday someone will find it impaled on a dead
   tree by a man with a very long sword. Not today.
 level: 39
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 6000
 stats: {strength: 17, constitution: 18}
 silver: 240

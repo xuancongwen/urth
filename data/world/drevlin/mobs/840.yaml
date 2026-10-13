@@ -8,7 +8,6 @@ look: |
   might treat a pump. They will treat you the same, and you are not a
   pump.
 level: 8
-flags: [assist]
 silver: 25
 attack:
   verb: slash

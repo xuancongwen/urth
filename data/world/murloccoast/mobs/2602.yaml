@@ -9,7 +9,7 @@ look: |
   crabs, and things it has found. If you hit it, it will scream, and
   everything with fins for a hundred yards will come running.
 level: 8
-flags: [assist, wander]
+flags: [wander]
 silver: 4
 attack:
   kind: pierce

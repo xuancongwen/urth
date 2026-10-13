@@ -10,7 +10,6 @@ look: |
   umbrella fires, and so do the other three he keeps in the stand.
 level: 7
 health: 150
-flags: [assist]
 silver: 40
 stats: { intelligence: 14 }
 armor:

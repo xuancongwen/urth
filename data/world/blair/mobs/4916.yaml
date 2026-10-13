@@ -8,7 +8,7 @@ look: |
   home. It does not run away. It looks at you the way you look at a
   vending machine.
 level: 7
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 3
 attack:
   kind: claw

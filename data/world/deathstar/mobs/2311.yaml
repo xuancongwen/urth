@@ -8,7 +8,6 @@ look: |
   who flies a ship with no shields and expects to win anyway. The
   Imperial crest on his helmet catches the light.
 level: 20
-flags: [assist]
 silver: 50
 attack:
   kind: fire

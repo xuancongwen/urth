@@ -14,7 +14,6 @@ health: 600
 stats: {dexterity: 14}
 silver: 70
 xp: 3800
-flags: [assist]
 attack:
   verb: hack
 effects:

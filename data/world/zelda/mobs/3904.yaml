@@ -8,7 +8,6 @@ look: |
   of the grass when you come close, sways, and lunges. Cut, its stalk
   dries into a passable Deku stick.
 level: 5
-flags: [assist]
 silver: 5
 attack:
   kind: bite

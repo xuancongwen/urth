@@ -8,7 +8,6 @@ look: |
   independently. One of them is watching the water. The other one is
   watching you.
 level: 9
-flags: [assist]
 silver: 5
 attack:
   kind: pierce

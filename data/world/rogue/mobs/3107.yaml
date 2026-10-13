@@ -7,7 +7,7 @@ look: |
   it fires off its back in a hissing spray. It lives in packs in the
   heather and eats whatever it brings down, which is everything.
 level: 22
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: pierce
   verb: quill

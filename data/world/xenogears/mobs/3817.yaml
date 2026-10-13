@@ -10,7 +10,6 @@ look: |
   to be challenged; challenge him if you like. He fights with his fists,
   out of his gear as in it.
 level: 38
-flags: [assist]
 health: 5000
 stats: {strength: 20, constitution: 19}
 silver: 540

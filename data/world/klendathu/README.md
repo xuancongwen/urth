@@ -21,7 +21,7 @@ tanker bug (32; the Mobile Infantry helmet, in its gut), the Brain Bug
 (42; the Roughnecks' Morita).
 
 Levels, in walking order: warrior bugs 16, blooded warrior bugs 18,
-elder warrior bugs 20 (swarms, all `assist`), digger bugs 22, hopper
+elder warrior bugs 20 (swarms that `assist`), digger bugs 22, hopper
 bugs 24 (they `wander`), burrower bugs 26, Rasczak 28, tunnel warrior
 bugs 30, the tanker bug 32 (fire spray that sets you burning, a shell
 that soaks blows), plasma bugs 36 (slow, half a swing a round, and

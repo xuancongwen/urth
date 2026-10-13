@@ -7,7 +7,6 @@ look: |
   throne. He is slow, and he is poisonous, and wherever he walks the
   floor goes soft and black.
 level: 58
-flags: [assist]
 health: 14000
 stats: {constitution: 17}
 silver: 360

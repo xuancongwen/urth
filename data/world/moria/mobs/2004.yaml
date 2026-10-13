@@ -8,7 +8,7 @@ look: |
   quite stands up straight. When it finds you it squeals, and the
   squeal carries.
 level: 12
-flags: [assist, wander, aggressive]
+flags: [wander, aggressive]
 silver: 6
 attack:
   kind: pierce

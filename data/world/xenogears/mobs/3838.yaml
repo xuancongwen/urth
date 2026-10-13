@@ -8,7 +8,7 @@ look: |
   Urobolus, the body of Deus growing through the Merkaba and swallowing
   it. It has no end you can find, only another head.
 level: 57
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: bite
   verb: bite

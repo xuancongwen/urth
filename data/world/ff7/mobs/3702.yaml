@@ -8,7 +8,6 @@ look: |
   anything. It looks harmless. It is not: when cornered it throws
   fireballs, from somewhere, and it never comes alone.
 level: 23
-flags: [assist]
 attack:
   kind: fire
   verb: singe

@@ -8,7 +8,7 @@ look: |
   a collar with a serial number. It is very large and very hungry, and
   it has had nothing to do down here for years but grow.
 level: 38
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: claw
   verb: claw

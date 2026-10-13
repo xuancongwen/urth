@@ -9,7 +9,6 @@ look: |
   of their mercy, and when it falls it gets up again if you do not
   finish it.
 level: 33
-flags: [assist]
 silver: 50
 attack:
   kind: slash

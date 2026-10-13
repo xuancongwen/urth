@@ -10,7 +10,7 @@ look: |
   It is the reunion every black-cloaked man was walking toward, and
   Sephiroth is beyond it.
 level: 57
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 40000
 stats: {constitution: 19, intelligence: 19}
 silver: 1200

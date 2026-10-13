@@ -8,7 +8,7 @@ look: |
   has nowhere to be. He would very much like something to happen, so
   that he can complain about it later.
 level: 24
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 70
 attack:
   kind: blunt

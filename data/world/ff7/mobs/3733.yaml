@@ -9,7 +9,7 @@ look: |
   it has guarded it for two thousand years. In its breast glows a red
   orb: Bahamut, the King of Dragons, sleeping in materia.
 level: 52
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 22000
 stats: {strength: 20, constitution: 18}
 silver: 1200

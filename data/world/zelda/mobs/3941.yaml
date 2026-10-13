@@ -8,7 +8,6 @@ look: |
   tentacles to lash and grab. The tentacles cannot be cut. Pull the
   nucleus out of the water, and it is soft.
 level: 25
-flags: [assist]
 health: 1500
 stats: {constitution: 17, strength: 15}
 silver: 360

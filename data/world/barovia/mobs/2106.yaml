@@ -7,7 +7,7 @@ look: |
   over from a life of winning. It does not snarl or bark. It just
   watches you and waits for the others to come up on your flanks.
 level: 14
-flags: [assist, wander, aggressive]
+flags: [wander, aggressive]
 silver: 5
 attack:
   kind: bite

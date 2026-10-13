@@ -10,7 +10,6 @@ look: |
   gods. They are petty, cruel, and very bored, and they have not been
   attacked in a long time. They hit with the sheer weight of contempt.
 level: 48
-flags: [assist]
 attack:
   kind: psionic
   verb: contempt

@@ -7,7 +7,6 @@ look: |
   mischief. It wears a thimble for a hat. It has already stolen
   something from you, you are fairly sure, though you cannot say what.
 level: 10
-flags: [assist]
 stats: {dexterity: 15, strength: 6}
 attack:
   verb: pinch

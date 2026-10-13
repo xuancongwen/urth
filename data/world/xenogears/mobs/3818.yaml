@@ -8,7 +8,7 @@ look: |
   what for. In D-Block everyone fights, and the strongest makes the
   rules.
 level: 36
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 50
 attack:
   kind: blunt

@@ -6,6 +6,5 @@ look: |
   Black, glossy, and loud. It has been watching the fields all day and
   reports everything.
 level: 5
-flags: [assist]
 attack:
   verb: peck

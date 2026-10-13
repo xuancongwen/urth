@@ -9,7 +9,7 @@ look: |
   So should you.
 level: 5
 health: 90
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 4
 stats: { strength: 13 }
 attack:

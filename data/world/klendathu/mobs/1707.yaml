@@ -8,7 +8,7 @@ look: |
   it moves with less waste than the young ones. It has learned that the
   grey things with the loud sticks go down if you take their legs.
 level: 18
-flags: [assist, aggressive]
+flags: [aggressive]
 silver: 12
 attack:
   kind: pierce

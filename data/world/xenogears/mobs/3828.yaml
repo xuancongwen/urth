@@ -9,7 +9,6 @@ look: |
   would burn the world for him. She does not waste words on Lambs, and
   she does not leave a fight unfinished.
 level: 47
-flags: [assist]
 health: 4200
 stats: {strength: 18, dexterity: 18}
 silver: 480

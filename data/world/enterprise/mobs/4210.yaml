@@ -11,7 +11,7 @@ look: |
   would like a rematch with anyone at all.
 level: 12
 health: 380
-flags: [assist, boss]
+flags: [boss]
 silver: 70
 stats: { strength: 15, constitution: 15, dexterity: 9 }
 armor:

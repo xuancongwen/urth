@@ -9,7 +9,6 @@ look: |
   vanishes when you look straight at it, and giggles behind you when you
   do not.
 level: 11
-flags: [assist]
 silver: 15
 attack:
   kind: cold

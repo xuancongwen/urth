@@ -6,7 +6,6 @@ look: |
   A big rough-coated hunting dog bred for boar and bear, with a bad
   temper and a worse bite. It does not know you. It would like to.
 level: 8
-flags: [assist]
 attack:
   verb: bite
   kind: bite

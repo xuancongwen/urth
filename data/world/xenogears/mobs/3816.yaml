@@ -8,7 +8,6 @@ look: |
   open cockpit grinning at you. They fight in the arena for money and
   glory, and in the alleys behind it for money alone.
 level: 35
-flags: [assist]
 silver: 90
 attack:
   kind: blunt

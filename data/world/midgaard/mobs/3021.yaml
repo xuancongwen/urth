@@ -6,6 +6,6 @@ look: |
   A rat the size of a small dog, grey and greasy, with a naked tail and
   yellow teeth.
 level: 6
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: bite

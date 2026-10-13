@@ -7,7 +7,6 @@ look: |
   its round mouth ringed with teeth and opening in four petals. It
   moves in jerks, and where it has been the sand is wet.
 level: 32
-flags: [assist]
 attack:
   kind: bite
   verb: bite

@@ -7,7 +7,7 @@ look: |
   a crowd and runs shrieking when the crowd is gone. This one has
   smeared itself with candle wax, for reasons of its own.
 level: 14
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   verb: stab
 effects:

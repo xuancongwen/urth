@@ -8,7 +8,7 @@ look: |
   dead, and on the living when it can get them, and every bite it takes
   makes it stronger.
 level: 29
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: bite
   verb: bite

@@ -8,7 +8,6 @@ look: |
   a door shuts and fights with all the skill it had when it was a man.
   It leaps back from your swings and comes in under them.
 level: 20
-flags: [assist]
 silver: 25
 attack:
   kind: slash

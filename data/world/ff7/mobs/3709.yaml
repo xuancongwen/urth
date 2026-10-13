@@ -8,7 +8,6 @@ look: |
   in the world. He has been told about the terrorists. He has been
   told to shoot.
 level: 31
-flags: [assist]
 silver: 70
 attack:
   kind: fire

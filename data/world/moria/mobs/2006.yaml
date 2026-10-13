@@ -7,7 +7,7 @@ look: |
   coat. It came in from the snow and stayed, because the orcs leave a
   lot of meat about. It is hungry. It is always hungry.
 level: 15
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: bite
   verb: bite

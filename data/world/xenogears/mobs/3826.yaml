@@ -8,7 +8,6 @@ look: |
   softly and kills without ever seeming to be in a hurry. She is utterly
   loyal to Ramsus, and only Dominia knows what she thinks of him.
 level: 46
-flags: [assist]
 health: 3600
 stats: {wisdom: 19, intelligence: 18}
 silver: 360

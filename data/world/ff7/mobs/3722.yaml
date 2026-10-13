@@ -8,7 +8,7 @@ look: |
   with a spear and a face like one of the carvings on the walls. It
   has had five hundred years to grow bitter.
 level: 42
-flags: [assist, aggressive]
+flags: [aggressive]
 attack:
   kind: cold
   verb: pierce

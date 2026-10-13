@@ -9,7 +9,7 @@ look: |
   with water and with something else. Sephiroth has left it here to
   guard the place where the prayer was said.
 level: 53
-flags: [assist, aggressive]
+flags: [aggressive]
 health: 30000
 stats: {constitution: 18, intelligence: 18}
 silver: 900

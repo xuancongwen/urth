@@ -8,7 +8,6 @@ look: |
   when it is pleased to see you. It is always pleased to see you.
   Where one pup is, the rest of the litter is close behind.
 level: 1
-flags: [assist]
 silver: 1
 attack:
   kind: bite

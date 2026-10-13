@@ -8,7 +8,7 @@ look: |
   vows in. She does not speak. She thrusts with the old drill, perfect
   and pitiless, and does not seem to know that she is dead.
 level: 28
-flags: [assist, aggressive]
+flags: [aggressive]
 stats: {dexterity: 14}
 attack:
   kind: pierce

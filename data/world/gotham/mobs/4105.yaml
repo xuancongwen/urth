@@ -8,7 +8,6 @@ look: |
   to have a barrel in it. He works for the Penguin, who pays well and
   on time and feeds those who do not to the birds.
 level: 6
-flags: [assist]
 silver: 8
 attack:
   kind: pierce

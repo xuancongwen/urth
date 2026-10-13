@@ -9,7 +9,6 @@ look: |
   claw blades are red and the light around him is red. He is not here
   for Baal, he will tell you. He is here because he likes it.
 level: 58
-flags: [assist]
 health: 14000
 stats: {strength: 16, dexterity: 17}
 silver: 480
