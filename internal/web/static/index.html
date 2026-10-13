@@ -168,6 +168,7 @@
   // be a page of help text, so counting nodes alone lets memory grow without
   // limit over a long session.
   var maxScrollChars = 400000, maxScrollNodes = 3000, screenChars = 0;
+  var afterBatch = false; // the screen ends with a batch's output, not an echoed command
   function append(html, cls) {
     var atBottom = screen.scrollTop + screen.clientHeight >= screen.scrollHeight - 40;
     var span = document.createElement('span');
@@ -376,6 +377,7 @@
     if (!steps) return;
     steps.forEach(function (s) { sendLine(s, true); });
     append('<span class="echo">walk ' + esc(steps.join(' ')) + '</span>\n');
+    afterBatch = false;
     if (window.innerWidth <= 760) side.classList.remove('open');
     input.focus();
   });
@@ -478,6 +480,11 @@
       showConnectBox(true, why);
     };
     ws.onmessage = function (e) {
+      // A telnet client shows the prompt after every batch, which sets each
+      // one apart, a combat round among them. This page hides the prompt,
+      // so a batch the player did not ask for starts with a blank line in
+      // its place; a reply follows the echoed command instead.
+      var gap = afterBatch;
       JSON.parse(e.data).forEach(function (m) {
         switch (m.type) {
           case 'prompt':
@@ -503,6 +510,8 @@
             }
             break;
         }
+        if (gap && m.type !== 'room') append('\n');
+        gap = false; afterBatch = true;
         append(m.html, m.type);
       });
     };
@@ -515,6 +524,7 @@
     if (!quiet) {
       var shown = input.type === 'password' ? '' : line;
       append('<span class="echo">' + esc(prompt.textContent || '') + esc(shown) + '</span>\n');
+      afterBatch = false;
     }
     return true;
   }

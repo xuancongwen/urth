@@ -815,9 +815,11 @@ func condition(c *Character) string {
 	}
 }
 
-// conditionLine is the sentence shown after each round and on look.
+// conditionLine is the sentence shown after each round and on look. Its
+// color sets it apart from the round's hits, yellow and red, so a player
+// can find it in a long fight.
 func conditionLine(c *Character) string {
-	return c.DisplayName() + " " + condition(c) + ".\n"
+	return "{M}" + c.DisplayName() + " " + condition(c) + ".{x}\n"
 }
 
 // showConditions tells every fighting player how their target looks,
