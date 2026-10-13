@@ -1,0 +1,9 @@
+vnum: 6110
+name: "The East Road"
+description: |
+  A track runs east across open grassland. Far off, at the edge of
+  sight, a dark mass of trees seems to shift whenever you look away. The
+  crossroads is west.
+exits:
+  west: 6101
+  east: 6111

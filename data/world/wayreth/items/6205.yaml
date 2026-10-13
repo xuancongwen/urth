@@ -1,0 +1,13 @@
+vnum: 6205
+name: "a grey travelling cloak"
+keywords: [cloak, grey, travelling, mantle]
+description: "A grey cloak lies crumpled here, damp with the forest's mist."
+look: |
+  A plain grey cloak of the kind apprentices wear to the Tower before
+  they have earned a colour. Many go in; not all of them come out.
+type: armor
+slot: shoulders
+weight: 2
+level: 15
+baseline: cloth
+value: 150

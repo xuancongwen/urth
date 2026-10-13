@@ -1,0 +1,9 @@
+vnum: 6107
+name: "The Abbey of the Seekers"
+description: |
+  The Seekers' abbey has been gutted: pews smashed for firewood, the
+  altar cloth gone, and the new god of the Dragonarmy painted crudely on
+  the wall in something dark. A draconian in priest's robes has made the
+  nave its own. The square is south.
+exits:
+  south: 6104

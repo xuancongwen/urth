@@ -1,0 +1,11 @@
+vnum: 6217
+name: "The Chamber of the Test"
+description: |
+  A round chamber of red stone under a dome painted with the red moon,
+  Lunitari, at the full. Here a mage who has passed the Test swears to
+  one school of the Red Order, conjuration or illusion, for life
+  ('swear' tells what is asked). The door of pale light is south.
+exits:
+  south: 6216
+order: red
+flags: [safe]

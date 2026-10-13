@@ -1,0 +1,13 @@
+vnum: 6207
+name: "Before the Tower's Gate"
+description: |
+  The Tower of High Sorcery at Wayreth rises from the forest: two black
+  towers and a third behind them, joined by walls of seamless stone,
+  with no window lower than a dragon could reach. The gate in the wall
+  to the north is bronze, without a handle or a keyhole, only a slot
+  like a letter-box. The glade is west.
+exits:
+  west: 6206
+  north: 6208
+doors:
+  north: {name: the bronze gate, closed: true, locked: true, pickproof: true, key: 6200}

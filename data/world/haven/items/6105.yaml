@@ -1,0 +1,13 @@
+vnum: 6105
+name: "a horned Dragonarmy helm"
+keywords: [helm, horned, dragonarmy, helmet]
+description: "A horned helm of blue-enamelled steel lies on its side."
+look: |
+  An officer's helm, the horns more for show than for use, the enamel
+  the blue of the Blue Dragonarmy. It is heavier than it looks.
+type: armor
+slot: head
+weight: 4
+level: 16
+baseline: heavy
+value: 190

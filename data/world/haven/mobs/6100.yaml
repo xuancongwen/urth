@@ -1,0 +1,15 @@
+vnum: 6100
+name: "a baaz draconian"
+keywords: [baaz, draconian, lizard]
+description: "A baaz draconian patrols the road, wings folded, sword drawn."
+look: |
+  A man-sized lizard with stunted wings and brass-scaled skin, wearing
+  the Dragonarmy's tabard over a mail shirt. It moves like a soldier and
+  grins like a reptile. When a baaz dies it turns to stone, and anything
+  stuck in it stays stuck.
+level: 11
+flags: [aggressive, assist, wander]
+silver: 20
+attack:
+  verb: slash
+  kind: slash

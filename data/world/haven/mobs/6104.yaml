@@ -1,0 +1,20 @@
+vnum: 6104
+name: "a bozak draconian priest"
+keywords: [bozak, draconian, priest, lizard]
+description: "A bozak draconian in a priest's black robe chants before the defaced altar."
+look: |
+  Bronze-scaled, with wings that can carry it a short way and hands that
+  crackle with the gifts of the Queen of Darkness. It has made the
+  Seekers' abbey a shrine to her, and it does not like visitors. When a
+  bozak dies its bones burst.
+level: 16
+flags: [aggressive, boss]
+health: 520
+silver: 120
+stats: { wisdom: 16 }
+attack:
+  verb: blast
+  kind: unholy
+effects:
+  - kind: aura
+    params: { kind: unholy, power: 0.25, verb: "dark prayer" }

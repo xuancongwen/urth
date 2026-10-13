@@ -1,0 +1,9 @@
+vnum: 6103
+name: "The Gates of Haven"
+description: |
+  Haven's gates stand open because there is no one left to close them.
+  The walls are scorched, and a Dragonarmy banner hangs over the arch, a
+  black dragon on red. The town is north; the road runs back south.
+exits:
+  south: 6102
+  north: 6104

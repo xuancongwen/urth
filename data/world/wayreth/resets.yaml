@@ -1,0 +1,18 @@
+# Wayreth Forest and the Tower of High Sorcery (Red Order). The forest's
+# right path is east, north-less: 6200 east, 6201 east, 6204 east, 6206
+# east to the gate. The summons that opens it is on the renegade in the
+# thorn thicket (6205). Everything that guards the way attacks from
+# level 1 (RULES 8.1).
+interval_seconds: 600
+resets:
+  - { mob: 6200, room: 6201, max: 2 }   # wolves of the moving wood
+  - { mob: 6200, room: 6204, max: 2 }
+  - { mob: 6201, room: 6202 }           # the dryad in the hollow
+  - { mob: 6202, room: 6203 }           # the stone guardian in the ring
+  - { mob: 6203, room: 6205, equip: [{ item: 6205, slot: shoulders }, { item: 6206, slot: belt }, { item: 6200 }] }   # the renegade in a grey cloak and sash, with the stolen Conclave summons
+  - { mob: 6208, room: 6210 }           # the Red librarian: the Red Order's school spells
+  - { mob: 6209, room: 6211 }           # the robe-keeper: the red robe and the red staff
+  - { mob: 6204, room: 6214, equip: [{ item: 6204, slot: wield }] }   # the first trial: yourself, armed
+  - { mob: 6205, room: 6215 }           # the second trial: fire
+  - { mob: 6206, room: 6216, equip: [{ item: 6203, slot: finger1 }] }   # the third trial: the shade, and its ring
+  - { mob: 6207, room: 6217 }           # Justarius, who hears the oath

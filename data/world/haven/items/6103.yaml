@@ -1,0 +1,17 @@
+vnum: 6103
+name: "a draconian's curved sword"
+keywords: [sword, curved, draconian, scimitar]
+description: "A curved sword of dark steel lies here, notched along the edge."
+look: |
+  A Dragonarmy blade, curved and heavy at the tip, forged by the
+  thousand in the Queen's foundries. Baaz carry them, and when a baaz
+  turns to stone they are often still in it.
+type: weapon
+weight: 4
+level: 12
+baseline: standard
+value: 120
+weapon:
+  hands: 1
+  kind: slash
+  verb: slash

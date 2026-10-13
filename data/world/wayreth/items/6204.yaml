@@ -1,0 +1,16 @@
+vnum: 6204
+name: "an oakwood cudgel"
+keywords: [cudgel, oakwood, oak, club]
+description: "A cudgel of black oak lies among the leaves."
+look: |
+  A heavy cudgel cut from one of the forest's oaks. The wood is darker
+  than oak should be, and it does not rot.
+type: weapon
+weight: 4
+level: 13
+baseline: mace
+value: 130
+weapon:
+  hands: 1
+  kind: blunt
+  verb: crush

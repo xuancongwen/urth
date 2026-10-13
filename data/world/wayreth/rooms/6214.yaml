@@ -1,0 +1,9 @@
+vnum: 6214
+name: "The First Trial: A Hall of Mirrors"
+description: |
+  Mirrors on every side, and in every one of them you, a little better
+  dressed, a little more sure, and smiling. One of them steps out. The
+  threshold is south; the Test goes on north.
+exits:
+  south: 6213
+  north: 6215

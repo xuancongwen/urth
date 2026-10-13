@@ -1,0 +1,9 @@
+vnum: 6215
+name: "The Second Trial: The Burning Room"
+description: |
+  A room of fire that does not burn the floor, only whoever stands on
+  it. Something made of flame turns toward you. The first trial is
+  south; north, the heat gives way to cold.
+exits:
+  south: 6214
+  north: 6216

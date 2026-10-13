@@ -1,0 +1,8 @@
+vnum: 6203
+name: "A Ring of Standing Stones"
+description: |
+  A ring of grey stones, older than the oaks around them, each carved
+  with a moon: one white, one red, one blank and black. Whatever they
+  once marked, the path ends here. It runs back north.
+exits:
+  north: 6201

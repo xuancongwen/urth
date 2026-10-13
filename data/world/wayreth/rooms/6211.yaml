@@ -1,0 +1,8 @@
+vnum: 6211
+name: "The Robing Room"
+description: |
+  Robes hang in rows, white, red, and black, each on its own hook with a
+  name tag. A robe-keeper sits among them mending a hem.
+exits:
+  east: 6209
+flags: [safe]

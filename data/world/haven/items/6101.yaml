@@ -1,0 +1,19 @@
+vnum: 6101
+name: "a traveller's staff"
+keywords: [staff, travellers, traveller, oak]
+description: "A plain oak staff lies across the road."
+look: |
+  A staff of seasoned oak shod in iron at both ends, with a crystal knob
+  that glows faintly when spoken to. Good for walking, for beating off
+  dogs, and for steadying a spell.
+type: weapon
+weight: 4
+level: 12
+baseline: staff
+value: 380
+weapon:
+  hands: 2
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 1 } }
+  - { kind: spellPower, params: { mult: 1.08, branch: arcane } }
+  - { kind: added, params: { kind: magic, power: 0.26 } }

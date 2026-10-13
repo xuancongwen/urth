@@ -1,0 +1,9 @@
+vnum: 6202
+name: "A Hollow Where the Path Ends"
+description: |
+  The path runs down into a hollow full of dead leaves and stops. The
+  trees here grow in a tight ring, and something has made a den among
+  their roots. The only way out is south.
+exits:
+  south: 6201
+flags: [dark]

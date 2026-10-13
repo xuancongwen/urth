@@ -1,0 +1,18 @@
+vnum: 6100
+name: "a robe of red wool"
+keywords: [robe, red, wool]
+description: "A robe of red wool lies folded on the ground."
+look: |
+  A travelling mage's robe, red wool lined with grey, warm and plain.
+  The hem has been let down and taken up again by several owners. It
+  marks its wearer as a mage of no Order in particular, which is safer
+  on the roads than any of the three.
+type: armor
+slot: body
+weight: 2
+level: 12
+baseline: cloth
+value: 420
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 2 } }
+  - { kind: manaMax, params: { amount: 0.10 } }

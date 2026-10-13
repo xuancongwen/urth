@@ -1,0 +1,16 @@
+vnum: 6201
+name: "a twisted dryad"
+keywords: [twisted, dryad, tree, spirit]
+description: "A twisted dryad unfolds from the roots of an oak, all knots and splinters."
+look: |
+  Once the spirit of a tree, now bent by the forest's magic into
+  something that guards the hollows. Its fingers are thorns, and its
+  voice is the creak of a branch about to fall.
+level: 13
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: lash
+  kind: slash
+effects:
+  - { kind: resist, params: { kind: fire, amount: -0.5 } }

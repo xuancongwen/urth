@@ -1,0 +1,10 @@
+vnum: 6206
+name: "The Moonlit Glade"
+description: |
+  The trees open on a glade lit by two moons, one silver and one red,
+  though it is day beyond the forest. At the far side the oaks part on a
+  road of black stone. The leaning trees are back west; the road goes
+  east.
+exits:
+  west: 6204
+  east: 6207

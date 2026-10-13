@@ -1,0 +1,10 @@
+vnum: 6106
+name: "A Stall Hung with Red Cloth"
+description: |
+  A narrow stall between two burned houses, hung with red wool against
+  the wind. Bundles of herbs, jars of sand, and a few staves lean in a
+  rack. A red-robed scrivener sits behind a board laid across two
+  barrels, writing.
+exits:
+  east: 6104
+flags: [safe]

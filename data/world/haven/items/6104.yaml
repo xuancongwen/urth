@@ -1,0 +1,13 @@
+vnum: 6104
+name: "a Dragonarmy mail shirt"
+keywords: [mail, shirt, dragonarmy, hauberk]
+description: "A Dragonarmy mail shirt lies in a heap, its tabard torn away."
+look: |
+  Riveted mail cut for a man or a draconian, with slits at the back for
+  wings that a man does not need. Ill-fitting, but it turns a blade.
+type: armor
+slot: body
+weight: 12
+level: 14
+baseline: heavy
+value: 160

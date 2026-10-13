@@ -1,0 +1,11 @@
+vnum: 6200
+name: "The Edge of Wayreth Forest"
+description: |
+  The oaks close in at once. There is no birdsong, and the light comes
+  down grey and sourceless. Paths open in every direction you look and
+  close again when you look away. Back west, through the trunks, the
+  plains are still there. One old oak, its bark scored with a crescent,
+  leans east.
+exits:
+  west: 6112
+  east: 6201

@@ -1,0 +1,9 @@
+vnum: 6102
+name: "The Haven Road, Among the Hills"
+description: |
+  The road winds between bare hills. Watch-fires smoke on the ridges,
+  and the ditch is full of broken spears. Haven lies north; the
+  crossroads is south.
+exits:
+  south: 6101
+  north: 6103

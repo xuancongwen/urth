@@ -1,0 +1,17 @@
+vnum: 6102
+name: "a bozak's dark medallion"
+keywords: [medallion, dark, bozak, queen]
+description: "A medallion of blackened bronze lies here, a five-headed dragon on its face."
+look: |
+  A heavy bronze medallion stamped with the five heads of the Queen of
+  Darkness, warm to the touch. Her priests wear them, and her gifts flow
+  a little easier to those who do.
+type: armor
+slot: neck
+weight: 1
+level: 16
+baseline: cloth
+value: 600
+effects:
+  - { kind: stat, params: { stat: wisdom, amount: 2 } }
+  - { kind: spellPower, params: { mult: 1.08, branch: divine } }

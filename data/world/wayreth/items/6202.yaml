@@ -1,0 +1,20 @@
+vnum: 6202
+name: "a staff of red wood"
+keywords: [staff, red, wood, lunitari]
+description: "A staff of polished red wood stands against the wall."
+look: |
+  A staff cut from a tree that grows only in the Tower's courtyard, red
+  as the moon it is named for. Conjurers and illusionists of the Red
+  Order carry them; in other hands it is only a stick.
+type: weapon
+weight: 4
+level: 16
+baseline: staff
+value: 1400
+weapon:
+  hands: 2
+effects:
+  - { kind: spellPower, params: { mult: 1.12, school: conjuration } }
+  - { kind: spellPower, params: { mult: 1.12, school: illusion } }
+  - { kind: penetration, params: { amount: 0.10, branch: arcane } }
+  - { kind: added, params: { kind: magic, power: 0.34 } }

@@ -1,0 +1,22 @@
+vnum: 6105
+name: "a red-robed scrivener"
+keywords: [red-robed, scrivener, mage, red, robe]
+description: "A red-robed scrivener writes in a ledger, as if no war were on."
+look: |
+  A middle-aged mage in the red robes of the Order of Neutrality, ink on
+  her fingers and a dagger in her boot. "You want the Tower," she says,
+  not looking up. "Everyone who stops here does. Wayreth is east, past
+  the ford, and the forest will lead you round in circles unless you
+  follow the trees that lean toward the dawn. The gate opens to a
+  summons and nothing else. The Conclave sent one out to a promising
+  student a month ago; a renegade took it off the messenger's body,
+  somewhere in the forest. Bring it to the gate and they will let you
+  in. They will not let you out the same." She sells what a travelling
+  mage needs. Type 'list'.
+level: 14
+flags: [peaceful]
+trades:
+  - { item: 6100, silver: 420 }
+  - { item: 6101, silver: 380 }
+attack:
+  verb: punch

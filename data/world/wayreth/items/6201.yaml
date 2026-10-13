@@ -1,0 +1,18 @@
+vnum: 6201
+name: "the red robe of the Order"
+keywords: [robe, red, order, lunitari]
+description: "A robe of deep red, embroidered with the red moon, lies folded here."
+look: |
+  The robe of a mage of the Red Order, the Order of Neutrality, dyed the
+  colour of Lunitari and worked at the hem with runes that hold a little
+  of the moon's light. It is warm, and it does not tear.
+type: armor
+slot: body
+weight: 2
+level: 16
+baseline: cloth
+value: 1600
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: manaMax, params: { amount: 0.15 } }
+  - { kind: spellPower, params: { mult: 1.10, branch: arcane } }

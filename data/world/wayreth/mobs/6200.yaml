@@ -1,0 +1,14 @@
+vnum: 6200
+name: "a wolf of the moving wood"
+keywords: [wolf, moving, wood, grey]
+description: "A grey wolf pads between the oaks, never quite where it was a moment ago."
+look: |
+  A big grey wolf with eyes like the forest's grey light. It does not
+  track you so much as appear where you are going. The Tower set it here
+  or the forest made it; either way it is hungry.
+level: 12
+flags: [aggressive, wander]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: bite
+  kind: bite

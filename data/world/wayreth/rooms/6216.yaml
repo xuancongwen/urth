@@ -1,0 +1,11 @@
+vnum: 6216
+name: "The Third Trial: The Archmage's Shade"
+description: |
+  A study, dark, with a desk and one candle. The man behind the desk is
+  grey and not quite there, and he wants your body to live in. He offers
+  you everything you have ever wanted to know, for it. South is the
+  burning room; north, a door of pale light.
+exits:
+  south: 6215
+  north: 6217
+flags: [dark]

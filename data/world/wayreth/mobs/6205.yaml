@@ -1,0 +1,17 @@
+vnum: 6205
+name: "a conjured fire elemental"
+keywords: [fire, elemental, flame, conjured]
+description: "A conjured fire elemental roars up from the floor, a man-shape of living flame."
+look: |
+  A thing of fire called out of the elemental plane and bound to this
+  room, as every Red mage hopes one day to bind one. It does not care
+  about hopes.
+level: 15
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: burn
+  kind: fire
+effects:
+  - { kind: resist, params: { kind: fire, amount: 0.9 } }
+  - { kind: resist, params: { kind: cold, amount: -0.5 } }

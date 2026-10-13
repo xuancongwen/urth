@@ -155,3 +155,44 @@ func TestMagicPrizesAreGuardedFromTheWeak(t *testing.T) {
 		}
 	}
 }
+
+// TestWayrethTakesTheRedOath: the Tower at Wayreth ends in a Chamber of
+// the Test for the Red Order, behind a gate whose key a forest renegade
+// carries, and its librarian teaches only the Red Order's school spells
+// (story 1036).
+func TestWayrethTakesTheRedOath(t *testing.T) {
+	w := shippedWorld(t)
+	chamber := w.content.Rooms.Rooms[6217]
+	if chamber == nil || chamber.Order != "red" {
+		t.Fatal("no Chamber of the Test for the Red Order")
+	}
+	gate := w.content.Rooms.Rooms[6207].Door("north")
+	if gate == nil || !gate.Locked || !gate.Pickproof || gate.Key != 6200 {
+		t.Fatalf("the Tower's gate: %+v", gate)
+	}
+	keyHeld := false
+	for _, a := range w.content.Resets {
+		for _, r := range a.Resets {
+			for _, eq := range r.Equip {
+				if eq.Item == 6200 && w.content.Mobs[r.Mob].HasFlag("aggressive") {
+					keyHeld = true
+				}
+			}
+		}
+	}
+	if !keyHeld {
+		t.Fatal("the Conclave summons should be carried by a hostile in the forest")
+	}
+	s := w.magicSchools()
+	byID := map[string]Spell{}
+	for _, sp := range w.spellList() {
+		byID[sp.ID] = sp
+	}
+	for _, id := range w.content.Mobs[6208].Teaches {
+		sp := byID[id]
+		sc, _ := s.school(sp.School)
+		if sp.common() || sc.Order != "red" {
+			t.Errorf("the Red librarian teaches %s (%s, %s)", id, sp.School, sp.tierWord())
+		}
+	}
+}

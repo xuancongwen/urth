@@ -1,0 +1,12 @@
+vnum: 6101
+name: "Gateway, a Crossroads"
+description: |
+  A crossroads marked by a leaning stone, its old signs scratched out
+  and new ones nailed over them in the Dragonarmy's square script. North
+  the road climbs into the hills toward Haven; east a track runs out
+  over the plains toward a forest that is never quite where the maps put
+  it. South is Solace.
+exits:
+  south: 6100
+  north: 6102
+  east: 6110

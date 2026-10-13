@@ -1,0 +1,14 @@
+vnum: 6103
+name: "a Dragonarmy officer"
+keywords: [dragonarmy, officer, captain, soldier]
+description: "A Dragonarmy officer in blue-enamelled armour watches the gate."
+look: |
+  A human officer of the Blue Dragonarmy, scarred and patient, with a
+  horned helm under one arm. He counts everyone who passes the gate and
+  writes the number down.
+level: 15
+flags: [aggressive]
+silver: 60
+attack:
+  verb: slash
+  kind: slash

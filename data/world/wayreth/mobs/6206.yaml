@@ -1,0 +1,25 @@
+vnum: 6206
+name: "the shade of Fistandantilus"
+keywords: [shade, fistandantilus, archmage, ghost]
+description: "The shade of Fistandantilus sits behind the desk, grey and patient, studying you."
+look: |
+  The greatest wizard of an age before the Cataclysm, or what the Test
+  makes of him: a grey-robed shade who lives on in other mages' bodies
+  and wants yours. He offers what he knows, and what he knows is nearly
+  everything. To refuse him, you have to kill him, and he has had a long
+  time to learn how not to die.
+level: 17
+flags: [aggressive, boss]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+health: 700
+silver: 150
+stats: { intelligence: 20, wisdom: 16 }
+attack:
+  verb: blast
+  kind: drain
+effects:
+  - kind: aura
+    params: { kind: drain, power: 0.30, verb: "siphoning chill" }
+  - { kind: resist, params: { kind: drain, amount: 1.0 } }
+  - { kind: resist, params: { kind: physical, amount: 0.3 } }
+  - { kind: resist, params: { kind: holy, amount: -0.5 } }

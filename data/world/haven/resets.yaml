@@ -1,0 +1,13 @@
+# The Haven Road: north from Solace's North Road to a crossroads, the
+# occupied town of Haven, and the east road to Wayreth Forest.
+interval_seconds: 300
+resets:
+  - { mob: 6100, room: 6100, max: 2, equip: [{ item: 6103, slot: wield }] }   # baaz on the road, with their curved swords
+  - { mob: 6100, room: 6102, max: 2 }
+  - { mob: 6100, room: 6110, max: 2 }
+  - { mob: 6101, room: 6102 }           # a kapak among the hills
+  - { mob: 6101, room: 6110 }
+  - { mob: 6102, room: 6111, max: 2 }   # ogres at the ford
+  - { mob: 6103, room: 6103, equip: [{ item: 6104, slot: body }, { item: 6105, slot: head }] }   # the officer at the gate, in mail and horned helm
+  - { mob: 6104, room: 6107, equip: [{ item: 6102, slot: neck }] }   # the bozak priest, with its medallion
+  - { mob: 6105, room: 6106 }           # the red-robed scrivener: robes, staves, and the way to Wayreth

@@ -1,0 +1,9 @@
+vnum: 6111
+name: "Darken Ford"
+description: |
+  The track dips to a broad, slow ford. Big bare footprints are pressed
+  into the mud on both banks, and a cookfire smokes under the alders.
+  West is the road back; east, the track climbs toward the plains.
+exits:
+  west: 6110
+  east: 6112

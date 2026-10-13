@@ -1,0 +1,10 @@
+vnum: 6208
+name: "The Courtyard of the Tower"
+description: |
+  A courtyard of black flagstones between the towers, empty and
+  perfectly clean. The bronze gate is south. A door of carved wood
+  stands open to the north, into the Tower's hall.
+exits:
+  south: 6207
+  north: 6209
+flags: [safe]

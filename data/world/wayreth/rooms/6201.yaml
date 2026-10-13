@@ -1,0 +1,12 @@
+vnum: 6201
+name: "Among the Silent Oaks"
+description: |
+  Oaks, and more oaks, each like the last. Paths go north, south, and
+  east, and the way you came is west. Most of the trees stand straight;
+  those to the east lean, very slightly, toward where the sun would rise
+  if there were one.
+exits:
+  west: 6200
+  north: 6202
+  south: 6203
+  east: 6204

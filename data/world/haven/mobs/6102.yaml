@@ -1,0 +1,14 @@
+vnum: 6102
+name: "a hill ogre"
+keywords: [hill, ogre, brute]
+description: "A hill ogre squats by the ford, gnawing something you would rather not see."
+look: |
+  Twice the height of a man and three times the weight, with a club that
+  was a tree last week. The Dragonarmy pays ogres in meat to hold the
+  fords. This one has been paid well.
+level: 14
+flags: [aggressive]
+silver: 25
+attack:
+  verb: smash
+  kind: blunt

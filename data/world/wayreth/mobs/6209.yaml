@@ -1,0 +1,16 @@
+vnum: 6209
+name: "the robe-keeper"
+keywords: [robe-keeper, robe, keeper, tailor]
+description: "The robe-keeper sits among the hanging robes with needle and thread."
+look: |
+  An old apprentice who never sat the Test and never wanted to, who has
+  kept the Tower's robes for forty years. He sells the red robe of the
+  Order to anyone who will wear it honestly, and a staff to go with it.
+  Type 'list'.
+level: 14
+flags: [peaceful]
+trades:
+  - { item: 6201, silver: 1600 }
+  - { item: 6202, silver: 1400 }
+attack:
+  verb: punch

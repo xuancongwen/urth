@@ -1,0 +1,9 @@
+vnum: 6112
+name: "The Edge of the Plains"
+description: |
+  The grass gives out at the edge of a forest of old oaks, standing
+  close and silent. Mages say Wayreth Forest finds you when the Tower
+  wants you, and not before. The ford is west; the trees are east.
+exits:
+  west: 6111
+  east: 6200

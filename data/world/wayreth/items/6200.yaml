@@ -1,0 +1,11 @@
+vnum: 6200
+name: "a Conclave summons"
+keywords: [summons, conclave, letter, sealed]
+description: "A sealed letter lies here, its wax stamped with three moons."
+look: |
+  A letter on heavy paper, sealed with red, white, and black wax pressed
+  with the three moons. It is addressed to no one by name: "To the
+  bearer, who is called to the Tower of High Sorcery at Wayreth." The
+  gate opens to it.
+weight: 0
+value: 0

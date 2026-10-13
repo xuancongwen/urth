@@ -1,0 +1,21 @@
+vnum: 6203
+name: "a renegade mage"
+keywords: [renegade, mage, wizard, man]
+description: "A renegade mage in a torn red robe crouches among the thorns, clutching a sealed letter."
+look: |
+  A mage who failed the Test, or never dared it, and has lived in the
+  forest since, waylaying those the Tower sends for. The red has been
+  torn off his robe. He has a sealed letter under his arm and a spell on
+  his lips, and he will not give up either.
+level: 15
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+health: 420
+silver: 80
+stats: { intelligence: 17 }
+attack:
+  verb: blast
+  kind: magic
+effects:
+  - kind: aura
+    params: { kind: fire, power: 0.25, verb: "spit of conjured flame" }

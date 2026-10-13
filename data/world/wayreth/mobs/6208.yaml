@@ -1,0 +1,13 @@
+vnum: 6208
+name: "the Red librarian"
+keywords: [red, librarian, mage, scholar]
+description: "The Red librarian looks up from a book with the air of someone interrupted."
+look: |
+  A thin mage in red with spectacles pushed up into white hair. She
+  teaches the Red Order's school spells to those sworn to conjuration or
+  illusion, and to nobody else. Type 'practice'.
+level: 18
+flags: [peaceful]
+teaches: [ice_storm, cloudkill, mirror_image, phantasmal_killer, mislead, true_seeing]
+attack:
+  verb: punch

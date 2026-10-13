@@ -1,0 +1,8 @@
+vnum: 6205
+name: "A Thicket of Thorns"
+description: |
+  Thorns close in on every side, and the path ends in a trampled hollow
+  among them. Someone has camped here: a cold fire, a torn red sleeve,
+  and blood on the briars. The way out is south.
+exits:
+  south: 6204

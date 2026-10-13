@@ -1,0 +1,10 @@
+vnum: 6100
+name: "The North Road, Beyond the Fields"
+description: |
+  The road from Solace runs on north past the last stone wall and into
+  rolling country, the vallenwoods a dark line behind. Cart ruts have
+  been churned by many clawed feet, all going the same way. The road
+  goes south to Solace and north toward a crossroads.
+exits:
+  south: 309
+  north: 6101

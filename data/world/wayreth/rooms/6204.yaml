@@ -1,0 +1,10 @@
+vnum: 6204
+name: "Where the Trees Lean East"
+description: |
+  Every trunk here leans the same way, east, as if a wind blew through
+  the forest that you cannot feel. Paths go north and east; the silent
+  oaks are back west.
+exits:
+  west: 6201
+  north: 6205
+  east: 6206

@@ -1,0 +1,13 @@
+vnum: 6206
+name: "a woven sash"
+keywords: [sash, woven, belt, cord]
+description: "A woven sash lies coiled on the floor."
+look: |
+  A sash of plain woven wool, the kind tied over a mage's robe to hang a
+  pouch from. It has been worn by someone who did not come back.
+type: armor
+slot: belt
+weight: 1
+level: 17
+baseline: cloth
+value: 170

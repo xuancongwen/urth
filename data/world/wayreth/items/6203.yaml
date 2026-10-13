@@ -1,0 +1,17 @@
+vnum: 6203
+name: "the shade's grey ring"
+keywords: [ring, grey, shade, fistandantilus]
+description: "A plain grey ring lies here, cold as a coin left out overnight."
+look: |
+  A ring of grey metal, too cold to be silver, carved inside with a name
+  that is not yours. It sharpens the mind that wears it, and now and
+  then it whispers a word of a spell you do not know yet.
+type: armor
+slot: finger
+weight: 0
+level: 17
+baseline: cloth
+value: 1200
+effects:
+  - { kind: stat, params: { stat: intelligence, amount: 3 } }
+  - { kind: penetration, params: { amount: 0.15, branch: arcane } }

@@ -1,0 +1,14 @@
+vnum: 6209
+name: "The Hall of the Conclave"
+description: |
+  A long hall with three tall chairs at its end, one white, one red, one
+  black, and a floor worked with the three moons in their phases. The
+  library is east, the robing room west. North, an archway is closed by
+  a curtain of something like smoke, and a voice from nowhere says that
+  beyond it is the Test. The courtyard is south.
+exits:
+  south: 6208
+  east: 6210
+  west: 6211
+  north: 6213
+flags: [safe]

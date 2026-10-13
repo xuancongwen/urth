@@ -1,0 +1,16 @@
+vnum: 6101
+name: "a kapak draconian"
+keywords: [kapak, draconian, lizard]
+description: "A kapak draconian licks its blade, and the steel smokes where its tongue touched."
+look: |
+  Copper-scaled and quick, with a forked tongue that keeps tasting the
+  air. Kapaks poison their blades with their own spit, and when one dies
+  it melts into a pool of acid. It is watching your throat.
+level: 13
+flags: [aggressive, assist]
+silver: 30
+attack:
+  verb: stab
+  kind: pierce
+effects:
+  - { kind: envenom, params: { power: 0.10, maxStacks: 3 } }

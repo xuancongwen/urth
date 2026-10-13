@@ -1,0 +1,10 @@
+vnum: 6210
+name: "The Library of the Red Order"
+description: |
+  Shelves to the ceiling, ladders on rails, and the smell of old vellum.
+  The books here are the Red Order's: summonings and conjurations,
+  glamours and illusions, written for those sworn to them. The hall is
+  west.
+exits:
+  west: 6209
+flags: [safe]

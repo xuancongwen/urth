@@ -1,0 +1,10 @@
+vnum: 6213
+name: "The Threshold of the Test"
+description: |
+  Beyond the smoke there is no hall, only a grey place where the floor
+  is a suggestion. A voice says: "The Test may kill you. Those who pass
+  will swear. Those who do not will not leave." The way back is south;
+  the Test lies north.
+exits:
+  south: 6209
+  north: 6214

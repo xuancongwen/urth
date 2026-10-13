@@ -1,0 +1,14 @@
+vnum: 6204
+name: "your own reflection"
+keywords: [reflection, mirror, double, self]
+description: "Your own reflection stands before you, smiling a smile you have never worn."
+look: |
+  It has your face, your gear, and your habits, and it has no doubts at
+  all. It knows every trick you know. It is the first thing the Test
+  asks you to kill.
+level: 14
+flags: [aggressive]
+aggro: { min: 1 }   # guards the way to a Tower's Test: no pass for the weak (RULES 8.1)
+attack:
+  verb: strike
+  kind: magic

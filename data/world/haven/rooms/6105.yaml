@@ -1,0 +1,8 @@
+vnum: 6105
+name: "The Trough and Tankard"
+description: |
+  A low inn full of people who would rather not be noticed. The fire is
+  good and the ale is thin. Nobody here asks where you are going.
+exits:
+  west: 6104
+flags: [safe]

@@ -1,0 +1,15 @@
+vnum: 6207
+name: "Justarius"
+keywords: [justarius, master, red, mage]
+description: "Justarius, Master of the Red Robes, waits in the chamber, leaning on his staff."
+look: |
+  A broad-shouldered man in red, lame in one leg from his own Test,
+  leaning on a staff of red wood. He looks at what you have come through
+  and nods. "You can swear now, if you will," he says. "To conjuration,
+  or to illusion. It is for life. Whichever you take, its opposite
+  closes to you: abjuration to the conjurer, enchantment to the
+  illusionist. Think, and then swear." Type 'swear'.
+level: 22
+flags: [peaceful]
+attack:
+  verb: strike

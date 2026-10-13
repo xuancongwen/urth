@@ -1,0 +1,13 @@
+vnum: 6104
+name: "Haven, the Market Square"
+description: |
+  A wide square where a market used to be. A few stalls are still open,
+  their keepers working with their eyes down. To the north rises the
+  abbey of the Seekers, its doors broken in; an inn's lantern burns to
+  the east, and a narrow stall to the west is hung with red cloth. The
+  gates are south.
+exits:
+  south: 6103
+  north: 6107
+  east: 6105
+  west: 6106
