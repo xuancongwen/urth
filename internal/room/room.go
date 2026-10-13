@@ -44,12 +44,12 @@ type Room struct {
 	// Temple names the deity whose temple this is ("good", "neutral",
 	// "evil"); sacrifice works only here (docs/RULES.md 6.1).
 	Temple string `yaml:"temple,omitempty"`
-	// Position anchors the room on the area map (layout.go). Most rooms
-	// leave it unset and are placed by walking exits from an anchor.
 	// Order names the Order of High Sorcery ("white", "red", "black")
 	// whose Test ends here: `swear` takes a specialty in one of its
 	// schools (docs/RULES.md 6.1).
-	Order    string `yaml:"order,omitempty"`
+	Order string `yaml:"order,omitempty"`
+	// Position anchors the room on the area map (layout.go). Most rooms
+	// leave it unset and are placed by walking exits from an anchor.
 	Position *Coord `yaml:"position,omitempty"`
 
 	// Area is the directory name the room was loaded from.
